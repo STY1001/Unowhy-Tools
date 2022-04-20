@@ -53,5 +53,10 @@ namespace Unowhy_Tools
         {
             System.Diagnostics.Process.Start(".\\bin\\shell.bat");
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(".\\bin\\delent.bat");
+        }
     }
 }
