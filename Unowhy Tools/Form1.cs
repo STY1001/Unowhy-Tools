@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Unowhy_Tools
 {
@@ -20,57 +21,37 @@ namespace Unowhy_Tools
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string starthisqool = "start HiSqoolManager";
-            System.Diagnostics.Process.Start("net.exe", starthisqool);
-
+            System.Diagnostics.Process.Start(".\\bin\\starthis.bat");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string stophisqool = "stop HiSqoolManager";
-            System.Diagnostics.Process.Start("net.exe", stophisqool);
-        }
-
-        private void main_Load(object sender, EventArgs e)
-        {
-
+            System.Diagnostics.Process.Start(".\\bin\\stophis.bat");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string enablehisqool = "config hisqoolmanager start=auto";
-            System.Diagnostics.Process.Start("sc.exe", enablehisqool);
-            string starthisqool = "start HiSqoolManager";
-            System.Diagnostics.Process.Start("net.exe", starthisqool);
+            System.Diagnostics.Process.Start(".\\bin\\enhis.bat");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string stophisqool = "stop HiSqoolManager";
-            System.Diagnostics.Process.Start("net.exe", stophisqool);
-            string disablehisqool = "config hisqoolmanager start=disabled";
-            System.Diagnostics.Process.Start("sc.exe", disablehisqool);
+            System.Diagnostics.Process.Start(".\\bin\\dishis.bat");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("C:\\Program Files\\Unowhy\\Hisqool\\uninstall hisqool.exe");
+            System.Diagnostics.Process.Start(".\\bin\\delhisqool.bat");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string stophisqool = "stop HiSqoolManager";
-            System.Diagnostics.Process.Start("net.exe", stophisqool);
-            string disablehisqool = "config hisqoolmanager start=disabled";
-            System.Diagnostics.Process.Start("sc.exe", disablehisqool);
-            string removehisqool = @"/c rmdir c:\Program Files\Unowhy\Hisqool Manager";
-            System.Diagnostics.Process.Start("cmd.exe", removehisqool);
+            System.Diagnostics.Process.Start(".\\bin\\rmdirhismgr.bat");
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            string shell = "add '\\Computer\\HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon' /v 'Shell' /t REG_SZ /d 'explorer.exe'";
-            System.Diagnostics.Process.Start("reg.exe", shell);
+            System.Diagnostics.Process.Start(".\\bin\\shell.bat");
         }
     }
 }
