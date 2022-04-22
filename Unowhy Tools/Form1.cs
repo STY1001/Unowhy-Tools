@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.Win32;
 
 namespace Unowhy_Tools
 {
@@ -51,7 +52,8 @@ namespace Unowhy_Tools
 
         private void button7_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\shell.bat");
+            RegistryKey key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon");
+            key.SetValue("Shell", "explorer.exe");
         }
 
         private void button8_Click(object sender, EventArgs e)
