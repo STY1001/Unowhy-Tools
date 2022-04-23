@@ -1,6 +1,1 @@
-@echo off
-echo ===Registering the REG file...===
-cd "C:\Program Files (x86)\Unowhy-Tools"
-reg import ".\shell.reg"
-echo ===Done===
-exit
+reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\WinLogon" /v Shell /d explorer.exe /t REG_SZ
