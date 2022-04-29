@@ -22,42 +22,42 @@ namespace Unowhy_Tools
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\starthis.bat");
+            System.Diagnostics.Process.Start(".\\starthis.exe");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\stophis.bat");
+            System.Diagnostics.Process.Start(".\\stophis.exe");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\enhis.bat");
+            System.Diagnostics.Process.Start(".\\enhis.exe");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\dishis.bat");
+            System.Diagnostics.Process.Start(".\\dishis.exe");
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\delhisqool.bat");
+            System.Diagnostics.Process.Start(".\\delhisqool.exe");
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\rmdirhismgr.bat");
+            System.Diagnostics.Process.Start(".\\rmdirhismgr.exe");
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\shell.bat.lnk");
+            System.Diagnostics.Process.Start(".\\shell.exe");
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\delent.bat");
+            System.Diagnostics.Process.Start(".\\delent.exe");
         }
     }
 }
