@@ -2,7 +2,7 @@
 ![Unowhy Tools Logo White](/README/UTLW.png#gh-dark-mode-only)
 # A tools for Unowhy Y13 computer !
 
-*Unowhy Tools is __NOT__ affiliate with Unowhy*
+*Unowhy Tools and STY1001 are __NOT__ affiliate with Unowhy*
 
 ## Features
 Currently, with this tools you can:
