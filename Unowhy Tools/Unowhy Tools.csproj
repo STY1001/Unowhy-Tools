@@ -92,5 +92,11 @@
   <ItemGroup>
     <None Include="Resources\Logo-unowhy.svg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UTLW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UTLB.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
