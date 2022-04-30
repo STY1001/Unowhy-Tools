@@ -64,5 +64,11 @@ namespace Unowhy_Tools
         {
 
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var a = new About();
+            a.Show();
+        }
     }
 }
