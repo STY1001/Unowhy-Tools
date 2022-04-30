@@ -4,6 +4,8 @@
 
 *Unowhy Tools and STY1001 are __NOT__ affiliate with Unowhy*
 
+Disclamer: Actually, Unowhy Tools doesn't have any confirmation dialog box
+
 ## Features
 Currently, with this tools you can:
 - Enable/Disable/Stop/Start "HiSqool Manager" service
