@@ -41,8 +41,8 @@ namespace Unowhy_Tools
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button8 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +114,7 @@ namespace Unowhy_Tools
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -126,19 +127,19 @@ namespace Unowhy_Tools
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.Logo_unowhy_svg;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
             // button8
             // 
             resources.ApplyResources(this.button8, "button8");
             this.button8.Name = "button8";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.Logo_unowhy_svg;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // main
             // 
