@@ -31,7 +31,7 @@ namespace Unowhy_Tools
                 client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\tversion.txt");     //Download Version file
             }
 
-            string gitver = System.IO.File.ReadAllText(".\\tversion.txt");      //Convert path to string
+            string gitver = System.IO.File.ReadAllText(".\\tversion.txt");      //Convert text to string
             string progver = System.IO.File.ReadAllText(".\\version.txt");
 
             int gitint = Convert.ToInt32(gitver);       //Convert string to int
