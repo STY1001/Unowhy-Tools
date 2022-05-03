@@ -70,5 +70,15 @@ namespace Unowhy_Tools
             var a = new About();    //Launch About form
             a.Show();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(".\\fixti.exe");   //Delete silent_*.vbs.lnk
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(".\\rdti.exe");    //Remove "TO_INSTALL"
+        }
     }
 }

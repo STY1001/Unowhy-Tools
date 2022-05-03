@@ -58,5 +58,10 @@ namespace Unowhy_Tools
         {
             System.Diagnostics.Process.Start("https://github.com/STY1001/Unowhy-Tools");    //Link button
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
