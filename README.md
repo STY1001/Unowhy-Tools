@@ -1,5 +1,4 @@
-![Unowhy Tools Logo Dark](/README/UTLB.png#gh-light-mode-only)
-![Unowhy Tools Logo White](/README/UTLW.png#gh-dark-mode-only)
+![Unowhy Tools Logo](/README/UT Logo.png)
 # A tools for Unowhy Y13 computer !
 
 *Unowhy Tools and STY1001 are __NOT__ affiliate with Unowhy*
