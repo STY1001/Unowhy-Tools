@@ -30,27 +30,39 @@ namespace Unowhy_Tools
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(nonew));
-            this.label1 = new System.Windows.Forms.Label();
+            this.noverlab = new System.Windows.Forms.Label();
+            this.nook = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // noverlab
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "No new version available";
+            this.noverlab.AutoSize = true;
+            this.noverlab.BackColor = System.Drawing.Color.Transparent;
+            this.noverlab.ForeColor = System.Drawing.Color.White;
+            this.noverlab.Location = new System.Drawing.Point(12, 18);
+            this.noverlab.Name = "noverlab";
+            this.noverlab.Size = new System.Drawing.Size(126, 13);
+            this.noverlab.TabIndex = 0;
+            this.noverlab.Text = "No new version available";
+            // 
+            // nook
+            // 
+            this.nook.Location = new System.Drawing.Point(64, 52);
+            this.nook.Name = "nook";
+            this.nook.Size = new System.Drawing.Size(75, 23);
+            this.nook.TabIndex = 1;
+            this.nook.Text = "OK";
+            this.nook.UseVisualStyleBackColor = true;
+            this.nook.Click += new System.EventHandler(this.button1_Click);
             // 
             // nonew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(151, 33);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(151, 87);
+            this.Controls.Add(this.nook);
+            this.Controls.Add(this.noverlab);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -65,6 +77,7 @@ namespace Unowhy_Tools
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label noverlab;
+        private System.Windows.Forms.Button nook;
     }
 }

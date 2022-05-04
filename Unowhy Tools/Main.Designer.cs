@@ -30,159 +30,159 @@ namespace Unowhy_Tools
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.starthis = new System.Windows.Forms.Button();
+            this.stophis = new System.Windows.Forms.Button();
+            this.dishis = new System.Windows.Forms.Button();
+            this.enhis = new System.Windows.Forms.Button();
+            this.delhism = new System.Windows.Forms.Button();
+            this.delhis = new System.Windows.Forms.Button();
+            this.shell = new System.Windows.Forms.Button();
+            this.ver = new System.Windows.Forms.Label();
+            this.sty1001 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ent = new System.Windows.Forms.Button();
+            this.about = new System.Windows.Forms.Button();
+            this.logo = new System.Windows.Forms.PictureBox();
+            this.fixboot = new System.Windows.Forms.Button();
+            this.delti = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // starthis
             // 
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.starthis.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.starthis, "starthis");
+            this.starthis.Name = "starthis";
+            this.starthis.UseVisualStyleBackColor = true;
+            this.starthis.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // stophis
             // 
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.stophis.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.stophis, "stophis");
+            this.stophis.Name = "stophis";
+            this.stophis.UseVisualStyleBackColor = true;
+            this.stophis.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // dishis
             // 
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.dishis.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.dishis, "dishis");
+            this.dishis.Name = "dishis";
+            this.dishis.UseVisualStyleBackColor = true;
+            this.dishis.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // enhis
             // 
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.enhis.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.enhis, "enhis");
+            this.enhis.Name = "enhis";
+            this.enhis.UseVisualStyleBackColor = true;
+            this.enhis.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // delhism
             // 
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.delhism.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.delhism, "delhism");
+            this.delhism.Name = "delhism";
+            this.delhism.UseVisualStyleBackColor = true;
+            this.delhism.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // delhis
             // 
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Name = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.delhis.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.delhis, "delhis");
+            this.delhis.Name = "delhis";
+            this.delhis.UseVisualStyleBackColor = true;
+            this.delhis.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // shell
             // 
-            this.button7.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.button7, "button7");
-            this.button7.Name = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.shell.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.shell, "shell");
+            this.shell.Name = "shell";
+            this.shell.UseVisualStyleBackColor = true;
+            this.shell.Click += new System.EventHandler(this.button7_Click);
             // 
-            // label2
+            // ver
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Name = "label2";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            resources.ApplyResources(this.ver, "ver");
+            this.ver.BackColor = System.Drawing.Color.Transparent;
+            this.ver.ForeColor = System.Drawing.Color.White;
+            this.ver.Name = "ver";
+            this.ver.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label3
+            // sty1001
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.sty1001, "sty1001");
+            this.sty1001.ForeColor = System.Drawing.Color.White;
+            this.sty1001.Name = "sty1001";
             // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
-            // button8
+            // ent
             // 
-            resources.ApplyResources(this.button8, "button8");
-            this.button8.Name = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            resources.ApplyResources(this.ent, "ent");
+            this.ent.Name = "ent";
+            this.ent.UseVisualStyleBackColor = true;
+            this.ent.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button9
+            // about
             // 
-            resources.ApplyResources(this.button9, "button9");
-            this.button9.Name = "button9";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            resources.ApplyResources(this.about, "about");
+            this.about.Name = "about";
+            this.about.UseVisualStyleBackColor = true;
+            this.about.Click += new System.EventHandler(this.button9_Click);
             // 
-            // pictureBox1
+            // logo
             // 
-            this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            this.logo.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
+            resources.ApplyResources(this.logo, "logo");
+            this.logo.Name = "logo";
+            this.logo.TabStop = false;
             // 
-            // button10
+            // fixboot
             // 
-            resources.ApplyResources(this.button10, "button10");
-            this.button10.Name = "button10";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            resources.ApplyResources(this.fixboot, "fixboot");
+            this.fixboot.Name = "fixboot";
+            this.fixboot.UseVisualStyleBackColor = true;
+            this.fixboot.Click += new System.EventHandler(this.button10_Click);
             // 
-            // button11
+            // delti
             // 
-            resources.ApplyResources(this.button11, "button11");
-            this.button11.Name = "button11";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            resources.ApplyResources(this.delti, "delti");
+            this.delti.Name = "delti";
+            this.delti.UseVisualStyleBackColor = true;
+            this.delti.Click += new System.EventHandler(this.button11_Click);
             // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.delti);
+            this.Controls.Add(this.fixboot);
+            this.Controls.Add(this.about);
+            this.Controls.Add(this.ent);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.sty1001);
+            this.Controls.Add(this.ver);
+            this.Controls.Add(this.logo);
+            this.Controls.Add(this.shell);
+            this.Controls.Add(this.delhis);
+            this.Controls.Add(this.delhism);
+            this.Controls.Add(this.enhis);
+            this.Controls.Add(this.dishis);
+            this.Controls.Add(this.stophis);
+            this.Controls.Add(this.starthis);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "main";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,21 +190,21 @@ namespace Unowhy_Tools
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button starthis;
+        private System.Windows.Forms.Button stophis;
+        private System.Windows.Forms.Button dishis;
+        private System.Windows.Forms.Button enhis;
+        private System.Windows.Forms.Button delhism;
+        private System.Windows.Forms.Button delhis;
+        private System.Windows.Forms.Button shell;
+        private System.Windows.Forms.PictureBox logo;
+        private System.Windows.Forms.Label ver;
+        private System.Windows.Forms.Label sty1001;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button ent;
+        private System.Windows.Forms.Button about;
+        private System.Windows.Forms.Button fixboot;
+        private System.Windows.Forms.Button delti;
     }
 }
 

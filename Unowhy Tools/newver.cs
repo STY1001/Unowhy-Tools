@@ -21,5 +21,15 @@ namespace Unowhy_Tools
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/STY1001/Unowhy-Tools/releases/latest");
+        }
     }
 }
