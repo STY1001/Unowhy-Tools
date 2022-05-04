@@ -1,7 +1,7 @@
 ![Unowhy Tools Logo](https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/README/UT%20Logo.png)
 # A tools for Unowhy Y13 computer !
 
-*Unowhy Tools and STY1001 are __NOT__ affiliate with Unowhy*
+*Unowhy Tools and STY1001 are __NOT__ affiliate with Unowhy !*
 
 *Disclamer: Actually, Unowhy Tools **doesn't have any** confirmation dialog box*
 
@@ -11,6 +11,8 @@ Currently, with this tools you can:
 - Delete the local "ENT" account
 - Restore the "Shell" value to "explorer.exe" in the registery
 - Uninstall "HiSqool" and delete "HiSqool Manager" folder
+- Delete "silent_*.vbs.lnk" files in "StartUp" folder
+- Delete "TO_INSTALL" folder
 
 More features come soon
 
