@@ -39,12 +39,14 @@ namespace Unowhy_Tools
             this.shell = new System.Windows.Forms.Button();
             this.ver = new System.Windows.Forms.Label();
             this.sty1001 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.ent = new System.Windows.Forms.Button();
             this.about = new System.Windows.Forms.Button();
-            this.logo = new System.Windows.Forms.PictureBox();
             this.fixboot = new System.Windows.Forms.Button();
             this.delti = new System.Windows.Forms.Button();
+            this.servicecat = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,11 +120,6 @@ namespace Unowhy_Tools
             this.sty1001.ForeColor = System.Drawing.Color.White;
             this.sty1001.Name = "sty1001";
             // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
             // ent
             // 
             resources.ApplyResources(this.ent, "ent");
@@ -136,13 +133,6 @@ namespace Unowhy_Tools
             this.about.Name = "about";
             this.about.UseVisualStyleBackColor = true;
             this.about.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // logo
-            // 
-            this.logo.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
-            resources.ApplyResources(this.logo, "logo");
-            this.logo.Name = "logo";
-            this.logo.TabStop = false;
             // 
             // fixboot
             // 
@@ -158,16 +148,43 @@ namespace Unowhy_Tools
             this.delti.UseVisualStyleBackColor = true;
             this.delti.Click += new System.EventHandler(this.button11_Click);
             // 
+            // servicecat
+            // 
+            resources.ApplyResources(this.servicecat, "servicecat");
+            this.servicecat.ForeColor = System.Drawing.Color.White;
+            this.servicecat.Name = "servicecat";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Name = "label1";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Name = "label2";
+            // 
+            // logo
+            // 
+            this.logo.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
+            resources.ApplyResources(this.logo, "logo");
+            this.logo.Name = "logo";
+            this.logo.TabStop = false;
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.servicecat);
             this.Controls.Add(this.delti);
             this.Controls.Add(this.fixboot);
             this.Controls.Add(this.about);
             this.Controls.Add(this.ent);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.sty1001);
             this.Controls.Add(this.ver);
             this.Controls.Add(this.logo);
@@ -200,11 +217,13 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Label ver;
         private System.Windows.Forms.Label sty1001;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button ent;
         private System.Windows.Forms.Button about;
         private System.Windows.Forms.Button fixboot;
         private System.Windows.Forms.Button delti;
+        private System.Windows.Forms.Label servicecat;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="starthis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 95</value>
+    <value>12, 144</value>
   </data>
   <data name="starthis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -145,13 +145,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;starthis.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="stophis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="stophis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 124</value>
+    <value>12, 173</value>
   </data>
   <data name="stophis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -172,13 +172,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;stophis.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="dishis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="dishis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>237, 124</value>
+    <value>12, 231</value>
   </data>
   <data name="dishis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -199,13 +199,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dishis.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="enhis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="enhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>237, 95</value>
+    <value>12, 202</value>
   </data>
   <data name="enhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -226,13 +226,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;enhis.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="delhism.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="delhism.Location" type="System.Drawing.Point, System.Drawing">
-    <value>237, 153</value>
+    <value>501, 173</value>
   </data>
   <data name="delhism.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -253,13 +253,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhism.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="delhis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="delhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>237, 182</value>
+    <value>501, 202</value>
   </data>
   <data name="delhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -280,13 +280,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhis.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="shell.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="shell.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 153</value>
+    <value>256, 144</value>
   </data>
   <data name="shell.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -307,28 +307,28 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;shell.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="ver.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="ver.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Poxel Font, 8.25pt</value>
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="ver.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ver.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 80</value>
+    <value>9, 12</value>
   </data>
   <data name="ver.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 12</value>
+    <value>60, 13</value>
   </data>
   <data name="ver.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
   <data name="ver.Text" xml:space="preserve">
-    <value>Version 3.0</value>
+    <value>Version 4.0</value>
   </data>
   <data name="&gt;&gt;ver.Name" xml:space="preserve">
     <value>ver</value>
@@ -340,22 +340,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ver.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="sty1001.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="sty1001.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Poxel Font, 8.25pt</value>
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="sty1001.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="sty1001.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 80</value>
+    <value>272, 73</value>
   </data>
   <data name="sty1001.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 12</value>
+    <value>185, 13</value>
   </data>
   <data name="sty1001.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -373,40 +373,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sty1001.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>498, 124</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 13</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="ent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 182</value>
+    <value>501, 144</value>
   </data>
   <data name="ent.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -427,16 +400,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ent.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="about.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="about.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 241</value>
+    <value>628, 12</value>
   </data>
   <data name="about.Size" type="System.Drawing.Size, System.Drawing">
-    <value>435, 23</value>
+    <value>83, 23</value>
   </data>
   <data name="about.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -454,37 +427,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;about.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
-  <data name="logo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="fixboot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 12</value>
-  </data>
-  <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 58</value>
-  </data>
-  <data name="logo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="logo.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;logo.Name" xml:space="preserve">
-    <value>logo</value>
-  </data>
-  <data name="&gt;&gt;logo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;logo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="fixboot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 212</value>
+    <value>256, 173</value>
   </data>
   <data name="fixboot.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -505,10 +454,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fixboot.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
+  </data>
+  <data name="delti.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="delti.Location" type="System.Drawing.Point, System.Drawing">
-    <value>237, 212</value>
+    <value>501, 232</value>
   </data>
   <data name="delti.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 23</value>
@@ -529,16 +481,136 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delti.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="servicecat.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="servicecat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="servicecat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 117</value>
+  </data>
+  <data name="servicecat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 13</value>
+  </data>
+  <data name="servicecat.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="servicecat.Text" xml:space="preserve">
+    <value>↓ HiSqool Manager Service ↓</value>
+  </data>
+  <data name="&gt;&gt;servicecat.Name" xml:space="preserve">
+    <value>servicecat</value>
+  </data>
+  <data name="&gt;&gt;servicecat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;servicecat.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;servicecat.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>335, 117</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>↓ Repair ↓</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>558, 117</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>↓ Delete/Uninstall ↓</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="logo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 12</value>
+  </data>
+  <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 58</value>
+  </data>
+  <data name="logo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="logo.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;logo.Name" xml:space="preserve">
+    <value>logo</value>
+  </data>
+  <data name="&gt;&gt;logo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;logo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>30</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>459, 274</value>
+    <value>724, 351</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -10,14 +10,17 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.Win32;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Resources;
 
 namespace Unowhy_Tools
 {
     public partial class main : Form
     {
+
         public main()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,5 +83,7 @@ namespace Unowhy_Tools
         {
             System.Diagnostics.Process.Start(".\\rdti.exe");    //Remove "TO_INSTALL"
         }
+
+
     }
 }
