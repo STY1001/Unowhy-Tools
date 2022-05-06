@@ -44,9 +44,10 @@ namespace Unowhy_Tools
             this.fixboot = new System.Windows.Forms.Button();
             this.delti = new System.Windows.Forms.Button();
             this.servicecat = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.repaircat = new System.Windows.Forms.Label();
+            this.delcat = new System.Windows.Forms.Label();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.settings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,17 +155,17 @@ namespace Unowhy_Tools
             this.servicecat.ForeColor = System.Drawing.Color.White;
             this.servicecat.Name = "servicecat";
             // 
-            // label1
+            // repaircat
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.repaircat, "repaircat");
+            this.repaircat.ForeColor = System.Drawing.Color.White;
+            this.repaircat.Name = "repaircat";
             // 
-            // label2
+            // delcat
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.delcat, "delcat");
+            this.delcat.ForeColor = System.Drawing.Color.White;
+            this.delcat.Name = "delcat";
             // 
             // logo
             // 
@@ -173,13 +174,21 @@ namespace Unowhy_Tools
             this.logo.Name = "logo";
             this.logo.TabStop = false;
             // 
+            // settings
+            // 
+            resources.ApplyResources(this.settings, "settings");
+            this.settings.Name = "settings";
+            this.settings.UseVisualStyleBackColor = true;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.settings);
+            this.Controls.Add(this.delcat);
+            this.Controls.Add(this.repaircat);
             this.Controls.Add(this.servicecat);
             this.Controls.Add(this.delti);
             this.Controls.Add(this.fixboot);
@@ -222,8 +231,9 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button fixboot;
         private System.Windows.Forms.Button delti;
         private System.Windows.Forms.Label servicecat;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label repaircat;
+        private System.Windows.Forms.Label delcat;
+        private System.Windows.Forms.Button settings;
     }
 }
 

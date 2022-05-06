@@ -14,17 +14,56 @@ using System.Globalization;
 using System.Resources;
 
 namespace Unowhy_Tools
-{
+{   
     public partial class main : Form
     {
+        
 
         public main()
         {
-            InitializeComponent(); 
+            RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);
+            if (keysty != null)
+            {
+
+            }
+            else
+            {
+                RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);
+                stykey.CreateSubKey("STY1001");
+            }
+
+            RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            if (keyut != null)
+            {
+
+            }
+            else
+            {
+                RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
+                utkey.CreateSubKey("Unowhy Tools");
+                System.Diagnostics.Process.Start(".\\langset.exe");
+            }
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+            if (utls == "EN")
+            {
+                
+            }
+            else
+            {
+                
+            }
+
+
+            InitializeComponent();
+
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             System.Diagnostics.Process.Start(".\\starthis.exe");    // Start HiSqool Manager
         }
 
@@ -84,6 +123,11 @@ namespace Unowhy_Tools
             System.Diagnostics.Process.Start(".\\rdti.exe");    //Remove "TO_INSTALL"
         }
 
-
+        private void settings_Click(object sender, EventArgs e)
+        {
+            var s = new Settings();
+            s.Show();
+            //this.Close();
+        }
     }
 }
