@@ -32,7 +32,8 @@ namespace Unowhy_Tools
 
         private void okbtn_Click(object sender, EventArgs e)
         {
-           
+            var m = new main();
+            
             this.Close();
             
         }

@@ -17,7 +17,7 @@ namespace Unowhy_Tools
 {   
     public partial class main : Form
     {
-        
+        public string resxFile = "null";
 
         public main()
         {
@@ -46,24 +46,38 @@ namespace Unowhy_Tools
 
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
-            if (utls == "EN")
-            {
-                
-            }
-            else
-            {
-                
-            }
 
+            if(utls == "EN")resxFile = @".\en.resx";
+            else resxFile = @".\fr.resx";
+
+            
 
             InitializeComponent();
 
-           
+
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            starthis.Text = resxSet.GetString("starthis");
+            stophis.Text = resxSet.GetString("stophis");
+            enhis.Text = resxSet.GetString("enhis");
+            dishis.Text = resxSet.GetString("dishis");
+            delhis.Text = resxSet.GetString("delhis");
+            delhism.Text = resxSet.GetString("delhism");
+            delcat.Text = resxSet.GetString("delcat");
+            repaircat.Text = resxSet.GetString("repaircat");
+            servicecat.Text = resxSet.GetString("servicecat");
+            shell.Text = resxSet.GetString("shell");
+            fixboot.Text = resxSet.GetString("fixboot");
+            ent.Text = resxSet.GetString("ent");
+            delti.Text = resxSet.GetString("delti");
+            about.Text = resxSet.GetString("about");
+            settings.Text = resxSet.GetString("settings");
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
             System.Diagnostics.Process.Start(".\\starthis.exe");    // Start HiSqool Manager
         }
 
