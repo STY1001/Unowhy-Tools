@@ -48,6 +48,13 @@ namespace Unowhy_Tools
             this.delcat = new System.Windows.Forms.Label();
             this.logo = new System.Windows.Forms.PictureBox();
             this.settings = new System.Windows.Forms.Button();
+            this.deschism = new System.Windows.Forms.TextBox();
+            this.descshell = new System.Windows.Forms.TextBox();
+            this.descstart = new System.Windows.Forms.TextBox();
+            this.descent = new System.Windows.Forms.TextBox();
+            this.deschismdel = new System.Windows.Forms.TextBox();
+            this.deschisdel = new System.Windows.Forms.TextBox();
+            this.desctidel = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -181,11 +188,74 @@ namespace Unowhy_Tools
             this.settings.UseVisualStyleBackColor = true;
             this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
+            // deschism
+            // 
+            this.deschism.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.deschism, "deschism");
+            this.deschism.ForeColor = System.Drawing.Color.White;
+            this.deschism.Name = "deschism";
+            this.deschism.ReadOnly = true;
+            // 
+            // descshell
+            // 
+            this.descshell.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.descshell, "descshell");
+            this.descshell.ForeColor = System.Drawing.Color.White;
+            this.descshell.Name = "descshell";
+            this.descshell.ReadOnly = true;
+            // 
+            // descstart
+            // 
+            this.descstart.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.descstart, "descstart");
+            this.descstart.ForeColor = System.Drawing.Color.White;
+            this.descstart.Name = "descstart";
+            this.descstart.ReadOnly = true;
+            // 
+            // descent
+            // 
+            this.descent.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.descent, "descent");
+            this.descent.ForeColor = System.Drawing.Color.White;
+            this.descent.Name = "descent";
+            this.descent.ReadOnly = true;
+            // 
+            // deschismdel
+            // 
+            this.deschismdel.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.deschismdel, "deschismdel");
+            this.deschismdel.ForeColor = System.Drawing.Color.White;
+            this.deschismdel.Name = "deschismdel";
+            this.deschismdel.ReadOnly = true;
+            // 
+            // deschisdel
+            // 
+            this.deschisdel.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.deschisdel, "deschisdel");
+            this.deschisdel.ForeColor = System.Drawing.Color.White;
+            this.deschisdel.Name = "deschisdel";
+            this.deschisdel.ReadOnly = true;
+            // 
+            // desctidel
+            // 
+            this.desctidel.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.desctidel, "desctidel");
+            this.desctidel.ForeColor = System.Drawing.Color.White;
+            this.desctidel.Name = "desctidel";
+            this.desctidel.ReadOnly = true;
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.descstart);
+            this.Controls.Add(this.desctidel);
+            this.Controls.Add(this.deschisdel);
+            this.Controls.Add(this.deschismdel);
+            this.Controls.Add(this.descent);
+            this.Controls.Add(this.descshell);
+            this.Controls.Add(this.deschism);
             this.Controls.Add(this.settings);
             this.Controls.Add(this.delcat);
             this.Controls.Add(this.repaircat);
@@ -234,6 +304,13 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Label repaircat;
         private System.Windows.Forms.Label delcat;
         private System.Windows.Forms.Button settings;
+        private System.Windows.Forms.TextBox deschism;
+        private System.Windows.Forms.TextBox descshell;
+        private System.Windows.Forms.TextBox descstart;
+        private System.Windows.Forms.TextBox descent;
+        private System.Windows.Forms.TextBox deschismdel;
+        private System.Windows.Forms.TextBox deschisdel;
+        private System.Windows.Forms.TextBox desctidel;
     }
 }
 

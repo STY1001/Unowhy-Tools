@@ -9,18 +9,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.Win32;
+using System.Resources;
 
 namespace Unowhy_Tools
 {
     public partial class Settings : Form
     {
+        public string resxFile = "null";
+
         public Settings()
         {
-            InitializeComponent();
 
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
-            if (utls == "EN")
+
+            if (utls == "EN") resxFile = @".\en.resx";
+            else resxFile = @".\fr.resx";
+
+            InitializeComponent();
+
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            
+            this.Text = resxSet.GetString("settings");
+
+            RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utlst = lcs.GetValue("Lang").ToString();
+            if (utlst == "EN")
             {
                 langsel.Text = "English";
             }
@@ -32,8 +47,6 @@ namespace Unowhy_Tools
 
         private void okbtn_Click(object sender, EventArgs e)
         {
-            var m = new main();
-            
             this.Close();
             
         }
@@ -50,6 +63,11 @@ namespace Unowhy_Tools
             {
                 System.Diagnostics.Process.Start(".\\langfr.exe");
             }
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

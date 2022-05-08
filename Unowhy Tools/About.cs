@@ -9,14 +9,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Resources;
+using Microsoft.Win32;
 
 namespace Unowhy_Tools
 {
     public partial class About : Form
     {
+        public string resxFile = "null";
+
         public About()
         {
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            if (utls == "EN") resxFile = @".\en.resx";
+            else resxFile = @".\fr.resx";
+
             InitializeComponent();
+
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            update.Text = resxSet.GetString("udcheck");
+            this.Text = resxSet.GetString("about");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -60,6 +75,11 @@ namespace Unowhy_Tools
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void About_Load(object sender, EventArgs e)
         {
 
         }

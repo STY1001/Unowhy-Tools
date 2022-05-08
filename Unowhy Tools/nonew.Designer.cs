@@ -47,9 +47,9 @@ namespace Unowhy_Tools
             // 
             // nook
             // 
-            this.nook.Location = new System.Drawing.Point(64, 52);
+            this.nook.Location = new System.Drawing.Point(104, 52);
             this.nook.Name = "nook";
-            this.nook.Size = new System.Drawing.Size(75, 23);
+            this.nook.Size = new System.Drawing.Size(35, 23);
             this.nook.TabIndex = 1;
             this.nook.Text = "OK";
             this.nook.UseVisualStyleBackColor = true;
@@ -69,7 +69,8 @@ namespace Unowhy_Tools
             this.MinimizeBox = false;
             this.Name = "nonew";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Update Check";
+            this.Text = "Update Checker";
+            this.Load += new System.EventHandler(this.nonew_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -48,7 +48,7 @@ namespace Unowhy_Tools
             // 
             // git
             // 
-            this.git.Location = new System.Drawing.Point(13, 56);
+            this.git.Location = new System.Drawing.Point(72, 56);
             this.git.Name = "git";
             this.git.Size = new System.Drawing.Size(75, 23);
             this.git.TabIndex = 1;
@@ -58,9 +58,9 @@ namespace Unowhy_Tools
             // 
             // ok
             // 
-            this.ok.Location = new System.Drawing.Point(95, 55);
+            this.ok.Location = new System.Drawing.Point(153, 56);
             this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(75, 23);
+            this.ok.Size = new System.Drawing.Size(32, 23);
             this.ok.TabIndex = 2;
             this.ok.Text = "OK";
             this.ok.UseVisualStyleBackColor = true;
@@ -81,7 +81,8 @@ namespace Unowhy_Tools
             this.MinimizeBox = false;
             this.Name = "newver";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Update Check";
+            this.Text = "Update Checker";
+            this.Load += new System.EventHandler(this.newver_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

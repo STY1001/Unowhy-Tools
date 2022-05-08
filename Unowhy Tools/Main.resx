@@ -145,13 +145,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;starthis.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>24</value>
   </data>
   <data name="stophis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="stophis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 173</value>
+    <value>12, 169</value>
   </data>
   <data name="stophis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -172,13 +172,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;stophis.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>23</value>
   </data>
   <data name="dishis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="dishis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 231</value>
+    <value>12, 223</value>
   </data>
   <data name="dishis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -199,13 +199,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dishis.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>22</value>
   </data>
   <data name="enhis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="enhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 202</value>
+    <value>12, 198</value>
   </data>
   <data name="enhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -226,13 +226,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;enhis.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>21</value>
   </data>
   <data name="delhism.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="delhism.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 173</value>
+    <value>501, 196</value>
   </data>
   <data name="delhism.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -253,13 +253,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhism.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>20</value>
   </data>
   <data name="delhis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="delhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 202</value>
+    <value>501, 248</value>
   </data>
   <data name="delhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -280,7 +280,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhis.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>19</value>
   </data>
   <data name="shell.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -307,7 +307,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;shell.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>18</value>
   </data>
   <data name="ver.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -340,7 +340,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ver.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>16</value>
   </data>
   <data name="sty1001.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -373,7 +373,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sty1001.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>15</value>
   </data>
   <data name="ent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -400,7 +400,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ent.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>14</value>
   </data>
   <data name="about.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -427,13 +427,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;about.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>13</value>
   </data>
   <data name="fixboot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="fixboot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 173</value>
+    <value>256, 231</value>
   </data>
   <data name="fixboot.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -454,13 +454,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fixboot.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>12</value>
   </data>
   <data name="delti.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="delti.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 232</value>
+    <value>501, 301</value>
   </data>
   <data name="delti.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 23</value>
@@ -481,7 +481,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delti.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>11</value>
   </data>
   <data name="servicecat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -511,7 +511,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;servicecat.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>10</value>
   </data>
   <data name="repaircat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -541,7 +541,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;repaircat.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>9</value>
   </data>
   <data name="delcat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -571,7 +571,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delcat.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>8</value>
   </data>
   <data name="logo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -598,7 +598,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>17</value>
   </data>
   <data name="settings.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 12</value>
@@ -622,7 +622,214 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;settings.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="deschism.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="deschism.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 252</value>
+  </data>
+  <data name="deschism.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="deschism.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 72</value>
+  </data>
+  <data name="deschism.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;deschism.Name" xml:space="preserve">
+    <value>deschism</value>
+  </data>
+  <data name="&gt;&gt;deschism.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deschism.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;deschism.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="descshell.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="descshell.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 167</value>
+  </data>
+  <data name="descshell.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="descshell.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="descshell.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 58</value>
+  </data>
+  <data name="descshell.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;descshell.Name" xml:space="preserve">
+    <value>descshell</value>
+  </data>
+  <data name="&gt;&gt;descshell.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descshell.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;descshell.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="descstart.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="descstart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 255</value>
+  </data>
+  <data name="descstart.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="descstart.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="descstart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 69</value>
+  </data>
+  <data name="descstart.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;descstart.Name" xml:space="preserve">
+    <value>descstart</value>
+  </data>
+  <data name="&gt;&gt;descstart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descstart.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;descstart.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="descent.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="descent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>501, 167</value>
+  </data>
+  <data name="descent.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="descent.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="descent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
+  </data>
+  <data name="descent.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;descent.Name" xml:space="preserve">
+    <value>descent</value>
+  </data>
+  <data name="&gt;&gt;descent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descent.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;descent.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="deschismdel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="deschismdel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>501, 219</value>
+  </data>
+  <data name="deschismdel.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="deschismdel.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="deschismdel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
+  </data>
+  <data name="deschismdel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;deschismdel.Name" xml:space="preserve">
+    <value>deschismdel</value>
+  </data>
+  <data name="&gt;&gt;deschismdel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deschismdel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;deschismdel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="deschisdel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="deschisdel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>501, 272</value>
+  </data>
+  <data name="deschisdel.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="deschisdel.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="deschisdel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
+  </data>
+  <data name="deschisdel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;deschisdel.Name" xml:space="preserve">
+    <value>deschisdel</value>
+  </data>
+  <data name="&gt;&gt;deschisdel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deschisdel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;deschisdel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="desctidel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="desctidel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>501, 324</value>
+  </data>
+  <data name="desctidel.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="desctidel.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="desctidel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
+  </data>
+  <data name="desctidel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;desctidel.Name" xml:space="preserve">
+    <value>desctidel</value>
+  </data>
+  <data name="&gt;&gt;desctidel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;desctidel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;desctidel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -634,7 +841,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>724, 351</value>
+    <value>724, 355</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -72,7 +72,13 @@ namespace Unowhy_Tools
             delti.Text = resxSet.GetString("delti");
             about.Text = resxSet.GetString("about");
             settings.Text = resxSet.GetString("settings");
-
+            deschism.Text = resxSet.GetString("deschism");
+            descshell.Text = resxSet.GetString("descshell");
+            descstart.Text = resxSet.GetString("descstart");
+            deschisdel.Text = resxSet.GetString("deschisdel");
+            deschismdel.Text = resxSet.GetString("deschismdel");
+            desctidel.Text = resxSet.GetString("desctidel");
+            descent.Text = resxSet.GetString("descent");
 
         }
 
