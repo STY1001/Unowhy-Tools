@@ -120,6 +120,9 @@
   <data name="about" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="cuab" xml:space="preserve">
+    <value>Check update at startup</value>
+  </data>
   <data name="delcat" xml:space="preserve">
     <value>↓ Delete/Uninstall ↓</value>
   </data>

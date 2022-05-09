@@ -120,6 +120,9 @@
   <data name="about" xml:space="preserve">
     <value>A propos</value>
   </data>
+  <data name="cuab" xml:space="preserve">
+    <value>Vérifier les MAJ au démarrage</value>
+  </data>
   <data name="delcat" xml:space="preserve">
     <value>↓ Supprimer/Désinstaller ↓</value>
   </data>
