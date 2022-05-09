@@ -32,6 +32,7 @@ namespace Unowhy_Tools
 
             
             this.Text = resxSet.GetString("settings");
+            cbupdate.Text = resxSet.GetString("cuab");
 
             RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utlst = lcs.GetValue("Lang").ToString();
@@ -42,6 +43,15 @@ namespace Unowhy_Tools
             else
             {
                 langsel.Text = "French";
+            }
+            string utcuab = lcs.GetValue("UpdateStart").ToString();
+            if (utcuab == "1")
+            {
+                cbupdate.Checked = true;
+            }
+            else
+            {
+                cbupdate.Checked = false;
             }
         }
 
@@ -67,6 +77,18 @@ namespace Unowhy_Tools
         private void Settings_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbupdate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbupdate.Checked == true)
+            {
+                System.Diagnostics.Process.Start(".\\cuabon.exe");
+            }
+            else
+            {
+                System.Diagnostics.Process.Start(".\\cuaboff.exe");
+            }
         }
     }
 }

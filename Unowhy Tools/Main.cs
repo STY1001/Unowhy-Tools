@@ -12,7 +12,7 @@ using Microsoft.Win32;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Resources;
-
+using System.Net;
 
 namespace Unowhy_Tools
 {   
@@ -43,12 +43,67 @@ namespace Unowhy_Tools
             {
                 RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);     //Create it with "Lang" value
                 utkey.CreateSubKey("Unowhy Tools");
+                
+            }
+
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools");
+            object o = key.GetValue("Lang", null);
+            if (o != null)
+            {
+
+            }
+            else
+            {
                 System.Diagnostics.Process.Start(".\\langset.exe");
                 System.Threading.Thread.Sleep(1000);    //Wait the registery editing
                 var s = new Settings();
                 s.StartPosition = FormStartPosition.WindowsDefaultLocation;
                 s.Show();
                 s.StartPosition = FormStartPosition.CenterScreen;
+            }
+
+            object u = key.GetValue("UpdateStart", null);
+            if (u != null)
+            {
+                string utlu = key.GetValue("UpdateStart").ToString();
+                if (utlu == "1")
+                {
+                    if (File.Exists("tversion.txt"))    //Check if the file exist
+                    {
+                        File.Delete("tversion.txt");    //Delete it if exist
+                    }
+
+                    using (var client = new WebClient())
+                    {
+                        client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\tversion.txt");     //Download Version file
+                    }
+
+                    string gitver = System.IO.File.ReadAllText(".\\tversion.txt");      //Convert text to string
+                    string progver = System.IO.File.ReadAllText(".\\version.txt");
+
+                    int gitint = Convert.ToInt32(gitver);       //Convert string to int
+                    int progint = Convert.ToInt32(progver);
+
+                    if (progint < gitint)        //Check if there is a new vertion of UT
+                    {
+                        var s = new newver();
+                        s.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                        s.Show();
+                        s.StartPosition = FormStartPosition.CenterScreen;
+                    }
+                    else
+                    {
+                        var s = new nonew();
+                        s.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                        s.Show();
+                        s.StartPosition = FormStartPosition.CenterScreen;
+                    }
+                }
+            }
+            else
+            {
+                System.Diagnostics.Process.Start(".\\cuabon.exe");
+                System.Threading.Thread.Sleep(1000);    //Wait the registery editing
             }
 
             //Check the current saved language

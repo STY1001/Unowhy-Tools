@@ -33,6 +33,7 @@ namespace Unowhy_Tools
             this.langlab = new System.Windows.Forms.Label();
             this.okbtn = new System.Windows.Forms.Button();
             this.langsel = new System.Windows.Forms.ComboBox();
+            this.cbupdate = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // langlab
@@ -47,7 +48,7 @@ namespace Unowhy_Tools
             // 
             // okbtn
             // 
-            this.okbtn.Location = new System.Drawing.Point(206, 60);
+            this.okbtn.Location = new System.Drawing.Point(175, 70);
             this.okbtn.Name = "okbtn";
             this.okbtn.Size = new System.Drawing.Size(31, 23);
             this.okbtn.TabIndex = 1;
@@ -67,12 +68,25 @@ namespace Unowhy_Tools
             this.langsel.TabIndex = 2;
             this.langsel.SelectedIndexChanged += new System.EventHandler(this.langsel_SelectedIndexChanged);
             // 
+            // cbupdate
+            // 
+            this.cbupdate.AutoSize = true;
+            this.cbupdate.ForeColor = System.Drawing.Color.White;
+            this.cbupdate.Location = new System.Drawing.Point(12, 76);
+            this.cbupdate.Name = "cbupdate";
+            this.cbupdate.Size = new System.Drawing.Size(140, 17);
+            this.cbupdate.TabIndex = 3;
+            this.cbupdate.Text = "Check update at startup";
+            this.cbupdate.UseVisualStyleBackColor = true;
+            this.cbupdate.CheckedChanged += new System.EventHandler(this.cbupdate_CheckedChanged);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(249, 95);
+            this.ClientSize = new System.Drawing.Size(218, 105);
+            this.Controls.Add(this.cbupdate);
             this.Controls.Add(this.langsel);
             this.Controls.Add(this.okbtn);
             this.Controls.Add(this.langlab);
@@ -95,5 +109,6 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Label langlab;
         private System.Windows.Forms.Button okbtn;
         private System.Windows.Forms.ComboBox langsel;
+        private System.Windows.Forms.CheckBox cbupdate;
     }
 }
