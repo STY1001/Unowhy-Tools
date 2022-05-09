@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Resources;
 
+
 namespace Unowhy_Tools
 {   
     public partial class main : Form
@@ -21,34 +22,41 @@ namespace Unowhy_Tools
 
         public main()
         {
-            RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);
+            
+            RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);   //Check if the  "STY1001" key exist
             if (keysty != null)
             {
 
             }
             else
             {
-                RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);
+                RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);    //Create it
                 stykey.CreateSubKey("STY1001");
             }
 
-            RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);   //Check if "UT" key exist
             if (keyut != null)
             {
 
             }
             else
             {
-                RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
+                RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);     //Create it with "Lang" value
                 utkey.CreateSubKey("Unowhy Tools");
                 System.Diagnostics.Process.Start(".\\langset.exe");
+                System.Threading.Thread.Sleep(1000);    //Wait the registery editing
+                var s = new Settings();
+                s.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                s.Show();
+                s.StartPosition = FormStartPosition.CenterScreen;
             }
 
+            //Check the current saved language
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
 
-            if(utls == "EN")resxFile = @".\en.resx";
-            else resxFile = @".\fr.resx";
+            if(utls == "EN")resxFile = @".\en.resx";    //English   //Chose the ResX file
+            else resxFile = @".\fr.resx";               //French
 
             
 
@@ -57,6 +65,7 @@ namespace Unowhy_Tools
 
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
+            //Apply Resources Strings
             starthis.Text = resxSet.GetString("starthis");
             stophis.Text = resxSet.GetString("stophis");
             enhis.Text = resxSet.GetString("enhis");
