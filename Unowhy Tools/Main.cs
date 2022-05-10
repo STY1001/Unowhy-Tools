@@ -93,10 +93,7 @@ namespace Unowhy_Tools
                     }
                     else
                     {
-                        var s = new nonew();
-                        s.StartPosition = FormStartPosition.WindowsDefaultLocation;
-                        s.Show();
-                        s.StartPosition = FormStartPosition.CenterScreen;
+                        
                     }
                 }
             }
