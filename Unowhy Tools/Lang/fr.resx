@@ -151,7 +151,7 @@
     <value>Supprimer le gros dossier "HiSqool Manager"</value>
   </data>
   <data name="descridf" xml:space="preserve">
-    <value>Supprimer le dossier qui contient le script et la video du premier démarrage</value>
+    <value>Supprimer le dossier qui contient le script et la video de la première connexion</value>
   </data>
   <data name="descshell" xml:space="preserve">
     <value>Faites ceci avant de modifier autre chose ! Si vous avez un problème de démarrage (écran noir avec uniquement le curseur) ou si vous souhaitez contourner l'accord RGPD, faites ceci</value>
