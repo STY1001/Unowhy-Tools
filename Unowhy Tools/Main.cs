@@ -140,6 +140,10 @@ namespace Unowhy_Tools
             deschismdel.Text = resxSet.GetString("deschismdel");
             desctidel.Text = resxSet.GetString("desctidel");
             descent.Text = resxSet.GetString("descent");
+            delridf.Text = resxSet.GetString("delridf");
+            descridf.Text = resxSet.GetString("descridf");
+            winre.Text = resxSet.GetString("winre");
+            descwinre.Text = resxSet.GetString("descwinre");
 
         }
 
@@ -209,6 +213,16 @@ namespace Unowhy_Tools
             var s = new Settings();
             s.Show();
             //this.Close();
+        }
+
+        private void delridf_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(".\\rdti.exe");
+        }
+
+        private void winre_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(".\\winre.exe");
         }
     }
 }

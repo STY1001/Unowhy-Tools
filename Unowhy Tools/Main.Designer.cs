@@ -55,15 +55,20 @@ namespace Unowhy_Tools
             this.deschismdel = new System.Windows.Forms.TextBox();
             this.deschisdel = new System.Windows.Forms.TextBox();
             this.desctidel = new System.Windows.Forms.TextBox();
+            this.delridf = new System.Windows.Forms.Button();
+            this.descridf = new System.Windows.Forms.TextBox();
+            this.descwinre = new System.Windows.Forms.TextBox();
+            this.winre = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
             // starthis
             // 
+            this.starthis.BackColor = System.Drawing.Color.Transparent;
             this.starthis.ForeColor = System.Drawing.Color.Black;
             resources.ApplyResources(this.starthis, "starthis");
             this.starthis.Name = "starthis";
-            this.starthis.UseVisualStyleBackColor = true;
+            this.starthis.UseVisualStyleBackColor = false;
             this.starthis.Click += new System.EventHandler(this.button1_Click);
             // 
             // stophis
@@ -244,11 +249,45 @@ namespace Unowhy_Tools
             this.desctidel.Name = "desctidel";
             this.desctidel.ReadOnly = true;
             // 
+            // delridf
+            // 
+            resources.ApplyResources(this.delridf, "delridf");
+            this.delridf.Name = "delridf";
+            this.delridf.UseVisualStyleBackColor = true;
+            this.delridf.Click += new System.EventHandler(this.delridf_Click);
+            // 
+            // descridf
+            // 
+            this.descridf.BackColor = System.Drawing.Color.Black;
+            this.descridf.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.descridf, "descridf");
+            this.descridf.Name = "descridf";
+            this.descridf.ReadOnly = true;
+            // 
+            // descwinre
+            // 
+            this.descwinre.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.descwinre, "descwinre");
+            this.descwinre.ForeColor = System.Drawing.Color.White;
+            this.descwinre.Name = "descwinre";
+            this.descwinre.ReadOnly = true;
+            // 
+            // winre
+            // 
+            resources.ApplyResources(this.winre, "winre");
+            this.winre.Name = "winre";
+            this.winre.UseVisualStyleBackColor = true;
+            this.winre.Click += new System.EventHandler(this.winre_Click);
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.winre);
+            this.Controls.Add(this.descridf);
+            this.Controls.Add(this.delridf);
+            this.Controls.Add(this.descwinre);
             this.Controls.Add(this.descstart);
             this.Controls.Add(this.desctidel);
             this.Controls.Add(this.deschisdel);
@@ -311,6 +350,10 @@ namespace Unowhy_Tools
         private System.Windows.Forms.TextBox deschismdel;
         private System.Windows.Forms.TextBox deschisdel;
         private System.Windows.Forms.TextBox desctidel;
+        private System.Windows.Forms.Button delridf;
+        private System.Windows.Forms.TextBox descridf;
+        private System.Windows.Forms.TextBox descwinre;
+        private System.Windows.Forms.Button winre;
     }
 }
 
