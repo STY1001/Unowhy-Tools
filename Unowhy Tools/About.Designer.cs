@@ -97,7 +97,7 @@ namespace Unowhy_Tools
             this.alogo.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
             this.alogo.Location = new System.Drawing.Point(12, 12);
             this.alogo.Name = "alogo";
-            this.alogo.Size = new System.Drawing.Size(195, 72);
+            this.alogo.Size = new System.Drawing.Size(205, 72);
             this.alogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.alogo.TabIndex = 19;
             this.alogo.TabStop = false;
