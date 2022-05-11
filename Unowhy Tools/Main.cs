@@ -149,42 +149,130 @@ namespace Unowhy_Tools
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\starthis.exe");    // Start HiSqool Manager
+            string msg = starthis.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\starthis.exe");    // Start HiSqool Manager
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\stophis.exe");     // Stop HiSqool Manager
+            string msg = stophis.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\stophis.exe");     // Stop HiSqool Manager
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\enhis.exe");       // Enable HiSqool Manager
+            string msg = enhis.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\enhis.exe");       // Enable HiSqool Manager
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\dishis.exe");      // Disable HiSqool Manager
+            string msg = dishis.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\dishis.exe");      // Disable HiSqool Manager
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\delhisqool.exe");      // Launch Uninstaller of  HiSqool
+            string msg = delhis.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\delhisqool.exe");      // Launch Uninstaller of  HiSqool
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\rmdirhismgr.exe");     // Remove HiSqool Manager folder
+            string msg = delhism.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\rmdirhismgr.exe");     // Remove HiSqool Manager folder
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\shell.exe");       // Change Shell value
+            string msg = shell.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\shell.exe");       // Change Shell value
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\delent.exe");      // Delete ENT account
+            string msg = ent.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\delent.exe");      // Delete ENT account
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -200,12 +288,34 @@ namespace Unowhy_Tools
 
         private void button10_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\fixti.exe");   //Delete silent_*.vbs.lnk
+            string msg = fixboot.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\fixti.exe");   //Delete silent_*.vbs.lnk
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\rdti.exe");    //Remove "TO_INSTALL"
+            string msg = delti.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\rdti.exe");    //Remove "TO_INSTALL"
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void settings_Click(object sender, EventArgs e)
@@ -217,12 +327,34 @@ namespace Unowhy_Tools
 
         private void delridf_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\rdti.exe");
+            string msg = delridf.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\delridf.exe");
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
 
         private void winre_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\winre.exe");
+            string msg = winre.Text;
+            string msg2 = "Confirmation";
+            string msg1 = msg + " ?";
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (conf == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(".\\winre.exe");
+            }
+            if (conf == DialogResult.No)
+            {
+
+            }
         }
     }
 }

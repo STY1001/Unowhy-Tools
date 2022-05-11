@@ -232,7 +232,7 @@
     <value>NoControl</value>
   </data>
   <data name="delhism.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 196</value>
+    <value>501, 206</value>
   </data>
   <data name="delhism.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -259,7 +259,7 @@
     <value>NoControl</value>
   </data>
   <data name="delhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 248</value>
+    <value>501, 268</value>
   </data>
   <data name="delhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -352,7 +352,7 @@
     <value>NoControl</value>
   </data>
   <data name="sty1001.Location" type="System.Drawing.Point, System.Drawing">
-    <value>272, 73</value>
+    <value>270, 88</value>
   </data>
   <data name="sty1001.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 13</value>
@@ -460,7 +460,7 @@
     <value>NoControl</value>
   </data>
   <data name="delti.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 301</value>
+    <value>501, 330</value>
   </data>
   <data name="delti.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 23</value>
@@ -577,10 +577,10 @@
     <value>NoControl</value>
   </data>
   <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>275, 12</value>
+    <value>256, 12</value>
   </data>
   <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 58</value>
+    <value>211, 73</value>
   </data>
   <data name="logo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -724,7 +724,7 @@
     <value>Vertical</value>
   </data>
   <data name="descent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 23</value>
+    <value>211, 33</value>
   </data>
   <data name="descent.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -745,7 +745,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="deschismdel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 219</value>
+    <value>501, 229</value>
   </data>
   <data name="deschismdel.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -754,7 +754,7 @@
     <value>Vertical</value>
   </data>
   <data name="deschismdel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 23</value>
+    <value>211, 33</value>
   </data>
   <data name="deschismdel.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -775,7 +775,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="deschisdel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 272</value>
+    <value>501, 291</value>
   </data>
   <data name="deschisdel.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -784,7 +784,7 @@
     <value>Vertical</value>
   </data>
   <data name="deschisdel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 23</value>
+    <value>211, 33</value>
   </data>
   <data name="deschisdel.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -805,7 +805,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="desctidel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 324</value>
+    <value>501, 353</value>
   </data>
   <data name="desctidel.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -814,7 +814,7 @@
     <value>Vertical</value>
   </data>
   <data name="desctidel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 23</value>
+    <value>211, 33</value>
   </data>
   <data name="desctidel.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -832,7 +832,7 @@
     <value>5</value>
   </data>
   <data name="delridf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 354</value>
+    <value>501, 393</value>
   </data>
   <data name="delridf.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 23</value>
@@ -856,7 +856,7 @@
     <value>2</value>
   </data>
   <data name="descridf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 377</value>
+    <value>502, 416</value>
   </data>
   <data name="descridf.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -865,7 +865,7 @@
     <value>Vertical</value>
   </data>
   <data name="descridf.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 23</value>
+    <value>210, 33</value>
   </data>
   <data name="descridf.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -946,7 +946,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>724, 413</value>
+    <value>724, 460</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1167,6 +1167,9 @@
         P5OzS3yDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgM
         BoPBYDAYDAaDwWAwGAwGg8FgMBgMo43/DzbuazDLXcAAAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

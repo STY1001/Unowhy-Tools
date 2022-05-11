@@ -35,7 +35,6 @@ namespace Unowhy_Tools
             this.website = new System.Windows.Forms.Button();
             this.github = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
-            this.separator = new System.Windows.Forms.Label();
             this.alogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.alogo)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +44,7 @@ namespace Unowhy_Tools
             this.aver.AutoSize = true;
             this.aver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aver.ForeColor = System.Drawing.Color.White;
-            this.aver.Location = new System.Drawing.Point(11, 56);
+            this.aver.Location = new System.Drawing.Point(8, 88);
             this.aver.Name = "aver";
             this.aver.Size = new System.Drawing.Size(93, 20);
             this.aver.TabIndex = 12;
@@ -57,7 +56,7 @@ namespace Unowhy_Tools
             this.asty1001.AutoSize = true;
             this.asty1001.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.asty1001.ForeColor = System.Drawing.Color.White;
-            this.asty1001.Location = new System.Drawing.Point(12, 88);
+            this.asty1001.Location = new System.Drawing.Point(9, 108);
             this.asty1001.Name = "asty1001";
             this.asty1001.Size = new System.Drawing.Size(230, 16);
             this.asty1001.TabIndex = 13;
@@ -65,7 +64,7 @@ namespace Unowhy_Tools
             // 
             // website
             // 
-            this.website.Location = new System.Drawing.Point(12, 120);
+            this.website.Location = new System.Drawing.Point(269, 12);
             this.website.Name = "website";
             this.website.Size = new System.Drawing.Size(101, 34);
             this.website.TabIndex = 14;
@@ -75,7 +74,7 @@ namespace Unowhy_Tools
             // 
             // github
             // 
-            this.github.Location = new System.Drawing.Point(119, 120);
+            this.github.Location = new System.Drawing.Point(269, 50);
             this.github.Name = "github";
             this.github.Size = new System.Drawing.Size(101, 34);
             this.github.TabIndex = 15;
@@ -85,7 +84,7 @@ namespace Unowhy_Tools
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(226, 120);
+            this.update.Location = new System.Drawing.Point(269, 90);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(101, 34);
             this.update.TabIndex = 17;
@@ -93,22 +92,12 @@ namespace Unowhy_Tools
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.button3_Click);
             // 
-            // separator
-            // 
-            this.separator.AutoSize = true;
-            this.separator.ForeColor = System.Drawing.Color.White;
-            this.separator.Location = new System.Drawing.Point(1, 104);
-            this.separator.Name = "separator";
-            this.separator.Size = new System.Drawing.Size(343, 13);
-            this.separator.TabIndex = 18;
-            this.separator.Text = "========================================================";
-            // 
             // alogo
             // 
             this.alogo.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
             this.alogo.Location = new System.Drawing.Point(12, 12);
             this.alogo.Name = "alogo";
-            this.alogo.Size = new System.Drawing.Size(114, 41);
+            this.alogo.Size = new System.Drawing.Size(195, 72);
             this.alogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.alogo.TabIndex = 19;
             this.alogo.TabStop = false;
@@ -118,9 +107,8 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(342, 164);
+            this.ClientSize = new System.Drawing.Size(382, 133);
             this.Controls.Add(this.alogo);
-            this.Controls.Add(this.separator);
             this.Controls.Add(this.update);
             this.Controls.Add(this.github);
             this.Controls.Add(this.website);
@@ -146,7 +134,6 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button website;
         private System.Windows.Forms.Button github;
         private System.Windows.Forms.Button update;
-        private System.Windows.Forms.Label separator;
         private System.Windows.Forms.PictureBox alogo;
     }
 }
