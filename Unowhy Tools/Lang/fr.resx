@@ -132,6 +132,9 @@
   <data name="delhism" xml:space="preserve">
     <value>Supprimer le dossier "HiSqool Manager"</value>
   </data>
+  <data name="delridf" xml:space="preserve">
+    <value>Supprimmer le dossier "RIDF"</value>
+  </data>
   <data name="delti" xml:space="preserve">
     <value>Supprimer le dossier "TO_INSTALL"</value>
   </data>
@@ -147,6 +150,9 @@
   <data name="deschismdel" xml:space="preserve">
     <value>Supprimer le gros dossier "HiSqool Manager"</value>
   </data>
+  <data name="descridf" xml:space="preserve">
+    <value>Supprimer le dossier qui contient le script et la video du premier démarrage</value>
+  </data>
   <data name="descshell" xml:space="preserve">
     <value>Faites ceci avant de modifier autre chose ! Si vous avez un problème de démarrage (écran noir avec uniquement le curseur) ou si vous souhaitez contourner l'accord RGPD, faites ceci</value>
   </data>
@@ -155,6 +161,9 @@
   </data>
   <data name="desctidel" xml:space="preserve">
     <value>Supprimer les installateurs des manuels scolaires</value>
+  </data>
+  <data name="descwinre" xml:space="preserve">
+    <value>Faite ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environement de réstauration Windows (qui désactive la réinitialisation)</value>
   </data>
   <data name="dishis" xml:space="preserve">
     <value>Désactiver le services "HiSqoolManager"</value>
@@ -194,5 +203,8 @@
   </data>
   <data name="udcheck" xml:space="preserve">
     <value>Vérifier les mises à jour</value>
+  </data>
+  <data name="winre" xml:space="preserve">
+    <value>Réactiver "reagentc"</value>
   </data>
 </root>
