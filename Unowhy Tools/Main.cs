@@ -152,7 +152,7 @@ namespace Unowhy_Tools
             string msg = starthis.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);  // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\starthis.exe");    // Start HiSqool Manager
@@ -168,7 +168,7 @@ namespace Unowhy_Tools
             string msg = stophis.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\stophis.exe");     // Stop HiSqool Manager
@@ -184,7 +184,7 @@ namespace Unowhy_Tools
             string msg = enhis.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\enhis.exe");       // Enable HiSqool Manager
@@ -200,7 +200,7 @@ namespace Unowhy_Tools
             string msg = dishis.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\dishis.exe");      // Disable HiSqool Manager
@@ -216,7 +216,7 @@ namespace Unowhy_Tools
             string msg = delhis.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\delhisqool.exe");      // Launch Uninstaller of  HiSqool
@@ -232,7 +232,7 @@ namespace Unowhy_Tools
             string msg = delhism.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\rmdirhismgr.exe");     // Remove HiSqool Manager folder
@@ -248,7 +248,7 @@ namespace Unowhy_Tools
             string msg = shell.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\shell.exe");       // Change Shell value
@@ -264,7 +264,7 @@ namespace Unowhy_Tools
             string msg = ent.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\delent.exe");      // Delete ENT account
@@ -291,7 +291,7 @@ namespace Unowhy_Tools
             string msg = fixboot.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\fixti.exe");   //Delete silent_*.vbs.lnk
@@ -307,7 +307,7 @@ namespace Unowhy_Tools
             string msg = delti.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\rdti.exe");    //Remove "TO_INSTALL"
@@ -320,7 +320,7 @@ namespace Unowhy_Tools
 
         private void settings_Click(object sender, EventArgs e)
         {
-            var s = new Settings();
+            var s = new Settings();     //Show settings
             s.Show();
             //this.Close();
         }
@@ -330,7 +330,7 @@ namespace Unowhy_Tools
             string msg = delridf.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\delridf.exe");
@@ -346,7 +346,7 @@ namespace Unowhy_Tools
             string msg = winre.Text;
             string msg2 = "Confirmation";
             string msg1 = msg + " ?";
-            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult conf = MessageBox.Show(msg1, msg2, MessageBoxButtons.YesNo, MessageBoxIcon.Question); // Confirmation
             if (conf == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(".\\winre.exe");
