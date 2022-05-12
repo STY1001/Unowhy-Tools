@@ -11,6 +11,8 @@ Currently, with this tools you can:
 - Uninstall "HiSqool" and delete "HiSqool Manager" folder
 - Delete "silent_*.vbs.lnk" files in "StartUp" folder
 - Delete "TO_INSTALL" folder
+- Enable "reagentc" (Recovery)
+- Delete "RIDF" folder
 
 More features come soon
 
