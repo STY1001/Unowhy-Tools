@@ -46,7 +46,6 @@ namespace Unowhy_Tools
             this.servicecat = new System.Windows.Forms.Label();
             this.repaircat = new System.Windows.Forms.Label();
             this.delcat = new System.Windows.Forms.Label();
-            this.logo = new System.Windows.Forms.PictureBox();
             this.settings = new System.Windows.Forms.Button();
             this.deschism = new System.Windows.Forms.TextBox();
             this.descshell = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@ namespace Unowhy_Tools
             this.descridf = new System.Windows.Forms.TextBox();
             this.descwinre = new System.Windows.Forms.TextBox();
             this.winre = new System.Windows.Forms.Button();
+            this.logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,18 +179,13 @@ namespace Unowhy_Tools
             this.delcat.ForeColor = System.Drawing.Color.White;
             this.delcat.Name = "delcat";
             // 
-            // logo
-            // 
-            this.logo.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
-            resources.ApplyResources(this.logo, "logo");
-            this.logo.Name = "logo";
-            this.logo.TabStop = false;
-            // 
             // settings
             // 
+            this.settings.BackColor = System.Drawing.SystemColors.Menu;
+            this.settings.Cursor = System.Windows.Forms.Cursors.Default;
             resources.ApplyResources(this.settings, "settings");
             this.settings.Name = "settings";
-            this.settings.UseVisualStyleBackColor = true;
+            this.settings.UseVisualStyleBackColor = false;
             this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // deschism
@@ -278,6 +273,13 @@ namespace Unowhy_Tools
             this.winre.Name = "winre";
             this.winre.UseVisualStyleBackColor = true;
             this.winre.Click += new System.EventHandler(this.winre_Click);
+            // 
+            // logo
+            // 
+            this.logo.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
+            resources.ApplyResources(this.logo, "logo");
+            this.logo.Name = "logo";
+            this.logo.TabStop = false;
             // 
             // main
             // 
