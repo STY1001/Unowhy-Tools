@@ -181,8 +181,10 @@ namespace Unowhy_Tools
             // 
             // settings
             // 
-            this.settings.BackColor = System.Drawing.SystemColors.Menu;
+            this.settings.BackColor = System.Drawing.SystemColors.Control;
             this.settings.Cursor = System.Windows.Forms.Cursors.Default;
+            this.settings.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.settings.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.settings, "settings");
             this.settings.Name = "settings";
             this.settings.UseVisualStyleBackColor = false;
