@@ -180,6 +180,9 @@
   <data name="newver" xml:space="preserve">
     <value>Nouvelle version disponible sur Github</value>
   </data>
+  <data name="no" xml:space="preserve">
+    <value>Non</value>
+  </data>
   <data name="nover" xml:space="preserve">
     <value>Pas de nouvelle version</value>
   </data>
@@ -206,5 +209,8 @@
   </data>
   <data name="winre" xml:space="preserve">
     <value>Réactiver "reagentc"</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Oui</value>
   </data>
 </root>
