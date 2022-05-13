@@ -13,11 +13,23 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Resources;
 using System.Net;
+using System.Runtime.InteropServices;
 
 namespace Unowhy_Tools
 {   
     public partial class main : Form
     {
+
+        [DllImport("DwmApi")] //System.Runtime.InteropServices
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            if (DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4) != 0)
+                DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
+        }
+
+
         public string resxFile = "null";
 
         public main()
@@ -144,6 +156,9 @@ namespace Unowhy_Tools
             descridf.Text = resxSet.GetString("descridf");
             winre.Text = resxSet.GetString("winre");
             descwinre.Text = resxSet.GetString("descwinre");
+
+
+            
 
         }
 

@@ -328,7 +328,7 @@
     <value>10</value>
   </data>
   <data name="ver.Text" xml:space="preserve">
-    <value>Version 6.0</value>
+    <value>Version 7.0</value>
   </data>
   <data name="&gt;&gt;ver.Name" xml:space="preserve">
     <value>ver</value>
@@ -1167,9 +1167,6 @@
         P5OzS3yDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgM
         BoPBYDAYDAaDwWAwGAwGg8FgMBgMo43/DzbuazDLXcAAAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

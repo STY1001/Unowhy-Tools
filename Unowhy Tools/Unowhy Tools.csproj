@@ -151,6 +151,7 @@
     <None Include="Resources\UT.icon.png" />
     <None Include="Resources\ut banner.png" />
     <None Include="Resources\UT Logo.png" />
+    <None Include="Resources\Question.png" />
     <Content Include="UT.ico" />
   </ItemGroup>
   <ItemGroup>

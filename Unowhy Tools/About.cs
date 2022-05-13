@@ -11,11 +11,21 @@ using System.Windows.Forms;
 using System.IO;
 using System.Resources;
 using Microsoft.Win32;
+using System.Runtime.InteropServices;
 
 namespace Unowhy_Tools
 {
     public partial class About : Form
     {
+        [DllImport("DwmApi")] //System.Runtime.InteropServices
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            if (DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4) != 0)
+                DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
+        }
+
         public string resxFile = "null";
 
         public About()
