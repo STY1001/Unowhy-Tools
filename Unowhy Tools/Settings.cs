@@ -67,7 +67,8 @@ namespace Unowhy_Tools
 
         private void okbtn_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\restart.exe");
+            //System.Diagnostics.Process.Start(".\\restart.exe");
+            Application.Restart();
         }
 
 

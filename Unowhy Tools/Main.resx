@@ -632,7 +632,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="descshell.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 167</value>
+    <value>256, 166</value>
   </data>
   <data name="descshell.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -662,7 +662,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="descstart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 254</value>
+    <value>256, 253</value>
   </data>
   <data name="descstart.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -692,7 +692,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="descent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 167</value>
+    <value>502, 166</value>
   </data>
   <data name="descent.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -701,7 +701,7 @@
     <value>Vertical</value>
   </data>
   <data name="descent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 33</value>
+    <value>209, 33</value>
   </data>
   <data name="descent.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -722,7 +722,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="deschismdel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 229</value>
+    <value>502, 228</value>
   </data>
   <data name="deschismdel.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -731,7 +731,7 @@
     <value>Vertical</value>
   </data>
   <data name="deschismdel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 33</value>
+    <value>209, 33</value>
   </data>
   <data name="deschismdel.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -752,7 +752,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="deschisdel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 291</value>
+    <value>502, 290</value>
   </data>
   <data name="deschisdel.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -761,7 +761,7 @@
     <value>Vertical</value>
   </data>
   <data name="deschisdel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 33</value>
+    <value>209, 33</value>
   </data>
   <data name="deschisdel.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -782,7 +782,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="desctidel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>501, 353</value>
+    <value>502, 352</value>
   </data>
   <data name="desctidel.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -791,7 +791,7 @@
     <value>Vertical</value>
   </data>
   <data name="desctidel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 33</value>
+    <value>209, 33</value>
   </data>
   <data name="desctidel.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -836,7 +836,7 @@
     <value>2</value>
   </data>
   <data name="descridf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>502, 416</value>
+    <value>502, 415</value>
   </data>
   <data name="descridf.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -845,7 +845,7 @@
     <value>Vertical</value>
   </data>
   <data name="descridf.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 33</value>
+    <value>209, 33</value>
   </data>
   <data name="descridf.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -866,7 +866,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="descwinre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 341</value>
+    <value>256, 340</value>
   </data>
   <data name="descwinre.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
