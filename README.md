@@ -48,6 +48,10 @@ More features come soon
 
 ![UT Screen](/README/UT6.0.png)
 
+7.0
+
+![UT Screen](/README/UT7.0.png)
+
 ***
 
 *STY1001*
