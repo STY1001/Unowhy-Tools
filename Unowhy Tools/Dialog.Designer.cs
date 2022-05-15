@@ -33,7 +33,11 @@ namespace Unowhy_Tools
             this.label = new System.Windows.Forms.Label();
             this.yes = new System.Windows.Forms.Button();
             this.no = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.icon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,9 +54,9 @@ namespace Unowhy_Tools
             // 
             this.yes.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.yes.ForeColor = System.Drawing.Color.Black;
-            this.yes.Location = new System.Drawing.Point(254, 54);
+            this.yes.Location = new System.Drawing.Point(231, 57);
             this.yes.Name = "yes";
-            this.yes.Size = new System.Drawing.Size(75, 23);
+            this.yes.Size = new System.Drawing.Size(38, 23);
             this.yes.TabIndex = 1;
             this.yes.Text = "Yes";
             this.yes.UseVisualStyleBackColor = true;
@@ -61,19 +65,39 @@ namespace Unowhy_Tools
             // 
             this.no.DialogResult = System.Windows.Forms.DialogResult.No;
             this.no.ForeColor = System.Drawing.Color.Black;
-            this.no.Location = new System.Drawing.Point(173, 54);
+            this.no.Location = new System.Drawing.Point(300, 57);
             this.no.Name = "no";
-            this.no.Size = new System.Drawing.Size(75, 23);
+            this.no.Size = new System.Drawing.Size(38, 23);
             this.no.TabIndex = 1;
             this.no.Text = "No";
             this.no.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.yes;
+            this.pictureBox2.Location = new System.Drawing.Point(209, 57);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.no;
+            this.pictureBox1.Location = new System.Drawing.Point(278, 57);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // icon
             // 
-            this.icon.Image = global::Unowhy_Tools.Properties.Resources.Question;
-            this.icon.Location = new System.Drawing.Point(12, 12);
+            this.icon.Image = global::Unowhy_Tools.Properties.Resources.question1;
+            this.icon.Location = new System.Drawing.Point(9, 9);
             this.icon.Name = "icon";
-            this.icon.Size = new System.Drawing.Size(30, 30);
+            this.icon.Size = new System.Drawing.Size(35, 35);
             this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.icon.TabIndex = 2;
             this.icon.TabStop = false;
@@ -83,7 +107,9 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(341, 89);
+            this.ClientSize = new System.Drawing.Size(341, 83);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.icon);
             this.Controls.Add(this.no);
             this.Controls.Add(this.yes);
@@ -97,6 +123,8 @@ namespace Unowhy_Tools
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Confirmation";
             this.Load += new System.EventHandler(this.dialog_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,5 +137,7 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button yes;
         private System.Windows.Forms.Button no;
         private System.Windows.Forms.PictureBox icon;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -21,7 +21,7 @@ namespace Unowhy_Tools
     {
         public string resxFile = "null";
 
-
+        //Set dark mode title bar
         [DllImport("DwmApi")] 
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
 
@@ -67,10 +67,10 @@ namespace Unowhy_Tools
             else
             {
                 System.Diagnostics.Process.Start(".\\langset.exe");
-                System.Threading.Thread.Sleep(1000);    //Wait the registery editing
+                System.Threading.Thread.Sleep(1000);                     //Wait the registery editing
                 var s = new Settings();
                 s.StartPosition = FormStartPosition.WindowsDefaultLocation;
-                s.Show();                                                                           //Show settings
+                s.Show();                                                //Show settings
                 s.StartPosition = FormStartPosition.CenterScreen;
             }
 

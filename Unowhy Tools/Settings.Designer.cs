@@ -34,13 +34,17 @@ namespace Unowhy_Tools
             this.okbtn = new System.Windows.Forms.Button();
             this.langsel = new System.Windows.Forms.ComboBox();
             this.cbupdate = new System.Windows.Forms.CheckBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // langlab
             // 
             this.langlab.AutoSize = true;
             this.langlab.ForeColor = System.Drawing.Color.White;
-            this.langlab.Location = new System.Drawing.Point(12, 27);
+            this.langlab.Location = new System.Drawing.Point(64, 15);
             this.langlab.Name = "langlab";
             this.langlab.Size = new System.Drawing.Size(61, 13);
             this.langlab.TabIndex = 0;
@@ -48,7 +52,7 @@ namespace Unowhy_Tools
             // 
             // okbtn
             // 
-            this.okbtn.Location = new System.Drawing.Point(175, 70);
+            this.okbtn.Location = new System.Drawing.Point(230, 73);
             this.okbtn.Name = "okbtn";
             this.okbtn.Size = new System.Drawing.Size(31, 23);
             this.okbtn.TabIndex = 1;
@@ -62,7 +66,7 @@ namespace Unowhy_Tools
             this.langsel.Items.AddRange(new object[] {
             "English",
             "French"});
-            this.langsel.Location = new System.Drawing.Point(79, 24);
+            this.langsel.Location = new System.Drawing.Point(131, 12);
             this.langsel.Name = "langsel";
             this.langsel.Size = new System.Drawing.Size(121, 21);
             this.langsel.TabIndex = 2;
@@ -72,7 +76,7 @@ namespace Unowhy_Tools
             // 
             this.cbupdate.AutoSize = true;
             this.cbupdate.ForeColor = System.Drawing.Color.White;
-            this.cbupdate.Location = new System.Drawing.Point(12, 76);
+            this.cbupdate.Location = new System.Drawing.Point(67, 47);
             this.cbupdate.Name = "cbupdate";
             this.cbupdate.Size = new System.Drawing.Size(140, 17);
             this.cbupdate.TabIndex = 3;
@@ -80,12 +84,32 @@ namespace Unowhy_Tools
             this.cbupdate.UseVisualStyleBackColor = true;
             this.cbupdate.CheckedChanged += new System.EventHandler(this.cbupdate_CheckedChanged);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(61, 67);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(35, 44);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(218, 105);
+            this.ClientSize = new System.Drawing.Size(264, 99);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbupdate);
             this.Controls.Add(this.langsel);
             this.Controls.Add(this.okbtn);
@@ -99,6 +123,8 @@ namespace Unowhy_Tools
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Settings_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +136,7 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button okbtn;
         private System.Windows.Forms.ComboBox langsel;
         private System.Windows.Forms.CheckBox cbupdate;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

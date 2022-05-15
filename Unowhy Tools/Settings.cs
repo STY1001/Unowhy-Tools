@@ -63,6 +63,8 @@ namespace Unowhy_Tools
             {
                 cbupdate.Checked = false;
             }
+
+            
         }
 
         private void okbtn_Click(object sender, EventArgs e)
