@@ -54,7 +54,7 @@ namespace Unowhy_Tools
             this.aver.Name = "aver";
             this.aver.Size = new System.Drawing.Size(93, 20);
             this.aver.TabIndex = 12;
-            this.aver.Text = "Version 7.0";
+            this.aver.Text = "Version 8.0";
             this.aver.Click += new System.EventHandler(this.label2_Click);
             // 
             // asty1001
@@ -70,9 +70,10 @@ namespace Unowhy_Tools
             // 
             // website
             // 
-            this.website.Location = new System.Drawing.Point(269, 12);
+            this.website.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.website.Location = new System.Drawing.Point(241, 12);
             this.website.Name = "website";
-            this.website.Size = new System.Drawing.Size(101, 34);
+            this.website.Size = new System.Drawing.Size(130, 34);
             this.website.TabIndex = 14;
             this.website.Text = "STY1001\'s WebSite";
             this.website.UseVisualStyleBackColor = true;
@@ -80,9 +81,11 @@ namespace Unowhy_Tools
             // 
             // github
             // 
-            this.github.Location = new System.Drawing.Point(269, 50);
+            this.github.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.github.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.github.Location = new System.Drawing.Point(241, 50);
             this.github.Name = "github";
-            this.github.Size = new System.Drawing.Size(101, 34);
+            this.github.Size = new System.Drawing.Size(130, 34);
             this.github.TabIndex = 15;
             this.github.Text = "Unowhy Tools\'s Github";
             this.github.UseVisualStyleBackColor = true;
@@ -90,9 +93,10 @@ namespace Unowhy_Tools
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(269, 90);
+            this.update.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.update.Location = new System.Drawing.Point(241, 90);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(101, 34);
+            this.update.Size = new System.Drawing.Size(130, 34);
             this.update.TabIndex = 17;
             this.update.Text = "Check for update";
             this.update.UseVisualStyleBackColor = true;
@@ -153,6 +157,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.website);
             this.Controls.Add(this.asty1001);
             this.Controls.Add(this.aver);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

@@ -53,7 +53,8 @@ namespace Unowhy_Tools
             // yes
             // 
             this.yes.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.yes.ForeColor = System.Drawing.Color.Black;
+            this.yes.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.yes.ForeColor = System.Drawing.Color.White;
             this.yes.Location = new System.Drawing.Point(231, 57);
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(38, 23);
@@ -64,7 +65,8 @@ namespace Unowhy_Tools
             // no
             // 
             this.no.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.no.ForeColor = System.Drawing.Color.Black;
+            this.no.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.no.ForeColor = System.Drawing.Color.White;
             this.no.Location = new System.Drawing.Point(300, 57);
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(38, 23);

@@ -99,58 +99,71 @@ namespace Unowhy_Tools
             // starthis
             // 
             this.starthis.BackColor = System.Drawing.Color.Transparent;
-            this.starthis.ForeColor = System.Drawing.Color.Black;
+            this.starthis.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.starthis, "starthis");
+            this.starthis.ForeColor = System.Drawing.Color.Black;
             this.starthis.Name = "starthis";
             this.starthis.UseVisualStyleBackColor = false;
             this.starthis.Click += new System.EventHandler(this.button1_Click);
             // 
             // stophis
             // 
-            this.stophis.ForeColor = System.Drawing.Color.Black;
+            this.stophis.BackColor = System.Drawing.Color.Transparent;
+            this.stophis.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.stophis, "stophis");
+            this.stophis.ForeColor = System.Drawing.Color.Black;
             this.stophis.Name = "stophis";
-            this.stophis.UseVisualStyleBackColor = true;
+            this.stophis.UseVisualStyleBackColor = false;
             this.stophis.Click += new System.EventHandler(this.button2_Click);
             // 
             // dishis
             // 
-            this.dishis.ForeColor = System.Drawing.Color.Black;
+            this.dishis.BackColor = System.Drawing.Color.Transparent;
+            this.dishis.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.dishis, "dishis");
+            this.dishis.ForeColor = System.Drawing.Color.Black;
             this.dishis.Name = "dishis";
-            this.dishis.UseVisualStyleBackColor = true;
+            this.dishis.UseVisualStyleBackColor = false;
             this.dishis.Click += new System.EventHandler(this.button3_Click);
             // 
             // enhis
             // 
-            this.enhis.ForeColor = System.Drawing.Color.Black;
+            this.enhis.BackColor = System.Drawing.Color.Transparent;
+            this.enhis.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.enhis, "enhis");
+            this.enhis.ForeColor = System.Drawing.Color.Black;
             this.enhis.Name = "enhis";
-            this.enhis.UseVisualStyleBackColor = true;
+            this.enhis.UseVisualStyleBackColor = false;
             this.enhis.Click += new System.EventHandler(this.button4_Click);
             // 
             // delhism
             // 
-            this.delhism.ForeColor = System.Drawing.Color.Black;
+            this.delhism.BackColor = System.Drawing.Color.Transparent;
+            this.delhism.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.delhism, "delhism");
+            this.delhism.ForeColor = System.Drawing.Color.Black;
             this.delhism.Name = "delhism";
-            this.delhism.UseVisualStyleBackColor = true;
+            this.delhism.UseVisualStyleBackColor = false;
             this.delhism.Click += new System.EventHandler(this.button5_Click);
             // 
             // delhis
             // 
-            this.delhis.ForeColor = System.Drawing.Color.Black;
+            this.delhis.BackColor = System.Drawing.Color.Transparent;
+            this.delhis.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.delhis, "delhis");
+            this.delhis.ForeColor = System.Drawing.Color.Black;
             this.delhis.Name = "delhis";
-            this.delhis.UseVisualStyleBackColor = true;
+            this.delhis.UseVisualStyleBackColor = false;
             this.delhis.Click += new System.EventHandler(this.button6_Click);
             // 
             // shell
             // 
-            this.shell.ForeColor = System.Drawing.Color.Black;
+            this.shell.BackColor = System.Drawing.Color.Transparent;
+            this.shell.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.shell, "shell");
+            this.shell.ForeColor = System.Drawing.Color.Black;
             this.shell.Name = "shell";
-            this.shell.UseVisualStyleBackColor = true;
+            this.shell.UseVisualStyleBackColor = false;
             this.shell.Click += new System.EventHandler(this.button7_Click);
             // 
             // ver
@@ -169,30 +182,42 @@ namespace Unowhy_Tools
             // 
             // ent
             // 
+            this.ent.BackColor = System.Drawing.Color.Transparent;
+            this.ent.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.ent, "ent");
+            this.ent.ForeColor = System.Drawing.Color.Black;
             this.ent.Name = "ent";
-            this.ent.UseVisualStyleBackColor = true;
+            this.ent.UseVisualStyleBackColor = false;
             this.ent.Click += new System.EventHandler(this.button8_Click);
             // 
             // about
             // 
+            this.about.BackColor = System.Drawing.Color.Transparent;
+            this.about.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.about, "about");
+            this.about.ForeColor = System.Drawing.Color.Black;
             this.about.Name = "about";
-            this.about.UseVisualStyleBackColor = true;
+            this.about.UseVisualStyleBackColor = false;
             this.about.Click += new System.EventHandler(this.button9_Click);
             // 
             // fixboot
             // 
+            this.fixboot.BackColor = System.Drawing.Color.Transparent;
+            this.fixboot.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.fixboot, "fixboot");
+            this.fixboot.ForeColor = System.Drawing.Color.Black;
             this.fixboot.Name = "fixboot";
-            this.fixboot.UseVisualStyleBackColor = true;
+            this.fixboot.UseVisualStyleBackColor = false;
             this.fixboot.Click += new System.EventHandler(this.button10_Click);
             // 
             // delti
             // 
+            this.delti.BackColor = System.Drawing.Color.Transparent;
+            this.delti.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.delti, "delti");
+            this.delti.ForeColor = System.Drawing.Color.Black;
             this.delti.Name = "delti";
-            this.delti.UseVisualStyleBackColor = true;
+            this.delti.UseVisualStyleBackColor = false;
             this.delti.Click += new System.EventHandler(this.button11_Click);
             // 
             // servicecat
@@ -215,11 +240,11 @@ namespace Unowhy_Tools
             // 
             // settings
             // 
-            this.settings.BackColor = System.Drawing.SystemColors.Control;
+            this.settings.BackColor = System.Drawing.Color.Black;
             this.settings.Cursor = System.Windows.Forms.Cursors.Default;
             this.settings.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.settings.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.settings, "settings");
+            this.settings.ForeColor = System.Drawing.Color.Black;
             this.settings.Name = "settings";
             this.settings.UseVisualStyleBackColor = false;
             this.settings.Click += new System.EventHandler(this.settings_Click);
@@ -282,9 +307,12 @@ namespace Unowhy_Tools
             // 
             // delridf
             // 
+            this.delridf.BackColor = System.Drawing.Color.Transparent;
+            this.delridf.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.delridf, "delridf");
+            this.delridf.ForeColor = System.Drawing.Color.Black;
             this.delridf.Name = "delridf";
-            this.delridf.UseVisualStyleBackColor = true;
+            this.delridf.UseVisualStyleBackColor = false;
             this.delridf.Click += new System.EventHandler(this.delridf_Click);
             // 
             // descridf
@@ -305,9 +333,12 @@ namespace Unowhy_Tools
             // 
             // winre
             // 
+            this.winre.BackColor = System.Drawing.Color.Transparent;
+            this.winre.FlatAppearance.BorderColor = System.Drawing.Color.White;
             resources.ApplyResources(this.winre, "winre");
+            this.winre.ForeColor = System.Drawing.Color.Black;
             this.winre.Name = "winre";
-            this.winre.UseVisualStyleBackColor = true;
+            this.winre.UseVisualStyleBackColor = false;
             this.winre.Click += new System.EventHandler(this.winre_Click);
             // 
             // pictureBox17
@@ -441,6 +472,7 @@ namespace Unowhy_Tools
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.descwinre);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox16);
             this.Controls.Add(this.pictureBox15);
@@ -461,7 +493,6 @@ namespace Unowhy_Tools
             this.Controls.Add(this.winre);
             this.Controls.Add(this.descridf);
             this.Controls.Add(this.delridf);
-            this.Controls.Add(this.descwinre);
             this.Controls.Add(this.descstart);
             this.Controls.Add(this.desctidel);
             this.Controls.Add(this.deschisdel);
@@ -491,6 +522,7 @@ namespace Unowhy_Tools
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "main";
+            this.Load += new System.EventHandler(this.main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();

@@ -47,7 +47,7 @@ namespace Unowhy_Tools
             // 
             this.newverlab.AutoSize = true;
             this.newverlab.ForeColor = System.Drawing.Color.White;
-            this.newverlab.Location = new System.Drawing.Point(58, 24);
+            this.newverlab.Location = new System.Drawing.Point(67, 24);
             this.newverlab.Name = "newverlab";
             this.newverlab.Size = new System.Drawing.Size(170, 13);
             this.newverlab.TabIndex = 0;
@@ -56,6 +56,7 @@ namespace Unowhy_Tools
             // 
             // git
             // 
+            this.git.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.git.Location = new System.Drawing.Point(95, 58);
             this.git.Name = "git";
             this.git.Size = new System.Drawing.Size(75, 23);
@@ -66,6 +67,7 @@ namespace Unowhy_Tools
             // 
             // ok
             // 
+            this.ok.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.ok.Location = new System.Drawing.Point(196, 58);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(75, 23);
@@ -77,7 +79,7 @@ namespace Unowhy_Tools
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Unowhy_Tools.Properties.Resources.yesupdate;
-            this.pictureBox4.Location = new System.Drawing.Point(37, 42);
+            this.pictureBox4.Location = new System.Drawing.Point(43, 42);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(20, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -87,7 +89,7 @@ namespace Unowhy_Tools
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Unowhy_Tools.Properties.Resources.update;
-            this.pictureBox3.Location = new System.Drawing.Point(6, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 12);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(40, 40);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -127,6 +129,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.ok);
             this.Controls.Add(this.git);
             this.Controls.Add(this.newverlab);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

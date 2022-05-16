@@ -53,7 +53,9 @@ namespace Unowhy_Tools
             // 
             // nook
             // 
-            this.nook.Location = new System.Drawing.Point(148, 61);
+            this.nook.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.nook.ForeColor = System.Drawing.Color.White;
+            this.nook.Location = new System.Drawing.Point(147, 57);
             this.nook.Name = "nook";
             this.nook.Size = new System.Drawing.Size(75, 23);
             this.nook.TabIndex = 1;
@@ -84,7 +86,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox2.Location = new System.Drawing.Point(126, 62);
+            this.pictureBox2.Location = new System.Drawing.Point(125, 58);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -96,7 +98,7 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(226, 87);
+            this.ClientSize = new System.Drawing.Size(226, 84);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);

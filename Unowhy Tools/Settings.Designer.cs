@@ -101,7 +101,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.update;
-            this.pictureBox2.Location = new System.Drawing.Point(10, 42);
+            this.pictureBox2.Location = new System.Drawing.Point(6, 42);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -111,7 +111,7 @@ namespace Unowhy_Tools
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Unowhy_Tools.Properties.Resources.startup;
-            this.pictureBox3.Location = new System.Drawing.Point(26, 52);
+            this.pictureBox3.Location = new System.Drawing.Point(22, 52);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(10, 10);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

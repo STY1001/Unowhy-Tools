@@ -121,8 +121,8 @@ namespace Unowhy_Tools
 
             string enresx = @".\en.resx" ;
             string frresx = @".\fr.resx" ;
-
-            if (utls == "EN")resxFile = enresx ;    //English   //Chose the ResX file
+                                                     //Chose the ResX file
+            if (utls == "EN")resxFile = enresx ;    //English   
             else resxFile = frresx ;               //French
 
             
@@ -314,6 +314,11 @@ namespace Unowhy_Tools
             {
                 System.Diagnostics.Process.Start(".\\winre.exe");       //Enable reagent
             }
+        }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
