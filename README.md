@@ -52,6 +52,10 @@ More features come soon
 
 ![UT Screen](/README/UT7.0.png)
 
+8.0
+
+![UT Screen](/README/UT8.0.png)
+
 ***
 
 *STY1001*
