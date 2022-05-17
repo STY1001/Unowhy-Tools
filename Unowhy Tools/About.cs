@@ -65,12 +65,12 @@ namespace Unowhy_Tools
             if(progint < gitint)        //Check if there is a new vertion of UT
             {
                 var nv = new newver();  
-                nv.Show();
+                nv.ShowDialog();
             }
             else
             {
                 var nov = new nonew();
-                nov.Show();
+                nov.ShowDialog();
             }
         }
 

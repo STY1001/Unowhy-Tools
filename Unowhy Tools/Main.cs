@@ -70,7 +70,7 @@ namespace Unowhy_Tools
                 System.Threading.Thread.Sleep(1000);                     //Wait the registery editing
                 var s = new Settings();
                 s.StartPosition = FormStartPosition.WindowsDefaultLocation;
-                s.Show();                                                //Show settings
+                s.ShowDialog();                                                //Show settings
                 s.StartPosition = FormStartPosition.CenterScreen;
             }
 
@@ -99,9 +99,7 @@ namespace Unowhy_Tools
                     if (progint < gitint)        //Check if there is a new vertion of UT
                     {
                         var s = new newver();
-                        s.StartPosition = FormStartPosition.WindowsDefaultLocation;
-                        s.Show();
-                        s.StartPosition = FormStartPosition.CenterScreen;
+                        s.ShowDialog();
                     }
                     else
                     {
@@ -165,7 +163,7 @@ namespace Unowhy_Tools
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void starthis_Click(object sender, EventArgs e)
         {
             string msg = starthis.Text;
             dialog d = new dialog(msg);
@@ -177,7 +175,7 @@ namespace Unowhy_Tools
                       
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void stophis_Click(object sender, EventArgs e)
         {
             string msg = stophis.Text;
             dialog d = new dialog(msg);
@@ -188,7 +186,7 @@ namespace Unowhy_Tools
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void enhis_Click(object sender, EventArgs e)
         {
             string msg = enhis.Text;
             dialog d = new dialog(msg);
@@ -199,7 +197,7 @@ namespace Unowhy_Tools
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void dishis_Click(object sender, EventArgs e)
         {
             string msg = dishis.Text;
             dialog d = new dialog(msg);
@@ -210,7 +208,7 @@ namespace Unowhy_Tools
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void delhis_Click(object sender, EventArgs e)
         {
             string msg = delhis.Text;
             dialog d = new dialog(msg);
@@ -221,7 +219,7 @@ namespace Unowhy_Tools
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void delhism_Click(object sender, EventArgs e)
         {
             string msg = delhism.Text;
             dialog d = new dialog(msg);
@@ -232,7 +230,7 @@ namespace Unowhy_Tools
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void shell_Click(object sender, EventArgs e)
         {
             string msg = shell.Text;
             dialog d = new dialog(msg);
@@ -243,7 +241,7 @@ namespace Unowhy_Tools
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void delent_Click(object sender, EventArgs e)
         {
             string msg = ent.Text;
             dialog d = new dialog(msg);
@@ -259,13 +257,13 @@ namespace Unowhy_Tools
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void about_Click(object sender, EventArgs e)
         {
             var a = new About();    //Launch About form
-            a.Show();
+            a.ShowDialog();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void fixboot_Click(object sender, EventArgs e)
         {
             string msg = fixboot.Text;
             dialog d = new dialog(msg);
@@ -276,7 +274,7 @@ namespace Unowhy_Tools
             }
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void delti_Click(object sender, EventArgs e)
         {
             string msg = delti.Text;
             dialog d = new dialog(msg);
@@ -290,8 +288,7 @@ namespace Unowhy_Tools
         private void settings_Click(object sender, EventArgs e)
         {
             var s = new Settings();     //Show settings
-            s.Show();
-            //this.Close();
+            s.ShowDialog();
         }
 
         private void delridf_Click(object sender, EventArgs e)
@@ -319,6 +316,12 @@ namespace Unowhy_Tools
         private void main_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pcname_Click(object sender, EventArgs e)
+        {
+            var pcn = new pcname();
+            pcn.ShowDialog();
         }
     }
 }
