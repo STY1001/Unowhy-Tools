@@ -44,7 +44,7 @@ namespace Unowhy_Tools
             this.MinimizeBox = false;
             this.Name = "pcname";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "pcname";
+            this.Text = "Windows PC name";
             this.Load += new System.EventHandler(this.pcname_Load);
             this.ResumeLayout(false);
 
