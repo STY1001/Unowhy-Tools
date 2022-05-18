@@ -14,12 +14,20 @@ using System.Globalization;
 using System.Resources;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Windows;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Unowhy_Tools
 {   
     public partial class main : Form
     {
         public string resxFile = "null";
+
+        public void SplashScreen()
+        {
+            Application.Run(new Splash());
+        }
 
         //Set dark mode title bar
         [DllImport("DwmApi")] 
@@ -34,7 +42,9 @@ namespace Unowhy_Tools
 
         public main()
         {
-            
+            Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
+            t.Start();
+
             RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);   //Check if the  "STY1001" key exist
             if (keysty != null)
             {
@@ -57,7 +67,7 @@ namespace Unowhy_Tools
                 utkey.CreateSubKey("Unowhy Tools");
                 
             }
-
+            System.Threading.Thread.Sleep(1000);
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools");       //Open key
             object us = key.GetValue("UpdateStart", null);
             if (us != null)
@@ -81,11 +91,14 @@ namespace Unowhy_Tools
                 System.Threading.Thread.Sleep(1000);                     //Wait the registery editing
                 var s = new Settings(1);
                 //s.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                t.Abort();
                 s.ShowDialog();                                                //Show settings
                 //s.StartPosition = FormStartPosition.CenterScreen;
                 System.Threading.Thread.Sleep(1000);
             }
-
+            System.Threading.Thread.Sleep(1000);
+            Thread t2 = new Thread(new ThreadStart(SplashScreen));
+            
             object u = key.GetValue("UpdateStart", null);
             if (u != null)
             {
@@ -111,6 +124,8 @@ namespace Unowhy_Tools
                     if (progint < gitint)        //Check if there is a new vertion of UT
                     {
                         var s = new newver();
+                        t.Abort();
+                        t2.Abort();
                         s.ShowDialog();
                     }
                     else
@@ -123,6 +138,10 @@ namespace Unowhy_Tools
             {
                 
             }
+
+            Thread t3 = new Thread(new ThreadStart(SplashScreen));
+            t3.Start();
+
 
             //Check the current saved language
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
@@ -170,6 +189,7 @@ namespace Unowhy_Tools
             descwinre.Text = resxSet.GetString("descwinre");
             descpcname.Text = resxSet.GetString("descpcname");
 
+            t3.Abort();
             
 
         }
