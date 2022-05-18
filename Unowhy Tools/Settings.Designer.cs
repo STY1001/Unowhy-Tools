@@ -66,6 +66,8 @@ namespace Unowhy_Tools
             // 
             // langsel
             // 
+            this.langsel.BackColor = System.Drawing.Color.Black;
+            this.langsel.ForeColor = System.Drawing.Color.White;
             this.langsel.FormattingEnabled = true;
             this.langsel.Items.AddRange(new object[] {
             "English",

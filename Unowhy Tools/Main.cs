@@ -59,6 +59,17 @@ namespace Unowhy_Tools
             }
 
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools");       //Open key
+            object us = key.GetValue("UpdateStart", null);
+            if (us != null)
+            {
+
+            }
+            else
+            {
+                System.Diagnostics.Process.Start(".\\cuabon.exe");      //Set check boot at startup at on
+                System.Threading.Thread.Sleep(1000);    //Wait the registery editing
+            }
+
             object o = key.GetValue("Lang", null);
             if (o != null)
             {
@@ -68,10 +79,11 @@ namespace Unowhy_Tools
             {
                 System.Diagnostics.Process.Start(".\\langset.exe");
                 System.Threading.Thread.Sleep(1000);                     //Wait the registery editing
-                var s = new Settings();
-                s.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                var s = new Settings(1);
+                //s.StartPosition = FormStartPosition.WindowsDefaultLocation;
                 s.ShowDialog();                                                //Show settings
-                s.StartPosition = FormStartPosition.CenterScreen;
+                //s.StartPosition = FormStartPosition.CenterScreen;
+                System.Threading.Thread.Sleep(1000);
             }
 
             object u = key.GetValue("UpdateStart", null);
@@ -109,8 +121,7 @@ namespace Unowhy_Tools
             }
             else
             {
-                System.Diagnostics.Process.Start(".\\cuabon.exe");      //Set check boot at startup at on
-                System.Threading.Thread.Sleep(1000);    //Wait the registery editing
+                
             }
 
             //Check the current saved language
@@ -123,8 +134,8 @@ namespace Unowhy_Tools
             if (utls == "EN")resxFile = enresx ;    //English   
             else resxFile = frresx ;               //French
 
-            
 
+            System.Threading.Thread.Sleep(1000);
             InitializeComponent();
 
 
@@ -157,7 +168,7 @@ namespace Unowhy_Tools
             descridf.Text = resxSet.GetString("descridf");
             winre.Text = resxSet.GetString("winre");
             descwinre.Text = resxSet.GetString("descwinre");
-
+            descpcname.Text = resxSet.GetString("descpcname");
 
             
 
@@ -287,7 +298,7 @@ namespace Unowhy_Tools
 
         private void settings_Click(object sender, EventArgs e)
         {
-            var s = new Settings();     //Show settings
+            var s = new Settings(0);     //Show settings
             s.ShowDialog();
         }
 

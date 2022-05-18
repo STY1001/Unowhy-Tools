@@ -16,6 +16,8 @@ namespace Unowhy_Tools
 {
     public partial class Settings : Form
     {
+        public int fss;
+
         [DllImport("DwmApi")] //System.Runtime.InteropServices
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
 
@@ -27,9 +29,9 @@ namespace Unowhy_Tools
 
         public string resxFile = "null";
 
-        public Settings()
+        public Settings(int fs)
         {
-
+            int fss = fs;
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
 
@@ -70,7 +72,15 @@ namespace Unowhy_Tools
         private void okbtn_Click(object sender, EventArgs e)
         {
             //System.Diagnostics.Process.Start(".\\restart.exe");
-            Application.Restart();
+            if(fss == 1)
+            {
+                this.Close();
+            }
+            else
+            {    
+                Application.Restart();
+            }
+            
         }
 
 

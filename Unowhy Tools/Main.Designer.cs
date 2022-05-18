@@ -81,6 +81,7 @@ namespace Unowhy_Tools
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.cuscat = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.descpcname = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
@@ -507,6 +508,14 @@ namespace Unowhy_Tools
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Name = "label1";
             // 
+            // descpcname
+            // 
+            this.descpcname.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.descpcname, "descpcname");
+            this.descpcname.ForeColor = System.Drawing.Color.White;
+            this.descpcname.Name = "descpcname";
+            this.descpcname.ReadOnly = true;
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -540,6 +549,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.desctidel);
             this.Controls.Add(this.deschisdel);
             this.Controls.Add(this.deschismdel);
+            this.Controls.Add(this.descpcname);
             this.Controls.Add(this.descent);
             this.Controls.Add(this.descshell);
             this.Controls.Add(this.deschism);
@@ -646,6 +656,7 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.Label cuscat;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox descpcname;
     }
 }
 
