@@ -14,6 +14,7 @@ Currently, with this tools you can:
 - Delete "TO_INSTALL" folder
 - Enable "reagentc" (Recovery)
 - Delete "RIDF" folder
+- Change Windows PC name
 
 More features come soon
 
