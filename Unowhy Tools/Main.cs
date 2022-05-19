@@ -89,15 +89,17 @@ namespace Unowhy_Tools
             {
                 System.Diagnostics.Process.Start(".\\langset.exe");
                 System.Threading.Thread.Sleep(1000);                     //Wait the registery editing
-                var s = new Settings(1);
+                var s = new Settings("1");
                 //s.StartPosition = FormStartPosition.WindowsDefaultLocation;
                 t.Abort();
                 s.ShowDialog();                                                //Show settings
                 //s.StartPosition = FormStartPosition.CenterScreen;
                 System.Threading.Thread.Sleep(1000);
             }
-            System.Threading.Thread.Sleep(1000);
             Thread t2 = new Thread(new ThreadStart(SplashScreen));
+            t2.Start();
+            System.Threading.Thread.Sleep(1000);
+            
             
             object u = key.GetValue("UpdateStart", null);
             if (u != null)
@@ -189,6 +191,8 @@ namespace Unowhy_Tools
             descwinre.Text = resxSet.GetString("descwinre");
             descpcname.Text = resxSet.GetString("descpcname");
 
+            t.Abort();
+            t2.Abort();
             t3.Abort();
             
 
@@ -318,7 +322,7 @@ namespace Unowhy_Tools
 
         private void settings_Click(object sender, EventArgs e)
         {
-            var s = new Settings(0);     //Show settings
+            var s = new Settings("0");     //Show settings
             s.ShowDialog();
         }
 
@@ -351,7 +355,7 @@ namespace Unowhy_Tools
 
         private void pcname_Click(object sender, EventArgs e)
         {
-            var pcn = new pcname();
+            var pcn = new PCName();
             pcn.ShowDialog();
         }
     }

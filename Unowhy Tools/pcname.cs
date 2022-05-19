@@ -18,7 +18,7 @@ using System.Text.RegularExpressions;
 
 namespace Unowhy_Tools
 {
-    public partial class pcname : Form
+    public partial class PCName : Form
     {
         public string resxFile = "null";
 
@@ -32,7 +32,7 @@ namespace Unowhy_Tools
                 DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
         }
 
-        public pcname()
+        public PCName()
         {
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
@@ -94,7 +94,8 @@ namespace Unowhy_Tools
                 {
                     avert.Visible = false;
                     string name = changename.Text;
-                    string arg = ($"-Command {{Rename-Computer -NewName \"{name}\" -force}}");
+                    string arg = ($"-Command {{Rename-Computer -NewName \"{name}\" -Force}}");
+                    //MessageBox.Show(arg); //Debug
                     actualname.Text = name;
                     System.Diagnostics.Process.Start("powershell", arg);
                 }

@@ -97,11 +97,11 @@
     <Compile Include="nonew.Designer.cs">
       <DependentUpon>nonew.cs</DependentUpon>
     </Compile>
-    <Compile Include="pcname.cs">
+    <Compile Include="PCName.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pcname.Designer.cs">
-      <DependentUpon>pcname.cs</DependentUpon>
+    <Compile Include="PCName.Designer.cs">
+      <DependentUpon>PCName.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,8 +138,8 @@
     <EmbeddedResource Include="nonew.resx">
       <DependentUpon>nonew.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pcname.resx">
-      <DependentUpon>pcname.cs</DependentUpon>
+    <EmbeddedResource Include="PCName.resx">
+      <DependentUpon>PCName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

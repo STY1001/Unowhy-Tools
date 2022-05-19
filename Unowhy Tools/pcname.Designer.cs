@@ -1,7 +1,7 @@
 ﻿
 namespace Unowhy_Tools
 {
-    partial class pcname
+    partial class PCName
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Unowhy_Tools
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pcname));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PCName));
             this.ancat = new System.Windows.Forms.Label();
             this.actualname = new System.Windows.Forms.Label();
             this.changename = new System.Windows.Forms.TextBox();
