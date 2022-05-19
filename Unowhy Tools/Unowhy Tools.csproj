@@ -162,49 +162,68 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\about.png" />
+    <None Include="Resources\customize.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\deluser.png" />
+    <None Include="Resources\disable.png" />
+    <None Include="Resources\enable.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\github.png" />
+    <None Include="Resources\language.png" />
+    <None Include="Resources\laptop.png" />
+    <None Include="Resources\Logo-unowhy.svg.png" />
+    <None Include="Resources\no.png" />
+    <None Include="Resources\noupdate.png" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\recovery.png" />
+    <None Include="Resources\registry.png" />
+    <None Include="Resources\repair.png" />
+    <None Include="Resources\script.png" />
+    <None Include="Resources\service.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\start.png" />
+    <None Include="Resources\startup.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\uninstall.png" />
+    <None Include="Resources\update.png" />
+    <None Include="Resources\ut banner.png" />
+    <None Include="Resources\UT Logo.png" />
+    <None Include="Resources\UT.icon.png" />
+    <None Include="Resources\UTLB.png" />
+    <None Include="Resources\UTLW.png" />
+    <None Include="Resources\yes.png" />
+    <None Include="Resources\yesupdate.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logo-unowhy.svg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\UTLW.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\UTLB.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\UT.icon.png" />
-    <None Include="Resources\ut banner.png" />
-    <None Include="Resources\UT Logo.png" />
-    <None Include="Resources\about.png" />
-    <None Include="Resources\settings.png" />
-    <None Include="Resources\start.png" />
-    <None Include="Resources\stop.png" />
-    <None Include="Resources\enable.png" />
-    <None Include="Resources\disable.png" />
-    <None Include="Resources\registry.png" />
-    <None Include="Resources\script.png" />
-    <None Include="Resources\recovery.png" />
-    <None Include="Resources\deluser.png" />
-    <None Include="Resources\folder.png" />
-    <None Include="Resources\uninstall.png" />
-    <None Include="Resources\service.png" />
-    <None Include="Resources\repair.png" />
-    <None Include="Resources\delete.png" />
-    <None Include="Resources\github.png" />
-    <None Include="Resources\yes.png" />
-    <None Include="Resources\update.png" />
-    <None Include="Resources\yesupdate.png" />
-    <None Include="Resources\noupdate.png" />
-    <None Include="Resources\startup.png" />
-    <None Include="Resources\language.png" />
-    <None Include="Resources\laptop.png" />
-    <None Include="Resources\question.png" />
-    <None Include="Resources\no.png" />
-    <None Include="Resources\customize.png" />
+    <Content Include="Resources\about.ico" />
+    <Content Include="Resources\delete.ico" />
+    <Content Include="Resources\deluser.ico" />
+    <Content Include="Resources\disable.ico" />
+    <Content Include="Resources\enable.ico" />
+    <Content Include="Resources\folder.ico" />
+    <Content Include="Resources\github.ico" />
+    <Content Include="Resources\language.ico" />
+    <Content Include="Resources\laptop.ico" />
+    <Content Include="Resources\no.ico" />
+    <Content Include="Resources\noupdate.ico" />
+    <Content Include="Resources\question.ico" />
+    <Content Include="Resources\recovery.ico" />
+    <Content Include="Resources\registry.ico" />
+    <Content Include="Resources\repair.ico" />
+    <Content Include="Resources\script.ico" />
+    <Content Include="Resources\service.ico" />
+    <Content Include="Resources\settings.ico" />
+    <Content Include="Resources\start.ico" />
+    <Content Include="Resources\startup.ico" />
+    <Content Include="Resources\stop.ico" />
+    <Content Include="Resources\uninstall.ico" />
+    <Content Include="Resources\update.ico" />
+    <Content Include="Resources\yes.ico" />
+    <Content Include="Resources\yesupdate.ico" />
     <Content Include="UT.ico" />
   </ItemGroup>
   <ItemGroup>
