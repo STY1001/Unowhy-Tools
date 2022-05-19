@@ -120,6 +120,18 @@
   <data name="about" xml:space="preserve">
     <value>A propos</value>
   </data>
+  <data name="ancat" xml:space="preserve">
+    <value>Nom actuel</value>
+  </data>
+  <data name="avert" xml:space="preserve">
+    <value>Le nom doit être composé de caractères alphanumériques (tirets autorisés) entre 2 et 15 caractères mais sans caractères spéciaux ni espace</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="cncat" xml:space="preserve">
+    <value>Changer le nom</value>
+  </data>
   <data name="cuab" xml:space="preserve">
     <value>Vérifier les MAJ au démarrage</value>
   </data>
@@ -149,6 +161,9 @@
   </data>
   <data name="deschismdel" xml:space="preserve">
     <value>Supprimer le gros dossier "HiSqool Manager"</value>
+  </data>
+  <data name="descpcname" xml:space="preserve">
+    <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC.</value>
   </data>
   <data name="descridf" xml:space="preserve">
     <value>Supprimer le dossier qui contient le script et la video de la première connexion</value>
@@ -185,6 +200,9 @@
   </data>
   <data name="nover" xml:space="preserve">
     <value>Pas de nouvelle version</value>
+  </data>
+  <data name="pcname" xml:space="preserve">
+    <value>Changer le nom du PC Windows</value>
   </data>
   <data name="repaircat" xml:space="preserve">
     <value>↓ Réparer ↓</value>
