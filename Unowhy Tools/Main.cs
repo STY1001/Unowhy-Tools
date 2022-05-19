@@ -140,10 +140,10 @@ namespace Unowhy_Tools
             {
                 
             }
-
+            System.Threading.Thread.Sleep(1000);
             Thread t3 = new Thread(new ThreadStart(SplashScreen));
             t3.Start();
-
+            System.Threading.Thread.Sleep(1000);
 
             //Check the current saved language
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);

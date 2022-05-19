@@ -15,13 +15,16 @@ namespace Unowhy_Tools
         public Splash()
         {
             InitializeComponent();
-            System.Threading.Thread.Sleep(100);
-            this.FormBorderStyle = FormBorderStyle.None ;
         }
 
         private void Splash_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
