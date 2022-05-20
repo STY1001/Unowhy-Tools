@@ -198,6 +198,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Unowhy_Tools
 {   
@@ -210,7 +211,8 @@ namespace Unowhy_Tools
             Application.Run(new Splash());
         }
 
-                                            //Set dark mode title bar
+        //Set dark mode title bar
+
         [DllImport("DwmApi")] 
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
 
@@ -223,9 +225,11 @@ namespace Unowhy_Tools
 
         public main()
         {
+            
             Console.WriteLine("=======================");
             Console.WriteLine("Unowhy Tools by STY1001");
             Console.WriteLine("=======================");
+
 
 
             Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
@@ -280,17 +284,18 @@ namespace Unowhy_Tools
                 var s = new Settings("1");
                 //s.StartPosition = FormStartPosition.WindowsDefaultLocation;
                 t.Abort();
+                System.Threading.Thread.Sleep(100);
                 s.ShowDialog();                                                //Show settings
                 //s.StartPosition = FormStartPosition.CenterScreen;
                 System.Threading.Thread.Sleep(1000);
             }
 
+            t.Abort();
             Thread t2 = new Thread(new ThreadStart(SplashScreen));   //Splash
             t2.Start();     //Splash
 
             System.Threading.Thread.Sleep(1000);
-            
-            
+
             object u = key.GetValue("UpdateStart", null);
             if (u != null)
             {
@@ -318,6 +323,7 @@ namespace Unowhy_Tools
                         var s = new newver();
                         t.Abort(); // Close Splash
                         t2.Abort(); // Close Splash
+                        System.Threading.Thread.Sleep(100);
                         s.ShowDialog();
                     }
                     else
@@ -355,7 +361,9 @@ namespace Unowhy_Tools
 
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
-            //Apply Resources Strings
+
+            //Apply Language
+
             starthis.Text = resxSet.GetString("starthis");
             stophis.Text = resxSet.GetString("stophis");
             enhis.Text = resxSet.GetString("enhis");
@@ -388,11 +396,11 @@ namespace Unowhy_Tools
             descdeloem.Text = resxSet.GetString("descdeloem");
             deloem.Text = resxSet.GetString("deloem");
 
+
             // Close Splash
             t.Abort();
             t2.Abort();
             t3.Abort();
-            
 
         }
 
@@ -485,11 +493,6 @@ namespace Unowhy_Tools
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void about_Click(object sender, EventArgs e)
         {
             var a = new About();    //Launch About form
@@ -546,11 +549,6 @@ namespace Unowhy_Tools
             }
         }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pcname_Click(object sender, EventArgs e)
         {
             var pcn = new PCName();     // Change the Name of PC
@@ -564,8 +562,30 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\deloem.exe");
+                System.Diagnostics.Process.Start(".\\deloem.exe");          // Delete OEM folder
             }
+        }
+
+        private void logo_Click(object sender, EventArgs e)
+        {
+            // Presentation Mode
+
+            string msg = shell.Text;
+            dialog d = new dialog(msg);
+            d.Show();
+
+            var s = new Settings("1");
+            s.Show();
+
+            var a = new About();
+            a.Show();
+
+            var v = new newver();
+            v.Show();
+
+            var p = new PCName();
+            p.Show();
+
         }
     }
 }

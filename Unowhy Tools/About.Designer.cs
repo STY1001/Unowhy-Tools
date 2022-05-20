@@ -52,9 +52,9 @@ namespace Unowhy_Tools
             this.aver.ForeColor = System.Drawing.Color.White;
             this.aver.Location = new System.Drawing.Point(8, 88);
             this.aver.Name = "aver";
-            this.aver.Size = new System.Drawing.Size(93, 20);
+            this.aver.Size = new System.Drawing.Size(102, 20);
             this.aver.TabIndex = 12;
-            this.aver.Text = "Version 9.0";
+            this.aver.Text = "Version 10.0";
             this.aver.Click += new System.EventHandler(this.label2_Click);
             // 
             // asty1001

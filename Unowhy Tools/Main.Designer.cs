@@ -492,6 +492,7 @@ namespace Unowhy_Tools
             resources.ApplyResources(this.logo, "logo");
             this.logo.Name = "logo";
             this.logo.TabStop = false;
+            this.logo.Click += new System.EventHandler(this.logo_Click);
             // 
             // pictureBox19
             // 
@@ -609,7 +610,6 @@ namespace Unowhy_Tools
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "main";
-            this.Load += new System.EventHandler(this.main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
