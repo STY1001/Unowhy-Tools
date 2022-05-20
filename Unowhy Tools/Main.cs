@@ -378,6 +378,8 @@ namespace Unowhy_Tools
             winre.Text = resxSet.GetString("winre");
             descwinre.Text = resxSet.GetString("descwinre");
             descpcname.Text = resxSet.GetString("descpcname");
+            pcname.Text = resxSet.GetString("pcname");
+            cuscat.Text = resxSet.GetString("cuscat");
 
             // Close Splash
             t.Abort();
