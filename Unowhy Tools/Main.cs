@@ -223,6 +223,11 @@ namespace Unowhy_Tools
 
         public main()
         {
+            Console.WriteLine("=======================");
+            Console.WriteLine("Unowhy Tools by STY1001");
+            Console.WriteLine("=======================");
+
+
             Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
             t.Start();
 
@@ -380,6 +385,8 @@ namespace Unowhy_Tools
             descpcname.Text = resxSet.GetString("descpcname");
             pcname.Text = resxSet.GetString("pcname");
             cuscat.Text = resxSet.GetString("cuscat");
+            descdeloem.Text = resxSet.GetString("descdeloem");
+            deloem.Text = resxSet.GetString("deloem");
 
             // Close Splash
             t.Abort();
@@ -548,6 +555,17 @@ namespace Unowhy_Tools
         {
             var pcn = new PCName();     // Change the Name of PC
             pcn.ShowDialog();
+        }
+
+        private void deloem_Click(object sender, EventArgs e)
+        {
+            string msg = deloem.Text;
+            dialog d = new dialog(msg);
+            d.ShowDialog();
+            if (d.DialogResult.Equals(DialogResult.Yes))
+            {
+                System.Diagnostics.Process.Start(".\\deloem.exe");
+            }
         }
     }
 }
