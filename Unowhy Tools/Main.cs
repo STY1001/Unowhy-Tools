@@ -395,6 +395,8 @@ namespace Unowhy_Tools
             cuscat.Text = resxSet.GetString("cuscat");
             descdeloem.Text = resxSet.GetString("descdeloem");
             deloem.Text = resxSet.GetString("deloem");
+            descentf.Text = resxSet.GetString("descdelentf");
+            entf.Text = resxSet.GetString("delentf");
 
 
             // Close Splash
@@ -586,6 +588,17 @@ namespace Unowhy_Tools
             var p = new PCName();
             p.Show();
 
+        }
+
+        private void delentf_Click(object sender, EventArgs e)
+        {
+            string msg = entf.Text;
+            dialog d = new dialog(msg);
+            d.ShowDialog();
+            if (d.DialogResult.Equals(DialogResult.Yes))
+            {
+                System.Diagnostics.Process.Start(".\\delentf.exe"); 
+            }
         }
     }
 }

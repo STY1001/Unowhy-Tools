@@ -85,6 +85,9 @@ namespace Unowhy_Tools
             this.deloem = new System.Windows.Forms.Button();
             this.descdeloem = new System.Windows.Forms.TextBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.entf = new System.Windows.Forms.Button();
+            this.descentf = new System.Windows.Forms.TextBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
@@ -106,6 +109,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             this.SuspendLayout();
             // 
             // starthis
@@ -546,6 +550,31 @@ namespace Unowhy_Tools
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.TabStop = false;
             // 
+            // entf
+            // 
+            this.entf.BackColor = System.Drawing.Color.Transparent;
+            this.entf.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.entf, "entf");
+            this.entf.ForeColor = System.Drawing.Color.Black;
+            this.entf.Name = "entf";
+            this.entf.UseVisualStyleBackColor = false;
+            this.entf.Click += new System.EventHandler(this.delentf_Click);
+            // 
+            // descentf
+            // 
+            this.descentf.BackColor = System.Drawing.Color.Black;
+            this.descentf.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.descentf, "descentf");
+            this.descentf.Name = "descentf";
+            this.descentf.ReadOnly = true;
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.Image = global::Unowhy_Tools.Properties.Resources.folder;
+            resources.ApplyResources(this.pictureBox21, "pictureBox21");
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.TabStop = false;
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -560,6 +589,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.pictureBox21);
             this.Controls.Add(this.pictureBox20);
             this.Controls.Add(this.pictureBox13);
             this.Controls.Add(this.pictureBox12);
@@ -574,7 +604,9 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.winre);
+            this.Controls.Add(this.descentf);
             this.Controls.Add(this.descdeloem);
+            this.Controls.Add(this.entf);
             this.Controls.Add(this.deloem);
             this.Controls.Add(this.descridf);
             this.Controls.Add(this.delridf);
@@ -631,6 +663,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -693,6 +726,9 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button deloem;
         private System.Windows.Forms.TextBox descdeloem;
         private System.Windows.Forms.PictureBox pictureBox20;
+        private System.Windows.Forms.Button entf;
+        private System.Windows.Forms.TextBox descentf;
+        private System.Windows.Forms.PictureBox pictureBox21;
     }
 }
 
