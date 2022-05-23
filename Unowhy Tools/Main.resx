@@ -126,7 +126,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="starthis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 197</value>
+    <value>36, 232</value>
   </data>
   <data name="starthis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -157,7 +157,7 @@
     <value>NoControl</value>
   </data>
   <data name="stophis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 219</value>
+    <value>36, 254</value>
   </data>
   <data name="stophis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -187,7 +187,7 @@
     <value>NoControl</value>
   </data>
   <data name="dishis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 265</value>
+    <value>36, 300</value>
   </data>
   <data name="dishis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -217,7 +217,7 @@
     <value>NoControl</value>
   </data>
   <data name="enhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 243</value>
+    <value>36, 278</value>
   </data>
   <data name="enhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -247,7 +247,7 @@
     <value>NoControl</value>
   </data>
   <data name="delhism.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 319</value>
+    <value>597, 354</value>
   </data>
   <data name="delhism.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 23</value>
@@ -277,7 +277,7 @@
     <value>NoControl</value>
   </data>
   <data name="delhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 258</value>
+    <value>597, 293</value>
   </data>
   <data name="delhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 23</value>
@@ -307,7 +307,7 @@
     <value>NoControl</value>
   </data>
   <data name="shell.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 197</value>
+    <value>315, 232</value>
   </data>
   <data name="shell.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -355,16 +355,16 @@
     <value>True</value>
   </data>
   <data name="sty1001.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
+    <value>Microsoft Sans Serif, 11.25pt</value>
   </data>
   <data name="sty1001.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="sty1001.Location" type="System.Drawing.Point, System.Drawing">
-    <value>457, 85</value>
+    <value>423, 107</value>
   </data>
   <data name="sty1001.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 15</value>
+    <value>259, 18</value>
   </data>
   <data name="sty1001.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -392,7 +392,7 @@
     <value>NoControl</value>
   </data>
   <data name="ent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 197</value>
+    <value>597, 232</value>
   </data>
   <data name="ent.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 23</value>
@@ -422,7 +422,7 @@
     <value>NoControl</value>
   </data>
   <data name="about.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 41</value>
+    <value>12, 36</value>
   </data>
   <data name="about.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 23</value>
@@ -452,7 +452,7 @@
     <value>NoControl</value>
   </data>
   <data name="fixboot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 283</value>
+    <value>315, 318</value>
   </data>
   <data name="fixboot.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -482,7 +482,7 @@
     <value>NoControl</value>
   </data>
   <data name="delti.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 380</value>
+    <value>597, 415</value>
   </data>
   <data name="delti.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 23</value>
@@ -512,7 +512,7 @@
     <value>NoControl</value>
   </data>
   <data name="servicecat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>67, 170</value>
+    <value>67, 205</value>
   </data>
   <data name="servicecat.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 13</value>
@@ -542,7 +542,7 @@
     <value>NoControl</value>
   </data>
   <data name="repaircat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 170</value>
+    <value>394, 205</value>
   </data>
   <data name="repaircat.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 13</value>
@@ -572,7 +572,7 @@
     <value>NoControl</value>
   </data>
   <data name="delcat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>653, 170</value>
+    <value>653, 205</value>
   </data>
   <data name="delcat.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 13</value>
@@ -629,7 +629,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="deschism.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 292</value>
+    <value>36, 327</value>
   </data>
   <data name="deschism.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -656,7 +656,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="descshell.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 219</value>
+    <value>315, 254</value>
   </data>
   <data name="descshell.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -686,7 +686,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="descstart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 305</value>
+    <value>315, 340</value>
   </data>
   <data name="descstart.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -716,7 +716,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="descent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 219</value>
+    <value>597, 254</value>
   </data>
   <data name="descent.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -746,7 +746,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="deschismdel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 341</value>
+    <value>597, 376</value>
   </data>
   <data name="deschismdel.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -776,7 +776,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="deschisdel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 280</value>
+    <value>597, 315</value>
   </data>
   <data name="deschisdel.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -806,7 +806,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="desctidel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 402</value>
+    <value>597, 437</value>
   </data>
   <data name="desctidel.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -839,7 +839,7 @@
     <value>NoControl</value>
   </data>
   <data name="delridf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 441</value>
+    <value>597, 476</value>
   </data>
   <data name="delridf.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 23</value>
@@ -863,7 +863,7 @@
     <value>29</value>
   </data>
   <data name="descridf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 463</value>
+    <value>597, 498</value>
   </data>
   <data name="descridf.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -893,7 +893,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="descwinre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 391</value>
+    <value>315, 426</value>
   </data>
   <data name="descwinre.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -926,7 +926,7 @@
     <value>NoControl</value>
   </data>
   <data name="winre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 369</value>
+    <value>315, 404</value>
   </data>
   <data name="winre.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -956,7 +956,7 @@
     <value>NoControl</value>
   </data>
   <data name="pcname.Location" type="System.Drawing.Point, System.Drawing">
-    <value>877, 197</value>
+    <value>877, 232</value>
   </data>
   <data name="pcname.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 23</value>
@@ -983,7 +983,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>679, 117</value>
+    <value>679, 152</value>
   </data>
   <data name="pictureBox17.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
@@ -1010,7 +1010,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>397, 117</value>
+    <value>397, 152</value>
   </data>
   <data name="pictureBox16.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
@@ -1037,7 +1037,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 117</value>
+    <value>116, 152</value>
   </data>
   <data name="pictureBox15.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
@@ -1091,7 +1091,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 371</value>
+    <value>293, 406</value>
   </data>
   <data name="pictureBox9.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1118,7 +1118,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 285</value>
+    <value>293, 320</value>
   </data>
   <data name="pictureBox8.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1145,7 +1145,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 444</value>
+    <value>574, 479</value>
   </data>
   <data name="pictureBox13.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1172,7 +1172,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 382</value>
+    <value>574, 417</value>
   </data>
   <data name="pictureBox12.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1199,7 +1199,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 260</value>
+    <value>574, 295</value>
   </data>
   <data name="pictureBox14.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1226,7 +1226,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 321</value>
+    <value>574, 356</value>
   </data>
   <data name="pictureBox11.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1253,7 +1253,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>854, 198</value>
+    <value>854, 233</value>
   </data>
   <data name="pictureBox18.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1280,7 +1280,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 198</value>
+    <value>574, 233</value>
   </data>
   <data name="pictureBox10.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1307,7 +1307,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 199</value>
+    <value>293, 234</value>
   </data>
   <data name="pictureBox7.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1334,7 +1334,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 266</value>
+    <value>14, 301</value>
   </data>
   <data name="pictureBox6.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1361,7 +1361,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 244</value>
+    <value>14, 279</value>
   </data>
   <data name="pictureBox5.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1388,7 +1388,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 220</value>
+    <value>14, 255</value>
   </data>
   <data name="pictureBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1415,7 +1415,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 198</value>
+    <value>14, 233</value>
   </data>
   <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1442,7 +1442,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 43</value>
+    <value>96, 38</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1469,10 +1469,10 @@
     <value>NoControl</value>
   </data>
   <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>456, 9</value>
+    <value>418, 9</value>
   </data>
   <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 73</value>
+    <value>270, 95</value>
   </data>
   <data name="logo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1496,7 +1496,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>955, 117</value>
+    <value>955, 152</value>
   </data>
   <data name="pictureBox19.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
@@ -1526,7 +1526,7 @@
     <value>NoControl</value>
   </data>
   <data name="cuscat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>944, 170</value>
+    <value>944, 205</value>
   </data>
   <data name="cuscat.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 13</value>
@@ -1584,7 +1584,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="descpcname.Location" type="System.Drawing.Point, System.Drawing">
-    <value>877, 219</value>
+    <value>877, 254</value>
   </data>
   <data name="descpcname.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1617,7 +1617,7 @@
     <value>NoControl</value>
   </data>
   <data name="deloem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 502</value>
+    <value>597, 537</value>
   </data>
   <data name="deloem.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 23</value>
@@ -1641,7 +1641,7 @@
     <value>27</value>
   </data>
   <data name="descdeloem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 524</value>
+    <value>597, 559</value>
   </data>
   <data name="descdeloem.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1671,7 +1671,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 505</value>
+    <value>574, 540</value>
   </data>
   <data name="pictureBox20.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1701,7 +1701,7 @@
     <value>NoControl</value>
   </data>
   <data name="entf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 563</value>
+    <value>597, 598</value>
   </data>
   <data name="entf.Size" type="System.Drawing.Size, System.Drawing">
     <value>209, 23</value>
@@ -1725,7 +1725,7 @@
     <value>26</value>
   </data>
   <data name="descentf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 585</value>
+    <value>597, 620</value>
   </data>
   <data name="descentf.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1755,7 +1755,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox21.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 566</value>
+    <value>574, 601</value>
   </data>
   <data name="pictureBox21.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1788,7 +1788,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1100, 637</value>
+    <value>1100, 667</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
