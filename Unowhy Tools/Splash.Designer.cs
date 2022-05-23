@@ -50,7 +50,7 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(316, 127);
+            this.ClientSize = new System.Drawing.Size(316, 129);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
