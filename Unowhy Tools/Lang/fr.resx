@@ -135,8 +135,14 @@
   <data name="cuab" xml:space="preserve">
     <value>Vérifier les MAJ au démarrage</value>
   </data>
+  <data name="cuscat" xml:space="preserve">
+    <value>↓ Customiser ↓</value>
+  </data>
   <data name="delcat" xml:space="preserve">
     <value>↓ Supprimer/Désinstaller ↓</value>
+  </data>
+  <data name="delentf" xml:space="preserve">
+    <value>Supprimer le dossier "ENT"</value>
   </data>
   <data name="delhis" xml:space="preserve">
     <value>Désinstaller "HiSqool"</value>
@@ -144,38 +150,47 @@
   <data name="delhism" xml:space="preserve">
     <value>Supprimer le dossier "HiSqool Manager"</value>
   </data>
+  <data name="deloem" xml:space="preserve">
+    <value>Supprimer le dossier "OEM"</value>
+  </data>
   <data name="delridf" xml:space="preserve">
     <value>Supprimmer le dossier "RIDF"</value>
   </data>
   <data name="delti" xml:space="preserve">
     <value>Supprimer le dossier "TO_INSTALL"</value>
   </data>
+  <data name="descdelentf" xml:space="preserve">
+    <value>Supprimer le dossier des installateurs de logiciels supplémentaires (Dans : C:\ProgramData)</value>
+  </data>
+  <data name="descdeloem" xml:space="preserve">
+    <value>Supprimer le dossier qui contient le script, les icons du menu démarrer et les fonds d'écrans (Dans : C:\Windows\System32)</value>
+  </data>
   <data name="descent" xml:space="preserve">
     <value>Supprimer le compte local "ENT"</value>
   </data>
   <data name="deschisdel" xml:space="preserve">
-    <value>Désinstaller le logiciel inutile "HiSqool"</value>
+    <value>Désinstaller le logiciel inutile "HiSqool" (Dans : C:\Program Files\Unowhy)</value>
   </data>
   <data name="deschism" xml:space="preserve">
     <value>HiSqool Manager est un logiciel embarqué pour gérer ce PC. Je vous recommande de le désactiver car il est comparable à un malware/spyware</value>
   </data>
   <data name="deschismdel" xml:space="preserve">
-    <value>Supprimer le gros dossier "HiSqool Manager"</value>
+    <value>Supprimer le gros dossier "HiSqool Manager" (contient le programme pour gerer les PC (spyware/malware)) (Dans : C:\Program Files\Unowhy)</value>
   </data>
   <data name="descpcname" xml:space="preserve">
     <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC.</value>
   </data>
   <data name="descridf" xml:space="preserve">
-    <value>Supprimer le dossier qui contient le script et la video de la première connexion</value>
+    <value>Supprimer le dossier qui contient le script et la video de la première connexion (Dans : C:\ProgramData)</value>
   </data>
   <data name="descshell" xml:space="preserve">
     <value>Faites ceci avant de modifier autre chose ! Si vous avez un problème de démarrage (écran noir avec uniquement le curseur) ou si vous souhaitez contourner l'accord RGPD, faites ceci</value>
   </data>
   <data name="descstart" xml:space="preserve">
-    <value>Faites ceci avant de supprimer "TO_INSTALL". Si vous avez une erreur au démarrage (fichier "silent_*.vbs.lnk" introuvable), faites ceci. Ces fichiers sont destinés à l'installation automatique des manuels scolaires de votre école</value>
+    <value>Faites ceci avant de supprimer "TO_INSTALL". Si vous avez une erreur au démarrage (fichier "silent_*.vbs.lnk" introuvable), faites ceci. Ces fichiers sont destinés à l'installation automatique des manuels scolaires de votre école (Dans : C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup)</value>
   </data>
   <data name="desctidel" xml:space="preserve">
-    <value>Supprimer les installateurs des manuels scolaires</value>
+    <value>Supprimer les installateurs des manuels scolaires de votre école (Dans : C:\Program Files\Unowhy)</value>
   </data>
   <data name="descwinre" xml:space="preserve">
     <value>Faite ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environement de réstauration Windows (qui désactive la réinitialisation)</value>

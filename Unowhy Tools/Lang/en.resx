@@ -135,8 +135,14 @@
   <data name="cuab" xml:space="preserve">
     <value>Check update at startup</value>
   </data>
+  <data name="cuscat" xml:space="preserve">
+    <value>↓ Customize ↓</value>
+  </data>
   <data name="delcat" xml:space="preserve">
     <value>↓ Delete/Uninstall ↓</value>
+  </data>
+  <data name="delentf" xml:space="preserve">
+    <value>Delete "ENT" folder</value>
   </data>
   <data name="delhis" xml:space="preserve">
     <value>Uninstall "HiSqool"</value>
@@ -144,38 +150,47 @@
   <data name="delhism" xml:space="preserve">
     <value>Delete "HiSqool Manager" folder</value>
   </data>
+  <data name="deloem" xml:space="preserve">
+    <value>Delete "OEM" folder</value>
+  </data>
   <data name="delridf" xml:space="preserve">
     <value>Delete "RIDF" folder</value>
   </data>
   <data name="delti" xml:space="preserve">
     <value>Delete "TO_INSTALL" folder</value>
   </data>
+  <data name="descdelentf" xml:space="preserve">
+    <value>Delete extra softwares installers folder (In : C:\ProgramData)</value>
+  </data>
+  <data name="descdeloem" xml:space="preserve">
+    <value>Delete the first logon script, start menu icons and wallpapers (In : C:\Windows\System32)</value>
+  </data>
   <data name="descent" xml:space="preserve">
     <value>Delete "ENT" local account</value>
   </data>
   <data name="deschisdel" xml:space="preserve">
-    <value>Uninstall the useless "HiSqool" soft</value>
+    <value>Uninstall the useless "HiSqool" software (In : C:\Program Files\Unowhy)</value>
   </data>
   <data name="deschism" xml:space="preserve">
-    <value>HiSqool Manager is an embedded soft to manage this PC. I recommend you to disable this because it's comparable to a malware/spyware</value>
+    <value>HiSqool Manager is an embedded software to manage this PC. I recommend you to disable this because it's comparable to a malware/spyware</value>
   </data>
   <data name="deschismdel" xml:space="preserve">
-    <value>Delete the heavy "HiSqool Manager" folder</value>
+    <value>Delete the heavy "HiSqool Manager" folder (contains the software to manage this PC (Spyware/Malware)) (In : C:\Program Files\Unowhy)</value>
   </data>
   <data name="descpcname" xml:space="preserve">
     <value>Change the name of this PC (NETBIOS). By default, the Windows PC name of the Y13 is the serial number (IFP...)</value>
   </data>
   <data name="descridf" xml:space="preserve">
-    <value>Delete the first login script and video folder</value>
+    <value>Delete the first logon script and video folder (In : C:\ProgramData)</value>
   </data>
   <data name="descshell" xml:space="preserve">
     <value>Do this before modify somethings else ! If you have an boot issue (black screen with only cursor) or if you want to bypass the GRDP agreement, do this</value>
   </data>
   <data name="descstart" xml:space="preserve">
-    <value>Do this before delete "TO_INSTALL". If you have error at boot (File "silent_*.vbs.lnk" not found), do this. Those files are for the auto install of your school's textbooks</value>
+    <value>Do this before delete "TO_INSTALL". If you have error at boot (File "silent_*.vbs.lnk" not found), do this. Those files are for the auto install of your school's textbooks (In : C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup)</value>
   </data>
   <data name="desctidel" xml:space="preserve">
-    <value>Delete school's texbooks installers</value>
+    <value>Delete school's texbooks installers folder (In : C:\Program Data\Unowhy)</value>
   </data>
   <data name="descwinre" xml:space="preserve">
     <value>Do this if you want to reset Windows. Unowhy has deployed a patch to disable Windows Recovery Environment (to disable reset)</value>
