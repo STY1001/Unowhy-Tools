@@ -533,7 +533,7 @@ namespace Unowhy_Tools
             this.deloem.ForeColor = System.Drawing.Color.Black;
             this.deloem.Name = "deloem";
             this.deloem.UseVisualStyleBackColor = false;
-            this.deloem.Click += new System.EventHandler(this.delridf_Click);
+            this.deloem.Click += new System.EventHandler(this.deloem_Click);
             // 
             // descdeloem
             // 

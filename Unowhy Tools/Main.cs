@@ -597,7 +597,7 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\delentf.exe"); 
+                System.Diagnostics.Process.Start(".\\delentf.exe");         // Delete ENT folder
             }
         }
     }
