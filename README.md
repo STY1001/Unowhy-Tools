@@ -15,6 +15,8 @@ Currently, with this tools you can:
 - Enable "reagentc" (Recovery)
 - Delete "RIDF" folder
 - Change Windows PC name
+- Delete "OEM" folder
+- Delete "ENT" folder
 
 More features come soon
 
