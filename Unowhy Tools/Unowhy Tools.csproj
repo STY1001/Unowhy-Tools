@@ -116,6 +116,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="reboot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reboot.Designer.cs">
+      <DependentUpon>reboot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,12 @@
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="wait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wait.Designer.cs">
+      <DependentUpon>wait.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,11 +167,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="reboot.resx">
+      <DependentUpon>reboot.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wait.resx">
+      <DependentUpon>wait.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -221,6 +239,7 @@
     <Content Include="Resources\noupdate.ico" />
     <None Include="Resources\pcinfo.png" />
     <Content Include="Resources\question.ico" />
+    <None Include="Resources\reboot.png" />
     <Content Include="Resources\recovery.ico" />
     <Content Include="Resources\registry.ico" />
     <Content Include="Resources\repair.ico" />
@@ -232,6 +251,7 @@
     <Content Include="Resources\stop.ico" />
     <Content Include="Resources\uninstall.ico" />
     <Content Include="Resources\update.ico" />
+    <None Include="Resources\wait.png" />
     <Content Include="Resources\yes.ico" />
     <Content Include="Resources\yesupdate.ico" />
     <Content Include="UT.ico" />

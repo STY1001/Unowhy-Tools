@@ -223,6 +223,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reboot {
+            get {
+                object obj = ResourceManager.GetObject("reboot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap recovery {
             get {
                 object obj = ResourceManager.GetObject("recovery", resourceCulture);
@@ -366,6 +376,16 @@ namespace Unowhy_Tools.Properties {
         internal static System.Drawing.Bitmap UTLW {
             get {
                 object obj = ResourceManager.GetObject("UTLW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wait {
+            get {
+                object obj = ResourceManager.GetObject("wait", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
