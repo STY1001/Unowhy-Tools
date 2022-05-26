@@ -414,7 +414,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\starthis.exe");    // Start HiSqool Manager  
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\starthis.exe");    // Start HiSqool Manager  
+                p.WaitForExit();
+                w.Close();
             }
                       
         }
@@ -426,7 +430,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\stophis.exe");     // Stop HiSqool Manager
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\stophis.exe");     // Stop HiSqool Manager
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -437,7 +445,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\enhis.exe");       // Enable HiSqool Manager
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\enhis.exe");       // Enable HiSqool Manager
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -448,7 +460,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\dishis.exe");      // Disable HiSqool Manager
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\dishis.exe");      // Disable HiSqool Manager
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -459,7 +475,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\delhisqool.exe");      // Launch Uninstaller of  HiSqool
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\delhisqool.exe");      // Launch Uninstaller of  HiSqool
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -470,7 +490,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\rmdirhismgr.exe");     // Remove HiSqool Manager folder
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\rmdirhismgr.exe");     // Remove HiSqool Manager folder
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -481,7 +505,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\shell.exe");       // Change Shell value
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\shell.exe");       // Change Shell value
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -492,7 +520,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\delent.exe");      // Delete ENT account
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\delent.exe");      // Delete ENT account
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -509,7 +541,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\fixti.exe");   //Delete silent_*.vbs.lnk
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\fixti.exe");   //Delete silent_*.vbs.lnk
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -520,7 +556,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\rdti.exe");    //Remove "TO_INSTALL"
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\rdti.exe");    //Remove "TO_INSTALL"
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -537,7 +577,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\delridf.exe");     //Delete "RIDF"
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\delridf.exe");     //Delete "RIDF"
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -548,7 +592,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\winre.exe");       //Enable reagent
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\winre.exe");       //Enable reagent
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -565,7 +613,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\deloem.exe");          // Delete OEM folder
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\deloem.exe");          // Delete OEM folder
+                p.WaitForExit();
+                w.Close();
             }
         }
 
@@ -598,7 +650,11 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                System.Diagnostics.Process.Start(".\\delentf.exe");         // Delete ENT folder
+                var w = new wait();
+                w.Show();
+                var p = System.Diagnostics.Process.Start(".\\delentf.exe");         // Delete ENT folder
+                p.WaitForExit();
+                w.Close();
             }
         }
 
