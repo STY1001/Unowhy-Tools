@@ -97,7 +97,8 @@ namespace Unowhy_Tools
                     string arg = ($"-Command \"& {{Rename-Computer -NewName \"{name}\" -Force}}\"");
                     //MessageBox.Show(arg); //Debug
                     actualname.Text = name;
-                    System.Diagnostics.Process.Start("powershell", arg);
+                    var p = System.Diagnostics.Process.Start("powershell", arg);
+                    p.WaitForExit();
                 }
             }
         }
