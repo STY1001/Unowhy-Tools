@@ -15,6 +15,8 @@ Currently, with this tools you can:
 - Enable "reagentc" (Recovery)
 - Delete "RIDF" folder
 - Change Windows PC name
+- Delete "OEM" folder
+- Delete "ENT" folder
 
 More features come soon
 
@@ -24,6 +26,10 @@ More features come soon
 2. Launch and install "Unowhy Tools Setup"
 3. When it's installed, launch "Unowhy Tools" as admin
 4. Use "Unowhy Tools" as you want
+
+## Presentation Mode
+This is a mode for me to make screenshot of UT
+You can enable Presentation Mode by clicking on Unowhy Tools logo in Main Form
 
 ## Screenshot
 1.0
