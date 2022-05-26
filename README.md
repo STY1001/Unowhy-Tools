@@ -28,7 +28,7 @@ More features come soon
 4. Use "Unowhy Tools" as you want
 
 ## "Presentation" Mode
-This is a mode for me to make screenshot of UT
+This is a mode for me to make screenshot of UT.
 You can enable "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
 
 ## Screenshot
