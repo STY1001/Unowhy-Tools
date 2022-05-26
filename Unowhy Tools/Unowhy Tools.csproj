@@ -97,6 +97,12 @@
     <Compile Include="nonew.Designer.cs">
       <DependentUpon>nonew.cs</DependentUpon>
     </Compile>
+    <Compile Include="PCInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PCInfo.Designer.cs">
+      <DependentUpon>PCInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PCName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="nonew.resx">
       <DependentUpon>nonew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PCInfo.resx">
+      <DependentUpon>PCInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PCName.resx">
       <DependentUpon>PCName.cs</DependentUpon>
@@ -210,6 +219,7 @@
     <Content Include="Resources\laptop.ico" />
     <Content Include="Resources\no.ico" />
     <Content Include="Resources\noupdate.ico" />
+    <None Include="Resources\pcinfo.png" />
     <Content Include="Resources\question.ico" />
     <Content Include="Resources\recovery.ico" />
     <Content Include="Resources\registry.ico" />

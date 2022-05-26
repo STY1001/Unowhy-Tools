@@ -59,12 +59,24 @@ namespace Unowhy_Tools
             this.descwinre = new System.Windows.Forms.TextBox();
             this.winre = new System.Windows.Forms.Button();
             this.pcname = new System.Windows.Forms.Button();
+            this.cuscat = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.descpcname = new System.Windows.Forms.TextBox();
+            this.deloem = new System.Windows.Forms.Button();
+            this.descdeloem = new System.Windows.Forms.TextBox();
+            this.entf = new System.Windows.Forms.Button();
+            this.descentf = new System.Windows.Forms.TextBox();
+            this.pcinfo = new System.Windows.Forms.Button();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
@@ -78,22 +90,16 @@ namespace Unowhy_Tools
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
-            this.cuscat = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.descpcname = new System.Windows.Forms.TextBox();
-            this.deloem = new System.Windows.Forms.Button();
-            this.descdeloem = new System.Windows.Forms.TextBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.entf = new System.Windows.Forms.Button();
-            this.descentf = new System.Windows.Forms.TextBox();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
@@ -107,9 +113,6 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             this.SuspendLayout();
             // 
             // starthis
@@ -364,6 +367,76 @@ namespace Unowhy_Tools
             this.pcname.UseVisualStyleBackColor = false;
             this.pcname.Click += new System.EventHandler(this.pcname_Click);
             // 
+            // cuscat
+            // 
+            resources.ApplyResources(this.cuscat, "cuscat");
+            this.cuscat.ForeColor = System.Drawing.Color.White;
+            this.cuscat.Name = "cuscat";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Name = "label1";
+            // 
+            // descpcname
+            // 
+            this.descpcname.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.descpcname, "descpcname");
+            this.descpcname.ForeColor = System.Drawing.Color.White;
+            this.descpcname.Name = "descpcname";
+            this.descpcname.ReadOnly = true;
+            // 
+            // deloem
+            // 
+            this.deloem.BackColor = System.Drawing.Color.Transparent;
+            this.deloem.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.deloem, "deloem");
+            this.deloem.ForeColor = System.Drawing.Color.Black;
+            this.deloem.Name = "deloem";
+            this.deloem.UseVisualStyleBackColor = false;
+            this.deloem.Click += new System.EventHandler(this.deloem_Click);
+            // 
+            // descdeloem
+            // 
+            this.descdeloem.BackColor = System.Drawing.Color.Black;
+            this.descdeloem.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.descdeloem, "descdeloem");
+            this.descdeloem.Name = "descdeloem";
+            this.descdeloem.ReadOnly = true;
+            // 
+            // entf
+            // 
+            this.entf.BackColor = System.Drawing.Color.Transparent;
+            this.entf.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.entf, "entf");
+            this.entf.ForeColor = System.Drawing.Color.Black;
+            this.entf.Name = "entf";
+            this.entf.UseVisualStyleBackColor = false;
+            this.entf.Click += new System.EventHandler(this.delentf_Click);
+            // 
+            // descentf
+            // 
+            this.descentf.BackColor = System.Drawing.Color.Black;
+            this.descentf.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.descentf, "descentf");
+            this.descentf.Name = "descentf";
+            this.descentf.ReadOnly = true;
+            // 
+            // pcinfo
+            // 
+            resources.ApplyResources(this.pcinfo, "pcinfo");
+            this.pcinfo.Name = "pcinfo";
+            this.pcinfo.UseVisualStyleBackColor = true;
+            this.pcinfo.Click += new System.EventHandler(this.pcinfo_Click);
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.Image = global::Unowhy_Tools.Properties.Resources.customize;
+            resources.ApplyResources(this.pictureBox19, "pictureBox19");
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.TabStop = false;
+            // 
             // pictureBox17
             // 
             this.pictureBox17.Image = global::Unowhy_Tools.Properties.Resources.delete;
@@ -385,6 +458,13 @@ namespace Unowhy_Tools
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.TabStop = false;
             // 
+            // pictureBox22
+            // 
+            this.pictureBox22.Image = global::Unowhy_Tools.Properties.Resources.pcinfo;
+            resources.ApplyResources(this.pictureBox22, "pictureBox22");
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.TabStop = false;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.settings;
@@ -405,6 +485,20 @@ namespace Unowhy_Tools
             resources.ApplyResources(this.pictureBox8, "pictureBox8");
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.Image = global::Unowhy_Tools.Properties.Resources.folder;
+            resources.ApplyResources(this.pictureBox21, "pictureBox21");
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.TabStop = false;
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Image = global::Unowhy_Tools.Properties.Resources.folder;
+            resources.ApplyResources(this.pictureBox20, "pictureBox20");
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.TabStop = false;
             // 
             // pictureBox13
             // 
@@ -498,94 +592,19 @@ namespace Unowhy_Tools
             this.logo.TabStop = false;
             this.logo.Click += new System.EventHandler(this.logo_Click);
             // 
-            // pictureBox19
-            // 
-            this.pictureBox19.Image = global::Unowhy_Tools.Properties.Resources.customize;
-            resources.ApplyResources(this.pictureBox19, "pictureBox19");
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.TabStop = false;
-            // 
-            // cuscat
-            // 
-            resources.ApplyResources(this.cuscat, "cuscat");
-            this.cuscat.ForeColor = System.Drawing.Color.White;
-            this.cuscat.Name = "cuscat";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Name = "label1";
-            // 
-            // descpcname
-            // 
-            this.descpcname.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.descpcname, "descpcname");
-            this.descpcname.ForeColor = System.Drawing.Color.White;
-            this.descpcname.Name = "descpcname";
-            this.descpcname.ReadOnly = true;
-            // 
-            // deloem
-            // 
-            this.deloem.BackColor = System.Drawing.Color.Transparent;
-            this.deloem.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.deloem, "deloem");
-            this.deloem.ForeColor = System.Drawing.Color.Black;
-            this.deloem.Name = "deloem";
-            this.deloem.UseVisualStyleBackColor = false;
-            this.deloem.Click += new System.EventHandler(this.deloem_Click);
-            // 
-            // descdeloem
-            // 
-            this.descdeloem.BackColor = System.Drawing.Color.Black;
-            this.descdeloem.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.descdeloem, "descdeloem");
-            this.descdeloem.Name = "descdeloem";
-            this.descdeloem.ReadOnly = true;
-            // 
-            // pictureBox20
-            // 
-            this.pictureBox20.Image = global::Unowhy_Tools.Properties.Resources.folder;
-            resources.ApplyResources(this.pictureBox20, "pictureBox20");
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.TabStop = false;
-            // 
-            // entf
-            // 
-            this.entf.BackColor = System.Drawing.Color.Transparent;
-            this.entf.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.entf, "entf");
-            this.entf.ForeColor = System.Drawing.Color.Black;
-            this.entf.Name = "entf";
-            this.entf.UseVisualStyleBackColor = false;
-            this.entf.Click += new System.EventHandler(this.delentf_Click);
-            // 
-            // descentf
-            // 
-            this.descentf.BackColor = System.Drawing.Color.Black;
-            this.descentf.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.descentf, "descentf");
-            this.descentf.Name = "descentf";
-            this.descentf.ReadOnly = true;
-            // 
-            // pictureBox21
-            // 
-            this.pictureBox21.Image = global::Unowhy_Tools.Properties.Resources.folder;
-            resources.ApplyResources(this.pictureBox21, "pictureBox21");
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.TabStop = false;
-            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.pcinfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.descwinre);
             this.Controls.Add(this.pictureBox19);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox16);
             this.Controls.Add(this.pictureBox15);
+            this.Controls.Add(this.pictureBox22);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
@@ -642,12 +661,16 @@ namespace Unowhy_Tools
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "main";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
@@ -661,9 +684,6 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -729,6 +749,8 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button entf;
         private System.Windows.Forms.TextBox descentf;
         private System.Windows.Forms.PictureBox pictureBox21;
+        private System.Windows.Forms.Button pcinfo;
+        private System.Windows.Forms.PictureBox pictureBox22;
     }
 }
 

@@ -397,6 +397,7 @@ namespace Unowhy_Tools
             deloem.Text = resxSet.GetString("deloem");
             descentf.Text = resxSet.GetString("descdelentf");
             entf.Text = resxSet.GetString("delentf");
+            pcinfo.Text = resxSet.GetString("pcinfo");
 
 
             // Close Splash
@@ -599,6 +600,12 @@ namespace Unowhy_Tools
             {
                 System.Diagnostics.Process.Start(".\\delentf.exe");         // Delete ENT folder
             }
+        }
+
+        private void pcinfo_Click(object sender, EventArgs e)
+        {
+            var pci = new PCInfo();
+            pci.ShowDialog();
         }
     }
 }
