@@ -56,6 +56,13 @@ namespace Unowhy_Tools
 
             this.Text = resxSet.GetString("pcinfo");
 
+            string pcn = Environment.MachineName.ToString();
+            pcname.Text = pcn;
+
+            
+
+            string os = Environment.OSVersion.ToString();
+
         }
     }
 }
