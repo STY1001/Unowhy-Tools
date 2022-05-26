@@ -27,9 +27,9 @@ More features come soon
 3. When it's installed, launch "Unowhy Tools" as admin
 4. Use "Unowhy Tools" as you want
 
-## Presentation Mode
+## "Presentation" Mode
 This is a mode for me to make screenshot of UT
-You can enable Presentation Mode by clicking on Unowhy Tools logo in Main Form
+You can enable "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
 
 ## Screenshot
 1.0
