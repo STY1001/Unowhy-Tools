@@ -1329,7 +1329,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 38</value>
+    <value>96, 39</value>
   </data>
   <data name="pictureBox22.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1788,7 +1788,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 63</value>
+    <value>96, 64</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
