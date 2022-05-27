@@ -641,6 +641,11 @@ namespace Unowhy_Tools
             var p = new PCName();
             p.Show();
 
+            var w = new wait();
+            w.Show();
+
+            var r = new reboot();
+            r.Show();
         }
 
         private void delentf_Click(object sender, EventArgs e)
