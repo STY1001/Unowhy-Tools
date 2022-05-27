@@ -11,5 +11,5 @@ echo         Ne pas fermer
 echo =============================
 MODE CON: COLS=30 LINES=10
 powershell -windows minimize -command ""
-sc config hisqoolmanager start=auto
-net start HiSqoolManager
+taskkill /f /im "Unowhy Tools.exe"
+shutdown -r -t 3 -c "Unowhy Tools by STY1001"
