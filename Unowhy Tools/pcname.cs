@@ -34,6 +34,9 @@ namespace Unowhy_Tools
 
         public PCName()
         {
+            var e = new wait();
+            e.Show();
+
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
 
@@ -53,8 +56,17 @@ namespace Unowhy_Tools
             avert.Text = resxSet.GetString("avert");
             this.Text = resxSet.GetString("pcname");
 
-            string pcname = Environment.MachineName.ToString();
-            actualname.Text = pcname ;
+            string filePath = ".\\fullpcinfo.txt";
+            StreamReader inputFile = new StreamReader(filePath);
+            int lineNumber = 1;
+            for (int i = 1; i < lineNumber; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string hnpcname = inputFile.ReadLine();
+            actualname.Text = hnpcname;
+
+            e.Close();
 
         }
 
@@ -101,8 +113,8 @@ namespace Unowhy_Tools
                     w.Show();
                     var p = System.Diagnostics.Process.Start("powershell", arg);
                     p.WaitForExit();
-                    var r = new reboot();
-                    r.ShowDialog();
+                    var f = new reboot();
+                    f.ShowDialog();
                 }
             }
         }
