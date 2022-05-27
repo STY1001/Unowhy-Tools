@@ -279,7 +279,7 @@ namespace Unowhy_Tools
             }
             else
             {
-                System.Diagnostics.Process.Start(".\\langset.exe");
+                System.Diagnostics.Process.Start(".\\langen.exe");
                 System.Threading.Thread.Sleep(1000);                     //Wait the registery editing
                 var s = new Settings("1");
                 //s.StartPosition = FormStartPosition.WindowsDefaultLocation;
