@@ -56,13 +56,48 @@ namespace Unowhy_Tools
 
             this.Text = resxSet.GetString("pcinfo");
 
-            string pcn = Environment.MachineName.ToString();
-            pcname.Text = pcn;
+            string filePath = ".\\fullpcinfo.txt";
+            StreamReader inputFile = new StreamReader(filePath);
+            int lineNumber = 1;
+            for (int i = 1; i < lineNumber; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string hnpcname = inputFile.ReadLine();
 
-            
+            int lineNumber2 = 1;
+            for (int i = 1; i < lineNumber2; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string mfs = inputFile.ReadLine();
 
-            string os = Environment.OSVersion.ToString();
+            int lineNumber3 = 1;
+            for (int i = 1; i < lineNumber3; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string models = inputFile.ReadLine();
 
+            int lineNumber4 = 1;
+            for (int i = 1; i < lineNumber4; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string enes = inputFile.ReadLine();
+
+            int lineNumber5 = 1;
+            for (int i = 1; i < lineNumber5; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string ifps = inputFile.ReadLine();
+
+            pcname.Text = hnpcname;
+            mf.Text = mfs;
+            model.Text = models;
+            serial.Text = ifps;
+            biosver.Text = enes;
         }
     }
 }
