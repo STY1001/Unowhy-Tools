@@ -199,12 +199,19 @@ using System.Windows;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Text;
 
 namespace Unowhy_Tools
 {   
     public partial class main : Form
     {
         public string resxFile = "null";
+        public string hnpcn = "null";
+        public string mf = "null";
+        public string model = "null";
+        public string ene = "null";
+        public string ifp = "null";
+        public string os = "null";
 
         public void SplashScreen()
         {
@@ -398,6 +405,87 @@ namespace Unowhy_Tools
             descentf.Text = resxSet.GetString("descdelentf");
             entf.Text = resxSet.GetString("delentf");
             pcinfo.Text = resxSet.GetString("pcinfo");
+
+
+            
+            // Collecting PC Info and compress to txt
+
+            var pcn = System.Diagnostics.Process.Start(".\\getpcinfo.exe");
+            pcn.WaitForExit();
+
+            string filePath = ".\\pcname.txt";
+            int lineNumber = 1;
+            StreamReader inputFile = new StreamReader(filePath);
+            
+            for (int i = 1; i < lineNumber; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string hnpcn = inputFile.ReadLine();
+            
+            string filePath2 = ".\\mf.txt";
+            int lineNumber2 = 2;
+            StreamReader inputFile2 = new StreamReader(filePath2);
+            
+            for (int i = 1; i < lineNumber2; i++)
+            {
+                inputFile2.ReadLine();
+            }
+            string mf = inputFile2.ReadLine();
+            
+            string filePath3 = ".\\model.txt";
+            int lineNumber3 = 2;
+            StreamReader inputFile3 = new StreamReader(filePath3);
+            
+            for (int i = 1; i < lineNumber3; i++)
+            {
+                inputFile3.ReadLine();
+            }
+            string model = inputFile3.ReadLine();
+            
+            string filePath4 = ".\\os.txt";
+            int lineNumber4 = 2;
+            StreamReader inputFile4 = new StreamReader(filePath4);
+            
+            for (int i = 1; i < lineNumber4; i++)
+            {
+                inputFile4.ReadLine();
+            }
+            string os = inputFile4.ReadLine();
+            
+            string filePath5 = ".\\ene.txt";
+            int lineNumber5 = 2;
+            StreamReader inputFile5 = new StreamReader(filePath5);
+            
+            for (int i = 1; i < lineNumber5; i++)
+            {
+                inputFile5.ReadLine();
+            }
+            string ene = inputFile5.ReadLine();
+            
+            string filePath6 = ".\\ifp.txt";
+            int lineNumber6 = 2;
+            StreamReader inputFile6 = new StreamReader(filePath6);
+            
+            for (int i = 1; i < lineNumber6; i++)
+            {
+                inputFile6.ReadLine();
+            }
+            string ifp = inputFile6.ReadLine();
+            
+
+            string finalinfotxt = ".\\fullpcinfo.txt";
+            using (StreamWriter pcinfotxt = File.CreateText(finalinfotxt))
+            {
+                pcinfotxt.WriteLine(hnpcn);
+                pcinfotxt.WriteLine(mf);
+                pcinfotxt.WriteLine(model);
+                pcinfotxt.WriteLine(ene);
+                pcinfotxt.WriteLine(ifp);
+                pcinfotxt.WriteLine(os);
+            }
+
+
 
 
             // Close Splash
