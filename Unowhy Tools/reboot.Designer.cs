@@ -45,7 +45,7 @@ namespace Unowhy_Tools
             // 
             this.msg.AutoSize = true;
             this.msg.ForeColor = System.Drawing.Color.White;
-            this.msg.Location = new System.Drawing.Point(53, 21);
+            this.msg.Location = new System.Drawing.Point(53, 15);
             this.msg.Name = "msg";
             this.msg.Size = new System.Drawing.Size(98, 13);
             this.msg.TabIndex = 0;
@@ -53,7 +53,7 @@ namespace Unowhy_Tools
             // 
             // ok
             // 
-            this.ok.Location = new System.Drawing.Point(181, 39);
+            this.ok.Location = new System.Drawing.Point(184, 57);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(32, 23);
             this.ok.TabIndex = 1;
@@ -73,9 +73,9 @@ namespace Unowhy_Tools
             // 
             // restart
             // 
-            this.restart.Location = new System.Drawing.Point(81, 39);
+            this.restart.Location = new System.Drawing.Point(66, 57);
             this.restart.Name = "restart";
-            this.restart.Size = new System.Drawing.Size(73, 23);
+            this.restart.Size = new System.Drawing.Size(89, 23);
             this.restart.TabIndex = 1;
             this.restart.Text = "Reboot";
             this.restart.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.reboot;
-            this.pictureBox2.Location = new System.Drawing.Point(60, 42);
+            this.pictureBox2.Location = new System.Drawing.Point(44, 59);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(18, 18);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,7 +94,7 @@ namespace Unowhy_Tools
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox3.Location = new System.Drawing.Point(160, 41);
+            this.pictureBox3.Location = new System.Drawing.Point(163, 59);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(18, 18);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,7 +106,7 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(217, 65);
+            this.ClientSize = new System.Drawing.Size(217, 81);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
