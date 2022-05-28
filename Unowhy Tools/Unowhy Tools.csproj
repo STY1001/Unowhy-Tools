@@ -227,14 +227,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\about.ico" />
+    <None Include="Resources\datamatrix.png" />
     <Content Include="Resources\delete.ico" />
     <Content Include="Resources\deluser.ico" />
     <Content Include="Resources\disable.ico" />
     <Content Include="Resources\enable.ico" />
     <Content Include="Resources\folder.ico" />
     <Content Include="Resources\github.ico" />
+    <None Include="Resources\ic.png" />
     <Content Include="Resources\language.ico" />
     <Content Include="Resources\laptop.ico" />
+    <None Include="Resources\manufacturer.png" />
     <Content Include="Resources\no.ico" />
     <Content Include="Resources\noupdate.ico" />
     <None Include="Resources\pcinfo.png" />

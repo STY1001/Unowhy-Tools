@@ -301,8 +301,6 @@ namespace Unowhy_Tools
             Thread t2 = new Thread(new ThreadStart(SplashScreen));   //Splash
             t2.Start();     //Splash
 
-            System.Threading.Thread.Sleep(1000);
-
             object u = key.GetValue("UpdateStart", null);
             if (u != null)
             {
@@ -343,11 +341,9 @@ namespace Unowhy_Tools
             {
                 
             }
+            t2.Abort();
             Thread t3 = new Thread(new ThreadStart(SplashScreen));
             t3.Start();   //Splash
-            System.Threading.Thread.Sleep(1000);
-            
-
 
 
             //Check the current saved language
@@ -361,8 +357,6 @@ namespace Unowhy_Tools
             if (utls == "EN")resxFile = enresx ;    //English   
             else resxFile = frresx ;               //French
 
-
-            System.Threading.Thread.Sleep(1000);
             InitializeComponent();
 
 
