@@ -83,6 +83,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap datamatrix {
+            get {
+                object obj = ResourceManager.GetObject("datamatrix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);
@@ -143,6 +153,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic {
+            get {
+                object obj = ResourceManager.GetObject("ic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap language {
             get {
                 object obj = ResourceManager.GetObject("language", resourceCulture);
@@ -166,6 +186,16 @@ namespace Unowhy_Tools.Properties {
         internal static System.Drawing.Bitmap Logo_unowhy_svg {
             get {
                 object obj = ResourceManager.GetObject("Logo-unowhy.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap manufacturer {
+            get {
+                object obj = ResourceManager.GetObject("manufacturer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
