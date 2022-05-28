@@ -55,6 +55,11 @@ namespace Unowhy_Tools
             //Apply Language
 
             this.Text = resxSet.GetString("pcinfo");
+            labpcname.Text = resxSet.GetString("pcn");
+            labserial.Text = resxSet.GetString("serial");
+            labmf.Text = resxSet.GetString("mf");
+            labmodel.Text = resxSet.GetString("model");
+            labbiosver.Text = resxSet.GetString("biosversion");
 
             string filePath = ".\\fullpcinfo.txt";
             StreamReader inputFile = new StreamReader(filePath);
