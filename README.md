@@ -25,7 +25,7 @@ More features come soon
 ### You need admin privilege
 1. Go to [releases](https://github.com/STY1001/Unowhy-Tools/releases/latest) and download "Unowhy Tools x.0 Setup.exe"
 2. Launch and install "Unowhy Tools Setup"
-3. When it's installed, launch "Unowhy Tools" as admin
+3. When it's installed, launch "Unowhy Tools"
 4. Use "Unowhy Tools" as you want
 
 ## "Presentation" Mode
