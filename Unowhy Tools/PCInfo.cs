@@ -139,14 +139,6 @@ namespace Unowhy_Tools
                 mfm.Text = mdate;
             }
 
-            int enelab = biosver.Width;
-            this.Width = enelab + 50;
-            int winlab = os.Width;
-
-            if(enelab < winlab)
-            {
-                this.Width = 308;
-            }
         }
 
         private void PCInfo_Load(object sender, EventArgs e)
