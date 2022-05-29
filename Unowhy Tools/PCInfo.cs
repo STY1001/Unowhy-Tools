@@ -97,12 +97,51 @@ namespace Unowhy_Tools
                 inputFile.ReadLine();
             }
             string ifps = inputFile.ReadLine();
+            
+            int lineNumber6 = 1;
+            for (int i = 1; i < lineNumber6; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string oss = inputFile.ReadLine();
 
             pcname.Text = hnpcname;
             mf.Text = mfs;
             model.Text = models;
             serial.Text = ifps;
             biosver.Text = enes;
+            os.Text = oss;
+
+            string os10 = "10";
+
+            Boolean resultos = oss.Contains(os10);
+            if(resultos == true)
+            {
+                osimg.Image = Unowhy_Tools.Properties.Resources.win10;
+            }
+            else
+            {
+                osimg.Image = Unowhy_Tools.Properties.Resources.win11;
+            }
+
+            string ene21 = "_ENE_";
+
+            Boolean result21 = enes.Contains(ene21);
+            if (result21 == true)
+            {
+                string mdate = models + " (2021)";
+                model.Text = mdate;
+            }
+            else
+            {
+                string mdate = models + " (2020)";
+                model.Text = mdate;
+            }
+        }
+
+        private void PCInfo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

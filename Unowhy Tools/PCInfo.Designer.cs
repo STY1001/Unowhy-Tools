@@ -40,11 +40,15 @@ namespace Unowhy_Tools
             this.model = new System.Windows.Forms.Label();
             this.biosver = new System.Windows.Forms.Label();
             this.labbiosver = new System.Windows.Forms.Label();
+            this.os = new System.Windows.Forms.Label();
+            this.labos = new System.Windows.Forms.Label();
+            this.osimg = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.osimg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -147,6 +151,35 @@ namespace Unowhy_Tools
             this.labbiosver.TabIndex = 1;
             this.labbiosver.Text = "BIOS Version:";
             // 
+            // os
+            // 
+            this.os.AutoSize = true;
+            this.os.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.os.Location = new System.Drawing.Point(50, 251);
+            this.os.Name = "os";
+            this.os.Size = new System.Drawing.Size(47, 16);
+            this.os.TabIndex = 0;
+            this.os.Text = "NAME";
+            // 
+            // labos
+            // 
+            this.labos.AutoSize = true;
+            this.labos.Location = new System.Drawing.Point(50, 238);
+            this.labos.Name = "labos";
+            this.labos.Size = new System.Drawing.Size(63, 13);
+            this.labos.TabIndex = 1;
+            this.labos.Text = "OS Version:";
+            // 
+            // osimg
+            // 
+            this.osimg.Image = global::Unowhy_Tools.Properties.Resources.win11;
+            this.osimg.Location = new System.Drawing.Point(17, 238);
+            this.osimg.Name = "osimg";
+            this.osimg.Size = new System.Drawing.Size(30, 30);
+            this.osimg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.osimg.TabIndex = 2;
+            this.osimg.TabStop = false;
+            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Unowhy_Tools.Properties.Resources.ic;
@@ -202,12 +235,15 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(375, 241);
+            this.ClientSize = new System.Drawing.Size(375, 299);
+            this.Controls.Add(this.osimg);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.labos);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.os);
             this.Controls.Add(this.labbiosver);
             this.Controls.Add(this.biosver);
             this.Controls.Add(this.labserial);
@@ -226,6 +262,8 @@ namespace Unowhy_Tools
             this.Name = "PCInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PCInfo";
+            this.Load += new System.EventHandler(this.PCInfo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.osimg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -253,5 +291,8 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label os;
+        private System.Windows.Forms.Label labos;
+        private System.Windows.Forms.PictureBox osimg;
     }
 }
