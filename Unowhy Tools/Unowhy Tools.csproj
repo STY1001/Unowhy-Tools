@@ -255,6 +255,8 @@
     <Content Include="Resources\uninstall.ico" />
     <Content Include="Resources\update.ico" />
     <None Include="Resources\wait.png" />
+    <None Include="Resources\win10.png" />
+    <None Include="Resources\win11.png" />
     <Content Include="Resources\yes.ico" />
     <Content Include="Resources\yesupdate.ico" />
     <Content Include="UT.ico" />
