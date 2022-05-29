@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZzm8QCMA5IehO/a0E9qmEi
+::fBw5plQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZzm8QCMAtbdxytYUE9qmEi
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -26,7 +26,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZ4kcUwDw5ZfB2taEExsWsi
+::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZckcUNACdfewa7bQY6r2EMs3yAVw==
 ::YB416Ek+ZW8=
 ::
 ::
@@ -44,4 +44,9 @@ echo         Ne pas fermer
 echo =============================
 MODE CON: COLS=30 LINES=10
 powershell -windows minimize -command ""
-reg add "HKCU\Software\STY1001\Unowhy Tools" /v UpdateStart /d 0 /t REG_SZ /f
+hostname > pcname.txt
+wmic /output:mf.txt computersystem get manufacturer
+wmic /output:model.txt computersystem get model
+wmic /output:os.txt os get caption
+wmic /output:ene.txt bios get smbiosbiosversion
+wmic /output:ifp.txt bios get serialnumber
