@@ -17,6 +17,7 @@ Currently, with this tools you can:
 - Change Windows PC name
 - Delete "OEM" folder
 - Delete "ENT" folder
+- View system info
 
 More features come soon
 
