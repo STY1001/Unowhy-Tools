@@ -709,27 +709,33 @@ namespace Unowhy_Tools
         {
             // Presentation Mode
 
+            var i = new PCInfo();
+            i.Show();
+            
+            var a = new About();
+            a.Show();
+
             string msg = shell.Text;
             dialog d = new dialog(msg);
             d.Show();
 
-            var s = new Settings("1");
-            s.Show();
-
-            var a = new About();
-            a.Show();
+            var b = new Splash();
+            b.Show();
 
             var v = new newver();
             v.Show();
 
+            var s = new Settings("1");
+            s.Show();
+            
             var p = new PCName();
             p.Show();
 
-            var w = new wait();
-            w.Show();
-
             var r = new reboot();
             r.Show();
+            
+            var w = new wait();
+            w.Show();
         }
 
         private void delentf_Click(object sender, EventArgs e)
