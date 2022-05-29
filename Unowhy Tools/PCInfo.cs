@@ -60,6 +60,7 @@ namespace Unowhy_Tools
             labmf.Text = resxSet.GetString("mf");
             labmodel.Text = resxSet.GetString("model");
             labbiosver.Text = resxSet.GetString("biosversion");
+            labos.Text = resxSet.GetString("os");
 
             string filePath = ".\\fullpcinfo.txt";
             StreamReader inputFile = new StreamReader(filePath);
