@@ -57,8 +57,7 @@ namespace Unowhy_Tools
             this.Text = resxSet.GetString("pcinfo");
             labpcname.Text = resxSet.GetString("pcn");
             labserial.Text = resxSet.GetString("serial");
-            labmf.Text = resxSet.GetString("mf");
-            labmodel.Text = resxSet.GetString("model");
+            labmfm.Text = resxSet.GetString("mfm");
             labbiosver.Text = resxSet.GetString("biosversion");
             labos.Text = resxSet.GetString("os");
 
@@ -106,9 +105,10 @@ namespace Unowhy_Tools
             }
             string oss = inputFile.ReadLine();
 
+            string mfms = mfs + models;
+
             pcname.Text = hnpcname;
-            mf.Text = mfs;
-            model.Text = models;
+            mfm.Text = mfms;
             serial.Text = ifps;
             biosver.Text = enes;
             os.Text = oss;
@@ -130,13 +130,22 @@ namespace Unowhy_Tools
             Boolean result21 = enes.Contains(ene21);
             if (result21 == true)
             {
-                string mdate = models + " (2021)";
-                model.Text = mdate;
+                string mdate = mfms + "(2021)";
+                mfm.Text = mdate;
             }
             else
             {
-                string mdate = models + " (2020)";
-                model.Text = mdate;
+                string mdate = mfms + "(2020)";
+                mfm.Text = mdate;
+            }
+
+            int enelab = biosver.Width;
+            this.Width = enelab + 50;
+            int winlab = os.Width;
+
+            if(enelab < winlab)
+            {
+                this.Width = 308;
             }
         }
 
