@@ -126,6 +126,9 @@
   <data name="avert" xml:space="preserve">
     <value>Le nom doit être composé de caractères alphanumériques (tirets autorisés) entre 2 et 15 caractères mais sans caractères spéciaux ni espace</value>
   </data>
+  <data name="biosversion" xml:space="preserve">
+    <value>Version du BIOS</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
@@ -178,7 +181,7 @@
     <value>Supprimer le gros dossier "HiSqool Manager" (contient le programme pour gerer les PC (spyware/malware)) (Dans : C:\Program Files\Unowhy)</value>
   </data>
   <data name="descpcname" xml:space="preserve">
-    <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC.</value>
+    <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC (IFP...)</value>
   </data>
   <data name="descridf" xml:space="preserve">
     <value>Supprimer le dossier qui contient le script et la video de la première connexion (Dans : C:\ProgramData)</value>
@@ -207,6 +210,9 @@
   <data name="fixboot" xml:space="preserve">
     <value>Supprimer "silent_*.vbs" dans "StartUp"</value>
   </data>
+  <data name="mfm" xml:space="preserve">
+    <value>Fabriquant / Model</value>
+  </data>
   <data name="newver" xml:space="preserve">
     <value>Nouvelle version disponible sur Github</value>
   </data>
@@ -216,11 +222,29 @@
   <data name="nover" xml:space="preserve">
     <value>Pas de nouvelle version</value>
   </data>
+  <data name="os" xml:space="preserve">
+    <value>Version du SE</value>
+  </data>
+  <data name="pcinfo" xml:space="preserve">
+    <value>Infos système</value>
+  </data>
+  <data name="pcn" xml:space="preserve">
+    <value>Nom du PC Windows</value>
+  </data>
   <data name="pcname" xml:space="preserve">
     <value>Changer le nom du PC Windows</value>
   </data>
+  <data name="reboot" xml:space="preserve">
+    <value>Un redémarrage est nécessaire</value>
+  </data>
   <data name="repaircat" xml:space="preserve">
     <value>↓ Réparer ↓</value>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>Redémarrer</value>
+  </data>
+  <data name="serial" xml:space="preserve">
+    <value>Numéro de série</value>
   </data>
   <data name="servicecat" xml:space="preserve">
     <value>↓ Service HiSqoolManager ↓</value>
@@ -239,6 +263,9 @@
   </data>
   <data name="udcheck" xml:space="preserve">
     <value>Vérifier les mises à jour</value>
+  </data>
+  <data name="wait" xml:space="preserve">
+    <value>Veuillez patienter...</value>
   </data>
   <data name="winre" xml:space="preserve">
     <value>Réactiver "reagentc"</value>
