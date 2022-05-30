@@ -47,25 +47,13 @@ namespace Unowhy_Tools
             this.repaircat = new System.Windows.Forms.Label();
             this.delcat = new System.Windows.Forms.Label();
             this.settings = new System.Windows.Forms.Button();
-            this.deschism = new System.Windows.Forms.TextBox();
-            this.descshell = new System.Windows.Forms.TextBox();
-            this.descstart = new System.Windows.Forms.TextBox();
-            this.descent = new System.Windows.Forms.TextBox();
-            this.deschismdel = new System.Windows.Forms.TextBox();
-            this.deschisdel = new System.Windows.Forms.TextBox();
-            this.desctidel = new System.Windows.Forms.TextBox();
             this.delridf = new System.Windows.Forms.Button();
-            this.descridf = new System.Windows.Forms.TextBox();
-            this.descwinre = new System.Windows.Forms.TextBox();
             this.winre = new System.Windows.Forms.Button();
             this.pcname = new System.Windows.Forms.Button();
             this.cuscat = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.descpcname = new System.Windows.Forms.TextBox();
+            this.version = new System.Windows.Forms.Label();
             this.deloem = new System.Windows.Forms.Button();
-            this.descdeloem = new System.Windows.Forms.TextBox();
             this.entf = new System.Windows.Forms.Button();
-            this.descentf = new System.Windows.Forms.TextBox();
             this.pcinfo = new System.Windows.Forms.Button();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
@@ -90,6 +78,8 @@ namespace Unowhy_Tools
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.desc = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -124,6 +114,7 @@ namespace Unowhy_Tools
             this.starthis.Name = "starthis";
             this.starthis.UseVisualStyleBackColor = false;
             this.starthis.Click += new System.EventHandler(this.starthis_Click);
+            this.starthis.MouseEnter += new System.EventHandler(this.desc_Hism);
             // 
             // stophis
             // 
@@ -134,6 +125,7 @@ namespace Unowhy_Tools
             this.stophis.Name = "stophis";
             this.stophis.UseVisualStyleBackColor = false;
             this.stophis.Click += new System.EventHandler(this.stophis_Click);
+            this.stophis.MouseEnter += new System.EventHandler(this.desc_Hism);
             // 
             // dishis
             // 
@@ -144,6 +136,7 @@ namespace Unowhy_Tools
             this.dishis.Name = "dishis";
             this.dishis.UseVisualStyleBackColor = false;
             this.dishis.Click += new System.EventHandler(this.dishis_Click);
+            this.dishis.MouseEnter += new System.EventHandler(this.desc_Hism);
             // 
             // enhis
             // 
@@ -154,6 +147,7 @@ namespace Unowhy_Tools
             this.enhis.Name = "enhis";
             this.enhis.UseVisualStyleBackColor = false;
             this.enhis.Click += new System.EventHandler(this.enhis_Click);
+            this.enhis.MouseEnter += new System.EventHandler(this.desc_Hism);
             // 
             // delhism
             // 
@@ -164,6 +158,7 @@ namespace Unowhy_Tools
             this.delhism.Name = "delhism";
             this.delhism.UseVisualStyleBackColor = false;
             this.delhism.Click += new System.EventHandler(this.delhism_Click);
+            this.delhism.MouseEnter += new System.EventHandler(this.desc_Delhism);
             // 
             // delhis
             // 
@@ -174,6 +169,7 @@ namespace Unowhy_Tools
             this.delhis.Name = "delhis";
             this.delhis.UseVisualStyleBackColor = false;
             this.delhis.Click += new System.EventHandler(this.delhis_Click);
+            this.delhis.MouseEnter += new System.EventHandler(this.desc_His);
             // 
             // shell
             // 
@@ -184,6 +180,7 @@ namespace Unowhy_Tools
             this.shell.Name = "shell";
             this.shell.UseVisualStyleBackColor = false;
             this.shell.Click += new System.EventHandler(this.shell_Click);
+            this.shell.MouseEnter += new System.EventHandler(this.desc_Shell);
             // 
             // ver
             // 
@@ -205,6 +202,7 @@ namespace Unowhy_Tools
             this.ent.Name = "ent";
             this.ent.UseVisualStyleBackColor = false;
             this.ent.Click += new System.EventHandler(this.delent_Click);
+            this.ent.MouseEnter += new System.EventHandler(this.desc_Ent);
             // 
             // about
             // 
@@ -225,6 +223,7 @@ namespace Unowhy_Tools
             this.fixboot.Name = "fixboot";
             this.fixboot.UseVisualStyleBackColor = false;
             this.fixboot.Click += new System.EventHandler(this.fixboot_Click);
+            this.fixboot.MouseEnter += new System.EventHandler(this.desc_Fixti);
             // 
             // delti
             // 
@@ -235,6 +234,7 @@ namespace Unowhy_Tools
             this.delti.Name = "delti";
             this.delti.UseVisualStyleBackColor = false;
             this.delti.Click += new System.EventHandler(this.delti_Click);
+            this.delti.MouseEnter += new System.EventHandler(this.desc_Delti);
             // 
             // servicecat
             // 
@@ -265,62 +265,6 @@ namespace Unowhy_Tools
             this.settings.UseVisualStyleBackColor = false;
             this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
-            // deschism
-            // 
-            this.deschism.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.deschism, "deschism");
-            this.deschism.ForeColor = System.Drawing.Color.White;
-            this.deschism.Name = "deschism";
-            this.deschism.ReadOnly = true;
-            // 
-            // descshell
-            // 
-            this.descshell.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.descshell, "descshell");
-            this.descshell.ForeColor = System.Drawing.Color.White;
-            this.descshell.Name = "descshell";
-            this.descshell.ReadOnly = true;
-            // 
-            // descstart
-            // 
-            this.descstart.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.descstart, "descstart");
-            this.descstart.ForeColor = System.Drawing.Color.White;
-            this.descstart.Name = "descstart";
-            this.descstart.ReadOnly = true;
-            // 
-            // descent
-            // 
-            this.descent.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.descent, "descent");
-            this.descent.ForeColor = System.Drawing.Color.White;
-            this.descent.Name = "descent";
-            this.descent.ReadOnly = true;
-            // 
-            // deschismdel
-            // 
-            this.deschismdel.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.deschismdel, "deschismdel");
-            this.deschismdel.ForeColor = System.Drawing.Color.White;
-            this.deschismdel.Name = "deschismdel";
-            this.deschismdel.ReadOnly = true;
-            // 
-            // deschisdel
-            // 
-            this.deschisdel.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.deschisdel, "deschisdel");
-            this.deschisdel.ForeColor = System.Drawing.Color.White;
-            this.deschisdel.Name = "deschisdel";
-            this.deschisdel.ReadOnly = true;
-            // 
-            // desctidel
-            // 
-            this.desctidel.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.desctidel, "desctidel");
-            this.desctidel.ForeColor = System.Drawing.Color.White;
-            this.desctidel.Name = "desctidel";
-            this.desctidel.ReadOnly = true;
-            // 
             // delridf
             // 
             this.delridf.BackColor = System.Drawing.Color.Transparent;
@@ -330,22 +274,7 @@ namespace Unowhy_Tools
             this.delridf.Name = "delridf";
             this.delridf.UseVisualStyleBackColor = false;
             this.delridf.Click += new System.EventHandler(this.delridf_Click);
-            // 
-            // descridf
-            // 
-            this.descridf.BackColor = System.Drawing.Color.Black;
-            this.descridf.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.descridf, "descridf");
-            this.descridf.Name = "descridf";
-            this.descridf.ReadOnly = true;
-            // 
-            // descwinre
-            // 
-            this.descwinre.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.descwinre, "descwinre");
-            this.descwinre.ForeColor = System.Drawing.Color.White;
-            this.descwinre.Name = "descwinre";
-            this.descwinre.ReadOnly = true;
+            this.delridf.MouseEnter += new System.EventHandler(this.desc_Ridf);
             // 
             // winre
             // 
@@ -356,6 +285,7 @@ namespace Unowhy_Tools
             this.winre.Name = "winre";
             this.winre.UseVisualStyleBackColor = false;
             this.winre.Click += new System.EventHandler(this.winre_Click);
+            this.winre.MouseEnter += new System.EventHandler(this.desc_Winre);
             // 
             // pcname
             // 
@@ -366,6 +296,7 @@ namespace Unowhy_Tools
             this.pcname.Name = "pcname";
             this.pcname.UseVisualStyleBackColor = false;
             this.pcname.Click += new System.EventHandler(this.pcname_Click);
+            this.pcname.MouseEnter += new System.EventHandler(this.desc_PCN);
             // 
             // cuscat
             // 
@@ -373,19 +304,11 @@ namespace Unowhy_Tools
             this.cuscat.ForeColor = System.Drawing.Color.White;
             this.cuscat.Name = "cuscat";
             // 
-            // label1
+            // version
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Name = "label1";
-            // 
-            // descpcname
-            // 
-            this.descpcname.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.descpcname, "descpcname");
-            this.descpcname.ForeColor = System.Drawing.Color.White;
-            this.descpcname.Name = "descpcname";
-            this.descpcname.ReadOnly = true;
+            resources.ApplyResources(this.version, "version");
+            this.version.ForeColor = System.Drawing.Color.White;
+            this.version.Name = "version";
             // 
             // deloem
             // 
@@ -396,14 +319,7 @@ namespace Unowhy_Tools
             this.deloem.Name = "deloem";
             this.deloem.UseVisualStyleBackColor = false;
             this.deloem.Click += new System.EventHandler(this.deloem_Click);
-            // 
-            // descdeloem
-            // 
-            this.descdeloem.BackColor = System.Drawing.Color.Black;
-            this.descdeloem.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.descdeloem, "descdeloem");
-            this.descdeloem.Name = "descdeloem";
-            this.descdeloem.ReadOnly = true;
+            this.deloem.MouseEnter += new System.EventHandler(this.desc_Oem);
             // 
             // entf
             // 
@@ -414,14 +330,7 @@ namespace Unowhy_Tools
             this.entf.Name = "entf";
             this.entf.UseVisualStyleBackColor = false;
             this.entf.Click += new System.EventHandler(this.delentf_Click);
-            // 
-            // descentf
-            // 
-            this.descentf.BackColor = System.Drawing.Color.Black;
-            this.descentf.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.descentf, "descentf");
-            this.descentf.Name = "descentf";
-            this.descentf.ReadOnly = true;
+            this.entf.MouseEnter += new System.EventHandler(this.desc_Entf);
             // 
             // pcinfo
             // 
@@ -591,15 +500,31 @@ namespace Unowhy_Tools
             this.logo.Name = "logo";
             this.logo.TabStop = false;
             this.logo.Click += new System.EventHandler(this.logo_Click);
+            this.logo.MouseEnter += new System.EventHandler(this.desc_logo);
+            // 
+            // desc
+            // 
+            this.desc.BackColor = System.Drawing.Color.Black;
+            this.desc.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.desc, "desc");
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Name = "label2";
             // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.desc);
             this.Controls.Add(this.pcinfo);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.descwinre);
+            this.Controls.Add(this.version);
             this.Controls.Add(this.pictureBox19);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox16);
@@ -623,20 +548,9 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.winre);
-            this.Controls.Add(this.descentf);
-            this.Controls.Add(this.descdeloem);
             this.Controls.Add(this.entf);
             this.Controls.Add(this.deloem);
-            this.Controls.Add(this.descridf);
             this.Controls.Add(this.delridf);
-            this.Controls.Add(this.descstart);
-            this.Controls.Add(this.desctidel);
-            this.Controls.Add(this.deschisdel);
-            this.Controls.Add(this.deschismdel);
-            this.Controls.Add(this.descpcname);
-            this.Controls.Add(this.descent);
-            this.Controls.Add(this.descshell);
-            this.Controls.Add(this.deschism);
             this.Controls.Add(this.settings);
             this.Controls.Add(this.cuscat);
             this.Controls.Add(this.delcat);
@@ -661,6 +575,7 @@ namespace Unowhy_Tools
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "main";
+            this.MouseEnter += new System.EventHandler(this.desc_Clean);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
@@ -709,16 +624,7 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Label repaircat;
         private System.Windows.Forms.Label delcat;
         private System.Windows.Forms.Button settings;
-        private System.Windows.Forms.TextBox deschism;
-        private System.Windows.Forms.TextBox descshell;
-        private System.Windows.Forms.TextBox descstart;
-        private System.Windows.Forms.TextBox descent;
-        private System.Windows.Forms.TextBox deschismdel;
-        private System.Windows.Forms.TextBox deschisdel;
-        private System.Windows.Forms.TextBox desctidel;
         private System.Windows.Forms.Button delridf;
-        private System.Windows.Forms.TextBox descridf;
-        private System.Windows.Forms.TextBox descwinre;
         private System.Windows.Forms.Button winre;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -741,16 +647,15 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button pcname;
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.Label cuscat;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox descpcname;
+        private System.Windows.Forms.Label version;
         private System.Windows.Forms.Button deloem;
-        private System.Windows.Forms.TextBox descdeloem;
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.Button entf;
-        private System.Windows.Forms.TextBox descentf;
         private System.Windows.Forms.PictureBox pictureBox21;
         private System.Windows.Forms.Button pcinfo;
         private System.Windows.Forms.PictureBox pictureBox22;
+        private System.Windows.Forms.TextBox desc;
+        private System.Windows.Forms.Label label2;
     }
 }
 
