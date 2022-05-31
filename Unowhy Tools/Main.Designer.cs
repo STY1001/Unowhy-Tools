@@ -55,6 +55,9 @@ namespace Unowhy_Tools
             this.deloem = new System.Windows.Forms.Button();
             this.entf = new System.Windows.Forms.Button();
             this.pcinfo = new System.Windows.Forms.Button();
+            this.desc = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.admin = new System.Windows.Forms.Button();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
@@ -69,6 +72,7 @@ namespace Unowhy_Tools
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -78,8 +82,6 @@ namespace Unowhy_Tools
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.desc = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -94,6 +96,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -339,6 +342,31 @@ namespace Unowhy_Tools
             this.pcinfo.UseVisualStyleBackColor = true;
             this.pcinfo.Click += new System.EventHandler(this.pcinfo_Click);
             // 
+            // desc
+            // 
+            this.desc.BackColor = System.Drawing.Color.Black;
+            this.desc.ForeColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.desc, "desc");
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Name = "label2";
+            // 
+            // admin
+            // 
+            this.admin.BackColor = System.Drawing.Color.Transparent;
+            this.admin.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.admin, "admin");
+            this.admin.ForeColor = System.Drawing.Color.Black;
+            this.admin.Name = "admin";
+            this.admin.UseVisualStyleBackColor = false;
+            this.admin.Click += new System.EventHandler(this.admin_Click);
+            this.admin.MouseEnter += new System.EventHandler(this.desc_Admin);
+            // 
             // pictureBox19
             // 
             this.pictureBox19.Image = global::Unowhy_Tools.Properties.Resources.customize;
@@ -437,6 +465,13 @@ namespace Unowhy_Tools
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.TabStop = false;
             // 
+            // pictureBox23
+            // 
+            this.pictureBox23.Image = global::Unowhy_Tools.Properties.Resources.admin;
+            resources.ApplyResources(this.pictureBox23, "pictureBox23");
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.TabStop = false;
+            // 
             // pictureBox18
             // 
             this.pictureBox18.Image = global::Unowhy_Tools.Properties.Resources.laptop;
@@ -502,20 +537,6 @@ namespace Unowhy_Tools
             this.logo.Click += new System.EventHandler(this.logo_Click);
             this.logo.MouseEnter += new System.EventHandler(this.desc_logo);
             // 
-            // desc
-            // 
-            this.desc.BackColor = System.Drawing.Color.Black;
-            this.desc.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.desc, "desc");
-            this.desc.Name = "desc";
-            this.desc.ReadOnly = true;
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Name = "label2";
-            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -539,6 +560,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.pictureBox18);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox7);
@@ -559,6 +581,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.delti);
             this.Controls.Add(this.fixboot);
             this.Controls.Add(this.about);
+            this.Controls.Add(this.admin);
             this.Controls.Add(this.pcname);
             this.Controls.Add(this.ent);
             this.Controls.Add(this.sty1001);
@@ -590,6 +613,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -656,6 +680,8 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox22;
         private System.Windows.Forms.TextBox desc;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button admin;
+        private System.Windows.Forms.PictureBox pictureBox23;
     }
 }
 

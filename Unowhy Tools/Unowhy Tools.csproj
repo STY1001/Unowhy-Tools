@@ -228,6 +228,7 @@
   <ItemGroup>
     <Content Include="Resources\about.ico" />
     <None Include="Resources\datamatrix.png" />
+    <None Include="Resources\admin.png" />
     <Content Include="Resources\delete.ico" />
     <Content Include="Resources\deluser.ico" />
     <Content Include="Resources\disable.ico" />

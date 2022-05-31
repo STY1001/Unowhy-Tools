@@ -429,6 +429,15 @@ namespace Unowhy_Tools
             }
             string ifp = inputFile6.ReadLine();
 
+            string filePath7 = ".\\username.txt";
+            int lineNumber7 = 1;
+            StreamReader inputFile7 = new StreamReader(filePath7);
+
+            for (int i = 1; i < lineNumber7; i++)
+            {
+                inputFile7.ReadLine();
+            }
+            string un = inputFile7.ReadLine();
 
             string finalinfotxt = ".\\fullpcinfo.txt";
             using (StreamWriter pcinfotxt = File.CreateText(finalinfotxt))
@@ -439,6 +448,7 @@ namespace Unowhy_Tools
                 pcinfotxt.WriteLine(ene);
                 pcinfotxt.WriteLine(ifp);
                 pcinfotxt.WriteLine(os);
+                pcinfotxt.WriteLine(un);
             }
 
             InitializeComponent();
@@ -747,6 +757,34 @@ namespace Unowhy_Tools
             pci.ShowDialog();
         }
 
+        private void admin_Click(object sender, EventArgs e)
+        {
+            string msg = entf.Text;
+            dialog d = new dialog(msg);
+            d.ShowDialog();
+            if (d.DialogResult.Equals(DialogResult.Yes))
+            {
+                var w = new wait();
+                w.Show();
+
+                string filePath = ".\\fullpcinfo.txt";
+                StreamReader inputFile = new StreamReader(filePath);
+                int lineNumber = 7;
+                for (int i = 1; i < lineNumber; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string user = inputFile.ReadLine();
+
+                string arg = ($"localgroup Administrateurs /add {user}");
+                var p = System.Diagnostics.Process.Start("net", arg);         // Delete ENT folder
+                p.WaitForExit();
+                w.Close();
+                var f = new reboot();
+                f.ShowDialog();
+            }
+        }
+
         private void desc_Clean(object sender, EventArgs e)
         {
             desc.Text = "";
@@ -956,9 +994,28 @@ namespace Unowhy_Tools
             desc.Text = resxSet.GetString("descpcname");
         }
 
+        private void desc_Admin(object sender, EventArgs e)
+        {
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;                //French
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            desc.Text = resxSet.GetString("descadmin");
+        }
+
         private void desc_logo(object sender, EventArgs e)
         {
             desc.Text = "Presentation Mode (Display all form of Unowhy Tools / Affiche tous les form. de Unowhy Tools)";
         }
+
+        
     }
 }
