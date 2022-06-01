@@ -111,7 +111,11 @@ namespace Unowhy_Tools
                     actualname.Text = name;
                     var w = new wait();
                     w.Show();
-                    var p = System.Diagnostics.Process.Start("powershell", arg);
+                    Process p = new Process();
+                    p.StartInfo.FileName = "powershell";
+                    p.StartInfo.Arguments = arg;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                    p.Start();
                     p.WaitForExit();
                     w.Close();
                     var f = new reboot();
