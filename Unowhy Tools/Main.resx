@@ -157,7 +157,7 @@
     <value>NoControl</value>
   </data>
   <data name="stophis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 254</value>
+    <value>36, 255</value>
   </data>
   <data name="stophis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -187,7 +187,7 @@
     <value>NoControl</value>
   </data>
   <data name="dishis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 305</value>
+    <value>36, 307</value>
   </data>
   <data name="dishis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -217,7 +217,7 @@
     <value>NoControl</value>
   </data>
   <data name="enhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 283</value>
+    <value>36, 284</value>
   </data>
   <data name="enhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 23</value>
@@ -1443,7 +1443,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 306</value>
+    <value>14, 308</value>
   </data>
   <data name="pictureBox6.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1470,7 +1470,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 284</value>
+    <value>14, 285</value>
   </data>
   <data name="pictureBox5.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1497,7 +1497,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 255</value>
+    <value>14, 256</value>
   </data>
   <data name="pictureBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -1832,9 +1832,6 @@
         P5OzS3yDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgM
         BoPBYDAYDAaDwWAwGAwGg8FgMBgMo43/DzbuazDLXcAAAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

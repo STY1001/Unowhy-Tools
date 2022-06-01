@@ -479,7 +479,7 @@ namespace Unowhy_Tools
             deloem.Text = resxSet.GetString("deloem");
             entf.Text = resxSet.GetString("delentf");
             pcinfo.Text = resxSet.GetString("pcinfo");
-
+            admin.Text = resxSet.GetString("admin");
 
 
 
