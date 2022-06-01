@@ -242,10 +242,12 @@ namespace Unowhy_Tools
             Console.WriteLine("Unowhy Tools by STY1001");
             Console.WriteLine("=======================");
 
-
+            
 
             Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
             t.Start();
+            System.Threading.Thread.Sleep(300);
+
 
             RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);   //Check if the  "STY1001" key exist
             if (keysty != null)
@@ -280,7 +282,12 @@ namespace Unowhy_Tools
             }
             else
             {
-                var p = System.Diagnostics.Process.Start(".\\cuabon.exe");      //Set check boot at startup at on
+                                                //Set check boot at startup at on
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\cuabon.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();    //Wait the registery editing
             }
 
@@ -291,20 +298,23 @@ namespace Unowhy_Tools
             }
             else
             {
-                var p = System.Diagnostics.Process.Start(".\\langen.exe");
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\langen.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();                     //Wait the registery editing
-                var s = new Settings("1");
-                //s.StartPosition = FormStartPosition.WindowsDefaultLocation;
+
                 t.Abort();
+                var s = new Settings("1");
+                s.ShowDialog();                        //Show settings
+                t = new Thread(new ThreadStart(SplashScreen));
+                t.Start();
+
                 System.Threading.Thread.Sleep(100);
-                s.ShowDialog();                                                //Show settings
-                //s.StartPosition = FormStartPosition.CenterScreen;
-                System.Threading.Thread.Sleep(1000);
             }
 
-            t.Abort();
-            Thread t2 = new Thread(new ThreadStart(SplashScreen));   //Splash
-            t2.Start();     //Splash
+            System.Threading.Thread.Sleep(300);
 
             object u = key.GetValue("UpdateStart", null);
             if (u != null)
@@ -331,10 +341,10 @@ namespace Unowhy_Tools
                     if (progint < gitint)        //Check if there is a new vertion of UT
                     {
                         var s = new newver();
-                        t.Abort(); // Close Splash
-                        t2.Abort(); // Close Splash
-                        System.Threading.Thread.Sleep(100);
+                        t.Abort();
                         s.ShowDialog();
+                        t = new Thread(new ThreadStart(SplashScreen));
+                        t.Start();
                     }
                     else
                     {
@@ -346,9 +356,7 @@ namespace Unowhy_Tools
             {
                 
             }
-            t2.Abort();
-            Thread t3 = new Thread(new ThreadStart(SplashScreen));
-            t3.Start();   //Splash
+            
 
 
             //Check the current saved language
@@ -366,8 +374,12 @@ namespace Unowhy_Tools
 
             // Collecting PC Info and compress to txt
 
-            var pcn = System.Diagnostics.Process.Start(".\\getpcinfo.exe");
-            pcn.WaitForExit();
+            Process pci = new Process();
+            pci.StartInfo.FileName = ".\\getpcinfo.exe";
+            pci.StartInfo.Arguments = "";
+            pci.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            pci.Start();
+            pci.WaitForExit();
 
             string filePath = ".\\pcname.txt";
             int lineNumber = 1;
@@ -484,9 +496,8 @@ namespace Unowhy_Tools
 
 
             // Close Splash
+
             t.Abort();
-            t2.Abort();
-            t3.Abort();
         }
 
         private void starthis_Click(object sender, EventArgs e)
@@ -498,7 +509,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\starthis.exe");    // Start HiSqool Manager  
+                                                                      // Start HiSqool Manager  
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\starthis.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -514,7 +530,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\stophis.exe");     // Stop HiSqool Manager
+                                                                      // Stop HiSqool Manager
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\stophis.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -529,7 +550,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\enhis.exe");       // Enable HiSqool Manager
+                                                                     // Enable HiSqool Manager
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\enhis.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -544,7 +570,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\dishis.exe");      // Disable HiSqool Manager
+                                                                           // Disable HiSqool Manager
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\dishis.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -559,7 +590,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\delhisqool.exe");      // Launch Uninstaller of  HiSqool
+                                                                          // Launch Uninstaller of  HiSqool
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\delhisqool.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -574,7 +610,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\rmdirhismgr.exe");     // Remove HiSqool Manager folder
+                                                                         // Remove HiSqool Manager folder
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\rmdirhismgr.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -589,8 +630,13 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\shell.exe");       // Change Shell value
-                p.WaitForExit();
+                                                                               // Change Shell value
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\shell.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit(); ;
                 w.Close();
             }
         }
@@ -603,8 +649,13 @@ namespace Unowhy_Tools
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
                 var w = new wait();
-                w.Show();
-                var p = System.Diagnostics.Process.Start(".\\delent.exe");      // Delete ENT account
+                w.Show();    
+                                                                                // Delete ENT account
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\delent.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -625,7 +676,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\fixti.exe");   //Delete silent_*.vbs.lnk
+                                                                                //Delete silent_*.vbs.lnk
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\fixti.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -640,7 +696,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\rdti.exe");    //Remove "TO_INSTALL"
+                                                                                //Remove "TO_INSTALL"
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\rdti.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -661,7 +722,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\delridf.exe");     //Delete "RIDF"
+                                                                               //Delete "RIDF"
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\delridf.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -676,7 +742,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\winre.exe");       //Enable reagent
+                                                                               //Enable reagentc
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\winre.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -697,7 +768,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\deloem.exe");          // Delete OEM folder
+                                                                               // Delete OEM folder
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\deloem.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -745,7 +821,12 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                var p = System.Diagnostics.Process.Start(".\\delentf.exe");         // Delete ENT folder
+                                                                              // Delete ENT folder
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\delentf.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
             }
@@ -759,7 +840,7 @@ namespace Unowhy_Tools
 
         private void admin_Click(object sender, EventArgs e)
         {
-            string msg = entf.Text;
+            string msg = admin.Text;
             dialog d = new dialog(msg);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
@@ -777,7 +858,12 @@ namespace Unowhy_Tools
                 string user = inputFile.ReadLine();
 
                 string arg = ($"localgroup Administrateurs /add {user}");
-                var p = System.Diagnostics.Process.Start("net", arg);         // Delete ENT folder
+                                                                                 // Set admin
+                Process p = new Process();
+                p.StartInfo.FileName = "net";
+                p.StartInfo.Arguments = arg;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
                 p.WaitForExit();
                 w.Close();
                 var f = new reboot();
