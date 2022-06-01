@@ -256,7 +256,7 @@ namespace Unowhy_Tools
             {
                 RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);    //Create it
                 stykey.CreateSubKey("STY1001");
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(300);
             }
 
             RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);   //Check if "UT" key exist
@@ -268,10 +268,10 @@ namespace Unowhy_Tools
             {
                 RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);     //Create it with "Lang" value
                 utkey.CreateSubKey("Unowhy Tools");
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(300);
 
             }
-            System.Threading.Thread.Sleep(1000);
+
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools");       //Open key
             object us = key.GetValue("UpdateStart", null);
             if (us != null)
@@ -280,8 +280,8 @@ namespace Unowhy_Tools
             }
             else
             {
-                System.Diagnostics.Process.Start(".\\cuabon.exe");      //Set check boot at startup at on
-                System.Threading.Thread.Sleep(1000);    //Wait the registery editing
+                var p = System.Diagnostics.Process.Start(".\\cuabon.exe");      //Set check boot at startup at on
+                p.WaitForExit();    //Wait the registery editing
             }
 
             object o = key.GetValue("Lang", null);
@@ -291,8 +291,8 @@ namespace Unowhy_Tools
             }
             else
             {
-                System.Diagnostics.Process.Start(".\\langen.exe");
-                System.Threading.Thread.Sleep(1000);                     //Wait the registery editing
+                var p = System.Diagnostics.Process.Start(".\\langen.exe");
+                p.WaitForExit();                     //Wait the registery editing
                 var s = new Settings("1");
                 //s.StartPosition = FormStartPosition.WindowsDefaultLocation;
                 t.Abort();
