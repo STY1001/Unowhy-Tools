@@ -11,6 +11,7 @@ using System.IO;
 using Microsoft.Win32;
 using System.Resources;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace Unowhy_Tools
 {
@@ -75,8 +76,47 @@ namespace Unowhy_Tools
 
         public void okbtn_Click(object sender, EventArgs e)
         {
+
+            if (langsel.Text == "English")
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\langen.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit();
+            }
+            else
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\langfr.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit();
+            }
+
+            if (cbupdate.Checked == true)
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\cuabon.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit();
+            }
+            else
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\cuaboff.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit();
+            }
+
             //System.Diagnostics.Process.Start(".\\restart.exe");
-            if(fsr == "1")
+            if (fsr == "1")
             {
                 this.Close();
             }
@@ -91,14 +131,7 @@ namespace Unowhy_Tools
 
         private void langsel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (langsel.Text == "English")
-            {
-                System.Diagnostics.Process.Start(".\\langen.exe");
-            }
-            else
-            {
-                System.Diagnostics.Process.Start(".\\langfr.exe");
-            }
+            
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -108,14 +141,7 @@ namespace Unowhy_Tools
 
         private void cbupdate_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbupdate.Checked == true)
-            {
-                System.Diagnostics.Process.Start(".\\cuabon.exe");
-            }
-            else
-            {
-                System.Diagnostics.Process.Start(".\\cuaboff.exe");
-            }
+            
         }
     }
 }
