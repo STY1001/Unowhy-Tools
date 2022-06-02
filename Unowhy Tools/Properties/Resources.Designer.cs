@@ -421,6 +421,15 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Version 12.0.
+        /// </summary>
+        internal static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap wait {
