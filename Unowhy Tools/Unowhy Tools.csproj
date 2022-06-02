@@ -229,6 +229,8 @@
     <Content Include="Resources\about.ico" />
     <None Include="Resources\datamatrix.png" />
     <None Include="Resources\admin.png" />
+    <Content Include="Resources\customize.ico" />
+    <Content Include="Resources\datamatrix.ico" />
     <Content Include="Resources\delete.ico" />
     <Content Include="Resources\deluser.ico" />
     <Content Include="Resources\disable.ico" />
@@ -236,14 +238,18 @@
     <Content Include="Resources\folder.ico" />
     <Content Include="Resources\github.ico" />
     <None Include="Resources\ic.png" />
+    <Content Include="Resources\ic.ico" />
     <Content Include="Resources\language.ico" />
     <Content Include="Resources\laptop.ico" />
     <None Include="Resources\manufacturer.png" />
+    <Content Include="Resources\manufacturer.ico" />
     <Content Include="Resources\no.ico" />
     <Content Include="Resources\noupdate.ico" />
     <None Include="Resources\pcinfo.png" />
+    <Content Include="Resources\pcinfo.ico" />
     <Content Include="Resources\question.ico" />
     <None Include="Resources\reboot.png" />
+    <Content Include="Resources\reboot.ico" />
     <Content Include="Resources\recovery.ico" />
     <Content Include="Resources\registry.ico" />
     <Content Include="Resources\repair.ico" />
@@ -258,6 +264,9 @@
     <None Include="Resources\wait.png" />
     <None Include="Resources\win10.png" />
     <None Include="Resources\win11.png" />
+    <Content Include="Resources\wait.ico" />
+    <Content Include="Resources\win10.ico" />
+    <Content Include="Resources\win11.ico" />
     <Content Include="Resources\yes.ico" />
     <Content Include="Resources\yesupdate.ico" />
     <Content Include="UT.ico" />
