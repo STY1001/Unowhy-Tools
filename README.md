@@ -18,6 +18,7 @@ Currently, with this tools you can:
 - Delete "OEM" folder
 - Delete "ENT" folder
 - View system info
+- Set your Azure AD account as a local admin
 
 More features come soon
 
@@ -33,6 +34,10 @@ This is a mode for me to make screenshot of UT.
 You can enable "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
 
 ## Screenshot
+
+12.0
+
+![UT Screen](/README/UT12.0.png)
 
 11.0
 
