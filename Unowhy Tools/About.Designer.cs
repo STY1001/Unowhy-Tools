@@ -39,6 +39,7 @@ namespace Unowhy_Tools
             this.alogo = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -48,23 +49,23 @@ namespace Unowhy_Tools
             // aver
             // 
             this.aver.AutoSize = true;
-            this.aver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aver.ForeColor = System.Drawing.Color.White;
-            this.aver.Location = new System.Drawing.Point(8, 88);
+            this.aver.Location = new System.Drawing.Point(8, 97);
             this.aver.Name = "aver";
-            this.aver.Size = new System.Drawing.Size(102, 20);
+            this.aver.Size = new System.Drawing.Size(72, 16);
             this.aver.TabIndex = 12;
-            this.aver.Text = "Version 12.0";
+            this.aver.Text = "Version --.-";
             this.aver.Click += new System.EventHandler(this.label2_Click);
             // 
             // asty1001
             // 
             this.asty1001.AutoSize = true;
-            this.asty1001.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.asty1001.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.asty1001.ForeColor = System.Drawing.Color.White;
-            this.asty1001.Location = new System.Drawing.Point(9, 108);
+            this.asty1001.Location = new System.Drawing.Point(9, 112);
             this.asty1001.Name = "asty1001";
-            this.asty1001.Size = new System.Drawing.Size(230, 16);
+            this.asty1001.Size = new System.Drawing.Size(185, 13);
             this.asty1001.TabIndex = 13;
             this.asty1001.Text = "by STY1001 | sty1001.wordpress.com";
             // 
@@ -142,12 +143,25 @@ namespace Unowhy_Tools
             this.pictureBox3.TabIndex = 20;
             this.pictureBox3.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(7, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(209, 16);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "A tool for Unowhy Y13 computers !";
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(420, 133);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -185,5 +199,6 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label3;
     }
 }

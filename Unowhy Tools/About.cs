@@ -42,6 +42,9 @@ namespace Unowhy_Tools
 
             update.Text = resxSet.GetString("udcheck");
             this.Text = resxSet.GetString("about");
+
+            string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
+            aver.Text = ver;
         }
 
         private void button3_Click(object sender, EventArgs e)
