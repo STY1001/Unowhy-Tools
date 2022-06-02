@@ -82,6 +82,7 @@ namespace Unowhy_Tools
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -537,11 +538,18 @@ namespace Unowhy_Tools
             this.logo.Click += new System.EventHandler(this.logo_Click);
             this.logo.MouseEnter += new System.EventHandler(this.desc_logo);
             // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Name = "label3";
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.desc);
             this.Controls.Add(this.pcinfo);
@@ -682,6 +690,7 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button admin;
         private System.Windows.Forms.PictureBox pictureBox23;
+        private System.Windows.Forms.Label label3;
     }
 }
 

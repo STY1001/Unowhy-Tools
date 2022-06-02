@@ -493,7 +493,8 @@ namespace Unowhy_Tools
             pcinfo.Text = resxSet.GetString("pcinfo");
             admin.Text = resxSet.GetString("admin");
 
-
+            string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
+            version.Text = ver;
 
             // Close Splash
 
