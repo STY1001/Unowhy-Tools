@@ -120,6 +120,9 @@
   <data name="about" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="admin" xml:space="preserve">
+    <value>Set this account as admin</value>
+  </data>
   <data name="ancat" xml:space="preserve">
     <value>Actual name</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="delti" xml:space="preserve">
     <value>Delete "TO_INSTALL" folder</value>
+  </data>
+  <data name="descadmin" xml:space="preserve">
+    <value>Set this account as local admin. With this, you can accept admin rights by clicking "Yes" without entering ".\administrateur"</value>
   </data>
   <data name="descdelentf" xml:space="preserve">
     <value>Delete extra softwares installers folder (In : C:\ProgramData)</value>
