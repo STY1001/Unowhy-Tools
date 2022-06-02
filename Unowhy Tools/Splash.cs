@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using Microsoft.Win32;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Resources;
+using System.Net;
+using System.Runtime.InteropServices;
+using System.Windows;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Text;
 
 namespace Unowhy_Tools
 {
@@ -42,6 +53,16 @@ namespace Unowhy_Tools
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
