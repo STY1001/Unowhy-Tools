@@ -229,6 +229,7 @@
     <Content Include="Resources\about.ico" />
     <None Include="Resources\datamatrix.png" />
     <None Include="Resources\admin.png" />
+    <None Include="Resources\azure.png" />
     <Content Include="Resources\customize.ico" />
     <Content Include="Resources\datamatrix.ico" />
     <Content Include="Resources\delete.ico" />
