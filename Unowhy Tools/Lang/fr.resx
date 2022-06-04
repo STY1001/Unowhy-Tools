@@ -120,6 +120,9 @@
   <data name="about" xml:space="preserve">
     <value>A propos</value>
   </data>
+  <data name="admin" xml:space="preserve">
+    <value>Définir ce compte en tant qu'admin</value>
+  </data>
   <data name="ancat" xml:space="preserve">
     <value>Nom actuel</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="delti" xml:space="preserve">
     <value>Supprimer le dossier "TO_INSTALL"</value>
+  </data>
+  <data name="descadmin" xml:space="preserve">
+    <value>Définir ce compte en tant qu'admin local. Avec cela, vous pouvez accepter les droits d'administrateur en cliquant sur "Oui" sans entrer ".\administrateur"</value>
   </data>
   <data name="descdelentf" xml:space="preserve">
     <value>Supprimer le dossier des installateurs de logiciels supplémentaires (Dans : C:\ProgramData)</value>
