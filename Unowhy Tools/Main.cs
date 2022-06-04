@@ -841,6 +841,26 @@ namespace Unowhy_Tools
 
         private void admin_Click(object sender, EventArgs e)
         {
+            string msg = entf.Text;
+            dialog d = new dialog(msg);
+            d.ShowDialog();
+            if (d.DialogResult.Equals(DialogResult.Yes))
+            {
+                var w = new wait();
+                w.Show();
+                                                 // Disconnect Azure AD domain from PC
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\azureleave.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit();
+                w.Close();
+            }
+        }
+
+        private void aadleave_Click(object sender, EventArgs e)
+        {
             string msg = admin.Text;
             dialog d = new dialog(msg);
             d.ShowDialog();
@@ -849,7 +869,7 @@ namespace Unowhy_Tools
                 var w = new wait();
                 w.Show();
 
-                string filePath = ".\\fullpcinfo.txt";
+                string filePath = ".\\azureleave.txt";
                 StreamReader inputFile = new StreamReader(filePath);
                 int lineNumber = 7;
                 for (int i = 1; i < lineNumber; i++)
@@ -859,7 +879,7 @@ namespace Unowhy_Tools
                 string user = inputFile.ReadLine();
 
                 string arg = ($"localgroup Administrateurs /add {user}");
-                                                                                 // Set admin
+                // Set admin
                 Process p = new Process();
                 p.StartInfo.FileName = "net";
                 p.StartInfo.Arguments = arg;
@@ -871,6 +891,10 @@ namespace Unowhy_Tools
                 f.ShowDialog();
             }
         }
+
+        //============================================================
+        //                      Desc.
+        //============================================================
 
         private void desc_Clean(object sender, EventArgs e)
         {
@@ -1102,7 +1126,5 @@ namespace Unowhy_Tools
         {
             desc.Text = "Presentation Mode (Display all form of Unowhy Tools / Affiche tous les form. de Unowhy Tools)";
         }
-
-        
     }
 }

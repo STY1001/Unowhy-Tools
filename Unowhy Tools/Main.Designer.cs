@@ -83,6 +83,8 @@ namespace Unowhy_Tools
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -107,6 +109,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             this.SuspendLayout();
             // 
             // starthis
@@ -544,6 +547,24 @@ namespace Unowhy_Tools
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Name = "label3";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.delentf_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.desc_Entf);
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.Image = global::Unowhy_Tools.Properties.Resources.azure;
+            resources.ApplyResources(this.pictureBox24, "pictureBox24");
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.TabStop = false;
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -562,6 +583,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.pictureBox24);
             this.Controls.Add(this.pictureBox21);
             this.Controls.Add(this.pictureBox20);
             this.Controls.Add(this.pictureBox13);
@@ -578,6 +600,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.winre);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.entf);
             this.Controls.Add(this.deloem);
             this.Controls.Add(this.delridf);
@@ -631,6 +654,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -691,6 +715,8 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button admin;
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox24;
     }
 }
 
