@@ -172,6 +172,10 @@
 
                                                 Unowhy Tools and STY1001 are NOT affiliate with Unowhy !
 
+                                                          Unowhy Tools is free and open source !
+
+                                                               Don't steal my project/work ! 
+
                                              ================================================================= 
                                                                                                                                                                                                                                                                       
 
@@ -494,6 +498,7 @@ namespace Unowhy_Tools
             admin.Text = resxSet.GetString("admin");
             aadleave.Text = resxSet.GetString("aadleave");
             adduser.Text = resxSet.GetString("adduser");
+            adminset.Text = resxSet.GetString("adminset");
 
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
@@ -896,8 +901,14 @@ namespace Unowhy_Tools
 
         private void adduser_Click(object sender, EventArgs e)
         {
-            var u = new Adduser();     //Show settings
+            var u = new Adduser();     //Show Add user
             u.ShowDialog();
+        }
+
+        private void adminset_Click(object sender, EventArgs e)
+        {
+            var a = new AdminSet();     //Show Admin Settings
+            a.ShowDialog();
         }
 
         //============================================================
