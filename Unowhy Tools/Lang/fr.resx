@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aadleave" xml:space="preserve">
+    <value>Déjoindre ce PC de AzureAD</value>
+  </data>
   <data name="about" xml:space="preserve">
     <value>A propos</value>
   </data>
+  <data name="adduser" xml:space="preserve">
+    <value>Créer un nouvel utilisateur (compte) local</value>
+  </data>
   <data name="admin" xml:space="preserve">
     <value>Définir ce compte en tant qu'admin</value>
+  </data>
+  <data name="an" xml:space="preserve">
+    <value>Le nom doit être seulement alphanumérique</value>
   </data>
   <data name="ancat" xml:space="preserve">
     <value>Nom actuel</value>
@@ -137,6 +146,9 @@
   </data>
   <data name="cncat" xml:space="preserve">
     <value>Changer le nom</value>
+  </data>
+  <data name="confpw" xml:space="preserve">
+    <value>Confirmation</value>
   </data>
   <data name="cuab" xml:space="preserve">
     <value>Vérifier les MAJ au démarrage</value>
@@ -164,6 +176,12 @@
   </data>
   <data name="delti" xml:space="preserve">
     <value>Supprimer le dossier "TO_INSTALL"</value>
+  </data>
+  <data name="descaadleave" xml:space="preserve">
+    <value>Déconnectez ce PC d'AzureAD pour désactiver la gestion de ce PC (Intune / Endpoint) et désactiver l'option "Autre utilisateurs". Attention : Si vous utilisez votre compte AzureAD ( [ID ENT]@monlycee.net ) sur ce PC, vous ne pourrez plus vous connecter à votre compte et vous perdrez vos données de votre compte (si vous tentez de vous reconnecter à votre compte, vous obtiendrez une erreur "mot de passe incorrecte")! Vous devez d’abord sauvegarder vos données, supprimer le compte local ".\ENT" , désactiver le compte local ".\administrateur" et créer un compte admin local !!!</value>
+  </data>
+  <data name="descadduser" xml:space="preserve">
+    <value>Créer un nouvel utilisateur (compte) local sur ce PC. Cela permet de ne plus dépendre d'AzureAD. Je vous conseille de passer sur un compte local (sur le PC) et de ne plus passer par le compte AzureAD (ENT ( [ID ENT@monlycee.net ))</value>
   </data>
   <data name="descadmin" xml:space="preserve">
     <value>Définir ce compte en tant qu'admin local. Avec cela, vous pouvez accepter les droits d'administrateur en cliquant sur "Oui" sans entrer ".\administrateur"</value>
@@ -216,8 +234,17 @@
   <data name="fixboot" xml:space="preserve">
     <value>Supprimer "silent_*.vbs" dans "StartUp"</value>
   </data>
+  <data name="la" xml:space="preserve">
+    <value>Admin Local</value>
+  </data>
   <data name="mfm" xml:space="preserve">
     <value>Fabriquant / Model</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="newuserid" xml:space="preserve">
+    <value>L'identifiant du nouveau compte est</value>
   </data>
   <data name="newver" xml:space="preserve">
     <value>Nouvelle version disponible sur Github</value>
@@ -231,6 +258,9 @@
   <data name="os" xml:space="preserve">
     <value>Version du SE</value>
   </data>
+  <data name="password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
   <data name="pcinfo" xml:space="preserve">
     <value>Infos système</value>
   </data>
@@ -239,6 +269,9 @@
   </data>
   <data name="pcname" xml:space="preserve">
     <value>Changer le nom du PC Windows</value>
+  </data>
+  <data name="pwmis" xml:space="preserve">
+    <value>Les mots de passe ne correspondent pas</value>
   </data>
   <data name="reboot" xml:space="preserve">
     <value>Un redémarrage est nécessaire</value>
