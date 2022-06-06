@@ -79,6 +79,12 @@
     <Compile Include="Adduser.Designer.cs">
       <DependentUpon>Adduser.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSet.Designer.cs">
+      <DependentUpon>AdminSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Adduser.resx">
       <DependentUpon>Adduser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSet.resx">
+      <DependentUpon>AdminSet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog.resx">
       <DependentUpon>Dialog.cs</DependentUpon>
@@ -249,6 +258,7 @@
     <None Include="Resources\admin.png" />
     <None Include="Resources\azure.png" />
     <None Include="Resources\adduser.png" />
+    <None Include="Resources\adminuser.png" />
     <Content Include="Resources\customize.ico" />
     <Content Include="Resources\datamatrix.ico" />
     <Content Include="Resources\delete.ico" />
@@ -259,6 +269,7 @@
     <Content Include="Resources\github.ico" />
     <None Include="Resources\ic.png" />
     <Content Include="Resources\ic.ico" />
+    <None Include="Resources\key.png" />
     <Content Include="Resources\language.ico" />
     <Content Include="Resources\laptop.ico" />
     <None Include="Resources\manufacturer.png" />
