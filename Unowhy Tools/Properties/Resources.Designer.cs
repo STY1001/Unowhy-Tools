@@ -73,6 +73,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adduser {
+            get {
+                object obj = ResourceManager.GetObject("adduser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap admin {
             get {
                 object obj = ResourceManager.GetObject("admin", resourceCulture);
@@ -243,9 +253,49 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap passno {
+            get {
+                object obj = ResourceManager.GetObject("passno", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap passyes {
+            get {
+                object obj = ResourceManager.GetObject("passyes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pcinfo {
             get {
                 object obj = ResourceManager.GetObject("pcinfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pwcno {
+            get {
+                object obj = ResourceManager.GetObject("pwcno", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pwcyes {
+            get {
+                object obj = ResourceManager.GetObject("pwcyes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,6 +443,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UT_icon {
             get {
                 object obj = ResourceManager.GetObject("UT.icon", resourceCulture);
@@ -431,7 +491,7 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Version 12.0.
+        ///   Recherche une chaîne localisée semblable à Version 13.0.
         /// </summary>
         internal static string Version {
             get {
