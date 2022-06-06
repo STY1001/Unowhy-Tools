@@ -1179,5 +1179,22 @@ namespace Unowhy_Tools
 
             desc.Text = resxSet.GetString("descadduser");
         }
+
+        private void desc_Adminset(object sender, EventArgs e)
+        {
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;                //French
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            desc.Text = resxSet.GetString("descadminset");
+        }
     }
 }
