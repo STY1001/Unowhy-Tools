@@ -87,6 +87,8 @@ namespace Unowhy_Tools
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.adduser = new System.Windows.Forms.Button();
             this.pictureBox25 = new System.Windows.Forms.PictureBox();
+            this.adminset = new System.Windows.Forms.Button();
+            this.pictureBox26 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -113,6 +115,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
             this.SuspendLayout();
             // 
             // starthis
@@ -586,6 +589,24 @@ namespace Unowhy_Tools
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.TabStop = false;
             // 
+            // adminset
+            // 
+            this.adminset.BackColor = System.Drawing.Color.Transparent;
+            this.adminset.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.adminset, "adminset");
+            this.adminset.ForeColor = System.Drawing.Color.Black;
+            this.adminset.Name = "adminset";
+            this.adminset.UseVisualStyleBackColor = false;
+            this.adminset.Click += new System.EventHandler(this.adminset_Click);
+            this.adminset.MouseEnter += new System.EventHandler(this.desc_Adduser);
+            // 
+            // pictureBox26
+            // 
+            this.pictureBox26.Image = global::Unowhy_Tools.Properties.Resources.adminuser;
+            resources.ApplyResources(this.pictureBox26, "pictureBox26");
+            this.pictureBox26.Name = "pictureBox26";
+            this.pictureBox26.TabStop = false;
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -611,6 +632,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.pictureBox26);
             this.Controls.Add(this.pictureBox25);
             this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.pictureBox18);
@@ -634,6 +656,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.delti);
             this.Controls.Add(this.fixboot);
             this.Controls.Add(this.about);
+            this.Controls.Add(this.adminset);
             this.Controls.Add(this.adduser);
             this.Controls.Add(this.admin);
             this.Controls.Add(this.pcname);
@@ -679,6 +702,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -743,6 +767,8 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox24;
         private System.Windows.Forms.Button adduser;
         private System.Windows.Forms.PictureBox pictureBox25;
+        private System.Windows.Forms.Button adminset;
+        private System.Windows.Forms.PictureBox pictureBox26;
     }
 }
 
