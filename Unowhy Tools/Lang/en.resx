@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aadleave" xml:space="preserve">
+    <value>Disconnect this PC from AzureAD</value>
+  </data>
   <data name="about" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="adduser" xml:space="preserve">
+    <value>Create a new local user (acccount)</value>
+  </data>
   <data name="admin" xml:space="preserve">
     <value>Set this account as admin</value>
+  </data>
+  <data name="an" xml:space="preserve">
+    <value>The name must be alphanumeric only</value>
   </data>
   <data name="ancat" xml:space="preserve">
     <value>Actual name</value>
@@ -137,6 +146,9 @@
   </data>
   <data name="cncat" xml:space="preserve">
     <value>Change name</value>
+  </data>
+  <data name="confpw" xml:space="preserve">
+    <value>Confirm Password</value>
   </data>
   <data name="cuab" xml:space="preserve">
     <value>Check update at startup</value>
@@ -164,6 +176,12 @@
   </data>
   <data name="delti" xml:space="preserve">
     <value>Delete "TO_INSTALL" folder</value>
+  </data>
+  <data name="descaadleave" xml:space="preserve">
+    <value>Disconnect this PC from AzureAD to disable the management of this PC (Intune / Endpoint) and disable "Other users" option. Warning : If you are using your AzureAD account ( [ID]@[DOMAIN] ) on this PC, you will no longer be able to connect to your account and you will lose your data of your account (if you attempt to reconnect to your account, you will get "wrong password" error)! Before, you need to backup your data, delete the local ".\ENT" account, disable the local ".\administrator" account and create a local admin account!!! !!! </value>
+  </data>
+  <data name="descadduser" xml:space="preserve">
+    <value>Create a new local user (account) on this PC. This allows you to no longer depend on AzureAD. I recommend you to switch to a local account (on the PC) and no longer go through the AzureAD account ( [ID]@[DOMAIN] )</value>
   </data>
   <data name="descadmin" xml:space="preserve">
     <value>Set this account as local admin. With this, you can accept admin rights by clicking "Yes" without entering ".\administrateur"</value>
@@ -216,8 +234,17 @@
   <data name="fixboot" xml:space="preserve">
     <value>Delete "silent_*.vbs" in "Startup" folder</value>
   </data>
+  <data name="la" xml:space="preserve">
+    <value>Local Admin</value>
+  </data>
   <data name="mfm" xml:space="preserve">
     <value>Manufacturer / Model</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="newuserid" xml:space="preserve">
+    <value>The new account ID is</value>
   </data>
   <data name="newver" xml:space="preserve">
     <value>New version available on Github</value>
@@ -231,6 +258,9 @@
   <data name="os" xml:space="preserve">
     <value>OS Version</value>
   </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
   <data name="pcinfo" xml:space="preserve">
     <value>Sytem Info</value>
   </data>
@@ -239,6 +269,9 @@
   </data>
   <data name="pcname" xml:space="preserve">
     <value>Change Windows PC name</value>
+  </data>
+  <data name="pwmis" xml:space="preserve">
+    <value>Passwords do not match</value>
   </data>
   <data name="reboot" xml:space="preserve">
     <value>A reboot is required</value>
