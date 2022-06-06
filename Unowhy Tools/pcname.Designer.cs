@@ -67,6 +67,8 @@ namespace Unowhy_Tools
             // 
             // changename
             // 
+            this.changename.BackColor = System.Drawing.Color.Black;
+            this.changename.ForeColor = System.Drawing.Color.White;
             this.changename.Location = new System.Drawing.Point(12, 75);
             this.changename.Name = "changename";
             this.changename.Size = new System.Drawing.Size(192, 20);
@@ -135,7 +137,7 @@ namespace Unowhy_Tools
             this.avert.TabIndex = 7;
             this.avert.Visible = false;
             // 
-            // pcname
+            // PCName
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -154,7 +156,7 @@ namespace Unowhy_Tools
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "pcname";
+            this.Name = "PCName";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Windows PC name";
             this.Load += new System.EventHandler(this.pcname_Load);
