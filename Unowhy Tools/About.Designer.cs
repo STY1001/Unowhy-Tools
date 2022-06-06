@@ -172,7 +172,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.asty1001);
             this.Controls.Add(this.aver);
             this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
