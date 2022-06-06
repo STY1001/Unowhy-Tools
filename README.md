@@ -18,7 +18,7 @@ Currently, with this tools you can:
 - Delete "OEM" folder
 - Delete "ENT" folder
 - View system info
-- Set your Azure AD account as a local admin
+- Set your account (your AzureAD account too) as a local admin
 
 More features come soon
 
