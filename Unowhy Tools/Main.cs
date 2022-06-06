@@ -819,6 +819,9 @@ namespace Unowhy_Tools
             var p = new PCName();
             p.Show();
 
+            var ui = new userid("STY1001");
+            ui.Show();
+
             var r = new reboot();
             r.Show();
             
