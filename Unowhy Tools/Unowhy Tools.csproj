@@ -73,6 +73,12 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Adduser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adduser.Designer.cs">
+      <DependentUpon>Adduser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,12 @@
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="userid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userid.Designer.cs">
+      <DependentUpon>userid.cs</DependentUpon>
+    </Compile>
     <Compile Include="wait.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +155,9 @@
     </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adduser.resx">
+      <DependentUpon>Adduser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog.resx">
       <DependentUpon>Dialog.cs</DependentUpon>
@@ -175,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userid.resx">
+      <DependentUpon>userid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wait.resx">
       <DependentUpon>wait.cs</DependentUpon>
@@ -230,6 +248,7 @@
     <None Include="Resources\datamatrix.png" />
     <None Include="Resources\admin.png" />
     <None Include="Resources\azure.png" />
+    <None Include="Resources\adduser.png" />
     <Content Include="Resources\customize.ico" />
     <Content Include="Resources\datamatrix.ico" />
     <Content Include="Resources\delete.ico" />
@@ -247,7 +266,11 @@
     <Content Include="Resources\no.ico" />
     <Content Include="Resources\noupdate.ico" />
     <None Include="Resources\pcinfo.png" />
+    <None Include="Resources\passno.png" />
+    <None Include="Resources\passyes.png" />
     <Content Include="Resources\pcinfo.ico" />
+    <None Include="Resources\pwcno.png" />
+    <None Include="Resources\pwcyes.png" />
     <Content Include="Resources\question.ico" />
     <None Include="Resources\reboot.png" />
     <Content Include="Resources\reboot.ico" />
@@ -265,6 +288,7 @@
     <None Include="Resources\wait.png" />
     <None Include="Resources\win10.png" />
     <None Include="Resources\win11.png" />
+    <None Include="Resources\user.png" />
     <Content Include="Resources\wait.ico" />
     <Content Include="Resources\win10.ico" />
     <Content Include="Resources\win11.ico" />
