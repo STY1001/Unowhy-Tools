@@ -129,6 +129,9 @@
   <data name="admin" xml:space="preserve">
     <value>Définir ce compte en tant qu'admin</value>
   </data>
+  <data name="adminset" xml:space="preserve">
+    <value>Options du compte local "Admin" intégré</value>
+  </data>
   <data name="an" xml:space="preserve">
     <value>Le nom doit être seulement alphanumérique</value>
   </data>
@@ -186,6 +189,9 @@
   <data name="descadmin" xml:space="preserve">
     <value>Définir ce compte en tant qu'admin local. Avec cela, vous pouvez accepter les droits d'administrateur en cliquant sur "Oui" sans entrer ".\administrateur"</value>
   </data>
+  <data name="descadminset" xml:space="preserve">
+    <value>Gérez le compte ".\administrateur" intégré. Ne désactivez pas le compte admin si vous n'avez pas d'autre compte en tant qu'admin ! Donc, avant, créez un compte local en tant du'admin ou mettez ce compte en tant qu'admin</value>
+  </data>
   <data name="descdelentf" xml:space="preserve">
     <value>Supprimer le dossier des installateurs de logiciels supplémentaires (Dans : C:\ProgramData)</value>
   </data>
@@ -222,8 +228,14 @@
   <data name="descwinre" xml:space="preserve">
     <value>Faite ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environement de réstauration Windows (qui désactive la réinitialisation)</value>
   </data>
+  <data name="disablea" xml:space="preserve">
+    <value>Désactiver le compte</value>
+  </data>
   <data name="dishis" xml:space="preserve">
     <value>Désactiver le services "HiSqoolManager"</value>
+  </data>
+  <data name="enablea" xml:space="preserve">
+    <value>Activer le compte</value>
   </data>
   <data name="enhis" xml:space="preserve">
     <value>Activer le services "HiSqoolManager"</value>
@@ -293,6 +305,9 @@
   </data>
   <data name="shell" xml:space="preserve">
     <value>Changer "Shell" à "explorer.exe"</value>
+  </data>
+  <data name="snpw" xml:space="preserve">
+    <value>Définir un nouveau mot de passe</value>
   </data>
   <data name="starthis" xml:space="preserve">
     <value>Démarrer le service "HiSqoolManager"</value>
