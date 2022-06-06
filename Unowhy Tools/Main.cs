@@ -793,9 +793,15 @@ namespace Unowhy_Tools
 
             var i = new PCInfo();
             i.Show();
-            
+
+            var au = new Adduser();
+            au.Show();
+
             var a = new About();
             a.Show();
+
+            var a2 = new AdminSet();
+            a2.Show();
 
             string msg = shell.Text;
             dialog d = new dialog(msg);
