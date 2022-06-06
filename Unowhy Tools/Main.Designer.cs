@@ -83,8 +83,10 @@ namespace Unowhy_Tools
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.aadleave = new System.Windows.Forms.Button();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.adduser = new System.Windows.Forms.Button();
+            this.pictureBox25 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -110,6 +112,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
             this.SuspendLayout();
             // 
             // starthis
@@ -547,16 +550,16 @@ namespace Unowhy_Tools
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Name = "label3";
             // 
-            // button1
+            // aadleave
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.delentf_Click);
-            this.button1.MouseEnter += new System.EventHandler(this.desc_Entf);
+            this.aadleave.BackColor = System.Drawing.Color.Transparent;
+            this.aadleave.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.aadleave, "aadleave");
+            this.aadleave.ForeColor = System.Drawing.Color.Black;
+            this.aadleave.Name = "aadleave";
+            this.aadleave.UseVisualStyleBackColor = false;
+            this.aadleave.Click += new System.EventHandler(this.aadleave_Click);
+            this.aadleave.MouseEnter += new System.EventHandler(this.desc_Aadleave);
             // 
             // pictureBox24
             // 
@@ -564,6 +567,24 @@ namespace Unowhy_Tools
             resources.ApplyResources(this.pictureBox24, "pictureBox24");
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.TabStop = false;
+            // 
+            // adduser
+            // 
+            this.adduser.BackColor = System.Drawing.Color.Transparent;
+            this.adduser.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.adduser, "adduser");
+            this.adduser.ForeColor = System.Drawing.Color.Black;
+            this.adduser.Name = "adduser";
+            this.adduser.UseVisualStyleBackColor = false;
+            this.adduser.Click += new System.EventHandler(this.adduser_Click);
+            this.adduser.MouseEnter += new System.EventHandler(this.desc_Adduser);
+            // 
+            // pictureBox25
+            // 
+            this.pictureBox25.Image = global::Unowhy_Tools.Properties.Resources.adduser;
+            resources.ApplyResources(this.pictureBox25, "pictureBox25");
+            this.pictureBox25.Name = "pictureBox25";
+            this.pictureBox25.TabStop = false;
             // 
             // main
             // 
@@ -590,6 +611,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.pictureBox25);
             this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.pictureBox18);
             this.Controls.Add(this.pictureBox10);
@@ -600,7 +622,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.winre);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.aadleave);
             this.Controls.Add(this.entf);
             this.Controls.Add(this.deloem);
             this.Controls.Add(this.delridf);
@@ -612,6 +634,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.delti);
             this.Controls.Add(this.fixboot);
             this.Controls.Add(this.about);
+            this.Controls.Add(this.adduser);
             this.Controls.Add(this.admin);
             this.Controls.Add(this.pcname);
             this.Controls.Add(this.ent);
@@ -655,6 +678,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -715,8 +739,10 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button admin;
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button aadleave;
         private System.Windows.Forms.PictureBox pictureBox24;
+        private System.Windows.Forms.Button adduser;
+        private System.Windows.Forms.PictureBox pictureBox25;
     }
 }
 

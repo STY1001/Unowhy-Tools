@@ -492,6 +492,8 @@ namespace Unowhy_Tools
             entf.Text = resxSet.GetString("delentf");
             pcinfo.Text = resxSet.GetString("pcinfo");
             admin.Text = resxSet.GetString("admin");
+            aadleave.Text = resxSet.GetString("aadleave");
+            adduser.Text = resxSet.GetString("adduser");
 
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
@@ -839,16 +841,16 @@ namespace Unowhy_Tools
             pci.ShowDialog();
         }
 
-        private void admin_Click(object sender, EventArgs e)
+        private void aadleave_Click(object sender, EventArgs e)
         {
-            string msg = entf.Text;
+            string msg = aadleave.Text;
             dialog d = new dialog(msg);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
                 var w = new wait();
                 w.Show();
-                                                 // Disconnect Azure AD domain from PC
+                                                                                 // Disconnect Azure AD domain from PC
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\azureleave.exe";
                 p.StartInfo.Arguments = "";
@@ -859,7 +861,7 @@ namespace Unowhy_Tools
             }
         }
 
-        private void aadleave_Click(object sender, EventArgs e)
+        private void admin_Click(object sender, EventArgs e)
         {
             string msg = admin.Text;
             dialog d = new dialog(msg);
@@ -869,7 +871,7 @@ namespace Unowhy_Tools
                 var w = new wait();
                 w.Show();
 
-                string filePath = ".\\azureleave.txt";
+                string filePath = ".\\fullpcinfo.txt";
                 StreamReader inputFile = new StreamReader(filePath);
                 int lineNumber = 7;
                 for (int i = 1; i < lineNumber; i++)
@@ -878,8 +880,8 @@ namespace Unowhy_Tools
                 }
                 string user = inputFile.ReadLine();
 
-                string arg = ($"localgroup Administrateurs /add {user}");
-                // Set admin
+                string arg = ($"localgroup Administrateurs /add \"{user}\"");
+                                                                           // Set admin
                 Process p = new Process();
                 p.StartInfo.FileName = "net";
                 p.StartInfo.Arguments = arg;
@@ -890,6 +892,12 @@ namespace Unowhy_Tools
                 var f = new reboot();
                 f.ShowDialog();
             }
+        }
+
+        private void adduser_Click(object sender, EventArgs e)
+        {
+            var u = new Adduser();     //Show settings
+            u.ShowDialog();
         }
 
         //============================================================
@@ -1125,6 +1133,40 @@ namespace Unowhy_Tools
         private void desc_logo(object sender, EventArgs e)
         {
             desc.Text = "Presentation Mode (Display all form of Unowhy Tools / Affiche tous les form. de Unowhy Tools)";
+        }
+
+        private void desc_Aadleave(object sender, EventArgs e)
+        {
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;                //French
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            desc.Text = resxSet.GetString("descaadleave");
+        }
+
+        private void desc_Adduser(object sender, EventArgs e)
+        {
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;                //French
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            desc.Text = resxSet.GetString("descadduser");
         }
     }
 }
