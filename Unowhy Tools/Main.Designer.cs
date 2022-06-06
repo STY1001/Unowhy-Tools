@@ -598,7 +598,7 @@ namespace Unowhy_Tools
             this.adminset.Name = "adminset";
             this.adminset.UseVisualStyleBackColor = false;
             this.adminset.Click += new System.EventHandler(this.adminset_Click);
-            this.adminset.MouseEnter += new System.EventHandler(this.desc_Adduser);
+            this.adminset.MouseEnter += new System.EventHandler(this.desc_Adminset);
             // 
             // pictureBox26
             // 
