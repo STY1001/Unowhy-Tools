@@ -259,6 +259,10 @@
     <None Include="Resources\azure.png" />
     <None Include="Resources\adduser.png" />
     <None Include="Resources\adminuser.png" />
+    <Content Include="Resources\adduser.ico" />
+    <Content Include="Resources\admin.ico" />
+    <Content Include="Resources\adminuser.ico" />
+    <Content Include="Resources\azure.ico" />
     <Content Include="Resources\customize.ico" />
     <Content Include="Resources\datamatrix.ico" />
     <Content Include="Resources\delete.ico" />
@@ -270,6 +274,7 @@
     <None Include="Resources\ic.png" />
     <Content Include="Resources\ic.ico" />
     <None Include="Resources\key.png" />
+    <Content Include="Resources\key.ico" />
     <Content Include="Resources\language.ico" />
     <Content Include="Resources\laptop.ico" />
     <None Include="Resources\manufacturer.png" />
@@ -279,9 +284,13 @@
     <None Include="Resources\pcinfo.png" />
     <None Include="Resources\passno.png" />
     <None Include="Resources\passyes.png" />
+    <Content Include="Resources\passno.ico" />
+    <Content Include="Resources\passyes.ico" />
     <Content Include="Resources\pcinfo.ico" />
     <None Include="Resources\pwcno.png" />
     <None Include="Resources\pwcyes.png" />
+    <Content Include="Resources\pwcno.ico" />
+    <Content Include="Resources\pwcyes.ico" />
     <Content Include="Resources\question.ico" />
     <None Include="Resources\reboot.png" />
     <Content Include="Resources\reboot.ico" />
@@ -300,6 +309,7 @@
     <None Include="Resources\win10.png" />
     <None Include="Resources\win11.png" />
     <None Include="Resources\user.png" />
+    <Content Include="Resources\user.ico" />
     <Content Include="Resources\wait.ico" />
     <Content Include="Resources\win10.ico" />
     <Content Include="Resources\win11.ico" />
