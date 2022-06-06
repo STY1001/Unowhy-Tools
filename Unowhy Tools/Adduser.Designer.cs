@@ -109,7 +109,7 @@ namespace Unowhy_Tools
             // 
             // ok
             // 
-            this.ok.Location = new System.Drawing.Point(299, 208);
+            this.ok.Location = new System.Drawing.Point(299, 193);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(33, 23);
             this.ok.TabIndex = 3;
@@ -119,7 +119,7 @@ namespace Unowhy_Tools
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(195, 207);
+            this.cancel.Location = new System.Drawing.Point(195, 192);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(75, 23);
             this.cancel.TabIndex = 4;
@@ -130,7 +130,7 @@ namespace Unowhy_Tools
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.no;
-            this.pictureBox1.Location = new System.Drawing.Point(173, 206);
+            this.pictureBox1.Location = new System.Drawing.Point(173, 191);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -140,7 +140,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox2.Location = new System.Drawing.Point(277, 207);
+            this.pictureBox2.Location = new System.Drawing.Point(277, 192);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -172,7 +172,7 @@ namespace Unowhy_Tools
             // 
             this.warn.AutoSize = true;
             this.warn.ForeColor = System.Drawing.Color.White;
-            this.warn.Location = new System.Drawing.Point(45, 179);
+            this.warn.Location = new System.Drawing.Point(45, 170);
             this.warn.Name = "warn";
             this.warn.Size = new System.Drawing.Size(0, 13);
             this.warn.TabIndex = 6;
@@ -222,7 +222,7 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(335, 233);
+            this.ClientSize = new System.Drawing.Size(335, 217);
             this.Controls.Add(this.warn);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
