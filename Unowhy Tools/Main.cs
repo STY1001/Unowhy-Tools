@@ -310,7 +310,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();                     //Wait the registery editing
-
+                System.Threading.Thread.Sleep(1000);
                 t.Abort();
                 var s = new Settings("1");
                 s.ShowDialog();                        //Show settings
