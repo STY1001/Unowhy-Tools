@@ -103,6 +103,12 @@
     <Compile Include="newver.Designer.cs">
       <DependentUpon>newver.cs</DependentUpon>
     </Compile>
+    <Compile Include="nonet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="nonet.Designer.cs">
+      <DependentUpon>nonet.cs</DependentUpon>
+    </Compile>
     <Compile Include="nonew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="newver.resx">
       <DependentUpon>newver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nonet.resx">
+      <DependentUpon>nonet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="nonew.resx">
       <DependentUpon>nonew.cs</DependentUpon>
@@ -284,6 +293,7 @@
     <None Include="Resources\pcinfo.png" />
     <None Include="Resources\passno.png" />
     <None Include="Resources\passyes.png" />
+    <None Include="Resources\nowifi.png" />
     <Content Include="Resources\passno.ico" />
     <Content Include="Resources\passyes.ico" />
     <Content Include="Resources\pcinfo.ico" />

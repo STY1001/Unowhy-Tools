@@ -37,10 +37,15 @@ namespace Unowhy_Tools
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.updatenow = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.clog = new System.Windows.Forms.TextBox();
+            this.vud = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // newverlab
@@ -57,9 +62,9 @@ namespace Unowhy_Tools
             // git
             // 
             this.git.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.git.Location = new System.Drawing.Point(95, 58);
+            this.git.Location = new System.Drawing.Point(167, 316);
             this.git.Name = "git";
-            this.git.Size = new System.Drawing.Size(75, 23);
+            this.git.Size = new System.Drawing.Size(43, 23);
             this.git.TabIndex = 1;
             this.git.Text = "Github";
             this.git.UseVisualStyleBackColor = true;
@@ -68,9 +73,9 @@ namespace Unowhy_Tools
             // ok
             // 
             this.ok.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.ok.Location = new System.Drawing.Point(196, 58);
+            this.ok.Location = new System.Drawing.Point(238, 315);
             this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(75, 23);
+            this.ok.Size = new System.Drawing.Size(31, 23);
             this.ok.TabIndex = 2;
             this.ok.Text = "OK";
             this.ok.UseVisualStyleBackColor = true;
@@ -99,7 +104,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox2.Location = new System.Drawing.Point(176, 58);
+            this.pictureBox2.Location = new System.Drawing.Point(216, 316);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,24 +114,71 @@ namespace Unowhy_Tools
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.github;
-            this.pictureBox1.Location = new System.Drawing.Point(73, 58);
+            this.pictureBox1.Location = new System.Drawing.Point(145, 317);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // updatenow
+            // 
+            this.updatenow.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.updatenow.Location = new System.Drawing.Point(62, 316);
+            this.updatenow.Name = "updatenow";
+            this.updatenow.Size = new System.Drawing.Size(77, 23);
+            this.updatenow.TabIndex = 1;
+            this.updatenow.Text = "Update now";
+            this.updatenow.UseVisualStyleBackColor = true;
+            this.updatenow.Click += new System.EventHandler(this.updatenow_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Unowhy_Tools.Properties.Resources.update;
+            this.pictureBox5.Location = new System.Drawing.Point(36, 317);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 3;
+            this.pictureBox5.TabStop = false;
+            // 
+            // clog
+            // 
+            this.clog.BackColor = System.Drawing.Color.Black;
+            this.clog.ForeColor = System.Drawing.Color.White;
+            this.clog.Location = new System.Drawing.Point(12, 71);
+            this.clog.Multiline = true;
+            this.clog.Name = "clog";
+            this.clog.ReadOnly = true;
+            this.clog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.clog.Size = new System.Drawing.Size(250, 238);
+            this.clog.TabIndex = 7;
+            this.clog.Text = "Change log";
+            // 
+            // vud
+            // 
+            this.vud.AutoSize = true;
+            this.vud.Location = new System.Drawing.Point(70, 46);
+            this.vud.Name = "vud";
+            this.vud.Size = new System.Drawing.Size(16, 13);
+            this.vud.TabIndex = 8;
+            this.vud.Text = "---";
+            // 
             // newver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(274, 84);
+            this.ClientSize = new System.Drawing.Size(274, 341);
+            this.Controls.Add(this.vud);
+            this.Controls.Add(this.clog);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ok);
+            this.Controls.Add(this.updatenow);
             this.Controls.Add(this.git);
             this.Controls.Add(this.newverlab);
             this.ForeColor = System.Drawing.Color.White;
@@ -142,6 +194,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +209,9 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button updatenow;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.TextBox clog;
+        private System.Windows.Forms.Label vud;
     }
 }

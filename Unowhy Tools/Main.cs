@@ -238,6 +238,8 @@ namespace Unowhy_Tools
                 DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
         }
 
+        [DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(out int state, int value);
 
         public main()
         {
@@ -326,33 +328,45 @@ namespace Unowhy_Tools
                 string utlu = key.GetValue("UpdateStart").ToString();
                 if (utlu == "1")
                 {
-                    if (File.Exists("tversion.txt"))    //Check if the file exist
+                    int Out;
+                    if(InternetGetConnectedState(out Out, 0) == true)
                     {
-                        File.Delete("tversion.txt");    //Delete it if exist
+                        if (File.Exists("gitversion.txt"))    //Check if the file exist
+                        {
+                            File.Delete("gitversion.txt");    //Delete it if exist
+                        }
+
+                        using (var client = new WebClient())
+                        {
+                            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\gitversion.txt");     //Download Version file
+                        }
+
+                        string gitver = System.IO.File.ReadAllText(".\\gitversion.txt");      //Convert text to string
+                        string progver = System.IO.File.ReadAllText(".\\version.txt");
+
+                        int gitint = Convert.ToInt32(gitver);       //Convert string to int
+                        int progint = Convert.ToInt32(progver);
+
+                        if (progint < gitint)        //Check if there is a new vertion of UT
+                        {
+                            var s = new newver();
+                            t.Abort();
+                            s.ShowDialog();
+                            t = new Thread(new ThreadStart(SplashScreen));
+                            t.Start();
+                        }
+                        else
+                        {
+
+                        }
                     }
-
-                    using (var client = new WebClient())
+                    else
                     {
-                        client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\tversion.txt");     //Download Version file
-                    }
-
-                    string gitver = System.IO.File.ReadAllText(".\\tversion.txt");      //Convert text to string
-                    string progver = System.IO.File.ReadAllText(".\\version.txt");
-
-                    int gitint = Convert.ToInt32(gitver);       //Convert string to int
-                    int progint = Convert.ToInt32(progver);
-
-                    if (progint < gitint)        //Check if there is a new vertion of UT
-                    {
-                        var s = new newver();
+                        var s = new nonet();
                         t.Abort();
                         s.ShowDialog();
                         t = new Thread(new ThreadStart(SplashScreen));
                         t.Start();
-                    }
-                    else
-                    {
-                        
                     }
                 }
             }

@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Resources;
 using System.Runtime.InteropServices;
+using System.Net;
+using System.IO;
 
 namespace Unowhy_Tools
 {
@@ -30,6 +32,22 @@ namespace Unowhy_Tools
 
         public newver()
         {
+            string sgitver = System.IO.File.ReadAllText(".\\gitversion.txt");      //Convert text to string
+            int igitver = Convert.ToInt32(sgitver);
+            string gitver = Convert.ToString(igitver);
+            string sprogver = System.IO.File.ReadAllText(".\\version.txt");
+            int iprogver = Convert.ToInt32(sprogver);
+            string progver = Convert.ToString(iprogver);
+
+            string fullver = progver + ".0" + " -> " + gitver + ".0";
+
+
+            using(WebClient web = new WebClient())
+            {
+                web.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.txt", ".\\changelog.txt");
+            }
+
+
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
 
@@ -41,6 +59,9 @@ namespace Unowhy_Tools
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
             newverlab.Text = resxSet.GetString("newver");
+
+            vud.Text = fullver;
+            clog.Text = File.ReadAllText(".\\changelog.txt");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -61,6 +82,19 @@ namespace Unowhy_Tools
         private void newver_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void updatenow_Click(object sender, EventArgs e)
+        {
+            WebClient client = new WebClient();
+            client.DownloadFileCompleted += new AsyncCompletedEventHandler(dl_complete);
+            client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Unowhy%20Tools%20Updater.exe"), ".\\Unowhy Tools Updater.exe");
+            
+        }
+
+        private void dl_complete(object sender, AsyncCompletedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(".\\Unowhy Tools Updater.exe");
         }
     }
 }

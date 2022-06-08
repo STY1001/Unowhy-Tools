@@ -45,7 +45,7 @@ namespace Unowhy_Tools
             this.noverlab.AutoSize = true;
             this.noverlab.BackColor = System.Drawing.Color.Transparent;
             this.noverlab.ForeColor = System.Drawing.Color.White;
-            this.noverlab.Location = new System.Drawing.Point(68, 26);
+            this.noverlab.Location = new System.Drawing.Point(64, 22);
             this.noverlab.Name = "noverlab";
             this.noverlab.Size = new System.Drawing.Size(126, 13);
             this.noverlab.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace Unowhy_Tools
             // 
             this.nook.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.nook.ForeColor = System.Drawing.Color.White;
-            this.nook.Location = new System.Drawing.Point(147, 57);
+            this.nook.Location = new System.Drawing.Point(143, 53);
             this.nook.Name = "nook";
             this.nook.Size = new System.Drawing.Size(75, 23);
             this.nook.TabIndex = 1;
@@ -66,7 +66,7 @@ namespace Unowhy_Tools
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Unowhy_Tools.Properties.Resources.noupdate;
-            this.pictureBox4.Location = new System.Drawing.Point(43, 42);
+            this.pictureBox4.Location = new System.Drawing.Point(39, 38);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(20, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -76,7 +76,7 @@ namespace Unowhy_Tools
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Unowhy_Tools.Properties.Resources.update;
-            this.pictureBox3.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(8, 8);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(40, 40);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -86,7 +86,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox2.Location = new System.Drawing.Point(125, 58);
+            this.pictureBox2.Location = new System.Drawing.Point(121, 54);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,13 +98,13 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(226, 84);
+            this.ClientSize = new System.Drawing.Size(222, 80);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.nook);
             this.Controls.Add(this.noverlab);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
