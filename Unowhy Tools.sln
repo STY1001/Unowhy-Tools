@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unowhy Tools", "Unowhy Tools\Unowhy Tools.csproj", "{1B46FFC4-255B-4C29-A5DD-C76DB5F18B8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unowhy Tools Updater", "..\Unowhy Tools Updater\Unowhy Tools Updater\Unowhy Tools Updater.csproj", "{D776C128-5927-465A-A314-C42B440D8705}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1B46FFC4-255B-4C29-A5DD-C76DB5F18B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B46FFC4-255B-4C29-A5DD-C76DB5F18B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B46FFC4-255B-4C29-A5DD-C76DB5F18B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D776C128-5927-465A-A314-C42B440D8705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D776C128-5927-465A-A314-C42B440D8705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D776C128-5927-465A-A314-C42B440D8705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D776C128-5927-465A-A314-C42B440D8705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
