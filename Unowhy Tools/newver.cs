@@ -59,6 +59,7 @@ namespace Unowhy_Tools
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
             newverlab.Text = resxSet.GetString("newver");
+            updatenow.Text = resxSet.GetString("unow");
 
             vud.Text = fullver;
             clog.Text = File.ReadAllText(".\\changelog.txt");
