@@ -39,13 +39,6 @@ namespace Unowhy_Tools_Updater
 
         public Main()
         {
-            Process p = new Process();
-            p.StartInfo.FileName = "taskkill";
-            p.StartInfo.Arguments = "/f /im \"Unowhy Tools.exe\"";
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p.Start();
-            p.WaitForExit();
-
             //Check the current saved language
 
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
@@ -62,6 +55,17 @@ namespace Unowhy_Tools_Updater
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
             lab.Text = resxSet.GetString("update.updating");
+            status.Text = resxSet.GetString("update.kill");
+
+            Process p = new Process();
+            p.StartInfo.FileName = "taskkill";
+            p.StartInfo.Arguments = "/f /im \"Unowhy Tools.exe\"";
+            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            p.Start();
+            p.WaitForExit();
+
+            System.Threading.Thread.Sleep(500);
+
             status.Text = resxSet.GetString("update.dl");
 
             WebClient client = new WebClient();
@@ -84,6 +88,8 @@ namespace Unowhy_Tools_Updater
             else resxFile = frresx;                //French
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
+            System.Threading.Thread.Sleep(1000);
+
             status.Text = resxSet.GetString("update.ext");
 
             Process p = new Process();
@@ -92,6 +98,26 @@ namespace Unowhy_Tools_Updater
             p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             p.Start();
             p.WaitForExit();
+
+            System.Threading.Thread.Sleep(1000);
+
+            status.Text = resxSet.GetString("update.del");
+
+            if (File.Exists("update.zip"))    //Check if the file exist
+            {
+                File.Delete("update.zip");    //Delete it if exist
+            }
+
+            if (Directory.Exists("update"))
+            {
+                Directory.Delete("update");
+            }
+
+            System.Threading.Thread.Sleep(1000);
+
+            status.Text = resxSet.GetString("update.start");
+
+            System.Threading.Thread.Sleep(500);
 
             System.Diagnostics.Process.Start(".\\Unowhy Tools.exe");
 
