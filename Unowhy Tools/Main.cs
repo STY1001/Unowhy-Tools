@@ -832,6 +832,9 @@ namespace Unowhy_Tools
             var v = new newver();
             v.Show();
 
+            var n = new nonet();
+            n.Show();
+
             var s = new Settings("1");
             s.Show();
             
