@@ -328,8 +328,21 @@ namespace Unowhy_Tools
                 string utlu = key.GetValue("UpdateStart").ToString();
                 if (utlu == "1")
                 {
+                    string noco = "0";
+
                     int Out;
-                    if(InternetGetConnectedState(out Out, 0) == true)
+                    if (InternetGetConnectedState(out Out, 0) == true) noco = "0";
+                    else noco = "1";
+
+                    if(noco == "1")
+                    {
+                        var s = new nonet();
+                        t.Abort();
+                        s.ShowDialog();
+                        t = new Thread(new ThreadStart(SplashScreen));
+                        t.Start();
+                    }
+                    else
                     {
                         if (File.Exists("gitversion.txt"))    //Check if the file exist
                         {
@@ -359,14 +372,6 @@ namespace Unowhy_Tools
                         {
 
                         }
-                    }
-                    else
-                    {
-                        var s = new nonet();
-                        t.Abort();
-                        s.ShowDialog();
-                        t = new Thread(new ThreadStart(SplashScreen));
-                        t.Start();
                     }
                 }
             }

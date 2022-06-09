@@ -52,8 +52,18 @@ namespace Unowhy_Tools
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string noco = "0";
+
             int Out;
-            if (InternetGetConnectedState(out Out, 0) == true)
+            if (InternetGetConnectedState(out Out, 0) == true) noco = "0";
+            else noco = "1";
+
+            if (noco == "1")
+            {
+                var s = new nonet();
+                s.ShowDialog();
+            }
+            else
             {
                 if (File.Exists("gitversion.txt"))    //Check if the file exist
                 {
@@ -81,11 +91,6 @@ namespace Unowhy_Tools
                     var s = new nonew();
                     s.ShowDialog();
                 }
-            }
-            else
-            {
-                var s = new nonet();
-                s.ShowDialog();
             }
         }
 
