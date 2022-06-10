@@ -163,7 +163,7 @@
     <value>↓ Supprimer/Désinstaller ↓</value>
   </data>
   <data name="delentf" xml:space="preserve">
-    <value>Supprimer le dossier "ENT"</value>
+    <value>Supprimer le dossier "ENT".</value>
   </data>
   <data name="delhis" xml:space="preserve">
     <value>Désinstaller "HiSqool"</value>
@@ -199,7 +199,7 @@
     <value>Supprimer le dossier qui contient le script, les icons du menu démarrer et les fonds d'écrans (Dans : C:\Windows\System32)</value>
   </data>
   <data name="descent" xml:space="preserve">
-    <value>Supprimer le compte local "ENT"</value>
+    <value>Supprimer le compte local "ENT".  Ceci est le compte pour configurer votre compte ENT</value>
   </data>
   <data name="deschisdel" xml:space="preserve">
     <value>Désinstaller le logiciel inutile "HiSqool" (Dans : C:\Program Files\Unowhy)</value>
@@ -259,10 +259,13 @@
     <value>L'identifiant du nouveau compte est</value>
   </data>
   <data name="newver" xml:space="preserve">
-    <value>Nouvelle version disponible sur Github</value>
+    <value>Nouvelle version disponible</value>
   </data>
   <data name="no" xml:space="preserve">
     <value>Non</value>
+  </data>
+  <data name="nonet" xml:space="preserve">
+    <value>Pas de connection internet</value>
   </data>
   <data name="nover" xml:space="preserve">
     <value>Pas de nouvelle version</value>
@@ -317,6 +320,27 @@
   </data>
   <data name="udcheck" xml:space="preserve">
     <value>Vérifier les mises à jour</value>
+  </data>
+  <data name="unow" xml:space="preserve">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="update.del" xml:space="preserve">
+    <value>Suppression "update.zip"</value>
+  </data>
+  <data name="update.dl" xml:space="preserve">
+    <value>Téléchargement "update.zip"</value>
+  </data>
+  <data name="update.ext" xml:space="preserve">
+    <value>Extraction "update.zip"</value>
+  </data>
+  <data name="update.kill" xml:space="preserve">
+    <value>Fermeture "Unowhy Tools.exe"</value>
+  </data>
+  <data name="update.start" xml:space="preserve">
+    <value>Démarrage "Unowhy Tools.exe"</value>
+  </data>
+  <data name="update.updating" xml:space="preserve">
+    <value>Mise à jour de Unowhy Tools...</value>
   </data>
   <data name="wait" xml:space="preserve">
     <value>Veuillez patienter...</value>
