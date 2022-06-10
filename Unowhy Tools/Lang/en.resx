@@ -199,7 +199,7 @@
     <value>Delete the first logon script, start menu icons and wallpapers (In : C:\Windows\System32)</value>
   </data>
   <data name="descent" xml:space="preserve">
-    <value>Delete "ENT" local account</value>
+    <value>Delete "ENT" local account. This the account to configure your "ENT" account</value>
   </data>
   <data name="deschisdel" xml:space="preserve">
     <value>Uninstall the useless "HiSqool" software (In : C:\Program Files\Unowhy)</value>
@@ -259,10 +259,13 @@
     <value>The new account ID is</value>
   </data>
   <data name="newver" xml:space="preserve">
-    <value>New version available on Github</value>
+    <value>New version available</value>
   </data>
   <data name="no" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="nonet" xml:space="preserve">
+    <value>No internet connection</value>
   </data>
   <data name="nover" xml:space="preserve">
     <value>No new version available</value>
@@ -317,6 +320,27 @@
   </data>
   <data name="udcheck" xml:space="preserve">
     <value>Check for update</value>
+  </data>
+  <data name="unow" xml:space="preserve">
+    <value>Update now</value>
+  </data>
+  <data name="update.del" xml:space="preserve">
+    <value>Deleting "update.zip"</value>
+  </data>
+  <data name="update.dl" xml:space="preserve">
+    <value>Downloading "update.zip"</value>
+  </data>
+  <data name="update.ext" xml:space="preserve">
+    <value>Extracting "update.zip"</value>
+  </data>
+  <data name="update.kill" xml:space="preserve">
+    <value>Killing "Unowhy Tools.exe"</value>
+  </data>
+  <data name="update.start" xml:space="preserve">
+    <value>Starting "Unowhy Tools.exe"</value>
+  </data>
+  <data name="update.updating" xml:space="preserve">
+    <value>Updating Unowhy Tools...</value>
   </data>
   <data name="wait" xml:space="preserve">
     <value>Please wait...</value>
