@@ -204,6 +204,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Text;
+using System.ServiceProcess;
 
 namespace Unowhy_Tools
 {   
@@ -225,6 +226,11 @@ namespace Unowhy_Tools
         public void WaitScreen()
         {
             Application.Run(new wait());
+        }
+
+        public bool serviceExists(string ServiceName)
+        {
+            return ServiceController.GetServices().Any(serviceController => serviceController.ServiceName.Equals(ServiceName));
         }
 
         //Set dark mode title bar
@@ -525,7 +531,57 @@ namespace Unowhy_Tools
             // Close Splash
 
             t.Abort();
+
+            if (File.Exists("debug"))
+            {
+                debuglab.Visible = true;
+                debshell.Visible = true;
+                debhme.Visible = true;
+                debhmr.Visible = true;
+                debhms.Visible = true;
+            }
+
+            RegistryKey shellkey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon", false);
+            debshell.Text = shellkey.GetValue("shell").ToString();
+
+            if (serviceExists("HiSqoolManager"))
+            {
+                debhme.Text = "true";
+
+                ServiceController sc = new ServiceController();
+                sc.ServiceName = "HiSqoolManager";
+
+                if (sc.Status == ServiceControllerStatus.Running)
+                {
+                    debhmr.Text = "true";
+                }
+                else
+                {
+                    debhmr.Text = "false";
+                }
+
+                Process starttypeget = new Process();
+                starttypeget.StartInfo.FileName = "powershell.exe";
+                starttypeget.StartInfo.Arguments = "-command \"& {(Get-Service wuauserv).StartType}\"";
+                starttypeget.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                starttypeget.StartInfo.UseShellExecute = false;
+                starttypeget.StartInfo.RedirectStandardOutput = true;
+
+                starttypeget.Start();
+                debhms.Text = starttypeget.StandardOutput.ReadToEnd().ToString();
+                starttypeget.Close();
+            }
+            else
+            {
+                debhme.Text = "false";
+                debhmr.Text = "false";
+                debhms.Text = "false";
+            }
+
+            
         }
+
+        //==============================================================================================================================
 
         private void starthis_Click(object sender, EventArgs e)
         {
@@ -942,9 +998,7 @@ namespace Unowhy_Tools
             a.ShowDialog();
         }
 
-        //============================================================
-        //                      Desc.
-        //============================================================
+        //============================================================================================================================================
 
         private void desc_Clean(object sender, EventArgs e)
         {
