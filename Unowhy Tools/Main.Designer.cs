@@ -89,6 +89,11 @@ namespace Unowhy_Tools
             this.pictureBox25 = new System.Windows.Forms.PictureBox();
             this.adminset = new System.Windows.Forms.Button();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.debuglab = new System.Windows.Forms.Label();
+            this.debshell = new System.Windows.Forms.Label();
+            this.debhme = new System.Windows.Forms.Label();
+            this.debhmr = new System.Windows.Forms.Label();
+            this.debhms = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -607,11 +612,46 @@ namespace Unowhy_Tools
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.TabStop = false;
             // 
+            // debuglab
+            // 
+            resources.ApplyResources(this.debuglab, "debuglab");
+            this.debuglab.ForeColor = System.Drawing.Color.White;
+            this.debuglab.Name = "debuglab";
+            // 
+            // debshell
+            // 
+            resources.ApplyResources(this.debshell, "debshell");
+            this.debshell.ForeColor = System.Drawing.Color.White;
+            this.debshell.Name = "debshell";
+            // 
+            // debhme
+            // 
+            resources.ApplyResources(this.debhme, "debhme");
+            this.debhme.ForeColor = System.Drawing.Color.White;
+            this.debhme.Name = "debhme";
+            // 
+            // debhmr
+            // 
+            resources.ApplyResources(this.debhmr, "debhmr");
+            this.debhmr.ForeColor = System.Drawing.Color.White;
+            this.debhmr.Name = "debhmr";
+            // 
+            // debhms
+            // 
+            resources.ApplyResources(this.debhms, "debhms");
+            this.debhms.ForeColor = System.Drawing.Color.White;
+            this.debhms.Name = "debhms";
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.debhms);
+            this.Controls.Add(this.debhmr);
+            this.Controls.Add(this.debhme);
+            this.Controls.Add(this.debshell);
+            this.Controls.Add(this.debuglab);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.desc);
@@ -769,6 +809,11 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox25;
         private System.Windows.Forms.Button adminset;
         private System.Windows.Forms.PictureBox pictureBox26;
+        private System.Windows.Forms.Label debuglab;
+        private System.Windows.Forms.Label debshell;
+        private System.Windows.Forms.Label debhme;
+        private System.Windows.Forms.Label debhmr;
+        private System.Windows.Forms.Label debhms;
     }
 }
 
