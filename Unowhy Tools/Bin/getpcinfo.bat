@@ -26,7 +26,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZ8kcUNACdfewa7bQY6r2EMs3yAVw==
+::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZ8kcUNACdadxyXaQoguW1LuGKKecKEtm8=
 ::YB416Ek+ZW8=
 ::
 ::
@@ -51,3 +51,4 @@ wmic /output:model.txt computersystem get model
 wmic /output:os.txt os get caption
 wmic /output:ene.txt bios get smbiosbiosversion
 wmic /output:ifp.txt bios get serialnumber
+powershell Get-ItemPropertyValue -path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon' -name 'Shell' > shell.txt
