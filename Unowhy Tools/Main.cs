@@ -350,17 +350,17 @@ namespace Unowhy_Tools
                     }
                     else
                     {
-                        if (File.Exists("gitversion.txt"))    //Check if the file exist
+                        if (File.Exists(".\\temp\\gitversion.txt"))    //Check if the file exist
                         {
-                            File.Delete("gitversion.txt");    //Delete it if exist
+                            File.Delete(".\\temp\\gitversion.txt");    //Delete it if exist
                         }
 
                         using (var client = new WebClient())
                         {
-                            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\gitversion.txt");     //Download Version file
+                            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\temp\\gitversion.txt");     //Download Version file
                         }
 
-                        string gitver = System.IO.File.ReadAllText(".\\gitversion.txt");      //Convert text to string
+                        string gitver = System.IO.File.ReadAllText(".\\temp\\gitversion.txt");      //Convert text to string
                         string progver = System.IO.File.ReadAllText(".\\version.txt");
 
                         int gitint = Convert.ToInt32(gitver);       //Convert string to int
@@ -417,7 +417,7 @@ namespace Unowhy_Tools
             pci2.Start();
             pci2.WaitForExit();
 
-            string filePath = ".\\pcname.txt";
+            string filePath = ".\\temp\\pcname.txt";
             int lineNumber = 1;
             int lineNumber2 = 2;
             StreamReader inputFile = new StreamReader(filePath);
@@ -428,7 +428,7 @@ namespace Unowhy_Tools
             }
             string hnpcn = inputFile.ReadLine();
 
-            filePath = ".\\mf.txt";
+            filePath = ".\\temp\\mf.txt";
             inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber2; i++)
@@ -437,7 +437,7 @@ namespace Unowhy_Tools
             }
             string mf = inputFile.ReadLine();
 
-            filePath = ".\\model.txt";
+            filePath = ".\\temp\\model.txt";
             inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber2; i++)
@@ -446,7 +446,7 @@ namespace Unowhy_Tools
             }
             string model = inputFile.ReadLine();
 
-            filePath = ".\\os.txt";
+            filePath = ".\\temp\\os.txt";
             inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber2; i++)
@@ -455,7 +455,7 @@ namespace Unowhy_Tools
             }
             string os = inputFile.ReadLine();
 
-            filePath = ".\\ene.txt";
+            filePath = ".\\temp\\ene.txt";
             inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber2; i++)
@@ -464,7 +464,7 @@ namespace Unowhy_Tools
             }
             string ene = inputFile.ReadLine();
 
-            filePath = ".\\ifp.txt";
+            filePath = ".\\temp\\ifp.txt";
             inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber2; i++)
@@ -473,7 +473,7 @@ namespace Unowhy_Tools
             }
             string ifp = inputFile.ReadLine();
 
-            filePath = ".\\username.txt";
+            filePath = ".\\temp\\username.txt";
             inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber; i++)
@@ -482,7 +482,7 @@ namespace Unowhy_Tools
             }
             string un = inputFile.ReadLine();
 
-            filePath = ".\\shell.txt";
+            filePath = ".\\temp\\shell.txt";
             inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber; i++)
@@ -491,7 +491,7 @@ namespace Unowhy_Tools
             }
             string sk = inputFile.ReadLine();
 
-            filePath = ".\\hsmst.txt";
+            filePath = ".\\temp\\hsmst.txt";
             inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber; i++)
@@ -615,6 +615,14 @@ namespace Unowhy_Tools
             if (debshell.Text.Contains("explorer.exe") == true)
             {
                 shell.Enabled = false;
+            }
+
+
+            // Clean TEMP Files
+
+            if (File.Exists("gitversion.txt"))    //Check if the file exist
+            {
+                File.Delete("gitversion.txt");    //Delete it if exist
             }
 
         }

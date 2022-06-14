@@ -65,17 +65,17 @@ namespace Unowhy_Tools
             }
             else
             {
-                if (File.Exists("gitversion.txt"))    //Check if the file exist
+                if (File.Exists(".\\temp\\gitversion.txt"))    //Check if the file exist
                 {
-                    File.Delete("gitversion.txt");    //Delete it if exist
+                    File.Delete(".\\temp\\gitversion.txt");    //Delete it if exist
                 }
 
                 using (var client = new WebClient())
                 {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\gitversion.txt");     //Download Version file
+                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\temp\\gitversion.txt");     //Download Version file
                 }
 
-                string gitver = System.IO.File.ReadAllText(".\\gitversion.txt");      //Convert text to string
+                string gitver = System.IO.File.ReadAllText(".\\temp\\gitversion.txt");      //Convert text to string
                 string progver = System.IO.File.ReadAllText(".\\version.txt");
 
                 int gitint = Convert.ToInt32(gitver);       //Convert string to int

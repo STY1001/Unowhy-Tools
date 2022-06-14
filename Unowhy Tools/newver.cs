@@ -44,7 +44,7 @@ namespace Unowhy_Tools
 
             using(WebClient web = new WebClient())
             {
-                web.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.txt", ".\\changelog.txt");
+                web.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.txt", ".\\temp\\changelog.txt");
             }
 
 
@@ -62,7 +62,7 @@ namespace Unowhy_Tools
             updatenow.Text = resxSet.GetString("unow");
 
             vud.Text = fullver;
-            clog.Text = File.ReadAllText(".\\changelog.txt");
+            clog.Text = File.ReadAllText(".\\temp\\changelog.txt");
         }
 
         private void label1_Click(object sender, EventArgs e)
