@@ -410,8 +410,16 @@ namespace Unowhy_Tools
             pci.Start();
             pci.WaitForExit();
 
+            Process pci2 = new Process();
+            pci2.StartInfo.FileName = ".\\getsoftinfo.exe";
+            pci2.StartInfo.Arguments = "";
+            pci2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            pci2.Start();
+            pci2.WaitForExit();
+
             string filePath = ".\\pcname.txt";
             int lineNumber = 1;
+            int lineNumber2 = 2;
             StreamReader inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber; i++)
@@ -420,65 +428,77 @@ namespace Unowhy_Tools
             }
             string hnpcn = inputFile.ReadLine();
 
-            string filePath2 = ".\\mf.txt";
-            int lineNumber2 = 2;
-            StreamReader inputFile2 = new StreamReader(filePath2);
+            filePath = ".\\mf.txt";
+            inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber2; i++)
             {
-                inputFile2.ReadLine();
+                inputFile.ReadLine();
             }
-            string mf = inputFile2.ReadLine();
+            string mf = inputFile.ReadLine();
 
-            string filePath3 = ".\\model.txt";
-            int lineNumber3 = 2;
-            StreamReader inputFile3 = new StreamReader(filePath3);
+            filePath = ".\\model.txt";
+            inputFile = new StreamReader(filePath);
 
-            for (int i = 1; i < lineNumber3; i++)
+            for (int i = 1; i < lineNumber2; i++)
             {
-                inputFile3.ReadLine();
+                inputFile.ReadLine();
             }
-            string model = inputFile3.ReadLine();
+            string model = inputFile.ReadLine();
 
-            string filePath4 = ".\\os.txt";
-            int lineNumber4 = 2;
-            StreamReader inputFile4 = new StreamReader(filePath4);
+            filePath = ".\\os.txt";
+            inputFile = new StreamReader(filePath);
 
-            for (int i = 1; i < lineNumber4; i++)
+            for (int i = 1; i < lineNumber2; i++)
             {
-                inputFile4.ReadLine();
+                inputFile.ReadLine();
             }
-            string os = inputFile4.ReadLine();
+            string os = inputFile.ReadLine();
 
-            string filePath5 = ".\\ene.txt";
-            int lineNumber5 = 2;
-            StreamReader inputFile5 = new StreamReader(filePath5);
+            filePath = ".\\ene.txt";
+            inputFile = new StreamReader(filePath);
 
-            for (int i = 1; i < lineNumber5; i++)
+            for (int i = 1; i < lineNumber2; i++)
             {
-                inputFile5.ReadLine();
+                inputFile.ReadLine();
             }
-            string ene = inputFile5.ReadLine();
+            string ene = inputFile.ReadLine();
 
-            string filePath6 = ".\\ifp.txt";
-            int lineNumber6 = 2;
-            StreamReader inputFile6 = new StreamReader(filePath6);
+            filePath = ".\\ifp.txt";
+            inputFile = new StreamReader(filePath);
 
-            for (int i = 1; i < lineNumber6; i++)
+            for (int i = 1; i < lineNumber2; i++)
             {
-                inputFile6.ReadLine();
+                inputFile.ReadLine();
             }
-            string ifp = inputFile6.ReadLine();
+            string ifp = inputFile.ReadLine();
 
-            string filePath7 = ".\\username.txt";
-            int lineNumber7 = 1;
-            StreamReader inputFile7 = new StreamReader(filePath7);
+            filePath = ".\\username.txt";
+            inputFile = new StreamReader(filePath);
 
-            for (int i = 1; i < lineNumber7; i++)
+            for (int i = 1; i < lineNumber; i++)
             {
-                inputFile7.ReadLine();
+                inputFile.ReadLine();
             }
-            string un = inputFile7.ReadLine();
+            string un = inputFile.ReadLine();
+
+            filePath = ".\\shell.txt";
+            inputFile = new StreamReader(filePath);
+
+            for (int i = 1; i < lineNumber; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string sk = inputFile.ReadLine();
+
+            filePath = ".\\hsmst.txt";
+            inputFile = new StreamReader(filePath);
+
+            for (int i = 1; i < lineNumber; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string hsmst = inputFile.ReadLine();
 
             string finalinfotxt = ".\\fullpcinfo.txt";
             using (StreamWriter pcinfotxt = File.CreateText(finalinfotxt))
@@ -490,6 +510,14 @@ namespace Unowhy_Tools
                 pcinfotxt.WriteLine(ifp);
                 pcinfotxt.WriteLine(os);
                 pcinfotxt.WriteLine(un);
+            }
+
+            string finalsofttxt = ".\\fullsoftinfo.txt";
+            using(StreamWriter softinfotxt = File.CreateText(finalsofttxt))
+            {
+
+                softinfotxt.WriteLine(sk);
+                softinfotxt.WriteLine(hsmst);
             }
 
             InitializeComponent();
@@ -541,8 +569,25 @@ namespace Unowhy_Tools
                 debhms.Visible = true;
             }
 
-            RegistryKey shellkey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon", false);
-            debshell.Text = shellkey.GetValue("shell").ToString();
+
+            string filePath2 = ".\\fullsoftinfo.txt";
+            int lineNumbers2 = 1;
+            StreamReader inputFile2 = new StreamReader(filePath2);
+
+            for (int i = 1; i < lineNumbers2; i++)
+            {
+                inputFile2.ReadLine();
+            }
+            debshell.Text = inputFile2.ReadLine();
+
+            lineNumbers2 = 1;
+
+            for (int i = 1; i < lineNumbers2; i++)
+            {
+                inputFile2.ReadLine();
+            }
+            debhms.Text = inputFile2.ReadLine();
+
 
             if (serviceExists("HiSqoolManager"))
             {
@@ -559,17 +604,6 @@ namespace Unowhy_Tools
                 {
                     debhmr.Text = "false";
                 }
-
-                Process starttypeget = new Process();
-                starttypeget.StartInfo.FileName = "powershell.exe";
-                starttypeget.StartInfo.Arguments = "-command \"& {(Get-Service wuauserv).StartType}\"";
-                starttypeget.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                starttypeget.StartInfo.UseShellExecute = false;
-                starttypeget.StartInfo.RedirectStandardOutput = true;
-
-                starttypeget.Start();
-                debhms.Text = starttypeget.StandardOutput.ReadToEnd().ToString();
-                starttypeget.Close();
             }
             else
             {
@@ -578,7 +612,11 @@ namespace Unowhy_Tools
                 debhms.Text = "false";
             }
 
-            
+            if (debshell.Text.Contains("explorer.exe") == true)
+            {
+                shell.Enabled = false;
+            }
+
         }
 
         //==============================================================================================================================
