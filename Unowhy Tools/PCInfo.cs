@@ -60,6 +60,7 @@ namespace Unowhy_Tools
             labmfm.Text = resxSet.GetString("mfm");
             labbiosver.Text = resxSet.GetString("biosversion");
             labos.Text = resxSet.GetString("os");
+            labuser.Text = resxSet.GetString("domuser");
 
             string filePath = ".\\fullpcinfo.txt";
             StreamReader inputFile = new StreamReader(filePath);
@@ -105,6 +106,13 @@ namespace Unowhy_Tools
             }
             string oss = inputFile.ReadLine();
 
+            int lineNumber7 = 1;
+            for (int i = 1; i < lineNumber7; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string us = inputFile.ReadLine();
+
             string mfms = mfs + models;
 
             pcname.Text = hnpcname;
@@ -112,6 +120,7 @@ namespace Unowhy_Tools
             serial.Text = ifps;
             biosver.Text = enes;
             os.Text = oss;
+            user.Text = us;
 
             string os10 = "10";
 
