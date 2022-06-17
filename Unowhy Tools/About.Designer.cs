@@ -51,9 +51,9 @@ namespace Unowhy_Tools
             this.aver.AutoSize = true;
             this.aver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aver.ForeColor = System.Drawing.Color.White;
-            this.aver.Location = new System.Drawing.Point(8, 97);
+            this.aver.Location = new System.Drawing.Point(8, 112);
             this.aver.Name = "aver";
-            this.aver.Size = new System.Drawing.Size(72, 16);
+            this.aver.Size = new System.Drawing.Size(71, 16);
             this.aver.TabIndex = 12;
             this.aver.Text = "Version --.-";
             this.aver.Click += new System.EventHandler(this.label2_Click);
@@ -63,7 +63,7 @@ namespace Unowhy_Tools
             this.asty1001.AutoSize = true;
             this.asty1001.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.asty1001.ForeColor = System.Drawing.Color.White;
-            this.asty1001.Location = new System.Drawing.Point(9, 112);
+            this.asty1001.Location = new System.Drawing.Point(9, 96);
             this.asty1001.Name = "asty1001";
             this.asty1001.Size = new System.Drawing.Size(185, 13);
             this.asty1001.TabIndex = 13;
@@ -151,7 +151,7 @@ namespace Unowhy_Tools
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(7, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(209, 16);
+            this.label3.Size = new System.Drawing.Size(208, 16);
             this.label3.TabIndex = 35;
             this.label3.Text = "A tool for Unowhy Y13 computers !";
             // 
