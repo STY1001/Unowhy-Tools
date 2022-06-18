@@ -254,7 +254,14 @@ namespace Unowhy_Tools
             Console.WriteLine("Unowhy Tools by STY1001");
             Console.WriteLine("=======================");
 
-            
+            if (Directory.Exists("temp"))
+            {
+
+            }
+            else
+            {
+                Directory.CreateDirectory("temp");
+            }
 
             Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
             t.Start();
@@ -420,6 +427,8 @@ namespace Unowhy_Tools
             string filePath = ".\\temp\\pcname.txt";
             int lineNumber = 1;
             int lineNumber2 = 2;
+            int lineNumber4 = 4;
+            int lineNumber6 = 6;
             StreamReader inputFile = new StreamReader(filePath);
 
             for (int i = 1; i < lineNumber; i++)
@@ -500,6 +509,24 @@ namespace Unowhy_Tools
             }
             string hsmst = inputFile.ReadLine();
 
+            filePath = ".\\temp\\rs.txt";
+            inputFile = new StreamReader(filePath);
+
+            for (int i = 1; i < lineNumber4; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string rss = inputFile.ReadLine();
+
+            filePath = ".\\temp\\azure.txt";
+            inputFile = new StreamReader(filePath);
+
+            for (int i = 1; i < lineNumber6; i++)
+            {
+                inputFile.ReadLine();
+            }
+            string ass = inputFile.ReadLine();
+
             string finalinfotxt = ".\\fullpcinfo.txt";
             using (StreamWriter pcinfotxt = File.CreateText(finalinfotxt))
             {
@@ -518,7 +545,16 @@ namespace Unowhy_Tools
 
                 softinfotxt.WriteLine(sk);
                 softinfotxt.WriteLine(hsmst);
+                softinfotxt.WriteLine(rss);
+                softinfotxt.WriteLine(ass);
             }
+            
+            Process pci3 = new Process();
+            pci3.StartInfo.FileName = ".\\getuserinfo.exe";
+            pci3.StartInfo.Arguments = "";
+            pci3.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            pci3.Start();
+            pci3.WaitForExit();
 
             InitializeComponent();
 
@@ -556,9 +592,7 @@ namespace Unowhy_Tools
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
 
-            // Close Splash
-
-            t.Abort();
+            
 
             if (File.Exists("debug"))
             {
@@ -567,9 +601,199 @@ namespace Unowhy_Tools
                 debhme.Visible = true;
                 debhmr.Visible = true;
                 debhms.Visible = true;
+                debreagentc.Visible = true;
+                debazure.Visible = true;
+                debuser.Visible = true;
+                debti.Visible = true;
+                debent.Visible = true;
+                debadmin.Visible = true;
             }
 
+            if (System.Security.Principal.WindowsIdentity.GetCurrent().Name.Contains("AzureAD") == true)
+            {
+                debuser.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            }
+            else
+            {
+                debuser.Text = Environment.UserName;
+            }
 
+            check();
+            changeswitch();
+
+            /*
+            // Clean TEMP Files
+
+            Process clean = new Process();
+            clean.StartInfo.FileName = ".\\cleantemp.exe";
+            clean.StartInfo.Arguments = "";
+            clean.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            clean.Start();
+            clean.WaitForExit();
+            */
+
+            t.Abort();
+        }
+
+        //==============================================================================================================================
+
+        public void checkazure()
+        {
+            if (debazure.Text.Contains("NO") == true)
+            {
+                aadleave.Enabled = false;
+            }
+        }
+
+        public void checkfolder()
+        {
+            if (Directory.Exists("C:\\ProgramData\\RIDF") == false)
+            {
+                delridf.Enabled = false;
+            }
+
+            if (Directory.Exists("C:\\ProgramData\\ENT") == false)
+            {
+                entf.Enabled = false;
+            }
+
+            if (Directory.Exists("C:\\Windows\\System32\\OEM") == false)
+            {
+                deloem.Enabled = false;
+            }
+
+            if (Directory.Exists("C:\\Program Files\\Unowhy\\TO_INSTALL") == false)
+            {
+                delti.Enabled = false;
+            }
+
+            if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager") == false)
+            {
+                delhism.Enabled = false;
+            }
+
+            if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
+            {
+                delhis.Enabled = false;
+            }
+
+            
+        }
+
+        private void checkhism()
+        {
+            if (debhme.Text == "true")
+            {
+                if (debhmr.Text == "true")
+                {
+                    starthis.Enabled = false;
+                    stophis.Enabled = true;
+                }
+                else
+                {
+                    stophis.Enabled = false;
+                    starthis.Enabled = true;
+                }
+
+                if (debhms.Text.Contains("Automatic") == true)
+                {
+                    enhis.Enabled = false;
+                    dishis.Enabled = true;
+                }
+                else
+                {
+                    starthis.Enabled = false;
+                    stophis.Enabled = false;
+                    enhis.Enabled = true;
+                    dishis.Enabled = false;
+                }
+            }
+            else
+            {
+                dishis.Enabled = false;
+                enhis.Enabled = false;
+                stophis.Enabled = false;
+                starthis.Enabled = false;
+            }
+        }
+
+        public void checkshell()
+        {
+            if (debshell.Text.Contains("explorer.exe") == true)
+            {
+                shell.Enabled = false;
+            }
+            else
+            {
+                delhis.Enabled = false;
+                delhism.Enabled = false;
+                deloem.Enabled = false;
+                delridf.Enabled = false;
+                dishis.Enabled = false;
+                enhis.Enabled = false;
+                stophis.Enabled = false;
+                starthis.Enabled = false;
+                ent.Enabled = false;
+                entf.Enabled = false;
+                delti.Enabled = false;
+                aadleave.Enabled = false;
+                pcname.Enabled = false;
+                admin.Enabled = false;
+                adminset.Enabled = false;
+                adduser.Enabled = false;
+                winre.Enabled = false;
+                fixboot.Enabled = false;
+            }
+        }
+
+        public void checkwinre()
+        {
+            if (debreagentc.Text.Contains("Enabled") == true)
+            {
+                winre.Enabled = false;
+            }
+        }
+
+        private void checkadmin()
+        {
+            if (debadmin.Text == "true")
+            {
+                admin.Enabled = false;
+            }
+            else
+            {
+                admin.Enabled = true;
+            }
+        }
+
+        private void checkent()
+        {
+            if (debent.Text == "true")
+            {
+                ent.Enabled = true;
+            }
+            else
+            {
+                ent.Enabled = false;
+            }
+        }
+
+        private void checkti()
+        {
+            if (debti.Text == "true")
+            {
+                fixboot.Enabled = true;
+                delti.Enabled = false;
+            }
+            else
+            {
+                fixboot.Enabled = false;
+                delti.Enabled = true;
+            }
+        }
+
+        public void check()
+        {
             string filePath2 = ".\\fullsoftinfo.txt";
             int lineNumbers2 = 1;
             StreamReader inputFile2 = new StreamReader(filePath2);
@@ -588,6 +812,30 @@ namespace Unowhy_Tools
             }
             debhms.Text = inputFile2.ReadLine();
 
+            lineNumbers2 = 1;
+
+            for (int i = 1; i < lineNumbers2; i++)
+            {
+                inputFile2.ReadLine();
+            }
+            debreagentc.Text = inputFile2.ReadLine();
+
+            lineNumbers2 = 1;
+
+            for (int i = 1; i < lineNumbers2; i++)
+            {
+                inputFile2.ReadLine();
+            }
+            debazure.Text = inputFile2.ReadLine();
+
+            if (File.ReadAllText(".\\temp\\entuser.txt").Contains("ENT"))
+            {
+                debent.Text = "true";
+            }
+            else
+            {
+                debent.Text = "false";
+            }
 
             if (serviceExists("HiSqoolManager"))
             {
@@ -604,27 +852,74 @@ namespace Unowhy_Tools
                 {
                     debhmr.Text = "false";
                 }
+
+                if (debhms.Text.Contains("Automatic") == true)
+                {
+                    debhms.Text = "Automatic";
+                }
+                else
+                {
+                    debhms.Text = "Disabled";
+                }
             }
             else
             {
                 debhme.Text = "false";
-                debhmr.Text = "false";
-                debhms.Text = "false";
+                debhmr.Text = "none";
+                debhms.Text = "none";
             }
 
-            if (debshell.Text.Contains("explorer.exe") == true)
+            if (File.ReadAllText(".\\temp\\adminusers.txt").Contains(debuser.Text))
             {
-                shell.Enabled = false;
+                debadmin.Text = "true";
             }
-
-
-            // Clean TEMP Files
-
-            if (File.Exists("gitversion.txt"))    //Check if the file exist
+            else
             {
-                File.Delete("gitversion.txt");    //Delete it if exist
+                debadmin.Text= "false";
             }
 
+            DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
+            FileInfo[] files = dir.GetFiles("silent_" + "*.*");
+            if (files.Length > 0)
+            {
+                debti.Text = "true";
+            }
+            else
+            {
+                debti.Text= "false";
+            }
+        }
+
+        private void changeswitch()
+        {
+            starthis.Enabled = true;
+            stophis.Enabled = true;
+            enhis.Enabled = true;
+            dishis.Enabled = true;
+            shell.Enabled = true;
+            fixboot.Enabled = true;
+            winre.Enabled = true;
+            ent.Enabled = true;
+            entf.Enabled = true;
+            aadleave.Enabled = true;
+            delhis.Enabled = true;
+            delhism.Enabled = true;
+            delti.Enabled = true;
+            deloem.Enabled = true;
+            delridf.Enabled = true;
+            admin.Enabled = true;
+            adminset.Enabled = true;
+            pcname.Enabled = true;
+            adduser.Enabled = true;
+
+            checkhism();
+            checkfolder();
+            checkazure();
+            checkwinre();
+            checkadmin();
+            checkent();
+            checkti();
+            checkshell();
         }
 
         //==============================================================================================================================
@@ -645,6 +940,9 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                debhmr.Text = "true";
+                debhms.Text = "Automatic";
+                changeswitch();
                 w.Close();
             }
                       
@@ -666,6 +964,9 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                debhmr.Text = "false";
+                debhms.Text = "Automatic";
+                changeswitch();
                 w.Close();
             }
         }
@@ -686,6 +987,9 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                debhms.Text = "Automatic";
+                debhmr.Text = "true";
+                changeswitch();
                 w.Close();
             }
         }
@@ -706,6 +1010,9 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                debhms.Text = "Disabled";
+                debhmr.Text = "false";
+                changeswitch();
                 w.Close();
             }
         }
@@ -726,6 +1033,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                changeswitch();
                 w.Close();
             }
         }
@@ -746,6 +1054,8 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                debhme.Text = "false";
+                changeswitch();
                 w.Close();
             }
         }
@@ -765,7 +1075,9 @@ namespace Unowhy_Tools
                 p.StartInfo.Arguments = "";
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
-                p.WaitForExit(); ;
+                p.WaitForExit();
+                debshell.Text = "explorer.exe";
+                changeswitch();
                 w.Close();
             }
         }
@@ -778,7 +1090,7 @@ namespace Unowhy_Tools
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
                 var w = new wait();
-                w.Show();    
+                w.Show();
                                                                                 // Delete ENT account
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\delent.exe";
@@ -786,6 +1098,8 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                debent.Text = "false";
+                changeswitch();
                 w.Close();
             }
         }
@@ -812,6 +1126,8 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                debti.Text = "false";
+                changeswitch();
                 w.Close();
             }
         }
@@ -832,6 +1148,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                changeswitch();
                 w.Close();
             }
         }
@@ -858,6 +1175,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                changeswitch();
                 w.Close();
             }
         }
@@ -878,6 +1196,8 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                debreagentc.Text = "Enabled";
+                changeswitch();
                 w.Close();
             }
         }
@@ -904,6 +1224,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                checkfolder();
                 w.Close();
             }
         }
@@ -969,6 +1290,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                checkfolder();
                 w.Close();
             }
         }
@@ -995,6 +1317,8 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                debazure.Text = "NO";
+                changeswitch();
                 w.Close();
             }
         }
@@ -1029,6 +1353,8 @@ namespace Unowhy_Tools
                 w.Close();
                 var f = new reboot();
                 f.ShowDialog();
+                debadmin.Text = "true";
+                changeswitch();
             }
         }
 

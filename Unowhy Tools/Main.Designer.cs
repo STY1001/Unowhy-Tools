@@ -94,6 +94,12 @@ namespace Unowhy_Tools
             this.debhme = new System.Windows.Forms.Label();
             this.debhmr = new System.Windows.Forms.Label();
             this.debhms = new System.Windows.Forms.Label();
+            this.debreagentc = new System.Windows.Forms.Label();
+            this.debazure = new System.Windows.Forms.Label();
+            this.debuser = new System.Windows.Forms.Label();
+            this.debadmin = new System.Windows.Forms.Label();
+            this.debent = new System.Windows.Forms.Label();
+            this.debti = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -475,7 +481,7 @@ namespace Unowhy_Tools
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Image = global::Unowhy_Tools.Properties.Resources.folder;
+            this.pictureBox11.Image = global::Unowhy_Tools.Properties.Resources.service;
             resources.ApplyResources(this.pictureBox11, "pictureBox11");
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.TabStop = false;
@@ -642,11 +648,53 @@ namespace Unowhy_Tools
             this.debhms.ForeColor = System.Drawing.Color.White;
             this.debhms.Name = "debhms";
             // 
+            // debreagentc
+            // 
+            resources.ApplyResources(this.debreagentc, "debreagentc");
+            this.debreagentc.ForeColor = System.Drawing.Color.White;
+            this.debreagentc.Name = "debreagentc";
+            // 
+            // debazure
+            // 
+            resources.ApplyResources(this.debazure, "debazure");
+            this.debazure.ForeColor = System.Drawing.Color.White;
+            this.debazure.Name = "debazure";
+            // 
+            // debuser
+            // 
+            resources.ApplyResources(this.debuser, "debuser");
+            this.debuser.ForeColor = System.Drawing.Color.White;
+            this.debuser.Name = "debuser";
+            // 
+            // debadmin
+            // 
+            resources.ApplyResources(this.debadmin, "debadmin");
+            this.debadmin.ForeColor = System.Drawing.Color.White;
+            this.debadmin.Name = "debadmin";
+            // 
+            // debent
+            // 
+            resources.ApplyResources(this.debent, "debent");
+            this.debent.ForeColor = System.Drawing.Color.White;
+            this.debent.Name = "debent";
+            // 
+            // debti
+            // 
+            resources.ApplyResources(this.debti, "debti");
+            this.debti.ForeColor = System.Drawing.Color.White;
+            this.debti.Name = "debti";
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.debti);
+            this.Controls.Add(this.debent);
+            this.Controls.Add(this.debadmin);
+            this.Controls.Add(this.debuser);
+            this.Controls.Add(this.debazure);
+            this.Controls.Add(this.debreagentc);
             this.Controls.Add(this.debhms);
             this.Controls.Add(this.debhmr);
             this.Controls.Add(this.debhme);
@@ -814,6 +862,12 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Label debhme;
         private System.Windows.Forms.Label debhmr;
         private System.Windows.Forms.Label debhms;
+        private System.Windows.Forms.Label debreagentc;
+        private System.Windows.Forms.Label debazure;
+        private System.Windows.Forms.Label debuser;
+        private System.Windows.Forms.Label debadmin;
+        private System.Windows.Forms.Label debent;
+        private System.Windows.Forms.Label debti;
     }
 }
 
