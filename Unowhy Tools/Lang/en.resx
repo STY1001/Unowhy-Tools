@@ -169,7 +169,7 @@
     <value>Uninstall "HiSqool"</value>
   </data>
   <data name="delhism" xml:space="preserve">
-    <value>Delete "HiSqool Manager" folder</value>
+    <value>Delete "HiSqool Manager" sevice</value>
   </data>
   <data name="deloem" xml:space="preserve">
     <value>Delete "OEM" folder</value>
@@ -208,7 +208,7 @@
     <value>HiSqool Manager is an embedded software to manage this PC. I recommend you to disable this because it's comparable to a malware/spyware</value>
   </data>
   <data name="deschismdel" xml:space="preserve">
-    <value>Delete the heavy "HiSqool Manager" folder (contains the software to manage this PC (Spyware/Malware)) (In : C:\Program Files\Unowhy)</value>
+    <value>Delete the heavy "HiSqool Manager" folder and service (contains the software to manage this PC (Spyware/Malware)) (In : C:\Program Files\Unowhy)</value>
   </data>
   <data name="descpcname" xml:space="preserve">
     <value>Change the name of this PC (NETBIOS). By default, the Windows PC name of the Y13 is the serial number (IFP...)</value>
@@ -233,6 +233,9 @@
   </data>
   <data name="dishis" xml:space="preserve">
     <value>Disable "HiSqoolManager" service</value>
+  </data>
+  <data name="domuser" xml:space="preserve">
+    <value>Current user ID ([DOMAIN] \ [USER])</value>
   </data>
   <data name="enablea" xml:space="preserve">
     <value>Enable account</value>

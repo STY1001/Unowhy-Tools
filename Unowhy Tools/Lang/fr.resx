@@ -169,7 +169,7 @@
     <value>Désinstaller "HiSqool"</value>
   </data>
   <data name="delhism" xml:space="preserve">
-    <value>Supprimer le dossier "HiSqool Manager"</value>
+    <value>Supprimer le service "HiSqool Manager"</value>
   </data>
   <data name="deloem" xml:space="preserve">
     <value>Supprimer le dossier "OEM"</value>
@@ -208,7 +208,7 @@
     <value>HiSqool Manager est un logiciel embarqué pour gérer ce PC. Je vous recommande de le désactiver car il est comparable à un malware/spyware</value>
   </data>
   <data name="deschismdel" xml:space="preserve">
-    <value>Supprimer le gros dossier "HiSqool Manager" (contient le programme pour gerer les PC (spyware/malware)) (Dans : C:\Program Files\Unowhy)</value>
+    <value>Supprimer le gros dossier "HiSqool Manager" ainsi que le service (contient le programme pour gerer les PC (spyware/malware)) (Dans : C:\Program Files\Unowhy)</value>
   </data>
   <data name="descpcname" xml:space="preserve">
     <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC (IFP...)</value>
@@ -233,6 +233,9 @@
   </data>
   <data name="dishis" xml:space="preserve">
     <value>Désactiver le services "HiSqoolManager"</value>
+  </data>
+  <data name="domuser" xml:space="preserve">
+    <value>ID de l'utilisateur actuel ([DOMAINE] \ [UTILISATEUR])</value>
   </data>
   <data name="enablea" xml:space="preserve">
     <value>Activer le compte</value>
