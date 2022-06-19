@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZzm8QCMAhdbASibQp6oG1N1g==
+::fBw5plQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZzm8QCMBpCawCuIAY3pg4=
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -26,7 +26,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZ4kcUwHhZcdwCjZxw5rnwMs3yAVw==
+::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZ8kcUNACdZfxanaw4irCBHrmHl
 ::YB416Ek+ZW8=
 ::
 ::
@@ -44,8 +44,4 @@ echo         Ne pas fermer
 echo =============================
 MODE CON: COLS=30 LINES=10
 powershell -windows minimize -command ""
-net stop HiSqoolManager
-sc config HiSqoolManager start=disabled
-sc delete HiSqoolManager
-cd "C:\Program Files\Unowhy"
-rd /s /q "HiSqool Manager"
+dsregcmd /leave

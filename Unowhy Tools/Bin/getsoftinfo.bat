@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZzm8QCMAtbdxytYUE9qmEi
+::fBw5plQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZzm8QCMAhXeAaiYAk752dBuQQ=
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -46,3 +46,5 @@ MODE CON: COLS=30 LINES=10
 powershell -windows minimize -command ""
 powershell Get-ItemPropertyValue -path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon' -name 'Shell' > temp\shell.txt
 powershell (Get-Service HiSqoolManager).StartType > temp\hsmst.txt
+reagentc /info > temp\rs.txt
+dsregcmd /status > temp\azure.txt

@@ -44,11 +44,10 @@ echo         Ne pas fermer
 echo =============================
 MODE CON: COLS=30 LINES=10
 powershell -windows minimize -command ""
-hostname > pcname.txt
-whoami > username.txt
-wmic /output:mf.txt computersystem get manufacturer
-wmic /output:model.txt computersystem get model
-wmic /output:os.txt os get caption
-wmic /output:ene.txt bios get smbiosbiosversion
-wmic /output:ifp.txt bios get serialnumber
-powershell Get-ItemPropertyValue -path 'HKLM:SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon' -name 'Shell' > shell.txt
+hostname > temp\pcname.txt
+whoami > temp\username.txt
+wmic /output:temp\mf.txt computersystem get manufacturer
+wmic /output:temp\model.txt computersystem get model
+wmic /output:temp\os.txt os get caption
+wmic /output:temp\ene.txt bios get smbiosbiosversion
+wmic /output:temp\ifp.txt bios get serialnumber
