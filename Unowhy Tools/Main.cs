@@ -913,12 +913,12 @@ namespace Unowhy_Tools
             adduser.Enabled = true;
 
             checkhism();
-            checkfolder();
             checkazure();
             checkwinre();
             checkadmin();
             checkent();
             checkti();
+            checkfolder();
             checkshell();
         }
 
@@ -1028,7 +1028,7 @@ namespace Unowhy_Tools
                 w.Show();
                                                                           // Launch Uninstaller of  HiSqool
                 Process p = new Process();
-                p.StartInfo.FileName = ".\\delhisqool.exe";
+                p.StartInfo.FileName = "C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe";
                 p.StartInfo.Arguments = "";
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
