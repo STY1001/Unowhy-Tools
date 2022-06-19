@@ -201,9 +201,9 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Threading;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Text;
+//using System.Text;
 using System.ServiceProcess;
 
 namespace Unowhy_Tools
@@ -657,7 +657,7 @@ namespace Unowhy_Tools
                 entf.Enabled = false;
             }
 
-            if (Directory.Exists("C:\\Windows\\System32\\OEM") == false)
+            if (Directory.Exists("C:\\Windows\\sysnative\\OEM") == false)
             {
                 deloem.Enabled = false;
             }
