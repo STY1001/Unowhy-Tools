@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 using System.Globalization;
 using System.Resources;
 using System.Runtime.InteropServices;
