@@ -32,7 +32,7 @@ namespace Unowhy_Tools
 
         public newver()
         {
-            string sgitver = System.IO.File.ReadAllText(".\\gitversion.txt");      //Convert text to string
+            string sgitver = System.IO.File.ReadAllText(".\\temp\\gitversion.txt");      //Convert text to string
             int igitver = Convert.ToInt32(sgitver);
             string gitver = Convert.ToString(igitver);
             string sprogver = System.IO.File.ReadAllText(".\\version.txt");
