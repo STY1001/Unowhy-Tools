@@ -1267,6 +1267,9 @@ namespace Unowhy_Tools
             var ui = new userid("STY1001");
             ui.Show();
 
+            var no = new nonew();
+            no.Show();
+
             var r = new reboot();
             r.Show();
             
