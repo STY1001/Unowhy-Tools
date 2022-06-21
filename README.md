@@ -12,7 +12,7 @@ Currently, with this tools you can:
 - Enable/Disable/Stop/Start "HiSqool Manager" service
 - Delete the local "ENT" account
 - Restore the "Shell" value to "explorer.exe" in the registery
-- Uninstall "HiSqool" and delete "HiSqool Manager" folder
+- Uninstall "HiSqool" and delete "HiSqool Manager" service and folder
 - Delete "silent_*.vbs.lnk" files in "StartUp" folder
 - Delete "TO_INSTALL" folder
 - Enable "reagentc" (Recovery)
