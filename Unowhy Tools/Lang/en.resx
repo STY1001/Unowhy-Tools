@@ -169,7 +169,10 @@
     <value>Uninstall "HiSqool"</value>
   </data>
   <data name="delhism" xml:space="preserve">
-    <value>Delete "HiSqool Manager" sevice</value>
+    <value>Del. "HiSqoolManager" folder and service</value>
+  </data>
+  <data name="delhismserv" xml:space="preserve">
+    <value>Delete "HiSqoolManager" only</value>
   </data>
   <data name="deloem" xml:space="preserve">
     <value>Delete "OEM" folder</value>
