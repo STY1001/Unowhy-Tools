@@ -1373,6 +1373,27 @@ namespace Unowhy_Tools
             a.ShowDialog();
         }
 
+        private void delserv_Click(object sender, EventArgs e)
+        {
+            string msg = delhismserv.Text;
+            dialog d = new dialog(msg);
+            d.ShowDialog();
+            if (d.DialogResult.Equals(DialogResult.Yes))
+            {
+                var w = new wait();
+                w.Show();
+                                                                             // Del Serv Only
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\delhismserv.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit();
+                checkfolder();
+                w.Close();
+            }
+        }
+
         //============================================================================================================================================
 
         private void desc_Clean(object sender, EventArgs e)
@@ -1641,6 +1662,23 @@ namespace Unowhy_Tools
         }
 
         private void desc_Adminset(object sender, EventArgs e)
+        {
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;                //French
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            desc.Text = resxSet.GetString("descadminset");
+        }
+
+        private void desc_delserv(object sender, EventArgs e)
         {
             //Check the current saved language
 

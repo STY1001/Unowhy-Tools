@@ -100,6 +100,8 @@ namespace Unowhy_Tools
             this.debadmin = new System.Windows.Forms.Label();
             this.debent = new System.Windows.Forms.Label();
             this.debti = new System.Windows.Forms.Label();
+            this.delhismserv = new System.Windows.Forms.Button();
+            this.pictureBox27 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -127,6 +129,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
             this.SuspendLayout();
             // 
             // starthis
@@ -684,6 +687,24 @@ namespace Unowhy_Tools
             this.debti.ForeColor = System.Drawing.Color.White;
             this.debti.Name = "debti";
             // 
+            // delhismserv
+            // 
+            this.delhismserv.BackColor = System.Drawing.Color.Transparent;
+            this.delhismserv.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.delhismserv, "delhismserv");
+            this.delhismserv.ForeColor = System.Drawing.Color.Black;
+            this.delhismserv.Name = "delhismserv";
+            this.delhismserv.UseVisualStyleBackColor = false;
+            this.delhismserv.Click += new System.EventHandler(this.delserv_Click);
+            this.delhismserv.MouseEnter += new System.EventHandler(this.desc_Hism);
+            // 
+            // pictureBox27
+            // 
+            this.pictureBox27.Image = global::Unowhy_Tools.Properties.Resources.service;
+            resources.ApplyResources(this.pictureBox27, "pictureBox27");
+            this.pictureBox27.Name = "pictureBox27";
+            this.pictureBox27.TabStop = false;
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -719,6 +740,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox13);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox14);
+            this.Controls.Add(this.pictureBox27);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox26);
             this.Controls.Add(this.pictureBox25);
@@ -754,6 +776,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.logo);
             this.Controls.Add(this.shell);
             this.Controls.Add(this.delhis);
+            this.Controls.Add(this.delhismserv);
             this.Controls.Add(this.delhism);
             this.Controls.Add(this.enhis);
             this.Controls.Add(this.dishis);
@@ -791,6 +814,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -868,6 +892,8 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Label debadmin;
         private System.Windows.Forms.Label debent;
         private System.Windows.Forms.Label debti;
+        private System.Windows.Forms.Button delhismserv;
+        private System.Windows.Forms.PictureBox pictureBox27;
     }
 }
 

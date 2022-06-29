@@ -148,7 +148,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;starthis.ZOrder" xml:space="preserve">
-    <value>69</value>
+    <value>71</value>
   </data>
   <data name="stophis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -178,7 +178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;stophis.ZOrder" xml:space="preserve">
-    <value>68</value>
+    <value>70</value>
   </data>
   <data name="dishis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -208,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dishis.ZOrder" xml:space="preserve">
-    <value>67</value>
+    <value>69</value>
   </data>
   <data name="enhis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -238,7 +238,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;enhis.ZOrder" xml:space="preserve">
-    <value>66</value>
+    <value>68</value>
   </data>
   <data name="delhism.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -250,13 +250,13 @@
     <value>557, 318</value>
   </data>
   <data name="delhism.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="delhism.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="delhism.Text" xml:space="preserve">
-    <value>Delete HiSqoolManager Service</value>
+    <value>Delete HiSqoolManager folder and service</value>
   </data>
   <data name="&gt;&gt;delhism.Name" xml:space="preserve">
     <value>delhism</value>
@@ -268,7 +268,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhism.ZOrder" xml:space="preserve">
-    <value>65</value>
+    <value>67</value>
   </data>
   <data name="delhis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -280,7 +280,7 @@
     <value>557, 261</value>
   </data>
   <data name="delhis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="delhis.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -298,7 +298,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhis.ZOrder" xml:space="preserve">
-    <value>64</value>
+    <value>65</value>
   </data>
   <data name="shell.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -328,7 +328,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;shell.ZOrder" xml:space="preserve">
-    <value>63</value>
+    <value>64</value>
   </data>
   <data name="ver.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -352,7 +352,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ver.ZOrder" xml:space="preserve">
-    <value>61</value>
+    <value>62</value>
   </data>
   <data name="sty1001.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -386,7 +386,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sty1001.ZOrder" xml:space="preserve">
-    <value>60</value>
+    <value>61</value>
   </data>
   <data name="ent.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -398,7 +398,7 @@
     <value>557, 232</value>
   </data>
   <data name="ent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="ent.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -416,7 +416,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ent.ZOrder" xml:space="preserve">
-    <value>59</value>
+    <value>60</value>
   </data>
   <data name="about.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -446,7 +446,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;about.ZOrder" xml:space="preserve">
-    <value>54</value>
+    <value>55</value>
   </data>
   <data name="fixboot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -476,7 +476,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fixboot.ZOrder" xml:space="preserve">
-    <value>53</value>
+    <value>54</value>
   </data>
   <data name="delti.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -488,7 +488,7 @@
     <value>557, 347</value>
   </data>
   <data name="delti.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="delti.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -506,7 +506,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delti.ZOrder" xml:space="preserve">
-    <value>52</value>
+    <value>53</value>
   </data>
   <data name="servicecat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -536,7 +536,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;servicecat.ZOrder" xml:space="preserve">
-    <value>51</value>
+    <value>52</value>
   </data>
   <data name="repaircat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -566,7 +566,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;repaircat.ZOrder" xml:space="preserve">
-    <value>50</value>
+    <value>51</value>
   </data>
   <data name="delcat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -596,7 +596,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delcat.ZOrder" xml:space="preserve">
-    <value>49</value>
+    <value>50</value>
   </data>
   <data name="settings.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -626,7 +626,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;settings.ZOrder" xml:space="preserve">
-    <value>47</value>
+    <value>48</value>
   </data>
   <data name="delridf.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -638,7 +638,7 @@
     <value>557, 376</value>
   </data>
   <data name="delridf.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="delridf.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -656,7 +656,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delridf.ZOrder" xml:space="preserve">
-    <value>46</value>
+    <value>47</value>
   </data>
   <data name="winre.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -686,7 +686,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;winre.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>43</value>
   </data>
   <data name="pcname.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -698,7 +698,7 @@
     <value>817, 232</value>
   </data>
   <data name="pcname.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="pcname.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -716,7 +716,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pcname.ZOrder" xml:space="preserve">
-    <value>58</value>
+    <value>59</value>
   </data>
   <data name="cuscat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -746,7 +746,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cuscat.ZOrder" xml:space="preserve">
-    <value>48</value>
+    <value>49</value>
   </data>
   <data name="version.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -791,7 +791,7 @@
     <value>557, 405</value>
   </data>
   <data name="deloem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="deloem.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -809,7 +809,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;deloem.ZOrder" xml:space="preserve">
-    <value>45</value>
+    <value>46</value>
   </data>
   <data name="entf.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -821,7 +821,7 @@
     <value>557, 434</value>
   </data>
   <data name="entf.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="entf.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -839,7 +839,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;entf.ZOrder" xml:space="preserve">
-    <value>44</value>
+    <value>45</value>
   </data>
   <data name="pcinfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -932,7 +932,7 @@
     <value>817, 261</value>
   </data>
   <data name="admin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="admin.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -950,7 +950,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;admin.ZOrder" xml:space="preserve">
-    <value>57</value>
+    <value>58</value>
   </data>
   <data name="pictureBox19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1328,7 +1328,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox11.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>31</value>
   </data>
   <data name="pictureBox23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1355,7 +1355,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox23.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>34</value>
   </data>
   <data name="pictureBox18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1382,7 +1382,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox18.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>35</value>
   </data>
   <data name="pictureBox10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1409,7 +1409,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox10.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>36</value>
   </data>
   <data name="pictureBox7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1436,7 +1436,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox7.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>37</value>
   </data>
   <data name="pictureBox6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1463,7 +1463,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox6.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>38</value>
   </data>
   <data name="pictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1490,7 +1490,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox5.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>39</value>
   </data>
   <data name="pictureBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1517,7 +1517,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox4.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>40</value>
   </data>
   <data name="pictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1544,7 +1544,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>41</value>
   </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1571,7 +1571,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>42</value>
   </data>
   <data name="logo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1598,7 +1598,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
-    <value>62</value>
+    <value>63</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1640,7 +1640,7 @@
     <value>557, 289</value>
   </data>
   <data name="aadleave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="aadleave.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -1658,7 +1658,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;aadleave.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>44</value>
   </data>
   <data name="pictureBox24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1697,7 +1697,7 @@
     <value>817, 290</value>
   </data>
   <data name="adduser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="adduser.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1715,7 +1715,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;adduser.ZOrder" xml:space="preserve">
-    <value>56</value>
+    <value>57</value>
   </data>
   <data name="pictureBox25.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1742,7 +1742,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox25.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>33</value>
   </data>
   <data name="adminset.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -1754,7 +1754,7 @@
     <value>817, 319</value>
   </data>
   <data name="adminset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 23</value>
+    <value>211, 23</value>
   </data>
   <data name="adminset.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1772,7 +1772,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;adminset.ZOrder" xml:space="preserve">
-    <value>55</value>
+    <value>56</value>
   </data>
   <data name="pictureBox26.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1799,13 +1799,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox26.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>32</value>
   </data>
   <data name="debuglab.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="debuglab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 357</value>
+    <value>33, 374</value>
   </data>
   <data name="debuglab.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 13</value>
@@ -1838,7 +1838,7 @@
     <value>NoControl</value>
   </data>
   <data name="debshell.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 373</value>
+    <value>33, 390</value>
   </data>
   <data name="debshell.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 13</value>
@@ -1871,7 +1871,7 @@
     <value>NoControl</value>
   </data>
   <data name="debhme.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 386</value>
+    <value>33, 403</value>
   </data>
   <data name="debhme.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 13</value>
@@ -1904,7 +1904,7 @@
     <value>NoControl</value>
   </data>
   <data name="debhmr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 399</value>
+    <value>33, 416</value>
   </data>
   <data name="debhmr.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 13</value>
@@ -1937,7 +1937,7 @@
     <value>NoControl</value>
   </data>
   <data name="debhms.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 412</value>
+    <value>33, 429</value>
   </data>
   <data name="debhms.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 13</value>
@@ -1970,7 +1970,7 @@
     <value>NoControl</value>
   </data>
   <data name="debreagentc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 373</value>
+    <value>93, 390</value>
   </data>
   <data name="debreagentc.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 13</value>
@@ -2003,7 +2003,7 @@
     <value>NoControl</value>
   </data>
   <data name="debazure.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 386</value>
+    <value>93, 403</value>
   </data>
   <data name="debazure.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 13</value>
@@ -2036,7 +2036,7 @@
     <value>NoControl</value>
   </data>
   <data name="debuser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 399</value>
+    <value>93, 416</value>
   </data>
   <data name="debuser.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 13</value>
@@ -2069,7 +2069,7 @@
     <value>NoControl</value>
   </data>
   <data name="debadmin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 411</value>
+    <value>93, 428</value>
   </data>
   <data name="debadmin.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 13</value>
@@ -2102,7 +2102,7 @@
     <value>NoControl</value>
   </data>
   <data name="debent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 373</value>
+    <value>160, 390</value>
   </data>
   <data name="debent.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 13</value>
@@ -2135,7 +2135,7 @@
     <value>NoControl</value>
   </data>
   <data name="debti.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 386</value>
+    <value>160, 403</value>
   </data>
   <data name="debti.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 13</value>
@@ -2160,6 +2160,63 @@
   </data>
   <data name="&gt;&gt;debti.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="delhismserv.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>System</value>
+  </data>
+  <data name="delhismserv.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="delhismserv.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 336</value>
+  </data>
+  <data name="delhismserv.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 23</value>
+  </data>
+  <data name="delhismserv.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="delhismserv.Text" xml:space="preserve">
+    <value>Delete HiSqoolManager Service only</value>
+  </data>
+  <data name="&gt;&gt;delhismserv.Name" xml:space="preserve">
+    <value>delhismserv</value>
+  </data>
+  <data name="&gt;&gt;delhismserv.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;delhismserv.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;delhismserv.ZOrder" xml:space="preserve">
+    <value>66</value>
+  </data>
+  <data name="pictureBox27.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 338</value>
+  </data>
+  <data name="pictureBox27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="pictureBox27.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pictureBox27.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;pictureBox27.Name" xml:space="preserve">
+    <value>pictureBox27</value>
+  </data>
+  <data name="&gt;&gt;pictureBox27.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox27.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBox27.ZOrder" xml:space="preserve">
+    <value>30</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
