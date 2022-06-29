@@ -1,6 +1,22 @@
 === Unowhy Tools Change Log ===
 
 =====================
+ 15.0 - (21/06/2022)
+=====================
+
+Another Big Update
+
+Added:
+-Dynamic Buttons (disable the button if it has already been executed, ...)
+-Show User ID in System Info
+-Delete the "HiSqool Manager" folder, also delete the service now
+
+Bug Fix:
+-Translation bug in "newver" form
+-Uninstall "HiSqool" bug
+
+
+=====================
  14.0 - (09/06/2022)
 =====================
 

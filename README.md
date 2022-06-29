@@ -1,15 +1,18 @@
+
 ![Unowhy Tools Logo Black](https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/README/UTLogoBlack.png#gh-light-mode-only)
 ![Unowhy Tools Logo White](https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/README/UTLogoWhite.png#gh-dark-mode-only)
+
 # A tool for Unowhy Y13 computers !
 
 *Unowhy Tools and STY1001 are __NOT__ affiliate with Unowhy !*
+#### _**This in French : https://sty1001.wordpress.com/unowhy-tools/**_
 
 ## Features
 Currently, with this tools you can:
 - Enable/Disable/Stop/Start "HiSqool Manager" service
 - Delete the local "ENT" account
 - Restore the "Shell" value to "explorer.exe" in the registery
-- Uninstall "HiSqool" and delete "HiSqool Manager" folder
+- Uninstall "HiSqool" and delete "HiSqool Manager" service and folder
 - Delete "silent_*.vbs.lnk" files in "StartUp" folder
 - Delete "TO_INSTALL" folder
 - Enable "reagentc" (Recovery)
