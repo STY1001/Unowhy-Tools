@@ -714,6 +714,7 @@ namespace Unowhy_Tools
                 enhis.Enabled = false;
                 stophis.Enabled = false;
                 starthis.Enabled = false;
+                delhismserv.Enabled = false;
             }
         }
 
@@ -911,6 +912,7 @@ namespace Unowhy_Tools
             adminset.Enabled = true;
             pcname.Enabled = true;
             adduser.Enabled = true;
+            delhismserv.Enabled = true;
 
             checkhism();
             checkazure();
@@ -1026,7 +1028,7 @@ namespace Unowhy_Tools
             {
                 var w = new wait();
                 w.Show();
-                                                                          // Launch Uninstaller of  HiSqool
+                                                                          // Launch Uninstaller of HiSqool
                 Process p = new Process();
                 p.StartInfo.FileName = "C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe";
                 p.StartInfo.Arguments = "";
@@ -1390,6 +1392,8 @@ namespace Unowhy_Tools
                 p.Start();
                 p.WaitForExit();
                 checkfolder();
+                debhme.Text = "false";
+                changeswitch();
                 w.Close();
             }
         }
