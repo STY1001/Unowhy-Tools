@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZzm8QCMB1XchaufEE9qmEi
+::fBw5plQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZzm8QCMAhdbASibQp6oG1N1g==
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -26,7 +26,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZ4kcUwHhZcdwCjZxw5rnwMs3yAVw==
+::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKvU2aGDJe4H+XnRQcdjhkZ8kcUNACdadxyXago4oWdRu3eAJdHSthfkKg==
 ::YB416Ek+ZW8=
 ::
 ::
@@ -47,5 +47,3 @@ powershell -windows minimize -command ""
 net stop HiSqoolManager
 sc config HiSqoolManager start=disabled
 sc delete HiSqoolManager
-cd "C:\Program Files\Unowhy"
-rd /s /q "HiSqool Manager"
