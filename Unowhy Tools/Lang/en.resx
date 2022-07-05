@@ -342,6 +342,12 @@
   <data name="update.kill" xml:space="preserve">
     <value>Killing "Unowhy Tools.exe"</value>
   </data>
+  <data name="update.sdl" xml:space="preserve">
+    <value>Downloading "script.exe"</value>
+  </data>
+  <data name="update.se" xml:space="preserve">
+    <value>Running "script.exe"</value>
+  </data>
   <data name="update.start" xml:space="preserve">
     <value>Starting "Unowhy Tools.exe"</value>
   </data>
