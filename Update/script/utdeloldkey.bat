@@ -44,3 +44,4 @@ reg delete HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\
 reg delete HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{E8890E21-4E60-4052-9A5F-4436C06E0D60}_is1 /f
 reg delete HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{F0985BD8-261B-4088-867A-2A7D5DB38B33}_is1 /f
 reg delete HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{FBD3E6BD-A07E-4254-97B3-2FBCE35AAF8E}_is1 /f
+reg delete HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{D2EF9CAB-F2D4-4AEB-919D-300B7B0C92AB}_is1 /f
