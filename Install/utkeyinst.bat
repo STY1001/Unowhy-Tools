@@ -31,4 +31,4 @@
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
-reg import C:\Program Files (x86)\Unowhy Tools\insttemp\utkeyinst.reg
+reg import "C:\Program Files (x86)\Unowhy Tools\insttemp\utkeyinst.reg"
