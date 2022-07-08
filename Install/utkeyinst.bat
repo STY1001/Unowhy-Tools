@@ -26,9 +26,9 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKveyb+aL/Av40v3YZch2kZPjMAJFRJWbQblaxcxyQ==
+::Zh4grVQjdCyDJGyX8VAjFDN9aCW7GV/0KpQs3MfLorzThR0+A8ASRKveyb+aL/Avw0v3YZch2kZPjMAJFRJWbQblaxcxyQ==
 ::YB416Ek+ZW8=
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
-reg import utkeyinst.reg
+reg import C:\Program Files (x86)\Unowhy Tools\insttemp\utkeyinst.reg
