@@ -1,6 +1,6 @@
 
-![Unowhy Tools Logo Black](https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/README/UTLogoBlack.png#gh-light-mode-only)
-![Unowhy Tools Logo White](https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/README/UTLogoWhite.png#gh-dark-mode-only)
+![Unowhy Tools Logo Black](https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/README/UTLogoBlack2.0.png#gh-light-mode-only)
+![Unowhy Tools Logo White](https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/README/UTLogoWhite2.0.png#gh-dark-mode-only)
 
 # A tool for Unowhy Y13 computers !
 
