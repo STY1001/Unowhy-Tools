@@ -169,7 +169,10 @@
     <value>Uninstall "HiSqool"</value>
   </data>
   <data name="delhism" xml:space="preserve">
-    <value>Delete "HiSqool Manager" sevice</value>
+    <value>Del. "HiSqoolManager" folder and service</value>
+  </data>
+  <data name="delhismserv" xml:space="preserve">
+    <value>Delete "HiSqoolManager" only</value>
   </data>
   <data name="deloem" xml:space="preserve">
     <value>Delete "OEM" folder</value>
@@ -338,6 +341,12 @@
   </data>
   <data name="update.kill" xml:space="preserve">
     <value>Killing "Unowhy Tools.exe"</value>
+  </data>
+  <data name="update.sdl" xml:space="preserve">
+    <value>Downloading "script.exe"</value>
+  </data>
+  <data name="update.se" xml:space="preserve">
+    <value>Running "script.exe"</value>
   </data>
   <data name="update.start" xml:space="preserve">
     <value>Starting "Unowhy Tools.exe"</value>
