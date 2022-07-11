@@ -5,29 +5,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B46FFC4-255B-4C29-A5DD-C76DB5F18B8B}</ProjectGuid>
+    <ProjectGuid>{47DA38A6-1637-4867-BD7F-07089475B3E4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Unowhy_Tools</RootNamespace>
-    <AssemblyName>Unowhy Tools</AssemblyName>
+    <RootNamespace>Unowhy_Tools_Uninstaller</RootNamespace>
+    <AssemblyName>Unowhy Tools Uninstaller</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>0.0.0.0</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -51,10 +36,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>UT.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>UTUI.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Costura, Version=5.7.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -201,7 +186,6 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
       <Private>True</Private>
@@ -222,154 +206,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="About.Designer.cs">
-      <DependentUpon>About.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Adduser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Adduser.Designer.cs">
-      <DependentUpon>Adduser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminSet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminSet.Designer.cs">
-      <DependentUpon>AdminSet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog.Designer.cs">
-      <DependentUpon>Dialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="newver.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="newver.Designer.cs">
-      <DependentUpon>newver.cs</DependentUpon>
-    </Compile>
-    <Compile Include="nonet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="nonet.Designer.cs">
-      <DependentUpon>nonet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="nonew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="nonew.Designer.cs">
-      <DependentUpon>nonew.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PCInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PCInfo.Designer.cs">
-      <DependentUpon>PCInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PCName.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PCName.Designer.cs">
-      <DependentUpon>PCName.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="reboot.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="reboot.Designer.cs">
-      <DependentUpon>reboot.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Splash.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Splash.Designer.cs">
-      <DependentUpon>Splash.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SplashScreen.cs" />
-    <Compile Include="userid.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="userid.Designer.cs">
-      <DependentUpon>userid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="wait.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="wait.Designer.cs">
-      <DependentUpon>wait.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="About.resx">
-      <DependentUpon>About.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Adduser.resx">
-      <DependentUpon>Adduser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminSet.resx">
-      <DependentUpon>AdminSet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialog.resx">
-      <DependentUpon>Dialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newver.resx">
-      <DependentUpon>newver.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="nonet.resx">
-      <DependentUpon>nonet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="nonew.resx">
-      <DependentUpon>nonew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PCInfo.resx">
-      <DependentUpon>PCInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PCName.resx">
-      <DependentUpon>PCName.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="reboot.resx">
-      <DependentUpon>reboot.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Splash.resx">
-      <DependentUpon>Splash.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="userid.resx">
-      <DependentUpon>userid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="wait.resx">
-      <DependentUpon>wait.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -381,122 +238,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\about.png" />
-    <None Include="Resources\customize.png" />
-    <None Include="Resources\delete.png" />
-    <None Include="Resources\deluser.png" />
-    <None Include="Resources\disable.png" />
-    <None Include="Resources\enable.png" />
-    <None Include="Resources\folder.png" />
-    <None Include="Resources\github.png" />
-    <None Include="Resources\language.png" />
-    <None Include="Resources\laptop.png" />
-    <None Include="Resources\Logo-unowhy.svg.png" />
-    <None Include="Resources\no.png" />
-    <None Include="Resources\noupdate.png" />
-    <None Include="Resources\question.png" />
-    <None Include="Resources\recovery.png" />
-    <None Include="Resources\registry.png" />
-    <None Include="Resources\repair.png" />
-    <None Include="Resources\script.png" />
-    <None Include="Resources\service.png" />
-    <None Include="Resources\settings.png" />
-    <None Include="Resources\start.png" />
-    <None Include="Resources\startup.png" />
-    <None Include="Resources\stop.png" />
-    <None Include="Resources\uninstall.png" />
-    <None Include="Resources\update.png" />
-    <None Include="Resources\ut banner.png" />
-    <None Include="Resources\UT Logo.png" />
-    <None Include="Resources\UT.icon.png" />
-    <None Include="Resources\UTLB.png" />
-    <None Include="Resources\UTLW.png" />
-    <None Include="Resources\yes.png" />
-    <None Include="Resources\yesupdate.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\about.ico" />
-    <None Include="Resources\datamatrix.png" />
-    <None Include="Resources\admin.png" />
-    <None Include="Resources\azure.png" />
-    <None Include="Resources\adduser.png" />
-    <None Include="Resources\adminuser.png" />
-    <Content Include="Resources\adduser.ico" />
-    <Content Include="Resources\admin.ico" />
-    <Content Include="Resources\adminuser.ico" />
-    <Content Include="Resources\azure.ico" />
-    <Content Include="Resources\customize.ico" />
-    <Content Include="Resources\datamatrix.ico" />
-    <Content Include="Resources\delete.ico" />
-    <Content Include="Resources\deluser.ico" />
-    <Content Include="Resources\disable.ico" />
-    <Content Include="Resources\enable.ico" />
-    <Content Include="Resources\folder.ico" />
-    <Content Include="Resources\github.ico" />
-    <None Include="Resources\ic.png" />
-    <Content Include="Resources\ic.ico" />
-    <None Include="Resources\key.png" />
-    <Content Include="Resources\key.ico" />
-    <Content Include="Resources\language.ico" />
-    <Content Include="Resources\laptop.ico" />
-    <None Include="Resources\manufacturer.png" />
-    <Content Include="Resources\manufacturer.ico" />
-    <Content Include="Resources\no.ico" />
-    <Content Include="Resources\noupdate.ico" />
-    <None Include="Resources\pcinfo.png" />
-    <None Include="Resources\passno.png" />
-    <None Include="Resources\passyes.png" />
-    <None Include="Resources\nowifi.png" />
-    <Content Include="Resources\passno.ico" />
-    <Content Include="Resources\passyes.ico" />
-    <Content Include="Resources\pcinfo.ico" />
-    <None Include="Resources\pwcno.png" />
-    <None Include="Resources\pwcyes.png" />
-    <Content Include="Resources\pwcno.ico" />
-    <Content Include="Resources\pwcyes.ico" />
-    <Content Include="Resources\question.ico" />
-    <None Include="Resources\reboot.png" />
-    <Content Include="Resources\reboot.ico" />
-    <Content Include="Resources\recovery.ico" />
-    <Content Include="Resources\registry.ico" />
-    <Content Include="Resources\repair.ico" />
-    <Content Include="Resources\script.ico" />
-    <Content Include="Resources\service.ico" />
-    <Content Include="Resources\settings.ico" />
-    <Content Include="Resources\start.ico" />
-    <Content Include="Resources\startup.ico" />
-    <Content Include="Resources\stop.ico" />
-    <Content Include="Resources\uninstall.ico" />
-    <Content Include="Resources\update.ico" />
-    <None Include="Resources\wait.png" />
-    <None Include="Resources\win10.png" />
-    <None Include="Resources\win11.png" />
-    <None Include="Resources\user.png" />
-    <Content Include="Resources\user.ico" />
-    <None Include="Resources\UTLogoWhite2.0.png" />
-    <Content Include="Resources\wait.ico" />
-    <Content Include="Resources\win10.ico" />
-    <Content Include="Resources\win11.ico" />
-    <Content Include="Resources\yes.ico" />
-    <Content Include="Resources\yesupdate.ico" />
-    <Content Include="UT.ico" />
+    <None Include="Resources\upload.png" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.8 %28x86 et x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <None Include="Resources\yes.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UTUI.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

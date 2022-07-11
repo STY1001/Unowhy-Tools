@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unowhy Tools", "Unowhy Tool
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unowhy Tools Updater", "Unowhy Tools Updater\Unowhy Tools Updater.csproj", "{D776C128-5927-465A-A314-C42B440D8705}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unowhy Tools Installer", "Unowhy Tools Installer\Unowhy Tools Installer.csproj", "{AA1123CD-8600-406E-BFD9-1CB215C385B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unowhy Tools Uninstaller", "Unowhy Tools Uninstaller\Unowhy Tools Uninstaller.csproj", "{47DA38A6-1637-4867-BD7F-07089475B3E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unowhy Tools Updater Script", "Unowhy Tools Updater Script\Unowhy Tools Updater Script.csproj", "{E7411345-F613-4113-B794-0778D8CCE4C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{D776C128-5927-465A-A314-C42B440D8705}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D776C128-5927-465A-A314-C42B440D8705}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D776C128-5927-465A-A314-C42B440D8705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA1123CD-8600-406E-BFD9-1CB215C385B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA1123CD-8600-406E-BFD9-1CB215C385B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA1123CD-8600-406E-BFD9-1CB215C385B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA1123CD-8600-406E-BFD9-1CB215C385B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47DA38A6-1637-4867-BD7F-07089475B3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47DA38A6-1637-4867-BD7F-07089475B3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47DA38A6-1637-4867-BD7F-07089475B3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47DA38A6-1637-4867-BD7F-07089475B3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7411345-F613-4113-B794-0778D8CCE4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7411345-F613-4113-B794-0778D8CCE4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7411345-F613-4113-B794-0778D8CCE4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7411345-F613-4113-B794-0778D8CCE4C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

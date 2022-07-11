@@ -133,7 +133,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="starthis.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="starthis.Text" xml:space="preserve">
     <value>Start HiSqoolManager Service</value>
@@ -148,7 +148,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;starthis.ZOrder" xml:space="preserve">
-    <value>71</value>
+    <value>72</value>
   </data>
   <data name="stophis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -163,7 +163,7 @@
     <value>211, 23</value>
   </data>
   <data name="stophis.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="stophis.Text" xml:space="preserve">
     <value>Stop HiSqoolManager Service</value>
@@ -178,7 +178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;stophis.ZOrder" xml:space="preserve">
-    <value>70</value>
+    <value>71</value>
   </data>
   <data name="dishis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -193,7 +193,7 @@
     <value>211, 23</value>
   </data>
   <data name="dishis.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="dishis.Text" xml:space="preserve">
     <value>Disable HiSqoolManager  Service</value>
@@ -208,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dishis.ZOrder" xml:space="preserve">
-    <value>69</value>
+    <value>70</value>
   </data>
   <data name="enhis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -223,7 +223,7 @@
     <value>211, 23</value>
   </data>
   <data name="enhis.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="enhis.Text" xml:space="preserve">
     <value>Enable HiSqoolManager Service</value>
@@ -238,7 +238,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;enhis.ZOrder" xml:space="preserve">
-    <value>68</value>
+    <value>69</value>
   </data>
   <data name="delhism.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -253,7 +253,7 @@
     <value>211, 23</value>
   </data>
   <data name="delhism.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>14</value>
   </data>
   <data name="delhism.Text" xml:space="preserve">
     <value>Delete HiSqoolManager folder and service</value>
@@ -268,7 +268,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhism.ZOrder" xml:space="preserve">
-    <value>67</value>
+    <value>68</value>
   </data>
   <data name="delhis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -283,7 +283,7 @@
     <value>211, 23</value>
   </data>
   <data name="delhis.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>12</value>
   </data>
   <data name="delhis.Text" xml:space="preserve">
     <value>Unistall HiSqool</value>
@@ -298,7 +298,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhis.ZOrder" xml:space="preserve">
-    <value>65</value>
+    <value>66</value>
   </data>
   <data name="shell.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -313,7 +313,7 @@
     <value>211, 23</value>
   </data>
   <data name="shell.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="shell.Text" xml:space="preserve">
     <value>Change Shell value to "explorer.exe"</value>
@@ -328,7 +328,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;shell.ZOrder" xml:space="preserve">
-    <value>64</value>
+    <value>65</value>
   </data>
   <data name="ver.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -352,7 +352,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ver.ZOrder" xml:space="preserve">
-    <value>62</value>
+    <value>63</value>
   </data>
   <data name="sty1001.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -386,7 +386,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sty1001.ZOrder" xml:space="preserve">
-    <value>61</value>
+    <value>62</value>
   </data>
   <data name="ent.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -401,7 +401,7 @@
     <value>211, 23</value>
   </data>
   <data name="ent.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>11</value>
   </data>
   <data name="ent.Text" xml:space="preserve">
     <value>Delete .\ENT account</value>
@@ -416,7 +416,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ent.ZOrder" xml:space="preserve">
-    <value>60</value>
+    <value>61</value>
   </data>
   <data name="about.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -431,7 +431,7 @@
     <value>83, 23</value>
   </data>
   <data name="about.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>2</value>
   </data>
   <data name="about.Text" xml:space="preserve">
     <value>About</value>
@@ -446,7 +446,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;about.ZOrder" xml:space="preserve">
-    <value>55</value>
+    <value>56</value>
   </data>
   <data name="fixboot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -461,7 +461,7 @@
     <value>211, 23</value>
   </data>
   <data name="fixboot.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>9</value>
   </data>
   <data name="fixboot.Text" xml:space="preserve">
     <value>Delete "silent_*.vbs" in "StartUp" folder</value>
@@ -476,7 +476,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fixboot.ZOrder" xml:space="preserve">
-    <value>54</value>
+    <value>55</value>
   </data>
   <data name="delti.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -491,7 +491,7 @@
     <value>211, 23</value>
   </data>
   <data name="delti.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>15</value>
   </data>
   <data name="delti.Text" xml:space="preserve">
     <value>Delete "TO_INSTALL" folder</value>
@@ -506,7 +506,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delti.ZOrder" xml:space="preserve">
-    <value>53</value>
+    <value>54</value>
   </data>
   <data name="servicecat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -536,7 +536,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;servicecat.ZOrder" xml:space="preserve">
-    <value>52</value>
+    <value>53</value>
   </data>
   <data name="repaircat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -566,7 +566,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;repaircat.ZOrder" xml:space="preserve">
-    <value>51</value>
+    <value>52</value>
   </data>
   <data name="delcat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -596,7 +596,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delcat.ZOrder" xml:space="preserve">
-    <value>50</value>
+    <value>51</value>
   </data>
   <data name="settings.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -611,7 +611,7 @@
     <value>83, 23</value>
   </data>
   <data name="settings.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+    <value>0</value>
   </data>
   <data name="settings.Text" xml:space="preserve">
     <value>Settings</value>
@@ -626,7 +626,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;settings.ZOrder" xml:space="preserve">
-    <value>48</value>
+    <value>49</value>
   </data>
   <data name="delridf.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -641,7 +641,7 @@
     <value>211, 23</value>
   </data>
   <data name="delridf.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+    <value>16</value>
   </data>
   <data name="delridf.Text" xml:space="preserve">
     <value>Delete "RIDF" folder</value>
@@ -656,7 +656,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delridf.ZOrder" xml:space="preserve">
-    <value>47</value>
+    <value>48</value>
   </data>
   <data name="winre.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -671,7 +671,7 @@
     <value>211, 23</value>
   </data>
   <data name="winre.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+    <value>10</value>
   </data>
   <data name="winre.Text" xml:space="preserve">
     <value>Re enable "reagentc"</value>
@@ -686,7 +686,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;winre.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>44</value>
   </data>
   <data name="pcname.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -701,7 +701,7 @@
     <value>211, 23</value>
   </data>
   <data name="pcname.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>19</value>
   </data>
   <data name="pcname.Text" xml:space="preserve">
     <value>Change Windows PC name</value>
@@ -716,7 +716,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pcname.ZOrder" xml:space="preserve">
-    <value>59</value>
+    <value>60</value>
   </data>
   <data name="cuscat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -746,7 +746,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cuscat.ZOrder" xml:space="preserve">
-    <value>49</value>
+    <value>50</value>
   </data>
   <data name="version.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -779,7 +779,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;version.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="deloem.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -794,7 +794,7 @@
     <value>211, 23</value>
   </data>
   <data name="deloem.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+    <value>17</value>
   </data>
   <data name="deloem.Text" xml:space="preserve">
     <value>Delete "OEM" folder</value>
@@ -809,7 +809,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;deloem.ZOrder" xml:space="preserve">
-    <value>46</value>
+    <value>47</value>
   </data>
   <data name="entf.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -824,7 +824,7 @@
     <value>211, 23</value>
   </data>
   <data name="entf.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+    <value>18</value>
   </data>
   <data name="entf.Text" xml:space="preserve">
     <value>Delete "ENT" folder</value>
@@ -839,7 +839,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;entf.ZOrder" xml:space="preserve">
-    <value>45</value>
+    <value>46</value>
   </data>
   <data name="pcinfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -851,7 +851,7 @@
     <value>83, 23</value>
   </data>
   <data name="pcinfo.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
+    <value>1</value>
   </data>
   <data name="pcinfo.Text" xml:space="preserve">
     <value>System Info</value>
@@ -866,7 +866,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pcinfo.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="desc.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 469</value>
@@ -890,7 +890,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;desc.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -920,7 +920,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="admin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -935,7 +935,7 @@
     <value>211, 23</value>
   </data>
   <data name="admin.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>20</value>
   </data>
   <data name="admin.Text" xml:space="preserve">
     <value>Set this account as admin</value>
@@ -950,7 +950,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;admin.ZOrder" xml:space="preserve">
-    <value>58</value>
+    <value>59</value>
   </data>
   <data name="pictureBox19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -977,7 +977,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox19.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="pictureBox17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1004,7 +1004,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox17.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="pictureBox16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1031,7 +1031,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox16.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="pictureBox15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1058,7 +1058,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox15.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="pictureBox22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1085,7 +1085,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox22.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1112,7 +1112,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="pictureBox9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1139,7 +1139,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox9.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="pictureBox8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1166,7 +1166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox8.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="pictureBox21.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1193,7 +1193,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox21.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="pictureBox20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1220,7 +1220,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox20.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>27</value>
   </data>
   <data name="pictureBox13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1247,7 +1247,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox13.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>28</value>
   </data>
   <data name="pictureBox12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1274,7 +1274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox12.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>29</value>
   </data>
   <data name="pictureBox14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1301,7 +1301,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox14.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>30</value>
   </data>
   <data name="pictureBox11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1328,7 +1328,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox11.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>32</value>
   </data>
   <data name="pictureBox23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1355,7 +1355,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox23.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>35</value>
   </data>
   <data name="pictureBox18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1382,7 +1382,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox18.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>36</value>
   </data>
   <data name="pictureBox10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1409,7 +1409,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox10.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>37</value>
   </data>
   <data name="pictureBox7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1436,7 +1436,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox7.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>38</value>
   </data>
   <data name="pictureBox6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1463,7 +1463,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox6.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>39</value>
   </data>
   <data name="pictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1490,7 +1490,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox5.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>40</value>
   </data>
   <data name="pictureBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1517,7 +1517,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox4.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>41</value>
   </data>
   <data name="pictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1544,7 +1544,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>42</value>
   </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1571,16 +1571,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>43</value>
   </data>
   <data name="logo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>396, 12</value>
+    <value>377, 0</value>
   </data>
   <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 95</value>
+    <value>312, 110</value>
   </data>
   <data name="logo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1598,7 +1598,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
-    <value>63</value>
+    <value>64</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1628,7 +1628,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="aadleave.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -1643,7 +1643,7 @@
     <value>211, 23</value>
   </data>
   <data name="aadleave.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+    <value>13</value>
   </data>
   <data name="aadleave.Text" xml:space="preserve">
     <value>Unjoin this PC from AzureAD</value>
@@ -1658,7 +1658,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;aadleave.ZOrder" xml:space="preserve">
-    <value>44</value>
+    <value>45</value>
   </data>
   <data name="pictureBox24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1685,7 +1685,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox24.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <data name="adduser.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -1700,7 +1700,7 @@
     <value>211, 23</value>
   </data>
   <data name="adduser.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>21</value>
   </data>
   <data name="adduser.Text" xml:space="preserve">
     <value>Create a local user (account)</value>
@@ -1715,7 +1715,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;adduser.ZOrder" xml:space="preserve">
-    <value>57</value>
+    <value>58</value>
   </data>
   <data name="pictureBox25.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1742,7 +1742,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox25.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>34</value>
   </data>
   <data name="adminset.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -1757,7 +1757,7 @@
     <value>211, 23</value>
   </data>
   <data name="adminset.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>22</value>
   </data>
   <data name="adminset.Text" xml:space="preserve">
     <value>Built-in "Admin" account settings</value>
@@ -1772,7 +1772,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;adminset.ZOrder" xml:space="preserve">
-    <value>56</value>
+    <value>57</value>
   </data>
   <data name="pictureBox26.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1799,7 +1799,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox26.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>33</value>
   </data>
   <data name="debuglab.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1829,7 +1829,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debuglab.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="debshell.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1862,7 +1862,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debshell.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="debhme.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1895,7 +1895,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debhme.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="debhmr.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1928,7 +1928,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debhmr.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="debhms.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1961,7 +1961,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debhms.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="debreagentc.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1994,7 +1994,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debreagentc.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="debazure.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2027,7 +2027,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debazure.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="debuser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2060,7 +2060,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debuser.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="debadmin.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2093,7 +2093,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debadmin.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="debent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2126,7 +2126,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debent.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="debti.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2159,7 +2159,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debti.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="delhismserv.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
@@ -2174,7 +2174,7 @@
     <value>211, 23</value>
   </data>
   <data name="delhismserv.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="delhismserv.Text" xml:space="preserve">
     <value>Delete HiSqoolManager Service only</value>
@@ -2189,7 +2189,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhismserv.ZOrder" xml:space="preserve">
-    <value>66</value>
+    <value>67</value>
   </data>
   <data name="pictureBox27.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2216,7 +2216,37 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox27.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>31</value>
+  </data>
+  <data name="tbp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>273, 390</value>
+  </data>
+  <data name="tbp.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="tbp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="tbp.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="tbp.Text" xml:space="preserve">
+    <value>TB Test</value>
+  </data>
+  <data name="tbp.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;tbp.Name" xml:space="preserve">
+    <value>tbp</value>
+  </data>
+  <data name="&gt;&gt;tbp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbp.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

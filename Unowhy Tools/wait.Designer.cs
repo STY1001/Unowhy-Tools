@@ -32,6 +32,7 @@ namespace Unowhy_Tools
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wait));
             this.msg = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,7 +40,7 @@ namespace Unowhy_Tools
             // 
             this.msg.AutoSize = true;
             this.msg.ForeColor = System.Drawing.Color.White;
-            this.msg.Location = new System.Drawing.Point(51, 22);
+            this.msg.Location = new System.Drawing.Point(51, 13);
             this.msg.Name = "msg";
             this.msg.Size = new System.Drawing.Size(73, 13);
             this.msg.TabIndex = 0;
@@ -55,12 +56,23 @@ namespace Unowhy_Tools
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(54, 34);
+            this.progressBar1.MarqueeAnimationSpeed = 1;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 10);
+            this.progressBar1.Step = 50;
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 2;
+            // 
             // wait
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(166, 56);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.msg);
             this.ForeColor = System.Drawing.Color.Black;
@@ -82,5 +94,6 @@ namespace Unowhy_Tools
 
         private System.Windows.Forms.Label msg;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
