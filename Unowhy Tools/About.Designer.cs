@@ -72,10 +72,10 @@ namespace Unowhy_Tools
             // website
             // 
             this.website.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.website.Location = new System.Drawing.Point(267, 12);
+            this.website.Location = new System.Drawing.Point(241, 12);
             this.website.Name = "website";
             this.website.Size = new System.Drawing.Size(130, 34);
-            this.website.TabIndex = 0;
+            this.website.TabIndex = 14;
             this.website.Text = "STY1001\'s WebSite";
             this.website.UseVisualStyleBackColor = true;
             this.website.Click += new System.EventHandler(this.button1_Click);
@@ -84,10 +84,10 @@ namespace Unowhy_Tools
             // 
             this.github.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.github.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.github.Location = new System.Drawing.Point(267, 50);
+            this.github.Location = new System.Drawing.Point(241, 50);
             this.github.Name = "github";
             this.github.Size = new System.Drawing.Size(130, 34);
-            this.github.TabIndex = 1;
+            this.github.TabIndex = 15;
             this.github.Text = "Unowhy Tools\'s Github";
             this.github.UseVisualStyleBackColor = true;
             this.github.Click += new System.EventHandler(this.button2_Click);
@@ -95,10 +95,10 @@ namespace Unowhy_Tools
             // update
             // 
             this.update.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.update.Location = new System.Drawing.Point(267, 90);
+            this.update.Location = new System.Drawing.Point(241, 90);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(130, 34);
-            this.update.TabIndex = 2;
+            this.update.TabIndex = 17;
             this.update.Text = "Check for update";
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.button3_Click);
@@ -106,7 +106,7 @@ namespace Unowhy_Tools
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.laptop;
-            this.pictureBox1.Location = new System.Drawing.Point(403, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(377, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -115,10 +115,10 @@ namespace Unowhy_Tools
             // 
             // alogo
             // 
-            this.alogo.Image = global::Unowhy_Tools.Properties.Resources.UTLogoWhite2_0;
-            this.alogo.Location = new System.Drawing.Point(10, -5);
+            this.alogo.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
+            this.alogo.Location = new System.Drawing.Point(12, 12);
             this.alogo.Name = "alogo";
-            this.alogo.Size = new System.Drawing.Size(251, 88);
+            this.alogo.Size = new System.Drawing.Size(205, 72);
             this.alogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.alogo.TabIndex = 19;
             this.alogo.TabStop = false;
@@ -126,7 +126,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.github;
-            this.pictureBox2.Location = new System.Drawing.Point(403, 51);
+            this.pictureBox2.Location = new System.Drawing.Point(377, 51);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -136,7 +136,7 @@ namespace Unowhy_Tools
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Unowhy_Tools.Properties.Resources.update;
-            this.pictureBox3.Location = new System.Drawing.Point(403, 91);
+            this.pictureBox3.Location = new System.Drawing.Point(377, 91);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -160,7 +160,7 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(447, 133);
+            this.ClientSize = new System.Drawing.Size(420, 133);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);

@@ -12,8 +12,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Shell;
-using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace Unowhy_Tools
 {
@@ -28,10 +26,8 @@ namespace Unowhy_Tools
 
         protected override void OnHandleCreated(EventArgs e)
         {
-            DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4);
-            DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
-            DwmSetWindowAttribute(Handle, 35, new[] { 1 }, 4);
-            DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
+            if (DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4) != 0)
+                DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
         }
 
         public Adduser()
@@ -103,7 +99,6 @@ namespace Unowhy_Tools
                     if (d.DialogResult.Equals(DialogResult.Yes))
                     {
                         w.Show();
-                        TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
 
                         if (pass.Text == "")
                         {
@@ -149,7 +144,6 @@ namespace Unowhy_Tools
                         }
 
                         w.Close();
-                        TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
                         string username = sname;
                         var uidf = new userid(username);
                         uidf.ShowDialog();
