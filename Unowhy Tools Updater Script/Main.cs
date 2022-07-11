@@ -46,8 +46,6 @@ namespace Unowhy_Tools_Updater_Script
         {
             InitializeComponent();
 
-            delay(1000);
-
             //TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
 
             if (File.Exists("old2new"))
