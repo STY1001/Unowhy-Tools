@@ -59,7 +59,7 @@ namespace Unowhy_Tools_Updater_Script
                     client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/script/utdeloldkey.exe", ".\\utdeloldkey.exe");
                 }
 
-                delay(100);
+                delay(1000);
 
                 Process p1 = new Process();
                 p1.StartInfo.FileName = ".\\utdeloldkey.exe";
@@ -68,7 +68,7 @@ namespace Unowhy_Tools_Updater_Script
                 p1.Start();
                 p1.WaitForExit();
 
-                delay(100);
+                delay(1000);
 
                 File.Delete("utdeloldkey.exe");
 
@@ -92,7 +92,7 @@ namespace Unowhy_Tools_Updater_Script
                     client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/utkeyinst.reg", ".\\utkeyinst.reg");
                 }
 
-                delay(100);
+                delay(1000);
 
                 Process p2 = new Process();
                 p2.StartInfo.FileName = ".\\utkeyinst.exe";
@@ -101,7 +101,7 @@ namespace Unowhy_Tools_Updater_Script
                 p2.Start();
                 p2.WaitForExit();
 
-                delay(100);
+                delay(1000);
 
                 File.Delete("utkeyinst.exe");
                 File.Delete("utkeyinst.reg");
@@ -130,6 +130,8 @@ namespace Unowhy_Tools_Updater_Script
                 {
                     client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/Unowhy%20Tools.lnk", "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools.lnk");
                 }
+
+                delay(1000);
 
                 File.Create("old2new");
             }
