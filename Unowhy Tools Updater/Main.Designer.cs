@@ -33,6 +33,7 @@ namespace Unowhy_Tools_Updater
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lab = new System.Windows.Forms.Label();
             this.status = new System.Windows.Forms.Label();
+            this.progbar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,12 +67,22 @@ namespace Unowhy_Tools_Updater
             this.status.TabIndex = 2;
             this.status.Text = "Status";
             // 
+            // progbar
+            // 
+            this.progbar.Location = new System.Drawing.Point(68, 33);
+            this.progbar.Name = "progbar";
+            this.progbar.Size = new System.Drawing.Size(266, 10);
+            this.progbar.Step = 1;
+            this.progbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progbar.TabIndex = 3;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(346, 75);
+            this.Controls.Add(this.progbar);
             this.Controls.Add(this.status);
             this.Controls.Add(this.lab);
             this.Controls.Add(this.pictureBox1);
@@ -94,6 +105,7 @@ namespace Unowhy_Tools_Updater
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lab;
         private System.Windows.Forms.Label status;
+        private System.Windows.Forms.ProgressBar progbar;
     }
 }
 
