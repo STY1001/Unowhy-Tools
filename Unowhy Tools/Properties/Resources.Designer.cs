@@ -513,6 +513,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap UTLogoWhite2_0 {
+            get {
+                object obj = ResourceManager.GetObject("UTLogoWhite2.0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UTLW {
             get {
                 object obj = ResourceManager.GetObject("UTLW", resourceCulture);
