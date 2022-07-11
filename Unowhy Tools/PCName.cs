@@ -15,6 +15,9 @@ using System.Resources;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
+using Microsoft.WindowsAPICodePack.Taskbar;
+using Microsoft.WindowsAPICodePack.Shell;
+using System.Threading;
 
 namespace Unowhy_Tools
 {
@@ -28,8 +31,15 @@ namespace Unowhy_Tools
 
         protected override void OnHandleCreated(EventArgs e)
         {
-            if (DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4) != 0)
-                DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
+            DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4);
+            DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
+            DwmSetWindowAttribute(Handle, 35, new[] { 1 }, 4);
+            DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
+        }
+
+        public void WaitScreen()
+        {
+            Application.Run(new wait());
         }
 
         public PCName()
@@ -109,15 +119,17 @@ namespace Unowhy_Tools
                     string arg = ($"-Command \"& {{Rename-Computer -NewName \"{name}\" -Force}}\"");
                     //MessageBox.Show(arg); //Debug
                     actualname.Text = name;
-                    var w = new wait();
-                    w.Show();
+                    Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
+                    t.Start();
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
                     Process p = new Process();
                     p.StartInfo.FileName = "powershell";
                     p.StartInfo.Arguments = arg;
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                     p.Start();
                     p.WaitForExit();
-                    w.Close();
+                    t.Abort();
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
                     var f = new reboot();
                     f.ShowDialog();
                 }
