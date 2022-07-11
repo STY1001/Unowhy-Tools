@@ -35,7 +35,6 @@ namespace Unowhy_Tools
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -43,10 +42,10 @@ namespace Unowhy_Tools
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.UTLogoWhite2_0;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 2);
+            this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(294, 104);
+            this.pictureBox1.Size = new System.Drawing.Size(291, 103);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -55,7 +54,7 @@ namespace Unowhy_Tools
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(247, 134);
+            this.label1.Location = new System.Drawing.Point(248, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 1;
@@ -64,9 +63,8 @@ namespace Unowhy_Tools
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.wait;
-            this.pictureBox2.Location = new System.Drawing.Point(222, 128);
+            this.pictureBox2.Location = new System.Drawing.Point(222, 135);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -77,32 +75,21 @@ namespace Unowhy_Tools
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 127);
+            this.label2.Location = new System.Drawing.Point(12, 140);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 13);
+            this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "by STY1001 | sty1001.wordpress.com";
+            this.label2.Text = "by STY1001";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 109);
+            this.label3.Location = new System.Drawing.Point(10, 118);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 16);
+            this.label3.Size = new System.Drawing.Size(209, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "A tool for Unowhy Y13 computers !";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.ForeColor = System.Drawing.Color.Black;
-            this.progressBar1.Location = new System.Drawing.Point(-9, 159);
-            this.progressBar1.MarqueeAnimationSpeed = 1;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(331, 10);
-            this.progressBar1.Step = 50;
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 5;
             // 
             // Splash
             // 
@@ -115,7 +102,6 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.progressBar1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -139,6 +125,5 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

@@ -169,7 +169,10 @@
     <value>Désinstaller "HiSqool"</value>
   </data>
   <data name="delhism" xml:space="preserve">
-    <value>Supprimer le service "HiSqool Manager"</value>
+    <value>Suppr le dossier et serv "HiSqoolManager"</value>
+  </data>
+  <data name="delhismserv" xml:space="preserve">
+    <value>Suppr. le service "HiSqoolManager" uniquement</value>
   </data>
   <data name="deloem" xml:space="preserve">
     <value>Supprimer le dossier "OEM"</value>
@@ -338,6 +341,12 @@
   </data>
   <data name="update.kill" xml:space="preserve">
     <value>Fermeture "Unowhy Tools.exe"</value>
+  </data>
+  <data name="update.sdl" xml:space="preserve">
+    <value>Téléchargement "script.exe"</value>
+  </data>
+  <data name="update.se" xml:space="preserve">
+    <value>Lancement "script.exe"</value>
   </data>
   <data name="update.start" xml:space="preserve">
     <value>Démarrage "Unowhy Tools.exe"</value>

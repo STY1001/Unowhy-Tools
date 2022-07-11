@@ -102,7 +102,6 @@ namespace Unowhy_Tools
             this.debti = new System.Windows.Forms.Label();
             this.delhismserv = new System.Windows.Forms.Button();
             this.pictureBox27 = new System.Windows.Forms.PictureBox();
-            this.tbp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -555,7 +554,7 @@ namespace Unowhy_Tools
             // 
             // logo
             // 
-            this.logo.Image = global::Unowhy_Tools.Properties.Resources.UTLogoWhite2_0;
+            this.logo.Image = global::Unowhy_Tools.Properties.Resources.UT_Logo;
             resources.ApplyResources(this.logo, "logo");
             this.logo.Name = "logo";
             this.logo.TabStop = false;
@@ -701,24 +700,16 @@ namespace Unowhy_Tools
             // 
             // pictureBox27
             // 
-            this.pictureBox27.Image = global::Unowhy_Tools.Properties.Resources.delete;
+            this.pictureBox27.Image = global::Unowhy_Tools.Properties.Resources.service;
             resources.ApplyResources(this.pictureBox27, "pictureBox27");
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.TabStop = false;
-            // 
-            // tbp
-            // 
-            resources.ApplyResources(this.tbp, "tbp");
-            this.tbp.Name = "tbp";
-            this.tbp.UseVisualStyleBackColor = true;
-            this.tbp.Click += new System.EventHandler(this.tbp_Click);
             // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.tbp);
             this.Controls.Add(this.debti);
             this.Controls.Add(this.debent);
             this.Controls.Add(this.debadmin);
@@ -903,7 +894,6 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Label debti;
         private System.Windows.Forms.Button delhismserv;
         private System.Windows.Forms.PictureBox pictureBox27;
-        private System.Windows.Forms.Button tbp;
     }
 }
 

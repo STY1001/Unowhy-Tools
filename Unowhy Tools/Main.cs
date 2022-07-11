@@ -201,10 +201,10 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Threading;
+//using System.Threading.Tasks;
 using System.Windows.Input;
+//using System.Text;
 using System.ServiceProcess;
-using Microsoft.WindowsAPICodePack.Shell;
-using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace Unowhy_Tools
 {   
@@ -240,28 +240,12 @@ namespace Unowhy_Tools
 
         protected override void OnHandleCreated(EventArgs e)
         {
-            DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4);
-            DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
-            DwmSetWindowAttribute(Handle, 35, new[] { 1 }, 4);
-            DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
+            if (DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4) != 0)
+                DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
         }
 
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int state, int value);
-
-
-        //Wait fonc
-
-        private static void delay(int Time_delay)
-        {
-            int i = 0;
-            System.Timers.Timer _delayTimer = new System.Timers.Timer();
-            _delayTimer.Interval = Time_delay;
-            _delayTimer.AutoReset = false;
-            _delayTimer.Elapsed += (s, args) => i = 1;
-            _delayTimer.Start();
-            while (i == 0) { };
-        }
 
         public main()
         {
@@ -281,7 +265,7 @@ namespace Unowhy_Tools
 
             Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
             t.Start();
-            delay(300);
+            System.Threading.Thread.Sleep(300);
 
 
             RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);   //Check if the  "STY1001" key exist
@@ -293,7 +277,7 @@ namespace Unowhy_Tools
             {
                 RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);    //Create it
                 stykey.CreateSubKey("STY1001");
-                delay(300);
+                System.Threading.Thread.Sleep(300);
             }
 
             RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);   //Check if "UT" key exist
@@ -305,7 +289,7 @@ namespace Unowhy_Tools
             {
                 RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);     //Create it with "Lang" value
                 utkey.CreateSubKey("Unowhy Tools");
-                delay(300);
+                System.Threading.Thread.Sleep(300);
 
             }
 
@@ -339,17 +323,17 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();                     //Wait the registery editing
-                delay(1000);
+                System.Threading.Thread.Sleep(1000);
                 t.Abort();
                 var s = new Settings("1");
                 s.ShowDialog();                        //Show settings
                 t = new Thread(new ThreadStart(SplashScreen));
                 t.Start();
 
-                delay(100);
+                System.Threading.Thread.Sleep(100);
             }
 
-            delay(300);
+            System.Threading.Thread.Sleep(300);
 
             object u = key.GetValue("UpdateStart", null);
             if (u != null)
@@ -396,12 +380,6 @@ namespace Unowhy_Tools
                             s.ShowDialog();
                             t = new Thread(new ThreadStart(SplashScreen));
                             t.Start();
-
-                            using(var client = new WebClient())
-                            {
-                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\fr.resx");
-                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\en.resx");
-                            }
                         }
                         else
                         {
@@ -629,7 +607,6 @@ namespace Unowhy_Tools
                 debti.Visible = true;
                 debent.Visible = true;
                 debadmin.Visible = true;
-                tbp.Visible = true;
             }
 
             if (System.Security.Principal.WindowsIdentity.GetCurrent().Name.Contains("AzureAD") == true)
@@ -703,7 +680,7 @@ namespace Unowhy_Tools
             
         }
 
-        public void checkhism()
+        private void checkhism()
         {
             if (debhme.Text == "true")
             {
@@ -767,7 +744,6 @@ namespace Unowhy_Tools
                 adduser.Enabled = false;
                 winre.Enabled = false;
                 fixboot.Enabled = false;
-                delhismserv.Enabled = false;
             }
         }
 
@@ -779,7 +755,7 @@ namespace Unowhy_Tools
             }
         }
 
-        public void checkadmin()
+        private void checkadmin()
         {
             if (debadmin.Text == "true")
             {
@@ -791,7 +767,7 @@ namespace Unowhy_Tools
             }
         }
 
-        public void checkent()
+        private void checkent()
         {
             if (debent.Text == "true")
             {
@@ -803,7 +779,7 @@ namespace Unowhy_Tools
             }
         }
 
-        public void checkti()
+        private void checkti()
         {
             if (debti.Text == "true")
             {
@@ -915,7 +891,7 @@ namespace Unowhy_Tools
             }
         }
 
-        public void changeswitch()
+        private void changeswitch()
         {
             starthis.Enabled = true;
             stophis.Enabled = true;
@@ -957,9 +933,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                       // Start HiSqool Manager  
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\starthis.exe";
@@ -970,8 +945,7 @@ namespace Unowhy_Tools
                 debhmr.Text = "true";
                 debhms.Text = "Automatic";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
                       
         }
@@ -983,9 +957,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                       // Stop HiSqool Manager
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\stophis.exe";
@@ -996,8 +969,7 @@ namespace Unowhy_Tools
                 debhmr.Text = "false";
                 debhms.Text = "Automatic";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1008,9 +980,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start(); 
+                var w = new wait();
+                w.Show();
                                                                      // Enable HiSqool Manager
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\enhis.exe";
@@ -1021,8 +992,7 @@ namespace Unowhy_Tools
                 debhms.Text = "Automatic";
                 debhmr.Text = "true";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1033,9 +1003,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                            // Disable HiSqool Manager
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\dishis.exe";
@@ -1046,8 +1015,7 @@ namespace Unowhy_Tools
                 debhms.Text = "Disabled";
                 debhmr.Text = "false";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1058,9 +1026,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                           // Launch Uninstaller of HiSqool
                 Process p = new Process();
                 p.StartInfo.FileName = "C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe";
@@ -1069,8 +1036,7 @@ namespace Unowhy_Tools
                 p.Start();
                 p.WaitForExit();
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1081,9 +1047,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                          // Remove HiSqool Manager folder
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\rmdirhismgr.exe";
@@ -1093,8 +1058,7 @@ namespace Unowhy_Tools
                 p.WaitForExit();
                 debhme.Text = "false";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1105,9 +1069,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                                // Change Shell value
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\shell.exe";
@@ -1117,8 +1080,7 @@ namespace Unowhy_Tools
                 p.WaitForExit();
                 debshell.Text = "explorer.exe";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1129,9 +1091,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                                 // Delete ENT account
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\delent.exe";
@@ -1141,8 +1102,7 @@ namespace Unowhy_Tools
                 p.WaitForExit();
                 debent.Text = "false";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1159,9 +1119,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                                 //Delete silent_*.vbs.lnk
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\fixti.exe";
@@ -1171,8 +1130,7 @@ namespace Unowhy_Tools
                 p.WaitForExit();
                 debti.Text = "false";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1183,9 +1141,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                                 //Remove "TO_INSTALL"
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\rdti.exe";
@@ -1194,8 +1151,7 @@ namespace Unowhy_Tools
                 p.Start();
                 p.WaitForExit();
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1212,9 +1168,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                                //Delete "RIDF"
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\delridf.exe";
@@ -1223,8 +1178,7 @@ namespace Unowhy_Tools
                 p.Start();
                 p.WaitForExit();
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1235,9 +1189,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                                //Enable reagentc
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\winre.exe";
@@ -1247,8 +1200,7 @@ namespace Unowhy_Tools
                 p.WaitForExit();
                 debreagentc.Text = "Enabled";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1265,9 +1217,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                                // Delete OEM folder
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\deloem.exe";
@@ -1276,8 +1227,7 @@ namespace Unowhy_Tools
                 p.Start();
                 p.WaitForExit();
                 checkfolder();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1336,9 +1286,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                               // Delete ENT folder
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\delentf.exe";
@@ -1347,8 +1296,7 @@ namespace Unowhy_Tools
                 p.Start();
                 p.WaitForExit();
                 checkfolder();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1365,9 +1313,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                                  // Disconnect Azure AD domain from PC
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\azureleave.exe";
@@ -1377,8 +1324,7 @@ namespace Unowhy_Tools
                 p.WaitForExit();
                 debazure.Text = "NO";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
         }
 
@@ -1389,9 +1335,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
 
                 string filePath = ".\\fullpcinfo.txt";
                 StreamReader inputFile = new StreamReader(filePath);
@@ -1410,12 +1355,11 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                t.Abort();
+                w.Close();
                 var f = new reboot();
                 f.ShowDialog();
                 debadmin.Text = "true";
                 changeswitch();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1438,9 +1382,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
+                var w = new wait();
+                w.Show();
                                                                              // Del Serv Only
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\delhismserv.exe";
@@ -1451,19 +1394,8 @@ namespace Unowhy_Tools
                 checkfolder();
                 debhme.Text = "false";
                 changeswitch();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                w.Close();
             }
-        }
-
-        private void tbp_Click(object sender, EventArgs e)
-        {
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-            Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-            t.Start();
-            delay(6000);
-            t.Abort();
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
         }
 
         //============================================================================================================================================
