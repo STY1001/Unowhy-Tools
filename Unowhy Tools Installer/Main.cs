@@ -37,6 +37,10 @@ namespace Unowhy_Tools_Installer
         {
             InitializeComponent();
 
+            System.Diagnostics.Process.Start("taskkill", "/f /im \"Unowhy Tools.exe\"");
+            System.Diagnostics.Process.Start("taskkill", "/f /im \"Unowhy Tools Updater.exe\"");
+            System.Diagnostics.Process.Start("taskkill", "/f /im \"uninstall.exe\"");
+
             status.Text = "";
         }
 
@@ -55,6 +59,7 @@ namespace Unowhy_Tools_Installer
         {
             statusbar.Value = 0;
             TaskbarManager.Instance.SetProgressValue(0, 100);
+
             status.Text = "Preparing...";
             delay(1000);
             delay(600);
