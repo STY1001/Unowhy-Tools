@@ -75,7 +75,7 @@ namespace Unowhy_Tools
             this.cbupdate.AutoSize = true;
             this.cbupdate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbupdate.ForeColor = System.Drawing.Color.White;
-            this.cbupdate.Location = new System.Drawing.Point(37, 45);
+            this.cbupdate.Location = new System.Drawing.Point(35, 45);
             this.cbupdate.Name = "cbupdate";
             this.cbupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cbupdate.Size = new System.Drawing.Size(150, 17);
