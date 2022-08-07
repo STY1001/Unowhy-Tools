@@ -56,5 +56,16 @@ namespace Unowhy_Tools
         {
 
         }
+
+        private void log_Click(object sender, EventArgs e)
+        {
+            var l = new changelog();
+            l.ShowDialog();
+        }
+
+        private void git_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/STY1001/Unowhy-Tools/releases/latest");
+        }
     }
 }
