@@ -31,13 +31,13 @@ namespace Unowhy_Tools
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.langlab = new System.Windows.Forms.Label();
-            this.okbtn = new System.Windows.Forms.Button();
             this.langsel = new System.Windows.Forms.ComboBox();
             this.cbupdate = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.okbtn = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -47,26 +47,18 @@ namespace Unowhy_Tools
             // langlab
             // 
             this.langlab.AutoSize = true;
+            this.langlab.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.langlab.ForeColor = System.Drawing.Color.White;
             this.langlab.Location = new System.Drawing.Point(36, 13);
             this.langlab.Name = "langlab";
-            this.langlab.Size = new System.Drawing.Size(61, 13);
+            this.langlab.Size = new System.Drawing.Size(64, 13);
             this.langlab.TabIndex = 0;
             this.langlab.Text = "Language :";
-            // 
-            // okbtn
-            // 
-            this.okbtn.Location = new System.Drawing.Point(202, 71);
-            this.okbtn.Name = "okbtn";
-            this.okbtn.Size = new System.Drawing.Size(31, 23);
-            this.okbtn.TabIndex = 1;
-            this.okbtn.Text = "OK";
-            this.okbtn.UseVisualStyleBackColor = true;
-            this.okbtn.Click += new System.EventHandler(this.okbtn_Click);
             // 
             // langsel
             // 
             this.langsel.BackColor = System.Drawing.Color.Black;
+            this.langsel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.langsel.ForeColor = System.Drawing.Color.White;
             this.langsel.FormattingEnabled = true;
             this.langsel.Items.AddRange(new object[] {
@@ -81,11 +73,12 @@ namespace Unowhy_Tools
             // cbupdate
             // 
             this.cbupdate.AutoSize = true;
+            this.cbupdate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbupdate.ForeColor = System.Drawing.Color.White;
             this.cbupdate.Location = new System.Drawing.Point(37, 45);
             this.cbupdate.Name = "cbupdate";
             this.cbupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbupdate.Size = new System.Drawing.Size(140, 17);
+            this.cbupdate.Size = new System.Drawing.Size(150, 17);
             this.cbupdate.TabIndex = 3;
             this.cbupdate.Text = "Check update at startup";
             this.cbupdate.UseVisualStyleBackColor = true;
@@ -124,12 +117,30 @@ namespace Unowhy_Tools
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox4.Location = new System.Drawing.Point(176, 71);
+            this.pictureBox4.Location = new System.Drawing.Point(141, 73);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(20, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
+            // 
+            // okbtn
+            // 
+            this.okbtn.BackColor = System.Drawing.Color.Transparent;
+            this.okbtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.okbtn.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.okbtn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.okbtn.Image = null;
+            this.okbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.okbtn.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.okbtn.Location = new System.Drawing.Point(162, 72);
+            this.okbtn.Name = "okbtn";
+            this.okbtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.okbtn.Size = new System.Drawing.Size(72, 23);
+            this.okbtn.TabIndex = 5;
+            this.okbtn.Text = "OK";
+            this.okbtn.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.okbtn.Click += new System.EventHandler(this.okbtn_Click);
             // 
             // Settings
             // 
@@ -137,13 +148,13 @@ namespace Unowhy_Tools
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(238, 99);
+            this.Controls.Add(this.okbtn);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbupdate);
             this.Controls.Add(this.langsel);
-            this.Controls.Add(this.okbtn);
             this.Controls.Add(this.langlab);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -166,12 +177,12 @@ namespace Unowhy_Tools
         #endregion
 
         private System.Windows.Forms.Label langlab;
-        private System.Windows.Forms.Button okbtn;
         private System.Windows.Forms.ComboBox langsel;
         private System.Windows.Forms.CheckBox cbupdate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private ReaLTaiizor.Controls.Button okbtn;
     }
 }

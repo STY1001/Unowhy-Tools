@@ -32,14 +32,14 @@ namespace Unowhy_Tools
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.aver = new System.Windows.Forms.Label();
             this.asty1001 = new System.Windows.Forms.Label();
-            this.website = new System.Windows.Forms.Button();
-            this.github = new System.Windows.Forms.Button();
-            this.update = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.alogo = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.website = new ReaLTaiizor.Controls.Button();
+            this.github = new ReaLTaiizor.Controls.Button();
+            this.update = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -49,11 +49,11 @@ namespace Unowhy_Tools
             // aver
             // 
             this.aver.AutoSize = true;
-            this.aver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aver.ForeColor = System.Drawing.Color.White;
             this.aver.Location = new System.Drawing.Point(8, 112);
             this.aver.Name = "aver";
-            this.aver.Size = new System.Drawing.Size(71, 16);
+            this.aver.Size = new System.Drawing.Size(73, 17);
             this.aver.TabIndex = 12;
             this.aver.Text = "Version --.-";
             this.aver.Click += new System.EventHandler(this.label2_Click);
@@ -61,47 +61,13 @@ namespace Unowhy_Tools
             // asty1001
             // 
             this.asty1001.AutoSize = true;
-            this.asty1001.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.asty1001.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.asty1001.ForeColor = System.Drawing.Color.White;
-            this.asty1001.Location = new System.Drawing.Point(9, 96);
+            this.asty1001.Location = new System.Drawing.Point(8, 96);
             this.asty1001.Name = "asty1001";
-            this.asty1001.Size = new System.Drawing.Size(185, 13);
+            this.asty1001.Size = new System.Drawing.Size(191, 13);
             this.asty1001.TabIndex = 13;
             this.asty1001.Text = "by STY1001 | sty1001.wordpress.com";
-            // 
-            // website
-            // 
-            this.website.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.website.Location = new System.Drawing.Point(267, 12);
-            this.website.Name = "website";
-            this.website.Size = new System.Drawing.Size(130, 34);
-            this.website.TabIndex = 0;
-            this.website.Text = "STY1001\'s WebSite";
-            this.website.UseVisualStyleBackColor = true;
-            this.website.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // github
-            // 
-            this.github.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.github.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.github.Location = new System.Drawing.Point(267, 50);
-            this.github.Name = "github";
-            this.github.Size = new System.Drawing.Size(130, 34);
-            this.github.TabIndex = 1;
-            this.github.Text = "Unowhy Tools\'s Github";
-            this.github.UseVisualStyleBackColor = true;
-            this.github.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // update
-            // 
-            this.update.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.update.Location = new System.Drawing.Point(267, 90);
-            this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(130, 34);
-            this.update.TabIndex = 2;
-            this.update.Text = "Check for update";
-            this.update.UseVisualStyleBackColor = true;
-            this.update.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox1
             // 
@@ -146,14 +112,68 @@ namespace Unowhy_Tools
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(7, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 16);
+            this.label3.Size = new System.Drawing.Size(213, 17);
             this.label3.TabIndex = 35;
             this.label3.Text = "A tool for Unowhy Y13 computers !";
+            // 
+            // website
+            // 
+            this.website.BackColor = System.Drawing.Color.Transparent;
+            this.website.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.website.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.website.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.website.Image = null;
+            this.website.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.website.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.website.Location = new System.Drawing.Point(267, 13);
+            this.website.Name = "website";
+            this.website.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.website.Size = new System.Drawing.Size(130, 31);
+            this.website.TabIndex = 36;
+            this.website.Text = "STY1001\'s WebSite";
+            this.website.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.website.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // github
+            // 
+            this.github.BackColor = System.Drawing.Color.Transparent;
+            this.github.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.github.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.github.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.github.Image = null;
+            this.github.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.github.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.github.Location = new System.Drawing.Point(267, 52);
+            this.github.Name = "github";
+            this.github.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.github.Size = new System.Drawing.Size(130, 31);
+            this.github.TabIndex = 36;
+            this.github.Text = "Unowhy Tools\'s Github";
+            this.github.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.github.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // update
+            // 
+            this.update.BackColor = System.Drawing.Color.Transparent;
+            this.update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.update.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.update.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update.Image = null;
+            this.update.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.update.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.update.Location = new System.Drawing.Point(267, 92);
+            this.update.Name = "update";
+            this.update.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.update.Size = new System.Drawing.Size(130, 31);
+            this.update.TabIndex = 36;
+            this.update.Text = "Check for update";
+            this.update.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.update.Click += new System.EventHandler(this.button3_Click);
             // 
             // About
             // 
@@ -161,14 +181,14 @@ namespace Unowhy_Tools
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(447, 133);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.github);
+            this.Controls.Add(this.website);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.alogo);
-            this.Controls.Add(this.update);
-            this.Controls.Add(this.github);
-            this.Controls.Add(this.website);
             this.Controls.Add(this.asty1001);
             this.Controls.Add(this.aver);
             this.ForeColor = System.Drawing.Color.White;
@@ -192,13 +212,13 @@ namespace Unowhy_Tools
         #endregion
         private System.Windows.Forms.Label aver;
         private System.Windows.Forms.Label asty1001;
-        private System.Windows.Forms.Button website;
-        private System.Windows.Forms.Button github;
-        private System.Windows.Forms.Button update;
         private System.Windows.Forms.PictureBox alogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label3;
+        private ReaLTaiizor.Controls.Button website;
+        private ReaLTaiizor.Controls.Button github;
+        private ReaLTaiizor.Controls.Button update;
     }
 }

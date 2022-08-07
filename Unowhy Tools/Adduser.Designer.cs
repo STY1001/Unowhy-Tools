@@ -35,8 +35,6 @@ namespace Unowhy_Tools
             this.labn = new System.Windows.Forms.Label();
             this.labp = new System.Windows.Forms.Label();
             this.admin = new System.Windows.Forms.CheckBox();
-            this.ok = new System.Windows.Forms.Button();
-            this.cancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.conf = new System.Windows.Forms.TextBox();
@@ -46,6 +44,8 @@ namespace Unowhy_Tools
             this.pass1 = new System.Windows.Forms.PictureBox();
             this.pass2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.ok = new ReaLTaiizor.Controls.Button();
+            this.cancel = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.name1)).BeginInit();
@@ -57,80 +57,65 @@ namespace Unowhy_Tools
             // name
             // 
             this.name.BackColor = System.Drawing.Color.Black;
+            this.name.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.ForeColor = System.Drawing.Color.White;
             this.name.Location = new System.Drawing.Point(41, 29);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(282, 20);
+            this.name.Size = new System.Drawing.Size(282, 22);
             this.name.TabIndex = 0;
             this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
             // 
             // pass
             // 
             this.pass.BackColor = System.Drawing.Color.Black;
+            this.pass.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pass.ForeColor = System.Drawing.Color.White;
             this.pass.Location = new System.Drawing.Point(40, 70);
             this.pass.Name = "pass";
             this.pass.PasswordChar = '•';
-            this.pass.Size = new System.Drawing.Size(282, 20);
+            this.pass.Size = new System.Drawing.Size(282, 22);
             this.pass.TabIndex = 0;
             this.pass.TextChanged += new System.EventHandler(this.pass_TextChanged);
             // 
             // labn
             // 
             this.labn.AutoSize = true;
+            this.labn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labn.ForeColor = System.Drawing.Color.White;
             this.labn.Location = new System.Drawing.Point(41, 12);
             this.labn.Name = "labn";
-            this.labn.Size = new System.Drawing.Size(41, 13);
+            this.labn.Size = new System.Drawing.Size(42, 13);
             this.labn.TabIndex = 1;
             this.labn.Text = "Name :";
             // 
             // labp
             // 
             this.labp.AutoSize = true;
+            this.labp.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labp.ForeColor = System.Drawing.Color.White;
             this.labp.Location = new System.Drawing.Point(40, 54);
             this.labp.Name = "labp";
-            this.labp.Size = new System.Drawing.Size(59, 13);
+            this.labp.Size = new System.Drawing.Size(62, 13);
             this.labp.TabIndex = 1;
             this.labp.Text = "Password :";
             // 
             // admin
             // 
             this.admin.AutoSize = true;
+            this.admin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admin.ForeColor = System.Drawing.Color.White;
             this.admin.Location = new System.Drawing.Point(40, 146);
             this.admin.Name = "admin";
-            this.admin.Size = new System.Drawing.Size(84, 17);
+            this.admin.Size = new System.Drawing.Size(88, 17);
             this.admin.TabIndex = 2;
             this.admin.Text = "Local Admin";
             this.admin.UseVisualStyleBackColor = true;
             this.admin.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // ok
-            // 
-            this.ok.Location = new System.Drawing.Point(299, 193);
-            this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(33, 23);
-            this.ok.TabIndex = 3;
-            this.ok.Text = "OK";
-            this.ok.UseVisualStyleBackColor = true;
-            this.ok.Click += new System.EventHandler(this.ok_Click);
-            // 
-            // cancel
-            // 
-            this.cancel.Location = new System.Drawing.Point(195, 192);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(75, 23);
-            this.cancel.TabIndex = 4;
-            this.cancel.Text = "Cancel";
-            this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.no;
-            this.pictureBox1.Location = new System.Drawing.Point(173, 191);
+            this.pictureBox1.Location = new System.Drawing.Point(131, 188);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -140,7 +125,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox2.Location = new System.Drawing.Point(277, 192);
+            this.pictureBox2.Location = new System.Drawing.Point(235, 189);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -150,27 +135,30 @@ namespace Unowhy_Tools
             // conf
             // 
             this.conf.BackColor = System.Drawing.Color.Black;
+            this.conf.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conf.ForeColor = System.Drawing.Color.White;
             this.conf.Location = new System.Drawing.Point(40, 109);
             this.conf.Name = "conf";
             this.conf.PasswordChar = '•';
-            this.conf.Size = new System.Drawing.Size(282, 20);
+            this.conf.Size = new System.Drawing.Size(282, 22);
             this.conf.TabIndex = 0;
             this.conf.TextChanged += new System.EventHandler(this.conf_TextChanged);
             // 
             // labc
             // 
             this.labc.AutoSize = true;
+            this.labc.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labc.ForeColor = System.Drawing.Color.White;
             this.labc.Location = new System.Drawing.Point(40, 93);
             this.labc.Name = "labc";
-            this.labc.Size = new System.Drawing.Size(97, 13);
+            this.labc.Size = new System.Drawing.Size(106, 13);
             this.labc.TabIndex = 1;
             this.labc.Text = "Confirm Password :";
             // 
             // warn
             // 
             this.warn.AutoSize = true;
+            this.warn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.warn.ForeColor = System.Drawing.Color.White;
             this.warn.Location = new System.Drawing.Point(45, 170);
             this.warn.Name = "warn";
@@ -217,12 +205,50 @@ namespace Unowhy_Tools
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
+            // ok
+            // 
+            this.ok.BackColor = System.Drawing.Color.Transparent;
+            this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ok.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.ok.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ok.Image = null;
+            this.ok.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ok.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.ok.Location = new System.Drawing.Point(262, 188);
+            this.ok.Name = "ok";
+            this.ok.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.ok.Size = new System.Drawing.Size(68, 25);
+            this.ok.TabIndex = 7;
+            this.ok.Text = "OK";
+            this.ok.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.ok.Click += new System.EventHandler(this.ok_Click);
+            // 
+            // cancel
+            // 
+            this.cancel.BackColor = System.Drawing.Color.Transparent;
+            this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancel.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel.Image = null;
+            this.cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cancel.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.cancel.Location = new System.Drawing.Point(158, 188);
+            this.cancel.Name = "cancel";
+            this.cancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.cancel.Size = new System.Drawing.Size(68, 25);
+            this.cancel.TabIndex = 7;
+            this.cancel.Text = "Cancel";
+            this.cancel.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            // 
             // Adduser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(335, 217);
+            this.Controls.Add(this.cancel);
+            this.Controls.Add(this.ok);
             this.Controls.Add(this.warn);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
@@ -230,8 +256,6 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pass1);
             this.Controls.Add(this.name1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cancel);
-            this.Controls.Add(this.ok);
             this.Controls.Add(this.admin);
             this.Controls.Add(this.labc);
             this.Controls.Add(this.labp);
@@ -266,8 +290,6 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Label labn;
         private System.Windows.Forms.Label labp;
         private System.Windows.Forms.CheckBox admin;
-        private System.Windows.Forms.Button ok;
-        private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox conf;
@@ -277,5 +299,7 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pass1;
         private System.Windows.Forms.PictureBox pass2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private ReaLTaiizor.Controls.Button ok;
+        private ReaLTaiizor.Controls.Button cancel;
     }
 }

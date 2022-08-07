@@ -59,95 +59,100 @@ namespace Unowhy_Tools
             // labpcname
             // 
             this.labpcname.AutoSize = true;
+            this.labpcname.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labpcname.Location = new System.Drawing.Point(50, 16);
             this.labpcname.Name = "labpcname";
-            this.labpcname.Size = new System.Drawing.Size(100, 13);
+            this.labpcname.Size = new System.Drawing.Size(106, 13);
             this.labpcname.TabIndex = 0;
             this.labpcname.Text = "Windows PC name:";
             // 
             // pcname
             // 
             this.pcname.AutoSize = true;
-            this.pcname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pcname.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pcname.Location = new System.Drawing.Point(50, 29);
             this.pcname.Name = "pcname";
-            this.pcname.Size = new System.Drawing.Size(46, 16);
+            this.pcname.Size = new System.Drawing.Size(45, 17);
             this.pcname.TabIndex = 0;
             this.pcname.Text = "NAME";
             // 
             // labmfm
             // 
             this.labmfm.AutoSize = true;
+            this.labmfm.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labmfm.Location = new System.Drawing.Point(50, 104);
             this.labmfm.Name = "labmfm";
-            this.labmfm.Size = new System.Drawing.Size(34, 13);
+            this.labmfm.Size = new System.Drawing.Size(36, 13);
             this.labmfm.TabIndex = 0;
             this.labmfm.Text = "MFM:";
             // 
             // mfm
             // 
             this.mfm.AutoSize = true;
-            this.mfm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mfm.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mfm.Location = new System.Drawing.Point(50, 117);
             this.mfm.Name = "mfm";
-            this.mfm.Size = new System.Drawing.Size(46, 16);
+            this.mfm.Size = new System.Drawing.Size(45, 17);
             this.mfm.TabIndex = 0;
             this.mfm.Text = "NAME";
             // 
             // labserial
             // 
             this.labserial.AutoSize = true;
+            this.labserial.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labserial.Location = new System.Drawing.Point(50, 149);
             this.labserial.Name = "labserial";
-            this.labserial.Size = new System.Drawing.Size(76, 13);
+            this.labserial.Size = new System.Drawing.Size(82, 13);
             this.labserial.TabIndex = 1;
             this.labserial.Text = "Serial Number:";
             // 
             // serial
             // 
             this.serial.AutoSize = true;
-            this.serial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serial.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.serial.Location = new System.Drawing.Point(50, 162);
             this.serial.Name = "serial";
-            this.serial.Size = new System.Drawing.Size(46, 16);
+            this.serial.Size = new System.Drawing.Size(45, 17);
             this.serial.TabIndex = 0;
             this.serial.Text = "NAME";
             // 
             // biosver
             // 
             this.biosver.AutoSize = true;
-            this.biosver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.biosver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.biosver.Location = new System.Drawing.Point(50, 209);
             this.biosver.Name = "biosver";
-            this.biosver.Size = new System.Drawing.Size(46, 16);
+            this.biosver.Size = new System.Drawing.Size(45, 17);
             this.biosver.TabIndex = 0;
             this.biosver.Text = "NAME";
             // 
             // labbiosver
             // 
             this.labbiosver.AutoSize = true;
+            this.labbiosver.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labbiosver.Location = new System.Drawing.Point(50, 196);
             this.labbiosver.Name = "labbiosver";
-            this.labbiosver.Size = new System.Drawing.Size(73, 13);
+            this.labbiosver.Size = new System.Drawing.Size(75, 13);
             this.labbiosver.TabIndex = 1;
             this.labbiosver.Text = "BIOS Version:";
             // 
             // os
             // 
             this.os.AutoSize = true;
-            this.os.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.os.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.os.Location = new System.Drawing.Point(50, 255);
             this.os.Name = "os";
-            this.os.Size = new System.Drawing.Size(46, 16);
+            this.os.Size = new System.Drawing.Size(45, 17);
             this.os.TabIndex = 0;
             this.os.Text = "NAME";
             // 
             // labos
             // 
             this.labos.AutoSize = true;
+            this.labos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labos.Location = new System.Drawing.Point(50, 242);
             this.labos.Name = "labos";
-            this.labos.Size = new System.Drawing.Size(63, 13);
+            this.labos.Size = new System.Drawing.Size(66, 13);
             this.labos.TabIndex = 1;
             this.labos.Text = "OS Version:";
             // 
@@ -204,19 +209,20 @@ namespace Unowhy_Tools
             // labuser
             // 
             this.labuser.AutoSize = true;
+            this.labuser.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labuser.Location = new System.Drawing.Point(50, 60);
             this.labuser.Name = "labuser";
-            this.labuser.Size = new System.Drawing.Size(137, 13);
+            this.labuser.Size = new System.Drawing.Size(140, 13);
             this.labuser.TabIndex = 0;
             this.labuser.Text = "Current [DOMAIN]\\[USER]:";
             // 
             // user
             // 
             this.user.AutoSize = true;
-            this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user.Location = new System.Drawing.Point(50, 73);
             this.user.Name = "user";
-            this.user.Size = new System.Drawing.Size(46, 16);
+            this.user.Size = new System.Drawing.Size(45, 17);
             this.user.TabIndex = 0;
             this.user.Text = "NAME";
             // 

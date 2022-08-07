@@ -39,10 +39,11 @@ namespace Unowhy_Tools
             // msg
             // 
             this.msg.AutoSize = true;
+            this.msg.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msg.ForeColor = System.Drawing.Color.White;
-            this.msg.Location = new System.Drawing.Point(51, 13);
+            this.msg.Location = new System.Drawing.Point(51, 23);
             this.msg.Name = "msg";
-            this.msg.Size = new System.Drawing.Size(73, 13);
+            this.msg.Size = new System.Drawing.Size(75, 13);
             this.msg.TabIndex = 0;
             this.msg.Text = "Please Wait...";
             // 
@@ -58,10 +59,10 @@ namespace Unowhy_Tools
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(54, 34);
+            this.progressBar1.Location = new System.Drawing.Point(-3, 54);
             this.progressBar1.MarqueeAnimationSpeed = 1;
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(100, 10);
+            this.progressBar1.Size = new System.Drawing.Size(170, 10);
             this.progressBar1.Step = 50;
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 2;

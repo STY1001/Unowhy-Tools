@@ -32,40 +32,32 @@ namespace Unowhy_Tools
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(userid));
             this.lab = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.TextBox();
-            this.ok = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ok = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lab
             // 
             this.lab.AutoSize = true;
+            this.lab.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lab.ForeColor = System.Drawing.Color.White;
             this.lab.Location = new System.Drawing.Point(9, 9);
             this.lab.Name = "lab";
-            this.lab.Size = new System.Drawing.Size(121, 13);
+            this.lab.Size = new System.Drawing.Size(126, 13);
             this.lab.TabIndex = 0;
             this.lab.Text = "The new account ID is :";
             // 
             // id
             // 
             this.id.BackColor = System.Drawing.Color.Black;
+            this.id.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.id.ForeColor = System.Drawing.Color.White;
             this.id.Location = new System.Drawing.Point(12, 25);
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Size = new System.Drawing.Size(223, 20);
+            this.id.Size = new System.Drawing.Size(223, 22);
             this.id.TabIndex = 1;
-            // 
-            // ok
-            // 
-            this.ok.Location = new System.Drawing.Point(168, 56);
-            this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(75, 23);
-            this.ok.TabIndex = 2;
-            this.ok.Text = "OK";
-            this.ok.UseVisualStyleBackColor = true;
-            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // pictureBox1
             // 
@@ -77,14 +69,32 @@ namespace Unowhy_Tools
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // ok
+            // 
+            this.ok.BackColor = System.Drawing.Color.Transparent;
+            this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ok.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.ok.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ok.Image = null;
+            this.ok.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ok.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.ok.Location = new System.Drawing.Point(169, 56);
+            this.ok.Name = "ok";
+            this.ok.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.ok.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ok.Size = new System.Drawing.Size(76, 24);
+            this.ok.TabIndex = 4;
+            this.ok.Text = "OK";
+            this.ok.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // userid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(247, 82);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ok);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.id);
             this.Controls.Add(this.lab);
             this.ForeColor = System.Drawing.Color.Black;
@@ -95,6 +105,7 @@ namespace Unowhy_Tools
             this.Name = "userid";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User ID";
+            this.Load += new System.EventHandler(this.userid_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -105,7 +116,7 @@ namespace Unowhy_Tools
 
         private System.Windows.Forms.Label lab;
         private System.Windows.Forms.TextBox id;
-        private System.Windows.Forms.Button ok;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private ReaLTaiizor.Controls.Button ok;
     }
 }
