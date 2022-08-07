@@ -55,5 +55,16 @@ namespace Unowhy_Tools
         {
 
         }
+
+        private void yes_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
+        }
+
+        private void no_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
