@@ -60,5 +60,10 @@ namespace Unowhy_Tools
         {
             this.Close();
         }
+
+        private void userid_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
