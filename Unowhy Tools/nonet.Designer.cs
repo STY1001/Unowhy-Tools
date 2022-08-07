@@ -32,8 +32,8 @@ namespace Unowhy_Tools
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(nonet));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.ok = new System.Windows.Forms.Button();
             this.noco = new System.Windows.Forms.Label();
+            this.ok = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -58,28 +58,36 @@ namespace Unowhy_Tools
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
             // 
-            // ok
-            // 
-            this.ok.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.ok.ForeColor = System.Drawing.Color.White;
-            this.ok.Location = new System.Drawing.Point(143, 53);
-            this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(75, 23);
-            this.ok.TabIndex = 10;
-            this.ok.Text = "OK";
-            this.ok.UseVisualStyleBackColor = true;
-            this.ok.Click += new System.EventHandler(this.ok_Click);
-            // 
             // noco
             // 
             this.noco.AutoSize = true;
             this.noco.BackColor = System.Drawing.Color.Transparent;
+            this.noco.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noco.ForeColor = System.Drawing.Color.White;
             this.noco.Location = new System.Drawing.Point(64, 22);
             this.noco.Name = "noco";
-            this.noco.Size = new System.Drawing.Size(115, 13);
+            this.noco.Size = new System.Drawing.Size(127, 13);
             this.noco.TabIndex = 9;
             this.noco.Text = "No internet connection";
+            this.noco.Click += new System.EventHandler(this.noco_Click);
+            // 
+            // ok
+            // 
+            this.ok.BackColor = System.Drawing.Color.Transparent;
+            this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ok.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.ok.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ok.Image = null;
+            this.ok.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ok.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.ok.Location = new System.Drawing.Point(143, 54);
+            this.ok.Name = "ok";
+            this.ok.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.ok.Size = new System.Drawing.Size(75, 22);
+            this.ok.TabIndex = 14;
+            this.ok.Text = "OK";
+            this.ok.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // nonet
             // 
@@ -87,9 +95,9 @@ namespace Unowhy_Tools
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(222, 80);
+            this.Controls.Add(this.ok);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.ok);
             this.Controls.Add(this.noco);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -110,7 +118,7 @@ namespace Unowhy_Tools
 
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button ok;
         private System.Windows.Forms.Label noco;
+        private ReaLTaiizor.Controls.Button ok;
     }
 }
