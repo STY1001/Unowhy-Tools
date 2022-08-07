@@ -181,8 +181,6 @@
 
 */
 
-
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -210,6 +208,8 @@ namespace Unowhy_Tools
 {   
     public partial class main : Form
     {
+        #region Public Strings
+
         public string resxFile = "null";
         public string hnpcn = "null";
         public string mf = "null";
@@ -217,6 +217,10 @@ namespace Unowhy_Tools
         public string ene = "null";
         public string ifp = "null";
         public string os = "null";
+
+        #endregion
+
+        #region Threads
 
         public void SplashScreen()
         {
@@ -228,10 +232,18 @@ namespace Unowhy_Tools
             Application.Run(new wait());
         }
 
+        #endregion
+
+        #region Check Service Fonction
+
         public bool serviceExists(string ServiceName)
         {
             return ServiceController.GetServices().Any(serviceController => serviceController.ServiceName.Equals(ServiceName));
         }
+
+        #endregion
+
+        #region Dark Title Bar
 
         //Set dark mode title bar
 
@@ -246,29 +258,22 @@ namespace Unowhy_Tools
             DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
         }
 
+        #endregion
+
+        #region Check Internet Fonction
+
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int state, int value);
 
-
-        //Wait fonc
-
-        private static void delay(int Time_delay)
-        {
-            int i = 0;
-            System.Timers.Timer _delayTimer = new System.Timers.Timer();
-            _delayTimer.Interval = Time_delay;
-            _delayTimer.AutoReset = false;
-            _delayTimer.Elapsed += (s, args) => i = 1;
-            _delayTimer.Start();
-            while (i == 0) { };
-        }
+        #endregion
 
         public main()
         {
-            
-            Console.WriteLine("=======================");
-            Console.WriteLine("Unowhy Tools by STY1001");
-            Console.WriteLine("=======================");
+            Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
+            t.Start();
+            delay(300);
+
+            #region First Start
 
             if (Directory.Exists("temp"))
             {
@@ -278,11 +283,6 @@ namespace Unowhy_Tools
             {
                 Directory.CreateDirectory("temp");
             }
-
-            Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
-            t.Start();
-            delay(300);
-
 
             RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);   //Check if the  "STY1001" key exist
             if (keysty != null)
@@ -351,6 +351,10 @@ namespace Unowhy_Tools
 
             delay(300);
 
+            #endregion
+
+            #region Update System
+
             object u = key.GetValue("UpdateStart", null);
             if (u != null)
             {
@@ -377,10 +381,20 @@ namespace Unowhy_Tools
                         {
                             File.Delete(".\\temp\\gitversion.txt");    //Delete it if exist
                         }
+                        if (File.Exists(".\\fr.resx"))    //Check if the file exist
+                        {
+                            File.Delete(".\\fr.resx");    //Delete it if exist
+                        }
+                        if (File.Exists(".\\en.resx"))    //Check if the file exist
+                        {
+                            File.Delete(".\\en.resx");    //Delete it if exist
+                        }
 
                         using (var client = new WebClient())
                         {
                             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\temp\\gitversion.txt");     //Download Version file
+                            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\fr.resx");         //Update Languages
+                            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\en.resx");         //Update Languages
                         }
 
                         string gitver = System.IO.File.ReadAllText(".\\temp\\gitversion.txt");      //Convert text to string
@@ -396,12 +410,6 @@ namespace Unowhy_Tools
                             s.ShowDialog();
                             t = new Thread(new ThreadStart(SplashScreen));
                             t.Start();
-
-                            using(var client = new WebClient())
-                            {
-                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\fr.resx");
-                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\en.resx");
-                            }
                         }
                         else
                         {
@@ -414,11 +422,13 @@ namespace Unowhy_Tools
             {
                 
             }
-            
 
+            #endregion
+
+            #region Check Language 
 
             //Check the current saved language
-            
+
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
 
@@ -428,7 +438,9 @@ namespace Unowhy_Tools
             if (utls == "EN")resxFile = enresx ;    //English   
             else resxFile = frresx ;               //French
 
+            #endregion
 
+            #region Collect Infos
 
             // Collecting PC Info and compress to txt
 
@@ -578,7 +590,11 @@ namespace Unowhy_Tools
             pci3.Start();
             pci3.WaitForExit();
 
+            #endregion
+
             InitializeComponent();
+
+            #region Language Apply
 
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
@@ -610,11 +626,15 @@ namespace Unowhy_Tools
             aadleave.Text = resxSet.GetString("aadleave");
             adduser.Text = resxSet.GetString("adduser");
             adminset.Text = resxSet.GetString("adminset");
-
+            psbr.Text = resxSet.GetString("psdrv");
+            drivercat.Text = resxSet.GetString("drvcat");
+            delhismserv.Text = resxSet.GetString("delhismserv");
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
 
-            
+            #endregion
+
+            #region Debug Mode Visibility
 
             if (File.Exists("debug"))
             {
@@ -632,6 +652,33 @@ namespace Unowhy_Tools
                 tbp.Visible = true;
             }
 
+            #endregion
+
+            debuserid();
+            check();
+            changeswitch();
+
+            t.Abort();
+        }
+
+        #region Custom Function
+
+        //Wait fonc
+
+        private static void delay(int Time_delay)
+        {
+            int i = 0;
+            System.Timers.Timer _delayTimer = new System.Timers.Timer();
+            _delayTimer.Interval = Time_delay;
+            _delayTimer.AutoReset = false;
+            _delayTimer.Elapsed += (s, args) => i = 1;
+            _delayTimer.Start();
+            while (i == 0) { };
+        }
+
+        public void debuserid()
+        {
+
             if (System.Security.Principal.WindowsIdentity.GetCurrent().Name.Contains("AzureAD") == true)
             {
                 debuser.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
@@ -640,25 +687,7 @@ namespace Unowhy_Tools
             {
                 debuser.Text = Environment.UserName;
             }
-
-            check();
-            changeswitch();
-
-            /*
-            // Clean TEMP Files
-
-            Process clean = new Process();
-            clean.StartInfo.FileName = ".\\cleantemp.exe";
-            clean.StartInfo.Arguments = "";
-            clean.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            clean.Start();
-            clean.WaitForExit();
-            */
-
-            t.Abort();
         }
-
-        //==============================================================================================================================
 
         public void checkazure()
         {
@@ -948,7 +977,9 @@ namespace Unowhy_Tools
             checkshell();
         }
 
-        //==============================================================================================================================
+        #endregion
+
+        #region Buttons Action
 
         private void starthis_Click(object sender, EventArgs e)
         {
@@ -1466,7 +1497,15 @@ namespace Unowhy_Tools
             TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
         }
 
-        //============================================================================================================================================
+        private void psdrv_Click(object sender, EventArgs e)
+        {
+            var ps = new psdriver();
+            ps.ShowDialog();
+        }
+
+        #endregion
+
+        #region Buttons Description
 
         private void desc_Clean(object sender, EventArgs e)
         {
@@ -1766,5 +1805,25 @@ namespace Unowhy_Tools
 
             desc.Text = resxSet.GetString("descadminset");
         }
+
+        private void desc_psbr(object sender, EventArgs e)
+        {
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;                //French
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            desc.Text = resxSet.GetString("descpsbr");
+        }
+
+        #endregion
+
     }
 }
