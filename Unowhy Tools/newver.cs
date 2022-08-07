@@ -43,13 +43,6 @@ namespace Unowhy_Tools
 
             string fullver = progver + ".0" + " -> " + gitver + ".0";
 
-
-            using(WebClient web = new WebClient())
-            {
-                web.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.txt", ".\\temp\\changelog.txt");
-            }
-
-
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
 
@@ -64,7 +57,6 @@ namespace Unowhy_Tools
             updatenow.Text = resxSet.GetString("unow");
 
             vud.Text = fullver;
-            clog.Text = File.ReadAllText(".\\temp\\changelog.txt");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -98,6 +90,37 @@ namespace Unowhy_Tools
         private void dl_complete(object sender, AsyncCompletedEventArgs e)
         {
             System.Diagnostics.Process.Start(".\\Unowhy Tools Updater.exe");
+        }
+
+        private void clog_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void log_Click(object sender, EventArgs e)
+        {
+            var l = new changelog();
+            l.ShowDialog();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
