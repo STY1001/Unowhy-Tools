@@ -48,6 +48,8 @@ namespace Unowhy_Tools_Updater_Script
 
             //TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
 
+            string dest = Path.GetTempPath() + "\\Unowhy Tools Installer.exe";
+
             if (File.Exists("old2new"))
             {
 
@@ -84,56 +86,13 @@ namespace Unowhy_Tools_Updater_Script
 
                 using (var client = new WebClient())
                 {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/utkeyinst.exe", ".\\utkeyinst.exe");
-                }
-
-                using (var client = new WebClient())
-                {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/utkeyinst.reg", ".\\utkeyinst.reg");
+                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/script/Unowhy%20Tools%20Installer.exe", dest);
                 }
 
                 delay(1000);
 
-                Process p2 = new Process();
-                p2.StartInfo.FileName = ".\\utkeyinst.exe";
-                p2.StartInfo.Arguments = "";
-                p2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p2.Start();
-                p2.WaitForExit();
+                System.Diagnostics.Process.Start(dest);
 
-                delay(1000);
-
-                File.Delete("utkeyinst.exe");
-                File.Delete("utkeyinst.reg");
-
-                using (var client = new WebClient())
-                {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/uninstall.exe", ".\\uninstall.exe");
-                }
-
-                using (var client = new WebClient())
-                {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/utconfdel.exe", ".\\utconfdel.exe");
-                }
-
-                using (var client = new WebClient())
-                {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/utkeydel.exe", ".\\utkeydel.exe");
-                }
-
-                using (var client = new WebClient())
-                {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/Unowhy%20Tools.lnk", "C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk");
-                }
-
-                using (var client = new WebClient())
-                {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/Unowhy%20Tools.lnk", "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools.lnk");
-                }
-
-                delay(1000);
-
-                File.Create("old2new");
             }
 
             this.Close();
