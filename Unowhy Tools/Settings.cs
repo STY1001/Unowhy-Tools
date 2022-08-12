@@ -124,7 +124,8 @@ namespace Unowhy_Tools
             }
             else
             {
-                Application.Restart();
+                //Application.Restart();
+                this.Close();
             }
             
         }
