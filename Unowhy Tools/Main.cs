@@ -425,21 +425,6 @@ namespace Unowhy_Tools
 
             #endregion
 
-            #region Check Language 
-
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx" ;
-            string frresx = @".\fr.resx" ;
-                                                     //Chose the ResX file
-            if (utls == "EN")resxFile = enresx ;    //English   
-            else resxFile = frresx ;               //French
-
-            #endregion
-
             #region Collect Infos
 
             // Collecting PC Info and compress to txt
@@ -594,6 +579,57 @@ namespace Unowhy_Tools
 
             InitializeComponent();
 
+            #region Debug Mode Visibility
+
+            if (File.Exists("debug"))
+            {
+                debuglab.Visible = true;
+                debshell.Visible = true;
+                debhme.Visible = true;
+                debhmr.Visible = true;
+                debhms.Visible = true;
+                debreagentc.Visible = true;
+                debazure.Visible = true;
+                debuser.Visible = true;
+                debti.Visible = true;
+                debent.Visible = true;
+                debadmin.Visible = true;
+                tbp.Visible = true;
+            }
+
+            #endregion
+
+            langswitch();
+            debuserid();
+            check();
+            changeswitch();
+
+            t.Abort();
+        }
+
+        #region Custom Function
+
+        #region Lang System
+
+        //Lang System
+
+        public void langswitch()
+        {
+            #region Check Language 
+
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;               //French
+
+            #endregion
+
             #region Language Apply
 
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
@@ -633,35 +669,11 @@ namespace Unowhy_Tools
             version.Text = ver;
 
             #endregion
-
-            #region Debug Mode Visibility
-
-            if (File.Exists("debug"))
-            {
-                debuglab.Visible = true;
-                debshell.Visible = true;
-                debhme.Visible = true;
-                debhmr.Visible = true;
-                debhms.Visible = true;
-                debreagentc.Visible = true;
-                debazure.Visible = true;
-                debuser.Visible = true;
-                debti.Visible = true;
-                debent.Visible = true;
-                debadmin.Visible = true;
-                tbp.Visible = true;
-            }
-
-            #endregion
-
-            debuserid();
-            check();
-            changeswitch();
-
-            t.Abort();
         }
 
-        #region Custom Function
+        #endregion
+
+        #region Wait Func
 
         //Wait fonc
 
@@ -675,6 +687,10 @@ namespace Unowhy_Tools
             _delayTimer.Start();
             while (i == 0) { };
         }
+
+        #endregion
+
+        #region Other Func
 
         public void debuserid()
         {
@@ -979,6 +995,8 @@ namespace Unowhy_Tools
 
         #endregion
 
+        #endregion
+
         #region Buttons Action
 
         private void starthis_Click(object sender, EventArgs e)
@@ -1234,6 +1252,8 @@ namespace Unowhy_Tools
         {
             var s = new Settings("0");     //Show settings
             s.ShowDialog();
+            delay(1000);
+            langswitch();
         }
 
         private void delridf_Click(object sender, EventArgs e)
