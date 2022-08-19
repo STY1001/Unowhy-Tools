@@ -107,6 +107,7 @@ namespace Unowhy_Tools
             this.admin = new ReaLTaiizor.Controls.Button();
             this.adduser = new ReaLTaiizor.Controls.Button();
             this.adminset = new ReaLTaiizor.Controls.Button();
+            this.clog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -850,11 +851,19 @@ namespace Unowhy_Tools
             this.adminset.Click += new System.EventHandler(this.adminset_Click);
             this.adminset.MouseEnter += new System.EventHandler(this.desc_Adminset);
             // 
+            // clog
+            // 
+            resources.ApplyResources(this.clog, "clog");
+            this.clog.Name = "clog";
+            this.clog.UseVisualStyleBackColor = true;
+            this.clog.Click += new System.EventHandler(this.clog_Click);
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.clog);
             this.Controls.Add(this.stophis);
             this.Controls.Add(this.fixboot);
             this.Controls.Add(this.ent);
@@ -1050,6 +1059,7 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button admin;
         private ReaLTaiizor.Controls.Button adduser;
         private ReaLTaiizor.Controls.Button adminset;
+        private System.Windows.Forms.Button clog;
     }
 }
 

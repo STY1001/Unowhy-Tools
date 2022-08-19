@@ -234,7 +234,7 @@ namespace Unowhy_Tools
 
         #endregion
 
-        #region Check Service Fonction
+        #region Check Service Function
 
         public bool serviceExists(string ServiceName)
         {
@@ -595,6 +595,7 @@ namespace Unowhy_Tools
                 debent.Visible = true;
                 debadmin.Visible = true;
                 tbp.Visible = true;
+                clog.Visible = true;
             }
 
             #endregion
@@ -1521,6 +1522,12 @@ namespace Unowhy_Tools
         {
             var ps = new psdriver();
             ps.ShowDialog();
+        }
+
+        private void clog_Click(object sender, EventArgs e)
+        {
+            var logf = new changelog();
+            logf.Show();
         }
 
         #endregion
