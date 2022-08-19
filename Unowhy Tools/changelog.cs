@@ -8,6 +8,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Net;
+using static System.Net.WebRequestMethods;
+using mshtml;
+using System.Runtime.ConstrainedExecution;
 
 namespace Unowhy_Tools
 {
@@ -28,11 +33,6 @@ namespace Unowhy_Tools
         public changelog()
         {
             InitializeComponent();
-        }
-
-        private void webView21_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
