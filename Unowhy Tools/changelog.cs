@@ -40,6 +40,30 @@ namespace Unowhy_Tools
             webclog.Navigate(urlp);
         }
 
+        private void keynav(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                up();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                down();
+            }
+        }
+
+        private void scrollnav(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                up();
+            }
+            else if (e.Delta < 0)
+            {
+                down();
+            }
+        }
+
         private void webup_Click(object sender, EventArgs e)
         {
             up();

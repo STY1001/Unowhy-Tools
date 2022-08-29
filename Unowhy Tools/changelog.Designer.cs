@@ -45,6 +45,7 @@
             this.webclog.Size = new System.Drawing.Size(813, 450);
             this.webclog.TabIndex = 0;
             this.webclog.Url = new System.Uri("", System.UriKind.Relative);
+            this.webclog.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.keynav);
             // 
             // webdown
             // 
@@ -63,6 +64,7 @@
             this.webdown.Text = "▼";
             this.webdown.TextAlignment = System.Drawing.StringAlignment.Center;
             this.webdown.Click += new System.EventHandler(this.webdown_Click);
+            this.webdown.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.keynav);
             // 
             // webup
             // 
@@ -81,6 +83,7 @@
             this.webup.Text = "▲";
             this.webup.TextAlignment = System.Drawing.StringAlignment.Center;
             this.webup.Click += new System.EventHandler(this.webup_Click);
+            this.webup.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.keynav);
             // 
             // changelog
             // 
@@ -99,6 +102,7 @@
             this.Name = "changelog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Change Log";
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.keynav);
             this.ResumeLayout(false);
 
         }
