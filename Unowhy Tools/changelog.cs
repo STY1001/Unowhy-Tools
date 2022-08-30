@@ -38,6 +38,8 @@ namespace Unowhy_Tools
             string path = Directory.GetCurrentDirectory();
             string urlp = "file://" + path + "\\clog.html";
             webclog.Navigate(urlp);
+
+            this.MouseWheel += scrollnav;
         }
 
         private void keynav(object sender, PreviewKeyDownEventArgs e)
