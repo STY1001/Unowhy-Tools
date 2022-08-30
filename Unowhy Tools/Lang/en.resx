@@ -141,8 +141,17 @@
   <data name="avert" xml:space="preserve">
     <value>The name must be composed of alphanumeric characters (dashes allowed) between 2 and 15 characters but without specials characters and space</value>
   </data>
+  <data name="backup" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="backup.short" xml:space="preserve">
+    <value>Backup</value>
+  </data>
   <data name="biosversion" xml:space="preserve">
     <value>BIOS Version</value>
+  </data>
+  <data name="browse" xml:space="preserve">
+    <value>Browse</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>Cancel</value>
@@ -187,7 +196,7 @@
     <value>Disconnect this PC from AzureAD to disable the management of this PC (Intune / Endpoint) and disable "Other users" option. Warning : If you are using your AzureAD account ( [ID]@[DOMAIN] ) on this PC, you will no longer be able to connect to your account and you will lose your data of your account (if you attempt to reconnect to your account, you will get "wrong password" error)! Before, you need to backup your data, delete the local ".\ENT" account, disable the local ".\administrator" account and create a local admin account!!! !!! </value>
   </data>
   <data name="descadduser" xml:space="preserve">
-    <value>Create a new local user (account) on this PC. This allows you to no longer depend on AzureAD. I recommend you to switch to a local account (on the PC) and no longer go through the AzureAD account ( [ID]@[DOMAIN] )</value>
+    <value>Create a new local user (account) on this PC. This allows you to no longer depend on AzureAD. I recommend you to switch to a local account (into the PC) and no longer go through the AzureAD account ( [ID]@[DOMAIN] )</value>
   </data>
   <data name="descadmin" xml:space="preserve">
     <value>Set this account as local admin. With this, you can accept admin rights by clicking "Yes" without entering ".\administrateur"</value>
@@ -216,6 +225,9 @@
   <data name="descpcname" xml:space="preserve">
     <value>Change the name of this PC (NETBIOS). By default, the Windows PC name of the Y13 is the serial number (IFP...)</value>
   </data>
+  <data name="descpsbr" xml:space="preserve">
+    <value>This tools is currently in test (in beta) but probably work. Backup and Restore drivers with PowerShell. Allways, make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers by the way of Power Shell commands with user friendly GUI</value>
+  </data>
   <data name="descridf" xml:space="preserve">
     <value>Delete the first logon script and video folder (In : C:\ProgramData)</value>
   </data>
@@ -239,6 +251,9 @@
   </data>
   <data name="domuser" xml:space="preserve">
     <value>Current user ID ([DOMAIN] \ [USER])</value>
+  </data>
+  <data name="drvcat" xml:space="preserve">
+    <value>↓ Drivers ↓</value>
   </data>
   <data name="enablea" xml:space="preserve">
     <value>Enable account</value>
@@ -291,6 +306,12 @@
   <data name="pcname" xml:space="preserve">
     <value>Change Windows PC name</value>
   </data>
+  <data name="psdrv" xml:space="preserve">
+    <value>Backup and Restore drivers with PS</value>
+  </data>
+  <data name="psdrv.title" xml:space="preserve">
+    <value>Backup and Restore drivers with PowerShell</value>
+  </data>
   <data name="pwmis" xml:space="preserve">
     <value>Passwords do not match</value>
   </data>
@@ -302,6 +323,12 @@
   </data>
   <data name="restart" xml:space="preserve">
     <value>Reboot Now</value>
+  </data>
+  <data name="restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="restore.short" xml:space="preserve">
+    <value>Restore</value>
   </data>
   <data name="serial" xml:space="preserve">
     <value>Serial Number</value>

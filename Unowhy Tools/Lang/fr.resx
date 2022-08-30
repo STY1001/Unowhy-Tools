@@ -141,8 +141,17 @@
   <data name="avert" xml:space="preserve">
     <value>Le nom doit être composé de caractères alphanumériques (tirets autorisés) entre 2 et 15 caractères mais sans caractères spéciaux ni espace</value>
   </data>
+  <data name="backup" xml:space="preserve">
+    <value>Sauvgarder</value>
+  </data>
+  <data name="backup.short" xml:space="preserve">
+    <value>Sauv.</value>
+  </data>
   <data name="biosversion" xml:space="preserve">
     <value>Version du BIOS</value>
+  </data>
+  <data name="browse" xml:space="preserve">
+    <value>Explorer</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>Annuler</value>
@@ -216,6 +225,9 @@
   <data name="descpcname" xml:space="preserve">
     <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC (IFP...)</value>
   </data>
+  <data name="descpsbr" xml:space="preserve">
+    <value>L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec Power Shell. Sauvegardez toujours votre pilote pour résoudre les éventuels problèmes de pilote. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes Power Shell avec une interface graphique plus conviviale</value>
+  </data>
   <data name="descridf" xml:space="preserve">
     <value>Supprimer le dossier qui contient le script et la video de la première connexion (Dans : C:\ProgramData)</value>
   </data>
@@ -239,6 +251,9 @@
   </data>
   <data name="domuser" xml:space="preserve">
     <value>ID de l'utilisateur actuel ([DOMAINE] \ [UTILISATEUR])</value>
+  </data>
+  <data name="drvcat" xml:space="preserve">
+    <value>↓ Pilotes ↓</value>
   </data>
   <data name="enablea" xml:space="preserve">
     <value>Activer le compte</value>
@@ -291,6 +306,12 @@
   <data name="pcname" xml:space="preserve">
     <value>Changer le nom du PC Windows</value>
   </data>
+  <data name="psdrv" xml:space="preserve">
+    <value>Sauv. et Rest. les pilotes avec PS</value>
+  </data>
+  <data name="psdrv.title" xml:space="preserve">
+    <value>Sauvgarder et Restaurer les pilotes avec PowerShell</value>
+  </data>
   <data name="pwmis" xml:space="preserve">
     <value>Les mots de passe ne correspondent pas</value>
   </data>
@@ -302,6 +323,12 @@
   </data>
   <data name="restart" xml:space="preserve">
     <value>Redémarrer</value>
+  </data>
+  <data name="restore" xml:space="preserve">
+    <value>Restaurer</value>
+  </data>
+  <data name="restore.short" xml:space="preserve">
+    <value>Rest.</value>
   </data>
   <data name="serial" xml:space="preserve">
     <value>Numéro de série</value>
@@ -353,6 +380,9 @@
   </data>
   <data name="update.updating" xml:space="preserve">
     <value>Mise à jour de Unowhy Tools...</value>
+  </data>
+  <data name="UT" xml:space="preserve">
+    <value />
   </data>
   <data name="wait" xml:space="preserve">
     <value>Veuillez patienter...</value>
