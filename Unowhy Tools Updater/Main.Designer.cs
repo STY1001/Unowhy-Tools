@@ -73,7 +73,7 @@ namespace Unowhy_Tools_Updater
             this.progbar.Name = "progbar";
             this.progbar.Size = new System.Drawing.Size(266, 10);
             this.progbar.Step = 1;
-            this.progbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progbar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progbar.TabIndex = 3;
             // 
             // Main

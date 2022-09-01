@@ -81,21 +81,31 @@ namespace Unowhy_Tools_Updater
 
             delay(500);
 
-            progbar.Value = 10;
-
             //TaskbarManager.Instance.SetProgressValue(10, 100);
 
             status.Text = resxSet.GetString("update.dl");
 
             WebClient client = new WebClient();
-            client.DownloadFileCompleted += new AsyncCompletedEventHandler(dl_complete);
-            client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip"), ".\\update.zip");
+            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip", ".\\update.zip");
+
+            delay(3000);
+
             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/uninstall.exe", ".\\uninstall.exe");
+
+            delay(500);
+
             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7zip.exe", ".\\7zip.exe");
+
+            delay(500);
+
             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7z.dll", ".\\7z.dll");
+
+            delay(1000);
+
+            dl_complete();
         }
 
-        private void dl_complete(object sender, AsyncCompletedEventArgs e)
+        private void dl_complete()
         {
             //Check the current saved language
 
@@ -111,8 +121,6 @@ namespace Unowhy_Tools_Updater
 
             delay(500);
 
-            progbar.Value = 25;
-
             TaskbarManager.Instance.SetProgressValue(25, 100);
 
             status.Text = resxSet.GetString("update.ext");
@@ -126,8 +134,6 @@ namespace Unowhy_Tools_Updater
 
             delay(1000);
 
-            progbar.Value = 30;
-
             TaskbarManager.Instance.SetProgressValue(30, 100);
 
             status.Text = resxSet.GetString("update.sdl");
@@ -138,8 +144,6 @@ namespace Unowhy_Tools_Updater
             }
 
             delay(1000);
-
-            progbar.Value = 45;
 
             TaskbarManager.Instance.SetProgressValue(45, 100);
 
@@ -153,8 +157,6 @@ namespace Unowhy_Tools_Updater
             p2.WaitForExit();
 
             delay(1000);
-
-            progbar.Value = 60;
 
             TaskbarManager.Instance.SetProgressValue(60, 100);
 
@@ -177,15 +179,11 @@ namespace Unowhy_Tools_Updater
 
             delay(1000);
 
-            progbar.Value = 85;
-
             TaskbarManager.Instance.SetProgressValue(85, 100);
 
             status.Text = resxSet.GetString("update.start");
 
             delay(500);
-
-            progbar.Value = 100;
 
             TaskbarManager.Instance.SetProgressValue(100, 100);
 
