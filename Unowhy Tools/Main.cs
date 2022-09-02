@@ -691,6 +691,22 @@ namespace Unowhy_Tools
 
         #endregion
 
+        #region Btn Enabled Custom
+
+        private void ebtn(Control btn)
+        {
+            btn.Enabled = true;
+            btn.ForeColor = Color.White;
+        }
+
+        private void dbtn(Control btn)
+        {
+            btn.Enabled = false;
+            btn.ForeColor = Color.Gray;
+        }
+
+        #endregion
+
         #region Other Func
 
         public void debuserid()
@@ -710,7 +726,7 @@ namespace Unowhy_Tools
         {
             if (debazure.Text.Contains("NO") == true)
             {
-                aadleave.Enabled = false;
+                dbtn(aadleave);
             }
         }
 
@@ -718,32 +734,32 @@ namespace Unowhy_Tools
         {
             if (Directory.Exists("C:\\ProgramData\\RIDF") == false)
             {
-                delridf.Enabled = false;
+                dbtn(delridf);
             }
 
             if (Directory.Exists("C:\\ProgramData\\ENT") == false)
             {
-                entf.Enabled = false;
+                dbtn(entf);
             }
 
             if (Directory.Exists("C:\\Windows\\sysnative\\OEM") == false)
             {
-                deloem.Enabled = false;
+                dbtn(deloem);
             }
 
             if (Directory.Exists("C:\\Program Files\\Unowhy\\TO_INSTALL") == false)
             {
-                delti.Enabled = false;
+                dbtn(delti);
             }
 
             if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager") == false)
             {
-                delhism.Enabled = false;
+                dbtn(delhism);
             }
 
             if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
             {
-                delhis.Enabled = false;
+                dbtn(delhis);
             }
 
             
@@ -755,35 +771,35 @@ namespace Unowhy_Tools
             {
                 if (debhmr.Text == "true")
                 {
-                    starthis.Enabled = false;
-                    stophis.Enabled = true;
+                    dbtn(starthis);
+                    ebtn(stophis);
                 }
                 else
                 {
-                    stophis.Enabled = false;
-                    starthis.Enabled = true;
+                    dbtn(stophis);
+                    ebtn(starthis);
                 }
 
                 if (debhms.Text.Contains("Automatic") == true)
                 {
-                    enhis.Enabled = false;
-                    dishis.Enabled = true;
+                    dbtn(enhis);
+                    ebtn(dishis);
                 }
                 else
                 {
-                    starthis.Enabled = false;
-                    stophis.Enabled = false;
-                    enhis.Enabled = true;
-                    dishis.Enabled = false;
+                    dbtn(starthis);
+                    dbtn(stophis);
+                    ebtn(enhis);
+                    dbtn(dishis);
                 }
             }
             else
             {
-                dishis.Enabled = false;
-                enhis.Enabled = false;
-                stophis.Enabled = false;
-                starthis.Enabled = false;
-                delhismserv.Enabled = false;
+                dbtn(dishis);
+                dbtn(enhis);
+                dbtn(stophis);
+                dbtn(starthis);
+                dbtn(delhismserv);
             }
         }
 
@@ -791,29 +807,30 @@ namespace Unowhy_Tools
         {
             if (debshell.Text.Contains("explorer.exe") == true)
             {
-                shell.Enabled = false;
+                dbtn(shell);
             }
             else
             {
-                delhis.Enabled = false;
-                delhism.Enabled = false;
-                deloem.Enabled = false;
-                delridf.Enabled = false;
-                dishis.Enabled = false;
-                enhis.Enabled = false;
-                stophis.Enabled = false;
-                starthis.Enabled = false;
-                ent.Enabled = false;
-                entf.Enabled = false;
-                delti.Enabled = false;
-                aadleave.Enabled = false;
-                pcname.Enabled = false;
-                admin.Enabled = false;
-                adminset.Enabled = false;
-                adduser.Enabled = false;
-                winre.Enabled = false;
-                fixboot.Enabled = false;
-                delhismserv.Enabled = false;
+                dbtn(delhis);
+                dbtn(delhism);
+                dbtn(deloem);
+                dbtn(delridf);
+                dbtn(dishis);
+                dbtn(enhis);
+                dbtn(stophis);
+                dbtn(starthis);
+                dbtn(ent);
+                dbtn(entf);
+                dbtn(delti);
+                dbtn(aadleave);
+                dbtn(pcname);
+                dbtn(admin);
+                dbtn(adminset);
+                dbtn(adduser);
+                dbtn(winre);
+                dbtn(fixboot);
+                dbtn(delhismserv);
+                dbtn(psbr);
             }
         }
 
@@ -821,7 +838,7 @@ namespace Unowhy_Tools
         {
             if (debreagentc.Text.Contains("Enabled") == true)
             {
-                winre.Enabled = false;
+                dbtn(winre);
             }
         }
 
@@ -829,11 +846,11 @@ namespace Unowhy_Tools
         {
             if (debadmin.Text == "true")
             {
-                admin.Enabled = false;
+                dbtn(admin);
             }
             else
             {
-                admin.Enabled = true;
+                ebtn(admin);
             }
         }
 
@@ -841,11 +858,11 @@ namespace Unowhy_Tools
         {
             if (debent.Text == "true")
             {
-                ent.Enabled = true;
+                ebtn(ent);
             }
             else
             {
-                ent.Enabled = false;
+                dbtn(ent);
             }
         }
 
@@ -853,13 +870,13 @@ namespace Unowhy_Tools
         {
             if (debti.Text == "true")
             {
-                fixboot.Enabled = true;
-                delti.Enabled = false;
+                ebtn(fixboot);
+                dbtn(delti);
             }
             else
             {
-                fixboot.Enabled = false;
-                delti.Enabled = true;
+                dbtn(fixboot);
+                ebtn(delti);
             }
         }
 
@@ -963,26 +980,27 @@ namespace Unowhy_Tools
 
         public void changeswitch()
         {
-            starthis.Enabled = true;
-            stophis.Enabled = true;
-            enhis.Enabled = true;
-            dishis.Enabled = true;
-            shell.Enabled = true;
-            fixboot.Enabled = true;
-            winre.Enabled = true;
-            ent.Enabled = true;
-            entf.Enabled = true;
-            aadleave.Enabled = true;
-            delhis.Enabled = true;
-            delhism.Enabled = true;
-            delti.Enabled = true;
-            deloem.Enabled = true;
-            delridf.Enabled = true;
-            admin.Enabled = true;
-            adminset.Enabled = true;
-            pcname.Enabled = true;
-            adduser.Enabled = true;
-            delhismserv.Enabled = true;
+            ebtn(delhis);
+            ebtn(delhism);
+            ebtn(deloem);
+            ebtn(delridf);
+            ebtn(dishis);
+            ebtn(enhis);
+            ebtn(stophis);
+            ebtn(starthis);
+            ebtn(ent);
+            ebtn(entf);
+            ebtn(delti);
+            ebtn(aadleave);
+            ebtn(pcname);
+            ebtn(admin);
+            ebtn(adminset);
+            ebtn(adduser);
+            ebtn(winre);
+            ebtn(fixboot);
+            ebtn(delhismserv);
+            ebtn(psbr);
+            ebtn(shell);
 
             checkhism();
             checkazure();
