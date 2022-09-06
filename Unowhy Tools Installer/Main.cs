@@ -106,43 +106,43 @@ namespace Unowhy_Tools_Installer
             using (var client = new WebClient())
             {
                 delay(600);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7zip.exe"), "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7zip.exe", "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe");
                 statusbar.Value = 15;
                 TaskbarManager.Instance.SetProgressValue(15, 100);
                 delay(1000);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7z.dll"), "C:\\Program Files (x86)\\Unowhy Tools\\7z.dll");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7z.dll", "C:\\Program Files (x86)\\Unowhy Tools\\7z.dll");
                 statusbar.Value = 20;
                 TaskbarManager.Instance.SetProgressValue(20, 100);
                 delay(600);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/utkeyinst.reg"), "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.reg");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/utkeyinst.reg", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.reg");
                 statusbar.Value = 25;
                 TaskbarManager.Instance.SetProgressValue(25, 100);
                 delay(600);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/utkeyinst.exe"), "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.exe");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/utkeyinst.exe", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.exe");
                 statusbar.Value = 30;
                 TaskbarManager.Instance.SetProgressValue(30, 100);
                 delay(600);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/uninstall.exe"), "C:\\Program Files (x86)\\Unowhy Tools\\uninstall.exe");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/uninstall.exe", "C:\\Program Files (x86)\\Unowhy Tools\\uninstall.exe");
                 statusbar.Value = 35;
                 TaskbarManager.Instance.SetProgressValue(35, 100);
                 delay(300);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/utconfdel.exe"), "C:\\Program Files (x86)\\Unowhy Tools\\utconfdel.exe");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/utconfdel.exe", "C:\\Program Files (x86)\\Unowhy Tools\\utconfdel.exe");
                 statusbar.Value = 40;
                 TaskbarManager.Instance.SetProgressValue(40, 100);
                 delay(600);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/utkeydel.exe"), "C:\\Program Files (x86)\\Unowhy Tools\\utkeydel.exe");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/utkeydel.exe", "C:\\Program Files (x86)\\Unowhy Tools\\utkeydel.exe");
                 statusbar.Value = 45;
                 TaskbarManager.Instance.SetProgressValue(45, 100);
                 delay(600);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx"), "C:\\Program Files (x86)\\Unowhy Tools\\fr.resx");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", "C:\\Program Files (x86)\\Unowhy Tools\\fr.resx");
                 statusbar.Value = 50;
                 TaskbarManager.Instance.SetProgressValue(50, 100);
                 delay(600);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx"), "C:\\Program Files (x86)\\Unowhy Tools\\en.resx");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", "C:\\Program Files (x86)\\Unowhy Tools\\en.resx");
                 statusbar.Value = 55;
                 TaskbarManager.Instance.SetProgressValue(55, 100);
                 delay(1000);
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip"), "C:\\Program Files (x86)\\Unowhy Tools\\update.zip");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip");
                 statusbar.Value = 60;
                 TaskbarManager.Instance.SetProgressValue(60, 100);
                 status.Text = "Installing...";
@@ -189,7 +189,7 @@ namespace Unowhy_Tools_Installer
 
             using (var client = new WebClient())
             {
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/Unowhy%20Tools.lnk"), "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools.lnk");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/Unowhy%20Tools.lnk", "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools.lnk");
             }
 
             statusbar.Value = 75;
@@ -200,7 +200,7 @@ namespace Unowhy_Tools_Installer
             {
                 using (var client = new WebClient())
                 {
-                    client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/Unowhy%20Tools.lnk"), "C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk");
+                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/Unowhy%20Tools.lnk", "C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk");
                 }
             }
 
