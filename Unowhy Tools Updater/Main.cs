@@ -104,7 +104,10 @@ namespace Unowhy_Tools_Updater
 
                 delay(1000);
 
-                System.Diagnostics.Process.Start(dest);
+                Process p2 = new Process();
+                p2.StartInfo.FileName = dest;
+                p2.StartInfo.WorkingDirectory = Path.GetTempPath();
+                p2.Start();
             }
 
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
