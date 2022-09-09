@@ -62,7 +62,6 @@ namespace Unowhy_Tools_Installer
 
             status.Text = "Preparing...";
             delay(1000);
-            delay(600);
 
             if (Directory.Exists("C:\\Program Files (x86)\\Unowhy Tools"))
             {
