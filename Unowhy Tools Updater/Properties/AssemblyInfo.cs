@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("Unowhy Tools Updater")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The updater of Unowhy Tools")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("STY Inc. (STY1001)")]
 [assembly: AssemblyProduct("Unowhy Tools Updater")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("d776c128-5927-465a-a314-c42b440d8705")]
+[assembly: Guid("0bd0d2d3-125d-4158-b819-4ee375bc06e0")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //
