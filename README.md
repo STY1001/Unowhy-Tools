@@ -1,4 +1,4 @@
-## Problem between Unowhy Tools 16.0 and Windows Defender: Win Def detect Unowhy Tools as a virus (Unowhy Tools Installer (Trojan:Win32/AgentTesla!ml)). Actualy I'm search a solution to bypass this false positive
+## Problem between Unowhy Tools 16.0 and Windows Defender: Win Def detect Unowhy Tools as a virus (Unowhy Tools Installer (Trojan:Win32/AgentTesla!ml)). Actualy, I'm search a solution to bypass this false positive. Sorry!
 
 ![2022-09-09 22_07_31-Windows 11 Pro - VMware Workstation](https://user-images.githubusercontent.com/57889852/189434968-9b887a57-c3af-4d50-bd98-cd32878b2eea.png)
 
