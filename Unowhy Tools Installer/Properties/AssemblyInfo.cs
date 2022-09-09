@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("Unowhy Tools Installer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The installer of Unowhy Tools")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Lenovo")]
+[assembly: AssemblyCompany("STY Inc. (STY1001)")]
 [assembly: AssemblyProduct("Unowhy Tools Installer")]
-[assembly: AssemblyCopyright("Copyright © Lenovo 2022")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("aa1123cd-8600-406e-bfd9-1cb215c385b5")]
+[assembly: Guid("0bd0d2d3-125d-4158-b819-4ee375bc06e0")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //
