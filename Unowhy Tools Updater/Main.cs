@@ -63,6 +63,8 @@ namespace Unowhy_Tools_Updater
             if (utls == "EN") resxFile = enresx;    //English   
             else resxFile = frresx;               //French
 
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
             InitializeComponent();
 
             string dest = Path.GetTempPath() + "\\Unowhy Tools Installer.exe";
@@ -76,12 +78,12 @@ namespace Unowhy_Tools_Updater
 
                 delay(1000);
 
-                Process p1 = new Process();
-                p1.StartInfo.FileName = ".\\utdeloldkey.exe";
-                p1.StartInfo.Arguments = "";
-                p1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p1.Start();
-                p1.WaitForExit();
+                Process p11 = new Process();
+                p11.StartInfo.FileName = ".\\utdeloldkey.exe";
+                p11.StartInfo.Arguments = "";
+                p11.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p11.Start();
+                p11.WaitForExit();
 
                 delay(1000);
 
@@ -104,13 +106,11 @@ namespace Unowhy_Tools_Updater
 
                 delay(1000);
 
-                Process p2 = new Process();
-                p2.StartInfo.FileName = dest;
-                p2.StartInfo.WorkingDirectory = Path.GetTempPath();
-                p2.Start();
+                Process p22 = new Process();
+                p22.StartInfo.FileName = dest;
+                p22.StartInfo.WorkingDirectory = Path.GetTempPath();
+                p22.Start();
             }
-
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
             lab.Text = resxSet.GetString("update.updating");
             status.Text = resxSet.GetString("update.kill");
@@ -125,8 +125,6 @@ namespace Unowhy_Tools_Updater
             p.WaitForExit();
 
             delay(500);
-
-            //TaskbarManager.Instance.SetProgressValue(10, 100);
 
             status.Text = resxSet.GetString("update.dl");
 
@@ -146,27 +144,7 @@ namespace Unowhy_Tools_Updater
             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7z.dll", ".\\7z.dll");
 
             delay(1000);
-
-            dl_complete();
-        }
-
-        private void dl_complete()
-        {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-                                                     //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
             delay(500);
-
-            TaskbarManager.Instance.SetProgressValue(25, 100);
 
             status.Text = resxSet.GetString("update.ext");
 
@@ -179,18 +157,15 @@ namespace Unowhy_Tools_Updater
 
             delay(1000);
 
-            TaskbarManager.Instance.SetProgressValue(30, 100);
-
+            /*
             status.Text = resxSet.GetString("update.sdl");
 
-            using (var client = new WebClient())
+            using (var client2 = new WebClient())
             {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/script.exe", ".\\script.exe");
+                client2.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/script.exe", ".\\script.exe");
             }
 
             delay(1000);
-
-            TaskbarManager.Instance.SetProgressValue(45, 100);
 
             status.Text = resxSet.GetString("update.se");
 
@@ -202,9 +177,8 @@ namespace Unowhy_Tools_Updater
             p2.WaitForExit();
 
             delay(1000);
-
-            TaskbarManager.Instance.SetProgressValue(60, 100);
-
+            */
+            /*
             status.Text = resxSet.GetString("update.del");
 
             if (File.Exists("update.zip"))    //Check if the file exist
@@ -217,20 +191,16 @@ namespace Unowhy_Tools_Updater
                 Directory.Delete("update");
             }
 
-            if (Directory.Exists("script.exe"))
+            if (File.Exists("script.exe"))
             {
-                Directory.Delete("script.exe");
+                File.Delete("script.exe");
             }
 
             delay(1000);
-
-            TaskbarManager.Instance.SetProgressValue(85, 100);
-
+            */
             status.Text = resxSet.GetString("update.start");
 
             delay(500);
-
-            TaskbarManager.Instance.SetProgressValue(100, 100);
 
             System.Diagnostics.Process.Start(".\\Unowhy Tools.exe");
 
