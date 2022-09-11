@@ -12,26 +12,31 @@
    - Drivers
 - ✅ New Installer
 - ✅ New Uninstaller
-- ✅ New Updater Post-Script
+- ✅ New Updater Post-Script (AV Issue)
 - ✅ Taskbar progress bar
-- ✅ Change Log form with Github render
+- ✅ Change Log form with Github render (powered by a .png)
 - ✅ Auto update of langs files (if "Check update at startup" is enabled)
+- ✅ Presentation mode form
 
 - ✏️ New logo
-- ✏️ Updater now execute post-script
+- ✏️ Updater now execute post-script (AV Issue)
 - ✏️ Modified UI (buttons look like Fluent UI)
 - ✏️ Modified font (Now the font of Fluent UI (Segoe UI))
 - ✏️ Progress Bar in "Wait" and Splash forms
 - ✏️ "HISM delete service only" and "HISM delete service and folder" are separated
 - ✏️ You can view change log in "newver" and "nonew" forms
 - ✏️ Github buttons on "nonew"
+- ✏️ New presentation mode
 
 - 🩹 Unselected Window Title Bar (grey title bar) bug fix
 - 🩹 Windows 11 22H2 Title Bar (alway gray) bug fix
 - 🩹 "Wait" form don't dispose
 - 🩹 Splash screen bug
+- 🩹 Fix issue with A-V (Win Def)(seems to be fixed)
+- 🩹 Updater crash fix
 
 - ❌ Removed "OK" button from "Reboot" form (to force user to reboot in order to bypass fast boot)
+
 
 ## 15.0 - (21/06/2022)
 
