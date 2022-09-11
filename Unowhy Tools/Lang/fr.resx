@@ -181,7 +181,7 @@
     <value>Suppr le dossier et serv "HiSqoolManager"</value>
   </data>
   <data name="delhismserv" xml:space="preserve">
-    <value>Suppr. le service "HiSqoolManager" uniquement</value>
+    <value>Suppr. le serv "HiSqoolManager" seul.</value>
   </data>
   <data name="deloem" xml:space="preserve">
     <value>Supprimer le dossier "OEM"</value>
