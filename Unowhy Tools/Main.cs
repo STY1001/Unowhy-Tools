@@ -1355,48 +1355,8 @@ namespace Unowhy_Tools
         {
             // Presentation Mode
 
-            var i = new PCInfo();
-            i.Show();
-
-            var au = new Adduser();
-            au.Show();
-
-            var a = new About();
-            a.Show();
-
-            var a2 = new AdminSet();
-            a2.Show();
-
-            string msg = shell.Text;
-            dialog d = new dialog(msg);
-            d.Show();
-
-            var b = new Splash();
-            b.Show();
-
-            var v = new newver();
-            v.Show();
-
-            var n = new nonet();
-            n.Show();
-
-            var s = new Settings("1");
-            s.Show();
-            
-            var p = new PCName();
+            var p = new pmod();
             p.Show();
-
-            var ui = new userid("STY1001");
-            ui.Show();
-
-            var no = new nonew();
-            no.Show();
-
-            var r = new reboot();
-            r.Show();
-            
-            var w = new wait();
-            w.Show();
         }
 
         private void delentf_Click(object sender, EventArgs e)
