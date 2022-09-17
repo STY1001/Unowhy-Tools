@@ -136,30 +136,29 @@ namespace Unowhy_Tools
                 osimg.Image = Unowhy_Tools.Properties.Resources.win11;
             }
 
-            string ene21 = "_ENE_";
-            string STY1001 = "STY1001";
-
-            Boolean result21 = enes.Contains(ene21);
-            Boolean STY = enes.Contains(STY1001);
-            if (result21 == true)
+            if (ifps.Contains("IFP0"))
             {
-                string mdate = mfms + "(2021)";     // 2021
+                string mdate = mfms + "(<2020)";
                 mfm.Text = mdate;
             }
-            else
+
+            if (ifps.Contains("IFP1"))
             {
-                if(STY == true)     // Verify if it's my PC
-                {
-                    string mdate = mfms + "(2021)";
-                    mfm.Text = mdate;
-                }
-                else
-                {
-                    string mdate = mfms + "(2020)";     // 2020
-                    mfm.Text = mdate;
-                }
+                string mdate = mfms + "(2021)";
+                mfm.Text = mdate;
             }
 
+            if (ifps.Contains("IFP2"))
+            {
+                string mdate = mfms + "(2022)";
+                mfm.Text = mdate;
+            }
+
+            if (ifps.Contains("STY1001"))
+            {
+                string mdate = mfms + "(2021)";
+                mfm.Text = mdate;
+            }
         }
 
         private void PCInfo_Load(object sender, EventArgs e)
