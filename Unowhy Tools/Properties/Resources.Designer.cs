@@ -571,7 +571,7 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Version 16.0.
+        ///   Recherche une chaîne localisée semblable à Version 17.0.
         /// </summary>
         internal static string Version {
             get {
