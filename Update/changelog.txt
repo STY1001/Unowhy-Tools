@@ -1,6 +1,16 @@
 === Unowhy Tools Change Log ===
 
 =====================
+ 16.0 - (18/09/2022)
+=====================
+
+To update securly, it's recommended to disable Windows Defender or uninstall and reinstall the new version
+
+To view the changelog of 16.0:
+Go to "About">"Check for update">"Changelog"
+
+
+=====================
  15.0 - (21/06/2022)
 =====================
 
