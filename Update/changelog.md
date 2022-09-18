@@ -2,7 +2,7 @@
 
 ## ✅:Added | ✏️:Modified | 🩹:Patched/Fixed | ❌:Removed
 
-## 16.0 - (--/06/2022)
+## 16.0 - (18/09/2022)
 
 ### The biggest update
 

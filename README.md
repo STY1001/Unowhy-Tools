@@ -24,6 +24,7 @@ Currently, with this tools you can:
 - Leave your PC from Azure AD
 - Create a local user (account)
 - Manage the built-in ".\admin" local account
+- Backup and Restore drivers (powered by PowerShell)
 
 More features come soon
 
