@@ -149,7 +149,8 @@ namespace Unowhy_Tools
                 Thread t = new Thread(new ThreadStart(WaitScreen));
                 t.Start();
                 Process p = new Process();
-                p.StartInfo.FileName = "pnputil";
+                p.StartInfo.FileName = "powershell";
+                p.StartInfo.Verb = "runas";
                 p.StartInfo.Arguments = arg;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
