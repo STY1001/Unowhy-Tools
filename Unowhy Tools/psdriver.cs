@@ -92,7 +92,7 @@ namespace Unowhy_Tools
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    opb.Text = fbd.SelectedPath + "\\UT-PS-Drv_" + DateTime.Now.ToString("HHmm-ddMMyy");
+                    opb.Text = fbd.SelectedPath + "\\UT-PS-Drv_" + DateTime.Now.ToString("HH-mm_dd-MM-yy");
                 }
             }
         }
@@ -111,12 +111,16 @@ namespace Unowhy_Tools
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
                 Thread t = new Thread(new ThreadStart(WaitScreen));               
                 t.Start();
+
                 Process p = new Process();
                 p.StartInfo.FileName = "powershell.exe";
                 p.StartInfo.Arguments = arg;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+
+                File.Copy(".\\UT-Restore.exe", opb.Text + "\\UT-Restore.exe");
+
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -130,7 +134,7 @@ namespace Unowhy_Tools
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    ipb.Text = fbd.SelectedPath + "\\*.inf";
+                    ipb.Text = fbd.SelectedPath + "\\UT-Restore.exe";
                 }
             }
         }
@@ -143,19 +147,23 @@ namespace Unowhy_Tools
             }
             else
             {
-                string arg = "pnputil /add-driver \"" + ipb.Text + "\" /subdirs /install";
-
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));
-                t.Start();
+                Thread t2 = new Thread(new ThreadStart(WaitScreen));
+                t2.Start();
+
+                if (File.Exists(ipb.Text) == false)
+                {
+                    File.Copy(".\\UT-Restore.exe", ipb.Text);
+                }
+                
                 Process p = new Process();
-                p.StartInfo.FileName = "powershell";
-                p.StartInfo.Verb = "runas";
-                p.StartInfo.Arguments = arg;
+                p.StartInfo.FileName = ipb.Text;
+                p.StartInfo.Arguments = "";
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                t.Abort();
+
+                t2.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
                 var r = new reboot();
                 r.ShowDialog();
