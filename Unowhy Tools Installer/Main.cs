@@ -166,7 +166,7 @@ namespace Unowhy_Tools_Installer
             delay(1000);
             using (var client = new WebClient())
             {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip");
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/install.zip", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip");
             }
             statusbar.Value = 60;
             TaskbarManager.Instance.SetProgressValue(60, 100);
