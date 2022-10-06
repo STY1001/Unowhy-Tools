@@ -43,6 +43,7 @@
             this.ieb = new ReaLTaiizor.Controls.Button();
             this.bb = new ReaLTaiizor.Controls.Button();
             this.rb = new ReaLTaiizor.Controls.Button();
+            this.deb = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -227,12 +228,24 @@
             this.rb.TextAlignment = System.Drawing.StringAlignment.Center;
             this.rb.Click += new System.EventHandler(this.rb_Click);
             // 
+            // deb
+            // 
+            this.deb.AutoSize = true;
+            this.deb.ForeColor = System.Drawing.Color.White;
+            this.deb.Location = new System.Drawing.Point(16, 171);
+            this.deb.Name = "deb";
+            this.deb.Size = new System.Drawing.Size(39, 13);
+            this.deb.TabIndex = 6;
+            this.deb.Text = "Debug";
+            this.deb.Visible = false;
+            // 
             // psdriver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(478, 196);
+            this.Controls.Add(this.deb);
             this.Controls.Add(this.ieb);
             this.Controls.Add(this.rb);
             this.Controls.Add(this.bb);
@@ -282,5 +295,6 @@
         private ReaLTaiizor.Controls.Button ieb;
         private ReaLTaiizor.Controls.Button bb;
         private ReaLTaiizor.Controls.Button rb;
+        private System.Windows.Forms.Label deb;
     }
 }
