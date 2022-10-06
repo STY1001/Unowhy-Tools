@@ -73,6 +73,11 @@ namespace Unowhy_Tools
 
             InitializeComponent();
 
+            if (File.Exists("debug"))
+            {
+                deb.Visible = true;
+            }
+
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
             oeb.Text = resxSet.GetString("browse");
@@ -135,6 +140,7 @@ namespace Unowhy_Tools
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     ipb.Text = fbd.SelectedPath + "\\UT-Restore.exe";
+                    deb.Text = fbd.SelectedPath;
                 }
             }
         }
@@ -147,18 +153,25 @@ namespace Unowhy_Tools
             }
             else
             {
+                /*string arg = "Start-Process \"" + ipb + "\" -Wait";
+
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
                 Thread t2 = new Thread(new ThreadStart(WaitScreen));
-                t2.Start();
+                t2.Start();*/
 
                 if (File.Exists(ipb.Text) == false)
                 {
                     File.Copy(".\\UT-Restore.exe", ipb.Text);
                 }
-                
-                Process p = new Process();
-                p.StartInfo.FileName = ipb.Text;
-                p.StartInfo.Arguments = "";
+
+                MessageBox.Show("The restore function don't work due to the issue with pnputil. You need to retore drivers manually by launch \"UT-Restore.exe\" in the root of the backup folder and after applied, you to reboot. Click OK button to open backup folder.", "PS Drv GUI for Unowhy Tools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                System.Diagnostics.Process.Start("explorer.exe", deb.Text);
+
+                /*Process p = new Process();
+                p.StartInfo.FileName = "powershell.exe";
+                p.StartInfo.Arguments = arg;
+                p.StartInfo.WorkingDirectory = deb.Text;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
@@ -166,7 +179,7 @@ namespace Unowhy_Tools
                 t2.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
                 var r = new reboot();
-                r.ShowDialog();
+                r.ShowDialog();*/
             }
         }
     }
