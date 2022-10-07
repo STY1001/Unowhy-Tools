@@ -164,7 +164,20 @@ namespace Unowhy_Tools
                     File.Copy(".\\UT-Restore.exe", ipb.Text);
                 }
 
-                MessageBox.Show("The restore function don't work due to the issue with pnputil. You need to retore drivers manually by launch \"UT-Restore.exe\" in the root of the backup folder and after applied, you to reboot. Click OK button to open backup folder.", "PS Drv GUI for Unowhy Tools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+                string utls = utl.GetValue("Lang").ToString();
+
+                string enresx = @".\en.resx";
+                string frresx = @".\fr.resx";
+                //Chose the ResX file
+                if (utls == "EN") resxFile = enresx;    //English   
+                else resxFile = frresx;               //French
+
+                ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+                string msgtxt = resxSet.GetString("psdrvmsg");
+
+                MessageBox.Show(msgtxt, "PS Drv GUI for Unowhy Tools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 System.Diagnostics.Process.Start("explorer.exe", deb.Text);
 
