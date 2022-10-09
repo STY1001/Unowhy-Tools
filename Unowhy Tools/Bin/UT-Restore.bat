@@ -49,8 +49,3 @@ timeout -t 6
 cls
 pnputil.exe /add-driver ".\*.inf" /subdirs /install
 cls
-echo Done! Reboot in 10 sec. Press any key to cancel.
-echo Redémarrage dans 10 secondes. Appuyez sur n'importe quelle touche pour annuler.
-shutdown -r -t 10
-timeout -t 13
-shutdown -a
