@@ -32,10 +32,16 @@ namespace Unowhy_Tools
             Application.Run(new wait());
         }
 
-        //Set dark mode title bar
+        //Set dark mode title bar and bypass wow64 redirection
 
         [DllImport("DwmApi")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool Wow64DisableWow64FsRedirection(ref IntPtr ptr);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool Wow64RevertWow64FsRedirection(IntPtr ptr);
 
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -43,8 +49,9 @@ namespace Unowhy_Tools
             DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
             DwmSetWindowAttribute(Handle, 35, new[] { 1 }, 4);
             DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
+            IntPtr wow64Value = IntPtr.Zero;
+            Wow64DisableWow64FsRedirection(ref wow64Value);
         }
-
         //Wait fonc
 
         private static void delay(int Time_delay)
@@ -60,6 +67,8 @@ namespace Unowhy_Tools
 
         public psdriver()
         {
+
+
             //Check the current saved language
 
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
@@ -153,17 +162,15 @@ namespace Unowhy_Tools
             }
             else
             {
-                /*string arg = "Start-Process \"" + ipb + "\" -Wait";
-
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
                 Thread t2 = new Thread(new ThreadStart(WaitScreen));
-                t2.Start();*/
+                t2.Start();
 
                 if (File.Exists(ipb.Text) == false)
                 {
                     File.Copy(".\\UT-Restore.exe", ipb.Text);
                 }
-
+                /*
                 RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
                 string utls = utl.GetValue("Lang").ToString();
 
@@ -180,10 +187,11 @@ namespace Unowhy_Tools
                 MessageBox.Show(msgtxt, "PS Drv GUI for Unowhy Tools", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 System.Diagnostics.Process.Start("explorer.exe", deb.Text);
+                */
 
-                /*Process p = new Process();
-                p.StartInfo.FileName = "powershell.exe";
-                p.StartInfo.Arguments = arg;
+                Process p = new Process();
+                p.StartInfo.FileName = ipb.Text;
+                p.StartInfo.Arguments = "";
                 p.StartInfo.WorkingDirectory = deb.Text;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
@@ -192,7 +200,7 @@ namespace Unowhy_Tools
                 t2.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
                 var r = new reboot();
-                r.ShowDialog();*/
+                r.ShowDialog();
             }
         }
     }
