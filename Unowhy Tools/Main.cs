@@ -666,8 +666,10 @@ namespace Unowhy_Tools
             psbr.Text = resxSet.GetString("psdrv");
             drivercat.Text = resxSet.GetString("drvcat");
             delhismserv.Text = resxSet.GetString("delhismserv");
+            dismbr.Text = resxSet.GetString("dismdrv");
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
+
 
             #endregion
         }
@@ -834,14 +836,6 @@ namespace Unowhy_Tools
             }
         }
 
-        public void checkwinre()
-        {
-            if (debreagentc.Text.Contains("Enabled") == true)
-            {
-                dbtn(winre);
-            }
-        }
-
         public void checkadmin()
         {
             if (debadmin.Text == "true")
@@ -1004,7 +998,6 @@ namespace Unowhy_Tools
 
             checkhism();
             checkazure();
-            checkwinre();
             checkadmin();
             checkent();
             checkti();
@@ -1300,6 +1293,7 @@ namespace Unowhy_Tools
 
         private void winre_Click(object sender, EventArgs e)
         {
+            /*
             string msg = winre.Text;
             dialog d = new dialog(msg);
             d.ShowDialog();
@@ -1320,6 +1314,10 @@ namespace Unowhy_Tools
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
+            */
+
+            var wre = new winreset();
+            wre.ShowDialog();
         }
 
         private void pcname_Click(object sender, EventArgs e)
@@ -1506,6 +1504,12 @@ namespace Unowhy_Tools
         {
             var logf = new changelog();
             logf.Show();
+        }
+
+        private void dismdrv_Click(object sender, EventArgs e)
+        {
+            var dism = new dismdriver();
+            dism.ShowDialog();
         }
 
         #endregion
@@ -1826,6 +1830,23 @@ namespace Unowhy_Tools
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
             desc.Text = resxSet.GetString("descpsbr");
+        }
+
+        private void desc_dismbr(object sender, EventArgs e)
+        {
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;                //French
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            desc.Text = resxSet.GetString("descdismbr");
         }
 
         #endregion

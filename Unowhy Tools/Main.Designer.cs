@@ -108,6 +108,8 @@ namespace Unowhy_Tools
             this.adduser = new ReaLTaiizor.Controls.Button();
             this.adminset = new ReaLTaiizor.Controls.Button();
             this.clog = new System.Windows.Forms.Button();
+            this.pictureBox30 = new System.Windows.Forms.PictureBox();
+            this.dismbr = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -138,6 +140,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
             this.SuspendLayout();
             // 
             // ver
@@ -858,6 +861,28 @@ namespace Unowhy_Tools
             this.clog.UseVisualStyleBackColor = true;
             this.clog.Click += new System.EventHandler(this.clog_Click);
             // 
+            // pictureBox30
+            // 
+            this.pictureBox30.Image = global::Unowhy_Tools.Properties.Resources.dism;
+            resources.ApplyResources(this.pictureBox30, "pictureBox30");
+            this.pictureBox30.Name = "pictureBox30";
+            this.pictureBox30.TabStop = false;
+            // 
+            // dismbr
+            // 
+            this.dismbr.BackColor = System.Drawing.Color.Transparent;
+            this.dismbr.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dismbr.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            resources.ApplyResources(this.dismbr, "dismbr");
+            this.dismbr.Image = null;
+            this.dismbr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dismbr.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.dismbr.Name = "dismbr";
+            this.dismbr.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.dismbr.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.dismbr.Click += new System.EventHandler(this.dismdrv_Click);
+            this.dismbr.MouseEnter += new System.EventHandler(this.desc_dismbr);
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -877,6 +902,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.adduser);
             this.Controls.Add(this.admin);
             this.Controls.Add(this.pcname);
+            this.Controls.Add(this.dismbr);
             this.Controls.Add(this.psbr);
             this.Controls.Add(this.aadleave);
             this.Controls.Add(this.winre);
@@ -923,6 +949,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox26);
             this.Controls.Add(this.pictureBox25);
+            this.Controls.Add(this.pictureBox30);
             this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.pictureBox28);
             this.Controls.Add(this.pictureBox18);
@@ -976,6 +1003,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1060,6 +1088,8 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button adduser;
         private ReaLTaiizor.Controls.Button adminset;
         private System.Windows.Forms.Button clog;
+        private System.Windows.Forms.PictureBox pictureBox30;
+        private ReaLTaiizor.Controls.Button dismbr;
     }
 }
 
