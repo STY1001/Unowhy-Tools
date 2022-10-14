@@ -126,5 +126,17 @@ namespace Unowhy_Tools
             var a = new wait();
             a.Show();
         }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            var a = new dismdriver();
+            a.Show();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            var a = new winreset();
+            a.Show();
+        }
     }
 }

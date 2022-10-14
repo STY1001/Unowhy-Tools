@@ -44,6 +44,8 @@
             this.button14 = new ReaLTaiizor.Controls.Button();
             this.button15 = new ReaLTaiizor.Controls.Button();
             this.button16 = new ReaLTaiizor.Controls.Button();
+            this.button17 = new ReaLTaiizor.Controls.Button();
+            this.button18 = new ReaLTaiizor.Controls.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -55,7 +57,7 @@
             this.button1.Image = null;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(12, 128);
             this.button1.Name = "button1";
             this.button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.button1.Size = new System.Drawing.Size(192, 23);
@@ -109,7 +111,7 @@
             this.button4.Image = null;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button4.Location = new System.Drawing.Point(606, 12);
+            this.button4.Location = new System.Drawing.Point(12, 70);
             this.button4.Name = "button4";
             this.button4.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.button4.Size = new System.Drawing.Size(192, 23);
@@ -145,7 +147,7 @@
             this.button6.Image = null;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button6.Location = new System.Drawing.Point(210, 41);
+            this.button6.Location = new System.Drawing.Point(606, 99);
             this.button6.Name = "button6";
             this.button6.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.button6.Size = new System.Drawing.Size(192, 23);
@@ -181,7 +183,7 @@
             this.button8.Image = null;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button8.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button8.Location = new System.Drawing.Point(606, 41);
+            this.button8.Location = new System.Drawing.Point(210, 41);
             this.button8.Name = "button8";
             this.button8.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.button8.Size = new System.Drawing.Size(192, 23);
@@ -199,7 +201,7 @@
             this.button9.Image = null;
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button9.Location = new System.Drawing.Point(12, 70);
+            this.button9.Location = new System.Drawing.Point(606, 41);
             this.button9.Name = "button9";
             this.button9.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.button9.Size = new System.Drawing.Size(192, 23);
@@ -271,7 +273,7 @@
             this.button13.Image = null;
             this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button13.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button13.Location = new System.Drawing.Point(12, 99);
+            this.button13.Location = new System.Drawing.Point(210, 99);
             this.button13.Name = "button13";
             this.button13.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.button13.Size = new System.Drawing.Size(192, 23);
@@ -289,7 +291,7 @@
             this.button14.Image = null;
             this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button14.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button14.Location = new System.Drawing.Point(210, 99);
+            this.button14.Location = new System.Drawing.Point(606, 12);
             this.button14.Name = "button14";
             this.button14.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.button14.Size = new System.Drawing.Size(192, 23);
@@ -307,7 +309,7 @@
             this.button15.Image = null;
             this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button15.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button15.Location = new System.Drawing.Point(408, 99);
+            this.button15.Location = new System.Drawing.Point(12, 12);
             this.button15.Name = "button15";
             this.button15.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.button15.Size = new System.Drawing.Size(192, 23);
@@ -325,7 +327,7 @@
             this.button16.Image = null;
             this.button16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button16.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button16.Location = new System.Drawing.Point(606, 99);
+            this.button16.Location = new System.Drawing.Point(408, 99);
             this.button16.Name = "button16";
             this.button16.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.button16.Size = new System.Drawing.Size(192, 23);
@@ -334,12 +336,50 @@
             this.button16.TextAlignment = System.Drawing.StringAlignment.Center;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.Transparent;
+            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button17.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.button17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.Image = null;
+            this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button17.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.button17.Location = new System.Drawing.Point(12, 99);
+            this.button17.Name = "button17";
+            this.button17.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.button17.Size = new System.Drawing.Size(192, 23);
+            this.button17.TabIndex = 0;
+            this.button17.Text = "dismdriver";
+            this.button17.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.Transparent;
+            this.button18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button18.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.button18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.Image = null;
+            this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button18.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.button18.Location = new System.Drawing.Point(210, 128);
+            this.button18.Name = "button18";
+            this.button18.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.button18.Size = new System.Drawing.Size(192, 23);
+            this.button18.TabIndex = 0;
+            this.button18.Text = "winreset";
+            this.button18.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
             // pmod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(808, 187);
+            this.Controls.Add(this.button18);
+            this.Controls.Add(this.button17);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button8);
@@ -385,5 +425,7 @@
         private ReaLTaiizor.Controls.Button button14;
         private ReaLTaiizor.Controls.Button button15;
         private ReaLTaiizor.Controls.Button button16;
+        private ReaLTaiizor.Controls.Button button17;
+        private ReaLTaiizor.Controls.Button button18;
     }
 }
