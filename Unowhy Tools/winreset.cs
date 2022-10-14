@@ -31,6 +31,11 @@ namespace Unowhy_Tools
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
 
         public string resxFile;
+        private int Out;
+        private string noco;
+
+        [DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(out int state, int value);
 
         public void WaitScreen()
         {
@@ -173,33 +178,45 @@ namespace Unowhy_Tools
 
         private void rep_Click(object sender, EventArgs e)
         {
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-            Thread t = new Thread(new ThreadStart(WaitScreen));
-            t.Start();
+            if (InternetGetConnectedState(out Out, 0) == true) noco = "0";
+            else noco = "1";
 
-            using (var web = new WebClient())
+            if (noco == "1")
             {
-                web.DownloadFile("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim", "C:\\Windows\\System32\\Recovery\\WinRE.wim");
+                var s = new nonet();
+                s.ShowDialog();
+                this.Close();
             }
+            else
+            {
+                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
+                Thread t = new Thread(new ThreadStart(WaitScreen));
+                t.Start();
 
-            var p = new Process();
-            p.StartInfo.FileName = "reagentc";
-            p.StartInfo.Arguments = "/setreimage /path C:\\Windows\\System32\\Recovery";
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p.Start();
-            p.WaitForExit();
+                using (var web = new WebClient())
+                {
+                    web.DownloadFile("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim", "C:\\Windows\\System32\\Recovery\\WinRE.wim");
+                }
 
-            var p2 = new Process();
-            p2.StartInfo.FileName = "reagentc";
-            p2.StartInfo.Arguments = "/enable";
-            p2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p2.Start();
-            p2.WaitForExit();
-            debwinre.Text = "0";
+                var p = new Process();
+                p.StartInfo.FileName = "reagentc";
+                p.StartInfo.Arguments = "/setreimage /path C:\\Windows\\System32\\Recovery";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit();
 
-            check();
-            t.Abort();
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
+                var p2 = new Process();
+                p2.StartInfo.FileName = "reagentc";
+                p2.StartInfo.Arguments = "/enable";
+                p2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p2.Start();
+                p2.WaitForExit();
+                debwinre.Text = "0";
+
+                check();
+                t.Abort();
+                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
+            }
         }
     }
 }
