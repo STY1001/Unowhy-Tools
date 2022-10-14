@@ -312,6 +312,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="dismdriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dismdriver.Designer.cs">
+      <DependentUpon>dismdriver.cs</DependentUpon>
+    </Compile>
     <Compile Include="psdriver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +354,12 @@
     </Compile>
     <Compile Include="wait.Designer.cs">
       <DependentUpon>wait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="winreset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winreset.Designer.cs">
+      <DependentUpon>winreset.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
@@ -391,6 +403,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="dismdriver.resx">
+      <DependentUpon>dismdriver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="psdriver.resx">
       <DependentUpon>psdriver.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wait.resx">
       <DependentUpon>wait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winreset.resx">
+      <DependentUpon>winreset.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />
@@ -474,6 +492,7 @@
     <Content Include="Resources\disable.ico" />
     <None Include="Resources\drivers.png" />
     <None Include="Resources\download.png" />
+    <None Include="Resources\dism.png" />
     <Content Include="Resources\enable.ico" />
     <Content Include="Resources\folder.ico" />
     <Content Include="Resources\github.ico" />
@@ -511,6 +530,7 @@
     <Content Include="Resources\start.ico" />
     <Content Include="Resources\startup.ico" />
     <Content Include="Resources\stop.ico" />
+    <None Include="Resources\taskmgr.png" />
     <Content Include="Resources\uninstall.ico" />
     <Content Include="Resources\update.ico" />
     <None Include="Resources\wait.png" />
