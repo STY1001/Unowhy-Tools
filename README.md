@@ -25,6 +25,8 @@ Currently, with this tools you can:
 - Create a local user (account)
 - Manage the built-in ".\admin" local account
 - Backup and Restore drivers (powered by PowerShell)
+- Backup and Restore drivers (powered by DISM)
+- Enable/Disable/Repair Winre
 
 More features come soon
 
