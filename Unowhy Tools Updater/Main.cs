@@ -112,8 +112,6 @@ namespace Unowhy_Tools_Updater
                 p22.Start();
             }
 
-            lab.Text = resxSet.GetString("update.updating");
-            status.Text = resxSet.GetString("update.kill");
 
             delay(1000);
 
@@ -146,7 +144,6 @@ namespace Unowhy_Tools_Updater
             delay(1000);
             delay(500);
 
-            status.Text = resxSet.GetString("update.ext");
 
             Process p1 = new Process();
             p1.StartInfo.FileName = ".\\7zip.exe";
@@ -198,9 +195,6 @@ namespace Unowhy_Tools_Updater
 
             delay(1000);
             */
-            status.Text = resxSet.GetString("update.start");
-
-            delay(500);
 
             System.Diagnostics.Process.Start(".\\Unowhy Tools.exe");
 
