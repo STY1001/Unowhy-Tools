@@ -479,7 +479,7 @@ namespace Unowhy_Tools
             // 
             // pictureBox28
             // 
-            this.pictureBox28.Image = global::Unowhy_Tools.Properties.Resources.ps;
+            this.pictureBox28.Image = global::Unowhy_Tools.Properties.Resources.powershell;
             resources.ApplyResources(this.pictureBox28, "pictureBox28");
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.TabStop = false;
