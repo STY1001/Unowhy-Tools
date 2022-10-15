@@ -516,6 +516,7 @@
     <None Include="Resources\pwcno.png" />
     <None Include="Resources\pwcyes.png" />
     <None Include="Resources\ps.png" />
+    <None Include="Resources\powershell.png" />
     <Content Include="Resources\pwcno.ico" />
     <Content Include="Resources\pwcyes.ico" />
     <Content Include="Resources\question.ico" />
