@@ -210,6 +210,9 @@
   <data name="descdeloem" xml:space="preserve">
     <value>Delete the first logon script, start menu icons and wallpapers (In : C:\Windows\System32)</value>
   </data>
+  <data name="descdismbr" xml:space="preserve">
+    <value>This tools is currently in test (in beta) but probably work. Backup and Restore drivers with DISM. Allways, make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers by the way of DISM commands with user friendly GUI</value>
+  </data>
   <data name="descent" xml:space="preserve">
     <value>Delete "ENT" local account. This the account to configure your "ENT" account</value>
   </data>
@@ -226,7 +229,7 @@
     <value>Change the name of this PC (NETBIOS). By default, the Windows PC name of the Y13 is the serial number (IFP...)</value>
   </data>
   <data name="descpsbr" xml:space="preserve">
-    <value>This tools is currently in test (in beta) but probably work. Backup and Restore drivers with PowerShell. Allways, make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers by the way of Power Shell commands with user friendly GUI</value>
+    <value>!!! Warning: For some PCs powershell backup does not work, use DISM backup instead !!! This tools is currently in test (in beta) but probably work. Backup and Restore drivers with PowerShell. Allways, make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers by the way of Power Shell commands with user friendly GUI</value>
   </data>
   <data name="descridf" xml:space="preserve">
     <value>Delete the first logon script and video folder (In : C:\ProgramData)</value>
@@ -241,7 +244,10 @@
     <value>Delete school's texbooks installers folder (In : C:\Program Data\Unowhy)</value>
   </data>
   <data name="descwinre" xml:space="preserve">
-    <value>Do this if you want to reset Windows. Unowhy has deployed a patch to disable Windows Recovery Environment (to disable reset)</value>
+    <value>Do this if you want to reset Windows. Unowhy has deployed a patch to disable Windows Recovery Environment (to disable reset). For some users, the activation will failled, in this case, Unowhy Tools will suggest you to repair the problem by downloading WinRE image</value>
+  </data>
+  <data name="disable" xml:space="preserve">
+    <value>Disable</value>
   </data>
   <data name="disablea" xml:space="preserve">
     <value>Disable account</value>
@@ -249,11 +255,20 @@
   <data name="dishis" xml:space="preserve">
     <value>Disable "HiSqoolManager" service</value>
   </data>
+  <data name="dismdrv" xml:space="preserve">
+    <value>Backup and Restore drivers with DISM</value>
+  </data>
+  <data name="dismdrv.title" xml:space="preserve">
+    <value>DISM Drv GUI for Unowhy Tools</value>
+  </data>
   <data name="domuser" xml:space="preserve">
     <value>Current user ID ([DOMAIN] \ [USER])</value>
   </data>
   <data name="drvcat" xml:space="preserve">
     <value>↓ Drivers ↓</value>
+  </data>
+  <data name="enable" xml:space="preserve">
+    <value>Enable</value>
   </data>
   <data name="enablea" xml:space="preserve">
     <value>Enable account</value>
@@ -310,13 +325,19 @@
     <value>Backup and Restore drivers with PS</value>
   </data>
   <data name="psdrv.title" xml:space="preserve">
-    <value>Backup and Restore drivers with PowerShell</value>
+    <value>PS Drv GUI for Unowhy Tools</value>
+  </data>
+  <data name="psdrvmsg" xml:space="preserve">
+    <value>The restore function don't work due to the issue with pnputil. You need to retore drivers manually by launching "UT-Restore.exe" in the root of your backup folder and after applied, you need to reboot. Click OK button to open backup folder.</value>
   </data>
   <data name="pwmis" xml:space="preserve">
     <value>Passwords do not match</value>
   </data>
   <data name="reboot" xml:space="preserve">
     <value>A reboot is required</value>
+  </data>
+  <data name="repair" xml:space="preserve">
+    <value>Repair</value>
   </data>
   <data name="repaircat" xml:space="preserve">
     <value>↓ Repair ↓</value>
@@ -385,7 +406,13 @@
     <value>Please wait...</value>
   </data>
   <data name="winre" xml:space="preserve">
-    <value>Re enable "reagentc"</value>
+    <value>WinRE (reagentc) settings</value>
+  </data>
+  <data name="winre.title" xml:space="preserve">
+    <value>WinRE settings GUI for Unowhy Tools</value>
+  </data>
+  <data name="winremgs" xml:space="preserve">
+    <value>WinRE image was not found, click "Repair" to fix issue</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Yes</value>

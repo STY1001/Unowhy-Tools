@@ -210,6 +210,9 @@
   <data name="descdeloem" xml:space="preserve">
     <value>Supprimer le dossier qui contient le script, les icons du menu démarrer et les fonds d'écrans (Dans : C:\Windows\System32)</value>
   </data>
+  <data name="descdismbr" xml:space="preserve">
+    <value>L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec DISM. Sauvegardez toujours votre pilote pour résoudre les éventuels problèmes de pilote. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes DISM avec une interface graphique plus conviviale</value>
+  </data>
   <data name="descent" xml:space="preserve">
     <value>Supprimer le compte local "ENT".  Ceci est le compte pour configurer votre compte ENT</value>
   </data>
@@ -226,7 +229,7 @@
     <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC (IFP...)</value>
   </data>
   <data name="descpsbr" xml:space="preserve">
-    <value>L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec Power Shell. Sauvegardez toujours votre pilote pour résoudre les éventuels problèmes de pilote. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes Power Shell avec une interface graphique plus conviviale</value>
+    <value>!!! Attention: Pour certains PC, la sauvegarde PowerShell ne fonctionne pas, utilisez plutôt la sauvegarde DISM !!! L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec Power Shell. Sauvegardez toujours votre pilote pour résoudre les éventuels problèmes de pilote. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes PowerShell avec une interface graphique plus conviviale</value>
   </data>
   <data name="descridf" xml:space="preserve">
     <value>Supprimer le dossier qui contient le script et la video de la première connexion (Dans : C:\ProgramData)</value>
@@ -241,7 +244,10 @@
     <value>Supprimer les installateurs des manuels scolaires de votre école (Dans : C:\Program Files\Unowhy)</value>
   </data>
   <data name="descwinre" xml:space="preserve">
-    <value>Faite ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environement de réstauration Windows (qui désactive la réinitialisation)</value>
+    <value>Faite ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environement de réstauration Windows (qui désactive la réinitialisation). Pour certaine personnes, l'activation peut echoué, dans ce cas là, Unowhy Tools vous proposera de réparer le problème en retéléchargent l'image WinRE </value>
+  </data>
+  <data name="disable" xml:space="preserve">
+    <value>Désactiver</value>
   </data>
   <data name="disablea" xml:space="preserve">
     <value>Désactiver le compte</value>
@@ -254,6 +260,9 @@
   </data>
   <data name="drvcat" xml:space="preserve">
     <value>↓ Pilotes ↓</value>
+  </data>
+  <data name="enable" xml:space="preserve">
+    <value>Activer</value>
   </data>
   <data name="enablea" xml:space="preserve">
     <value>Activer le compte</value>
@@ -310,13 +319,19 @@
     <value>Sauv. et Rest. les pilotes avec PS</value>
   </data>
   <data name="psdrv.title" xml:space="preserve">
-    <value>Sauvgarder et Restaurer les pilotes avec PowerShell</value>
+    <value>PS Drv GUI pour Unowhy Tools</value>
+  </data>
+  <data name="psdrvmsg" xml:space="preserve">
+    <value>La fonction de restauration ne fonctionne pas en raison d'un problème avec pnputil. Vous devez restaurer les pilotes manuellement en lançant "UT-Restore.exe" à la racine du dossier de sauvegarde et après la restoration terminée, vous devez redémarrer. Cliquez sur le bouton OK pour ouvrir le dossier de sauvegarde.</value>
   </data>
   <data name="pwmis" xml:space="preserve">
     <value>Les mots de passe ne correspondent pas</value>
   </data>
   <data name="reboot" xml:space="preserve">
     <value>Un redémarrage est nécessaire</value>
+  </data>
+  <data name="repair" xml:space="preserve">
+    <value>Réparer</value>
   </data>
   <data name="repaircat" xml:space="preserve">
     <value>↓ Réparer ↓</value>
@@ -381,14 +396,17 @@
   <data name="update.updating" xml:space="preserve">
     <value>Mise à jour de Unowhy Tools...</value>
   </data>
-  <data name="UT" xml:space="preserve">
-    <value />
-  </data>
   <data name="wait" xml:space="preserve">
     <value>Veuillez patienter...</value>
   </data>
   <data name="winre" xml:space="preserve">
-    <value>Réactiver "reagentc"</value>
+    <value>Paramètres WinRE (reagentc)</value>
+  </data>
+  <data name="winre.title" xml:space="preserve">
+    <value>WinRE settings GUI pour Unowhy Tools</value>
+  </data>
+  <data name="winremgs" xml:space="preserve">
+    <value>L'image WinRE n'est pas présente, cliquez sur "Réparer"</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Oui</value>
