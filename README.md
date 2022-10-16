@@ -14,7 +14,6 @@ Currently, with this tools you can:
 - Uninstall "HiSqool" and delete "HiSqool Manager" service and folder
 - Delete "silent_*.vbs.lnk" files in "StartUp" folder
 - Delete "TO_INSTALL" folder
-- Enable "reagentc" (Recovery)
 - Delete "RIDF" folder
 - Change Windows PC name
 - Delete "OEM" folder
@@ -26,7 +25,7 @@ Currently, with this tools you can:
 - Manage the built-in ".\admin" local account
 - Backup and Restore drivers (powered by PowerShell)
 - Backup and Restore drivers (powered by DISM)
-- Enable/Disable/Repair Winre
+- Enable/Disable/Repair Winre (reagentc)
 
 More features come soon
 
