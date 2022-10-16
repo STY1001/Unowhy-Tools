@@ -405,7 +405,7 @@
   <data name="winre.title" xml:space="preserve">
     <value>WinRE settings GUI pour Unowhy Tools</value>
   </data>
-  <data name="winremgs" xml:space="preserve">
+  <data name="winremsg" xml:space="preserve">
     <value>L'image WinRE n'est pas présente, cliquez sur "Réparer"</value>
   </data>
   <data name="yes" xml:space="preserve">
