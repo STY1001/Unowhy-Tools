@@ -411,7 +411,7 @@
   <data name="winre.title" xml:space="preserve">
     <value>WinRE settings GUI for Unowhy Tools</value>
   </data>
-  <data name="winremgs" xml:space="preserve">
+  <data name="winremsg" xml:space="preserve">
     <value>WinRE image was not found, click "Repair" to fix issue</value>
   </data>
   <data name="yes" xml:space="preserve">
