@@ -117,7 +117,7 @@ namespace Unowhy_Tools_Installer
 
         private void install_dl()
         {
-            status.Text = "Downloading...";
+            status.Text = "Extracting...";
             delay(1000);
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe", "Files", "7zip.exe");
             statusbar.Value = 15;
@@ -147,11 +147,11 @@ namespace Unowhy_Tools_Installer
             statusbar.Value = 45;
             TaskbarManager.Instance.SetProgressValue(45, 100);
             delay(1000);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\fr.resx", "Files", "fr.resx");
+            //Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\fr.resx", "Files", "fr.resx");
             statusbar.Value = 50;
             TaskbarManager.Instance.SetProgressValue(50, 100);
             delay(1000);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\en.resx", "Files", "en.resx");
+            //Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\en.resx", "Files", "en.resx");
             statusbar.Value = 55;
             TaskbarManager.Instance.SetProgressValue(55, 100);
             delay(1000);
