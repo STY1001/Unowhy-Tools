@@ -42,6 +42,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.status = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -54,10 +56,11 @@
             this.desktop.AutoSize = true;
             this.desktop.Checked = true;
             this.desktop.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.desktop.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.desktop.ForeColor = System.Drawing.Color.White;
-            this.desktop.Location = new System.Drawing.Point(43, 155);
+            this.desktop.Location = new System.Drawing.Point(39, 155);
             this.desktop.Name = "desktop";
-            this.desktop.Size = new System.Drawing.Size(252, 17);
+            this.desktop.Size = new System.Drawing.Size(268, 17);
             this.desktop.TabIndex = 1;
             this.desktop.Text = "Shortcut on desktop / Raccourcie sur le bureau";
             this.desktop.UseVisualStyleBackColor = true;
@@ -67,16 +70,18 @@
             this.run.AutoSize = true;
             this.run.Checked = true;
             this.run.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.run.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.run.ForeColor = System.Drawing.Color.White;
-            this.run.Location = new System.Drawing.Point(43, 181);
+            this.run.Location = new System.Drawing.Point(39, 181);
             this.run.Name = "run";
-            this.run.Size = new System.Drawing.Size(236, 17);
+            this.run.Size = new System.Drawing.Size(256, 17);
             this.run.TabIndex = 1;
             this.run.Text = "Run after installed / Lancer après installation";
             this.run.UseVisualStyleBackColor = true;
             // 
             // install
             // 
+            this.install.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.install.Location = new System.Drawing.Point(196, 254);
             this.install.Name = "install";
             this.install.Size = new System.Drawing.Size(100, 23);
@@ -87,6 +92,7 @@
             // 
             // cancel
             // 
+            this.cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancel.Location = new System.Drawing.Point(42, 254);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(100, 23);
@@ -106,24 +112,24 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(51, 105);
+            this.label3.Location = new System.Drawing.Point(12, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 16);
+            this.label3.Size = new System.Drawing.Size(213, 17);
             this.label3.TabIndex = 36;
             this.label3.Text = "A tool for Unowhy Y13 computers !";
             // 
             // sty1001
             // 
             this.sty1001.AutoSize = true;
-            this.sty1001.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.sty1001.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sty1001.ForeColor = System.Drawing.Color.White;
             this.sty1001.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.sty1001.Location = new System.Drawing.Point(63, 126);
+            this.sty1001.Location = new System.Drawing.Point(12, 123);
             this.sty1001.Name = "sty1001";
-            this.sty1001.Size = new System.Drawing.Size(185, 13);
+            this.sty1001.Size = new System.Drawing.Size(191, 13);
             this.sty1001.TabIndex = 35;
             this.sty1001.Text = "by STY1001 | sty1001.wordpress.com\r\n";
             // 
@@ -150,7 +156,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Unowhy_Tools_Installer.Properties.Resources.startup;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 178);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 178);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(20, 20);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -160,7 +166,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools_Installer.Properties.Resources.desktop;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 152);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 152);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -187,12 +193,33 @@
             this.status.Size = new System.Drawing.Size(279, 20);
             this.status.TabIndex = 37;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(266, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(249, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Ver 17.0";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(310, 292);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.status);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.sty1001);
@@ -212,7 +239,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Unowhy Tools 17.0 Installer";
+            this.Text = "Unowhy Tools Installer";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -238,6 +265,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label sty1001;
         private System.Windows.Forms.TextBox status;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
