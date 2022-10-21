@@ -255,6 +255,12 @@
   <data name="dishis" xml:space="preserve">
     <value>Désactiver le services "HiSqoolManager"</value>
   </data>
+  <data name="dismdrv" xml:space="preserve">
+    <value>Sauv. et Rest. les pilotes avec DISM</value>
+  </data>
+  <data name="dismdrv.title" xml:space="preserve">
+    <value>DISM Drv GUI pour Unowhy Tools</value>
+  </data>
   <data name="domuser" xml:space="preserve">
     <value>ID de l'utilisateur actuel ([DOMAINE] \ [UTILISATEUR])</value>
   </data>
