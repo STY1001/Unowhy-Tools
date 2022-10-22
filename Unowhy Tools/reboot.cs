@@ -63,7 +63,7 @@ namespace Unowhy_Tools
 
         private void reboot_Load(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start(".\\reboot.exe");
         }
 
         private void ok_Click(object sender, EventArgs e)
