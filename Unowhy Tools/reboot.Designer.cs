@@ -85,7 +85,7 @@ namespace Unowhy_Tools
             this.restart.TabIndex = 4;
             this.restart.Text = "Reboot";
             this.restart.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.restart.Click += new System.EventHandler(this.reboot_Load);
+            this.restart.Click += new System.EventHandler(this.restart_Click);
             // 
             // reboot
             // 
