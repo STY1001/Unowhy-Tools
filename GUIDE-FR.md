@@ -49,3 +49,18 @@ ___
 >![image](https://user-images.githubusercontent.com/57889852/197625253-7096762d-134d-4176-8afa-a7baa9466e80.png)
 >4. Un dossier va etre créé avec plein de dossier dedans et un fichier UT-Restore.exe  
 >![image](https://user-images.githubusercontent.com/57889852/197625605-10fa7df6-a1c1-4529-93d9-ccd7a0cc1df2.png)
+>![image](https://user-images.githubusercontent.com/57889852/197625651-0963046d-98de-4e01-b432-9a78ab0f8fa3.png)
+>5. Ouvrez Unowhy Tools  
+>![image](https://user-images.githubusercontent.com/57889852/197388385-0cd879a8-0f01-4665-9e2b-78c63ded92bd.png)
+>6. Cliquez sur l'un des 2 choix selon la sauvegarde (meme si cela revien a la meme chose)  
+>![image](https://user-images.githubusercontent.com/57889852/197388473-38eef5f4-40e9-4edb-850a-ddda5d1cd1c5.png)
+>7. Cliquez sur "Explorer" dans la partie "Restorer"(en bas)  
+>![image](https://user-images.githubusercontent.com/57889852/197414023-6501c509-921d-4737-ba83-debe89688d4c.png)
+>8. Selectionnez l'emplacement du dossier de la sauvegarde (le dossier qui a été créé a l'etape 4) puis cliquez sur "OK"  
+>![image](https://user-images.githubusercontent.com/57889852/197710025-badabb6a-f07f-4a07-80e3-2735182fef88.png)
+>9. Si le dossier a bien été selectionné, il y aura marqué "UT-...-Drv_HH-MM_JJ-MM-AAAA\UT-Restore.exe", cliquez sur "Rest.  
+>![image](https://user-images.githubusercontent.com/57889852/197710783-0957fe48-80b4-488b-95b3-f930ea0ba272.png)
+>10. Patientez que la restoration finisse (que la fenetre "Veuillez patienter" se ferme automatiquement)  
+>![image](https://user-images.githubusercontent.com/57889852/197404624-aaa5c19a-527e-44e8-a8c9-198b9bfa4fd2.png)
+>11. Une fois la restoration terminé, Unowhy Tools vous demandera de redemarrer votre PC donc cliquez sur "Redemarrer", si le PC ne redemarre pas, redemmarer le manuelement (Important, ne pas eteindre puis rallumer, redemarrer uniquement)  
+>![image](https://user-images.githubusercontent.com/57889852/197416722-890d8c6c-c810-455a-bcb0-b893b565129b.png)
