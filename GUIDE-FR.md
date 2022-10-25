@@ -1,10 +1,10 @@
 # Guide en cours d'ecriture
 # Unowhy Tools Guide (French)
   
-[Sauvegarder et Restorer les pilotes](https://github.com/STY1001/Unowhy-Tools/new/master#sauvegarder-et-restorer-les-pilotes)  
-> [Sauvegarder](https://github.com/STY1001/Unowhy-Tools/new/master#sauvgarder)  
-> [Restorer a partir d'une sauvegarde personnel](https://github.com/STY1001/Unowhy-Tools/new/master#restorer-a-partir-dune-sauvegarde-personnel)  
-> [Restorer a partir d'une sauvgarde recuperé en ligne (faite par une autre personne genereuse)](https://github.com/STY1001/Unowhy-Tools/new/master#restorer-a-partir-dune-sauvgarde-recuper%C3%A9-en-ligne-faite-par-une-autre-personne-genereuse)  
+[Sauvegarder et Restorer les pilotes](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#sauvegarder-et-restorer-les-pilotes)  
+> [Sauvegarder](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#sauvgarder)  
+> [Restorer a partir d'une sauvegarde personnel](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#restorer-a-partir-dune-sauvegarde-personnel)  
+> [Restorer a partir d'une sauvgarde recuperé en ligne (faite par une autre personne genereuse)](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md##restorer-a-partir-dune-sauvgarde-recuper%C3%A9-en-ligne-faite-par-une-autre-personne-genereuse)  
   
 ## Sauvegarder et Restorer les pilotes
 ### Sauvgarder:
