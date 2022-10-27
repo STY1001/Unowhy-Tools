@@ -193,6 +193,7 @@ using System.Windows.Input;
 using System.ServiceProcess;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
+using System.Security.Principal;
 
 namespace Unowhy_Tools
 {   
@@ -233,6 +234,34 @@ namespace Unowhy_Tools
 
         #endregion
 
+        #region Check admin
+
+        public static bool checkAdmin()
+        {
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+
+        #endregion
+        #region Run admin
+
+        private void runAdmin()
+        {
+            if (!checkAdmin())
+            {
+                // Restart and run as admin
+                var exeName = Process.GetCurrentProcess().MainModule.FileName;
+                ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+                startInfo.Verb = "runas";
+                startInfo.Arguments = "restart";
+                Process.Start(startInfo);
+                Application.Exit();
+                this.Close();
+            }
+        }
+
+        #endregion
         #region Dark Title Bar
 
         //Set dark mode title bar
@@ -272,6 +301,23 @@ namespace Unowhy_Tools
             else
             {
                 Directory.CreateDirectory("temp");
+            }
+
+            if (checkAdmin())
+            {
+
+            }
+            else
+            {
+                // Get user id of Invoker (Real user)
+                string realid = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                string compiduser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                string iduser = Environment.UserName;
+                File.WriteAllText(".\\temp\\realid.txt", realid);
+                File.WriteAllText(".\\temp\\compuser.txt", compiduser);
+                File.WriteAllText(".\\temp\\user.txt", iduser);
+                delay(300);
+                runAdmin();
             }
 
             RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);   //Check if the  "STY1001" key exist
@@ -704,13 +750,41 @@ namespace Unowhy_Tools
         public void debuserid()
         {
 
-            if (System.Security.Principal.WindowsIdentity.GetCurrent().Name.Contains("AzureAD") == true)
+            string filePath = ".\\temp\\realid.txt";
+            int lineNumber = 1;
+            StreamReader inputFile = new StreamReader(filePath);
+
+            for (int i = 1; i < lineNumber; i++)
             {
-                debuser.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                inputFile.ReadLine();
+            }
+            string nameid = inputFile.ReadLine();
+
+            if (nameid.Contains("AzureAD") == true)
+            {
+                string filePath2 = ".\\temp\\compuser.txt";
+                int lineNumber2 = 1;
+                StreamReader inputFile2 = new StreamReader(filePath2);
+
+                for (int i = 1; i < lineNumber2; i++)
+                {
+                    inputFile2.ReadLine();
+                }
+                string nameid2 = inputFile2.ReadLine();
+                debuser.Text = nameid2;
             }
             else
             {
-                debuser.Text = Environment.UserName;
+                string filePath2 = ".\\temp\\user.txt";
+                int lineNumber2 = 1;
+                StreamReader inputFile2 = new StreamReader(filePath2);
+
+                for (int i = 1; i < lineNumber2; i++)
+                {
+                    inputFile2.ReadLine();
+                }
+                string nameid2 = inputFile2.ReadLine();
+                debuser.Text = nameid2;
             }
         }
 
