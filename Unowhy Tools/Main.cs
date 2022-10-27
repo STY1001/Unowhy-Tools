@@ -305,7 +305,17 @@ namespace Unowhy_Tools
 
             if (checkAdmin())
             {
+                string filePath9 = ".\\temp\\workdir.txt";
+                int lineNumber9 = 1;
+                StreamReader inputFile9 = new StreamReader(filePath9);
 
+                for (int i = 1; i < lineNumber9; i++)
+                {
+                    inputFile9.ReadLine();
+                }
+                string workdir = inputFile9.ReadLine();
+
+                Directory.SetCurrentDirectory(workdir);
             }
             else
             {
@@ -313,10 +323,14 @@ namespace Unowhy_Tools
                 string realid = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                 string compiduser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                 string iduser = Environment.UserName;
+                string workdir = Directory.GetCurrentDirectory();
                 File.WriteAllText(".\\temp\\realid.txt", realid);
                 File.WriteAllText(".\\temp\\compuser.txt", compiduser);
                 File.WriteAllText(".\\temp\\user.txt", iduser);
+                File.WriteAllText(".\\temp\\workdir.txt", workdir);
                 delay(300);
+                t.Abort();
+                InitializeComponent();
                 runAdmin();
             }
 
@@ -353,13 +367,16 @@ namespace Unowhy_Tools
             }
             else
             {
-                                                //Set check boot at startup at on
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\cuabon.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();    //Wait the registery editing
+                if (checkAdmin())
+                {
+                    //Set check boot at startup at on
+                    Process p = new Process();
+                    p.StartInfo.FileName = ".\\cuabon.exe";
+                    p.StartInfo.Arguments = "";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                    p.Start();
+                    p.WaitForExit();    //Wait the registery editing
+                }
             }
 
             object o = key.GetValue("Lang", null);
@@ -369,12 +386,16 @@ namespace Unowhy_Tools
             }
             else
             {
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\langen.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();                     //Wait the registery editing
+                if (checkAdmin())
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = ".\\langen.exe";
+                    p.StartInfo.Arguments = "";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                    p.Start();
+                    p.WaitForExit();                     //Wait the registery editing
+                }
+                
                 delay(1000);
                 t.Abort();
                 var s = new Settings("1");
@@ -464,20 +485,29 @@ namespace Unowhy_Tools
             #region Collect Infos
 
             // Collecting PC Info and compress to txt
+            if (checkAdmin())
+            {
+                Process pci = new Process();
+                pci.StartInfo.FileName = ".\\getpcinfo.exe";
+                pci.StartInfo.Arguments = "";
+                pci.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                pci.Start();
+                pci.WaitForExit();
 
-            Process pci = new Process();
-            pci.StartInfo.FileName = ".\\getpcinfo.exe";
-            pci.StartInfo.Arguments = "";
-            pci.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            pci.Start();
-            pci.WaitForExit();
+                Process pci2 = new Process();
+                pci2.StartInfo.FileName = ".\\getsoftinfo.exe";
+                pci2.StartInfo.Arguments = "";
+                pci2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                pci2.Start();
+                pci2.WaitForExit();
 
-            Process pci2 = new Process();
-            pci2.StartInfo.FileName = ".\\getsoftinfo.exe";
-            pci2.StartInfo.Arguments = "";
-            pci2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            pci2.Start();
-            pci2.WaitForExit();
+                Process pci3 = new Process();
+                pci3.StartInfo.FileName = ".\\getuserinfo.exe";
+                pci3.StartInfo.Arguments = "";
+                pci3.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                pci3.Start();
+                pci3.WaitForExit();
+            }
 
             string filePath = ".\\temp\\pcname.txt";
             int lineNumber = 1;
@@ -603,13 +633,6 @@ namespace Unowhy_Tools
                 softinfotxt.WriteLine(rss);
                 softinfotxt.WriteLine(ass);
             }
-            
-            Process pci3 = new Process();
-            pci3.StartInfo.FileName = ".\\getuserinfo.exe";
-            pci3.StartInfo.Arguments = "";
-            pci3.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            pci3.Start();
-            pci3.WaitForExit();
 
             #endregion
 
