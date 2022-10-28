@@ -674,32 +674,34 @@ namespace Unowhy_Tools
 
             InitializeComponent();
 
-            #region Debug Mode Visibility
-
-            if (File.Exists("debug"))
+            if (checkAdmin())
             {
-                debuglab.Visible = true;
-                debshell.Visible = true;
-                debhme.Visible = true;
-                debhmr.Visible = true;
-                debhms.Visible = true;
-                debreagentc.Visible = true;
-                debazure.Visible = true;
-                debuser.Visible = true;
-                debti.Visible = true;
-                debent.Visible = true;
-                debadmin.Visible = true;
-                tbp.Visible = true;
-                clog.Visible = true;
+                #region Debug Mode Visibility
+
+                if (File.Exists("debug"))
+                {
+                    debuglab.Visible = true;
+                    debshell.Visible = true;
+                    debhme.Visible = true;
+                    debhmr.Visible = true;
+                    debhms.Visible = true;
+                    debreagentc.Visible = true;
+                    debazure.Visible = true;
+                    debuser.Visible = true;
+                    debti.Visible = true;
+                    debent.Visible = true;
+                    debadmin.Visible = true;
+                    tbp.Visible = true;
+                    clog.Visible = true;
+                }
+
+                #endregion
+
+                langswitch();
+                debuserid(userpath);
+                check();
+                changeswitch();
             }
-
-            #endregion
-
-            langswitch();
-            debuserid(userpath);
-            check();
-            changeswitch();
-
             t.Abort();
         }
 
