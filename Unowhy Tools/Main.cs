@@ -194,6 +194,7 @@ using System.ServiceProcess;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using System.Security.Principal;
+using System.Windows.Forms.VisualStyles;
 
 namespace Unowhy_Tools
 {   
@@ -253,8 +254,10 @@ namespace Unowhy_Tools
                 // Restart and run as admin
                 var exeName = Process.GetCurrentProcess().MainModule.FileName;
                 ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+                startInfo.WorkingDirectory = Directory.GetCurrentDirectory();
                 startInfo.Verb = "runas";
-                startInfo.Arguments = "restart";
+                string getidpath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                startInfo.Arguments = $"-u {getidpath}";
                 Process.Start(startInfo);
                 Application.Exit();
                 this.Close();
@@ -286,26 +289,17 @@ namespace Unowhy_Tools
 
         #endregion
 
-        public main()
+        public main(string userpath)
         {
             Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
             t.Start();
             delay(300);
 
-            #region First Start
-
-            if (Directory.Exists("temp"))
-            {
-
-            }
-            else
-            {
-                Directory.CreateDirectory("temp");
-            }
+            #region Get info without admin
 
             if (checkAdmin())
             {
-                string filePath9 = ".\\temp\\workdir.txt";
+                /*string filePath9 = "%userprofile%\\Unowhy Tools\\temp\\workdir.txt";
                 int lineNumber9 = 1;
                 StreamReader inputFile9 = new StreamReader(filePath9);
 
@@ -315,7 +309,34 @@ namespace Unowhy_Tools
                 }
                 string workdir = inputFile9.ReadLine();
 
-                Directory.SetCurrentDirectory(workdir);
+                Directory.SetCurrentDirectory(workdir);*/
+                if(!Directory.Exists($"{userpath}\\Unowhy Tools"))
+                {
+                   Directory.CreateDirectory($"{userpath}\\Unowhy Tools");
+                }
+
+                if (!Directory.Exists($"{userpath}\\Unowhy Tools\\temp"))
+                {
+                    Directory.CreateDirectory($"{userpath}\\Unowhy Tools\\temp");
+                }
+
+                if(!File.Exists($"{userpath}\\Unowhy Tools\\temp\\realid.txt"))
+                {
+                    string realid = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                    File.WriteAllText($"{userpath}\\Unowhy Tools\\temp\\realid.txt", realid);
+                }
+
+                if (!File.Exists($"{userpath}\\Unowhy Tools\\temp\\compuser.txt"))
+                {
+                    string compiduser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                    File.WriteAllText($"{userpath}\\Unowhy Tools\\temp\\compuser.txt", compiduser);
+                }
+
+                if (!File.Exists($"{userpath}\\Unowhy Tools\\temp\\user.txt"))
+                {
+                    string iduser = Environment.UserName;
+                    File.WriteAllText($"{userpath}\\Unowhy Tools\\temp\\user.txt", iduser);
+                }
             }
             else
             {
@@ -323,51 +344,73 @@ namespace Unowhy_Tools
                 string realid = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                 string compiduser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                 string iduser = Environment.UserName;
-                string workdir = Directory.GetCurrentDirectory();
-                File.WriteAllText(".\\temp\\realid.txt", realid);
-                File.WriteAllText(".\\temp\\compuser.txt", compiduser);
-                File.WriteAllText(".\\temp\\user.txt", iduser);
-                File.WriteAllText(".\\temp\\workdir.txt", workdir);
+                //string workdir = Directory.GetCurrentDirectory();
+                string profpath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                if (!Directory.Exists($"{profpath}\\Unowhy Tools"))
+                {
+                    Directory.CreateDirectory($"{profpath}\\Unowhy Tools");
+                }
+                if (!Directory.Exists($"{profpath}\\Unowhy Tools\\temp"))
+                {
+                    Directory.CreateDirectory($"{profpath}\\Unowhy Tools\\temp");
+                }
+                File.WriteAllText($"{profpath}\\Unowhy Tools\\temp\\realid.txt", realid);
+                File.WriteAllText($"{profpath}\\Unowhy Tools\\temp\\compuser.txt", compiduser);
+                File.WriteAllText($"{profpath}\\Unowhy Tools\\temp\\user.txt", iduser);
+                //File.WriteAllText("%userprofile%\\Unowhy Tools\\temp\\workdir.txt", workdir);
                 delay(300);
                 t.Abort();
                 InitializeComponent();
                 runAdmin();
             }
 
-            RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);   //Check if the  "STY1001" key exist
-            if (keysty != null)
-            {
+            #endregion
 
-            }
-            else
+            if (checkAdmin())
             {
-                RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);    //Create it
-                stykey.CreateSubKey("STY1001");
-                delay(300);
-            }
+                #region First Start
 
-            RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);   //Check if "UT" key exist
-            if (keyut != null)
-            {
+                if (Directory.Exists("temp"))
+                {
 
-            }
-            else
-            {
-                RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);     //Create it with "Lang" value
-                utkey.CreateSubKey("Unowhy Tools");
-                delay(300);
+                }
+                else
+                {
+                    Directory.CreateDirectory("temp");
+                }
 
-            }
+                RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);   //Check if the  "STY1001" key exist
+                if (keysty != null)
+                {
 
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools");       //Open key
-            object us = key.GetValue("UpdateStart", null);
-            if (us != null)
-            {
+                }
+                else
+                {
+                    RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);    //Create it
+                    stykey.CreateSubKey("STY1001");
+                    delay(300);
+                }
 
-            }
-            else
-            {
-                if (checkAdmin())
+                RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);   //Check if "UT" key exist
+                if (keyut != null)
+                {
+
+                }
+                else
+                {
+                    RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);     //Create it with "Lang" value
+                    utkey.CreateSubKey("Unowhy Tools");
+                    delay(300);
+
+                }
+
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools");       //Open key
+                object us = key.GetValue("UpdateStart", null);
+                if (us != null)
+                {
+
+                }
+                else
                 {
                     //Set check boot at startup at on
                     Process p = new Process();
@@ -377,16 +420,13 @@ namespace Unowhy_Tools
                     p.Start();
                     p.WaitForExit();    //Wait the registery editing
                 }
-            }
 
-            object o = key.GetValue("Lang", null);
-            if (o != null)
-            {
+                object o = key.GetValue("Lang", null);
+                if (o != null)
+                {
 
-            }
-            else
-            {
-                if (checkAdmin())
+                }
+                else
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = ".\\langen.exe";
@@ -394,75 +434,37 @@ namespace Unowhy_Tools
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                     p.Start();
                     p.WaitForExit();                     //Wait the registery editing
+                    delay(1000);
+                    t.Abort();
+                    var s = new Settings("1");
+                    s.ShowDialog();                        //Show settings
+                    t = new Thread(new ThreadStart(SplashScreen));
+                    t.Start();
+
+                    delay(100);
                 }
-                
-                delay(1000);
-                t.Abort();
-                var s = new Settings("1");
-                s.ShowDialog();                        //Show settings
-                t = new Thread(new ThreadStart(SplashScreen));
-                t.Start();
 
-                delay(100);
-            }
+                delay(300);
 
-            delay(300);
+                #endregion
 
-            #endregion
+                #region Update System
 
-            #region Update System
-
-            object u = key.GetValue("UpdateStart", null);
-            if (u != null)
-            {
-                string utlu = key.GetValue("UpdateStart").ToString();
-                if (utlu == "1")
+                object u = key.GetValue("UpdateStart", null);
+                if (u != null)
                 {
-                    string noco = "0";
-
-                    int Out;
-                    if (InternetGetConnectedState(out Out, 0) == true) noco = "0";
-                    else noco = "1";
-
-                    if(noco == "1")
+                    string utlu = key.GetValue("UpdateStart").ToString();
+                    if (utlu == "1")
                     {
-                        var s = new nonet();
-                        t.Abort();
-                        s.ShowDialog();
-                        t = new Thread(new ThreadStart(SplashScreen));
-                        t.Start();
-                    }
-                    else
-                    {
-                        if (File.Exists(".\\temp\\gitversion.txt"))    //Check if the file exist
-                        {
-                            File.Delete(".\\temp\\gitversion.txt");    //Delete it if exist
-                        }
-                        if (File.Exists(".\\fr.resx"))    //Check if the file exist
-                        {
-                            File.Delete(".\\fr.resx");    //Delete it if exist
-                        }
-                        if (File.Exists(".\\en.resx"))    //Check if the file exist
-                        {
-                            File.Delete(".\\en.resx");    //Delete it if exist
-                        }
+                        string noco = "0";
 
-                        using (var client = new WebClient())
+                        int Out;
+                        if (InternetGetConnectedState(out Out, 0) == true) noco = "0";
+                        else noco = "1";
+
+                        if (noco == "1")
                         {
-                            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\temp\\gitversion.txt");     //Download Version file
-                            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\fr.resx");         //Update Languages
-                            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\en.resx");         //Update Languages
-                        }
-
-                        string gitver = System.IO.File.ReadAllText(".\\temp\\gitversion.txt");      //Convert text to string
-                        string progver = System.IO.File.ReadAllText(".\\version.txt");
-
-                        int gitint = Convert.ToInt32(gitver);       //Convert string to int
-                        int progint = Convert.ToInt32(progver);
-
-                        if (progint < gitint)        //Check if there is a new vertion of UT
-                        {
-                            var s = new newver();
+                            var s = new nonet();
                             t.Abort();
                             s.ShowDialog();
                             t = new Thread(new ThreadStart(SplashScreen));
@@ -470,23 +472,57 @@ namespace Unowhy_Tools
                         }
                         else
                         {
+                            if (File.Exists(".\\temp\\gitversion.txt"))    //Check if the file exist
+                            {
+                                File.Delete(".\\temp\\gitversion.txt");    //Delete it if exist
+                            }
+                            if (File.Exists(".\\fr.resx"))    //Check if the file exist
+                            {
+                                File.Delete(".\\fr.resx");    //Delete it if exist
+                            }
+                            if (File.Exists(".\\en.resx"))    //Check if the file exist
+                            {
+                                File.Delete(".\\en.resx");    //Delete it if exist
+                            }
 
+                            using (var client = new WebClient())
+                            {
+                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\temp\\gitversion.txt");     //Download Version file
+                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\fr.resx");         //Update Languages
+                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\en.resx");         //Update Languages
+                            }
+
+                            string gitver = System.IO.File.ReadAllText(".\\temp\\gitversion.txt");      //Convert text to string
+                            string progver = System.IO.File.ReadAllText(".\\version.txt");
+
+                            int gitint = Convert.ToInt32(gitver);       //Convert string to int
+                            int progint = Convert.ToInt32(progver);
+
+                            if (progint < gitint)        //Check if there is a new vertion of UT
+                            {
+                                var s = new newver();
+                                t.Abort();
+                                s.ShowDialog();
+                                t = new Thread(new ThreadStart(SplashScreen));
+                                t.Start();
+                            }
+                            else
+                            {
+
+                            }
                         }
                     }
                 }
-            }
-            else
-            {
-                
-            }
+                else
+                {
 
-            #endregion
+                }
 
-            #region Collect Infos
+                #endregion
 
-            // Collecting PC Info and compress to txt
-            if (checkAdmin())
-            {
+                #region Collect Infos
+
+                // Collecting PC Info and compress to txt
                 Process pci = new Process();
                 pci.StartInfo.FileName = ".\\getpcinfo.exe";
                 pci.StartInfo.Arguments = "";
@@ -507,134 +543,134 @@ namespace Unowhy_Tools
                 pci3.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 pci3.Start();
                 pci3.WaitForExit();
+
+                string filePath = ".\\temp\\pcname.txt";
+                int lineNumber = 1;
+                int lineNumber2 = 2;
+                int lineNumber4 = 4;
+                int lineNumber6 = 6;
+                StreamReader inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string hnpcn = inputFile.ReadLine();
+
+                filePath = ".\\temp\\mf.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber2; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string mf = inputFile.ReadLine();
+
+                filePath = ".\\temp\\model.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber2; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string model = inputFile.ReadLine();
+
+                filePath = ".\\temp\\os.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber2; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string os = inputFile.ReadLine();
+
+                filePath = ".\\temp\\ene.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber2; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string ene = inputFile.ReadLine();
+
+                filePath = ".\\temp\\ifp.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber2; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string ifp = inputFile.ReadLine();
+
+                filePath = ".\\temp\\username.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string un = inputFile.ReadLine();
+
+                filePath = ".\\temp\\shell.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string sk = inputFile.ReadLine();
+
+                filePath = ".\\temp\\hsmst.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string hsmst = inputFile.ReadLine();
+
+                filePath = ".\\temp\\rs.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber4; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string rss = inputFile.ReadLine();
+
+                filePath = ".\\temp\\azure.txt";
+                inputFile = new StreamReader(filePath);
+
+                for (int i = 1; i < lineNumber6; i++)
+                {
+                    inputFile.ReadLine();
+                }
+                string ass = inputFile.ReadLine();
+
+                string finalinfotxt = ".\\fullpcinfo.txt";
+                using (StreamWriter pcinfotxt = File.CreateText(finalinfotxt))
+                {
+                    pcinfotxt.WriteLine(hnpcn);
+                    pcinfotxt.WriteLine(mf);
+                    pcinfotxt.WriteLine(model);
+                    pcinfotxt.WriteLine(ene);
+                    pcinfotxt.WriteLine(ifp);
+                    pcinfotxt.WriteLine(os);
+                    pcinfotxt.WriteLine(un);
+                }
+
+                string finalsofttxt = ".\\fullsoftinfo.txt";
+                using (StreamWriter softinfotxt = File.CreateText(finalsofttxt))
+                {
+
+                    softinfotxt.WriteLine(sk);
+                    softinfotxt.WriteLine(hsmst);
+                    softinfotxt.WriteLine(rss);
+                    softinfotxt.WriteLine(ass);
+                }
+
+                #endregion
             }
-
-            string filePath = ".\\temp\\pcname.txt";
-            int lineNumber = 1;
-            int lineNumber2 = 2;
-            int lineNumber4 = 4;
-            int lineNumber6 = 6;
-            StreamReader inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string hnpcn = inputFile.ReadLine();
-
-            filePath = ".\\temp\\mf.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber2; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string mf = inputFile.ReadLine();
-
-            filePath = ".\\temp\\model.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber2; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string model = inputFile.ReadLine();
-
-            filePath = ".\\temp\\os.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber2; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string os = inputFile.ReadLine();
-
-            filePath = ".\\temp\\ene.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber2; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string ene = inputFile.ReadLine();
-
-            filePath = ".\\temp\\ifp.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber2; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string ifp = inputFile.ReadLine();
-
-            filePath = ".\\temp\\username.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string un = inputFile.ReadLine();
-
-            filePath = ".\\temp\\shell.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string sk = inputFile.ReadLine();
-
-            filePath = ".\\temp\\hsmst.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string hsmst = inputFile.ReadLine();
-
-            filePath = ".\\temp\\rs.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber4; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string rss = inputFile.ReadLine();
-
-            filePath = ".\\temp\\azure.txt";
-            inputFile = new StreamReader(filePath);
-
-            for (int i = 1; i < lineNumber6; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string ass = inputFile.ReadLine();
-
-            string finalinfotxt = ".\\fullpcinfo.txt";
-            using (StreamWriter pcinfotxt = File.CreateText(finalinfotxt))
-            {
-                pcinfotxt.WriteLine(hnpcn);
-                pcinfotxt.WriteLine(mf);
-                pcinfotxt.WriteLine(model);
-                pcinfotxt.WriteLine(ene);
-                pcinfotxt.WriteLine(ifp);
-                pcinfotxt.WriteLine(os);
-                pcinfotxt.WriteLine(un);
-            }
-
-            string finalsofttxt = ".\\fullsoftinfo.txt";
-            using(StreamWriter softinfotxt = File.CreateText(finalsofttxt))
-            {
-
-                softinfotxt.WriteLine(sk);
-                softinfotxt.WriteLine(hsmst);
-                softinfotxt.WriteLine(rss);
-                softinfotxt.WriteLine(ass);
-            }
-
-            #endregion
 
             InitializeComponent();
 
@@ -660,7 +696,7 @@ namespace Unowhy_Tools
             #endregion
 
             langswitch();
-            debuserid();
+            debuserid(userpath);
             check();
             changeswitch();
 
@@ -770,10 +806,10 @@ namespace Unowhy_Tools
 
         #region Other Func
 
-        public void debuserid()
+        public void debuserid(string iduserpath)
         {
 
-            string filePath = ".\\temp\\realid.txt";
+            string filePath = $"{iduserpath}\\Unowhy Tools\\temp\\realid.txt";
             int lineNumber = 1;
             StreamReader inputFile = new StreamReader(filePath);
 
@@ -785,7 +821,7 @@ namespace Unowhy_Tools
 
             if (nameid.Contains("AzureAD") == true)
             {
-                string filePath2 = ".\\temp\\compuser.txt";
+                string filePath2 = $"{iduserpath}\\Unowhy Tools\\temp\\compuser.txt";
                 int lineNumber2 = 1;
                 StreamReader inputFile2 = new StreamReader(filePath2);
 
@@ -798,7 +834,7 @@ namespace Unowhy_Tools
             }
             else
             {
-                string filePath2 = ".\\temp\\user.txt";
+                string filePath2 = $"{iduserpath}\\Unowhy Tools\\temp\\user.txt";
                 int lineNumber2 = 1;
                 StreamReader inputFile2 = new StreamReader(filePath2);
 
