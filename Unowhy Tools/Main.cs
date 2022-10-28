@@ -1543,15 +1543,8 @@ namespace Unowhy_Tools
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
                 Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
                 t.Start();
-
-                string filePath = ".\\fullpcinfo.txt";
-                StreamReader inputFile = new StreamReader(filePath);
-                int lineNumber = 7;
-                for (int i = 1; i < lineNumber; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string user = inputFile.ReadLine();
+                
+                string user = debuser.Text;
 
                 string arg = ($"localgroup Administrateurs /add \"{user}\"");
                                                                            // Set admin
