@@ -1,4 +1,6 @@
-﻿namespace Unowhy_Tools
+﻿using System;
+
+namespace Unowhy_Tools
 {
     partial class changelog
     {

@@ -18,6 +18,8 @@ namespace Unowhy_Tools
 {
     public partial class changelog : Form
     {
+        [STAThread]
+
         //Set dark mode title bar
         [DllImport("DwmApi")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);

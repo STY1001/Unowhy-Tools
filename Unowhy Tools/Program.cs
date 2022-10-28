@@ -20,6 +20,8 @@ namespace Unowhy_Tools
             public string userpath { get; set; }
         }
 
+        [STAThread]
+
         static void Main(string[] args)
         {
             Application.EnableVisualStyles();
