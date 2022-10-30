@@ -107,6 +107,7 @@ namespace Unowhy_Tools
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     opb.Text = fbd.SelectedPath + "\\UT-DISM-Drv_" + DateTime.Now.ToString("HH-mm_dd-MM-yy");
+                    opb.Text.Replace("\\\\", "\\");
                 }
             }
         }
