@@ -113,6 +113,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cmd {
+            get {
+                object obj = ResourceManager.GetObject("cmd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap customize {
             get {
                 object obj = ResourceManager.GetObject("customize", resourceCulture);
@@ -213,6 +223,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fp {
+            get {
+                object obj = ResourceManager.GetObject("fp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap github {
             get {
                 object obj = ResourceManager.GetObject("github", resourceCulture);
@@ -223,9 +243,29 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap guide {
+            get {
+                object obj = ResourceManager.GetObject("guide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic {
             get {
                 object obj = ResourceManager.GetObject("ic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap instprog {
+            get {
+                object obj = ResourceManager.GetObject("instprog", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -601,7 +641,7 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Version 17.0.
+        ///   Recherche une chaîne localisée semblable à Version 18.0.
         /// </summary>
         internal static string Version {
             get {
