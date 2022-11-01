@@ -808,6 +808,11 @@ namespace Unowhy_Tools
 
         #region Other Func
 
+        public void checkwhe()
+        {
+
+        }
+
         public void debuserid(string iduserpath)
         {
 
@@ -1630,6 +1635,44 @@ namespace Unowhy_Tools
             dism.ShowDialog();
         }
 
+        private void opencmd_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("cmd.exe");
+        }
+
+        private void unprog_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("ms-settings:appsfeatures");
+        }
+
+        private void guide_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE.md");
+        }
+
+        private void enwhe_Click(object sender, EventArgs e)
+        {
+            string msg = enwhe.Text;
+            dialog d = new dialog(msg);
+            d.ShowDialog();
+            if (d.DialogResult.Equals(DialogResult.Yes))
+            {
+                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
+                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
+                t.Start();
+                // Del Serv Only
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\winhelloent.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit();
+
+                t.Abort();
+                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+            }
+        }
+
         #endregion
 
         #region Buttons Description
@@ -1969,5 +2012,9 @@ namespace Unowhy_Tools
 
         #endregion
 
+        private void main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
