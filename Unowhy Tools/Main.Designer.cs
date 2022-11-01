@@ -110,6 +110,14 @@ namespace Unowhy_Tools
             this.clog = new System.Windows.Forms.Button();
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.dismbr = new ReaLTaiizor.Controls.Button();
+            this.pictureBox31 = new System.Windows.Forms.PictureBox();
+            this.enwhe = new ReaLTaiizor.Controls.Button();
+            this.pictureBox32 = new System.Windows.Forms.PictureBox();
+            this.pictureBox33 = new System.Windows.Forms.PictureBox();
+            this.pictureBox34 = new System.Windows.Forms.PictureBox();
+            this.opencmd = new ReaLTaiizor.Controls.Button();
+            this.unprog = new ReaLTaiizor.Controls.Button();
+            this.guide = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -141,6 +149,10 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
             this.SuspendLayout();
             // 
             // ver
@@ -883,6 +895,91 @@ namespace Unowhy_Tools
             this.dismbr.Click += new System.EventHandler(this.dismdrv_Click);
             this.dismbr.MouseEnter += new System.EventHandler(this.desc_dismbr);
             // 
+            // pictureBox31
+            // 
+            this.pictureBox31.Image = global::Unowhy_Tools.Properties.Resources.fp;
+            resources.ApplyResources(this.pictureBox31, "pictureBox31");
+            this.pictureBox31.Name = "pictureBox31";
+            this.pictureBox31.TabStop = false;
+            // 
+            // enwhe
+            // 
+            this.enwhe.BackColor = System.Drawing.Color.Transparent;
+            this.enwhe.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.enwhe.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            resources.ApplyResources(this.enwhe, "enwhe");
+            this.enwhe.Image = null;
+            this.enwhe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.enwhe.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.enwhe.Name = "enwhe";
+            this.enwhe.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.enwhe.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.enwhe.Click += new System.EventHandler(this.winre_Click);
+            this.enwhe.MouseEnter += new System.EventHandler(this.desc_Winre);
+            // 
+            // pictureBox32
+            // 
+            this.pictureBox32.Image = global::Unowhy_Tools.Properties.Resources.guide;
+            resources.ApplyResources(this.pictureBox32, "pictureBox32");
+            this.pictureBox32.Name = "pictureBox32";
+            this.pictureBox32.TabStop = false;
+            // 
+            // pictureBox33
+            // 
+            this.pictureBox33.Image = global::Unowhy_Tools.Properties.Resources.cmd;
+            resources.ApplyResources(this.pictureBox33, "pictureBox33");
+            this.pictureBox33.Name = "pictureBox33";
+            this.pictureBox33.TabStop = false;
+            // 
+            // pictureBox34
+            // 
+            this.pictureBox34.Image = global::Unowhy_Tools.Properties.Resources.instprog;
+            resources.ApplyResources(this.pictureBox34, "pictureBox34");
+            this.pictureBox34.Name = "pictureBox34";
+            this.pictureBox34.TabStop = false;
+            // 
+            // opencmd
+            // 
+            this.opencmd.BackColor = System.Drawing.Color.Transparent;
+            this.opencmd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.opencmd.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            resources.ApplyResources(this.opencmd, "opencmd");
+            this.opencmd.Image = null;
+            this.opencmd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.opencmd.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.opencmd.Name = "opencmd";
+            this.opencmd.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.opencmd.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.opencmd.Click += new System.EventHandler(this.opencmd_Click);
+            // 
+            // unprog
+            // 
+            this.unprog.BackColor = System.Drawing.Color.Transparent;
+            this.unprog.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.unprog.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            resources.ApplyResources(this.unprog, "unprog");
+            this.unprog.Image = null;
+            this.unprog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.unprog.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.unprog.Name = "unprog";
+            this.unprog.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.unprog.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.unprog.Click += new System.EventHandler(this.unprog_Click);
+            // 
+            // guide
+            // 
+            this.guide.BackColor = System.Drawing.Color.Transparent;
+            this.guide.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guide.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            resources.ApplyResources(this.guide, "guide");
+            this.guide.Image = null;
+            this.guide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.guide.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.guide.Name = "guide";
+            this.guide.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.guide.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.guide.Click += new System.EventHandler(this.guide_Click);
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -905,14 +1002,18 @@ namespace Unowhy_Tools
             this.Controls.Add(this.dismbr);
             this.Controls.Add(this.psbr);
             this.Controls.Add(this.aadleave);
+            this.Controls.Add(this.enwhe);
             this.Controls.Add(this.winre);
             this.Controls.Add(this.shell);
             this.Controls.Add(this.delhismserv);
             this.Controls.Add(this.dishis);
             this.Controls.Add(this.enhis);
             this.Controls.Add(this.starthis);
+            this.Controls.Add(this.guide);
             this.Controls.Add(this.about);
+            this.Controls.Add(this.unprog);
             this.Controls.Add(this.pcinfo);
+            this.Controls.Add(this.opencmd);
             this.Controls.Add(this.settings);
             this.Controls.Add(this.tbp);
             this.Controls.Add(this.debti);
@@ -934,8 +1035,11 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox19);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox16);
+            this.Controls.Add(this.pictureBox34);
             this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.pictureBox22);
+            this.Controls.Add(this.pictureBox33);
+            this.Controls.Add(this.pictureBox31);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
@@ -958,6 +1062,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox32);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.drivercat);
@@ -972,6 +1077,7 @@ namespace Unowhy_Tools
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "main";
+            this.Load += new System.EventHandler(this.main_Load);
             this.MouseEnter += new System.EventHandler(this.desc_Clean);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
@@ -1004,6 +1110,10 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1090,6 +1200,14 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Button clog;
         private System.Windows.Forms.PictureBox pictureBox30;
         private ReaLTaiizor.Controls.Button dismbr;
+        private System.Windows.Forms.PictureBox pictureBox31;
+        private ReaLTaiizor.Controls.Button enwhe;
+        private System.Windows.Forms.PictureBox pictureBox32;
+        private System.Windows.Forms.PictureBox pictureBox33;
+        private System.Windows.Forms.PictureBox pictureBox34;
+        private ReaLTaiizor.Controls.Button opencmd;
+        private ReaLTaiizor.Controls.Button unprog;
+        private ReaLTaiizor.Controls.Button guide;
     }
 }
 
