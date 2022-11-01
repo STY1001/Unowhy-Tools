@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ver.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>1188, 437</value>
   </data>
   <data name="ver.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
@@ -142,7 +142,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ver.ZOrder" xml:space="preserve">
-    <value>78</value>
+    <value>86</value>
   </data>
   <data name="servicecat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -175,7 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;servicecat.ZOrder" xml:space="preserve">
-    <value>76</value>
+    <value>84</value>
   </data>
   <data name="repaircat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -208,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;repaircat.ZOrder" xml:space="preserve">
-    <value>75</value>
+    <value>83</value>
   </data>
   <data name="delcat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -241,7 +241,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delcat.ZOrder" xml:space="preserve">
-    <value>74</value>
+    <value>82</value>
   </data>
   <data name="cuscat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -274,22 +274,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cuscat.ZOrder" xml:space="preserve">
-    <value>73</value>
+    <value>81</value>
   </data>
   <data name="version.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="version.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
+    <value>Segoe UI, 8.25pt</value>
   </data>
   <data name="version.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="version.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1207, 11</value>
+    <value>261, 108</value>
   </data>
   <data name="version.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 20</value>
+    <value>63, 13</value>
   </data>
   <data name="version.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -307,13 +307,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;version.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>45</value>
   </data>
   <data name="desc.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8.25pt</value>
   </data>
   <data name="desc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 469</value>
+    <value>14, 471</value>
   </data>
   <data name="desc.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -334,7 +334,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;desc.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>44</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -346,7 +346,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 453</value>
+    <value>12, 455</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 15</value>
@@ -367,7 +367,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>43</value>
   </data>
   <data name="pictureBox19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -394,7 +394,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox19.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>47</value>
   </data>
   <data name="pictureBox17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -421,7 +421,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox17.ZOrder" xml:space="preserve">
-    <value>44</value>
+    <value>48</value>
   </data>
   <data name="pictureBox16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -448,7 +448,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox16.ZOrder" xml:space="preserve">
-    <value>45</value>
+    <value>49</value>
   </data>
   <data name="pictureBox15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -475,13 +475,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox15.ZOrder" xml:space="preserve">
-    <value>46</value>
+    <value>51</value>
   </data>
   <data name="pictureBox22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pictureBox22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 41</value>
+    <value>1263, 39</value>
   </data>
   <data name="pictureBox22.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -502,13 +502,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox22.ZOrder" xml:space="preserve">
-    <value>47</value>
+    <value>52</value>
   </data>
   <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 15</value>
+    <value>1263, 13</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -529,7 +529,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>48</value>
+    <value>55</value>
   </data>
   <data name="pictureBox9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -538,7 +538,7 @@
     <value>273, 294</value>
   </data>
   <data name="pictureBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox9.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -556,7 +556,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox9.ZOrder" xml:space="preserve">
-    <value>49</value>
+    <value>56</value>
   </data>
   <data name="pictureBox8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -565,7 +565,7 @@
     <value>273, 263</value>
   </data>
   <data name="pictureBox8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox8.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -583,7 +583,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox8.ZOrder" xml:space="preserve">
-    <value>50</value>
+    <value>57</value>
   </data>
   <data name="pictureBox21.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -592,7 +592,7 @@
     <value>534, 437</value>
   </data>
   <data name="pictureBox21.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox21.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -610,7 +610,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox21.ZOrder" xml:space="preserve">
-    <value>52</value>
+    <value>59</value>
   </data>
   <data name="pictureBox20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -619,7 +619,7 @@
     <value>534, 408</value>
   </data>
   <data name="pictureBox20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox20.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -637,7 +637,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox20.ZOrder" xml:space="preserve">
-    <value>53</value>
+    <value>60</value>
   </data>
   <data name="pictureBox13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -646,7 +646,7 @@
     <value>534, 379</value>
   </data>
   <data name="pictureBox13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox13.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -664,7 +664,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox13.ZOrder" xml:space="preserve">
-    <value>54</value>
+    <value>61</value>
   </data>
   <data name="pictureBox12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -673,7 +673,7 @@
     <value>534, 349</value>
   </data>
   <data name="pictureBox12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox12.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -691,7 +691,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox12.ZOrder" xml:space="preserve">
-    <value>55</value>
+    <value>62</value>
   </data>
   <data name="pictureBox14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -700,7 +700,7 @@
     <value>534, 263</value>
   </data>
   <data name="pictureBox14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox14.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -718,7 +718,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox14.ZOrder" xml:space="preserve">
-    <value>56</value>
+    <value>63</value>
   </data>
   <data name="pictureBox11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -727,7 +727,7 @@
     <value>534, 320</value>
   </data>
   <data name="pictureBox11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox11.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -745,7 +745,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox11.ZOrder" xml:space="preserve">
-    <value>58</value>
+    <value>65</value>
   </data>
   <data name="pictureBox23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -754,7 +754,7 @@
     <value>794, 262</value>
   </data>
   <data name="pictureBox23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox23.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -772,7 +772,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox23.ZOrder" xml:space="preserve">
-    <value>62</value>
+    <value>69</value>
   </data>
   <data name="pictureBox18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -781,7 +781,7 @@
     <value>794, 233</value>
   </data>
   <data name="pictureBox18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox18.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -799,7 +799,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox18.ZOrder" xml:space="preserve">
-    <value>64</value>
+    <value>71</value>
   </data>
   <data name="pictureBox10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -808,7 +808,7 @@
     <value>534, 233</value>
   </data>
   <data name="pictureBox10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox10.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -826,7 +826,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox10.ZOrder" xml:space="preserve">
-    <value>65</value>
+    <value>72</value>
   </data>
   <data name="pictureBox7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -835,7 +835,7 @@
     <value>273, 235</value>
   </data>
   <data name="pictureBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox7.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -853,7 +853,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox7.ZOrder" xml:space="preserve">
-    <value>66</value>
+    <value>73</value>
   </data>
   <data name="pictureBox6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -862,7 +862,7 @@
     <value>14, 308</value>
   </data>
   <data name="pictureBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox6.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -880,7 +880,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox6.ZOrder" xml:space="preserve">
-    <value>67</value>
+    <value>74</value>
   </data>
   <data name="pictureBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -889,7 +889,7 @@
     <value>14, 285</value>
   </data>
   <data name="pictureBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox5.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -907,7 +907,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox5.ZOrder" xml:space="preserve">
-    <value>68</value>
+    <value>75</value>
   </data>
   <data name="pictureBox4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -916,7 +916,7 @@
     <value>14, 256</value>
   </data>
   <data name="pictureBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox4.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -934,7 +934,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox4.ZOrder" xml:space="preserve">
-    <value>69</value>
+    <value>76</value>
   </data>
   <data name="pictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -943,7 +943,7 @@
     <value>14, 233</value>
   </data>
   <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox3.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -961,13 +961,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
-    <value>70</value>
+    <value>78</value>
   </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 68</value>
+    <value>1263, 66</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -988,13 +988,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>71</value>
+    <value>79</value>
   </data>
   <data name="logo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>502, 1</value>
+    <value>12, 0</value>
   </data>
   <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
     <value>312, 110</value>
@@ -1015,7 +1015,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
-    <value>79</value>
+    <value>87</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1024,7 +1024,7 @@
     <value>Segoe UI, 9.75pt</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>552, 106</value>
+    <value>12, 105</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 17</value>
@@ -1045,7 +1045,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>42</value>
   </data>
   <data name="pictureBox24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1054,7 +1054,7 @@
     <value>534, 292</value>
   </data>
   <data name="pictureBox24.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox24.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1072,7 +1072,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox24.ZOrder" xml:space="preserve">
-    <value>51</value>
+    <value>58</value>
   </data>
   <data name="pictureBox25.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1081,7 +1081,7 @@
     <value>794, 291</value>
   </data>
   <data name="pictureBox25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox25.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1099,7 +1099,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox25.ZOrder" xml:space="preserve">
-    <value>60</value>
+    <value>67</value>
   </data>
   <data name="pictureBox26.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1108,7 +1108,7 @@
     <value>794, 320</value>
   </data>
   <data name="pictureBox26.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox26.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1126,7 +1126,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox26.ZOrder" xml:space="preserve">
-    <value>59</value>
+    <value>66</value>
   </data>
   <data name="debuglab.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1156,7 +1156,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debuglab.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>41</value>
   </data>
   <data name="debshell.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1189,7 +1189,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debshell.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>40</value>
   </data>
   <data name="debhme.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1222,7 +1222,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debhme.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>39</value>
   </data>
   <data name="debhmr.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1255,7 +1255,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debhmr.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>38</value>
   </data>
   <data name="debhms.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1288,7 +1288,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debhms.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>37</value>
   </data>
   <data name="debreagentc.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1321,7 +1321,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debreagentc.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>36</value>
   </data>
   <data name="debazure.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1354,7 +1354,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debazure.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>35</value>
   </data>
   <data name="debuser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1387,7 +1387,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debuser.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>34</value>
   </data>
   <data name="debadmin.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1420,7 +1420,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debadmin.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>33</value>
   </data>
   <data name="debent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1453,7 +1453,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debent.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>32</value>
   </data>
   <data name="debti.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1486,7 +1486,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debti.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>31</value>
   </data>
   <data name="pictureBox27.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1495,7 +1495,7 @@
     <value>13, 338</value>
   </data>
   <data name="pictureBox27.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox27.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1513,7 +1513,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox27.ZOrder" xml:space="preserve">
-    <value>57</value>
+    <value>64</value>
   </data>
   <data name="tbp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1546,7 +1546,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbp.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>30</value>
   </data>
   <data name="drivercat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1579,7 +1579,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;drivercat.ZOrder" xml:space="preserve">
-    <value>72</value>
+    <value>80</value>
   </data>
   <data name="pictureBox28.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1588,7 +1588,7 @@
     <value>1054, 235</value>
   </data>
   <data name="pictureBox28.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox28.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1606,7 +1606,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox28.ZOrder" xml:space="preserve">
-    <value>63</value>
+    <value>70</value>
   </data>
   <data name="pictureBox29.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1633,13 +1633,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox29.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>46</value>
   </data>
   <data name="settings.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="settings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 14</value>
+    <value>1169, 12</value>
   </data>
   <data name="settings.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 21</value>
@@ -1654,13 +1654,13 @@
     <value>settings</value>
   </data>
   <data name="&gt;&gt;settings.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;settings.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;settings.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>29</value>
   </data>
   <data name="sty1001.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1672,7 +1672,7 @@
     <value>NoControl</value>
   </data>
   <data name="sty1001.Location" type="System.Drawing.Point, System.Drawing">
-    <value>564, 122</value>
+    <value>12, 122</value>
   </data>
   <data name="sty1001.Size" type="System.Drawing.Size, System.Drawing">
     <value>191, 13</value>
@@ -1694,7 +1694,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sty1001.ZOrder" xml:space="preserve">
-    <value>77</value>
+    <value>85</value>
   </data>
   <data name="starthis.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -1715,19 +1715,19 @@
     <value>starthis</value>
   </data>
   <data name="&gt;&gt;starthis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;starthis.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;starthis.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="pcinfo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="pcinfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 41</value>
+    <value>1169, 39</value>
   </data>
   <data name="pcinfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 21</value>
@@ -1742,19 +1742,19 @@
     <value>pcinfo</value>
   </data>
   <data name="&gt;&gt;pcinfo.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pcinfo.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pcinfo.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>27</value>
   </data>
   <data name="about.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="about.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 68</value>
+    <value>1169, 66</value>
   </data>
   <data name="about.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 21</value>
@@ -1769,13 +1769,13 @@
     <value>about</value>
   </data>
   <data name="&gt;&gt;about.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;about.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;about.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>25</value>
   </data>
   <data name="enhis.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -1796,13 +1796,13 @@
     <value>enhis</value>
   </data>
   <data name="&gt;&gt;enhis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;enhis.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;enhis.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="stophis.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -1823,7 +1823,7 @@
     <value>stophis</value>
   </data>
   <data name="&gt;&gt;stophis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;stophis.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1850,13 +1850,13 @@
     <value>dishis</value>
   </data>
   <data name="&gt;&gt;dishis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;dishis.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dishis.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="delhismserv.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8.25pt</value>
@@ -1877,13 +1877,13 @@
     <value>delhismserv</value>
   </data>
   <data name="&gt;&gt;delhismserv.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delhismserv.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhismserv.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="shell.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -1904,13 +1904,13 @@
     <value>shell</value>
   </data>
   <data name="&gt;&gt;shell.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;shell.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;shell.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="winre.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -1931,13 +1931,13 @@
     <value>winre</value>
   </data>
   <data name="&gt;&gt;winre.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;winre.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;winre.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="aadleave.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -1958,7 +1958,7 @@
     <value>aadleave</value>
   </data>
   <data name="&gt;&gt;aadleave.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;aadleave.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1985,7 +1985,7 @@
     <value>fixboot</value>
   </data>
   <data name="&gt;&gt;fixboot.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fixboot.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2012,7 +2012,7 @@
     <value>psbr</value>
   </data>
   <data name="&gt;&gt;psbr.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;psbr.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2039,7 +2039,7 @@
     <value>delhis</value>
   </data>
   <data name="&gt;&gt;delhis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delhis.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2066,7 +2066,7 @@
     <value>ent</value>
   </data>
   <data name="&gt;&gt;ent.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ent.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2093,7 +2093,7 @@
     <value>delti</value>
   </data>
   <data name="&gt;&gt;delti.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delti.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2120,7 +2120,7 @@
     <value>delridf</value>
   </data>
   <data name="&gt;&gt;delridf.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delridf.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2147,7 +2147,7 @@
     <value>delhism</value>
   </data>
   <data name="&gt;&gt;delhism.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delhism.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2174,7 +2174,7 @@
     <value>deloem</value>
   </data>
   <data name="&gt;&gt;deloem.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;deloem.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2201,7 +2201,7 @@
     <value>entf</value>
   </data>
   <data name="&gt;&gt;entf.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;entf.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2228,7 +2228,7 @@
     <value>pcname</value>
   </data>
   <data name="&gt;&gt;pcname.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pcname.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2255,7 +2255,7 @@
     <value>admin</value>
   </data>
   <data name="&gt;&gt;admin.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;admin.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2282,7 +2282,7 @@
     <value>adduser</value>
   </data>
   <data name="&gt;&gt;adduser.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;adduser.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2309,7 +2309,7 @@
     <value>adminset</value>
   </data>
   <data name="&gt;&gt;adminset.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;adminset.Parent" xml:space="preserve">
     <value>$this</value>
@@ -2351,7 +2351,7 @@
     <value>1055, 264</value>
   </data>
   <data name="pictureBox30.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox30.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -2369,7 +2369,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox30.ZOrder" xml:space="preserve">
-    <value>61</value>
+    <value>68</value>
   </data>
   <data name="dismbr.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -2390,13 +2390,229 @@
     <value>dismbr</value>
   </data>
   <data name="&gt;&gt;dismbr.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.7, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;dismbr.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dismbr.ZOrder" xml:space="preserve">
     <value>14</value>
+  </data>
+  <data name="pictureBox31.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox31.Location" type="System.Drawing.Point, System.Drawing">
+    <value>273, 322</value>
+  </data>
+  <data name="pictureBox31.Size" type="System.Drawing.Size, System.Drawing">
+    <value>21, 21</value>
+  </data>
+  <data name="pictureBox31.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pictureBox31.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;pictureBox31.Name" xml:space="preserve">
+    <value>pictureBox31</value>
+  </data>
+  <data name="&gt;&gt;pictureBox31.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox31.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBox31.ZOrder" xml:space="preserve">
+    <value>54</value>
+  </data>
+  <data name="enwhe.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="enwhe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 321</value>
+  </data>
+  <data name="enwhe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 21</value>
+  </data>
+  <data name="enwhe.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="enwhe.Text" xml:space="preserve">
+    <value>Enable Windows Hello Enterprise</value>
+  </data>
+  <data name="&gt;&gt;enwhe.Name" xml:space="preserve">
+    <value>enwhe</value>
+  </data>
+  <data name="&gt;&gt;enwhe.Type" xml:space="preserve">
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;enwhe.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;enwhe.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="pictureBox32.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1135, 66</value>
+  </data>
+  <data name="pictureBox32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="pictureBox32.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pictureBox32.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;pictureBox32.Name" xml:space="preserve">
+    <value>pictureBox32</value>
+  </data>
+  <data name="&gt;&gt;pictureBox32.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox32.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBox32.ZOrder" xml:space="preserve">
+    <value>77</value>
+  </data>
+  <data name="pictureBox33.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox33.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1135, 13</value>
+  </data>
+  <data name="pictureBox33.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="pictureBox33.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pictureBox33.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;pictureBox33.Name" xml:space="preserve">
+    <value>pictureBox33</value>
+  </data>
+  <data name="&gt;&gt;pictureBox33.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox33.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBox33.ZOrder" xml:space="preserve">
+    <value>53</value>
+  </data>
+  <data name="pictureBox34.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox34.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1135, 39</value>
+  </data>
+  <data name="pictureBox34.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="pictureBox34.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pictureBox34.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;pictureBox34.Name" xml:space="preserve">
+    <value>pictureBox34</value>
+  </data>
+  <data name="&gt;&gt;pictureBox34.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox34.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBox34.ZOrder" xml:space="preserve">
+    <value>50</value>
+  </data>
+  <data name="opencmd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="opencmd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1041, 12</value>
+  </data>
+  <data name="opencmd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 21</value>
+  </data>
+  <data name="opencmd.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="opencmd.Text" xml:space="preserve">
+    <value>Open CMD</value>
+  </data>
+  <data name="&gt;&gt;opencmd.Name" xml:space="preserve">
+    <value>opencmd</value>
+  </data>
+  <data name="&gt;&gt;opencmd.Type" xml:space="preserve">
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;opencmd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;opencmd.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="unprog.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="unprog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1041, 39</value>
+  </data>
+  <data name="unprog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 21</value>
+  </data>
+  <data name="unprog.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="unprog.Text" xml:space="preserve">
+    <value>Installed Prog.</value>
+  </data>
+  <data name="&gt;&gt;unprog.Name" xml:space="preserve">
+    <value>unprog</value>
+  </data>
+  <data name="&gt;&gt;unprog.Type" xml:space="preserve">
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;unprog.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;unprog.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="guide.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="guide.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1041, 66</value>
+  </data>
+  <data name="guide.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 21</value>
+  </data>
+  <data name="guide.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="guide.Text" xml:space="preserve">
+    <value>Guide</value>
+  </data>
+  <data name="&gt;&gt;guide.Name" xml:space="preserve">
+    <value>guide</value>
+  </data>
+  <data name="&gt;&gt;guide.Type" xml:space="preserve">
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;guide.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;guide.ZOrder" xml:space="preserve">
+    <value>24</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2408,7 +2624,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1301, 538</value>
+    <value>1301, 542</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
