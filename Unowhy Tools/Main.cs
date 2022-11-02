@@ -693,6 +693,7 @@ namespace Unowhy_Tools
                     debadmin.Visible = true;
                     tbp.Visible = true;
                     clog.Visible = true;
+                    debwhe.Visible = true;
                 }
 
                 #endregion
@@ -810,7 +811,14 @@ namespace Unowhy_Tools
 
         public void checkwhe()
         {
-
+            if (debwhe.Text == "true")
+            {
+                dbtn(enwhe);
+            }
+            else
+            {
+                ebtn(enwhe);
+            }
         }
 
         public void debuserid(string iduserpath)
@@ -963,6 +971,7 @@ namespace Unowhy_Tools
                 dbtn(fixboot);
                 dbtn(delhismserv);
                 dbtn(psbr);
+                dbtn(enwhe);
             }
         }
 
@@ -1100,6 +1109,31 @@ namespace Unowhy_Tools
             {
                 debti.Text= "false";
             }
+
+            RegistryKey whe1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork");
+            RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
+            RegistryKey whe3 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock");
+            if (whe1 == null && whe2 == null && whe3 == null)
+            {
+                debwhe.Text = "false";
+            }
+            else
+            {
+                string val5 = whe3.GetValue("DynamicLock").ToString();
+                string val2 = whe2.GetValue("Domain Accounts").ToString();
+                string val1 = whe1.GetValue("Enabled").ToString();
+                string val3 = whe1.GetValue("RequireSecurityDevice").ToString();
+                string val4 = whe1.GetValue("UseCertificateForOnPremAuth").ToString();
+
+                if (val1.Contains("1") && val2.Contains("1") && val3.Contains("1") && val4.Contains("1") && val5.Contains("1"))
+                {
+                    debwhe.Text = "true";
+                }
+                else
+                {
+                    debwhe.Text = "false";
+                }
+            }
         }
 
         public void changeswitch()
@@ -1125,6 +1159,7 @@ namespace Unowhy_Tools
             ebtn(delhismserv);
             ebtn(psbr);
             ebtn(shell);
+            ebtn(enwhe);
 
             checkhism();
             checkazure();
@@ -1667,7 +1702,8 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-
+                debwhe.Text = "true";
+                changeswitch();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
