@@ -883,8 +883,8 @@ namespace Unowhy_Tools
             this.enwhe.Name = "enwhe";
             this.enwhe.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.enwhe.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.enwhe.Click += new System.EventHandler(this.winre_Click);
-            this.enwhe.MouseEnter += new System.EventHandler(this.desc_Winre);
+            this.enwhe.Click += new System.EventHandler(this.enwhe_Click);
+            this.enwhe.MouseEnter += new System.EventHandler(this.desc_enwhe);
             // 
             // pictureBox32
             // 
