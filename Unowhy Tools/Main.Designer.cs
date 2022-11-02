@@ -118,6 +118,7 @@ namespace Unowhy_Tools
             this.opencmd = new ReaLTaiizor.Controls.Button();
             this.unprog = new ReaLTaiizor.Controls.Button();
             this.guide = new ReaLTaiizor.Controls.Button();
+            this.debwhe = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -206,168 +207,144 @@ namespace Unowhy_Tools
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Image = global::Unowhy_Tools.Properties.Resources.customize;
             resources.ApplyResources(this.pictureBox19, "pictureBox19");
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.TabStop = false;
             // 
             // pictureBox17
             // 
-            this.pictureBox17.Image = global::Unowhy_Tools.Properties.Resources.delete;
             resources.ApplyResources(this.pictureBox17, "pictureBox17");
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.TabStop = false;
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Image = global::Unowhy_Tools.Properties.Resources.repair;
             resources.ApplyResources(this.pictureBox16, "pictureBox16");
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.TabStop = false;
             // 
             // pictureBox15
             // 
-            this.pictureBox15.Image = global::Unowhy_Tools.Properties.Resources.service;
             resources.ApplyResources(this.pictureBox15, "pictureBox15");
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.TabStop = false;
             // 
             // pictureBox22
             // 
-            this.pictureBox22.Image = global::Unowhy_Tools.Properties.Resources.pcinfo;
             resources.ApplyResources(this.pictureBox22, "pictureBox22");
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.settings;
             resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::Unowhy_Tools.Properties.Resources.recovery;
             resources.ApplyResources(this.pictureBox9, "pictureBox9");
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.TabStop = false;
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::Unowhy_Tools.Properties.Resources.script;
             resources.ApplyResources(this.pictureBox8, "pictureBox8");
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.TabStop = false;
             // 
             // pictureBox21
             // 
-            this.pictureBox21.Image = global::Unowhy_Tools.Properties.Resources.folder;
             resources.ApplyResources(this.pictureBox21, "pictureBox21");
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.TabStop = false;
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Image = global::Unowhy_Tools.Properties.Resources.folder;
             resources.ApplyResources(this.pictureBox20, "pictureBox20");
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.TabStop = false;
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Image = global::Unowhy_Tools.Properties.Resources.folder;
             resources.ApplyResources(this.pictureBox13, "pictureBox13");
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.TabStop = false;
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Image = global::Unowhy_Tools.Properties.Resources.folder;
             resources.ApplyResources(this.pictureBox12, "pictureBox12");
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.TabStop = false;
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Image = global::Unowhy_Tools.Properties.Resources.uninstall;
             resources.ApplyResources(this.pictureBox14, "pictureBox14");
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.TabStop = false;
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Image = global::Unowhy_Tools.Properties.Resources.service;
             resources.ApplyResources(this.pictureBox11, "pictureBox11");
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.TabStop = false;
             // 
             // pictureBox23
             // 
-            this.pictureBox23.Image = global::Unowhy_Tools.Properties.Resources.admin;
             resources.ApplyResources(this.pictureBox23, "pictureBox23");
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.TabStop = false;
             // 
             // pictureBox18
             // 
-            this.pictureBox18.Image = global::Unowhy_Tools.Properties.Resources.laptop;
             resources.ApplyResources(this.pictureBox18, "pictureBox18");
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.TabStop = false;
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = global::Unowhy_Tools.Properties.Resources.deluser;
             resources.ApplyResources(this.pictureBox10, "pictureBox10");
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.TabStop = false;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::Unowhy_Tools.Properties.Resources.registry;
             resources.ApplyResources(this.pictureBox7, "pictureBox7");
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.TabStop = false;
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::Unowhy_Tools.Properties.Resources.disable;
             resources.ApplyResources(this.pictureBox6, "pictureBox6");
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Unowhy_Tools.Properties.Resources.enable;
             resources.ApplyResources(this.pictureBox5, "pictureBox5");
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Unowhy_Tools.Properties.Resources.stop;
             resources.ApplyResources(this.pictureBox4, "pictureBox4");
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Unowhy_Tools.Properties.Resources.start;
             resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.about;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
             // logo
             // 
-            this.logo.Image = global::Unowhy_Tools.Properties.Resources.UTLogoWhite2_0;
             resources.ApplyResources(this.logo, "logo");
             this.logo.Name = "logo";
             this.logo.TabStop = false;
@@ -382,21 +359,18 @@ namespace Unowhy_Tools
             // 
             // pictureBox24
             // 
-            this.pictureBox24.Image = global::Unowhy_Tools.Properties.Resources.azure;
             resources.ApplyResources(this.pictureBox24, "pictureBox24");
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.TabStop = false;
             // 
             // pictureBox25
             // 
-            this.pictureBox25.Image = global::Unowhy_Tools.Properties.Resources.adduser;
             resources.ApplyResources(this.pictureBox25, "pictureBox25");
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.TabStop = false;
             // 
             // pictureBox26
             // 
-            this.pictureBox26.Image = global::Unowhy_Tools.Properties.Resources.adminuser;
             resources.ApplyResources(this.pictureBox26, "pictureBox26");
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.TabStop = false;
@@ -469,7 +443,6 @@ namespace Unowhy_Tools
             // 
             // pictureBox27
             // 
-            this.pictureBox27.Image = global::Unowhy_Tools.Properties.Resources.delete;
             resources.ApplyResources(this.pictureBox27, "pictureBox27");
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.TabStop = false;
@@ -491,14 +464,12 @@ namespace Unowhy_Tools
             // 
             // pictureBox28
             // 
-            this.pictureBox28.Image = global::Unowhy_Tools.Properties.Resources.powershell;
             resources.ApplyResources(this.pictureBox28, "pictureBox28");
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.TabStop = false;
             // 
             // pictureBox29
             // 
-            this.pictureBox29.Image = global::Unowhy_Tools.Properties.Resources.drivers;
             resources.ApplyResources(this.pictureBox29, "pictureBox29");
             this.pictureBox29.Name = "pictureBox29";
             this.pictureBox29.TabStop = false;
@@ -875,7 +846,6 @@ namespace Unowhy_Tools
             // 
             // pictureBox30
             // 
-            this.pictureBox30.Image = global::Unowhy_Tools.Properties.Resources.dism;
             resources.ApplyResources(this.pictureBox30, "pictureBox30");
             this.pictureBox30.Name = "pictureBox30";
             this.pictureBox30.TabStop = false;
@@ -897,7 +867,6 @@ namespace Unowhy_Tools
             // 
             // pictureBox31
             // 
-            this.pictureBox31.Image = global::Unowhy_Tools.Properties.Resources.fp;
             resources.ApplyResources(this.pictureBox31, "pictureBox31");
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.TabStop = false;
@@ -919,21 +888,18 @@ namespace Unowhy_Tools
             // 
             // pictureBox32
             // 
-            this.pictureBox32.Image = global::Unowhy_Tools.Properties.Resources.guide;
             resources.ApplyResources(this.pictureBox32, "pictureBox32");
             this.pictureBox32.Name = "pictureBox32";
             this.pictureBox32.TabStop = false;
             // 
             // pictureBox33
             // 
-            this.pictureBox33.Image = global::Unowhy_Tools.Properties.Resources.cmd;
             resources.ApplyResources(this.pictureBox33, "pictureBox33");
             this.pictureBox33.Name = "pictureBox33";
             this.pictureBox33.TabStop = false;
             // 
             // pictureBox34
             // 
-            this.pictureBox34.Image = global::Unowhy_Tools.Properties.Resources.instprog;
             resources.ApplyResources(this.pictureBox34, "pictureBox34");
             this.pictureBox34.Name = "pictureBox34";
             this.pictureBox34.TabStop = false;
@@ -980,6 +946,12 @@ namespace Unowhy_Tools
             this.guide.TextAlignment = System.Drawing.StringAlignment.Center;
             this.guide.Click += new System.EventHandler(this.guide_Click);
             // 
+            // debwhe
+            // 
+            resources.ApplyResources(this.debwhe, "debwhe");
+            this.debwhe.ForeColor = System.Drawing.Color.White;
+            this.debwhe.Name = "debwhe";
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -1016,6 +988,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.opencmd);
             this.Controls.Add(this.settings);
             this.Controls.Add(this.tbp);
+            this.Controls.Add(this.debwhe);
             this.Controls.Add(this.debti);
             this.Controls.Add(this.debent);
             this.Controls.Add(this.debadmin);
@@ -1208,6 +1181,7 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button opencmd;
         private ReaLTaiizor.Controls.Button unprog;
         private ReaLTaiizor.Controls.Button guide;
+        private System.Windows.Forms.Label debwhe;
     }
 }
 
