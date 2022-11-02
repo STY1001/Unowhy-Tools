@@ -765,6 +765,7 @@ namespace Unowhy_Tools
             drivercat.Text = resxSet.GetString("drvcat");
             delhismserv.Text = resxSet.GetString("delhismserv");
             dismbr.Text = resxSet.GetString("dismdrv");
+            enwhe.Text = resxSet.GetString("enwhe");
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
 
@@ -2044,6 +2045,23 @@ namespace Unowhy_Tools
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
             desc.Text = resxSet.GetString("descdismbr");
+        }
+
+        private void desc_enwhe(object sender, EventArgs e)
+        {
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;                //French
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            desc.Text = resxSet.GetString("descenwhe");
         }
 
         #endregion
