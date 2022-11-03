@@ -121,7 +121,7 @@
     <value>Déjoindre ce PC de AzureAD</value>
   </data>
   <data name="about" xml:space="preserve">
-    <value>A propos</value>
+    <value>À propos</value>
   </data>
   <data name="adduser" xml:space="preserve">
     <value>Créer un nouvel utilisateur (compte) local</value>
@@ -142,7 +142,7 @@
     <value>Le nom doit être composé de caractères alphanumériques (tirets autorisés) entre 2 et 15 caractères mais sans caractères spéciaux ni espace</value>
   </data>
   <data name="backup" xml:space="preserve">
-    <value>Sauvgarder</value>
+    <value>Sauvegarder</value>
   </data>
   <data name="backup.short" xml:space="preserve">
     <value>Sauv.</value>
@@ -172,7 +172,7 @@
     <value>↓ Supprimer/Désinstaller ↓</value>
   </data>
   <data name="delentf" xml:space="preserve">
-    <value>Supprimer le dossier "ENT".</value>
+    <value>Supprimer le dossier "ENT"</value>
   </data>
   <data name="delhis" xml:space="preserve">
     <value>Désinstaller "HiSqool"</value>
@@ -193,7 +193,7 @@
     <value>Supprimer le dossier "TO_INSTALL"</value>
   </data>
   <data name="descaadleave" xml:space="preserve">
-    <value>Déconnectez ce PC d'AzureAD pour désactiver la gestion de ce PC (Intune / Endpoint) et désactiver l'option "Autre utilisateurs". Attention : Si vous utilisez votre compte AzureAD ( [ID ENT]@monlycee.net ) sur ce PC, vous ne pourrez plus vous connecter à votre compte et vous perdrez vos données de votre compte (si vous tentez de vous reconnecter à votre compte, vous obtiendrez une erreur "mot de passe incorrecte")! Vous devez d’abord sauvegarder vos données, supprimer le compte local ".\ENT" , désactiver le compte local ".\administrateur" et créer un compte admin local !!!</value>
+    <value>Déconnectez ce PC d'AzureAD pour désactiver la gestion de ce PC (Intune / Endpoint) et désactiver l'option "Autre utilisateur". Attention : Si vous utilisez votre compte AzureAD ( [ID ENT]@monlycee.net ) sur ce PC, vous ne pourrez plus vous connecter à votre compte et vous perdrez vos données de votre compte (si vous tentez de vous reconnecter à votre compte, vous obtiendrez une erreur "mot de passe incorrect")! Vous devez d’abord sauvegarder vos données, supprimer le compte local ".\ENT" , désactiver le compte local ".\administrateur" et créer un compte admin local !!!</value>
   </data>
   <data name="descadduser" xml:space="preserve">
     <value>Créer un nouvel utilisateur (compte) local sur ce PC. Cela permet de ne plus dépendre d'AzureAD. Je vous conseille de passer sur un compte local (sur le PC) et de ne plus passer par le compte AzureAD (ENT ( [ID ENT@monlycee.net ))</value>
@@ -244,7 +244,7 @@
     <value>Supprimer les installateurs des manuels scolaires de votre école (Dans : C:\Program Files\Unowhy)</value>
   </data>
   <data name="descwinre" xml:space="preserve">
-    <value>Faite ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environement de réstauration Windows (qui désactive la réinitialisation). Pour certaine personnes, l'activation peut echoué, dans ce cas là, Unowhy Tools vous proposera de réparer le problème en retéléchargent l'image WinRE </value>
+    <value>Faites ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environnement de restauration Windows (qui désactive la réinitialisation). Pour certaines personnes, l'activation peut échouer. Dans ce cas là, Unowhy Tools vous proposera de réparer le problème en re-téléchargeant l'image WinRE. </value>
   </data>
   <data name="disable" xml:space="preserve">
     <value>Désactiver</value>
@@ -274,7 +274,7 @@
     <value>Activer le compte</value>
   </data>
   <data name="enhis" xml:space="preserve">
-    <value>Activer le services "HiSqoolManager"</value>
+    <value>Activer le service "HiSqoolManager"</value>
   </data>
   <data name="ent" xml:space="preserve">
     <value>Supprimer le compte ".\ENT"</value>
@@ -286,7 +286,7 @@
     <value>Admin Local</value>
   </data>
   <data name="mfm" xml:space="preserve">
-    <value>Fabriquant / Model</value>
+    <value>Fabricant / Modèle</value>
   </data>
   <data name="name" xml:space="preserve">
     <value>Nom</value>
@@ -301,7 +301,7 @@
     <value>Non</value>
   </data>
   <data name="nonet" xml:space="preserve">
-    <value>Pas de connection internet</value>
+    <value>Pas de connexion internet</value>
   </data>
   <data name="nover" xml:space="preserve">
     <value>Pas de nouvelle version</value>
@@ -328,7 +328,7 @@
     <value>PS Drv GUI pour Unowhy Tools</value>
   </data>
   <data name="psdrvmsg" xml:space="preserve">
-    <value>La fonction de restauration ne fonctionne pas en raison d'un problème avec pnputil. Vous devez restaurer les pilotes manuellement en lançant "UT-Restore.exe" à la racine du dossier de sauvegarde et après la restoration terminée, vous devez redémarrer. Cliquez sur le bouton OK pour ouvrir le dossier de sauvegarde.</value>
+    <value>La fonction de restauration ne fonctionne pas en raison d'un problème avec pnputil. Vous devez restaurer les pilotes manuellement en lançant "UT-Restore.exe" à la racine du dossier de sauvegarde et après la restauration terminée, vous devez redémarrer. Cliquez sur le bouton OK pour ouvrir le dossier de sauvegarde.</value>
   </data>
   <data name="pwmis" xml:space="preserve">
     <value>Les mots de passe ne correspondent pas</value>
