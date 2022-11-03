@@ -113,6 +113,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clouddl {
+            get {
+                object obj = ResourceManager.GetObject("clouddl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cmd {
             get {
                 object obj = ResourceManager.GetObject("cmd", resourceCulture);
@@ -206,6 +216,16 @@ namespace Unowhy_Tools.Properties {
         internal static System.Drawing.Bitmap enable {
             get {
                 object obj = ResourceManager.GetObject("enable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap explorer {
+            get {
+                object obj = ResourceManager.GetObject("explorer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
