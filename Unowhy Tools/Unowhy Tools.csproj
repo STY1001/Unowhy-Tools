@@ -490,6 +490,7 @@
     <Content Include="Resources\adminuser.ico" />
     <Content Include="Resources\azure.ico" />
     <None Include="Resources\cmd.png" />
+    <None Include="Resources\clouddl.png" />
     <Content Include="Resources\customize.ico" />
     <Content Include="Resources\datamatrix.ico" />
     <Content Include="Resources\delete.ico" />
@@ -499,6 +500,7 @@
     <None Include="Resources\download.png" />
     <None Include="Resources\dism.png" />
     <Content Include="Resources\enable.ico" />
+    <None Include="Resources\explorer.png" />
     <Content Include="Resources\folder.ico" />
     <None Include="Resources\fp.png" />
     <Content Include="Resources\github.ico" />
