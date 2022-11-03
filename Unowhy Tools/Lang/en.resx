@@ -216,6 +216,9 @@
   <data name="descent" xml:space="preserve">
     <value>Delete "ENT" local account. This the account to configure your "ENT" account</value>
   </data>
+  <data name="descenwhe" xml:space="preserve">
+    <value>Enable Windows Hello for Enterprise. If you want to unlock your PC with the fingerprint reader and if it's disabled by administrator, do this.</value>
+  </data>
   <data name="deschisdel" xml:space="preserve">
     <value>Uninstall the useless "HiSqool" software (In : C:\Program Files\Unowhy)</value>
   </data>
@@ -279,8 +282,14 @@
   <data name="ent" xml:space="preserve">
     <value>Delete ".\ENT" account</value>
   </data>
+  <data name="enwhe" xml:space="preserve">
+    <value>Enable Win Hello Enterprise</value>
+  </data>
   <data name="fixboot" xml:space="preserve">
     <value>Delete "silent_*.vbs" in "Startup" folder</value>
+  </data>
+  <data name="guide" xml:space="preserve">
+    <value>Guide</value>
   </data>
   <data name="la" xml:space="preserve">
     <value>Local Admin</value>
@@ -306,6 +315,9 @@
   <data name="nover" xml:space="preserve">
     <value>No new version available</value>
   </data>
+  <data name="opencmd" xml:space="preserve">
+    <value>Open CMD</value>
+  </data>
   <data name="os" xml:space="preserve">
     <value>OS Version</value>
   </data>
@@ -326,9 +338,6 @@
   </data>
   <data name="psdrv.title" xml:space="preserve">
     <value>PS Drv GUI for Unowhy Tools</value>
-  </data>
-  <data name="psdrvmsg" xml:space="preserve">
-    <value>The restore function don't work due to the issue with pnputil. You need to retore drivers manually by launching "UT-Restore.exe" in the root of your backup folder and after applied, you need to reboot. Click OK button to open backup folder.</value>
   </data>
   <data name="pwmis" xml:space="preserve">
     <value>Passwords do not match</value>
@@ -377,6 +386,9 @@
   </data>
   <data name="unow" xml:space="preserve">
     <value>Update now</value>
+  </data>
+  <data name="unprog" xml:space="preserve">
+    <value>Installed prog.</value>
   </data>
   <data name="update.del" xml:space="preserve">
     <value>Deleting "update.zip"</value>
