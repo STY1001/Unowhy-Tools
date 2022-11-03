@@ -1694,6 +1694,10 @@ namespace Unowhy_Tools
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
+        private void bkcloud_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://hksty1001-my.sharepoint.com/:f:/g/personal/cloud_hksty1001_onmicrosoft_com/Ejk2S5pcwCFPnUxKDVQaUPoBpw-3IMAjuLYiJO_Fi-vsKQ?e=SAI4SS");
+        }
 
         #endregion
 
@@ -2047,6 +2051,23 @@ namespace Unowhy_Tools
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
             desc.Text = resxSet.GetString("descenwhe");
+        }
+
+        private void desc_bkcloud(object sender, EventArgs e)
+        {
+            //Check the current saved language
+
+            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utls = utl.GetValue("Lang").ToString();
+
+            string enresx = @".\en.resx";
+            string frresx = @".\fr.resx";
+            //Chose the ResX file
+            if (utls == "EN") resxFile = enresx;    //English   
+            else resxFile = frresx;                //French
+            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+
+            desc.Text = resxSet.GetString("descbkcloud");
         }
 
         #endregion
