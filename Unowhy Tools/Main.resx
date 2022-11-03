@@ -142,7 +142,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ver.ZOrder" xml:space="preserve">
-    <value>85</value>
+    <value>87</value>
   </data>
   <data name="servicecat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -175,7 +175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;servicecat.ZOrder" xml:space="preserve">
-    <value>83</value>
+    <value>85</value>
   </data>
   <data name="repaircat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -208,7 +208,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;repaircat.ZOrder" xml:space="preserve">
-    <value>82</value>
+    <value>84</value>
   </data>
   <data name="delcat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -241,7 +241,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delcat.ZOrder" xml:space="preserve">
-    <value>81</value>
+    <value>83</value>
   </data>
   <data name="cuscat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -274,7 +274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cuscat.ZOrder" xml:space="preserve">
-    <value>80</value>
+    <value>82</value>
   </data>
   <data name="version.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -307,7 +307,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;version.ZOrder" xml:space="preserve">
-    <value>44</value>
+    <value>45</value>
   </data>
   <data name="desc.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8.25pt</value>
@@ -334,7 +334,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;desc.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>44</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -367,7 +367,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>43</value>
   </data>
   <data name="pictureBox19.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -412,7 +412,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox19.ZOrder" xml:space="preserve">
-    <value>46</value>
+    <value>47</value>
   </data>
   <data name="pictureBox17.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -487,7 +487,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox17.ZOrder" xml:space="preserve">
-    <value>47</value>
+    <value>48</value>
   </data>
   <data name="pictureBox16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -547,7 +547,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox16.ZOrder" xml:space="preserve">
-    <value>48</value>
+    <value>49</value>
   </data>
   <data name="pictureBox15.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -627,7 +627,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox15.ZOrder" xml:space="preserve">
-    <value>50</value>
+    <value>51</value>
   </data>
   <data name="pictureBox22.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -701,7 +701,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox22.ZOrder" xml:space="preserve">
-    <value>51</value>
+    <value>52</value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -773,7 +773,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>54</value>
+    <value>55</value>
   </data>
   <data name="pictureBox9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -841,7 +841,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox9.ZOrder" xml:space="preserve">
-    <value>55</value>
+    <value>56</value>
   </data>
   <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -901,7 +901,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox8.ZOrder" xml:space="preserve">
-    <value>56</value>
+    <value>57</value>
   </data>
   <data name="pictureBox21.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -979,7 +979,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox21.ZOrder" xml:space="preserve">
-    <value>58</value>
+    <value>59</value>
   </data>
   <data name="pictureBox20.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1057,7 +1057,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox20.ZOrder" xml:space="preserve">
-    <value>59</value>
+    <value>60</value>
   </data>
   <data name="pictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1135,7 +1135,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox13.ZOrder" xml:space="preserve">
-    <value>60</value>
+    <value>61</value>
   </data>
   <data name="pictureBox12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1213,7 +1213,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox12.ZOrder" xml:space="preserve">
-    <value>61</value>
+    <value>62</value>
   </data>
   <data name="pictureBox14.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1286,7 +1286,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox14.ZOrder" xml:space="preserve">
-    <value>62</value>
+    <value>63</value>
   </data>
   <data name="pictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1366,7 +1366,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox11.ZOrder" xml:space="preserve">
-    <value>64</value>
+    <value>65</value>
   </data>
   <data name="pictureBox23.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1432,7 +1432,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox23.ZOrder" xml:space="preserve">
-    <value>68</value>
+    <value>70</value>
   </data>
   <data name="pictureBox18.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1499,7 +1499,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox18.ZOrder" xml:space="preserve">
-    <value>70</value>
+    <value>72</value>
   </data>
   <data name="pictureBox10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1588,30 +1588,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox10.ZOrder" xml:space="preserve">
-    <value>71</value>
-  </data>
-  <data name="pictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAABBpJREFUeF7t
-        mUuIHFUUhscHikjIwoUkkK2gCckimaoaslDiSjcSyYNAEFy40rUoPhD3QVyGQGBilDiCG4M7mTy6bmfC
-        2FVFCCgRN7pT8gAV8uycan7Gnpu//q7uLqsrUh98m5r7n3tO9fTUY+ZaWlpaWlpaWh4WIpd9Gbr0ptkf
-        4c2wm36B2P8HG+yuN6jyLmLNI4zTw5FLvw1W0udwqBRkSClizSJ02ftDTV4NOr1d+NFIhnKlRKw5RN3k
-        A9Lo1fk4mccSCclKEWsGUZx+yJqE1xZcGmBpISQnRWz2WDMf+c0Rr0XdLESEQjJSxGaLNfKx35jwujoJ
-        ZL0UsdkRxcknrLERXg87WYQS6yBrpYjNhsCle1lTpYzTP3aurm5EqTXoWiFik7Pz3OqmME5eC1yyX5mv
-        ydciNsBOwDusqZLe2t3pbUapNex4vTdCVuRXr2ihdiJ+QWzAS8vLj9sneYqtHeGdwGWHUGYduBW+561n
-        3qvkVpgUliL2L/3+o3b8hL9OeCvqpq8jPXtIg1LE1rF/aemx/NNg6z1vh3G2D7FmQJqUIvYA+UkI4vQk
-        y8DmDZ9DGpUiRslPAr7Dfu62/dofwLJmQZqVIlbI4Ovgkq+GMlMPH17ovWB13jOX7av2OQ5Xw1CjpURM
-        8sr3V560tSfsCvGz+SYOlyY/iQuu96J9pY5YnSvD++dG3R+fx9Lp8YuPErHK2d35aUP+N8L2sCtK8qe/
-        77BBN3kXselhGygRq5QgzvZY7X/8vYTnEJ0eUlyKWKXY88RbbC/hnWBl5RnEp4MUlyJWKfMXL22x2mXu
-        /ta0O8k3EJ+Obad/cOPoPyMUyZ4dFDZU4g+ptMvtEqLTsfnYYn8cWTNF2olY9+ygsPWf+vkR3th6+fIT
-        iE8OG1JJGpFim5Hk7wxZXjnvspcRnxw2pJI1osQ2o+n3H7H1v/t5bfYZ0pPDhlTyRorFNqWwu7zjrEax
-        yVlEJ4cNqeSNFIttSjHWG6b8LrOTvIro5LAhlbQZIbYpxYJzT1nmb78GvJH/5c8vf+GFS88iMj1sSCVp
-        TIptShO59Luh/G/m0fySuj3LnsaSamFDKoeaKyW2Kc3gHaVL3g7O93bg0H8LG1LJhlRim+bChlSyIZXY
-        prmwIZVsSCW2aS5bFk91x3HXmYtuHP1nhCLHfXaoDPapKdlvhZLVKNJOROlnh8pgjSjZkEpWQ4m26oM1
-        oWRDKlkNJdqqD9aEkg2pZDWUaKs+WBNKNqSS1VCirfpgTSjZkEpWQ4m26oM1oWRDKlkNJdqqD9aEkg2p
-        ZDWUaKs+WBNKNqSS1VCirfpgTSjZkEpWQ4m26sM2LXoBQWVDKlkN4V9oqz6ibnowcOnX+duWMm46tvjN
-        OLIazEEPTf0XektLS0tLS0vLw8fc3H1WWCNDLD+WXAAAAABJRU5ErkJggg==
-</value>
+    <value>73</value>
   </data>
   <data name="pictureBox7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1638,7 +1615,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox7.ZOrder" xml:space="preserve">
-    <value>72</value>
+    <value>74</value>
   </data>
   <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1693,7 +1670,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox6.ZOrder" xml:space="preserve">
-    <value>73</value>
+    <value>75</value>
   </data>
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1745,7 +1722,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox5.ZOrder" xml:space="preserve">
-    <value>74</value>
+    <value>76</value>
   </data>
   <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1793,7 +1770,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox4.ZOrder" xml:space="preserve">
-    <value>75</value>
+    <value>77</value>
   </data>
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1851,7 +1828,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
-    <value>77</value>
+    <value>79</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1915,7 +1892,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>78</value>
+    <value>80</value>
   </data>
   <data name="logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3639,7 +3616,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
-    <value>86</value>
+    <value>88</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3669,7 +3646,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>42</value>
   </data>
   <data name="pictureBox24.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3743,7 +3720,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox24.ZOrder" xml:space="preserve">
-    <value>57</value>
+    <value>58</value>
   </data>
   <data name="pictureBox25.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3824,7 +3801,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox25.ZOrder" xml:space="preserve">
-    <value>66</value>
+    <value>68</value>
   </data>
   <data name="pictureBox26.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3925,7 +3902,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox26.ZOrder" xml:space="preserve">
-    <value>65</value>
+    <value>66</value>
   </data>
   <data name="debuglab.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3955,7 +3932,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debuglab.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>41</value>
   </data>
   <data name="debshell.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3988,7 +3965,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debshell.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>40</value>
   </data>
   <data name="debhme.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4021,7 +3998,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debhme.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>39</value>
   </data>
   <data name="debhmr.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4054,7 +4031,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debhmr.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>38</value>
   </data>
   <data name="debhms.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4087,7 +4064,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debhms.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>37</value>
   </data>
   <data name="debreagentc.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4120,7 +4097,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debreagentc.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>36</value>
   </data>
   <data name="debazure.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4153,7 +4130,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debazure.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>35</value>
   </data>
   <data name="debuser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4186,7 +4163,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debuser.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>34</value>
   </data>
   <data name="debadmin.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4219,7 +4196,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debadmin.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>33</value>
   </data>
   <data name="debent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4252,7 +4229,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debent.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>32</value>
   </data>
   <data name="debti.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4285,7 +4262,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debti.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>31</value>
   </data>
   <data name="pictureBox27.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4360,7 +4337,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox27.ZOrder" xml:space="preserve">
-    <value>63</value>
+    <value>64</value>
   </data>
   <data name="drivercat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4393,7 +4370,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;drivercat.ZOrder" xml:space="preserve">
-    <value>79</value>
+    <value>81</value>
   </data>
   <data name="pictureBox28.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4446,7 +4423,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox28.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1054, 235</value>
+    <value>1058, 264</value>
   </data>
   <data name="pictureBox28.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -4467,7 +4444,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox28.ZOrder" xml:space="preserve">
-    <value>69</value>
+    <value>71</value>
   </data>
   <data name="pictureBox29.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4539,7 +4516,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox29.ZOrder" xml:space="preserve">
-    <value>45</value>
+    <value>46</value>
   </data>
   <data name="settings.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4566,7 +4543,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;settings.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>29</value>
   </data>
   <data name="sty1001.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4600,7 +4577,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sty1001.ZOrder" xml:space="preserve">
-    <value>84</value>
+    <value>86</value>
   </data>
   <data name="starthis.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4627,7 +4604,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;starthis.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="pcinfo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4654,7 +4631,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pcinfo.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>27</value>
   </data>
   <data name="about.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4681,7 +4658,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;about.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <data name="enhis.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4708,7 +4685,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;enhis.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="stophis.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4762,7 +4739,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dishis.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="delhismserv.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8.25pt</value>
@@ -4789,7 +4766,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;delhismserv.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="shell.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4816,7 +4793,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;shell.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="winre.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4843,7 +4820,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;winre.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="aadleave.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4870,7 +4847,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;aadleave.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="fixboot.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -4903,7 +4880,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="psbr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1077, 234</value>
+    <value>1081, 263</value>
   </data>
   <data name="psbr.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -4924,7 +4901,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;psbr.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="delhis.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -5267,7 +5244,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox30.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1055, 264</value>
+    <value>1059, 293</value>
   </data>
   <data name="pictureBox30.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -5288,13 +5265,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox30.ZOrder" xml:space="preserve">
-    <value>67</value>
+    <value>69</value>
   </data>
   <data name="dismbr.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="dismbr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1078, 263</value>
+    <value>1082, 292</value>
   </data>
   <data name="dismbr.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -5315,7 +5292,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dismbr.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="pictureBox31.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5382,7 +5359,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox31.ZOrder" xml:space="preserve">
-    <value>53</value>
+    <value>54</value>
   </data>
   <data name="enwhe.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -5409,7 +5386,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;enwhe.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="pictureBox32.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5465,7 +5442,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox32.ZOrder" xml:space="preserve">
-    <value>76</value>
+    <value>78</value>
   </data>
   <data name="pictureBox33.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5519,7 +5496,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox33.ZOrder" xml:space="preserve">
-    <value>52</value>
+    <value>53</value>
   </data>
   <data name="pictureBox34.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5585,7 +5562,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox34.ZOrder" xml:space="preserve">
-    <value>49</value>
+    <value>50</value>
   </data>
   <data name="opencmd.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -5612,7 +5589,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;opencmd.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>28</value>
   </data>
   <data name="unprog.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -5639,7 +5616,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;unprog.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="guide.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8pt</value>
@@ -5666,7 +5643,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;guide.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="debwhe.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5699,7 +5676,61 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;debwhe.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>30</value>
+  </data>
+  <data name="pictureBox35.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox35.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1058, 234</value>
+  </data>
+  <data name="pictureBox35.Size" type="System.Drawing.Size, System.Drawing">
+    <value>21, 21</value>
+  </data>
+  <data name="pictureBox35.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pictureBox35.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;pictureBox35.Name" xml:space="preserve">
+    <value>pictureBox35</value>
+  </data>
+  <data name="&gt;&gt;pictureBox35.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox35.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBox35.ZOrder" xml:space="preserve">
+    <value>67</value>
+  </data>
+  <data name="bkcloud.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8pt</value>
+  </data>
+  <data name="bkcloud.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1081, 233</value>
+  </data>
+  <data name="bkcloud.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 21</value>
+  </data>
+  <data name="bkcloud.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="bkcloud.Text" xml:space="preserve">
+    <value>Download a driver backup from cloud</value>
+  </data>
+  <data name="&gt;&gt;bkcloud.Name" xml:space="preserve">
+    <value>bkcloud</value>
+  </data>
+  <data name="&gt;&gt;bkcloud.Type" xml:space="preserve">
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;bkcloud.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bkcloud.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
