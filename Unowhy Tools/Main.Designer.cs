@@ -117,6 +117,8 @@ namespace Unowhy_Tools
             this.unprog = new ReaLTaiizor.Controls.Button();
             this.guide = new ReaLTaiizor.Controls.Button();
             this.debwhe = new System.Windows.Forms.Label();
+            this.pictureBox35 = new System.Windows.Forms.PictureBox();
+            this.bkcloud = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -152,6 +154,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
             this.SuspendLayout();
             // 
             // ver
@@ -307,6 +310,7 @@ namespace Unowhy_Tools
             // 
             // pictureBox7
             // 
+            this.pictureBox7.Image = global::Unowhy_Tools.Properties.Resources.explorer;
             resources.ApplyResources(this.pictureBox7, "pictureBox7");
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.TabStop = false;
@@ -934,6 +938,28 @@ namespace Unowhy_Tools
             this.debwhe.ForeColor = System.Drawing.Color.White;
             this.debwhe.Name = "debwhe";
             // 
+            // pictureBox35
+            // 
+            this.pictureBox35.Image = global::Unowhy_Tools.Properties.Resources.clouddl;
+            resources.ApplyResources(this.pictureBox35, "pictureBox35");
+            this.pictureBox35.Name = "pictureBox35";
+            this.pictureBox35.TabStop = false;
+            // 
+            // bkcloud
+            // 
+            this.bkcloud.BackColor = System.Drawing.Color.Transparent;
+            this.bkcloud.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bkcloud.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            resources.ApplyResources(this.bkcloud, "bkcloud");
+            this.bkcloud.Image = null;
+            this.bkcloud.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bkcloud.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.bkcloud.Name = "bkcloud";
+            this.bkcloud.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.bkcloud.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.bkcloud.Click += new System.EventHandler(this.bkcloud_Click);
+            this.bkcloud.MouseEnter += new System.EventHandler(this.desc_bkcloud);
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -952,6 +978,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.adduser);
             this.Controls.Add(this.admin);
             this.Controls.Add(this.pcname);
+            this.Controls.Add(this.bkcloud);
             this.Controls.Add(this.dismbr);
             this.Controls.Add(this.psbr);
             this.Controls.Add(this.aadleave);
@@ -1005,6 +1032,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox27);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox26);
+            this.Controls.Add(this.pictureBox35);
             this.Controls.Add(this.pictureBox25);
             this.Controls.Add(this.pictureBox30);
             this.Controls.Add(this.pictureBox23);
@@ -1067,6 +1095,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1160,6 +1189,8 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button unprog;
         private ReaLTaiizor.Controls.Button guide;
         private System.Windows.Forms.Label debwhe;
+        private System.Windows.Forms.PictureBox pictureBox35;
+        private ReaLTaiizor.Controls.Button bkcloud;
     }
 }
 
