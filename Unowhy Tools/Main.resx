@@ -680,10 +680,10 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1263, 39</value>
+    <value>1178, 38</value>
   </data>
   <data name="pictureBox22.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox22.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -752,10 +752,10 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1263, 13</value>
+    <value>1178, 12</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1894,10 +1894,10 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1263, 66</value>
+    <value>1178, 65</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -4578,7 +4578,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="settings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1169, 12</value>
+    <value>1203, 12</value>
   </data>
   <data name="settings.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 21</value>
@@ -4666,7 +4666,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="pcinfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1169, 39</value>
+    <value>1203, 39</value>
   </data>
   <data name="pcinfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 21</value>
@@ -4693,7 +4693,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="about.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1169, 66</value>
+    <value>1203, 66</value>
   </data>
   <data name="about.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 21</value>
@@ -5504,10 +5504,10 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox32.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1135, 66</value>
+    <value>1050, 65</value>
   </data>
   <data name="pictureBox32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox32.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -5558,10 +5558,10 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox33.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1135, 13</value>
+    <value>1050, 12</value>
   </data>
   <data name="pictureBox33.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox33.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -5624,10 +5624,10 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox34.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1135, 39</value>
+    <value>1050, 38</value>
   </data>
   <data name="pictureBox34.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
+    <value>21, 21</value>
   </data>
   <data name="pictureBox34.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -5651,7 +5651,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="opencmd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1041, 12</value>
+    <value>1075, 12</value>
   </data>
   <data name="opencmd.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 21</value>
@@ -5678,7 +5678,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="unprog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1041, 39</value>
+    <value>1075, 39</value>
   </data>
   <data name="unprog.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 21</value>
@@ -5705,7 +5705,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="guide.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1041, 66</value>
+    <value>1075, 66</value>
   </data>
   <data name="guide.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 21</value>
