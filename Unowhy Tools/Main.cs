@@ -766,6 +766,9 @@ namespace Unowhy_Tools
             delhismserv.Text = resxSet.GetString("delhismserv");
             dismbr.Text = resxSet.GetString("dismdrv");
             enwhe.Text = resxSet.GetString("enwhe");
+            guide.Text = resxSet.GetString("guide");
+            opencmd.Text = resxSet.GetString("opencmd");
+            unprog.Text = resxSet.GetString("unprog");
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
 
