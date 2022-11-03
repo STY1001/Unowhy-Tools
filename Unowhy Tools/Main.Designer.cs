@@ -78,7 +78,6 @@ namespace Unowhy_Tools
             this.debent = new System.Windows.Forms.Label();
             this.debti = new System.Windows.Forms.Label();
             this.pictureBox27 = new System.Windows.Forms.PictureBox();
-            this.tbp = new System.Windows.Forms.Button();
             this.drivercat = new System.Windows.Forms.Label();
             this.pictureBox28 = new System.Windows.Forms.PictureBox();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
@@ -107,7 +106,6 @@ namespace Unowhy_Tools
             this.admin = new ReaLTaiizor.Controls.Button();
             this.adduser = new ReaLTaiizor.Controls.Button();
             this.adminset = new ReaLTaiizor.Controls.Button();
-            this.clog = new System.Windows.Forms.Button();
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.dismbr = new ReaLTaiizor.Controls.Button();
             this.pictureBox31 = new System.Windows.Forms.PictureBox();
@@ -446,15 +444,6 @@ namespace Unowhy_Tools
             resources.ApplyResources(this.pictureBox27, "pictureBox27");
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.TabStop = false;
-            // 
-            // tbp
-            // 
-            this.tbp.BackColor = System.Drawing.Color.White;
-            this.tbp.FlatAppearance.BorderSize = 3;
-            resources.ApplyResources(this.tbp, "tbp");
-            this.tbp.Name = "tbp";
-            this.tbp.UseVisualStyleBackColor = false;
-            this.tbp.Click += new System.EventHandler(this.tbp_Click);
             // 
             // drivercat
             // 
@@ -837,13 +826,6 @@ namespace Unowhy_Tools
             this.adminset.Click += new System.EventHandler(this.adminset_Click);
             this.adminset.MouseEnter += new System.EventHandler(this.desc_Adminset);
             // 
-            // clog
-            // 
-            resources.ApplyResources(this.clog, "clog");
-            this.clog.Name = "clog";
-            this.clog.UseVisualStyleBackColor = true;
-            this.clog.Click += new System.EventHandler(this.clog_Click);
-            // 
             // pictureBox30
             // 
             resources.ApplyResources(this.pictureBox30, "pictureBox30");
@@ -957,7 +939,6 @@ namespace Unowhy_Tools
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.clog);
             this.Controls.Add(this.stophis);
             this.Controls.Add(this.fixboot);
             this.Controls.Add(this.ent);
@@ -987,7 +968,6 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pcinfo);
             this.Controls.Add(this.opencmd);
             this.Controls.Add(this.settings);
-            this.Controls.Add(this.tbp);
             this.Controls.Add(this.debwhe);
             this.Controls.Add(this.debti);
             this.Controls.Add(this.debent);
@@ -1141,7 +1121,6 @@ namespace Unowhy_Tools
         private System.Windows.Forms.Label debent;
         private System.Windows.Forms.Label debti;
         private System.Windows.Forms.PictureBox pictureBox27;
-        private System.Windows.Forms.Button tbp;
         private System.Windows.Forms.Label drivercat;
         private System.Windows.Forms.PictureBox pictureBox28;
         private System.Windows.Forms.PictureBox pictureBox29;
@@ -1170,7 +1149,6 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button admin;
         private ReaLTaiizor.Controls.Button adduser;
         private ReaLTaiizor.Controls.Button adminset;
-        private System.Windows.Forms.Button clog;
         private System.Windows.Forms.PictureBox pictureBox30;
         private ReaLTaiizor.Controls.Button dismbr;
         private System.Windows.Forms.PictureBox pictureBox31;

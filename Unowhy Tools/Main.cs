@@ -691,8 +691,6 @@ namespace Unowhy_Tools
                     debti.Visible = true;
                     debent.Visible = true;
                     debadmin.Visible = true;
-                    tbp.Visible = true;
-                    clog.Visible = true;
                     debwhe.Visible = true;
                 }
 
@@ -1646,26 +1644,10 @@ namespace Unowhy_Tools
             }
         }
 
-        private void tbp_Click(object sender, EventArgs e)
-        {
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-            Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-            t.Start();
-            delay(6000);
-            t.Abort();
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
-        }
-
         private void psdrv_Click(object sender, EventArgs e)
         {
             var ps = new psdriver();
             ps.ShowDialog();
-        }
-
-        private void clog_Click(object sender, EventArgs e)
-        {
-            var logf = new changelog();
-            logf.Show();
         }
 
         private void dismdrv_Click(object sender, EventArgs e)
