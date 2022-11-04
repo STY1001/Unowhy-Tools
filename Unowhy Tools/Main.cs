@@ -701,6 +701,11 @@ namespace Unowhy_Tools
                 debuserid(userpath);
                 check();
                 changeswitch();
+
+                //Go to foreground
+                this.WindowState = FormWindowState.Minimized;
+                this.Show();
+                this.WindowState = FormWindowState.Normal;
             }
             t.Abort();
         }
