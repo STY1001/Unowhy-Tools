@@ -202,6 +202,9 @@
   <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="explorer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\explorer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="enable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -211,11 +214,11 @@
   <data name="adduser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\adduser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="yesupdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\yesupdate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="UTLB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UTLB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="disable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\disable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo-unowhy.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo-unowhy.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,8 +268,8 @@
   <data name="powershell" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\powershell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="disable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\disable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="yesupdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yesupdate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="manufacturer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\manufacturer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -312,8 +315,5 @@
   </data>
   <data name="question1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="explorer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\explorer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
