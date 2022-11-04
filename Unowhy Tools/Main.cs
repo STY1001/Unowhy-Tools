@@ -692,6 +692,7 @@ namespace Unowhy_Tools
                     debent.Visible = true;
                     debadmin.Visible = true;
                     debwhe.Visible = true;
+                    debbim.Visible = true;
                 }
 
                 #endregion
@@ -767,6 +768,9 @@ namespace Unowhy_Tools
             guide.Text = resxSet.GetString("guide");
             opencmd.Text = resxSet.GetString("opencmd");
             unprog.Text = resxSet.GetString("unprog");
+            opengp.Text = resxSet.GetString("opengp");
+            openreg.Text = resxSet.GetString("openreg");
+            opentask.Text = resxSet.GetString("opentask");
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
 
@@ -810,6 +814,18 @@ namespace Unowhy_Tools
         #endregion
 
         #region Other Func
+
+        public void checkbootim()
+        {
+            if (debbim.Text == "true")
+            {
+                dbtn(bootim);
+            }
+            else
+            {
+                ebtn(bootim);
+            }
+        }
 
         public void checkwhe()
         {
@@ -953,27 +969,7 @@ namespace Unowhy_Tools
             }
             else
             {
-                dbtn(delhis);
-                dbtn(delhism);
-                dbtn(deloem);
-                dbtn(delridf);
-                dbtn(dishis);
-                dbtn(enhis);
-                dbtn(stophis);
-                dbtn(starthis);
-                dbtn(ent);
-                dbtn(entf);
-                dbtn(delti);
-                dbtn(aadleave);
-                dbtn(pcname);
-                dbtn(admin);
-                dbtn(adminset);
-                dbtn(adduser);
-                dbtn(winre);
-                dbtn(fixboot);
-                dbtn(delhismserv);
-                dbtn(psbr);
-                dbtn(enwhe);
+                ebtn(shell);
             }
         }
 
@@ -1136,6 +1132,16 @@ namespace Unowhy_Tools
                     debwhe.Text = "false";
                 }
             }
+
+            RegistryKey bim1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe");
+            if(bim1 == null)
+            {
+                debbim.Text = "true";
+            }
+            else
+            {
+                debbim.Text = "false";
+            }
         }
 
         public void changeswitch()
@@ -1162,6 +1168,9 @@ namespace Unowhy_Tools
             ebtn(psbr);
             ebtn(shell);
             ebtn(enwhe);
+            ebtn(dismbr);
+            ebtn(bkcloud);
+            ebtn(bootim);
 
             checkhism();
             checkazure();
@@ -1169,6 +1178,8 @@ namespace Unowhy_Tools
             checkent();
             checkti();
             checkfolder();
+            checkwhe();
+            checkbootim();
             checkshell();
         }
 
@@ -1681,7 +1692,7 @@ namespace Unowhy_Tools
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
                 Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
                 t.Start();
-                // Del Serv Only
+                                                                        //Enable winhelloent
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\winhelloent.exe";
                 p.StartInfo.Arguments = "";
@@ -1694,9 +1705,48 @@ namespace Unowhy_Tools
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
+
         private void bkcloud_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://hksty1001-my.sharepoint.com/:f:/g/personal/cloud_hksty1001_onmicrosoft_com/Ejk2S5pcwCFPnUxKDVQaUPoBpw-3IMAjuLYiJO_Fi-vsKQ?e=SAI4SS");
+        }
+
+        private void opengp_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("gpedit.msc");
+        }
+
+        private void openreg_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("regedit.exe");
+        }
+
+        private void opentask_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("taskmgr.exe");
+        }
+        private void bootim_Click(object sender, EventArgs e)
+        {
+            string msg = bootim.Text;
+            dialog d = new dialog(msg);
+            d.ShowDialog();
+            if (d.DialogResult.Equals(DialogResult.Yes))
+            {
+                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
+                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
+                t.Start();
+                                                                    //Unpatch bootim
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\bootim.exe";
+                p.StartInfo.Arguments = "";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                p.Start();
+                p.WaitForExit();
+                debbim.Text = "true";
+                changeswitch();
+                t.Abort();
+                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+            }
         }
 
         #endregion
