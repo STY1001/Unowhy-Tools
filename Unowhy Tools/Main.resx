@@ -313,7 +313,7 @@
     <value>Segoe UI, 8.25pt</value>
   </data>
   <data name="desc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 486</value>
+    <value>14, 534</value>
   </data>
   <data name="desc.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -346,7 +346,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 470</value>
+    <value>12, 518</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 15</value>
@@ -958,7 +958,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox21.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 452</value>
+    <value>535, 481</value>
   </data>
   <data name="pictureBox21.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1036,7 +1036,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 423</value>
+    <value>535, 453</value>
   </data>
   <data name="pictureBox20.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1114,7 +1114,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 394</value>
+    <value>535, 424</value>
   </data>
   <data name="pictureBox13.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1192,7 +1192,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 364</value>
+    <value>535, 395</value>
   </data>
   <data name="pictureBox12.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1265,7 +1265,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 278</value>
+    <value>535, 308</value>
   </data>
   <data name="pictureBox14.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1345,7 +1345,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 335</value>
+    <value>535, 366</value>
   </data>
   <data name="pictureBox11.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1567,7 +1567,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 248</value>
+    <value>535, 278</value>
   </data>
   <data name="pictureBox10.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1675,7 +1675,7 @@
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAABFhJREFUeF7l2m1rU2cYB3C/hKLdfMK5qVPnnK61U1udS3KKstlKu/kwmDYNeaBF
+        DgAACw4BQL7hQQAABFhJREFUeF7l2m1rU2cYB3C/hKLdfMK5qVPnnK61U1udS3KKstlKu/kwmDYNeaBF
         fCEq9RPs9T6AL9TOjuk2RB1zLKEqCQmllBZEhCEIvthg0w18de26z7z18uo/OTlJWL13Lvih/nPft+d/
         ctIqdAERRRoMowSGUQLDKIFhlMAwSmAYJTCMEhhKO+j4om4avsh+Z+QIc63nd9HwQtRJgqHU/TQ33vU0
         S476GnWSYCh1Pck8ZuSoP1EnCYbSzj9S5DLdR4OhtP23IXKZ7qPBUPrgUZJcpvtoMJQ6Hx4jl+k+Ggyl
@@ -3699,7 +3699,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox24.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 307</value>
+    <value>535, 337</value>
   </data>
   <data name="pictureBox24.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -3911,7 +3911,7 @@
     <value>Lucida Console, 8.25pt</value>
   </data>
   <data name="debuglab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 389</value>
+    <value>330, 11</value>
   </data>
   <data name="debuglab.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 11</value>
@@ -3947,7 +3947,7 @@
     <value>NoControl</value>
   </data>
   <data name="debshell.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 405</value>
+    <value>330, 27</value>
   </data>
   <data name="debshell.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 11</value>
@@ -3983,7 +3983,7 @@
     <value>NoControl</value>
   </data>
   <data name="debhme.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 418</value>
+    <value>330, 40</value>
   </data>
   <data name="debhme.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 11</value>
@@ -4019,7 +4019,7 @@
     <value>NoControl</value>
   </data>
   <data name="debhmr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 431</value>
+    <value>330, 53</value>
   </data>
   <data name="debhmr.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 11</value>
@@ -4055,7 +4055,7 @@
     <value>NoControl</value>
   </data>
   <data name="debhms.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 444</value>
+    <value>330, 66</value>
   </data>
   <data name="debhms.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 11</value>
@@ -4091,7 +4091,7 @@
     <value>NoControl</value>
   </data>
   <data name="debreagentc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 405</value>
+    <value>330, 78</value>
   </data>
   <data name="debreagentc.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 11</value>
@@ -4127,7 +4127,7 @@
     <value>NoControl</value>
   </data>
   <data name="debazure.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 418</value>
+    <value>330, 91</value>
   </data>
   <data name="debazure.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 11</value>
@@ -4163,7 +4163,7 @@
     <value>NoControl</value>
   </data>
   <data name="debuser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 431</value>
+    <value>330, 102</value>
   </data>
   <data name="debuser.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 11</value>
@@ -4199,7 +4199,7 @@
     <value>NoControl</value>
   </data>
   <data name="debadmin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 443</value>
+    <value>330, 114</value>
   </data>
   <data name="debadmin.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 11</value>
@@ -4235,7 +4235,7 @@
     <value>NoControl</value>
   </data>
   <data name="debent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 405</value>
+    <value>330, 127</value>
   </data>
   <data name="debent.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 11</value>
@@ -4271,7 +4271,7 @@
     <value>NoControl</value>
   </data>
   <data name="debti.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 418</value>
+    <value>330, 140</value>
   </data>
   <data name="debti.Size" type="System.Drawing.Size, System.Drawing">
     <value>19, 11</value>
@@ -4859,7 +4859,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="aadleave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>557, 306</value>
+    <value>558, 336</value>
   </data>
   <data name="aadleave.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -4940,7 +4940,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="delhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>557, 277</value>
+    <value>558, 307</value>
   </data>
   <data name="delhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -4967,7 +4967,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="ent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>557, 248</value>
+    <value>558, 278</value>
   </data>
   <data name="ent.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -4994,7 +4994,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="delti.Location" type="System.Drawing.Point, System.Drawing">
-    <value>557, 363</value>
+    <value>558, 394</value>
   </data>
   <data name="delti.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -5021,7 +5021,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="delridf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>557, 393</value>
+    <value>558, 423</value>
   </data>
   <data name="delridf.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -5048,7 +5048,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="delhism.Location" type="System.Drawing.Point, System.Drawing">
-    <value>557, 334</value>
+    <value>558, 365</value>
   </data>
   <data name="delhism.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -5075,7 +5075,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="deloem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>557, 422</value>
+    <value>558, 452</value>
   </data>
   <data name="deloem.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -5102,7 +5102,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="entf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>557, 452</value>
+    <value>558, 481</value>
   </data>
   <data name="entf.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -5574,7 +5574,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox34.Location" type="System.Drawing.Point, System.Drawing">
-    <value>702, 12</value>
+    <value>535, 249</value>
   </data>
   <data name="pictureBox34.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -5628,16 +5628,16 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="unprog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>724, 12</value>
+    <value>558, 249</value>
   </data>
   <data name="unprog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 21</value>
+    <value>211, 21</value>
   </data>
   <data name="unprog.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
   </data>
   <data name="unprog.Text" xml:space="preserve">
-    <value>Installed Prog.</value>
+    <value>Installed softwares (Windows settings)</value>
   </data>
   <data name="&gt;&gt;unprog.Name" xml:space="preserve">
     <value>unprog</value>
@@ -5688,7 +5688,7 @@
     <value>NoControl</value>
   </data>
   <data name="debwhe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 431</value>
+    <value>330, 153</value>
   </data>
   <data name="debwhe.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 11</value>
@@ -5994,7 +5994,7 @@
     <value>NoControl</value>
   </data>
   <data name="debbim.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 443</value>
+    <value>330, 165</value>
   </data>
   <data name="debbim.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 11</value>
@@ -6030,7 +6030,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1301, 557</value>
+    <value>1301, 605</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
