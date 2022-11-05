@@ -57,7 +57,7 @@ namespace Unowhy_Tools
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var a = new dialog("This is dialog ?");
+            var a = new dialog("This is dialog");
             a.Show();
         }
 
