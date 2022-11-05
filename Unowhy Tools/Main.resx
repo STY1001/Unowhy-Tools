@@ -1675,7 +1675,7 @@
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAABFhJREFUeF7l2m1rU2cYB3C/hKLdfMK5qVPnnK61U1udS3KKstlKu/kwmDYNeaBF
+        DQAACw0B7QfALAAABFhJREFUeF7l2m1rU2cYB3C/hKLdfMK5qVPnnK61U1udS3KKstlKu/kwmDYNeaBF
         fCEq9RPs9T6AL9TOjuk2RB1zLKEqCQmllBZEhCEIvthg0w18de26z7z18uo/OTlJWL13Lvih/nPft+d/
         ctIqdAERRRoMowSGUQLDKIFhlMAwSmAYJTCMEhhKO+j4om4avsh+Z+QIc63nd9HwQtRJgqHU/TQ33vU0
         S476GnWSYCh1Pck8ZuSoP1EnCYbSzj9S5DLdR4OhtP23IXKZ7qPBUPrgUZJcpvtoMJQ6Hx4jl+k+Ggyl
@@ -3911,7 +3911,7 @@
     <value>Lucida Console, 8.25pt</value>
   </data>
   <data name="debuglab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 11</value>
+    <value>13, 405</value>
   </data>
   <data name="debuglab.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 11</value>
@@ -3947,7 +3947,7 @@
     <value>NoControl</value>
   </data>
   <data name="debshell.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 27</value>
+    <value>13, 421</value>
   </data>
   <data name="debshell.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 11</value>
@@ -3983,7 +3983,7 @@
     <value>NoControl</value>
   </data>
   <data name="debhme.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 40</value>
+    <value>13, 434</value>
   </data>
   <data name="debhme.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 11</value>
@@ -4019,7 +4019,7 @@
     <value>NoControl</value>
   </data>
   <data name="debhmr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 53</value>
+    <value>13, 447</value>
   </data>
   <data name="debhmr.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 11</value>
@@ -4055,7 +4055,7 @@
     <value>NoControl</value>
   </data>
   <data name="debhms.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 66</value>
+    <value>13, 460</value>
   </data>
   <data name="debhms.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 11</value>
@@ -4091,7 +4091,7 @@
     <value>NoControl</value>
   </data>
   <data name="debreagentc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 78</value>
+    <value>13, 472</value>
   </data>
   <data name="debreagentc.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 11</value>
@@ -4127,7 +4127,7 @@
     <value>NoControl</value>
   </data>
   <data name="debazure.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 91</value>
+    <value>13, 485</value>
   </data>
   <data name="debazure.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 11</value>
@@ -4163,7 +4163,7 @@
     <value>NoControl</value>
   </data>
   <data name="debuser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 102</value>
+    <value>271, 421</value>
   </data>
   <data name="debuser.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 11</value>
@@ -4199,7 +4199,7 @@
     <value>NoControl</value>
   </data>
   <data name="debadmin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 114</value>
+    <value>271, 433</value>
   </data>
   <data name="debadmin.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 11</value>
@@ -4235,7 +4235,7 @@
     <value>NoControl</value>
   </data>
   <data name="debent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 127</value>
+    <value>271, 446</value>
   </data>
   <data name="debent.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 11</value>
@@ -4271,7 +4271,7 @@
     <value>NoControl</value>
   </data>
   <data name="debti.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 140</value>
+    <value>271, 459</value>
   </data>
   <data name="debti.Size" type="System.Drawing.Size, System.Drawing">
     <value>19, 11</value>
@@ -5688,7 +5688,7 @@
     <value>NoControl</value>
   </data>
   <data name="debwhe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 153</value>
+    <value>271, 472</value>
   </data>
   <data name="debwhe.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 11</value>
@@ -5994,7 +5994,7 @@
     <value>NoControl</value>
   </data>
   <data name="debbim.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 165</value>
+    <value>271, 484</value>
   </data>
   <data name="debbim.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 11</value>
