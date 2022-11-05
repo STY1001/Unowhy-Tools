@@ -72,7 +72,7 @@ namespace Unowhy_Tools
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.laptop;
-            this.pictureBox1.Location = new System.Drawing.Point(403, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(268, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -92,7 +92,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.github;
-            this.pictureBox2.Location = new System.Drawing.Point(403, 51);
+            this.pictureBox2.Location = new System.Drawing.Point(268, 50);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,7 +102,7 @@ namespace Unowhy_Tools
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Unowhy_Tools.Properties.Resources.update;
-            this.pictureBox3.Location = new System.Drawing.Point(403, 91);
+            this.pictureBox3.Location = new System.Drawing.Point(268, 90);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -130,7 +130,7 @@ namespace Unowhy_Tools
             this.website.Image = null;
             this.website.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.website.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.website.Location = new System.Drawing.Point(267, 13);
+            this.website.Location = new System.Drawing.Point(305, 13);
             this.website.Name = "website";
             this.website.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.website.Size = new System.Drawing.Size(130, 31);
@@ -148,7 +148,7 @@ namespace Unowhy_Tools
             this.github.Image = null;
             this.github.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.github.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.github.Location = new System.Drawing.Point(267, 52);
+            this.github.Location = new System.Drawing.Point(305, 52);
             this.github.Name = "github";
             this.github.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.github.Size = new System.Drawing.Size(130, 31);
@@ -166,7 +166,7 @@ namespace Unowhy_Tools
             this.update.Image = null;
             this.update.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.update.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.update.Location = new System.Drawing.Point(267, 92);
+            this.update.Location = new System.Drawing.Point(305, 92);
             this.update.Name = "update";
             this.update.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.update.Size = new System.Drawing.Size(130, 31);
