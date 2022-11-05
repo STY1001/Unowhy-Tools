@@ -150,6 +150,12 @@
   <data name="biosversion" xml:space="preserve">
     <value>BIOS Version</value>
   </data>
+  <data name="bkcloud" xml:space="preserve">
+    <value>Download a driver backup from cloud</value>
+  </data>
+  <data name="bootim" xml:space="preserve">
+    <value>Repair BootIM (blue menu)</value>
+  </data>
   <data name="browse" xml:space="preserve">
     <value>Browse</value>
   </data>
@@ -203,6 +209,12 @@
   </data>
   <data name="descadminset" xml:space="preserve">
     <value>Manage the built-in ".\administrator" account. Don't disable the admin account if you don't have an other account as admin ! So before, create a local account as admin or set this account as admin</value>
+  </data>
+  <data name="descbkcloud" xml:space="preserve">
+    <value>Download a Unowhy Tools drivers backup from cloud made by another user. If you have an driver issue and if you haven't made a backup of your drivers, you can try to restore a cloud backup, use the guide to learn more about this method</value>
+  </data>
+  <data name="descbootim" xml:space="preserve">
+    <value>Repair BootIM (Boot Immersive Menu) (Blue Menu). Unowhy deployed a patch to disable bootim.exe, via bootim.exe redirection. If you want to boot from a USB device with a 2022 Y13, do this</value>
   </data>
   <data name="descdelentf" xml:space="preserve">
     <value>Delete extra softwares installers folder (In : C:\ProgramData)</value>
@@ -318,6 +330,15 @@
   <data name="opencmd" xml:space="preserve">
     <value>Open CMD</value>
   </data>
+  <data name="opengp" xml:space="preserve">
+    <value>Open GPedit</value>
+  </data>
+  <data name="openreg" xml:space="preserve">
+    <value>Open REGedit</value>
+  </data>
+  <data name="opentask" xml:space="preserve">
+    <value>Open TaskMgr</value>
+  </data>
   <data name="os" xml:space="preserve">
     <value>OS Version</value>
   </data>
@@ -388,7 +409,7 @@
     <value>Update now</value>
   </data>
   <data name="unprog" xml:space="preserve">
-    <value>Installed prog.</value>
+    <value>Installed softwares (Windows settings)</value>
   </data>
   <data name="update.del" xml:space="preserve">
     <value>Deleting "update.zip"</value>
@@ -424,7 +445,7 @@
     <value>WinRE settings GUI for Unowhy Tools</value>
   </data>
   <data name="winremsg" xml:space="preserve">
-    <value>WinRE image was not found, click "Repair" to fix issue</value>
+    <value>WinRE image was not found, click "Repair" to fix issue (600 MB required)</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Yes</value>
