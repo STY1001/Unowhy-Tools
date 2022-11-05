@@ -1034,8 +1034,8 @@ namespace Unowhy_Tools
             this.bootim.Name = "bootim";
             this.bootim.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.bootim.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.bootim.Click += new System.EventHandler(this.enwhe_Click);
-            this.bootim.MouseEnter += new System.EventHandler(this.desc_enwhe);
+            this.bootim.Click += new System.EventHandler(this.bootim_Click);
+            this.bootim.MouseEnter += new System.EventHandler(this.desc_bootim);
             // 
             // pictureBox40
             // 
