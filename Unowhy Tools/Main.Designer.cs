@@ -30,7 +30,6 @@ namespace Unowhy_Tools
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
-            this.ver = new System.Windows.Forms.Label();
             this.servicecat = new System.Windows.Forms.Label();
             this.repaircat = new System.Windows.Forms.Label();
             this.delcat = new System.Windows.Forms.Label();
@@ -169,11 +168,6 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ver
-            // 
-            resources.ApplyResources(this.ver, "ver");
-            this.ver.Name = "ver";
             // 
             // servicecat
             // 
@@ -1166,7 +1160,6 @@ namespace Unowhy_Tools
             this.Controls.Add(this.repaircat);
             this.Controls.Add(this.servicecat);
             this.Controls.Add(this.sty1001);
-            this.Controls.Add(this.ver);
             this.Controls.Add(this.logo);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1221,7 +1214,6 @@ namespace Unowhy_Tools
 
         #endregion
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.Label ver;
         private System.Windows.Forms.Label servicecat;
         private System.Windows.Forms.Label repaircat;
         private System.Windows.Forms.Label delcat;

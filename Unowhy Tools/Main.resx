@@ -117,39 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ver.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ver.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1188, 452</value>
-  </data>
-  <data name="ver.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ver.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;ver.Name" xml:space="preserve">
-    <value>ver</value>
-  </data>
-  <data name="&gt;&gt;ver.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ver.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ver.ZOrder" xml:space="preserve">
-    <value>96</value>
-  </data>
   <data name="servicecat.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="servicecat.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8.25pt</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="servicecat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1649,7 +1625,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 323</value>
+    <value>14, 336</value>
   </data>
   <data name="pictureBox6.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1701,7 +1677,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 300</value>
+    <value>14, 307</value>
   </data>
   <data name="pictureBox5.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1749,7 +1725,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 271</value>
+    <value>14, 278</value>
   </data>
   <data name="pictureBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -1807,7 +1783,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 248</value>
+    <value>14, 249</value>
   </data>
   <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -3616,7 +3592,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
-    <value>97</value>
+    <value>96</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4349,7 +4325,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox27.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 353</value>
+    <value>13, 366</value>
   </data>
   <data name="pictureBox27.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -4616,7 +4592,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="starthis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 248</value>
+    <value>36, 249</value>
   </data>
   <data name="starthis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -4697,7 +4673,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="enhis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 300</value>
+    <value>36, 307</value>
   </data>
   <data name="enhis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -4724,7 +4700,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="stophis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 271</value>
+    <value>36, 278</value>
   </data>
   <data name="stophis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -4751,7 +4727,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="dishis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 323</value>
+    <value>36, 336</value>
   </data>
   <data name="dishis.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -4778,7 +4754,7 @@
     <value>Segoe UI, 8.25pt</value>
   </data>
   <data name="delhismserv.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 352</value>
+    <value>36, 365</value>
   </data>
   <data name="delhismserv.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
