@@ -1791,6 +1791,17 @@ namespace Unowhy_Tools
             ebtn(bootim);
         }
 
+        private void debugenable_Click(object sender, EventArgs e)  // Enable all button (debug mode)
+        {
+            string msg = "Debug Mode (Restart to apply)";
+            dialog d = new dialog(msg);
+            d.ShowDialog();
+            if (d.DialogResult.Equals(DialogResult.Yes))
+            {
+                File.Create(".\\debug");
+            }
+        }
+
         #endregion
 
         #region Buttons Description

@@ -494,6 +494,7 @@ namespace Unowhy_Tools
             resources.ApplyResources(this.sty1001, "sty1001");
             this.sty1001.ForeColor = System.Drawing.Color.White;
             this.sty1001.Name = "sty1001";
+            this.sty1001.Click += new System.EventHandler(this.debugenable_Click);
             // 
             // starthis
             // 
