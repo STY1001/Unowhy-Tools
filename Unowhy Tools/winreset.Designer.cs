@@ -139,7 +139,7 @@
             // repmsg
             // 
             this.repmsg.AutoSize = true;
-            this.repmsg.Location = new System.Drawing.Point(10, 55);
+            this.repmsg.Location = new System.Drawing.Point(12, 40);
             this.repmsg.Name = "repmsg";
             this.repmsg.Size = new System.Drawing.Size(0, 13);
             this.repmsg.TabIndex = 3;
@@ -149,7 +149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(473, 75);
+            this.ClientSize = new System.Drawing.Size(473, 61);
             this.Controls.Add(this.repmsg);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
