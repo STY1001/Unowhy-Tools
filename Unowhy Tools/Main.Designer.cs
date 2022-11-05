@@ -395,6 +395,7 @@ namespace Unowhy_Tools
             resources.ApplyResources(this.debuglab, "debuglab");
             this.debuglab.ForeColor = System.Drawing.Color.White;
             this.debuglab.Name = "debuglab";
+            this.debuglab.Click += new System.EventHandler(this.debug_Click);
             // 
             // debshell
             // 

@@ -1762,6 +1762,35 @@ namespace Unowhy_Tools
             }
         }
 
+        private void debug_Click(object sender, EventArgs e)  // Enable all button (debug mode)
+        {
+            ebtn(delhis);
+            ebtn(delhism);
+            ebtn(deloem);
+            ebtn(delridf);
+            ebtn(dishis);
+            ebtn(enhis);
+            ebtn(stophis);
+            ebtn(starthis);
+            ebtn(ent);
+            ebtn(entf);
+            ebtn(delti);
+            ebtn(aadleave);
+            ebtn(pcname);
+            ebtn(admin);
+            ebtn(adminset);
+            ebtn(adduser);
+            ebtn(winre);
+            ebtn(fixboot);
+            ebtn(delhismserv);
+            ebtn(psbr);
+            ebtn(shell);
+            ebtn(enwhe);
+            ebtn(dismbr);
+            ebtn(bkcloud);
+            ebtn(bootim);
+        }
+
         #endregion
 
         #region Buttons Description
