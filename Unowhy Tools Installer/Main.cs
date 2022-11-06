@@ -42,7 +42,11 @@ namespace Unowhy_Tools_Installer
             System.Diagnostics.Process.Start("taskkill", "/f /im \"Unowhy Tools Updater.exe\"");
             System.Diagnostics.Process.Start("taskkill", "/f /im \"uninstall.exe\"");
 
-            status.Text = "";
+            status.Text = "Ready !";
+            pictureBox3.Visible = false;
+            run.Visible = false;
+            ok.Visible = false;
+            pictureBox6.Visible = false;
         }
 
         public static void Extract(string nameSpace, string outFile, string internalFilePath, string resourceName)
@@ -350,18 +354,11 @@ namespace Unowhy_Tools_Installer
             statusbar.Value = 100;
             TaskbarManager.Instance.SetProgressValue(100, 100);
             status.Text = "Finished !";
-            delay(3000);
-            if (run.Checked == true)
-            {
-                Process p = new Process();
-                p.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools.exe";
-                p.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools";
-                p.Start();
-            }
-
-            delay(100);
-
-            this.Close();
+            run.Visible = true;
+            pictureBox3.Visible = true;
+            ok.Visible = true;
+            pictureBox6.Visible = true;
+            
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -387,13 +384,30 @@ namespace Unowhy_Tools_Installer
             }
             else
             {
-                desktop.Enabled = false;
-                run.Enabled = false;
-                cancel.Enabled = false;
-                install.Enabled = false;
+                install.Visible = false;
+                desktop.Visible = false;
+                pictureBox2.Visible = false;
+                cancel.Visible = false;
+                pictureBox4.Visible = false;
+                pictureBox5.Visible = false;
 
                 install_pre();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (run.Checked == true)
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools.exe";
+                p.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools";
+                p.Start();
+            }
+
+            delay(100);
+
+            this.Close();
         }
     }
 }

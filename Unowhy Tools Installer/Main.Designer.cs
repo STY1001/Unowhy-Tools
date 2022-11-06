@@ -44,11 +44,14 @@
             this.status = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.ok = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // desktop
@@ -58,7 +61,7 @@
             this.desktop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.desktop.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.desktop.ForeColor = System.Drawing.Color.White;
-            this.desktop.Location = new System.Drawing.Point(39, 155);
+            this.desktop.Location = new System.Drawing.Point(39, 148);
             this.desktop.Name = "desktop";
             this.desktop.Size = new System.Drawing.Size(268, 17);
             this.desktop.TabIndex = 1;
@@ -72,7 +75,7 @@
             this.run.CheckState = System.Windows.Forms.CheckState.Checked;
             this.run.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.run.ForeColor = System.Drawing.Color.White;
-            this.run.Location = new System.Drawing.Point(39, 181);
+            this.run.Location = new System.Drawing.Point(39, 148);
             this.run.Name = "run";
             this.run.Size = new System.Drawing.Size(256, 17);
             this.run.TabIndex = 1;
@@ -82,7 +85,7 @@
             // install
             // 
             this.install.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.install.Location = new System.Drawing.Point(196, 254);
+            this.install.Location = new System.Drawing.Point(195, 202);
             this.install.Name = "install";
             this.install.Size = new System.Drawing.Size(100, 23);
             this.install.TabIndex = 3;
@@ -93,7 +96,7 @@
             // cancel
             // 
             this.cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel.Location = new System.Drawing.Point(42, 254);
+            this.cancel.Location = new System.Drawing.Point(41, 202);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(100, 23);
             this.cancel.TabIndex = 3;
@@ -103,9 +106,9 @@
             // 
             // statusbar
             // 
-            this.statusbar.Location = new System.Drawing.Point(15, 207);
+            this.statusbar.Location = new System.Drawing.Point(16, 174);
             this.statusbar.Name = "statusbar";
-            this.statusbar.Size = new System.Drawing.Size(279, 15);
+            this.statusbar.Size = new System.Drawing.Size(279, 20);
             this.statusbar.Step = 1;
             this.statusbar.TabIndex = 4;
             // 
@@ -136,7 +139,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Unowhy_Tools_Installer.Properties.Resources.no;
-            this.pictureBox5.Location = new System.Drawing.Point(14, 253);
+            this.pictureBox5.Location = new System.Drawing.Point(13, 201);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -146,7 +149,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Unowhy_Tools_Installer.Properties.Resources.download;
-            this.pictureBox4.Location = new System.Drawing.Point(168, 253);
+            this.pictureBox4.Location = new System.Drawing.Point(167, 201);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,7 +159,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Unowhy_Tools_Installer.Properties.Resources.startup;
-            this.pictureBox3.Location = new System.Drawing.Point(12, 178);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 145);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(20, 20);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -166,7 +169,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools_Installer.Properties.Resources.desktop;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 152);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 145);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -188,7 +191,7 @@
             this.status.BackColor = System.Drawing.Color.Black;
             this.status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status.ForeColor = System.Drawing.Color.White;
-            this.status.Location = new System.Drawing.Point(15, 227);
+            this.status.Location = new System.Drawing.Point(16, 170);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(279, 20);
             this.status.TabIndex = 37;
@@ -206,18 +209,41 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(249, 111);
+            this.label2.Location = new System.Drawing.Point(245, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 39;
-            this.label2.Text = "Ver 17.0";
+            this.label2.Text = "Ver 18.0";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Unowhy_Tools_Installer.Properties.Resources.yes;
+            this.pictureBox6.Location = new System.Drawing.Point(97, 201);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 2;
+            this.pictureBox6.TabStop = false;
+            // 
+            // ok
+            // 
+            this.ok.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ok.Location = new System.Drawing.Point(125, 202);
+            this.ok.Name = "ok";
+            this.ok.Size = new System.Drawing.Size(100, 23);
+            this.ok.TabIndex = 3;
+            this.ok.Text = "OK";
+            this.ok.UseVisualStyleBackColor = true;
+            this.ok.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(310, 292);
+            this.ClientSize = new System.Drawing.Size(310, 239);
+            this.Controls.Add(this.install);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.status);
@@ -226,8 +252,8 @@
             this.Controls.Add(this.statusbar);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.install);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.ok);
+            this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.run);
@@ -245,6 +271,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,6 +294,8 @@
         private System.Windows.Forms.TextBox status;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Button ok;
     }
 }
 
