@@ -437,7 +437,7 @@ namespace Unowhy_Tools
                     delay(1000);
                     t.Abort();
                     var s = new Settings("1");
-                    s.ShowDialog();                        //Show settings
+                    s.ShowDialog();
                     t = new Thread(new ThreadStart(SplashScreen));
                     t.Start();
 
