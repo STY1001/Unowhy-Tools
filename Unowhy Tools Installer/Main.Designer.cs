@@ -218,7 +218,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Unowhy_Tools_Installer.Properties.Resources.yes;
-            this.pictureBox6.Location = new System.Drawing.Point(97, 201);
+            this.pictureBox6.Location = new System.Drawing.Point(167, 201);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(24, 24);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -228,7 +228,7 @@
             // ok
             // 
             this.ok.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ok.Location = new System.Drawing.Point(125, 202);
+            this.ok.Location = new System.Drawing.Point(195, 202);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(100, 23);
             this.ok.TabIndex = 3;
