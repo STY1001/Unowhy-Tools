@@ -409,5 +409,10 @@ namespace Unowhy_Tools_Installer
 
             this.Close();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
