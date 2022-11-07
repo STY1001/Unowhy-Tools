@@ -117,7 +117,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Unowhy_Tools_Installer.Properties.Resources.no;
-            this.pictureBox5.Location = new System.Drawing.Point(13, 201);
+            this.pictureBox5.Location = new System.Drawing.Point(13, 203);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -127,7 +127,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Unowhy_Tools_Installer.Properties.Resources.download;
-            this.pictureBox4.Location = new System.Drawing.Point(167, 201);
+            this.pictureBox4.Location = new System.Drawing.Point(167, 203);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -196,7 +196,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Unowhy_Tools_Installer.Properties.Resources.yes;
-            this.pictureBox6.Location = new System.Drawing.Point(167, 201);
+            this.pictureBox6.Location = new System.Drawing.Point(167, 203);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(24, 24);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -212,7 +212,7 @@
             this.cancel.Image = null;
             this.cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cancel.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.cancel.Location = new System.Drawing.Point(39, 202);
+            this.cancel.Location = new System.Drawing.Point(39, 204);
             this.cancel.Name = "cancel";
             this.cancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.cancel.Size = new System.Drawing.Size(102, 23);
@@ -230,7 +230,7 @@
             this.ok.Image = null;
             this.ok.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ok.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.ok.Location = new System.Drawing.Point(195, 202);
+            this.ok.Location = new System.Drawing.Point(195, 204);
             this.ok.Name = "ok";
             this.ok.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.ok.Size = new System.Drawing.Size(100, 23);
@@ -248,7 +248,7 @@
             this.install.Image = null;
             this.install.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.install.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.install.Location = new System.Drawing.Point(195, 202);
+            this.install.Location = new System.Drawing.Point(195, 204);
             this.install.Name = "install";
             this.install.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.install.Size = new System.Drawing.Size(100, 23);
@@ -262,7 +262,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(310, 235);
+            this.ClientSize = new System.Drawing.Size(310, 238);
             this.Controls.Add(this.install);
             this.Controls.Add(this.ok);
             this.Controls.Add(this.cancel);
