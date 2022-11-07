@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.desktop = new System.Windows.Forms.CheckBox();
             this.run = new System.Windows.Forms.CheckBox();
-            this.install = new System.Windows.Forms.Button();
-            this.cancel = new System.Windows.Forms.Button();
             this.statusbar = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.sty1001 = new System.Windows.Forms.Label();
@@ -45,7 +43,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.ok = new System.Windows.Forms.Button();
+            this.cancel = new ReaLTaiizor.Controls.Button();
+            this.ok = new ReaLTaiizor.Controls.Button();
+            this.install = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -81,28 +81,6 @@
             this.run.TabIndex = 1;
             this.run.Text = "Run after installed / Lancer après installation";
             this.run.UseVisualStyleBackColor = true;
-            // 
-            // install
-            // 
-            this.install.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.install.Location = new System.Drawing.Point(195, 202);
-            this.install.Name = "install";
-            this.install.Size = new System.Drawing.Size(100, 23);
-            this.install.TabIndex = 3;
-            this.install.Text = "Install / Installer";
-            this.install.UseVisualStyleBackColor = true;
-            this.install.Click += new System.EventHandler(this.install_Click);
-            // 
-            // cancel
-            // 
-            this.cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel.Location = new System.Drawing.Point(41, 202);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(100, 23);
-            this.cancel.TabIndex = 3;
-            this.cancel.Text = "Cancel / Annuler";
-            this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // statusbar
             // 
@@ -225,24 +203,69 @@
             this.pictureBox6.TabIndex = 2;
             this.pictureBox6.TabStop = false;
             // 
+            // cancel
+            // 
+            this.cancel.BackColor = System.Drawing.Color.Transparent;
+            this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancel.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel.Image = null;
+            this.cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cancel.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.cancel.Location = new System.Drawing.Point(39, 202);
+            this.cancel.Name = "cancel";
+            this.cancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.cancel.Size = new System.Drawing.Size(102, 23);
+            this.cancel.TabIndex = 40;
+            this.cancel.Text = "Cancel / Annuler";
+            this.cancel.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            // 
             // ok
             // 
+            this.ok.BackColor = System.Drawing.Color.Transparent;
+            this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ok.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.ok.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ok.Image = null;
+            this.ok.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ok.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.ok.Location = new System.Drawing.Point(195, 202);
             this.ok.Name = "ok";
+            this.ok.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.ok.Size = new System.Drawing.Size(100, 23);
-            this.ok.TabIndex = 3;
-            this.ok.Text = "OK";
-            this.ok.UseVisualStyleBackColor = true;
+            this.ok.TabIndex = 40;
+            this.ok.Text = "Ok";
+            this.ok.TextAlignment = System.Drawing.StringAlignment.Center;
             this.ok.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // install
+            // 
+            this.install.BackColor = System.Drawing.Color.Transparent;
+            this.install.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.install.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.install.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.install.Image = null;
+            this.install.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.install.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.install.Location = new System.Drawing.Point(195, 202);
+            this.install.Name = "install";
+            this.install.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.install.Size = new System.Drawing.Size(100, 23);
+            this.install.TabIndex = 40;
+            this.install.Text = "Install / Installer";
+            this.install.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.install.Click += new System.EventHandler(this.install_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(310, 239);
+            this.ClientSize = new System.Drawing.Size(310, 235);
             this.Controls.Add(this.install);
+            this.Controls.Add(this.ok);
+            this.Controls.Add(this.cancel);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -250,9 +273,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.sty1001);
             this.Controls.Add(this.statusbar);
-            this.Controls.Add(this.cancel);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.ok);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -266,6 +287,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unowhy Tools Installer";
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -284,10 +306,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.CheckBox run;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button install;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.ProgressBar statusbar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label sty1001;
@@ -295,7 +315,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Button ok;
+        private ReaLTaiizor.Controls.Button cancel;
+        private ReaLTaiizor.Controls.Button ok;
+        private ReaLTaiizor.Controls.Button install;
     }
 }
 
