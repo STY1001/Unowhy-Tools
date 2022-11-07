@@ -409,7 +409,7 @@
     <value>Mettre à jour</value>
   </data>
   <data name="unprog" xml:space="preserve">
-    <value>Programmes installés (Paramètre Windows)</value>
+    <value>Program. installés (Paramètres Windows)</value>
   </data>
   <data name="update.del" xml:space="preserve">
     <value>Suppression "update.zip"</value>
