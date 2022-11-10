@@ -138,5 +138,11 @@ namespace Unowhy_Tools
             var a = new winreset();
             a.Show();
         }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            var a = new info("This is an info");
+            a.Show();
+        }
     }
 }

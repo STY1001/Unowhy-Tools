@@ -46,6 +46,7 @@
             this.button16 = new ReaLTaiizor.Controls.Button();
             this.button17 = new ReaLTaiizor.Controls.Button();
             this.button18 = new ReaLTaiizor.Controls.Button();
+            this.button19 = new ReaLTaiizor.Controls.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -372,6 +373,24 @@
             this.button18.TextAlignment = System.Drawing.StringAlignment.Center;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.Color.Transparent;
+            this.button19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button19.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.button19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.Image = null;
+            this.button19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button19.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.button19.Location = new System.Drawing.Point(408, 128);
+            this.button19.Name = "button19";
+            this.button19.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.button19.Size = new System.Drawing.Size(192, 23);
+            this.button19.TabIndex = 0;
+            this.button19.Text = "info";
+            this.button19.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
             // pmod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,6 +399,7 @@
             this.ClientSize = new System.Drawing.Size(808, 187);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.button17);
+            this.Controls.Add(this.button19);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button8);
@@ -427,5 +447,6 @@
         private ReaLTaiizor.Controls.Button button16;
         private ReaLTaiizor.Controls.Button button17;
         private ReaLTaiizor.Controls.Button button18;
+        private ReaLTaiizor.Controls.Button button19;
     }
 }
