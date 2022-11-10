@@ -15,6 +15,7 @@ using System.Diagnostics;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using System.Reflection;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_Installer
 {
@@ -368,30 +369,35 @@ namespace Unowhy_Tools_Installer
 
         private void install_Click(object sender, EventArgs e)
         {
-            string noco = "0";
-
-            int Out;
-            if (InternetGetConnectedState(out Out, 0) == true) noco = "0";
-            else noco = "1";
-
-            if(noco == "1")
+            DriveInfo c = new DriveInfo("C");
+            if (c.AvailableFreeSpace < 300000000000)
             {
-                var co = new noco();
-                TaskbarManager.Instance.SetProgressValue(100, 100);
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Error);
-                co.ShowDialog();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                var i = new info("30 MB free space required");
+                i.ShowDialog();
             }
             else
             {
-                install.Visible = false;
-                desktop.Visible = false;
-                pictureBox2.Visible = false;
-                cancel.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
+                string noco = "0";
 
-                install_pre();
+                if (noco == "1")
+                {
+                    var co = new noco();
+                    TaskbarManager.Instance.SetProgressValue(100, 100);
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Error);
+                    co.ShowDialog();
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                }
+                else
+                {
+                    install.Visible = false;
+                    desktop.Visible = false;
+                    pictureBox2.Visible = false;
+                    cancel.Visible = false;
+                    pictureBox4.Visible = false;
+                    pictureBox5.Visible = false;
+
+                    install_pre();
+                }
             }
         }
 
