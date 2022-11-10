@@ -46,7 +46,7 @@
             this.ok.Image = null;
             this.ok.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ok.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.ok.Location = new System.Drawing.Point(335, 60);
+            this.ok.Location = new System.Drawing.Point(333, 61);
             this.ok.Name = "ok";
             this.ok.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.ok.Size = new System.Drawing.Size(31, 20);
@@ -58,7 +58,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox1.Location = new System.Drawing.Point(311, 60);
+            this.pictureBox1.Location = new System.Drawing.Point(309, 61);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
