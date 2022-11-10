@@ -42,6 +42,14 @@ namespace Unowhy_Tools
         public Splash()
         {
             InitializeComponent();
+            label4.Text = Unowhy_Tools.Properties.Resources.Version.ToString();
+            /*for(int i = 0; i == 0; i = 0)
+            {
+                if (File.Exists(".\\temp\\verbose.txt"))
+                {
+                    label1.Text = File.ReadAllText(".\\temp\\verbose.txt").ToString();
+                }
+            }*/
         }
 
         private void Splash_Load(object sender, EventArgs e)
