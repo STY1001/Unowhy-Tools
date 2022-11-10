@@ -312,7 +312,7 @@ namespace Unowhy_Tools
                 string workdir = inputFile9.ReadLine();
 
                 Directory.SetCurrentDirectory(workdir);*/
-                if(!Directory.Exists($"{userpath}\\Unowhy Tools"))
+                if (!Directory.Exists($"{userpath}\\Unowhy Tools"))
                 {
                    Directory.CreateDirectory($"{userpath}\\Unowhy Tools");
                 }
@@ -372,6 +372,8 @@ namespace Unowhy_Tools
             {
                 #region First Start
 
+                //File.WriteAllText(".\\temp\\verbose.txt", "Preparing...");
+
                 if (Directory.Exists("temp"))
                 {
 
@@ -379,6 +381,7 @@ namespace Unowhy_Tools
                 else
                 {
                     Directory.CreateDirectory("temp");
+                    //File.WriteAllText(".\\temp\\verbose.txt", "Preparing for first start...");
                 }
 
                 RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);   //Check if the  "STY1001" key exist
