@@ -28,7 +28,7 @@ Currently, with this tools you can:
 - Enable/Disable/Repair Winre (reagentc)
 - Enable Windows Hello Enterprise
 - Repair BootIM (Blue Menu)
-- Launch quickly CMD, TaskMgr, REGedit, GPedit)
+- Launch quickly CMD, TaskMgr, REGedit, GPedit
 
 More features come soon
 
