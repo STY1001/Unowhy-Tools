@@ -26,6 +26,9 @@ Currently, with this tools you can:
 - Backup and Restore drivers (powered by PowerShell)
 - Backup and Restore drivers (powered by DISM)
 - Enable/Disable/Repair Winre (reagentc)
+- Enable Windows Hello Enterprise
+- Repair BootIM (Blue Menu)
+- Launch quickly CMD, TaskMgr, REGedit, GPedit)
 
 More features come soon
 
