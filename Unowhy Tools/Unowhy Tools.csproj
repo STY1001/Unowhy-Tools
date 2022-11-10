@@ -261,11 +261,11 @@
     <Compile Include="changelog.Designer.cs">
       <DependentUpon>changelog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialog.cs">
+    <Compile Include="dialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialog.Designer.cs">
-      <DependentUpon>Dialog.cs</DependentUpon>
+    <Compile Include="dialog.Designer.cs">
+      <DependentUpon>dialog.cs</DependentUpon>
     </Compile>
     <Compile Include="info.cs">
       <SubType>Form</SubType>
@@ -383,8 +383,8 @@
     <EmbeddedResource Include="changelog.resx">
       <DependentUpon>changelog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialog.resx">
-      <DependentUpon>Dialog.cs</DependentUpon>
+    <EmbeddedResource Include="dialog.resx">
+      <DependentUpon>dialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="info.resx">
       <DependentUpon>info.cs</DependentUpon>
