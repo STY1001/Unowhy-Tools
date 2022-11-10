@@ -54,7 +54,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox2.Location = new System.Drawing.Point(153, 60);
+            this.pictureBox2.Location = new System.Drawing.Point(180, 60);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -64,7 +64,7 @@ namespace Unowhy_Tools
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.no;
-            this.pictureBox1.Location = new System.Drawing.Point(247, 60);
+            this.pictureBox1.Location = new System.Drawing.Point(274, 60);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -90,7 +90,7 @@ namespace Unowhy_Tools
             this.yes.Image = null;
             this.yes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.yes.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.yes.Location = new System.Drawing.Point(175, 60);
+            this.yes.Location = new System.Drawing.Point(202, 60);
             this.yes.Name = "yes";
             this.yes.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.yes.Size = new System.Drawing.Size(67, 20);
@@ -108,7 +108,7 @@ namespace Unowhy_Tools
             this.no.Image = null;
             this.no.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.no.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.no.Location = new System.Drawing.Point(269, 60);
+            this.no.Location = new System.Drawing.Point(296, 60);
             this.no.Name = "no";
             this.no.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.no.Size = new System.Drawing.Size(67, 20);
@@ -122,7 +122,7 @@ namespace Unowhy_Tools
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(341, 83);
+            this.ClientSize = new System.Drawing.Size(367, 83);
             this.Controls.Add(this.no);
             this.Controls.Add(this.yes);
             this.Controls.Add(this.pictureBox2);
