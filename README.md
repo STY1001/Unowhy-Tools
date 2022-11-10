@@ -29,6 +29,7 @@ Currently, with this tools you can:
 - Enable Windows Hello Enterprise
 - Repair BootIM (Blue Menu)
 - Launch quickly CMD, TaskMgr, REGedit, GPedit
+- Download a UT drivers backup from cloud
 
 More features come soon
 
