@@ -57,7 +57,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Unowhy_Tools.Properties.Resources.yes;
+            this.pictureBox1.Image = global::Unowhy_Tools_Installer.Properties.Resources.yes;
             this.pictureBox1.Location = new System.Drawing.Point(309, 61);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
@@ -77,7 +77,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.about;
+            this.pictureBox2.Image = global::Unowhy_Tools_Installer.Properties.Resources.about;
             this.pictureBox2.Location = new System.Drawing.Point(10, 8);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 35);

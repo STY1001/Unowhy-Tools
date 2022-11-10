@@ -294,6 +294,9 @@
     <None Include="Resources\nowifi.png" />
     <None Include="Resources\yes.png" />
     <None Include="Resources\UTLogoWhite2.0.png" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\about1.png" />
+    <None Include="Resources\yes1.png" />
     <Content Include="UTI.ico" />
   </ItemGroup>
   <ItemGroup />
