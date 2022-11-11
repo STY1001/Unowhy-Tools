@@ -216,7 +216,8 @@ namespace Unowhy_Tools
 
         public void SplashScreen()
         {
-            Application.Run(new Splash());
+            var ss = new Splash();
+            ss.ShowDialog();
         }
 
         public void WaitScreen()
@@ -440,8 +441,8 @@ namespace Unowhy_Tools
                     p.Start();
                     p.WaitForExit();                     //Wait the registery editing
                     delay(1000);
-                    t.Abort();
                     var s = new Settings("1");
+                    t.Abort();
                     s.ShowDialog();
                     t = new Thread(new ThreadStart(SplashScreen));
                     t.Start();
