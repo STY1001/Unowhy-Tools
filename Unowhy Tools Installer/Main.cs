@@ -396,6 +396,7 @@ namespace Unowhy_Tools_Installer
                     pictureBox4.Visible = false;
                     pictureBox5.Visible = false;
 
+                    status.Text = "";
                     install_pre();
                 }
             }
