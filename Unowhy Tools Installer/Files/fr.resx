@@ -150,6 +150,12 @@
   <data name="biosversion" xml:space="preserve">
     <value>Version du BIOS</value>
   </data>
+  <data name="bkcloud" xml:space="preserve">
+    <value>Télécharger une sauv. à partir du cloud</value>
+  </data>
+  <data name="bootim" xml:space="preserve">
+    <value>Réparer BootIM (menu bleu)</value>
+  </data>
   <data name="browse" xml:space="preserve">
     <value>Explorer</value>
   </data>
@@ -204,6 +210,12 @@
   <data name="descadminset" xml:space="preserve">
     <value>Gérez le compte ".\administrateur" intégré. Ne désactivez pas le compte admin si vous n'avez pas d'autre compte en tant qu'admin ! Donc, avant, créez un compte local en tant du'admin ou mettez ce compte en tant qu'admin</value>
   </data>
+  <data name="descbkcloud" xml:space="preserve">
+    <value>Téléchargez une sauvegarde des pilotes Unowhy Tools à partir du cloud faites par d'autres utilisateurs. Si vous avez un problème de pilote et si vous n'avez pas fait de sauvegarde de vos pilotes, vous pouvez essayer de restaurer une sauvegarde cloud, utilisez le guide pour en savoir plus sur cette méthode</value>
+  </data>
+  <data name="descbootim" xml:space="preserve">
+    <value>Réparer BootIM (Boot Immersive Menu) (Menu Bleu). Unowhy a déployé un patch pour désactiver bootim.exe, via la redirection bootim.exe. Si vous souhaitez démarrer à partir d'un périphérique USB avec un Y13 2022, faites ceci</value>
+  </data>
   <data name="descdelentf" xml:space="preserve">
     <value>Supprimer le dossier des installateurs de logiciels supplémentaires (Dans : C:\ProgramData)</value>
   </data>
@@ -215,6 +227,9 @@
   </data>
   <data name="descent" xml:space="preserve">
     <value>Supprimer le compte local "ENT".  Ceci est le compte pour configurer votre compte ENT</value>
+  </data>
+  <data name="descenwhe" xml:space="preserve">
+    <value>Activer Windows Hello for Enterprise. Si vous voulez déverrouiller votre PC avec le lecteur d'empreintes digitales et si il est désactivé par l'administrateur, faites ceci.</value>
   </data>
   <data name="deschisdel" xml:space="preserve">
     <value>Désinstaller le logiciel inutile "HiSqool" (Dans : C:\Program Files\Unowhy)</value>
@@ -244,7 +259,7 @@
     <value>Supprimer les installateurs des manuels scolaires de votre école (Dans : C:\Program Files\Unowhy)</value>
   </data>
   <data name="descwinre" xml:space="preserve">
-    <value>Faites ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environnement de restauration Windows (qui désactive la réinitialisation). Pour certaines personnes, l'activation peut échouer. Dans ce cas là, Unowhy Tools vous proposera de réparer le problème en re-téléchargeant l'image WinRE. </value>
+    <value>Faites ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environnement de restauration Windows (qui désactive la réinitialisation). Pour certaines personnes, l'activation peut échouer. Dans ce cas là, Unowhy Tools vous proposera de réparer le problème en re-téléchargeant l'image WinRE.</value>
   </data>
   <data name="disable" xml:space="preserve">
     <value>Désactiver</value>
@@ -279,8 +294,14 @@
   <data name="ent" xml:space="preserve">
     <value>Supprimer le compte ".\ENT"</value>
   </data>
+  <data name="enwhe" xml:space="preserve">
+    <value>Activer Win Hello Enterprise</value>
+  </data>
   <data name="fixboot" xml:space="preserve">
     <value>Supprimer "silent_*.vbs" dans "StartUp"</value>
+  </data>
+  <data name="guide" xml:space="preserve">
+    <value>Guide</value>
   </data>
   <data name="la" xml:space="preserve">
     <value>Admin Local</value>
@@ -306,6 +327,18 @@
   <data name="nover" xml:space="preserve">
     <value>Pas de nouvelle version</value>
   </data>
+  <data name="opencmd" xml:space="preserve">
+    <value>Ouvrir CMD</value>
+  </data>
+  <data name="opengp" xml:space="preserve">
+    <value>Ouvrir GPedit</value>
+  </data>
+  <data name="openreg" xml:space="preserve">
+    <value>Ouvrir REGedit</value>
+  </data>
+  <data name="opentask" xml:space="preserve">
+    <value>Ouvrir TaskMgr</value>
+  </data>
   <data name="os" xml:space="preserve">
     <value>Version du SE</value>
   </data>
@@ -326,9 +359,6 @@
   </data>
   <data name="psdrv.title" xml:space="preserve">
     <value>PS Drv GUI pour Unowhy Tools</value>
-  </data>
-  <data name="psdrvmsg" xml:space="preserve">
-    <value>La fonction de restauration ne fonctionne pas en raison d'un problème avec pnputil. Vous devez restaurer les pilotes manuellement en lançant "UT-Restore.exe" à la racine du dossier de sauvegarde et après la restauration terminée, vous devez redémarrer. Cliquez sur le bouton OK pour ouvrir le dossier de sauvegarde.</value>
   </data>
   <data name="pwmis" xml:space="preserve">
     <value>Les mots de passe ne correspondent pas</value>
@@ -378,6 +408,9 @@
   <data name="unow" xml:space="preserve">
     <value>Mettre à jour</value>
   </data>
+  <data name="unprog" xml:space="preserve">
+    <value>Program. installés (Paramètres Windows)</value>
+  </data>
   <data name="update.del" xml:space="preserve">
     <value>Suppression "update.zip"</value>
   </data>
@@ -412,7 +445,7 @@
     <value>WinRE settings GUI pour Unowhy Tools</value>
   </data>
   <data name="winremsg" xml:space="preserve">
-    <value>L'image WinRE n'est pas présente, cliquez sur "Réparer"</value>
+    <value>L'image WinRE n'est pas présente, cliquez sur "Réparer" (600 MO libre requis)</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Oui</value>
