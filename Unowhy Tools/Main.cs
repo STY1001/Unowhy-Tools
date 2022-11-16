@@ -2197,10 +2197,5 @@ namespace Unowhy_Tools
         }
 
         #endregion
-
-        private void main_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
