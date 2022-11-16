@@ -35,7 +35,6 @@ namespace Unowhy_Tools
             this.delcat = new System.Windows.Forms.Label();
             this.cuscat = new System.Windows.Forms.Label();
             this.version = new System.Windows.Forms.Label();
-            this.desc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
@@ -127,6 +126,7 @@ namespace Unowhy_Tools
             this.pictureBox40 = new System.Windows.Forms.PictureBox();
             this.opentask = new ReaLTaiizor.Controls.Button();
             this.debbim = new System.Windows.Forms.Label();
+            this.desc = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -199,17 +199,10 @@ namespace Unowhy_Tools
             this.version.ForeColor = System.Drawing.Color.White;
             this.version.Name = "version";
             // 
-            // desc
-            // 
-            this.desc.BackColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.desc, "desc");
-            this.desc.ForeColor = System.Drawing.Color.White;
-            this.desc.Name = "desc";
-            this.desc.ReadOnly = true;
-            // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
             // 
@@ -1060,6 +1053,19 @@ namespace Unowhy_Tools
             this.debbim.ForeColor = System.Drawing.Color.White;
             this.debbim.Name = "debbim";
             // 
+            // desc
+            // 
+            this.desc.BackColor = System.Drawing.Color.Transparent;
+            this.desc.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.desc, "desc");
+            this.desc.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.desc.Image = null;
+            this.desc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.desc.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.desc.Name = "desc";
+            this.desc.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.desc.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -1114,7 +1120,6 @@ namespace Unowhy_Tools
             this.Controls.Add(this.debuglab);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.desc);
             this.Controls.Add(this.version);
             this.Controls.Add(this.pictureBox29);
             this.Controls.Add(this.pictureBox19);
@@ -1162,11 +1167,11 @@ namespace Unowhy_Tools
             this.Controls.Add(this.servicecat);
             this.Controls.Add(this.sty1001);
             this.Controls.Add(this.logo);
+            this.Controls.Add(this.desc);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "main";
-            this.Load += new System.EventHandler(this.main_Load);
             this.MouseEnter += new System.EventHandler(this.desc_Clean);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
@@ -1242,7 +1247,6 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.PictureBox pictureBox21;
         private System.Windows.Forms.PictureBox pictureBox22;
-        private System.Windows.Forms.TextBox desc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.Label label3;
@@ -1311,6 +1315,7 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox40;
         private ReaLTaiizor.Controls.Button opentask;
         private System.Windows.Forms.Label debbim;
+        private ReaLTaiizor.Controls.Button desc;
     }
 }
 
