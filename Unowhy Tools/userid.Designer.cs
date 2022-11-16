@@ -86,6 +86,7 @@ namespace Unowhy_Tools
             this.ok.TabIndex = 4;
             this.ok.Text = "OK";
             this.ok.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // userid
             // 
