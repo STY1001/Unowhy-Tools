@@ -1056,7 +1056,7 @@ namespace Unowhy_Tools
             // desc
             // 
             this.desc.BackColor = System.Drawing.Color.Transparent;
-            this.desc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.desc.Cursor = System.Windows.Forms.Cursors.Arrow;
             resources.ApplyResources(this.desc, "desc");
             this.desc.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.desc.Image = null;
