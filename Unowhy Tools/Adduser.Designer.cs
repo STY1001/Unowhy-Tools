@@ -58,7 +58,7 @@ namespace Unowhy_Tools
             // 
             this.name.BackColor = System.Drawing.Color.Black;
             this.name.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name.ForeColor = System.Drawing.Color.White;
+            this.name.ForeColor = System.Drawing.Color.LightGray;
             this.name.Location = new System.Drawing.Point(41, 29);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(282, 22);
@@ -69,7 +69,7 @@ namespace Unowhy_Tools
             // 
             this.pass.BackColor = System.Drawing.Color.Black;
             this.pass.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pass.ForeColor = System.Drawing.Color.White;
+            this.pass.ForeColor = System.Drawing.Color.LightGray;
             this.pass.Location = new System.Drawing.Point(40, 70);
             this.pass.Name = "pass";
             this.pass.PasswordChar = '•';
@@ -81,7 +81,7 @@ namespace Unowhy_Tools
             // 
             this.labn.AutoSize = true;
             this.labn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labn.ForeColor = System.Drawing.Color.White;
+            this.labn.ForeColor = System.Drawing.Color.LightGray;
             this.labn.Location = new System.Drawing.Point(41, 12);
             this.labn.Name = "labn";
             this.labn.Size = new System.Drawing.Size(42, 13);
@@ -92,7 +92,7 @@ namespace Unowhy_Tools
             // 
             this.labp.AutoSize = true;
             this.labp.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labp.ForeColor = System.Drawing.Color.White;
+            this.labp.ForeColor = System.Drawing.Color.LightGray;
             this.labp.Location = new System.Drawing.Point(40, 54);
             this.labp.Name = "labp";
             this.labp.Size = new System.Drawing.Size(62, 13);
@@ -103,7 +103,7 @@ namespace Unowhy_Tools
             // 
             this.admin.AutoSize = true;
             this.admin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admin.ForeColor = System.Drawing.Color.White;
+            this.admin.ForeColor = System.Drawing.Color.LightGray;
             this.admin.Location = new System.Drawing.Point(40, 146);
             this.admin.Name = "admin";
             this.admin.Size = new System.Drawing.Size(88, 17);
@@ -136,7 +136,7 @@ namespace Unowhy_Tools
             // 
             this.conf.BackColor = System.Drawing.Color.Black;
             this.conf.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conf.ForeColor = System.Drawing.Color.White;
+            this.conf.ForeColor = System.Drawing.Color.LightGray;
             this.conf.Location = new System.Drawing.Point(40, 109);
             this.conf.Name = "conf";
             this.conf.PasswordChar = '•';
@@ -148,7 +148,7 @@ namespace Unowhy_Tools
             // 
             this.labc.AutoSize = true;
             this.labc.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labc.ForeColor = System.Drawing.Color.White;
+            this.labc.ForeColor = System.Drawing.Color.LightGray;
             this.labc.Location = new System.Drawing.Point(40, 93);
             this.labc.Name = "labc";
             this.labc.Size = new System.Drawing.Size(106, 13);
