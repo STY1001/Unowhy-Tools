@@ -127,6 +127,8 @@ namespace Unowhy_Tools
             this.opentask = new ReaLTaiizor.Controls.Button();
             this.debbim = new System.Windows.Forms.Label();
             this.desc = new ReaLTaiizor.Controls.Button();
+            this.pictureBox38 = new System.Windows.Forms.PictureBox();
+            this.bcdfail = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -167,6 +169,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
             this.SuspendLayout();
             // 
             // servicecat
@@ -1066,6 +1069,28 @@ namespace Unowhy_Tools
             this.desc.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.desc.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // pictureBox38
+            // 
+            this.pictureBox38.Image = global::Unowhy_Tools.Properties.Resources.boot;
+            resources.ApplyResources(this.pictureBox38, "pictureBox38");
+            this.pictureBox38.Name = "pictureBox38";
+            this.pictureBox38.TabStop = false;
+            // 
+            // bcdfail
+            // 
+            this.bcdfail.BackColor = System.Drawing.Color.Transparent;
+            this.bcdfail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bcdfail.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            resources.ApplyResources(this.bcdfail, "bcdfail");
+            this.bcdfail.Image = null;
+            this.bcdfail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bcdfail.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.bcdfail.Name = "bcdfail";
+            this.bcdfail.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.bcdfail.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.bcdfail.Click += new System.EventHandler(this.enwhe_Click);
+            this.bcdfail.MouseEnter += new System.EventHandler(this.desc_enwhe);
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
@@ -1089,6 +1114,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.psbr);
             this.Controls.Add(this.aadleave);
             this.Controls.Add(this.bootim);
+            this.Controls.Add(this.bcdfail);
             this.Controls.Add(this.enwhe);
             this.Controls.Add(this.winre);
             this.Controls.Add(this.shell);
@@ -1132,6 +1158,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.pictureBox36);
             this.Controls.Add(this.pictureBox39);
             this.Controls.Add(this.pictureBox22);
+            this.Controls.Add(this.pictureBox38);
             this.Controls.Add(this.pictureBox33);
             this.Controls.Add(this.pictureBox31);
             this.Controls.Add(this.pictureBox2);
@@ -1213,6 +1240,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1316,6 +1344,8 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button opentask;
         private System.Windows.Forms.Label debbim;
         private ReaLTaiizor.Controls.Button desc;
+        private System.Windows.Forms.PictureBox pictureBox38;
+        private ReaLTaiizor.Controls.Button bcdfail;
     }
 }
 
