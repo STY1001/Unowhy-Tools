@@ -500,6 +500,7 @@
     <Content Include="Resources\azure.ico" />
     <None Include="Resources\cmd.png" />
     <None Include="Resources\clouddl.png" />
+    <None Include="Resources\boot.png" />
     <Content Include="Resources\customize.ico" />
     <Content Include="Resources\datamatrix.ico" />
     <Content Include="Resources\delete.ico" />
