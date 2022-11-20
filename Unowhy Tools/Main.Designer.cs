@@ -175,25 +175,25 @@ namespace Unowhy_Tools
             // servicecat
             // 
             resources.ApplyResources(this.servicecat, "servicecat");
-            this.servicecat.ForeColor = System.Drawing.Color.LightGray;
+            this.servicecat.ForeColor = System.Drawing.Color.White;
             this.servicecat.Name = "servicecat";
             // 
             // repaircat
             // 
             resources.ApplyResources(this.repaircat, "repaircat");
-            this.repaircat.ForeColor = System.Drawing.Color.LightGray;
+            this.repaircat.ForeColor = System.Drawing.Color.White;
             this.repaircat.Name = "repaircat";
             // 
             // delcat
             // 
             resources.ApplyResources(this.delcat, "delcat");
-            this.delcat.ForeColor = System.Drawing.Color.LightGray;
+            this.delcat.ForeColor = System.Drawing.Color.White;
             this.delcat.Name = "delcat";
             // 
             // cuscat
             // 
             resources.ApplyResources(this.cuscat, "cuscat");
-            this.cuscat.ForeColor = System.Drawing.Color.LightGray;
+            this.cuscat.ForeColor = System.Drawing.Color.White;
             this.cuscat.Name = "cuscat";
             // 
             // version
@@ -206,7 +206,7 @@ namespace Unowhy_Tools
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(40)))));
-            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
             // 
             // pictureBox19
@@ -456,7 +456,7 @@ namespace Unowhy_Tools
             // drivercat
             // 
             resources.ApplyResources(this.drivercat, "drivercat");
-            this.drivercat.ForeColor = System.Drawing.Color.LightGray;
+            this.drivercat.ForeColor = System.Drawing.Color.White;
             this.drivercat.Name = "drivercat";
             // 
             // pictureBox28

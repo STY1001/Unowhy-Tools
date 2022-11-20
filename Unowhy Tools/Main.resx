@@ -3729,7 +3729,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox25.Location" type="System.Drawing.Point, System.Drawing">
-    <value>794, 306</value>
+    <value>794, 305</value>
   </data>
   <data name="pictureBox25.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -3830,7 +3830,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox26.Location" type="System.Drawing.Point, System.Drawing">
-    <value>794, 335</value>
+    <value>794, 334</value>
   </data>
   <data name="pictureBox26.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -4405,7 +4405,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox28.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1058, 279</value>
+    <value>1058, 278</value>
   </data>
   <data name="pictureBox28.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -4862,7 +4862,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="psbr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1081, 278</value>
+    <value>1081, 277</value>
   </data>
   <data name="psbr.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -5132,7 +5132,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="adduser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>817, 307</value>
+    <value>817, 306</value>
   </data>
   <data name="adduser.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -5159,7 +5159,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="adminset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>817, 336</value>
+    <value>817, 335</value>
   </data>
   <data name="adminset.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>
@@ -5226,7 +5226,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox30.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1059, 308</value>
+    <value>1058, 307</value>
   </data>
   <data name="pictureBox30.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -5253,7 +5253,7 @@
     <value>Segoe UI, 8pt</value>
   </data>
   <data name="dismbr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1082, 307</value>
+    <value>1081, 306</value>
   </data>
   <data name="dismbr.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 21</value>

@@ -65,7 +65,7 @@ namespace Unowhy_Tools
             // passbox
             // 
             this.passbox.BackColor = System.Drawing.Color.Black;
-            this.passbox.ForeColor = System.Drawing.Color.LightGray;
+            this.passbox.ForeColor = System.Drawing.Color.White;
             this.passbox.Location = new System.Drawing.Point(12, 12);
             this.passbox.Name = "passbox";
             this.passbox.PasswordChar = '•';
