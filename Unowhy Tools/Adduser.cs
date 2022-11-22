@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
+using Unowhy_Tools.Properties;
 
 namespace Unowhy_Tools
 {
@@ -98,7 +99,8 @@ namespace Unowhy_Tools
                 if (conf.Text == pass.Text)
                 {
                     string msg = this.Text;
-                    dialog d = new dialog(msg);
+                    Image ico = Resources.adduser;
+                    dialog d = new dialog(msg, ico);
                     d.ShowDialog();
                     if (d.DialogResult.Equals(DialogResult.Yes))
                     {
