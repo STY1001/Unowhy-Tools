@@ -18,6 +18,7 @@ using System.Text.RegularExpressions;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using Microsoft.WindowsAPICodePack.Shell;
 using System.Threading;
+using Unowhy_Tools.Properties;
 
 namespace Unowhy_Tools
 {
@@ -110,7 +111,8 @@ namespace Unowhy_Tools
                 this.Height = 169;
                 this.Width = 236;
                 string msg = this.Text;
-                dialog d = new dialog(msg);
+                Image ico = Resources.customize;
+                dialog d = new dialog(msg, ico);
                 d.ShowDialog();
                 if (d.DialogResult.Equals(DialogResult.Yes))
                 {
