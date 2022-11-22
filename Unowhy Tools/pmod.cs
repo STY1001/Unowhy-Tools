@@ -57,7 +57,7 @@ namespace Unowhy_Tools
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var a = new dialog("This is dialog");
+            var a = new dialog("This is dialog", Properties.Resources.question);
             a.Show();
         }
 
@@ -141,7 +141,7 @@ namespace Unowhy_Tools
 
         private void button19_Click(object sender, EventArgs e)
         {
-            var a = new info("This is an info");
+            var a = new info("This is an info", Properties.Resources.about);
             a.Show();
         }
     }
