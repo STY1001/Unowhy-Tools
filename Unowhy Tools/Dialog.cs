@@ -30,7 +30,7 @@ namespace Unowhy_Tools
             DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
         }
 
-        public dialog(string msg)
+        public dialog(string msg, Image ico)
         {
             //Check the current saved language
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
@@ -48,7 +48,7 @@ namespace Unowhy_Tools
 
             string msgfull = msg + " ?";
             label.Text = msgfull;
-
+            icon.Image = ico;
         }
 
         private void dialog_Load(object sender, EventArgs e)

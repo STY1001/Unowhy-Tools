@@ -73,7 +73,7 @@ namespace Unowhy_Tools
             // 
             // icon
             // 
-            this.icon.Image = global::Unowhy_Tools.Properties.Resources.question1;
+            this.icon.Image = global::Unowhy_Tools.Properties.Resources.question;
             this.icon.Location = new System.Drawing.Point(9, 9);
             this.icon.Name = "icon";
             this.icon.Size = new System.Drawing.Size(35, 35);
