@@ -195,6 +195,7 @@ using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using System.Security.Principal;
 using System.Windows.Forms.VisualStyles;
+using Unowhy_Tools.Properties;
 
 namespace Unowhy_Tools
 {   
@@ -216,8 +217,7 @@ namespace Unowhy_Tools
 
         public void SplashScreen()
         {
-            var ss = new Splash();
-            ss.ShowDialog();
+            Application.Run(new Splash());
         }
 
         public void WaitScreen()
@@ -1211,7 +1211,8 @@ namespace Unowhy_Tools
         private void starthis_Click(object sender, EventArgs e)
         {
             string msg = starthis.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.start;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1237,7 +1238,8 @@ namespace Unowhy_Tools
         private void stophis_Click(object sender, EventArgs e)
         {
             string msg = stophis.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.stop;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1262,7 +1264,8 @@ namespace Unowhy_Tools
         private void enhis_Click(object sender, EventArgs e)
         {
             string msg = enhis.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.enable;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1287,7 +1290,8 @@ namespace Unowhy_Tools
         private void dishis_Click(object sender, EventArgs e)
         {
             string msg = dishis.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.disable;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1312,7 +1316,8 @@ namespace Unowhy_Tools
         private void delhis_Click(object sender, EventArgs e)
         {
             string msg = delhis.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.uninstall;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1335,7 +1340,8 @@ namespace Unowhy_Tools
         private void delhism_Click(object sender, EventArgs e)
         {
             string msg = delhism.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.service;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1359,7 +1365,8 @@ namespace Unowhy_Tools
         private void shell_Click(object sender, EventArgs e)
         {
             string msg = shell.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.explorer;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1383,7 +1390,8 @@ namespace Unowhy_Tools
         private void delent_Click(object sender, EventArgs e)
         {
             string msg = ent.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.deluser;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1413,7 +1421,8 @@ namespace Unowhy_Tools
         private void fixboot_Click(object sender, EventArgs e)
         {
             string msg = fixboot.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.script;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1437,7 +1446,8 @@ namespace Unowhy_Tools
         private void delti_Click(object sender, EventArgs e)
         {
             string msg = delti.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.folder;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1468,7 +1478,8 @@ namespace Unowhy_Tools
         private void delridf_Click(object sender, EventArgs e)
         {
             string msg = delridf.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.folder;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1526,7 +1537,8 @@ namespace Unowhy_Tools
         private void deloem_Click(object sender, EventArgs e)
         {
             string msg = deloem.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.folder;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1557,7 +1569,8 @@ namespace Unowhy_Tools
         private void delentf_Click(object sender, EventArgs e)
         {
             string msg = entf.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.folder;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1586,7 +1599,8 @@ namespace Unowhy_Tools
         private void aadleave_Click(object sender, EventArgs e)
         {
             string msg = aadleave.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.azure;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1610,7 +1624,8 @@ namespace Unowhy_Tools
         private void admin_Click(object sender, EventArgs e)
         {
             string msg = admin.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.admin;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1652,7 +1667,8 @@ namespace Unowhy_Tools
         private void delserv_Click(object sender, EventArgs e)
         {
             string msg = delhismserv.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.delete;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1704,7 +1720,8 @@ namespace Unowhy_Tools
         private void enwhe_Click(object sender, EventArgs e)
         {
             string msg = enwhe.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.fp;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1747,7 +1764,8 @@ namespace Unowhy_Tools
         private void bootim_Click(object sender, EventArgs e)
         {
             string msg = bootim.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.registry;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -1800,7 +1818,8 @@ namespace Unowhy_Tools
         private void debugenable_Click(object sender, EventArgs e)  // Enable all button (debug mode)
         {
             string msg = "Debug Mode (Restart to apply)";
-            dialog d = new dialog(msg);
+            Image ico = Resources.question;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
