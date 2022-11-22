@@ -26,10 +26,11 @@ namespace Unowhy_Tools
             DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
         }
 
-        public info(string msg)
+        public info(string msg, Image ico)
         {
             InitializeComponent();
             label1.Text = msg;
+            pictureBox2.Image = ico;
         }
 
         private void button1_Click(object sender, EventArgs e)
