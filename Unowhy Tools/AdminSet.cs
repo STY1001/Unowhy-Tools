@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Unowhy_Tools.Properties;
 
 namespace Unowhy_Tools
 {
@@ -59,7 +60,8 @@ namespace Unowhy_Tools
         private void button1_Click(object sender, EventArgs e)
         {
             string msg = passbtn.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.key;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -77,7 +79,8 @@ namespace Unowhy_Tools
         private void enable_Click(object sender, EventArgs e)
         {
             string msg = enable.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.enable;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
@@ -93,7 +96,8 @@ namespace Unowhy_Tools
         private void disable_Click(object sender, EventArgs e)
         {
             string msg = disable.Text;
-            dialog d = new dialog(msg);
+            Image ico = Resources.disable;
+            dialog d = new dialog(msg, ico);
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
