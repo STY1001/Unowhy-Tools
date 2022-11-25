@@ -10,6 +10,7 @@ using System.Resources;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unowhy_Tools.Properties;
@@ -19,6 +20,11 @@ namespace Unowhy_Tools
     public partial class AdminSet : Form
     {
         public string resxFile = "null";
+
+        public void WaitScreen()
+        {
+            Application.Run(new wait());
+        }
 
         //Set dark mode title bar
 
@@ -65,6 +71,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
+                Thread t = new Thread(new ThreadStart(WaitScreen));
+                t.Start();
                 string pass = passbox.Text;
                 string arg = ($"user Administrateur \"{pass}\"");
                 Process p = new Process();
@@ -73,6 +81,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                t.Abort();
             }
         }
 
@@ -84,12 +93,15 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
+                Thread t = new Thread(new ThreadStart(WaitScreen));
+                t.Start();
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\enadmin.exe";
                 p.StartInfo.Arguments = "";
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                t.Abort(true);
             }
         }
 
@@ -101,12 +113,15 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
+                Thread t = new Thread(new ThreadStart(WaitScreen));
+                t.Start();
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\disadmin.exe";
                 p.StartInfo.Arguments = "";
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
+                t.Abort();
             }
         }
     }
