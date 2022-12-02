@@ -44,4 +44,4 @@ echo         Ne pas fermer
 echo =============================
 MODE CON: COLS=30 LINES=10
 powershell -windows minimize -command ""
-reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bootim.exe" /f
+reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bootim.exe" /f
