@@ -227,6 +227,16 @@ namespace Unowhy_Tools
 
         #endregion
 
+        #region Get Line
+
+        public string getline(string response, int lineWanted)
+        {
+            var lines = response.Split('\n');
+            return lines[lineWanted];
+        }
+
+        #endregion
+
         #region Check Service Function
 
         public bool serviceExists(string ServiceName)
@@ -1021,6 +1031,148 @@ namespace Unowhy_Tools
                 dbtn(fixboot);
                 ebtn(delti);
             }
+        }
+
+        public void new_check()
+        {
+            Process get1 = new Process();
+            get1.StartInfo.FileName = "hostname";
+            get1.StartInfo.Arguments = "";
+            get1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get1.StartInfo.UseShellExecute = false;
+            get1.StartInfo.RedirectStandardOutput = true;
+            get1.Start();
+            get1.WaitForExit();
+            string get1out = get1.StandardOutput.ReadToEnd();
+
+            Process get2 = new Process();
+            get2.StartInfo.FileName = "whoami";
+            get2.StartInfo.Arguments = "";
+            get2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get2.StartInfo.UseShellExecute = false;
+            get2.StartInfo.RedirectStandardOutput = true;
+            get2.Start();
+            get2.WaitForExit();
+            string get2out = get2.StandardOutput.ReadToEnd();
+
+            Process get3 = new Process();
+            get3.StartInfo.FileName = "wmic";
+            get3.StartInfo.Arguments = "computersystem get manufacturer";
+            get3.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get3.StartInfo.UseShellExecute = false;
+            get3.StartInfo.RedirectStandardOutput = true;
+            get3.Start();
+            get3.WaitForExit();
+            string get3out = get3.StandardOutput.ReadToEnd();
+
+            Process get4 = new Process();
+            get4.StartInfo.FileName = "wmic";
+            get4.StartInfo.Arguments = "computersystem get model";
+            get4.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get4.StartInfo.UseShellExecute = false;
+            get4.StartInfo.RedirectStandardOutput = true;
+            get4.Start();
+            get4.WaitForExit();
+            string get4out = get4.StandardOutput.ReadToEnd();
+
+            Process get5 = new Process();
+            get5.StartInfo.FileName = "wmic";
+            get5.StartInfo.Arguments = "os get caption";
+            get5.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get5.StartInfo.UseShellExecute = false;
+            get5.StartInfo.RedirectStandardOutput = true;
+            get5.Start();
+            get5.WaitForExit();
+            string get5out = get5.StandardOutput.ReadToEnd();
+
+            Process get6 = new Process();
+            get6.StartInfo.FileName = "wmic";
+            get6.StartInfo.Arguments = "bios get smbiosbiosversion";
+            get6.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get6.StartInfo.UseShellExecute = false;
+            get6.StartInfo.RedirectStandardOutput = true;
+            get6.Start();
+            get6.WaitForExit();
+            string get6out = get6.StandardOutput.ReadToEnd();
+
+            Process get7 = new Process();
+            get7.StartInfo.FileName = "wmic";
+            get7.StartInfo.Arguments = "bios get serialnumber";
+            get7.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get7.StartInfo.UseShellExecute = false;
+            get7.StartInfo.RedirectStandardOutput = true;
+            get7.Start();
+            get7.WaitForExit();
+            string get7out = get7.StandardOutput.ReadToEnd();
+
+            Process get8 = new Process();
+            get8.StartInfo.FileName = "net";
+            get8.StartInfo.Arguments = "localgroup Administrateurs";
+            get8.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get8.StartInfo.UseShellExecute = false;
+            get8.StartInfo.RedirectStandardOutput = true;
+            get8.Start();
+            get8.WaitForExit();
+            string get8out = get8.StandardOutput.ReadToEnd();
+
+            Process get9 = new Process();
+            get9.StartInfo.FileName = "net";
+            get9.StartInfo.Arguments = "user ENT";
+            get9.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get9.StartInfo.UseShellExecute = false;
+            get9.StartInfo.RedirectStandardOutput = true;
+            get9.Start();
+            get9.WaitForExit();
+            string get9out = get9.StandardOutput.ReadToEnd();
+
+            Process get10 = new Process();
+            get10.StartInfo.FileName = "powershell";
+            get10.StartInfo.Arguments = "(Get-Service HiSqoolManager).StartType";
+            get10.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get10.StartInfo.UseShellExecute = false;
+            get10.StartInfo.RedirectStandardOutput = true;
+            get10.Start();
+            get10.WaitForExit();
+            string get10out = get10.StandardOutput.ReadToEnd();
+
+            Process get11 = new Process();
+            get11.StartInfo.FileName = "powershell";
+            get11.StartInfo.Arguments = "(Get-Service HiSqoolManager).Status";
+            get11.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get11.StartInfo.UseShellExecute = false;
+            get11.StartInfo.RedirectStandardOutput = true;
+            get11.Start();
+            get11.WaitForExit();
+            string get11out = get11.StandardOutput.ReadToEnd();
+
+            Process get12 = new Process();
+            get12.StartInfo.FileName = "dsregcmd";
+            get12.StartInfo.Arguments = "/status";
+            get12.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get12.StartInfo.UseShellExecute = false;
+            get12.StartInfo.RedirectStandardOutput = true;
+            get12.Start();
+            get12.WaitForExit();
+            string get12out = get12.StandardOutput.ReadToEnd();
+
+            /*
+             * 1 compname
+             * 2 username
+             * 3 manufacturer
+             * 4 model
+             * 5 os
+             * 6 bios
+             * 7 serial
+             * 8 admin
+             * 9 ent
+             * 10 start
+             * 11 status
+             * 12 azure
+             */
+
+            string comp = get1out;
+            string user = get2out;
+
         }
 
         public void check()
