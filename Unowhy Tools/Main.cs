@@ -204,12 +204,7 @@ namespace Unowhy_Tools
         #region Public Strings
 
         public string resxFile = "null";
-        public string hnpcn = "null";
-        public string mf = "null";
-        public string model = "null";
-        public string ene = "null";
-        public string ifp = "null";
-        public string os = "null";
+        public string currentuser = "null";
 
         #endregion
 
@@ -229,10 +224,11 @@ namespace Unowhy_Tools
 
         #region Get Line
 
-        public string getline(string response, int lineWanted)
+        public string getline(string text, int line)
         {
-            var lines = response.Split('\n');
-            return lines[lineWanted];
+            int line2 = line - 1;
+            var lines = text.Split('\n');
+            return lines[line2];
         }
 
         #endregion
@@ -714,7 +710,7 @@ namespace Unowhy_Tools
                 #endregion
 
                 langswitch();
-                debuserid(userpath);
+                userid(userpath);
                 check();
                 changeswitch();
 
@@ -837,31 +833,7 @@ namespace Unowhy_Tools
 
         #region Other Func
 
-        public void checkbootim()
-        {
-            if (debbim.Text == "true")
-            {
-                dbtn(bootim);
-            }
-            else
-            {
-                ebtn(bootim);
-            }
-        }
-
-        public void checkwhe()
-        {
-            if (debwhe.Text == "true")
-            {
-                dbtn(enwhe);
-            }
-            else
-            {
-                ebtn(enwhe);
-            }
-        }
-
-        public void debuserid(string iduserpath)
+        public void userid(string iduserpath)
         {
 
             string filePath = $"{iduserpath}\\Unowhy Tools\\temp\\realid.txt";
@@ -902,102 +874,65 @@ namespace Unowhy_Tools
             }
         }
 
-        public void checkazure()
+        public void new_check()
         {
-            if (debazure.Text.Contains("NO") == true)
+            string azure = getline(returncmd("dsregcmd", "/status"), 6);
+            string admins = returncmd("net", "localgroups Administrateurs");
+            string users = returncmd("net", "user");
+            //string winre = getline(returncmd("reagentc", "/info"), 4);
+
+            if (serviceExists("HiSqoolManager"))
+            {
+                ServiceController sc = new ServiceController();
+                sc.ServiceName = "HiSqoolManager";
+
+                if(sc.StartType == ServiceStartMode.Automatic)
+                {
+                    if(sc.Status == ServiceControllerStatus.Running)
+                    {
+                        dbtn(starthis);
+                        ebtn(stophis);
+                        dbtn(enhis);
+                        ebtn(dishis);
+                    }
+                    else
+                    {
+                        dbtn(stophis);
+                        ebtn(starthis);
+                        dbtn(enhis);
+                        ebtn(dishis);
+                    }
+                }
+                else
+                {
+                    dbtn(starthis);
+                    dbtn(stophis);
+                    dbtn(dishis);
+                    ebtn(enhis);
+                }
+                if(!File.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager\\HiSqoolManager.exe"))
+                {
+                    dbtn(starthis);
+                    dbtn(stophis);
+                    dbtn(dishis);
+                    dbtn(enhis);
+                }
+            }
+            else
+            {
+                dbtn(starthis);
+                dbtn(stophis);
+                dbtn(dishis);
+                dbtn(enhis);
+                dbtn(delhismserv);
+            }
+
+            if (azure.Contains("NO"))
             {
                 dbtn(aadleave);
             }
-        }
 
-        public void checkfolder()
-        {
-            if (Directory.Exists("C:\\ProgramData\\RIDF") == false)
-            {
-                dbtn(delridf);
-            }
-
-            if (Directory.Exists("C:\\ProgramData\\ENT") == false)
-            {
-                dbtn(entf);
-            }
-
-            if (Directory.Exists("C:\\Windows\\sysnative\\OEM") == false)
-            {
-                dbtn(deloem);
-            }
-
-            if (Directory.Exists("C:\\Program Files\\Unowhy\\TO_INSTALL") == false)
-            {
-                dbtn(delti);
-            }
-
-            if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager") == false)
-            {
-                dbtn(delhism);
-            }
-
-            if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
-            {
-                dbtn(delhis);
-            }
-
-            
-        }
-
-        public void checkhism()
-        {
-            if (debhme.Text == "true")
-            {
-                if (debhmr.Text == "true")
-                {
-                    dbtn(starthis);
-                    ebtn(stophis);
-                }
-                else
-                {
-                    dbtn(stophis);
-                    ebtn(starthis);
-                }
-
-                if (debhms.Text.Contains("Automatic") == true)
-                {
-                    dbtn(enhis);
-                    ebtn(dishis);
-                }
-                else
-                {
-                    dbtn(starthis);
-                    dbtn(stophis);
-                    ebtn(enhis);
-                    dbtn(dishis);
-                }
-            }
-            else
-            {
-                dbtn(dishis);
-                dbtn(enhis);
-                dbtn(stophis);
-                dbtn(starthis);
-                dbtn(delhismserv);
-            }
-        }
-
-        public void checkshell()
-        {
-            if (debshell.Text.Contains("explorer.exe") == true)
-            {
-                dbtn(shell);
-            }
-            else
-            {
-                ebtn(shell);
-            }
-        }
-
-        public void checkadmin()
-        {
-            if (debadmin.Text == "true")
+            if (admins.Contains(debuser.Text))
             {
                 dbtn(admin);
             }
@@ -1005,11 +940,57 @@ namespace Unowhy_Tools
             {
                 ebtn(admin);
             }
-        }
 
-        public void checkent()
-        {
-            if (debent.Text == "true")
+            if (Directory.Exists("C:\\ProgramData\\RIDF") == false)
+            {
+                dbtn(delridf);
+            }
+            else
+            {
+                ebtn(delridf);
+            }
+            if (Directory.Exists("C:\\ProgramData\\ENT") == false)
+            {
+                dbtn(entf);
+            }
+            else
+            {
+                ebtn(entf);
+            }
+            if (Directory.Exists("C:\\Windows\\sysnative\\OEM") == false)
+            {
+                dbtn(deloem);
+            }
+            else
+            {
+                ebtn(deloem);
+            }
+            if (Directory.Exists("C:\\Program Files\\Unowhy\\TO_INSTALL") == false)
+            {
+                dbtn(delti);
+            }
+            else
+            {
+                ebtn(delti);
+            }
+            if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager") == false)
+            {
+                dbtn(delhism);
+            }
+            else
+            {
+                ebtn(delhism);
+            }
+            if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
+            {
+                dbtn(delhis);
+            }
+            else
+            {
+                ebtn(delhis);
+            }
+
+            if (users.Contains("ENT"))
             {
                 ebtn(ent);
             }
@@ -1017,267 +998,13 @@ namespace Unowhy_Tools
             {
                 dbtn(ent);
             }
-        }
-
-        public void checkti()
-        {
-            if (debti.Text == "true")
-            {
-                ebtn(fixboot);
-                dbtn(delti);
-            }
-            else
-            {
-                dbtn(fixboot);
-                ebtn(delti);
-            }
-        }
-
-        public void new_check()
-        {
-            Process get1 = new Process();
-            get1.StartInfo.FileName = "hostname";
-            get1.StartInfo.Arguments = "";
-            get1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get1.StartInfo.UseShellExecute = false;
-            get1.StartInfo.RedirectStandardOutput = true;
-            get1.Start();
-            get1.WaitForExit();
-            string get1out = get1.StandardOutput.ReadToEnd();
-
-            Process get2 = new Process();
-            get2.StartInfo.FileName = "whoami";
-            get2.StartInfo.Arguments = "";
-            get2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get2.StartInfo.UseShellExecute = false;
-            get2.StartInfo.RedirectStandardOutput = true;
-            get2.Start();
-            get2.WaitForExit();
-            string get2out = get2.StandardOutput.ReadToEnd();
-
-            Process get3 = new Process();
-            get3.StartInfo.FileName = "wmic";
-            get3.StartInfo.Arguments = "computersystem get manufacturer";
-            get3.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get3.StartInfo.UseShellExecute = false;
-            get3.StartInfo.RedirectStandardOutput = true;
-            get3.Start();
-            get3.WaitForExit();
-            string get3out = get3.StandardOutput.ReadToEnd();
-
-            Process get4 = new Process();
-            get4.StartInfo.FileName = "wmic";
-            get4.StartInfo.Arguments = "computersystem get model";
-            get4.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get4.StartInfo.UseShellExecute = false;
-            get4.StartInfo.RedirectStandardOutput = true;
-            get4.Start();
-            get4.WaitForExit();
-            string get4out = get4.StandardOutput.ReadToEnd();
-
-            Process get5 = new Process();
-            get5.StartInfo.FileName = "wmic";
-            get5.StartInfo.Arguments = "os get caption";
-            get5.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get5.StartInfo.UseShellExecute = false;
-            get5.StartInfo.RedirectStandardOutput = true;
-            get5.Start();
-            get5.WaitForExit();
-            string get5out = get5.StandardOutput.ReadToEnd();
-
-            Process get6 = new Process();
-            get6.StartInfo.FileName = "wmic";
-            get6.StartInfo.Arguments = "bios get smbiosbiosversion";
-            get6.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get6.StartInfo.UseShellExecute = false;
-            get6.StartInfo.RedirectStandardOutput = true;
-            get6.Start();
-            get6.WaitForExit();
-            string get6out = get6.StandardOutput.ReadToEnd();
-
-            Process get7 = new Process();
-            get7.StartInfo.FileName = "wmic";
-            get7.StartInfo.Arguments = "bios get serialnumber";
-            get7.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get7.StartInfo.UseShellExecute = false;
-            get7.StartInfo.RedirectStandardOutput = true;
-            get7.Start();
-            get7.WaitForExit();
-            string get7out = get7.StandardOutput.ReadToEnd();
-
-            Process get8 = new Process();
-            get8.StartInfo.FileName = "net";
-            get8.StartInfo.Arguments = "localgroup Administrateurs";
-            get8.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get8.StartInfo.UseShellExecute = false;
-            get8.StartInfo.RedirectStandardOutput = true;
-            get8.Start();
-            get8.WaitForExit();
-            string get8out = get8.StandardOutput.ReadToEnd();
-
-            Process get9 = new Process();
-            get9.StartInfo.FileName = "net";
-            get9.StartInfo.Arguments = "user ENT";
-            get9.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get9.StartInfo.UseShellExecute = false;
-            get9.StartInfo.RedirectStandardOutput = true;
-            get9.Start();
-            get9.WaitForExit();
-            string get9out = get9.StandardOutput.ReadToEnd();
-
-            Process get10 = new Process();
-            get10.StartInfo.FileName = "powershell";
-            get10.StartInfo.Arguments = "(Get-Service HiSqoolManager).StartType";
-            get10.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get10.StartInfo.UseShellExecute = false;
-            get10.StartInfo.RedirectStandardOutput = true;
-            get10.Start();
-            get10.WaitForExit();
-            string get10out = get10.StandardOutput.ReadToEnd();
-
-            Process get11 = new Process();
-            get11.StartInfo.FileName = "powershell";
-            get11.StartInfo.Arguments = "(Get-Service HiSqoolManager).Status";
-            get11.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get11.StartInfo.UseShellExecute = false;
-            get11.StartInfo.RedirectStandardOutput = true;
-            get11.Start();
-            get11.WaitForExit();
-            string get11out = get11.StandardOutput.ReadToEnd();
-
-            Process get12 = new Process();
-            get12.StartInfo.FileName = "dsregcmd";
-            get12.StartInfo.Arguments = "/status";
-            get12.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get12.StartInfo.UseShellExecute = false;
-            get12.StartInfo.RedirectStandardOutput = true;
-            get12.Start();
-            get12.WaitForExit();
-            string get12out = get12.StandardOutput.ReadToEnd();
-
-            /*
-             * 1 compname
-             * 2 username
-             * 3 manufacturer
-             * 4 model
-             * 5 os
-             * 6 bios
-             * 7 serial
-             * 8 admin
-             * 9 ent
-             * 10 start
-             * 11 status
-             * 12 azure
-             */
-
-            string comp = get1out;
-            string user = get2out;
-
-        }
-
-        public void check()
-        {
-            string filePath2 = ".\\fullsoftinfo.txt";
-            int lineNumbers2 = 1;
-            StreamReader inputFile2 = new StreamReader(filePath2);
-
-            for (int i = 1; i < lineNumbers2; i++)
-            {
-                inputFile2.ReadLine();
-            }
-            debshell.Text = inputFile2.ReadLine();
-
-            lineNumbers2 = 1;
-
-            for (int i = 1; i < lineNumbers2; i++)
-            {
-                inputFile2.ReadLine();
-            }
-            debhms.Text = inputFile2.ReadLine();
-
-            lineNumbers2 = 1;
-
-            for (int i = 1; i < lineNumbers2; i++)
-            {
-                inputFile2.ReadLine();
-            }
-            debreagentc.Text = inputFile2.ReadLine();
-
-            lineNumbers2 = 1;
-
-            for (int i = 1; i < lineNumbers2; i++)
-            {
-                inputFile2.ReadLine();
-            }
-            debazure.Text = inputFile2.ReadLine();
-
-            if (File.ReadAllText(".\\temp\\entuser.txt").Contains("ENT"))
-            {
-                debent.Text = "true";
-            }
-            else
-            {
-                debent.Text = "false";
-            }
-
-            if (serviceExists("HiSqoolManager"))
-            {
-                debhme.Text = "true";
-
-                ServiceController sc = new ServiceController();
-                sc.ServiceName = "HiSqoolManager";
-
-                if (sc.Status == ServiceControllerStatus.Running)
-                {
-                    debhmr.Text = "true";
-                }
-                else
-                {
-                    debhmr.Text = "false";
-                }
-
-                if (debhms.Text.Contains("Automatic") == true)
-                {
-                    debhms.Text = "Automatic";
-                }
-                else
-                {
-                    debhms.Text = "Disabled";
-                }
-            }
-            else
-            {
-                debhme.Text = "false";
-                debhmr.Text = "none";
-                debhms.Text = "none";
-            }
-
-            if (File.ReadAllText(".\\temp\\adminusers.txt").Contains(debuser.Text))
-            {
-                debadmin.Text = "true";
-            }
-            else
-            {
-                debadmin.Text= "false";
-            }
-
-            DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
-            FileInfo[] files = dir.GetFiles("silent_" + "*.*");
-            if (files.Length > 0)
-            {
-                debti.Text = "true";
-            }
-            else
-            {
-                debti.Text= "false";
-            }
 
             RegistryKey whe1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork");
             RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
             RegistryKey whe3 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock");
             if (whe1 == null || /*whe2 == null ||*/ whe3 == null)
             {
-                debwhe.Text = "false";
+                ebtn(enwhe);
             }
             else
             {
@@ -1287,32 +1014,68 @@ namespace Unowhy_Tools
                 string val3 = whe1.GetValue("RequireSecurityDevice").ToString();
                 //string val4 = whe1.GetValue("UseCertificateForOnPremAuth").ToString();
 
-                if(val1 == null || val3 == null || val5 == null)
+                if (val1 == null || val3 == null || val5 == null)
                 {
-                    debwhe.Text= "false";
+                    ebtn(enwhe);
                 }
                 else
                 {
                     if (val1.Contains("1") && /*val2.Contains("1") &&*/ val3.Contains("1") && /*val4.Contains("1") &&*/ val5.Contains("1"))
                     {
-                        debwhe.Text = "true";
+                        dbtn(bootim);
                     }
                     else
                     {
-                        debwhe.Text = "false";
+                        ebtn(bootim);
                     }
                 }
             }
+            whe1.Close();
+            whe2.Close(); 
+            whe3.Close();
 
-            RegistryKey bim1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe");
-            if(bim1 == null)
+            DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
+            FileInfo[] files = dir.GetFiles("silent_" + "*.*");
+            if (files.Length > 0)
             {
-                debbim.Text = "true";
+                ebtn(fixboot);
+                dbtn(delti);
             }
             else
             {
-                debbim.Text = "false";
+                dbtn(fixboot);
+                ebtn(delti);
             }
+
+            RegistryKey bim1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe");
+            if (bim1 == null)
+            {
+                dbtn(bootim);
+            }
+            else
+            {
+                ebtn(bootim);
+            }
+            bim1.Close();
+        }
+
+        public string returncmd(string file, string args)
+        {
+            Process get = new Process();
+            get.StartInfo.FileName = file;
+            get.StartInfo.Arguments = args;
+            get.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get.StartInfo.UseShellExecute = false;
+            get.StartInfo.RedirectStandardOutput = true;
+            get.Start();
+            get.WaitForExit();
+            string output = get.StandardOutput.ReadToEnd();
+            return output;
+        }
+
+        public void check()
+        {
+            
         }
 
         public void changeswitch()
