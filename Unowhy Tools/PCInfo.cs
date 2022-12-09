@@ -16,8 +16,9 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Threading;
-//using System.Threading.Tasks;
 using System.Windows.Input;
+
+using static Unowhy_Tools.UTclass.UTclass;
 
 namespace Unowhy_Tools
 {
@@ -38,7 +39,7 @@ namespace Unowhy_Tools
             DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
         }
 
-        public PCInfo()
+        public PCInfo(string us)
         {
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
@@ -64,63 +65,19 @@ namespace Unowhy_Tools
             labos.Text = resxSet.GetString("os");
             labuser.Text = resxSet.GetString("domuser");
 
-            string filePath = ".\\fullpcinfo.txt";
-            StreamReader inputFile = new StreamReader(filePath);
-            int lineNumber = 1;
-            for (int i = 1; i < lineNumber; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string hnpcname = inputFile.ReadLine();
+            string comp = returncmd("hostname", "");
+            string mf = getline(returncmd("wmic", "computersystem get manufacturer"), 2);
+            string md = getline(returncmd("wmic", "computersystem get model"), 2);
+            string oss = getline(returncmd("wmic", "os get caption"), 2);
+            string bios = getline(returncmd("wmic", "bios get smbiosbiosversion"), 2);
+            string sn = getline(returncmd("wmic", "bios get serialnumber"), 2);
 
-            int lineNumber2 = 1;
-            for (int i = 1; i < lineNumber2; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string mfs = inputFile.ReadLine();
+            string mfms = mf + md;
 
-            int lineNumber3 = 1;
-            for (int i = 1; i < lineNumber3; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string models = inputFile.ReadLine();
-
-            int lineNumber4 = 1;
-            for (int i = 1; i < lineNumber4; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string enes = inputFile.ReadLine();
-
-            int lineNumber5 = 1;
-            for (int i = 1; i < lineNumber5; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string ifps = inputFile.ReadLine();
-            
-            int lineNumber6 = 1;
-            for (int i = 1; i < lineNumber6; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string oss = inputFile.ReadLine();
-
-            int lineNumber7 = 1;
-            for (int i = 1; i < lineNumber7; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string us = inputFile.ReadLine();
-
-            string mfms = mfs + models;
-
-            pcname.Text = hnpcname;
+            pcname.Text = comp;
             mfm.Text = mfms;
-            serial.Text = ifps;
-            biosver.Text = enes;
+            serial.Text = sn;
+            biosver.Text = bios;
             os.Text = oss;
             user.Text = us;
 
