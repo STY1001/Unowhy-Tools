@@ -46,6 +46,12 @@ namespace Unowhy_Tools
                 serv.stop(service);
                 runmin("powershell", "-Name \"" + service + "\" -StartupType Disabled", true);
             }
+
+            public static void del(string service)
+            {
+                serv.stop(service);
+                runmin("sc", "delete \"" + service + "\"", true);
+            }
         }
 
         public static void delay(int Time_delay)
