@@ -65,9 +65,9 @@ namespace Unowhy_Tools
             this.asty1001.ForeColor = System.Drawing.Color.White;
             this.asty1001.Location = new System.Drawing.Point(12, 139);
             this.asty1001.Name = "asty1001";
-            this.asty1001.Size = new System.Drawing.Size(191, 13);
+            this.asty1001.Size = new System.Drawing.Size(122, 13);
             this.asty1001.TabIndex = 13;
-            this.asty1001.Text = "by STY1001 | sty1001.wordpress.com";
+            this.asty1001.Text = "by STY1001 | sty1001.cf";
             // 
             // pictureBox1
             // 

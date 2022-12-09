@@ -98,7 +98,7 @@ namespace Unowhy_Tools
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://sty1001.wordpress.com");  //Link button
+            System.Diagnostics.Process.Start("https://sty1001.cf");  //Link button
         }
 
         private void button2_Click(object sender, EventArgs e)
