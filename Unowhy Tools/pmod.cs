@@ -81,7 +81,7 @@ namespace Unowhy_Tools
 
         private void button9_Click(object sender, EventArgs e)
         {
-            var a = new PCInfo();
+            var a = new PCInfo("STY1001");
             a.Show();
         }
 
