@@ -41,7 +41,7 @@ ___
 >![image](https://user-images.githubusercontent.com/57889852/197416722-890d8c6c-c810-455a-bcb0-b893b565129b.png)
 ___
 ### Restorer a partir d'une sauvgarde recuperé en ligne (faite par une autre personne genereuse):
->1. Téléchargez une sauvegarde parmi ce proposé [ICI](https://hksty1001-my.sharepoint.com/:f:/g/personal/cloud_hksty1001_onmicrosoft_com/Ejk2S5pcwCFPnUxKDVQaUPoBpw-3IMAjuLYiJO_Fi-vsKQ?e=SAI4SS) selon la version de votre PC (<2020, 2021, 2022)  
+>1. Téléchargez une sauvegarde parmi ce proposé [ICI](https://hksty1001-my.sharepoint.com/:f:/g/personal/cloud_sty1001_cf/Ejk2S5pcwCFPnUxKDVQaUPoBpw-3IMAjuLYiJO_Fi-vsKQ?e=pXH17g) selon la version de votre PC (<2020, 2021, 2022)  
 >![image](https://user-images.githubusercontent.com/57889852/197592769-0cf6e828-d56a-45c3-9654-ddcc0ea0b3a7.png)
 >2. Une fois téléchargé, aller dans l'explorateur de fichier et trouvez la sauvergarde, faites clique droit sur le fichier et cliquez sur "Extraire tout..."  
 >![image](https://user-images.githubusercontent.com/57889852/197624763-4bdfecb4-4fa7-4c7b-bdf9-b1b62e55f902.png)
