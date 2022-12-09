@@ -17,6 +17,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using static Unowhy_Tools.UTclass.UTclass;
+
 namespace Unowhy_Tools
 {
     public partial class winreset : Form
@@ -37,11 +39,6 @@ namespace Unowhy_Tools
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int state, int value);
 
-        public void WaitScreen()
-        {
-            Application.Run(new wait());
-        }
-
         protected override void OnHandleCreated(EventArgs e)
         {
             DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4);
@@ -54,25 +51,12 @@ namespace Unowhy_Tools
 
         public winreset()
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            ena.Text = resxSet.GetString("enable");
-            dis.Text = resxSet.GetString("disable");
-            rep.Text = resxSet.GetString("repair");
-            this.Text = resxSet.GetString("winre.title");
+            ena.Text = getlang("enable");
+            dis.Text = getlang("disable");
+            rep.Text = getlang("repair");
+            this.Text = getlang("winre.title");
 
             if (File.Exists("debug"))
             {
@@ -81,18 +65,6 @@ namespace Unowhy_Tools
 
             check();
         }
-        
-        private void ebtn(Control btn)
-        {
-            btn.Enabled = true;
-            btn.ForeColor = Color.White;
-        }
-
-        private void dbtn(Control btn)
-        {
-            btn.Enabled = false;
-            btn.ForeColor = Color.Gray;
-        }
 
         private void ena_Click(object sender, EventArgs e)
         {
@@ -100,28 +72,13 @@ namespace Unowhy_Tools
             Thread t = new Thread(new ThreadStart(WaitScreen));
             t.Start();
             debwinre.Text = "1";
-            var p = new Process();
-            p.StartInfo.FileName = "reagentc";
-            p.StartInfo.Arguments = "/enable";
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p.Start();
-            p.WaitForExit();
-            check();
-            t.Abort();
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
+            runmin("reagentc.exe", "/enable", true);
         }
 
         private void check()
         {
-            var p = new Process();
-            p.StartInfo.FileName = "reagentc";
-            p.StartInfo.Arguments = "/info";
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.RedirectStandardOutput = true;
-            p.Start();
-            p.WaitForExit();
-            string out1 = p.StandardOutput.ReadToEnd();
+
+            string out1 = returncmd("reagentc.exe", "/info");
             if (out1.Contains("Enable"))
             {
                 dbtn(ena);
@@ -136,18 +93,7 @@ namespace Unowhy_Tools
                     dbtn(ena);
                     ebtn(rep);
                     dbtn(dis);
-                    //Check the current saved language
-
-                    RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-                    string utls = utl.GetValue("Lang").ToString();
-
-                    string enresx = @".\en.resx";
-                    string frresx = @".\fr.resx";
-                    //Chose the ResX file
-                    if (utls == "EN") resxFile = enresx;    //English   
-                    else resxFile = frresx;               //French
-                    ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-                    repmsg.Text = resxSet.GetString("winremsg");
+                    repmsg.Text = getlang("winremsg");
                 }
                 else
                 {
@@ -161,19 +107,10 @@ namespace Unowhy_Tools
 
         private void dis_Click(object sender, EventArgs e)
         {
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-            Thread t = new Thread(new ThreadStart(WaitScreen));
-            t.Start();
             debwinre.Text = "Winre";
             var p = new Process();
-            p.StartInfo.FileName = "reagentc";
-            p.StartInfo.Arguments = "/disable";
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p.Start();
-            p.WaitForExit();
+            runmin("reagentc.exe", "/disable", true);
             check();
-            t.Abort();
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
         }
 
         private void rep_Click(object sender, EventArgs e)
@@ -198,19 +135,9 @@ namespace Unowhy_Tools
                     web.DownloadFile("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim", "C:\\Windows\\System32\\Recovery\\WinRE.wim");
                 }
 
-                var p = new Process();
-                p.StartInfo.FileName = "reagentc";
-                p.StartInfo.Arguments = "/setreimage /path C:\\Windows\\System32\\Recovery";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery", false);
+                runmin("reagentc.exe", "/enable", false);
 
-                var p2 = new Process();
-                p2.StartInfo.FileName = "reagentc";
-                p2.StartInfo.Arguments = "/enable";
-                p2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p2.Start();
-                p2.WaitForExit();
                 debwinre.Text = "0";
 
                 check();
