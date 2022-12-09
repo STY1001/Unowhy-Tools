@@ -195,7 +195,9 @@ using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using System.Security.Principal;
 using System.Windows.Forms.VisualStyles;
+
 using Unowhy_Tools.Properties;
+using static Unowhy_Tools.UTclass.UTclass;
 
 namespace Unowhy_Tools
 {   
@@ -218,17 +220,6 @@ namespace Unowhy_Tools
         public void WaitScreen()
         {
             Application.Run(new wait());
-        }
-
-        #endregion
-
-        #region Get Line
-
-        public string getline(string text, int line)
-        {
-            int line2 = line - 1;
-            var lines = text.Split('\n');
-            return lines[line2];
         }
 
         #endregion
@@ -273,8 +264,14 @@ namespace Unowhy_Tools
         }
 
         #endregion
-        
-        #region Dark Title Bar
+
+        #region Dark Title Bar and WOW64 Fix
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool Wow64DisableWow64FsRedirection(ref IntPtr ptr);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool Wow64RevertWow64FsRedirection(IntPtr ptr);
 
         //Set dark mode title bar
 
@@ -287,6 +284,8 @@ namespace Unowhy_Tools
             DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
             DwmSetWindowAttribute(Handle, 35, new[] { 1 }, 4);
             DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
+            IntPtr wow64Value = IntPtr.Zero;
+            Wow64DisableWow64FsRedirection(ref wow64Value);
         }
 
         #endregion
@@ -531,157 +530,6 @@ namespace Unowhy_Tools
                 }
 
                 #endregion
-
-                #region Collect Infos
-
-                // Collecting PC Info and compress to txt
-                Process pci = new Process();
-                pci.StartInfo.FileName = ".\\getpcinfo.exe";
-                pci.StartInfo.Arguments = "";
-                pci.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                pci.Start();
-                pci.WaitForExit();
-
-                Process pci2 = new Process();
-                pci2.StartInfo.FileName = ".\\getsoftinfo.exe";
-                pci2.StartInfo.Arguments = "";
-                pci2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                pci2.Start();
-                pci2.WaitForExit();
-
-                Process pci3 = new Process();
-                pci3.StartInfo.FileName = ".\\getuserinfo.exe";
-                pci3.StartInfo.Arguments = "";
-                pci3.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                pci3.Start();
-                pci3.WaitForExit();
-
-                string filePath = ".\\temp\\pcname.txt";
-                int lineNumber = 1;
-                int lineNumber2 = 2;
-                int lineNumber4 = 4;
-                int lineNumber6 = 6;
-                StreamReader inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string hnpcn = inputFile.ReadLine();
-
-                filePath = ".\\temp\\mf.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber2; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string mf = inputFile.ReadLine();
-
-                filePath = ".\\temp\\model.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber2; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string model = inputFile.ReadLine();
-
-                filePath = ".\\temp\\os.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber2; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string os = inputFile.ReadLine();
-
-                filePath = ".\\temp\\ene.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber2; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string ene = inputFile.ReadLine();
-
-                filePath = ".\\temp\\ifp.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber2; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string ifp = inputFile.ReadLine();
-
-                filePath = ".\\temp\\username.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string un = inputFile.ReadLine();
-
-                filePath = ".\\temp\\shell.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string sk = inputFile.ReadLine();
-
-                filePath = ".\\temp\\hsmst.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string hsmst = inputFile.ReadLine();
-
-                filePath = ".\\temp\\rs.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber4; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string rss = inputFile.ReadLine();
-
-                filePath = ".\\temp\\azure.txt";
-                inputFile = new StreamReader(filePath);
-
-                for (int i = 1; i < lineNumber6; i++)
-                {
-                    inputFile.ReadLine();
-                }
-                string ass = inputFile.ReadLine();
-
-                string finalinfotxt = ".\\fullpcinfo.txt";
-                using (StreamWriter pcinfotxt = File.CreateText(finalinfotxt))
-                {
-                    pcinfotxt.WriteLine(hnpcn);
-                    pcinfotxt.WriteLine(mf);
-                    pcinfotxt.WriteLine(model);
-                    pcinfotxt.WriteLine(ene);
-                    pcinfotxt.WriteLine(ifp);
-                    pcinfotxt.WriteLine(os);
-                    pcinfotxt.WriteLine(un);
-                }
-
-                string finalsofttxt = ".\\fullsoftinfo.txt";
-                using (StreamWriter softinfotxt = File.CreateText(finalsofttxt))
-                {
-
-                    softinfotxt.WriteLine(sk);
-                    softinfotxt.WriteLine(hsmst);
-                    softinfotxt.WriteLine(rss);
-                    softinfotxt.WriteLine(ass);
-                }
-
-                #endregion
             }
 
             InitializeComponent();
@@ -693,18 +541,7 @@ namespace Unowhy_Tools
                 if (File.Exists("debug"))
                 {
                     debuglab.Visible = true;
-                    debshell.Visible = true;
-                    debhme.Visible = true;
-                    debhmr.Visible = true;
-                    debhms.Visible = true;
-                    debreagentc.Visible = true;
-                    debazure.Visible = true;
                     debuser.Visible = true;
-                    debti.Visible = true;
-                    debent.Visible = true;
-                    debadmin.Visible = true;
-                    debwhe.Visible = true;
-                    debbim.Visible = true;
                 }
 
                 #endregion
@@ -712,7 +549,6 @@ namespace Unowhy_Tools
                 langswitch();
                 userid(userpath);
                 check();
-                changeswitch();
 
                 //Go to foreground
                 this.WindowState = FormWindowState.Minimized;
@@ -794,39 +630,6 @@ namespace Unowhy_Tools
 
 
             #endregion
-        }
-
-        #endregion
-
-        #region Wait Func
-
-        //Wait fonc
-
-        private static void delay(int Time_delay)
-        {
-            int i = 0;
-            System.Timers.Timer _delayTimer = new System.Timers.Timer();
-            _delayTimer.Interval = Time_delay;
-            _delayTimer.AutoReset = false;
-            _delayTimer.Elapsed += (s, args) => i = 1;
-            _delayTimer.Start();
-            while (i == 0) { };
-        }
-
-        #endregion
-
-        #region Btn Enabled Custom
-
-        private void ebtn(Control btn)
-        {
-            btn.Enabled = true;
-            btn.ForeColor = Color.White;
-        }
-
-        private void dbtn(Control btn)
-        {
-            btn.Enabled = false;
-            btn.ForeColor = Color.Gray;
         }
 
         #endregion
@@ -1030,9 +833,18 @@ namespace Unowhy_Tools
                     }
                 }
             }
-            whe1.Close();
-            whe2.Close(); 
-            whe3.Close();
+            if(whe1 != null)
+            {
+                whe1.Close();
+            }
+            if (whe2 != null)
+            {
+                whe2.Close();
+            }
+            if (whe3 != null)
+            {
+                whe3.Close();
+            }
 
             DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
             FileInfo[] files = dir.GetFiles("silent_" + "*.*");
@@ -1056,29 +868,12 @@ namespace Unowhy_Tools
             {
                 ebtn(bootim);
             }
-            bim1.Close();
+            if(bim1 != null)
+            {
+                bim1.Close();
+            }
         }
-
-        public string returncmd(string file, string args)
-        {
-            Process get = new Process();
-            get.StartInfo.FileName = file;
-            get.StartInfo.Arguments = args;
-            get.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            get.StartInfo.UseShellExecute = false;
-            get.StartInfo.RedirectStandardOutput = true;
-            get.Start();
-            get.WaitForExit();
-            string output = get.StandardOutput.ReadToEnd();
-            return output;
-        }
-
         public void check()
-        {
-            
-        }
-
-        public void changeswitch()
         {
             ebtn(delhis);
             ebtn(delhism);
@@ -1106,15 +901,7 @@ namespace Unowhy_Tools
             ebtn(bkcloud);
             ebtn(bootim);
 
-            checkhism();
-            checkazure();
-            checkadmin();
-            checkent();
-            checkti();
-            checkfolder();
-            checkwhe();
-            checkbootim();
-            checkshell();
+            new_check();
         }
 
         #endregion
@@ -1141,9 +928,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debhmr.Text = "true";
-                debhms.Text = "Automatic";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1168,9 +953,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debhmr.Text = "false";
-                debhms.Text = "Automatic";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1194,9 +977,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debhms.Text = "Automatic";
-                debhmr.Text = "true";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1220,9 +1001,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debhms.Text = "Disabled";
-                debhmr.Text = "false";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1246,7 +1025,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1270,8 +1049,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debhme.Text = "false";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1295,8 +1073,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debshell.Text = "explorer.exe";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1320,8 +1097,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debent.Text = "false";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1351,8 +1127,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debti.Text = "false";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1376,7 +1151,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1408,7 +1183,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1467,7 +1242,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                checkfolder();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1499,7 +1274,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                checkfolder();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1507,7 +1282,7 @@ namespace Unowhy_Tools
 
         private void pcinfo_Click(object sender, EventArgs e)
         {
-            var pci = new PCInfo();
+            var pci = new PCInfo(debuser.Text);
             pci.ShowDialog();
         }
 
@@ -1529,8 +1304,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debazure.Text = "NO";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1561,8 +1335,7 @@ namespace Unowhy_Tools
                 t.Abort();
                 var f = new reboot();
                 f.ShowDialog();
-                debadmin.Text = "true";
-                changeswitch();
+                check();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
@@ -1597,9 +1370,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                checkfolder();
-                debhme.Text = "false";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1650,8 +1421,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debwhe.Text = "true";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
@@ -1694,8 +1464,7 @@ namespace Unowhy_Tools
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 p.Start();
                 p.WaitForExit();
-                debbim.Text = "true";
-                changeswitch();
+                check();
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
