@@ -4,7 +4,7 @@
 # A tool for Unowhy Y13 computers !
 
 *Unowhy Tools and STY1001 are __NOT__ affiliate with Unowhy !*
-#### _**This in French : https://sty1001.wordpress.com/unowhy-tools/**_
+#### _**This in French : https://sty1001.cf/unowhy-tools/**_
 
 ## Features
 Currently, with this tools you can:
