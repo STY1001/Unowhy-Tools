@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,6 +12,13 @@ namespace Unowhy_Tools.UTclass
 {
     public static class UTclass
     {
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool Wow64DisableWow64FsRedirection(ref IntPtr ptr);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool Wow64RevertWow64FsRedirection(IntPtr ptr);
+
+
         public static void delay(int Time_delay)
         {
             int i = 0;
@@ -35,10 +43,13 @@ namespace Unowhy_Tools.UTclass
 
         public static string returncmd(string file, string args)
         {
+            IntPtr wow64Value = IntPtr.Zero;
+            Wow64DisableWow64FsRedirection(ref wow64Value);
+
             Process get = new Process();
             get.StartInfo.FileName = file;
             get.StartInfo.Arguments = args;
-            get.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            get.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             get.StartInfo.UseShellExecute = false;
             get.StartInfo.RedirectStandardOutput = true;
             get.Start();
