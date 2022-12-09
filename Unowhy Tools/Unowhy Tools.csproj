@@ -360,6 +360,7 @@
     <Compile Include="userid.Designer.cs">
       <DependentUpon>userid.cs</DependentUpon>
     </Compile>
+    <Compile Include="UTclass.cs" />
     <Compile Include="wait.cs">
       <SubType>Form</SubType>
     </Compile>
