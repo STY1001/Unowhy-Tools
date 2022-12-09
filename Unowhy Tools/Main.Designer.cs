@@ -65,16 +65,7 @@ namespace Unowhy_Tools
             this.pictureBox25 = new System.Windows.Forms.PictureBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.debuglab = new System.Windows.Forms.Label();
-            this.debshell = new System.Windows.Forms.Label();
-            this.debhme = new System.Windows.Forms.Label();
-            this.debhmr = new System.Windows.Forms.Label();
-            this.debhms = new System.Windows.Forms.Label();
-            this.debreagentc = new System.Windows.Forms.Label();
-            this.debazure = new System.Windows.Forms.Label();
             this.debuser = new System.Windows.Forms.Label();
-            this.debadmin = new System.Windows.Forms.Label();
-            this.debent = new System.Windows.Forms.Label();
-            this.debti = new System.Windows.Forms.Label();
             this.pictureBox27 = new System.Windows.Forms.PictureBox();
             this.drivercat = new System.Windows.Forms.Label();
             this.pictureBox28 = new System.Windows.Forms.PictureBox();
@@ -114,7 +105,6 @@ namespace Unowhy_Tools
             this.opencmd = new ReaLTaiizor.Controls.Button();
             this.unprog = new ReaLTaiizor.Controls.Button();
             this.guide = new ReaLTaiizor.Controls.Button();
-            this.debwhe = new System.Windows.Forms.Label();
             this.pictureBox35 = new System.Windows.Forms.PictureBox();
             this.bkcloud = new ReaLTaiizor.Controls.Button();
             this.pictureBox36 = new System.Windows.Forms.PictureBox();
@@ -125,7 +115,6 @@ namespace Unowhy_Tools
             this.bootim = new ReaLTaiizor.Controls.Button();
             this.pictureBox40 = new System.Windows.Forms.PictureBox();
             this.opentask = new ReaLTaiizor.Controls.Button();
-            this.debbim = new System.Windows.Forms.Label();
             this.desc = new ReaLTaiizor.Controls.Button();
             this.pictureBox38 = new System.Windows.Forms.PictureBox();
             this.bcdfail = new ReaLTaiizor.Controls.Button();
@@ -387,65 +376,11 @@ namespace Unowhy_Tools
             this.debuglab.Name = "debuglab";
             this.debuglab.Click += new System.EventHandler(this.debug_Click);
             // 
-            // debshell
-            // 
-            resources.ApplyResources(this.debshell, "debshell");
-            this.debshell.ForeColor = System.Drawing.Color.White;
-            this.debshell.Name = "debshell";
-            // 
-            // debhme
-            // 
-            resources.ApplyResources(this.debhme, "debhme");
-            this.debhme.ForeColor = System.Drawing.Color.White;
-            this.debhme.Name = "debhme";
-            // 
-            // debhmr
-            // 
-            resources.ApplyResources(this.debhmr, "debhmr");
-            this.debhmr.ForeColor = System.Drawing.Color.White;
-            this.debhmr.Name = "debhmr";
-            // 
-            // debhms
-            // 
-            resources.ApplyResources(this.debhms, "debhms");
-            this.debhms.ForeColor = System.Drawing.Color.White;
-            this.debhms.Name = "debhms";
-            // 
-            // debreagentc
-            // 
-            resources.ApplyResources(this.debreagentc, "debreagentc");
-            this.debreagentc.ForeColor = System.Drawing.Color.White;
-            this.debreagentc.Name = "debreagentc";
-            // 
-            // debazure
-            // 
-            resources.ApplyResources(this.debazure, "debazure");
-            this.debazure.ForeColor = System.Drawing.Color.White;
-            this.debazure.Name = "debazure";
-            // 
             // debuser
             // 
             resources.ApplyResources(this.debuser, "debuser");
             this.debuser.ForeColor = System.Drawing.Color.White;
             this.debuser.Name = "debuser";
-            // 
-            // debadmin
-            // 
-            resources.ApplyResources(this.debadmin, "debadmin");
-            this.debadmin.ForeColor = System.Drawing.Color.White;
-            this.debadmin.Name = "debadmin";
-            // 
-            // debent
-            // 
-            resources.ApplyResources(this.debent, "debent");
-            this.debent.ForeColor = System.Drawing.Color.White;
-            this.debent.Name = "debent";
-            // 
-            // debti
-            // 
-            resources.ApplyResources(this.debti, "debti");
-            this.debti.ForeColor = System.Drawing.Color.White;
-            this.debti.Name = "debti";
             // 
             // pictureBox27
             // 
@@ -937,12 +872,6 @@ namespace Unowhy_Tools
             this.guide.TextAlignment = System.Drawing.StringAlignment.Center;
             this.guide.Click += new System.EventHandler(this.guide_Click);
             // 
-            // debwhe
-            // 
-            resources.ApplyResources(this.debwhe, "debwhe");
-            this.debwhe.ForeColor = System.Drawing.Color.White;
-            this.debwhe.Name = "debwhe";
-            // 
             // pictureBox35
             // 
             this.pictureBox35.Image = global::Unowhy_Tools.Properties.Resources.clouddl;
@@ -1050,12 +979,6 @@ namespace Unowhy_Tools
             this.opentask.TextAlignment = System.Drawing.StringAlignment.Center;
             this.opentask.Click += new System.EventHandler(this.opentask_Click);
             // 
-            // debbim
-            // 
-            resources.ApplyResources(this.debbim, "debbim");
-            this.debbim.ForeColor = System.Drawing.Color.White;
-            this.debbim.Name = "debbim";
-            // 
             // desc
             // 
             this.desc.BackColor = System.Drawing.Color.Transparent;
@@ -1131,18 +1054,7 @@ namespace Unowhy_Tools
             this.Controls.Add(this.opengp);
             this.Controls.Add(this.opencmd);
             this.Controls.Add(this.settings);
-            this.Controls.Add(this.debbim);
-            this.Controls.Add(this.debwhe);
-            this.Controls.Add(this.debti);
-            this.Controls.Add(this.debent);
-            this.Controls.Add(this.debadmin);
             this.Controls.Add(this.debuser);
-            this.Controls.Add(this.debazure);
-            this.Controls.Add(this.debreagentc);
-            this.Controls.Add(this.debhms);
-            this.Controls.Add(this.debhmr);
-            this.Controls.Add(this.debhme);
-            this.Controls.Add(this.debshell);
             this.Controls.Add(this.debuglab);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -1282,16 +1194,7 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox25;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.Label debuglab;
-        private System.Windows.Forms.Label debshell;
-        private System.Windows.Forms.Label debhme;
-        private System.Windows.Forms.Label debhmr;
-        private System.Windows.Forms.Label debhms;
-        private System.Windows.Forms.Label debreagentc;
-        private System.Windows.Forms.Label debazure;
         private System.Windows.Forms.Label debuser;
-        private System.Windows.Forms.Label debadmin;
-        private System.Windows.Forms.Label debent;
-        private System.Windows.Forms.Label debti;
         private System.Windows.Forms.PictureBox pictureBox27;
         private System.Windows.Forms.Label drivercat;
         private System.Windows.Forms.PictureBox pictureBox28;
@@ -1331,7 +1234,6 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button opencmd;
         private ReaLTaiizor.Controls.Button unprog;
         private ReaLTaiizor.Controls.Button guide;
-        private System.Windows.Forms.Label debwhe;
         private System.Windows.Forms.PictureBox pictureBox35;
         private ReaLTaiizor.Controls.Button bkcloud;
         private System.Windows.Forms.PictureBox pictureBox36;
@@ -1342,7 +1244,6 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button bootim;
         private System.Windows.Forms.PictureBox pictureBox40;
         private ReaLTaiizor.Controls.Button opentask;
-        private System.Windows.Forms.Label debbim;
         private ReaLTaiizor.Controls.Button desc;
         private System.Windows.Forms.PictureBox pictureBox38;
         private ReaLTaiizor.Controls.Button bcdfail;
