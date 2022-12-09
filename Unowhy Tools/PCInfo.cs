@@ -93,25 +93,25 @@ namespace Unowhy_Tools
                 osimg.Image = Unowhy_Tools.Properties.Resources.win11;
             }
 
-            if (ifps.Contains("IFP0"))
+            if (sn.Contains("IFP0"))
             {
                 string mdate = mfms + "(<2020)";
                 mfm.Text = mdate;
             }
 
-            if (ifps.Contains("IFP1"))
+            if (sn.Contains("IFP1"))
             {
                 string mdate = mfms + "(2021)";
                 mfm.Text = mdate;
             }
 
-            if (ifps.Contains("IFP2"))
+            if (sn.Contains("IFP2"))
             {
                 string mdate = mfms + "(2022)";
                 mfm.Text = mdate;
             }
 
-            if (ifps.Contains("STY1001"))
+            if (sn.Contains("STY1001"))
             {
                 string mdate = mfms + "(2021)";
                 mfm.Text = mdate;
