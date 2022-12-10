@@ -353,7 +353,6 @@
     <Compile Include="Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen.cs" />
     <Compile Include="userid.cs">
       <SubType>Form</SubType>
     </Compile>
