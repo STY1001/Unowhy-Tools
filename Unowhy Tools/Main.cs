@@ -1341,7 +1341,7 @@ namespace Unowhy_Tools
             }
         }
 
-        private void bcd_Click(object sender, EventArgs e)
+        private void bcdfail_Click(object sender, EventArgs e)
         {
             string msg = bcdfail.Text;
             Image ico = Resources.boot;
@@ -1476,6 +1476,11 @@ namespace Unowhy_Tools
         private void desc_bootim(object sender, EventArgs e)
         {
             desc.Text = getlang("descbootim");
+        }
+
+        private void desc_bcdfail(object sender, EventArgs e)
+        {
+            desc.Text = getlang("descbcdfail");
         }
 
         #endregion
