@@ -17,7 +17,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using static Unowhy_Tools.UTclass.UTclass;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
