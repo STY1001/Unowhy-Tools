@@ -147,6 +147,9 @@
   <data name="backup.short" xml:space="preserve">
     <value>Backup</value>
   </data>
+  <data name="bcdfail" xml:space="preserve">
+    <value>Del "IgnoreAllFailures" in BCD</value>
+  </data>
   <data name="biosversion" xml:space="preserve">
     <value>BIOS Version</value>
   </data>
@@ -209,6 +212,9 @@
   </data>
   <data name="descadminset" xml:space="preserve">
     <value>Manage the built-in ".\administrator" account. Don't disable the admin account if you don't have an other account as admin ! So before, create a local account as admin or set this account as admin</value>
+  </data>
+  <data name="descbcdfail" xml:space="preserve">
+    <value>Remove "IgnoreAllFailures" (BootStatusPolicy) in BCD, to re-enable blue screen "Recovery" (Not WinRE/BootIM) and diagnostics ("Please wait") in case of boot issue, also allows to boot with a different behavior ( Safe Mode, Low Resolution, and more)</value>
   </data>
   <data name="descbkcloud" xml:space="preserve">
     <value>Download a Unowhy Tools drivers backup from cloud made by another user. If you have an driver issue and if you haven't made a backup of your drivers, you can try to restore a cloud backup, use the guide to learn more about this method</value>

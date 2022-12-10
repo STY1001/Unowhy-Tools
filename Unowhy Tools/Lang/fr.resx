@@ -147,6 +147,9 @@
   <data name="backup.short" xml:space="preserve">
     <value>Sauv.</value>
   </data>
+  <data name="bcdfail" xml:space="preserve">
+    <value>Suppr. "IgnoreAllFailures" dans BCD</value>
+  </data>
   <data name="biosversion" xml:space="preserve">
     <value>Version du BIOS</value>
   </data>
@@ -209,6 +212,9 @@
   </data>
   <data name="descadminset" xml:space="preserve">
     <value>Gérez le compte ".\administrateur" intégré. Ne désactivez pas le compte admin si vous n'avez pas d'autre compte en tant qu'admin ! Donc, avant, créez un compte local en tant du'admin ou mettez ce compte en tant qu'admin</value>
+  </data>
+  <data name="descbcdfail" xml:space="preserve">
+    <value>Supprimer « IgnoreAllFailures » (BootStatusPolicy) dans BCD, réactive l’écran bleu "Recovery" (Pas WinRE/BootIM) et le diagnostic ("Veuillez patienter") en cas de problème de démarrage, permet aussi de pouvoir démarrer avec un comportement différant (Mode sans échec, Base résolution, etc…)</value>
   </data>
   <data name="descbkcloud" xml:space="preserve">
     <value>Téléchargez une sauvegarde des pilotes Unowhy Tools à partir du cloud faites par d'autres utilisateurs. Si vous avez un problème de pilote et si vous n'avez pas fait de sauvegarde de vos pilotes, vous pouvez essayer de restaurer une sauvegarde cloud, utilisez le guide pour en savoir plus sur cette méthode</value>
