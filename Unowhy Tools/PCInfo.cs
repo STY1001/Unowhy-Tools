@@ -18,7 +18,7 @@ using System.Windows;
 using System.Threading;
 using System.Windows.Input;
 
-using static Unowhy_Tools.UTclass.UTclass;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
