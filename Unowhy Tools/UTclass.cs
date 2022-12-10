@@ -87,6 +87,7 @@ namespace Unowhy_Tools
             get.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             get.StartInfo.UseShellExecute = false;
             get.StartInfo.RedirectStandardOutput = true;
+            get.StartInfo.CreateNoWindow = true;
             get.Start();
             get.WaitForExit();
             string output = get.StandardOutput.ReadToEnd();
@@ -135,6 +136,7 @@ namespace Unowhy_Tools
             p.StartInfo.FileName = file;
             p.StartInfo.Arguments = args;
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p.StartInfo.CreateNoWindow = true;
             p.Start();
             p.WaitForExit();
             if (msg == true)
