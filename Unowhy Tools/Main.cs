@@ -566,70 +566,47 @@ namespace Unowhy_Tools
 
         public void langswitch()
         {
-            #region Check Language 
-
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-
-            #endregion
-
-            #region Language Apply
-
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            //Apply Language
-
-            starthis.Text = resxSet.GetString("starthis");
-            stophis.Text = resxSet.GetString("stophis");
-            enhis.Text = resxSet.GetString("enhis");
-            dishis.Text = resxSet.GetString("dishis");
-            delhis.Text = resxSet.GetString("delhis");
-            delhism.Text = resxSet.GetString("delhism");
-            delcat.Text = resxSet.GetString("delcat");
-            repaircat.Text = resxSet.GetString("repaircat");
-            servicecat.Text = resxSet.GetString("servicecat");
-            shell.Text = resxSet.GetString("shell");
-            fixboot.Text = resxSet.GetString("fixboot");
-            ent.Text = resxSet.GetString("ent");
-            delti.Text = resxSet.GetString("delti");
-            about.Text = resxSet.GetString("about");
-            settings.Text = resxSet.GetString("settings");
-            delridf.Text = resxSet.GetString("delridf");
-            winre.Text = resxSet.GetString("winre");
-            pcname.Text = resxSet.GetString("pcname");
-            cuscat.Text = resxSet.GetString("cuscat");
-            deloem.Text = resxSet.GetString("deloem");
-            entf.Text = resxSet.GetString("delentf");
-            pcinfo.Text = resxSet.GetString("pcinfo");
-            admin.Text = resxSet.GetString("admin");
-            aadleave.Text = resxSet.GetString("aadleave");
-            adduser.Text = resxSet.GetString("adduser");
-            adminset.Text = resxSet.GetString("adminset");
-            psbr.Text = resxSet.GetString("psdrv");
-            drivercat.Text = resxSet.GetString("drvcat");
-            delhismserv.Text = resxSet.GetString("delhismserv");
-            dismbr.Text = resxSet.GetString("dismdrv");
-            enwhe.Text = resxSet.GetString("enwhe");
-            guide.Text = resxSet.GetString("guide");
-            opencmd.Text = resxSet.GetString("opencmd");
-            unprog.Text = resxSet.GetString("unprog");
-            opengp.Text = resxSet.GetString("opengp");
-            openreg.Text = resxSet.GetString("openreg");
-            opentask.Text = resxSet.GetString("opentask");
-            bootim.Text = resxSet.GetString("bootim");
+            starthis.Text = getlang("starthis");
+            stophis.Text = getlang("stophis");
+            enhis.Text = getlang("enhis");
+            dishis.Text = getlang("dishis");  
+            delhis.Text = getlang("delhis");
+            delhism.Text = getlang("delhism");
+            delcat.Text = getlang("delcat");
+            repaircat.Text = getlang("repaircat");
+            servicecat.Text = getlang("servicecat");
+            shell.Text = getlang("shell");
+            fixboot.Text = getlang("fixboot");
+            ent.Text = getlang("ent");
+            delti.Text = getlang("delti");
+            about.Text = getlang("about");
+            settings.Text = getlang("settings");
+            delridf.Text = getlang("delridf");
+            winre.Text = getlang("winre");
+            pcname.Text = getlang("pcname");
+            cuscat.Text = getlang("cuscat");
+            deloem.Text = getlang("deloem");
+            entf.Text = getlang("delentf");
+            pcinfo.Text = getlang("pcinfo");
+            admin.Text = getlang("admin");
+            aadleave.Text = getlang("aadleave");
+            adduser.Text = getlang("adduser");
+            adminset.Text = getlang("adminset");
+            psbr.Text = getlang("psdrv");
+            drivercat.Text = getlang("drvcat");
+            delhismserv.Text = getlang("delhismserv");
+            dismbr.Text = getlang("dismdrv");
+            enwhe.Text = getlang("enwhe");
+            guide.Text = getlang("guide");
+            opencmd.Text = getlang("opencmd");
+            unprog.Text = getlang("unprog");
+            opengp.Text = getlang("opengp");
+            openreg.Text = getlang("openreg");
+            opentask.Text = getlang("opentask");
+            bootim.Text = getlang("bootim");
+            bcdfail.Text = getlang("bcdfail");
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
-
-
-            #endregion
         }
 
         #endregion
