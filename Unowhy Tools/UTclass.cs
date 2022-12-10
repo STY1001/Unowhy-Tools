@@ -29,27 +29,32 @@ namespace Unowhy_Tools
         {
             public static void stop(string service)
             {
+                Write2Log("Stop " + service);
                 runmin("net", "stop \"" + service + "\" /y", true);
             }
 
             public static void start(string service)
             {
+                Write2Log("Start " + service);
                 runmin("net", "start \"" + service + "\"", true);
             }
 
             public static void auto(string service)
             {
+                Write2Log("Enable " + service);
                 runmin("powershell", "-Name \"" + service + "\" -StartupType Automatic", true);
             }
 
             public static void dis(string service)
             {
+                Write2Log("Disable " + service);
                 serv.stop(service);
                 runmin("powershell", "-Name \"" + service + "\" -StartupType Disabled", true);
             }
 
             public static void del(string service)
             {
+                Write2Log("Delete " + service);
                 serv.stop(service);
                 runmin("sc", "delete \"" + service + "\"", true);
             }
@@ -82,6 +87,8 @@ namespace Unowhy_Tools
             IntPtr wow64Value = IntPtr.Zero;
             Wow64DisableWow64FsRedirection(ref wow64Value);
 
+            Write2Log("ReturnCMD " + file + " " + args);
+
             Process get = new Process();
             get.StartInfo.FileName = file;
             get.StartInfo.Arguments = args;
@@ -92,6 +99,9 @@ namespace Unowhy_Tools
             get.Start();
             get.WaitForExit();
             string output = get.StandardOutput.ReadToEnd();
+
+            Write2Log("Done ReturnCMD " + file + " " + args);
+
             return output;
         }
 
@@ -104,6 +114,7 @@ namespace Unowhy_Tools
 
         public static string getlang(string name)
         {
+            Write2Log("Get lang " + name);
             //Check the current saved language
             string resxFile;
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
@@ -121,6 +132,8 @@ namespace Unowhy_Tools
         {
             IntPtr wow64Value = IntPtr.Zero;
             Wow64DisableWow64FsRedirection(ref wow64Value);
+
+            Write2Log("RunMin " + file + " " + args);
 
             if (msg == true)
             {
@@ -145,10 +158,13 @@ namespace Unowhy_Tools
                 t.Abort();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
             }
+
+            Write2Log(" Done RunMin " + file + " " + args);
         }
 
         public static void WaitScreen()
         {
+            Write2Log("Wait show");
             Application.Run(new wait());
         }
 
