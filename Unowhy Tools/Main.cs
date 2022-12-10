@@ -318,6 +318,7 @@ namespace Unowhy_Tools
                 string workdir = inputFile9.ReadLine();
 
                 Directory.SetCurrentDirectory(workdir);*/
+
                 if (!Directory.Exists($"{userpath}\\Unowhy Tools"))
                 {
                    Directory.CreateDirectory($"{userpath}\\Unowhy Tools");
@@ -380,6 +381,8 @@ namespace Unowhy_Tools
 
                 //File.WriteAllText(".\\temp\\verbose.txt", "Preparing...");
 
+                Write2Log("First start...");
+
                 if (Directory.Exists("temp"))
                 {
 
@@ -387,6 +390,7 @@ namespace Unowhy_Tools
                 else
                 {
                     Directory.CreateDirectory("temp");
+                    Write2Log("First start... (Create Temp)");
                     //File.WriteAllText(".\\temp\\verbose.txt", "Preparing for first start...");
                 }
 
@@ -400,6 +404,7 @@ namespace Unowhy_Tools
                     RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);    //Create it
                     stykey.CreateSubKey("STY1001");
                     delay(300);
+                    Write2Log("First start... (Create Key STY1001)");
                 }
 
                 RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);   //Check if "UT" key exist
@@ -412,6 +417,7 @@ namespace Unowhy_Tools
                     RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);     //Create it with "Lang" value
                     utkey.CreateSubKey("Unowhy Tools");
                     delay(300);
+                    Write2Log("First start... (Create Key UT)");
 
                 }
 
@@ -423,13 +429,8 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    //Set check boot at startup at on
-                    Process p = new Process();
-                    p.StartInfo.FileName = ".\\cuabon.exe";
-                    p.StartInfo.Arguments = "";
-                    p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                    p.Start();
-                    p.WaitForExit();    //Wait the registery editing
+                    runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v UpdateStart /d 1 /t REG_SZ /f", false);
+                    Write2Log("First start... (Create Value US)");
                 }
 
                 object o = key.GetValue("Lang", null);
@@ -439,12 +440,8 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    Process p = new Process();
-                    p.StartInfo.FileName = ".\\langen.exe";
-                    p.StartInfo.Arguments = "";
-                    p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                    p.Start();
-                    p.WaitForExit();                     //Wait the registery editing
+                    runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f", false);
+                    Write2Log("First start... (Create Value Lang)");
                     delay(1000);
                     var s = new Settings("1");
                     t.Abort();
@@ -547,13 +544,17 @@ namespace Unowhy_Tools
                 #endregion
 
                 langswitch();
+                Write2Log("Lang apply");
                 userid(userpath);
+                Write2Log("debuser");
                 check();
+                Write2Log("Check");
 
                 //Go to foreground
                 this.WindowState = FormWindowState.Minimized;
                 this.Show();
                 this.WindowState = FormWindowState.Normal;
+                Write2Log("Ready!");
             }
             t.Abort();
         }
@@ -655,7 +656,7 @@ namespace Unowhy_Tools
 
         public void new_check()
         {
-            string azure = getline(returncmd("dsregcmd", "/status"), 6);
+            string azure = getline(returncmd("cmd", "/c \"dsregcmd /status\""), 6);
             string admins = returncmd("net", "localgroups Administrateurs");
             string users = returncmd("net", "user");
 
