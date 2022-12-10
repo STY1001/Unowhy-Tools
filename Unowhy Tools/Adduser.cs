@@ -16,6 +16,9 @@ using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using Unowhy_Tools.Properties;
 
+using static Unowhy_Tools.UTclass;
+using System.Threading;
+
 namespace Unowhy_Tools
 {
     public partial class Adduser : Form
@@ -37,26 +40,13 @@ namespace Unowhy_Tools
 
         public Adduser()
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-            
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            this.Text = resxSet.GetString("adduser");
-            labn.Text = resxSet.GetString("name");
-            labp.Text = resxSet.GetString("password");
-            labc.Text = resxSet.GetString("confpw");
-            admin.Text = resxSet.GetString("la");
+            this.Text = getlang("adduser");
+            labn.Text = getlang("name");
+            labp.Text = getlang("password");
+            labc.Text = getlang("confpw");
+            admin.Text = getlang("la");
         }
 
         private void Adduser_Load(object sender, EventArgs e)
@@ -73,25 +63,13 @@ namespace Unowhy_Tools
         {
             string sname = name.Text;
             string spass = pass.Text;
-            var w = new wait();
+            Thread w = new Thread(new ThreadStart(WaitScreen));
 
             Regex r = new Regex(@"[~`!@#$%^&*()+=|\\{}':;.,<>/?[\]""_]");
 
             if (r.IsMatch(sname.ToString().Trim()) || sname == "")
             {
-                //Check the current saved language
-
-                RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-                string utls = utl.GetValue("Lang").ToString();
-
-                string enresx = @".\en.resx";
-                string frresx = @".\fr.resx";
-                //Chose the ResX file
-                if (utls == "EN") resxFile = enresx;    //English   
-                else resxFile = frresx;                //French
-                ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-                warn.Text = resxSet.GetString("an");
+                warn.Text = getlang("an");
                 name1.Image = Unowhy_Tools.Properties.Resources.deluser;
             }
             else
@@ -104,53 +82,33 @@ namespace Unowhy_Tools
                     d.ShowDialog();
                     if (d.DialogResult.Equals(DialogResult.Yes))
                     {
-                        w.Show();
+                        w.Start();
                         TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
 
                         if (pass.Text == "")
                         {
                             string arg = ($"user \"{sname}\" /add");
-                            Process p = new Process();
-                            p.StartInfo.FileName = "net";
-                            p.StartInfo.Arguments = arg;
-                            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                            p.Start();
-                            p.WaitForExit();
+                            runmin("net", arg, false);
 
                             if (admin.Checked == true)
                             {
                                 string arga = ($"localgroup Administrateurs \"{sname}\" /add");
-                                Process a = new Process();
-                                a.StartInfo.FileName = "net";
-                                a.StartInfo.Arguments = arga;
-                                a.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                                a.Start();
-                                a.WaitForExit();
+                                runmin("net", arga, false);
                             }
                         }
                         else
                         {
                             string arg = ($"user \"{sname}\" \"{spass}\" /add");
-                            Process p = new Process();
-                            p.StartInfo.FileName = "net";
-                            p.StartInfo.Arguments = arg;
-                            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                            p.Start();
-                            p.WaitForExit();
+                            runmin("net", arg, false);
 
                             if (admin.Checked == true)
                             {
                                 string arga = ($"localgroup Administrateurs \"{sname}\" /add");
-                                Process a = new Process();
-                                a.StartInfo.FileName = "net";
-                                a.StartInfo.Arguments = arga;
-                                a.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                                a.Start();
-                                a.WaitForExit();
+                                runmin("net", arga, false);
                             }
                         }
 
-                        w.Close();
+                        w.Abort();
                         TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
                         string username = sname;
                         var uidf = new userid(username);
@@ -160,19 +118,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    //Check the current saved language
-
-                    RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-                    string utls = utl.GetValue("Lang").ToString();
-
-                    string enresx = @".\en.resx";
-                    string frresx = @".\fr.resx";
-                    //Chose the ResX file
-                    if (utls == "EN") resxFile = enresx;    //English   
-                    else resxFile = frresx;                //French
-                    ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-                    warn.Text = resxSet.GetString("pwmis");
+                    warn.Text = getlang("pwmis");
                     pass2.Image = Unowhy_Tools.Properties.Resources.pwcno;
                 }
                 name1.Image = Unowhy_Tools.Properties.Resources.user;
@@ -199,19 +145,7 @@ namespace Unowhy_Tools
             }
             else
             {
-                //Check the current saved language
-
-                RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-                string utls = utl.GetValue("Lang").ToString();
-
-                string enresx = @".\en.resx";
-                string frresx = @".\fr.resx";
-                //Chose the ResX file
-                if (utls == "EN") resxFile = enresx;    //English   
-                else resxFile = frresx;                //French
-                ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-                warn.Text = resxSet.GetString("pwmis");
+                warn.Text = getlang("pwmis");
                 pass2.Image = Unowhy_Tools.Properties.Resources.pwcno;
             }
         }
@@ -225,19 +159,7 @@ namespace Unowhy_Tools
             }
             else
             {
-                //Check the current saved language
-
-                RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-                string utls = utl.GetValue("Lang").ToString();
-
-                string enresx = @".\en.resx";
-                string frresx = @".\fr.resx";
-                //Chose the ResX file
-                if (utls == "EN") resxFile = enresx;    //English   
-                else resxFile = frresx;                //French
-                ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-                warn.Text = resxSet.GetString("pwmis");
+                warn.Text = getlang("pwmis");
                 pass2.Image = Unowhy_Tools.Properties.Resources.pwcno;
             }
         }
@@ -248,19 +170,7 @@ namespace Unowhy_Tools
 
             if (r.IsMatch(name.Text.ToString().Trim()) || name.Text == "")
             {
-                //Check the current saved language
-
-                RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-                string utls = utl.GetValue("Lang").ToString();
-
-                string enresx = @".\en.resx";
-                string frresx = @".\fr.resx";
-                //Chose the ResX file
-                if (utls == "EN") resxFile = enresx;    //English   
-                else resxFile = frresx;                //French
-                ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-                warn.Text = resxSet.GetString("an");
+                warn.Text = getlang("an");
                 name1.Image = Unowhy_Tools.Properties.Resources.deluser;
             }
             else
