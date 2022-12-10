@@ -159,13 +159,19 @@ namespace Unowhy_Tools
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
             }
 
-            Write2Log(" Done RunMin " + file + " " + args);
+            Write2Log("Done RunMin " + file + " " + args);
         }
 
         public static void WaitScreen()
         {
             Write2Log("Wait show");
-            Application.Run(new wait());
+            var w = new wait();
+            w.ShowDialog();
+        }
+
+        public static void SplashScreen()
+        {
+            Application.Run(new Splash());
         }
 
         public static void Write2Log(string log)
