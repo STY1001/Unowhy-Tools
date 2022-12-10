@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Resources;
 using System.Runtime.InteropServices;
@@ -151,5 +152,14 @@ namespace Unowhy_Tools
             Application.Run(new wait());
         }
 
+        public static void Write2Log(string log)
+        {
+            if(!File.Exists(Path.GetTempPath() + "\\UT_Logs.txt"))
+            {
+                File.CreateText(Path.GetTempPath() + "\\UT_Logs.txt");
+            }
+
+            File.AppendAllText(Path.GetTempPath() + "\\UT_Logs.txt", DateTime.Now.ToString() + " : " + log + Environment.NewLine);
+        }
     }
 }
