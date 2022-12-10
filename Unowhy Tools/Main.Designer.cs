@@ -1011,8 +1011,8 @@ namespace Unowhy_Tools
             this.bcdfail.Name = "bcdfail";
             this.bcdfail.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.bcdfail.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.bcdfail.Click += new System.EventHandler(this.enwhe_Click);
-            this.bcdfail.MouseEnter += new System.EventHandler(this.desc_enwhe);
+            this.bcdfail.Click += new System.EventHandler(this.bcdfail_Click);
+            this.bcdfail.MouseEnter += new System.EventHandler(this.desc_bcdfail);
             // 
             // main
             // 
