@@ -197,7 +197,7 @@ using System.Security.Principal;
 using System.Windows.Forms.VisualStyles;
 
 using Unowhy_Tools.Properties;
-using static Unowhy_Tools.UTclass.UTclass;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {   
@@ -299,7 +299,7 @@ namespace Unowhy_Tools
 
         public main(string userpath)
         {
-            Thread t = new Thread(new ThreadStart(SplashScreen));               //Splash Screen
+            Thread t = new Thread(new ThreadStart(SplashScreen));
             t.Start();
             delay(300);
 
@@ -638,7 +638,6 @@ namespace Unowhy_Tools
 
         public void userid(string iduserpath)
         {
-
             string filePath = $"{iduserpath}\\Unowhy Tools\\temp\\realid.txt";
             int lineNumber = 1;
             StreamReader inputFile = new StreamReader(filePath);
@@ -682,7 +681,8 @@ namespace Unowhy_Tools
             string azure = getline(returncmd("dsregcmd", "/status"), 6);
             string admins = returncmd("net", "localgroups Administrateurs");
             string users = returncmd("net", "user");
-            //string winre = getline(returncmd("reagentc", "/info"), 4);
+
+            #region Hisqool Manager
 
             if (serviceExists("HiSqoolManager"))
             {
@@ -730,10 +730,18 @@ namespace Unowhy_Tools
                 dbtn(delhismserv);
             }
 
+            #endregion
+
+            #region Azure
+
             if (azure.Contains("NO"))
             {
                 dbtn(aadleave);
             }
+
+            #endregion
+
+            #region Folders
 
             if (admins.Contains(debuser.Text))
             {
@@ -793,6 +801,10 @@ namespace Unowhy_Tools
                 ebtn(delhis);
             }
 
+            #endregion
+
+            #region ENT user
+
             if (users.Contains("ENT"))
             {
                 ebtn(ent);
@@ -801,6 +813,10 @@ namespace Unowhy_Tools
             {
                 dbtn(ent);
             }
+
+            #endregion
+
+            #region Windows Hello Enterprise
 
             RegistryKey whe1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork");
             RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
@@ -846,6 +862,10 @@ namespace Unowhy_Tools
                 whe3.Close();
             }
 
+            #endregion
+
+            #region TI Start
+
             DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
             FileInfo[] files = dir.GetFiles("silent_" + "*.*");
             if (files.Length > 0)
@@ -858,6 +878,10 @@ namespace Unowhy_Tools
                 dbtn(fixboot);
                 ebtn(delti);
             }
+
+            #endregion
+
+            #region BootIM
 
             RegistryKey bim1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe");
             if (bim1 == null)
@@ -872,6 +896,8 @@ namespace Unowhy_Tools
             {
                 bim1.Close();
             }
+
+            #endregion
         }
         public void check()
         {
@@ -918,19 +944,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                      // Start HiSqool Manager  
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\starthis.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                serv.start("Hisqoolmanger");
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
                       
         }
@@ -943,19 +958,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                      // Stop HiSqool Manager
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\stophis.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                serv.stop("Hisqoolmanger");
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -967,19 +971,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start(); 
-                                                                     // Enable HiSqool Manager
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\enhis.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                serv.auto("Hisqoolmanger");
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -991,19 +984,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                           // Disable HiSqool Manager
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\dishis.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                serv.dis("Hisqoolmanger");
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1015,19 +997,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                          // Launch Uninstaller of HiSqool
-                Process p = new Process();
-                p.StartInfo.FileName = "C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                System.Diagnostics.Process.Start("C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe");
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1039,19 +1010,9 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                         // Remove HiSqool Manager folder
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\rmdirhismgr.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                serv.del("Hisqoolmanager");
+                runmin("rmdir", "/s /q C:\\Program Files\\Unowhy\\HisqoolManager", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1063,19 +1024,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                               // Change Shell value
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\shell.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("reg", "add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\WinLogon\" /v Shell /d explorer.exe /t REG_SZ /f", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1087,19 +1037,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                                // Delete ENT account
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\delent.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("net", "user ENT /delete", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1117,19 +1056,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                                //Delete silent_*.vbs.lnk
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\fixti.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("del", "/q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1141,19 +1069,9 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                                //Remove "TO_INSTALL"
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\rdti.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("del", "/q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"", true);
+                runmin("rmdir", "/s /q \"C:\\Program Files\\Unowhy\\TO_INSTALL\"", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1173,19 +1091,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                               //Delete "RIDF"
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\delridf.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("rmdir", "/s /q \"C:\\ProgramData\\RIDF\"", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1198,7 +1105,7 @@ namespace Unowhy_Tools
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
+                Thread t = new Thread(new ThreadStart(WaitScreen));
                 t.Start();
                                                                                //Enable reagentc
                 Process p = new Process();
@@ -1232,19 +1139,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                               // Delete OEM folder
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\deloem.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("rmdir", "/s /q \"C:\\Windows\\System32\\OEM\"", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1264,19 +1160,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                              // Delete ENT folder
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\delentf.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("rmdir", "/s /q \"C:\\ProgramData\\ENT\"", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1294,19 +1179,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                                 // Disconnect Azure AD domain from PC
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\azureleave.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("dsregcmd", "/leave", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1318,25 +1192,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                
-                string user = debuser.Text;
-
-                string arg = ($"localgroup Administrateurs /add \"{user}\"");
-                                                                           // Set admin
-                Process p = new Process();
-                p.StartInfo.FileName = "net";
-                p.StartInfo.Arguments = arg;
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
-                t.Abort();
-                var f = new reboot();
-                f.ShowDialog();
+                runmin("net", $"localgroup Administrateurs /add \"{debuser.Text}\"", true);
                 check();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1360,19 +1217,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                             // Del Serv Only
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\delhismserv.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                serv.del("Hisqoolmanager");
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1411,19 +1257,14 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                        //Enable winhelloent
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\winhelloent.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"EnablePinRecovery\" /t REG_DWORD /d \"1\" /f", true);
+                runmin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"RequireSecurityDevice\" /t REG_DWORD /d \"1\" /f", true);
+                runmin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"Enabled\" /t REG_DWORD /d \"1\" /f", true);
+                runmin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"DisablePostLogonProvisioning\" /t REG_DWORD /d \"0\" /f", true);
+                runmin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock\" /v \"DynamicLock\" /t REG_DWORD /d \"1\" /f", true);
+                runmin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock\" /v \"Plugins\" /t REG_SZ /d \"<rule schemaVersion=\\\"1.0\\\"> <signal type=\\\"bluetooth\\\" scenario=\\\"Dynamic Lock\\\" classOfDevice=\\\"512\\\" rssiMin=\\\"-10\\\" rssiMaxDelta=\\\"-10\\\"/> </rule> \" /f", true);
+                runmin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider\" /v \"Domain Accounts\" /t REG_DWORD /d \"1\" /f", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1454,19 +1295,8 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                t.Start();
-                                                                    //Unpatch bootim
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\bootim.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("reg", "delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe\" /f", true);
                 check();
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
 
@@ -1511,6 +1341,19 @@ namespace Unowhy_Tools
             }
         }
 
+        private void bcd_Click(object sender, EventArgs e)
+        {
+            string msg = bcdfail.Text;
+            Image ico = Resources.boot;
+            dialog d = new dialog(msg, ico);
+            d.ShowDialog();
+            if (d.DialogResult.Equals(DialogResult.Yes))
+            {
+                runmin("bcdedit", "/deletevalue bootstatuspolicy", true);
+                check();
+            }
+        }
+
         #endregion
 
         #region Buttons Description
@@ -1522,223 +1365,67 @@ namespace Unowhy_Tools
 
         private void desc_Hism(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("deschism");
+            desc.Text = getlang("deschism");
         }
 
         private void desc_Shell(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descshell");
+            desc.Text = getlang("descshell");
         }
 
         private void desc_Fixti(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descstart");
+            desc.Text = getlang("descstart");
         }
 
         private void desc_Winre(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descwinre");
+            desc.Text = getlang("descwinre");
         }
 
         private void desc_Ent(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descent");
+            desc.Text = getlang("descent");
         }
 
         private void desc_His(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("deschisdel");
+            desc.Text = getlang("deschisdel");
         }
 
         private void desc_Delhism(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("deschismdel");
+            desc.Text = getlang("deschismdel");
         }
 
         private void desc_Delti(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("desctidel");
+            desc.Text = getlang("desctidel");
         }
 
         private void desc_Ridf(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descridf");
+            desc.Text = getlang("descridf");
         }
 
         private void desc_Oem(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descdeloem");
+            desc.Text = getlang("descdeloem");
         }
 
         private void desc_Entf(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descdelentf");
+            desc.Text = getlang("descdelentf");
         }
 
         private void desc_PCN(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descpcname");
+            desc.Text = getlang("descpcname");
         }
 
         private void desc_Admin(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descadmin");
+            desc.Text = getlang("descadmin");
         }
 
         private void desc_logo(object sender, EventArgs e)
@@ -1748,155 +1435,47 @@ namespace Unowhy_Tools
 
         private void desc_Aadleave(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descaadleave");
+            desc.Text = getlang("descaadleave");
         }
 
         private void desc_Adduser(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descadduser");
+            desc.Text = getlang("descadduser");
         }
 
         private void desc_Adminset(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descadminset");
+            desc.Text = getlang("descadminset");
         }
 
         private void desc_delserv(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descadminset");
+            desc.Text = getlang("descadminset");
         }
 
         private void desc_psbr(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descpsbr");
+            desc.Text = getlang("descpsbr");
         }
 
         private void desc_dismbr(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descdismbr");
+            desc.Text = getlang("descdismbr");
         }
 
         private void desc_enwhe(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descenwhe");
+            desc.Text = getlang("descenwhe");
         }
 
         private void desc_bkcloud(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descbkcloud");
+            desc.Text = getlang("descbkcloud");
         }
 
         private void desc_bootim(object sender, EventArgs e)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;                //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            desc.Text = resxSet.GetString("descbootim");
+            desc.Text = getlang("descbootim");
         }
 
         #endregion
