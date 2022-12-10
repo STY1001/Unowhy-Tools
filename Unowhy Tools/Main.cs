@@ -210,20 +210,6 @@ namespace Unowhy_Tools
 
         #endregion
 
-        #region Threads
-
-        public void SplashScreen()
-        {
-            Application.Run(new Splash());
-        }
-
-        public void WaitScreen()
-        {
-            Application.Run(new wait());
-        }
-
-        #endregion
-
         #region Check Service Function
 
         public bool serviceExists(string ServiceName)
@@ -656,7 +642,7 @@ namespace Unowhy_Tools
 
         public void new_check()
         {
-            string azure = getline(returncmd("cmd", "/c \"dsregcmd /status\""), 6);
+            string azure = getline(returncmd("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow"), 6);
             string admins = returncmd("net", "localgroups Administrateurs");
             string users = returncmd("net", "user");
 
@@ -922,7 +908,7 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                serv.start("Hisqoolmanger");
+                serv.start("Hisqoolmanager");
                 check();
             }
                       
@@ -936,7 +922,7 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                serv.stop("Hisqoolmanger");
+                serv.stop("Hisqoolmanager");
                 check();
             }
         }
@@ -949,7 +935,7 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                serv.auto("Hisqoolmanger");
+                serv.auto("Hisqoolmanager");
                 check();
             }
         }
@@ -962,7 +948,7 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                serv.dis("Hisqoolmanger");
+                serv.dis("Hisqoolmanager");
                 check();
             }
         }
