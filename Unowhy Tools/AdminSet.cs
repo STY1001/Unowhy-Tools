@@ -14,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unowhy_Tools.Properties;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
@@ -21,10 +22,6 @@ namespace Unowhy_Tools
     {
         public string resxFile = "null";
 
-        public void WaitScreen()
-        {
-            Application.Run(new wait());
-        }
 
         //Set dark mode title bar
 
@@ -41,26 +38,12 @@ namespace Unowhy_Tools
 
         public AdminSet()
         {
-
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            this.Text = resxSet.GetString("adminset");
-            enable.Text = resxSet.GetString("enablea");
-            disable.Text = resxSet.GetString("disablea");
-            passbtn.Text = resxSet.GetString("snpw");
+            this.Text = getlang("adminset");
+            enable.Text = getlang("enablea");
+            disable.Text = getlang("disablea");
+            passbtn.Text = getlang("snpw");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -71,17 +54,9 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                Thread t = new Thread(new ThreadStart(WaitScreen));
-                t.Start();
                 string pass = passbox.Text;
                 string arg = ($"user Administrateur \"{pass}\"");
-                Process p = new Process();
-                p.StartInfo.FileName = "net";
-                p.StartInfo.Arguments = arg;
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
-                t.Abort();
+                runmin("net", arg, true);
             }
         }
 
@@ -93,15 +68,7 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                Thread t = new Thread(new ThreadStart(WaitScreen));
-                t.Start();
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\enadmin.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
-                t.Abort(true);
+                runmin("net", "user Administrateur /active:yes", true);
             }
         }
 
@@ -113,15 +80,7 @@ namespace Unowhy_Tools
             d.ShowDialog();
             if (d.DialogResult.Equals(DialogResult.Yes))
             {
-                Thread t = new Thread(new ThreadStart(WaitScreen));
-                t.Start();
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\disadmin.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
-                t.Abort();
+                runmin("net", "user Administrateur /active:no", true);
             }
         }
     }
