@@ -12,16 +12,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
     public partial class userid : Form
     {
-
-        string resxFile = "null";
-
-        //Set dark mode title bar
-
         [DllImport("DwmApi")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
 
@@ -35,22 +31,9 @@ namespace Unowhy_Tools
 
         public userid(string username)
         {
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            lab.Text = resxSet.GetString("newuserid");
+            lab.Text = getlang("newuserid");
 
             string sid = ".\\" + username;
             id.Text = sid;
