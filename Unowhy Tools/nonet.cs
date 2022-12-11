@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
-//using System.Windows.Forms;
 using System.Globalization;
 using System.Resources;
 using System.Runtime.InteropServices;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
@@ -32,17 +32,9 @@ namespace Unowhy_Tools
 
         public nonet()
         {
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            if (utls == "EN") resxFile = @".\en.resx";
-            else resxFile = @".\fr.resx";
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            noco.Text = resxSet.GetString("nonet");
+            noco.Text = getlang("nonet");
         }
 
         private void ok_Click(object sender, EventArgs e)
