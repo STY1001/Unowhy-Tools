@@ -16,9 +16,7 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Threading;
-//using System.Threading.Tasks;
 using System.Windows.Input;
-//using System.Text;
 
 namespace Unowhy_Tools
 {
