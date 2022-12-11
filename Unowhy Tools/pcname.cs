@@ -19,6 +19,7 @@ using Microsoft.WindowsAPICodePack.Taskbar;
 using Microsoft.WindowsAPICodePack.Shell;
 using System.Threading;
 using Unowhy_Tools.Properties;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
@@ -38,47 +39,17 @@ namespace Unowhy_Tools
             DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
         }
 
-        public void WaitScreen()
-        {
-            Application.Run(new wait());
-        }
-
         public PCName()
         {
-            var e = new wait();
-            e.Show();
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+            cncat.Text = getlang("cncat");
+            ancat.Text = getlang("ancat");
+            close.Text = getlang("cancel");
+            avert.Text = getlang("avert");
+            this.Text = getlang("pcname");
 
-            cncat.Text = resxSet.GetString("cncat");
-            ancat.Text = resxSet.GetString("ancat");
-            close.Text = resxSet.GetString("cancel");
-            avert.Text = resxSet.GetString("avert");
-            this.Text = resxSet.GetString("pcname");
-
-            string filePath = ".\\fullpcinfo.txt";
-            StreamReader inputFile = new StreamReader(filePath);
-            int lineNumber = 1;
-            for (int i = 1; i < lineNumber; i++)
-            {
-                inputFile.ReadLine();
-            }
-            string hnpcname = inputFile.ReadLine();
-            actualname.Text = hnpcname;
-
-            e.Close();
-
+            actualname.Text = returncmd("hostname","");
         }
 
         private void pcname_Load(object sender, EventArgs e)
@@ -119,19 +90,10 @@ namespace Unowhy_Tools
                     avert.Visible = false;
                     string name = changename.Text;
                     string arg = ($"-Command \"& {{Rename-Computer -NewName \"{name}\" -Force}}\"");
-                    //MessageBox.Show(arg); //Debug
-                    actualname.Text = name;
-                    Thread t = new Thread(new ThreadStart(WaitScreen));               //Splash Screen
-                    t.Start();
-                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                    Process p = new Process();
-                    p.StartInfo.FileName = "powershell";
-                    p.StartInfo.Arguments = arg;
-                    p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                    p.Start();
-                    p.WaitForExit();
-                    t.Abort();
-                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+
+                    runmin("powershell", arg, true);
+                    actualname.Text = returncmd("hostname", "");
+
                     var f = new reboot();
                     f.ShowDialog();
                 }
