@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
-//using System.Windows.Forms;
 using System.Globalization;
 using System.Resources;
 using System.Runtime.InteropServices;
 using System.Net;
 using System.IO;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
@@ -43,18 +43,10 @@ namespace Unowhy_Tools
 
             string fullver = progver + ".0" + " -> " + gitver + ".0";
 
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            if (utls == "EN") resxFile = @".\en.resx";
-            else resxFile = @".\fr.resx";
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            newverlab.Text = resxSet.GetString("newver");
-            updatenow.Text = resxSet.GetString("unow");
+            newverlab.Text = getlang("newver");
+            updatenow.Text = getlang("unow");
 
             vud.Text = fullver;
         }
