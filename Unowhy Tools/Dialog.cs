@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Resources;
 using Microsoft.Win32;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
@@ -32,19 +33,9 @@ namespace Unowhy_Tools
 
         public dialog(string msg, Image ico)
         {
-            //Check the current saved language
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            if (utls == "EN") resxFile = @".\en.resx";    //English   //Chose the ResX file
-            else resxFile = @".\fr.resx";               //French
-
             InitializeComponent();
-
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            yes.Text = resxSet.GetString("yes").ToString();
-            no.Text = resxSet.GetString("no").ToString();
+            yes.Text = getlang("yes");
+            no.Text = getlang("no");
 
             string msgfull = msg + " ?";
             label.Text = msgfull;
