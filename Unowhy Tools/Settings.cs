@@ -12,6 +12,7 @@ using Microsoft.Win32;
 using System.Resources;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
@@ -19,7 +20,7 @@ namespace Unowhy_Tools
     {
         
 
-        [DllImport("DwmApi")] //System.Runtime.InteropServices
+        [DllImport("DwmApi")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
 
         protected override void OnHandleCreated(EventArgs e)
@@ -30,7 +31,6 @@ namespace Unowhy_Tools
             DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
         }
 
-        public string resxFile = "null";
         public string fsr = "0";
         public Settings(string fs)
         {
@@ -39,19 +39,10 @@ namespace Unowhy_Tools
                 fsr = "1";
             }
 
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            if (utls == "EN") resxFile = @".\en.resx";
-            else resxFile = @".\fr.resx";
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            
-            this.Text = resxSet.GetString("settings");
-            cbupdate.Text = resxSet.GetString("cuab");
+            this.Text = getlang("settings");
+            cbupdate.Text = getlang("cuab");
 
             RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utlst = lcs.GetValue("Lang").ToString();
@@ -81,50 +72,29 @@ namespace Unowhy_Tools
 
             if (langsel.Text == "English")
             {
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\langen.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f", true);
             }
             else
             {
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\langfr.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d FR /t REG_SZ /f", true);
             }
 
             if (cbupdate.Checked == true)
             {
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\cuabon.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v UpdateStart /d 1 /t REG_SZ /f", true);
             }
             else
             {
-                Process p = new Process();
-                p.StartInfo.FileName = ".\\cuaboff.exe";
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p.Start();
-                p.WaitForExit();
+                runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v UpdateStart /d 0 /t REG_SZ /f", true);
             }
 
-            //System.Diagnostics.Process.Start(".\\restart.exe");
+
             if (fsr == "1")
             {
                 this.Close();
             }
             else
             {
-                //Application.Restart();
                 this.Close();
             }
             
