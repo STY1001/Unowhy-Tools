@@ -16,16 +16,13 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Threading;
-//using System.Threading.Tasks;
 using System.Windows.Input;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
     public partial class wait : Form
     {
-        public string resxFile = "null";
-
-        //Set dark mode title bar
         [DllImport("DwmApi")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
 
@@ -39,21 +36,10 @@ namespace Unowhy_Tools
 
         public wait()
         {
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            this.Text = resxSet.GetString("wait");
-            msg.Text = resxSet.GetString("wait");
+            this.Text = getlang("wait");
+            msg.Text = getlang("wait");
         }
 
         private void wait_Load(object sender, EventArgs e)
