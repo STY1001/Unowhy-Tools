@@ -50,8 +50,16 @@ namespace Unowhy_Tools_Updater
             while (i == 0) { };
         }
 
+        public void view()
+        {
+            var v = new View();
+            v.ShowDialog();
+        }
+
         public Main()
         {
+            Thread t = new Thread(new ThreadStart(view));
+            t.Start();
             //Check the current saved language
 
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
@@ -124,7 +132,7 @@ namespace Unowhy_Tools_Updater
 
             delay(500);
 
-            status.Text = resxSet.GetString("update.dl");
+            //status.Text = resxSet.GetString("update.dl");
 
             WebClient client = new WebClient();
             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip", ".\\update.zip");
