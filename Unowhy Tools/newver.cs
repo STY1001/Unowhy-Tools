@@ -75,13 +75,13 @@ namespace Unowhy_Tools
         {
             WebClient client = new WebClient();
             client.DownloadFileCompleted += new AsyncCompletedEventHandler(dl_complete);
-            client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Unowhy%20Tools%20Updater.exe"), ".\\Unowhy Tools Updater.exe");
+            client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Unowhy%20Tools%20Updater.exe"), ".\\updater.exe");
             
         }
 
         private void dl_complete(object sender, AsyncCompletedEventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\Unowhy Tools Updater.exe");
+            System.Diagnostics.Process.Start(".\\updater.exe");
         }
 
         private void clog_TextChanged(object sender, EventArgs e)
