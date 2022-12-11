@@ -16,8 +16,8 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Threading;
-//using System.Threading.Tasks;
 using System.Windows.Input;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
@@ -41,23 +41,10 @@ namespace Unowhy_Tools
 
         public reboot()
         {
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-
-            //Apply Language
-            msg.Text = resxSet.GetString("reboot");
-            restart.Text = resxSet.GetString("restart");
+            msg.Text = getlang("reboot");
+            restart.Text = getlang("restart");
 
         }
 
@@ -73,7 +60,8 @@ namespace Unowhy_Tools
 
         private void restart_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(".\\reboot.exe");
+            runmin("shutdown.exe", "-r -t 10 -c \"Unowhy Tools\"", false);
+            Application.Exit();
         }
     }
 }
