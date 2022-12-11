@@ -16,7 +16,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
@@ -32,7 +31,6 @@ namespace Unowhy_Tools
         [DllImport("DwmApi")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
 
-        public string resxFile;
         private int Out;
         private string noco;
 
