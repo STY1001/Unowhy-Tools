@@ -39,9 +39,26 @@ namespace Unowhy_Tools_Installer
         {
             InitializeComponent();
 
-            System.Diagnostics.Process.Start("taskkill", "/f /im \"Unowhy Tools.exe\"");
-            System.Diagnostics.Process.Start("taskkill", "/f /im \"Unowhy Tools Updater.exe\"");
-            System.Diagnostics.Process.Start("taskkill", "/f /im \"uninstall.exe\"");
+            Process p1 = new Process();
+            p1.StartInfo.FileName = "taskkill";
+            p1.StartInfo.Arguments = "/f /im \"Unowhy Tools.exe\"";
+            p1.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p1.StartInfo.CreateNoWindow = true;
+            p1.Start();
+
+            Process p2 = new Process();
+            p2.StartInfo.FileName = "taskkill";
+            p2.StartInfo.Arguments = "/f /im \"Unowhy Tools Updater.exe\"";
+            p2.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p2.StartInfo.CreateNoWindow = true;
+            p2.Start();
+
+            Process p3 = new Process();
+            p3.StartInfo.FileName = "taskkill";
+            p3.StartInfo.Arguments = "/f /im \"uninstall.exe\"";
+            p3.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p3.StartInfo.CreateNoWindow = true;
+            p3.Start();
 
             status.Text = "Ready !";
             pictureBox3.Visible = false;
@@ -253,6 +270,7 @@ namespace Unowhy_Tools_Installer
             p1.StartInfo.Arguments = "e \"C:\\Program Files (x86)\\Unowhy Tools\\update.zip\" -aoa";
             p1.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools";
             p1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            p1.StartInfo.CreateNoWindow = true;
             p1.Start();
             p1.WaitForExit();
 
@@ -264,6 +282,7 @@ namespace Unowhy_Tools_Installer
             p2.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.exe";
             p2.StartInfo.Arguments = "";
             p2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            p2.StartInfo.CreateNoWindow = true;
             p2.Start();
             p2.WaitForExit();
 
