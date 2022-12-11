@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Resources;
 using System.Runtime.InteropServices;
 using System.ServiceModel;
@@ -25,6 +26,9 @@ namespace Unowhy_Tools
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern bool Wow64RevertWow64FsRedirection(IntPtr ptr);
 
+        [DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(out int state, int value);
+
         public static class serv
         {
             public static void stop(string service)
@@ -42,14 +46,14 @@ namespace Unowhy_Tools
             public static void auto(string service)
             {
                 Write2Log("Enable " + service);
-                runmin("powershell", "-Name \"" + service + "\" -StartupType Automatic", true);
+                runmin("sc", "config \"" + service + "\" start=auto", true);
             }
 
             public static void dis(string service)
             {
                 Write2Log("Disable " + service);
                 serv.stop(service);
-                runmin("powershell", "-Name \"" + service + "\" -StartupType Disabled", true);
+                runmin("sc", "config \"" + service + "\" start=disabled", true);
             }
 
             public static void del(string service)
