@@ -40,29 +40,15 @@ namespace Unowhy_Tools
 
         public PCInfo(string us)
         {
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-
             InitializeComponent();
 
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-
-            //Apply Language
-
-            this.Text = resxSet.GetString("pcinfo");
-            labpcname.Text = resxSet.GetString("pcn");
-            labserial.Text = resxSet.GetString("serial");
-            labmfm.Text = resxSet.GetString("mfm");
-            labbiosver.Text = resxSet.GetString("biosversion");
-            labos.Text = resxSet.GetString("os");
-            labuser.Text = resxSet.GetString("domuser");
+            this.Text = getlang("pcinfo");
+            labpcname.Text = getlang("pcn");
+            labserial.Text = getlang("serial");
+            labmfm.Text = getlang("mfm");
+            labbiosver.Text = getlang("biosversion");
+            labos.Text = getlang("os");
+            labuser.Text = getlang("domuser");
 
             string comp = returncmd("hostname", "");
             string mf = getline(returncmd("wmic", "computersystem get manufacturer"), 2);
