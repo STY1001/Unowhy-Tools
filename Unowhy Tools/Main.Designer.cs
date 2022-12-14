@@ -118,6 +118,7 @@ namespace Unowhy_Tools
             this.desc = new ReaLTaiizor.Controls.Button();
             this.pictureBox38 = new System.Windows.Forms.PictureBox();
             this.bcdfail = new ReaLTaiizor.Controls.Button();
+            this.debud = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -1014,11 +1015,19 @@ namespace Unowhy_Tools
             this.bcdfail.Click += new System.EventHandler(this.bcdfail_Click);
             this.bcdfail.MouseEnter += new System.EventHandler(this.desc_bcdfail);
             // 
+            // debud
+            // 
+            resources.ApplyResources(this.debud, "debud");
+            this.debud.Name = "debud";
+            this.debud.UseVisualStyleBackColor = true;
+            this.debud.Click += new System.EventHandler(this.debud_Click);
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.debud);
             this.Controls.Add(this.stophis);
             this.Controls.Add(this.fixboot);
             this.Controls.Add(this.ent);
@@ -1247,6 +1256,7 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button desc;
         private System.Windows.Forms.PictureBox pictureBox38;
         private ReaLTaiizor.Controls.Button bcdfail;
+        private System.Windows.Forms.Button debud;
     }
 }
 
