@@ -525,6 +525,7 @@ namespace Unowhy_Tools
                 {
                     debuglab.Visible = true;
                     debuser.Visible = true;
+                    debud.Visible = true;
                 }
 
                 #endregion
