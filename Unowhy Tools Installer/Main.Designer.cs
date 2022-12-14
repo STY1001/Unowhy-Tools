@@ -110,9 +110,9 @@
             this.sty1001.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.sty1001.Location = new System.Drawing.Point(12, 123);
             this.sty1001.Name = "sty1001";
-            this.sty1001.Size = new System.Drawing.Size(191, 13);
+            this.sty1001.Size = new System.Drawing.Size(122, 13);
             this.sty1001.TabIndex = 35;
-            this.sty1001.Text = "by STY1001 | sty1001.wordpress.com\r\n";
+            this.sty1001.Text = "by STY1001 | sty1001.cf";
             // 
             // pictureBox5
             // 
