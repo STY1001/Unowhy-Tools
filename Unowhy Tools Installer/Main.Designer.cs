@@ -84,9 +84,9 @@
             // 
             // statusbar
             // 
-            this.statusbar.Location = new System.Drawing.Point(16, 174);
+            this.statusbar.Location = new System.Drawing.Point(-5, 235);
             this.statusbar.Name = "statusbar";
-            this.statusbar.Size = new System.Drawing.Size(279, 20);
+            this.statusbar.Size = new System.Drawing.Size(321, 17);
             this.statusbar.Step = 1;
             this.statusbar.TabIndex = 4;
             // 
@@ -169,7 +169,7 @@
             this.status.BackColor = System.Drawing.Color.Black;
             this.status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status.ForeColor = System.Drawing.Color.White;
-            this.status.Location = new System.Drawing.Point(16, 170);
+            this.status.Location = new System.Drawing.Point(16, 173);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(279, 20);
             this.status.TabIndex = 37;
