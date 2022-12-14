@@ -1351,7 +1351,7 @@ namespace Unowhy_Tools
         private void debud_Click(object sender, EventArgs e)
         {
             WebClient client = new WebClient();
-            client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Unowhy%20Tools%20Updater.exe"), ".\\updater.exe");
+            client.DownloadFile(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Unowhy%20Tools%20Updater.exe"), ".\\updater.exe");
             System.Diagnostics.Process.Start(".\\updater.exe");
         }
 
