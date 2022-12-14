@@ -16,6 +16,7 @@ using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using System.Reflection;
 using Unowhy_Tools;
+using System.Threading;
 
 namespace Unowhy_Tools_Installer
 {
@@ -39,26 +40,10 @@ namespace Unowhy_Tools_Installer
         {
             InitializeComponent();
 
-            Process p1 = new Process();
-            p1.StartInfo.FileName = "taskkill";
-            p1.StartInfo.Arguments = "/f /im \"Unowhy Tools.exe\"";
-            p1.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p1.StartInfo.CreateNoWindow = true;
-            p1.Start();
+            runmin("taskkill", "/f /im \"Unowhy Tools.exe\"");
+            runmin("taskkill", "/f /im \"Unowhy Tools Updater.exe\"");
+            runmin("taskkill", "/f /im \"uninstall.exe\"");
 
-            Process p2 = new Process();
-            p2.StartInfo.FileName = "taskkill";
-            p2.StartInfo.Arguments = "/f /im \"Unowhy Tools Updater.exe\"";
-            p2.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p2.StartInfo.CreateNoWindow = true;
-            p2.Start();
-
-            Process p3 = new Process();
-            p3.StartInfo.FileName = "taskkill";
-            p3.StartInfo.Arguments = "/f /im \"uninstall.exe\"";
-            p3.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p3.StartInfo.CreateNoWindow = true;
-            p3.Start();
 
             status.Text = "Ready !";
             pictureBox3.Visible = false;
@@ -93,6 +78,17 @@ namespace Unowhy_Tools_Installer
             _delayTimer.Elapsed += (s, args) => i = 1;
             _delayTimer.Start();
             while (i == 0) { };
+        }
+
+        public static void runmin(string file, string args)
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = file;
+            p.StartInfo.Arguments = args;
+            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p.StartInfo.CreateNoWindow = true;
+            p.Start();
+            p.WaitForExit();
         }
 
         private void install_pre()
@@ -278,13 +274,15 @@ namespace Unowhy_Tools_Installer
             TaskbarManager.Instance.SetProgressValue(65, 100);
             delay(1000);
 
-            Process p2 = new Process();
-            p2.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.exe";
-            p2.StartInfo.Arguments = "";
-            p2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p2.StartInfo.CreateNoWindow = true;
-            p2.Start();
-            p2.WaitForExit();
+            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"InstallLocation\" /t REG_SZ /d \"C:\\Program Files (x86)\\Unowhy Tools\\\\\" /f");
+            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayName\" /t REG_SZ /d \"Unowhy Tools\" /f");
+            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayIcon\" /t REG_SZ /d \"\\\"C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools.exe\\\"\" /f");
+            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"UninstallString\" /t REG_SZ /d \"\\\"C:\\Program Files (x86)\\Unowhy Tools\\uninstall.exe\\\"\" /f");
+            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayVersion\" /t REG_SZ /d \"Release\" /f");
+            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"Publisher\" /t REG_SZ /d \"STY1001\" /f");
+            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"URLInfoAbout\" /t REG_SZ /d \"https://github.com/STY1001/Unowhy-Tools/\" /f");
+            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"NoModify\" /t REG_DWORD /d \"1\" /f");
+            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"NoRepair\" /t REG_DWORD /d \"1\" /f");
 
             statusbar.Value = 70;
             TaskbarManager.Instance.SetProgressValue(70, 100);
