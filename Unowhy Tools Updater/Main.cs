@@ -60,68 +60,8 @@ namespace Unowhy_Tools_Updater
         {
             Thread t = new Thread(new ThreadStart(view));
             t.Start();
-            //Check the current saved language
-
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
-
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
 
             InitializeComponent();
-
-            string dest = Path.GetTempPath() + "\\Unowhy Tools Installer.exe";
-
-            if (File.Exists("old2new") == false)
-            {
-                using (var client2 = new WebClient())
-                {
-                    client2.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/script/utdeloldkey.exe", ".\\utdeloldkey.exe");
-                }
-
-                delay(1000);
-
-                Process p11 = new Process();
-                p11.StartInfo.FileName = ".\\utdeloldkey.exe";
-                p11.StartInfo.Arguments = "";
-                p11.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                p11.Start();
-                p11.WaitForExit();
-
-                delay(1000);
-
-                File.Delete("utdeloldkey.exe");
-
-                if (Directory.Exists("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools"))
-                {
-                    Directory.Delete("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools", true);
-                }
-
-                if (File.Exists("C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk"))
-                {
-                    File.Delete("C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk");
-                }
-
-                using (var client2 = new WebClient())
-                {
-                    client2.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/script/Unowhy%20Tools%20Installer.exe", dest);
-                }
-
-                delay(1000);
-
-                Process p22 = new Process();
-                p22.StartInfo.FileName = dest;
-                p22.StartInfo.WorkingDirectory = Path.GetTempPath();
-                p22.Start();
-            }
-
-
-            delay(1000);
 
             Process p = new Process();
             p.StartInfo.FileName = "taskkill";
@@ -130,13 +70,17 @@ namespace Unowhy_Tools_Updater
             p.Start();
             p.WaitForExit();
 
-            delay(500);
-
-            //status.Text = resxSet.GetString("update.dl");
-
             WebClient client = new WebClient();
-            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip", ".\\update.zip");
 
+            if (File.Exists("debug"))
+            {
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/updatedebug.zip", ".\\update.zip");
+            }
+            else
+            {
+                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip", ".\\update.zip");
+            }
+            
             delay(3000);
 
             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/uninstall.exe", ".\\uninstall.exe");
@@ -150,8 +94,6 @@ namespace Unowhy_Tools_Updater
             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7z.dll", ".\\7z.dll");
 
             delay(1000);
-            delay(500);
-
 
             Process p1 = new Process();
             p1.StartInfo.FileName = ".\\7zip.exe";
@@ -159,50 +101,6 @@ namespace Unowhy_Tools_Updater
             p1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             p1.Start();
             p1.WaitForExit();
-
-            delay(1000);
-
-            /*
-            status.Text = resxSet.GetString("update.sdl");
-
-            using (var client2 = new WebClient())
-            {
-                client2.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/script.exe", ".\\script.exe");
-            }
-
-            delay(1000);
-
-            status.Text = resxSet.GetString("update.se");
-
-            Process p2 = new Process();
-            p2.StartInfo.FileName = ".\\script.exe";
-            p2.StartInfo.Arguments = "";
-            p2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p2.Start();
-            p2.WaitForExit();
-
-            delay(1000);
-            */
-            /*
-            status.Text = resxSet.GetString("update.del");
-
-            if (File.Exists("update.zip"))    //Check if the file exist
-            {
-                File.Delete("update.zip");    //Delete it if exist
-            }
-
-            if (Directory.Exists("update"))
-            {
-                Directory.Delete("update");
-            }
-
-            if (File.Exists("script.exe"))
-            {
-                File.Delete("script.exe");
-            }
-
-            delay(1000);
-            */
 
             System.Diagnostics.Process.Start(".\\Unowhy Tools.exe");
 
