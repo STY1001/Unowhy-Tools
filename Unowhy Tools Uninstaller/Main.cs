@@ -65,28 +65,24 @@ namespace Unowhy_Tools_Uninstaller
             Process p = new Process();
             p.StartInfo.FileName = "taskkill";
             p.StartInfo.Arguments = "/f /im \"Unowhy Tools.exe\"";
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p.StartInfo.CreateNoWindow = true;
             p.Start();
             p.WaitForExit();
 
             Process p1 = new Process();
-            p1.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\utkeydel.exe";
-            p1.StartInfo.Arguments = "";
-            p1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            p1.StartInfo.FileName = "reg";
+            p1.StartInfo.Arguments = "delete \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /f";
+            p1.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p1.StartInfo.CreateNoWindow = true;
             p1.Start();
             p1.WaitForExit();
-
-            Process p2 = new Process();
-            p2.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\utconfdel.exe";
-            p2.StartInfo.Arguments = "";
-            p2.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p2.Start();
-            p2.WaitForExit();
 
             Process p3 = new Process();
             p3.StartInfo.FileName = "cmd.exe";
             p3.StartInfo.Arguments = "/c echo \"Wait...\" & timeout /t 1 & taskkill /f /im uninstall.exe & timeout /t 1 & rmdir /q /s \"C:\\Program Files (x86)\\Unowhy Tools\" & echo \"Done\" & timeout /t 1 & exit";
-            p3.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            p3.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p3.StartInfo.CreateNoWindow = true;
             p3.Start();
         }
     }
