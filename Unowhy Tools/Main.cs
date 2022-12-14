@@ -645,6 +645,7 @@ namespace Unowhy_Tools
             string azure = getline(returncmd("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow"), 6);
             string admins = returncmd("net", "localgroups Administrateurs");
             string users = returncmd("net", "user");
+            string bcd = returncmd("bcdedit", "");
 
             #region Hisqool Manager
 
@@ -835,12 +836,10 @@ namespace Unowhy_Tools
             if (files.Length > 0)
             {
                 ebtn(fixboot);
-                dbtn(delti);
             }
             else
             {
                 dbtn(fixboot);
-                ebtn(delti);
             }
 
             #endregion
@@ -862,9 +861,36 @@ namespace Unowhy_Tools
             }
 
             #endregion
+
+            #region BCDedit
+
+            if (bcd.Contains("IgnoreAllFailures"))
+            {
+                ebtn(bcdfail);
+            }
+            else
+            {
+                dbtn(bcdfail);
+            }
+
+            #endregion
+
+            #region Shell
+
+            RegistryKey shellkey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon");
+            string shellval = shellkey.GetValue("Shell").ToString();
+            if(shellval == "explorer.exe")
+            {
+                dbtn(shell);
+            }
+            else
+            {
+                ebtn(shell);
+            }
         }
         public void check()
         {
+            #region Enable buttons
             ebtn(delhis);
             ebtn(delhism);
             ebtn(deloem);
@@ -890,6 +916,7 @@ namespace Unowhy_Tools
             ebtn(dismbr);
             ebtn(bkcloud);
             ebtn(bootim);
+            #endregion
 
             new_check();
         }
