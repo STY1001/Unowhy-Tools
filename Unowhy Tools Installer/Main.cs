@@ -97,12 +97,10 @@ namespace Unowhy_Tools_Installer
             TaskbarManager.Instance.SetProgressValue(0, 100);
 
             status.Text = "Preparing...";
-            delay(1000);
 
             if (Directory.Exists("C:\\Program Files (x86)\\Unowhy Tools"))
             {
                 Directory.Delete("C:\\Program Files (x86)\\Unowhy Tools", true);
-                delay(300);
                 Directory.CreateDirectory("C:\\Program Files (x86)\\Unowhy Tools");
             }
             else
@@ -110,15 +108,12 @@ namespace Unowhy_Tools_Installer
                 Directory.CreateDirectory("C:\\Program Files (x86)\\Unowhy Tools");
             }
 
-            delay(300);
             statusbar.Value = 5;
             TaskbarManager.Instance.SetProgressValue(5, 100);
-            delay(600);
 
             if (Directory.Exists("C:\\Program Files (x86)\\Unowhy Tools\\insttemp") == true)
             {
                 Directory.Delete("C:\\Program Files (x86)\\Unowhy Tools\\insttemp", true);
-                delay(300);
                 Directory.CreateDirectory("C:\\Program Files (x86)\\Unowhy Tools\\insttemp");
             }
             else
@@ -126,7 +121,6 @@ namespace Unowhy_Tools_Installer
                 Directory.CreateDirectory("C:\\Program Files (x86)\\Unowhy Tools\\insttemp");
             }
 
-            delay(300);
             statusbar.Value = 10;
             TaskbarManager.Instance.SetProgressValue(10, 100);
 
@@ -140,127 +134,35 @@ namespace Unowhy_Tools_Installer
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe", "Files", "7zip.exe");
             statusbar.Value = 15;
             TaskbarManager.Instance.SetProgressValue(15, 100);
-            delay(1000);
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7z.dll", "Files", "7z.dll");
             statusbar.Value = 20;
             TaskbarManager.Instance.SetProgressValue(20, 100);
-            delay(1000);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.reg", "Files", "utkeyinst.reg");
             statusbar.Value = 25;
             TaskbarManager.Instance.SetProgressValue(25, 100);
-            delay(1000);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.exe", "Files", "utkeyinst.exe");
             statusbar.Value = 30;
             TaskbarManager.Instance.SetProgressValue(30, 100);
-            delay(1000);
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\uninstall.exe", "Files", "uninstall.exe");
             statusbar.Value = 35;
             TaskbarManager.Instance.SetProgressValue(35, 100);
-            delay(1000);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\utconfdel.exe", "Files", "utconfdel.exe");
             statusbar.Value = 40;
             TaskbarManager.Instance.SetProgressValue(40, 100);
-            delay(1000);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\utkeydel.exe", "Files", "utkeydel.exe");
             statusbar.Value = 45;
             TaskbarManager.Instance.SetProgressValue(45, 100);
-            delay(1000);
-            //Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\fr.resx", "Files", "fr.resx");
             statusbar.Value = 50;
             TaskbarManager.Instance.SetProgressValue(50, 100);
-            delay(1000);
-            //Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\en.resx", "Files", "en.resx");
             statusbar.Value = 55;
             TaskbarManager.Instance.SetProgressValue(55, 100);
-            delay(1000);
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip", "Files", "install.zip");
             statusbar.Value = 60;
             TaskbarManager.Instance.SetProgressValue(60, 100);
-            delay(1000);
-
-            #region Old
-            /*using (var client = new WebClient())
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7zip.exe", "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe");
-            }
-            statusbar.Value = 15;
-            TaskbarManager.Instance.SetProgressValue(15, 100);
-            delay(1000);
-            using (var client = new WebClient()) 
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7z.dll", "C:\\Program Files (x86)\\Unowhy Tools\\7z.dll"); 
-            }
-            statusbar.Value = 20;
-            TaskbarManager.Instance.SetProgressValue(20, 100);
-            delay(600);
-            using (var client = new WebClient()) 
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/utkeyinst.reg", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.reg"); 
-            }
-            statusbar.Value = 25;
-            TaskbarManager.Instance.SetProgressValue(25, 100);
-            delay(600);
-            using (var client = new WebClient()) 
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/utkeyinst.exe", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\utkeyinst.exe"); 
-            }
-            statusbar.Value = 30;
-            TaskbarManager.Instance.SetProgressValue(30, 100);
-            delay(600);
-            using (var client = new WebClient()) 
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/uninstall.exe", "C:\\Program Files (x86)\\Unowhy Tools\\uninstall.exe"); 
-            }
-            statusbar.Value = 35;
-            TaskbarManager.Instance.SetProgressValue(35, 100);
-            delay(300);
-            using (var client = new WebClient()) 
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/utconfdel.exe", "C:\\Program Files (x86)\\Unowhy Tools\\utconfdel.exe"); 
-            }
-            statusbar.Value = 40;
-            TaskbarManager.Instance.SetProgressValue(40, 100);
-            delay(600);
-            using (var client = new WebClient()) 
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/utkeydel.exe", "C:\\Program Files (x86)\\Unowhy Tools\\utkeydel.exe"); 
-            }
-            statusbar.Value = 45;
-            TaskbarManager.Instance.SetProgressValue(45, 100);
-            delay(600);
-            using (var client = new WebClient()) 
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", "C:\\Program Files (x86)\\Unowhy Tools\\fr.resx"); 
-            }
-            statusbar.Value = 50;
-            TaskbarManager.Instance.SetProgressValue(50, 100);
-            delay(600);
-            using (var client = new WebClient())
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", "C:\\Program Files (x86)\\Unowhy Tools\\en.resx");
-            }
-            statusbar.Value = 55;
-            TaskbarManager.Instance.SetProgressValue(55, 100);
-            delay(1000);
-            using (var client = new WebClient())
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/install.zip", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip");
-            }
-            statusbar.Value = 60;
-            TaskbarManager.Instance.SetProgressValue(60, 100);*/
-            #endregion
 
             status.Text = "Installing...";
-            delay(600);
             
             install_inst();
         }
 
         private void install_inst()
         {
-            
-            delay(1000);
-
             Process p1 = new Process();
             p1.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe";
             p1.StartInfo.Arguments = "e \"C:\\Program Files (x86)\\Unowhy Tools\\update.zip\" -aoa";
@@ -272,7 +174,6 @@ namespace Unowhy_Tools_Installer
 
             statusbar.Value = 65;
             TaskbarManager.Instance.SetProgressValue(65, 100);
-            delay(1000);
 
             runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"InstallLocation\" /t REG_SZ /d \"C:\\Program Files (x86)\\Unowhy Tools\\\\\" /f");
             runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayName\" /t REG_SZ /d \"Unowhy Tools\" /f");
@@ -291,45 +192,26 @@ namespace Unowhy_Tools_Installer
 
         private void install_post()
         {
-            delay(1000);
             status.Text = "Finalizing...";
-            delay(1000);
 
             Extract("Unowhy_Tools_Installer", "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools.lnk", "Files", "Unowhy Tools.lnk");
 
-            /*
-            using (var client = new WebClient())
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/Unowhy%20Tools.lnk", "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools.lnk");
-            }
-            */
-
             statusbar.Value = 75;
             TaskbarManager.Instance.SetProgressValue(75, 100);
-            delay(1000);
 
             if (desktop.Checked == true)
             {
                 Extract("Unowhy_Tools_Installer", "C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk", "Files", "Unowhy Tools.lnk");
-
-                /*
-                using (var client = new WebClient())
-                {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Install/Unowhy%20Tools.lnk", "C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk");
-                }
-                */
             }
 
             statusbar.Value = 80;
             TaskbarManager.Instance.SetProgressValue(80, 100);
-            delay(1000);
             install_clean();
         }
         
         private void install_clean()
         {
             status.Text = "Cleaning...";
-            delay(1000);
 
             if (Directory.Exists("C:\\Program Files (x86)\\Unowhy Tools\\insttemp"))
             {
@@ -338,7 +220,6 @@ namespace Unowhy_Tools_Installer
 
             statusbar.Value = 85;
             TaskbarManager.Instance.SetProgressValue(85, 100);
-            delay(1000);
 
             if (Directory.Exists("C:\\Program Files (x86)\\Unowhy Tools\\update"))
             {
@@ -347,7 +228,6 @@ namespace Unowhy_Tools_Installer
 
             statusbar.Value = 90;
             TaskbarManager.Instance.SetProgressValue(90, 100);
-            delay(1000);
 
             if (File.Exists("C:\\Program Files (x86)\\Unowhy Tools\\update.zip"))
             {
@@ -356,14 +236,12 @@ namespace Unowhy_Tools_Installer
 
             statusbar.Value = 95;
             TaskbarManager.Instance.SetProgressValue(95, 100);
-            delay(1000);
 
             if (Directory.Exists(".\\temp"))
             {
                 Directory.Delete(".\\temp", true);
             }
 
-            delay(1000);
             install_finish();
         }
 
