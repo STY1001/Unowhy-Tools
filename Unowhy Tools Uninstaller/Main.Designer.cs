@@ -83,10 +83,10 @@
             // 
             // progbar
             // 
-            this.progbar.Location = new System.Drawing.Point(12, 59);
+            this.progbar.Location = new System.Drawing.Point(-4, 81);
             this.progbar.MarqueeAnimationSpeed = 1;
             this.progbar.Name = "progbar";
-            this.progbar.Size = new System.Drawing.Size(331, 14);
+            this.progbar.Size = new System.Drawing.Size(367, 14);
             this.progbar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progbar.TabIndex = 4;
             this.progbar.Visible = false;
