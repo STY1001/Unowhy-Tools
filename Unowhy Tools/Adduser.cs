@@ -23,7 +23,6 @@ namespace Unowhy_Tools
 {
     public partial class Adduser : Form
     {
-        string resxFile = "null";
 
         //Set dark mode title bar
 
