@@ -643,6 +643,8 @@ namespace Unowhy_Tools
 
         public void new_check()
         {
+            ProgBar.Visible = true;
+
             string azure = getline(returncmd("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow"), 6);
             string admins = returncmd("net", "localgroups Administrateurs");
             string users = returncmd("net", "user");
@@ -890,6 +892,8 @@ namespace Unowhy_Tools
             }
 
             #endregion
+
+            ProgBar.Visible = false;
         }
         public void check()
         {
