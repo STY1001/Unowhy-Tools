@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("The installer of Unowhy Tools")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("STY Inc. (STY1001)")]
-[assembly: AssemblyProduct("Unowhy Tools Installer")]
+[assembly: AssemblyProduct("Unowhy Tools")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
