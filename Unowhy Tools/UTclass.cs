@@ -130,7 +130,7 @@ namespace Unowhy_Tools
             get.WaitForExit();
             string output = get.StandardOutput.ReadToEnd();
 
-            Write2Log("Done ReturnCMD " + file + " " + args);
+            Write2Log("Done ReturnCMD " + file + " " + args + " => " + output);
 
             return output;
         }
