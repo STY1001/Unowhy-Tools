@@ -463,10 +463,6 @@ namespace Unowhy_Tools
                         }
                         else
                         {
-                            if (File.Exists(".\\temp\\gitversion.txt"))    //Check if the file exist
-                            {
-                                File.Delete(".\\temp\\gitversion.txt");    //Delete it if exist
-                            }
                             if (File.Exists(".\\fr.resx"))    //Check if the file exist
                             {
                                 File.Delete(".\\fr.resx");    //Delete it if exist
@@ -476,15 +472,15 @@ namespace Unowhy_Tools
                                 File.Delete(".\\en.resx");    //Delete it if exist
                             }
 
+                            string gitver;
+                            string progver = Resources.ver.ToString();
+
                             using (var client = new WebClient())
                             {
-                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\temp\\gitversion.txt");     //Download Version file
+                                gitver = client.DownloadString("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt");
                                 client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\fr.resx");         //Update Languages
                                 client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\en.resx");         //Update Languages
                             }
-
-                            string gitver = System.IO.File.ReadAllText(".\\temp\\gitversion.txt");      //Convert text to string
-                            string progver = System.IO.File.ReadAllText(".\\version.txt");
 
                             int gitint = Convert.ToInt32(gitver);       //Convert string to int
                             int progint = Convert.ToInt32(progver);

@@ -12,6 +12,7 @@ using System.IO;
 using System.Resources;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
+using Unowhy_Tools.Properties;
 
 namespace Unowhy_Tools
 {
@@ -67,20 +68,16 @@ namespace Unowhy_Tools
             }
             else
             {
-                if (File.Exists(".\\temp\\gitversion.txt"))    //Check if the file exist
-                {
-                    File.Delete(".\\temp\\gitversion.txt");    //Delete it if exist
-                }
+                string gitver;
 
                 using (var client = new WebClient())
                 {
-                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt", ".\\temp\\gitversion.txt");     //Download Version file
+                    gitver = client.DownloadString("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt");
                 }
 
-                string gitver = System.IO.File.ReadAllText(".\\temp\\gitversion.txt");      //Convert text to string
-                string progver = System.IO.File.ReadAllText(".\\version.txt");
+                string progver = Resources.ver.ToString();
 
-                int gitint = Convert.ToInt32(gitver);       //Convert string to int
+                int gitint = Convert.ToInt32(gitver);
                 int progint = Convert.ToInt32(progver);
 
                 if (progint < gitint)        //Check if there is a new vertion of UT
