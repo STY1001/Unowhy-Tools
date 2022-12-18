@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using System.Net;
 using System.IO;
 using static Unowhy_Tools.UTclass;
+using Unowhy_Tools.Properties;
 
 namespace Unowhy_Tools
 {
@@ -34,10 +35,11 @@ namespace Unowhy_Tools
 
         public newver()
         {
-            string sgitver = System.IO.File.ReadAllText(".\\temp\\gitversion.txt");      //Convert text to string
+            WebClient wc = new WebClient();
+            string sgitver = wc.DownloadString("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt");
             int igitver = Convert.ToInt32(sgitver);
             string gitver = Convert.ToString(igitver);
-            string sprogver = System.IO.File.ReadAllText(".\\version.txt");
+            string sprogver = Resources.ver.ToString();
             int iprogver = Convert.ToInt32(sprogver);
             string progver = Convert.ToString(iprogver);
 
