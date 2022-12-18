@@ -66,10 +66,9 @@ namespace Unowhy_Tools
 
         private void ena_Click(object sender, EventArgs e)
         {
-            TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-            waitstatus.open();
             debwinre.Text = "1";
             runmin("reagentc.exe", "/enable", true);
+            check();
         }
 
         private void check()
