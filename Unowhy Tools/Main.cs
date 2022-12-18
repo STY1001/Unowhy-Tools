@@ -801,11 +801,11 @@ namespace Unowhy_Tools
                 {
                     if (val1.Contains("1") && /*val2.Contains("1") &&*/ val3.Contains("1") && /*val4.Contains("1") &&*/ val5.Contains("1"))
                     {
-                        dbtn(bootim);
+                        dbtn(enwhe);
                     }
                     else
                     {
-                        ebtn(bootim);
+                        ebtn(enwhe);
                     }
                 }
             }
