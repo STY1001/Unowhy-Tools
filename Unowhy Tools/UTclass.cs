@@ -77,6 +77,19 @@ namespace Unowhy_Tools
             }
         }
 
+        public static class splashstatus
+        {
+            public static void close()
+            {
+                runmin("taskkill", "/f /im UTsplash.exe", false);
+            }
+
+            public static void open()
+            {
+                Process.Start(".\\UTsplash.exe");
+            }
+        }
+
         public static void delay(int Time_delay)
         {
             int i = 0;
