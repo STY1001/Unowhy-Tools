@@ -317,6 +317,6 @@
     <value>..\Resources\boot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ver" xml:space="preserve">
-    <value>19.0</value>
+    <value>19</value>
   </data>
 </root>

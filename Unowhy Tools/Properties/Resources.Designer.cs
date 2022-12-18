@@ -661,7 +661,7 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 19.0.
+        ///   Looks up a localized string similar to 19.
         /// </summary>
         internal static string ver {
             get {
