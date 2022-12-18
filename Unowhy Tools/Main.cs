@@ -784,6 +784,7 @@ namespace Unowhy_Tools
             if (whe1 == null || /*whe2 == null ||*/ whe3 == null)
             {
                 ebtn(enwhe);
+                Write2Log("WHE No Key");
             }
             else
             {
@@ -796,16 +797,19 @@ namespace Unowhy_Tools
                 if (val1 == null || val3 == null || val5 == null)
                 {
                     ebtn(enwhe);
+                    Write2Log("WHE No Value");
                 }
                 else
                 {
                     if (val1.Contains("1") && /*val2.Contains("1") &&*/ val3.Contains("1") && /*val4.Contains("1") &&*/ val5.Contains("1"))
                     {
                         dbtn(enwhe);
+                        Write2Log("WHE OK");
                     }
                     else
                     {
                         ebtn(enwhe);
+                        Write2Log("WHE Not OK");
                     }
                 }
             }
