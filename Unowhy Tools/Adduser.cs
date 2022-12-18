@@ -62,7 +62,6 @@ namespace Unowhy_Tools
         {
             string sname = name.Text;
             string spass = pass.Text;
-            Thread w = new Thread(new ThreadStart(WaitScreen));
 
             Regex r = new Regex(@"[~`!@#$%^&*()+=|\\{}':;.,<>/?[\]""_]");
 
@@ -81,7 +80,7 @@ namespace Unowhy_Tools
                     d.ShowDialog();
                     if (d.DialogResult.Equals(DialogResult.Yes))
                     {
-                        w.Start();
+                        waitstatus.open();
                         TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
 
                         if (pass.Text == "")
@@ -107,7 +106,7 @@ namespace Unowhy_Tools
                             }
                         }
 
-                        w.Abort();
+                        waitstatus.close();
                         TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
                         string username = sname;
                         var uidf = new userid(username);

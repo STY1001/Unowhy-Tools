@@ -95,14 +95,13 @@ namespace Unowhy_Tools
                 string arg = "/online /export-driver /destination:" + "\"" + opb.Text + "\"";
 
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));               
-                t.Start();
+                waitstatus.open();
 
                 runmin("dism.exe", arg, false);
 
                 File.Copy(".\\UT-Restore.exe", opb.Text + "\\UT-Restore.exe");
 
-                t.Abort();
+                waitstatus.close();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
         }
@@ -130,8 +129,7 @@ namespace Unowhy_Tools
             else
             {
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t2 = new Thread(new ThreadStart(WaitScreen));
-                t2.Start();
+                waitstatus.open();
 
                 if (File.Exists(ipb.Text) == false)
                 {
@@ -147,7 +145,7 @@ namespace Unowhy_Tools
                 p.Start();
                 p.WaitForExit();
 
-                t2.Abort();
+                waitstatus.close();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
                 var r = new reboot();
                 r.ShowDialog();

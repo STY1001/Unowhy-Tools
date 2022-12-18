@@ -170,10 +170,9 @@ namespace Unowhy_Tools
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
             }
 
-            Thread t = new Thread(new ThreadStart(WaitScreen));
             if (msg == true)
             {
-                t.Start();
+                waitstatus.open();
             }
 
             Process p = new Process();
@@ -185,23 +184,11 @@ namespace Unowhy_Tools
             p.WaitForExit();
             if (msg == true)
             {
-                t.Abort();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
+                waitstatus.close();
+                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
             }
 
             Write2Log("Done RunMin " + file + " " + args);
-        }
-
-        public static void WaitScreen()
-        {
-            Write2Log("Wait show");
-            var w = new wait();
-            w.ShowDialog();
-        }
-
-        public static void SplashScreen()
-        {
-            Application.Run(new Splash());
         }
 
         public static void Write2Log(string log)

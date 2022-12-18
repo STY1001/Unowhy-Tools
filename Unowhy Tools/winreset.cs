@@ -67,8 +67,7 @@ namespace Unowhy_Tools
         private void ena_Click(object sender, EventArgs e)
         {
             TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-            Thread t = new Thread(new ThreadStart(WaitScreen));
-            t.Start();
+            waitstatus.open();
             debwinre.Text = "1";
             runmin("reagentc.exe", "/enable", true);
         }
@@ -125,8 +124,7 @@ namespace Unowhy_Tools
             else
             {
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                Thread t = new Thread(new ThreadStart(WaitScreen));
-                t.Start();
+                waitstatus.open();
 
                 using (var web = new WebClient())
                 {
@@ -139,7 +137,7 @@ namespace Unowhy_Tools
                 debwinre.Text = "0";
 
                 check();
-                t.Abort();
+                waitstatus.close();
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
             }
         }

@@ -285,8 +285,7 @@ namespace Unowhy_Tools
 
         public main(string userpath)
         {
-            Thread t = new Thread(new ThreadStart(SplashScreen));
-            t.Start();
+            splashstatus.open();
             delay(300);
 
             #region Get info without admin
@@ -354,7 +353,7 @@ namespace Unowhy_Tools
                 File.WriteAllText($"{profpath}\\Unowhy Tools\\temp\\user.txt", iduser);
                 //File.WriteAllText("%userprofile%\\Unowhy Tools\\temp\\workdir.txt", workdir);
                 delay(300);
-                t.Abort();
+                splashstatus.close();
                 InitializeComponent();
                 runAdmin();
             }
@@ -430,10 +429,9 @@ namespace Unowhy_Tools
                     Write2Log("First start... (Create Value Lang)");
                     delay(1000);
                     var s = new Settings("1");
-                    t.Abort();
+                    splashstatus.close();
                     s.ShowDialog();
-                    t = new Thread(new ThreadStart(SplashScreen));
-                    t.Start();
+                    splashstatus.open();
 
                     delay(100);
                 }
@@ -459,10 +457,9 @@ namespace Unowhy_Tools
                         if (noco == "1")
                         {
                             var s = new nonet();
-                            t.Abort();
+                            splashstatus.close();
                             s.ShowDialog();
-                            t = new Thread(new ThreadStart(SplashScreen));
-                            t.Start();
+                            splashstatus.open();
                         }
                         else
                         {
@@ -495,10 +492,9 @@ namespace Unowhy_Tools
                             if (progint < gitint)        //Check if there is a new vertion of UT
                             {
                                 var s = new newver();
-                                t.Abort();
+                                splashstatus.close();
                                 s.ShowDialog();
-                                t = new Thread(new ThreadStart(SplashScreen));
-                                t.Start();
+                                splashstatus.open();
                             }
                             else
                             {
@@ -543,7 +539,7 @@ namespace Unowhy_Tools
                 this.WindowState = FormWindowState.Normal;
                 Write2Log("Ready!");
             }
-            t.Abort();
+            splashstatus.close();
         }
 
         #region Custom Function
