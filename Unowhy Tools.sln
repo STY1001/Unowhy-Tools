@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unowhy Tools Installer", "U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unowhy Tools Uninstaller", "Unowhy Tools Uninstaller\Unowhy Tools Uninstaller.csproj", "{47DA38A6-1637-4867-BD7F-07089475B3E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTwait", "UTwait\UTwait.csproj", "{E190FA81-B051-4210-B47E-9666F7BF4CA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTsplash", "UTsplash\UTsplash.csproj", "{FA501E09-971E-4D47-A9F2-7A002DA96602}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,38 @@ Global
 		{47DA38A6-1637-4867-BD7F-07089475B3E4}.Release|x64.Build.0 = Release|Any CPU
 		{47DA38A6-1637-4867-BD7F-07089475B3E4}.Release|x86.ActiveCfg = Release|Any CPU
 		{47DA38A6-1637-4867-BD7F-07089475B3E4}.Release|x86.Build.0 = Release|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Debug|arm64.Build.0 = Debug|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Debug|x64.Build.0 = Debug|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Debug|x86.Build.0 = Debug|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Release|arm64.ActiveCfg = Release|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Release|arm64.Build.0 = Release|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Release|x64.ActiveCfg = Release|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Release|x64.Build.0 = Release|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Release|x86.ActiveCfg = Release|Any CPU
+		{E190FA81-B051-4210-B47E-9666F7BF4CA6}.Release|x86.Build.0 = Release|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Debug|arm64.Build.0 = Debug|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Debug|x64.Build.0 = Debug|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Debug|x86.Build.0 = Debug|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Release|arm64.ActiveCfg = Release|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Release|arm64.Build.0 = Release|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Release|x64.ActiveCfg = Release|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Release|x64.Build.0 = Release|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Release|x86.ActiveCfg = Release|Any CPU
+		{FA501E09-971E-4D47-A9F2-7A002DA96602}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
