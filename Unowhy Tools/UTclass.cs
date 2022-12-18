@@ -64,6 +64,19 @@ namespace Unowhy_Tools
             }
         }
 
+        public static class waitstatus
+        {
+            public static void close()
+            {
+                runmin("taskkill", "/f /im UTwait.exe", false);
+            }
+
+            public static void open()
+            {
+                Process.Start(".\\UTwait.exe");
+            }
+        }
+
         public static void delay(int Time_delay)
         {
             int i = 0;
@@ -182,7 +195,8 @@ namespace Unowhy_Tools
         {
             if(!File.Exists(Path.GetTempPath() + "\\UT_Logs.txt"))
             {
-                File.CreateText(Path.GetTempPath() + "\\UT_Logs.txt");
+                var f = File.CreateText(Path.GetTempPath() + "\\UT_Logs.txt");
+                f.Close();
             }
 
             File.AppendAllText(Path.GetTempPath() + "\\UT_Logs.txt", DateTime.Now.ToString() + " : " + log + Environment.NewLine);
