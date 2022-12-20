@@ -90,18 +90,22 @@ namespace Unowhy_Tools
                 if (dism.Checked)
                 {
                     runmin("dism.exe", "/online /export-driver /destination:\"" + backuptemp + "\"", true);
-                    runmin("7zip.exe", "a \"" + path.Text + "\" \"" + backuptemp + "\\*\" -tzip -mx=0", true);
-                    Directory.Delete(backuptemp, true);
-                    FileInfo fi = new FileInfo(path.Text);
-                    if (fi.Length > 1000000)
-                    {
+                }
+                else if(ps.Checked)
+                {
+                    runmin("powershell.exe", "Export-WindowsDriver -Online -Destination \"" + backuptemp + "\"", true);
+                }
+                runmin("7zip.exe", "a \"" + path.Text + "\" \"" + backuptemp + "\\*\" -tzip -mx=0", true);
+                Directory.Delete(backuptemp, true);
+                FileInfo fi = new FileInfo(path.Text);
+                if (fi.Length > 1000000)
+                {
 
-                    }
-                    else
-                    {
-                        var d = new info("The backup failed", Properties.Resources.no);
-                        d.ShowDialog();
-                    }
+                }
+                else
+                {
+                    var d = new info("The backup failed", Properties.Resources.no);
+                    d.ShowDialog();
                 }
             }
             else
