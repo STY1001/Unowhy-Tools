@@ -256,6 +256,12 @@
     <Compile Include="AdminSet.Designer.cs">
       <DependentUpon>AdminSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="bkconv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bkconv.Designer.cs">
+      <DependentUpon>bkconv.cs</DependentUpon>
+    </Compile>
     <Compile Include="changelog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSet.resx">
       <DependentUpon>AdminSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bkconv.resx">
+      <DependentUpon>bkconv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="changelog.resx">
       <DependentUpon>changelog.cs</DependentUpon>
