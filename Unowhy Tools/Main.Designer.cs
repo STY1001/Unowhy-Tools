@@ -83,7 +83,7 @@ namespace Unowhy_Tools
             this.winre = new ReaLTaiizor.Controls.Button();
             this.aadleave = new ReaLTaiizor.Controls.Button();
             this.fixboot = new ReaLTaiizor.Controls.Button();
-            this.psbr = new ReaLTaiizor.Controls.Button();
+            this.back = new ReaLTaiizor.Controls.Button();
             this.delhis = new ReaLTaiizor.Controls.Button();
             this.ent = new ReaLTaiizor.Controls.Button();
             this.delti = new ReaLTaiizor.Controls.Button();
@@ -96,7 +96,7 @@ namespace Unowhy_Tools
             this.adduser = new ReaLTaiizor.Controls.Button();
             this.adminset = new ReaLTaiizor.Controls.Button();
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
-            this.dismbr = new ReaLTaiizor.Controls.Button();
+            this.rest = new ReaLTaiizor.Controls.Button();
             this.pictureBox31 = new System.Windows.Forms.PictureBox();
             this.enwhe = new ReaLTaiizor.Controls.Button();
             this.pictureBox32 = new System.Windows.Forms.PictureBox();
@@ -398,6 +398,7 @@ namespace Unowhy_Tools
             // 
             // pictureBox28
             // 
+            this.pictureBox28.Image = global::Unowhy_Tools.Properties.Resources.upload;
             resources.ApplyResources(this.pictureBox28, "pictureBox28");
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.TabStop = false;
@@ -592,20 +593,20 @@ namespace Unowhy_Tools
             this.fixboot.Click += new System.EventHandler(this.fixboot_Click);
             this.fixboot.MouseEnter += new System.EventHandler(this.desc_Fixti);
             // 
-            // psbr
+            // back
             // 
-            this.psbr.BackColor = System.Drawing.Color.Transparent;
-            this.psbr.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.psbr.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            resources.ApplyResources(this.psbr, "psbr");
-            this.psbr.Image = null;
-            this.psbr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.psbr.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.psbr.Name = "psbr";
-            this.psbr.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.psbr.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.psbr.Click += new System.EventHandler(this.psdrv_Click);
-            this.psbr.MouseEnter += new System.EventHandler(this.desc_psbr);
+            this.back.BackColor = System.Drawing.Color.Transparent;
+            this.back.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.back.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            resources.ApplyResources(this.back, "back");
+            this.back.Image = null;
+            this.back.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.back.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.back.Name = "back";
+            this.back.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.back.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            this.back.MouseEnter += new System.EventHandler(this.desc_psbr);
             // 
             // delhis
             // 
@@ -774,24 +775,25 @@ namespace Unowhy_Tools
             // 
             // pictureBox30
             // 
+            this.pictureBox30.Image = global::Unowhy_Tools.Properties.Resources.download;
             resources.ApplyResources(this.pictureBox30, "pictureBox30");
             this.pictureBox30.Name = "pictureBox30";
             this.pictureBox30.TabStop = false;
             // 
-            // dismbr
+            // rest
             // 
-            this.dismbr.BackColor = System.Drawing.Color.Transparent;
-            this.dismbr.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dismbr.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            resources.ApplyResources(this.dismbr, "dismbr");
-            this.dismbr.Image = null;
-            this.dismbr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dismbr.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.dismbr.Name = "dismbr";
-            this.dismbr.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.dismbr.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.dismbr.Click += new System.EventHandler(this.dismdrv_Click);
-            this.dismbr.MouseEnter += new System.EventHandler(this.desc_dismbr);
+            this.rest.BackColor = System.Drawing.Color.Transparent;
+            this.rest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rest.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            resources.ApplyResources(this.rest, "rest");
+            this.rest.Image = null;
+            this.rest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rest.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.rest.Name = "rest";
+            this.rest.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.rest.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.rest.Click += new System.EventHandler(this.rest_Click);
+            this.rest.MouseEnter += new System.EventHandler(this.desc_dismbr);
             // 
             // pictureBox31
             // 
@@ -1050,8 +1052,8 @@ namespace Unowhy_Tools
             this.Controls.Add(this.admin);
             this.Controls.Add(this.pcname);
             this.Controls.Add(this.bkcloud);
-            this.Controls.Add(this.dismbr);
-            this.Controls.Add(this.psbr);
+            this.Controls.Add(this.rest);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.aadleave);
             this.Controls.Add(this.bootim);
             this.Controls.Add(this.bcdfail);
@@ -1229,7 +1231,7 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button winre;
         private ReaLTaiizor.Controls.Button aadleave;
         private ReaLTaiizor.Controls.Button fixboot;
-        private ReaLTaiizor.Controls.Button psbr;
+        private ReaLTaiizor.Controls.Button back;
         private ReaLTaiizor.Controls.Button delhis;
         private ReaLTaiizor.Controls.Button ent;
         private ReaLTaiizor.Controls.Button delti;
@@ -1242,7 +1244,7 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button adduser;
         private ReaLTaiizor.Controls.Button adminset;
         private System.Windows.Forms.PictureBox pictureBox30;
-        private ReaLTaiizor.Controls.Button dismbr;
+        private ReaLTaiizor.Controls.Button rest;
         private System.Windows.Forms.PictureBox pictureBox31;
         private ReaLTaiizor.Controls.Button enwhe;
         private System.Windows.Forms.PictureBox pictureBox32;

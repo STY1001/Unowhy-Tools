@@ -572,10 +572,10 @@ namespace Unowhy_Tools
             aadleave.Text = getlang("aadleave");
             adduser.Text = getlang("adduser");
             adminset.Text = getlang("adminset");
-            psbr.Text = getlang("psdrv");
+            back.Text = getlang("psdrv");
             drivercat.Text = getlang("drvcat");
             delhismserv.Text = getlang("delhismserv");
-            dismbr.Text = getlang("dismdrv");
+            rest.Text = getlang("dismdrv");
             enwhe.Text = getlang("enwhe");
             guide.Text = getlang("guide");
             opencmd.Text = getlang("opencmd");
@@ -604,6 +604,7 @@ namespace Unowhy_Tools
                 inputFile.ReadLine();
             }
             string nameid = inputFile.ReadLine();
+            Write2Log($"Current user id: {nameid}");
 
             if (nameid.Contains("AzureAD") == true)
             {
@@ -635,6 +636,7 @@ namespace Unowhy_Tools
 
         public void new_check()
         {
+            Write2Log("====== Dynamic Buttons ======");
             ProgBar.Visible = true;
 
             string azure = getline(returncmd("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow"), 6);
@@ -644,6 +646,7 @@ namespace Unowhy_Tools
 
             #region Hisqool Manager
 
+            Write2Log("=== HSM service ===");
             if (serviceExists("HiSqoolManager"))
             {
                 ServiceController sc = new ServiceController();
@@ -657,6 +660,7 @@ namespace Unowhy_Tools
                         ebtn(stophis);
                         dbtn(enhis);
                         ebtn(dishis);
+                        Write2Log("HSM is running");
                     }
                     else
                     {
@@ -664,6 +668,7 @@ namespace Unowhy_Tools
                         ebtn(starthis);
                         dbtn(enhis);
                         ebtn(dishis);
+                        Write2Log("HSM is stopped");
                     }
                 }
                 else
@@ -672,6 +677,7 @@ namespace Unowhy_Tools
                     dbtn(stophis);
                     dbtn(dishis);
                     ebtn(enhis);
+                    Write2Log("HSM is disabled");
                 }
                 if(!File.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager\\HiSqoolManager.exe"))
                 {
@@ -679,6 +685,7 @@ namespace Unowhy_Tools
                     dbtn(stophis);
                     dbtn(dishis);
                     dbtn(enhis);
+                    Write2Log("HSM is deleted");
                 }
             }
             else
@@ -688,29 +695,46 @@ namespace Unowhy_Tools
                 dbtn(dishis);
                 dbtn(enhis);
                 dbtn(delhismserv);
+                Write2Log("HSM services is not present");
             }
+            Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
 
             #region Azure
 
+            Write2Log("=== Azure AD ===");
             if (azure.Contains("NO"))
             {
                 dbtn(aadleave);
+                Write2Log("Azure AD joined: NO");
+            }
+            else
+            {
+                ebtn(aadleave);
+                Write2Log("Azure AD joined: YES");
+            }
+            Write2Log("=== End ===" + Environment.NewLine);
+
+            #endregion
+
+            #region Admins
+
+            Write2Log("=== Admins ===");
+            if (admins.Contains(debuser.Text))
+            {
+                dbtn(admin);
+                Write2Log("User is admin");
+            }
+            else
+            {
+                ebtn(admin);
+                Write2Log("User is not admin");
             }
 
             #endregion
 
             #region Folders
-
-            if (admins.Contains(debuser.Text))
-            {
-                dbtn(admin);
-            }
-            else
-            {
-                ebtn(admin);
-            }
 
             if (Directory.Exists("C:\\ProgramData\\RIDF") == false)
             {
@@ -890,6 +914,7 @@ namespace Unowhy_Tools
             #endregion
 
             ProgBar.Visible = false;
+            Write2Log("====== End ======");
         }
         public void check()
         {
@@ -913,10 +938,10 @@ namespace Unowhy_Tools
             ebtn(winre);
             ebtn(fixboot);
             ebtn(delhismserv);
-            ebtn(psbr);
+            ebtn(back);
             ebtn(shell);
             ebtn(enwhe);
-            ebtn(dismbr);
+            ebtn(rest);
             ebtn(bkcloud);
             ebtn(bootim);
             #endregion
@@ -1216,16 +1241,16 @@ namespace Unowhy_Tools
             }
         }
 
-        private void psdrv_Click(object sender, EventArgs e)
+        private void rest_Click(object sender, EventArgs e)
         {
-            var ps = new psdriver();
-            ps.ShowDialog();
+            var r = new restore();
+            r.ShowDialog();
         }
 
-        private void dismdrv_Click(object sender, EventArgs e)
+        private void back_Click(object sender, EventArgs e)
         {
-            var dism = new dismdriver();
-            dism.ShowDialog();
+            var b = new backup();
+            b.ShowDialog();
         }
 
         private void opencmd_Click(object sender, EventArgs e)
@@ -1315,10 +1340,10 @@ namespace Unowhy_Tools
             ebtn(winre);
             ebtn(fixboot);
             ebtn(delhismserv);
-            ebtn(psbr);
+            ebtn(back);
             ebtn(shell);
             ebtn(enwhe);
-            ebtn(dismbr);
+            ebtn(rest);
             ebtn(bkcloud);
             ebtn(bootim);
         }
