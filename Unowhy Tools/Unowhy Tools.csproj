@@ -262,6 +262,12 @@
     <Compile Include="changelog.Designer.cs">
       <DependentUpon>changelog.cs</DependentUpon>
     </Compile>
+    <Compile Include="restore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="restore.Designer.cs">
+      <DependentUpon>restore.cs</DependentUpon>
+    </Compile>
     <Compile Include="dialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,17 +329,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="dismdriver.cs">
+    <Compile Include="backup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dismdriver.Designer.cs">
-      <DependentUpon>dismdriver.cs</DependentUpon>
-    </Compile>
-    <Compile Include="psdriver.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="psdriver.Designer.cs">
-      <DependentUpon>psdriver.cs</DependentUpon>
+    <Compile Include="backup.Designer.cs">
+      <DependentUpon>backup.cs</DependentUpon>
     </Compile>
     <Compile Include="reboot.cs">
       <SubType>Form</SubType>
@@ -384,6 +384,9 @@
     <EmbeddedResource Include="changelog.resx">
       <DependentUpon>changelog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="restore.resx">
+      <DependentUpon>restore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dialog.resx">
       <DependentUpon>dialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,11 +420,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="dismdriver.resx">
-      <DependentUpon>dismdriver.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="psdriver.resx">
-      <DependentUpon>psdriver.cs</DependentUpon>
+    <EmbeddedResource Include="backup.resx">
+      <DependentUpon>backup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reboot.resx">
       <DependentUpon>reboot.cs</DependentUpon>
@@ -502,6 +502,7 @@
     <None Include="Resources\cmd.png" />
     <None Include="Resources\clouddl.png" />
     <None Include="Resources\boot.png" />
+    <None Include="Resources\convert.png" />
     <Content Include="Resources\customize.ico" />
     <Content Include="Resources\datamatrix.ico" />
     <Content Include="Resources\delete.ico" />
