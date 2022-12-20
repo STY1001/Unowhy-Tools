@@ -143,6 +143,16 @@ namespace Unowhy_Tools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap convert {
+            get {
+                object obj = ResourceManager.GetObject("convert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap customize {
             get {
                 object obj = ResourceManager.GetObject("customize", resourceCulture);
