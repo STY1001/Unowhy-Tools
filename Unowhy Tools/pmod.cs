@@ -93,7 +93,7 @@ namespace Unowhy_Tools
 
         private void button11_Click(object sender, EventArgs e)
         {
-            var a = new psdriver();
+            var a = new restore();
             a.Show();
         }
 
@@ -129,7 +129,7 @@ namespace Unowhy_Tools
 
         private void button17_Click(object sender, EventArgs e)
         {
-            var a = new dismdriver();
+            var a = new backup();
             a.Show();
         }
 
