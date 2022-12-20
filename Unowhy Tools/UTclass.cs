@@ -68,11 +68,13 @@ namespace Unowhy_Tools
         {
             public static void close()
             {
+                Write2Log("Close wait");
                 runmin("taskkill", "/f /im UTwait.exe", false);
             }
 
             public static void open()
             {
+                Write2Log("Open wait");
                 Process.Start(".\\UTwait.exe");
             }
         }
@@ -81,11 +83,13 @@ namespace Unowhy_Tools
         {
             public static void close()
             {
+                Write2Log("Close splash");
                 runmin("taskkill", "/f /im UTsplash.exe", false);
             }
 
             public static void open()
             {
+                Write2Log("Open splash");
                 Process.Start(".\\UTsplash.exe");
             }
         }
