@@ -26,8 +26,6 @@ namespace Unowhy_Tools
 {
     public partial class backup : Form
     {
-        public string resxFile = "null";
-
         //Set dark mode title bar and bypass wow64 redirection
 
         [DllImport("DwmApi")]
