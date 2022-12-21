@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(restore));
-            this.button1 = new ReaLTaiizor.Controls.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.browse = new ReaLTaiizor.Controls.Button();
+            this.path = new System.Windows.Forms.TextBox();
             this.rest = new ReaLTaiizor.Controls.Button();
-            this.button2 = new ReaLTaiizor.Controls.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.conv = new ReaLTaiizor.Controls.Button();
+            this.textconv = new System.Windows.Forms.Label();
+            this.labres = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labconv = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -48,31 +48,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // browse
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = null;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button1.Location = new System.Drawing.Point(297, 153);
-            this.button1.Name = "button1";
-            this.button1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.button1.Size = new System.Drawing.Size(53, 22);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Browse";
-            this.button1.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.browse.BackColor = System.Drawing.Color.Transparent;
+            this.browse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.browse.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.browse.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.browse.Image = null;
+            this.browse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.browse.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.browse.Location = new System.Drawing.Point(297, 153);
+            this.browse.Name = "browse";
+            this.browse.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.browse.Size = new System.Drawing.Size(53, 22);
+            this.browse.TabIndex = 0;
+            this.browse.Text = "Browse";
+            this.browse.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.browse.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // path
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(13, 125);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(337, 22);
-            this.textBox1.TabIndex = 1;
+            this.path.BackColor = System.Drawing.Color.Black;
+            this.path.ForeColor = System.Drawing.Color.White;
+            this.path.Location = new System.Drawing.Point(13, 125);
+            this.path.Name = "path";
+            this.path.ReadOnly = true;
+            this.path.Size = new System.Drawing.Size(337, 22);
+            this.path.TabIndex = 1;
             // 
             // rest
             // 
@@ -90,43 +92,44 @@
             this.rest.TabIndex = 0;
             this.rest.Text = "Restore";
             this.rest.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.rest.Click += new System.EventHandler(this.rest_Click);
             // 
-            // button2
+            // conv
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = null;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.button2.Location = new System.Drawing.Point(297, 62);
-            this.button2.Name = "button2";
-            this.button2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.button2.Size = new System.Drawing.Size(53, 22);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Convert";
-            this.button2.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.conv.BackColor = System.Drawing.Color.Transparent;
+            this.conv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.conv.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.conv.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conv.Image = null;
+            this.conv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.conv.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.conv.Location = new System.Drawing.Point(297, 62);
+            this.conv.Name = "conv";
+            this.conv.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.conv.Size = new System.Drawing.Size(53, 22);
+            this.conv.TabIndex = 0;
+            this.conv.Text = "Convert";
+            this.conv.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // label1
+            // textconv
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Convert an old backup (<18.0) to the new format";
+            this.textconv.AutoSize = true;
+            this.textconv.ForeColor = System.Drawing.Color.White;
+            this.textconv.Location = new System.Drawing.Point(13, 42);
+            this.textconv.Name = "textconv";
+            this.textconv.Size = new System.Drawing.Size(258, 13);
+            this.textconv.TabIndex = 2;
+            this.textconv.Text = "Convert an old backup (<18.0) to the new format";
             // 
-            // label2
+            // labres
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(40, 105);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Restore";
+            this.labres.AutoSize = true;
+            this.labres.ForeColor = System.Drawing.Color.White;
+            this.labres.Location = new System.Drawing.Point(40, 105);
+            this.labres.Name = "labres";
+            this.labres.Size = new System.Drawing.Size(46, 13);
+            this.labres.TabIndex = 3;
+            this.labres.Text = "Restore";
             // 
             // pictureBox1
             // 
@@ -138,15 +141,15 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // labconv
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(35, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Convert";
+            this.labconv.AutoSize = true;
+            this.labconv.ForeColor = System.Drawing.Color.White;
+            this.labconv.Location = new System.Drawing.Point(35, 15);
+            this.labconv.Name = "labconv";
+            this.labconv.Size = new System.Drawing.Size(47, 13);
+            this.labconv.TabIndex = 3;
+            this.labconv.Text = "Convert";
             // 
             // pictureBox2
             // 
@@ -199,13 +202,13 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.labconv);
+            this.Controls.Add(this.labres);
+            this.Controls.Add(this.textconv);
+            this.Controls.Add(this.path);
             this.Controls.Add(this.rest);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.conv);
+            this.Controls.Add(this.browse);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -227,14 +230,14 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private ReaLTaiizor.Controls.Button browse;
+        private System.Windows.Forms.TextBox path;
         private ReaLTaiizor.Controls.Button rest;
-        private ReaLTaiizor.Controls.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private ReaLTaiizor.Controls.Button conv;
+        private System.Windows.Forms.Label textconv;
+        private System.Windows.Forms.Label labres;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labconv;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
