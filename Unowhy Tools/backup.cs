@@ -51,7 +51,11 @@ namespace Unowhy_Tools
         {
             InitializeComponent();
 
-            this.Text = getlang("dismdrv.title");
+            this.Text = getlang("drvgui");
+            labapp.Text = getlang("bkapp");
+            labbak.Text = getlang("backup");
+            browse.Text = getlang("browse");
+            back.Text = getlang("backup.short");
         }
 
         private void browse_Click(object sender, EventArgs e)
@@ -98,103 +102,19 @@ namespace Unowhy_Tools
                 FileInfo fi = new FileInfo(path.Text);
                 if (fi.Length > 1000000)
                 {
-
+                    var d = new info(getlang("done"), Properties.Resources.no);
+                    d.ShowDialog();
                 }
                 else
                 {
-                    var d = new info("The backup failed", Properties.Resources.no);
+                    var d = new info(getlang("bkfail"), Properties.Resources.no);
                     d.ShowDialog();
                 }
             }
             else
             {
-                var d = new info("You need 6 gb", Properties.Resources.no);
+                var d = new info(getlang("space6gusb"), Properties.Resources.no);
             }
         }
-
-        /*private void oeb_Click(object sender, EventArgs e)
-        {
-            using (var fbd = new FolderBrowserDialog())
-            {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    opb.Text = fbd.SelectedPath + "\\UT-DISM-Drv_" + DateTime.Now.ToString("HH-mm_dd-MM-yy");
-                    string prec = opb.Text;
-                    string postc = prec.Replace("\\\\", "\\");
-                    opb.Text = postc;
-                }
-            }
-        }
-
-        private void bb_Click(object sender, EventArgs e)
-        {
-            if (opb.Text == "")
-            {
-
-            }
-            else
-            {
-                Directory.CreateDirectory(opb.Text);
-                string arg = "/online /export-driver /destination:" + "\"" + opb.Text + "\"";
-
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                waitstatus.open();
-
-                runmin("dism.exe", arg, false);
-
-                File.Copy(".\\UT-Restore.exe", opb.Text + "\\UT-Restore.exe");
-
-                waitstatus.close();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
-            }
-        }
-
-        private void ieb_Click(object sender, EventArgs e)
-        {
-            using (var fbd = new FolderBrowserDialog())
-            {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    ipb.Text = fbd.SelectedPath + "\\UT-Restore.exe";
-                    deb.Text = fbd.SelectedPath;
-                }
-            }
-        }
-
-        private void rb_Click(object sender, EventArgs e)
-        {
-            if (ipb.Text == "")
-            {
-
-            }
-            else
-            {
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Indeterminate);
-                waitstatus.open();
-
-                if (File.Exists(ipb.Text) == false)
-                {
-                    File.Copy(".\\UT-Restore.exe", ipb.Text);
-                }
-
-                Process p = new Process();
-                p.StartInfo.FileName = ipb.Text;
-                p.StartInfo.Arguments = "";
-                p.StartInfo.WorkingDirectory = deb.Text;
-                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.CreateNoWindow = true;
-                p.Start();
-                p.WaitForExit();
-
-                waitstatus.close();
-                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
-                var r = new reboot();
-                r.ShowDialog();
-            }
-        }*/
     }
 }
