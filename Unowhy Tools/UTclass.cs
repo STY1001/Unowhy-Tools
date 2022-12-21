@@ -148,7 +148,6 @@ namespace Unowhy_Tools
 
         public static string getlang(string name)
         {
-            Write2Log("Get lang " + name);
             //Check the current saved language
             string resxFile;
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
@@ -159,6 +158,7 @@ namespace Unowhy_Tools
             if (utls == "EN") resxFile = enresx;    //English   
             else resxFile = frresx;               //French
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
+            Write2Log("Get lang " + name + " => " + resxSet.GetString(name));
             return resxSet.GetString(name);
         }
 
