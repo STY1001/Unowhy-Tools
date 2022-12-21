@@ -572,10 +572,10 @@ namespace Unowhy_Tools
             aadleave.Text = getlang("aadleave");
             adduser.Text = getlang("adduser");
             adminset.Text = getlang("adminset");
-            back.Text = getlang("psdrv");
+            back.Text = getlang("back");
             drivercat.Text = getlang("drvcat");
             delhismserv.Text = getlang("delhismserv");
-            rest.Text = getlang("dismdrv");
+            rest.Text = getlang("rest");
             enwhe.Text = getlang("enwhe");
             guide.Text = getlang("guide");
             opencmd.Text = getlang("opencmd");
