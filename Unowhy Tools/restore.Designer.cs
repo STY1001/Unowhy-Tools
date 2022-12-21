@@ -110,6 +110,7 @@
             this.conv.TabIndex = 0;
             this.conv.Text = "Convert";
             this.conv.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.conv.Click += new System.EventHandler(this.conv_Click);
             // 
             // textconv
             // 

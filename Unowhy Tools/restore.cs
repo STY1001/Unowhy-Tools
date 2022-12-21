@@ -39,6 +39,13 @@ namespace Unowhy_Tools
         public restore()
         {
             InitializeComponent();
+            this.Text = getlang("drvgui");
+            labconv.Text = getlang("conv");
+            labres.Text = getlang("restore");
+            textconv.Text = getlang("convdesc");
+            browse.Text = getlang("browse");
+            rest.Text = getlang("restore.short");
+            conv.Text = getlang("conv");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -81,9 +88,16 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-
+                    var d = new info(getlang("space6gpc"), Properties.Resources.no);
+                    d.ShowDialog();
                 }
             }
+        }
+
+        private void conv_Click(object sender, EventArgs e)
+        {
+            var c = new bkconv();
+            c.ShowDialog();
         }
     }
 }
