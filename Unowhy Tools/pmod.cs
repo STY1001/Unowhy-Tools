@@ -93,7 +93,7 @@ namespace Unowhy_Tools
 
         private void button11_Click(object sender, EventArgs e)
         {
-            var a = new restore();
+            var a = new backup();
             a.Show();
         }
 
@@ -129,7 +129,7 @@ namespace Unowhy_Tools
 
         private void button17_Click(object sender, EventArgs e)
         {
-            var a = new backup();
+            var a = new restore();
             a.Show();
         }
 
@@ -142,6 +142,12 @@ namespace Unowhy_Tools
         private void button19_Click(object sender, EventArgs e)
         {
             var a = new info("This is an info", Properties.Resources.about);
+            a.Show();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            var a = new bkconv();
             a.Show();
         }
     }
