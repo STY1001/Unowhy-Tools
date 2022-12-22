@@ -141,6 +141,9 @@
   <data name="avert" xml:space="preserve">
     <value>The name must be composed of alphanumeric characters (dashes allowed) between 2 and 15 characters but without specials characters and space</value>
   </data>
+  <data name="back" xml:space="preserve">
+    <value>Backup drivers</value>
+  </data>
   <data name="backup" xml:space="preserve">
     <value>Backup</value>
   </data>
@@ -153,8 +156,14 @@
   <data name="biosversion" xml:space="preserve">
     <value>BIOS Version</value>
   </data>
+  <data name="bkapp" xml:space="preserve">
+    <value>Backup app</value>
+  </data>
   <data name="bkcloud" xml:space="preserve">
     <value>Download a driver backup from cloud</value>
+  </data>
+  <data name="bkfail" xml:space="preserve">
+    <value>The backup failed, use DISM</value>
   </data>
   <data name="bootim" xml:space="preserve">
     <value>Repair BootIM (blue menu)</value>
@@ -170,6 +179,18 @@
   </data>
   <data name="confpw" xml:space="preserve">
     <value>Confirm Password</value>
+  </data>
+  <data name="conv" xml:space="preserve">
+    <value>Convert</value>
+  </data>
+  <data name="conv.form" xml:space="preserve">
+    <value>Convert a backup</value>
+  </data>
+  <data name="conv.nout" xml:space="preserve">
+    <value>This is not an UT drivers backup</value>
+  </data>
+  <data name="convdesc" xml:space="preserve">
+    <value>Convert an old backup (&lt;18.0) to the new format</value>
   </data>
   <data name="cuab" xml:space="preserve">
     <value>Check update at startup</value>
@@ -285,8 +306,14 @@
   <data name="domuser" xml:space="preserve">
     <value>Current user ID ([DOMAIN] \ [USER])</value>
   </data>
+  <data name="done" xml:space="preserve">
+    <value>Done !</value>
+  </data>
   <data name="drvcat" xml:space="preserve">
     <value>↓ Drivers ↓</value>
+  </data>
+  <data name="drvgui" xml:space="preserve">
+    <value>Drv GUI for Unowhy Tools</value>
   </data>
   <data name="enable" xml:space="preserve">
     <value>Enable</value>
@@ -303,6 +330,9 @@
   <data name="enwhe" xml:space="preserve">
     <value>Enable Win Hello Enterprise</value>
   </data>
+  <data name="failed" xml:space="preserve">
+    <value>Failed !</value>
+  </data>
   <data name="fixboot" xml:space="preserve">
     <value>Delete "silent_*.vbs" in "Startup" folder</value>
   </data>
@@ -318,6 +348,9 @@
   <data name="name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="new" xml:space="preserve">
+    <value>New</value>
+  </data>
   <data name="newuserid" xml:space="preserve">
     <value>The new account ID is</value>
   </data>
@@ -332,6 +365,9 @@
   </data>
   <data name="nover" xml:space="preserve">
     <value>No new version available</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>Old</value>
   </data>
   <data name="opencmd" xml:space="preserve">
     <value>Open CMD</value>
@@ -378,6 +414,9 @@
   <data name="repaircat" xml:space="preserve">
     <value>↓ Repair ↓</value>
   </data>
+  <data name="rest" xml:space="preserve">
+    <value>Restore drivers</value>
+  </data>
   <data name="restart" xml:space="preserve">
     <value>Reboot Now</value>
   </data>
@@ -401,6 +440,12 @@
   </data>
   <data name="snpw" xml:space="preserve">
     <value>Set new password</value>
+  </data>
+  <data name="space6gpc" xml:space="preserve">
+    <value>You need more free space on your PC (6GB)</value>
+  </data>
+  <data name="space6gusb" xml:space="preserve">
+    <value>You need more free space on your PC/Devices (6GB)</value>
   </data>
   <data name="starthis" xml:space="preserve">
     <value>Start "HiSqoolManager" service</value>
