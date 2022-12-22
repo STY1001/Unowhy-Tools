@@ -588,6 +588,7 @@ namespace Unowhy_Tools
             opentask.Text = getlang("opentask");
             bootim.Text = getlang("bootim");
             bcdfail.Text = getlang("bcdfail");
+            bkcloud.Text = getlang("bkcloud");
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
             version.Text = ver;
         }
@@ -1292,7 +1293,7 @@ namespace Unowhy_Tools
 
         private void bkcloud_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://hksty1001-my.sharepoint.com/:f:/g/personal/cloud_hksty1001_onmicrosoft_com/Ejk2S5pcwCFPnUxKDVQaUPoBpw-3IMAjuLYiJO_Fi-vsKQ?e=SAI4SS");
+            System.Diagnostics.Process.Start("https://hksty1001-my.sharepoint.com/:f:/g/personal/cloud_sty1001_cf/Ejk2S5pcwCFPnUxKDVQaUPoBpw-3IMAjuLYiJO_Fi-vsKQ?e=SAI4SS");
         }
 
         private void opengp_Click(object sender, EventArgs e)
@@ -1483,14 +1484,9 @@ namespace Unowhy_Tools
             desc.Text = getlang("descadminset");
         }
 
-        private void desc_psbr(object sender, EventArgs e)
+        private void desc_drvbr(object sender, EventArgs e)
         {
-            desc.Text = getlang("descpsbr");
-        }
-
-        private void desc_dismbr(object sender, EventArgs e)
-        {
-            desc.Text = getlang("descdismbr");
+            desc.Text = getlang("drvbr");
         }
 
         private void desc_enwhe(object sender, EventArgs e)

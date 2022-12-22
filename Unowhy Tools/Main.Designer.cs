@@ -606,7 +606,6 @@ namespace Unowhy_Tools
             this.back.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.back.TextAlignment = System.Drawing.StringAlignment.Center;
             this.back.Click += new System.EventHandler(this.back_Click);
-            this.back.MouseEnter += new System.EventHandler(this.desc_psbr);
             // 
             // delhis
             // 
@@ -793,7 +792,6 @@ namespace Unowhy_Tools
             this.rest.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.rest.TextAlignment = System.Drawing.StringAlignment.Center;
             this.rest.Click += new System.EventHandler(this.rest_Click);
-            this.rest.MouseEnter += new System.EventHandler(this.desc_dismbr);
             // 
             // pictureBox31
             // 
