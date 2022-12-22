@@ -309,6 +309,9 @@
   <data name="done" xml:space="preserve">
     <value>Terminé avec succès !</value>
   </data>
+  <data name="drvbr" xml:space="preserve">
+    <value>Sauvegarder et restaurer les pilotes de votre PC. Pour éviter tous problème de pilotes dans le futur, faite une sauvegarde des pilotes de votre PC et en cas de problème restaurez les. Vous pouvez néanmoins restaurer depuis une sauvegarde provenant du cloud</value>
+  </data>
   <data name="drvcat" xml:space="preserve">
     <value>↓ Pilotes ↓</value>
   </data>

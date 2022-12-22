@@ -309,6 +309,9 @@
   <data name="done" xml:space="preserve">
     <value>Done !</value>
   </data>
+  <data name="drvbr" xml:space="preserve">
+    <value>Backup and restore your PC's drivers. To avoid any driver problems in the future, make a backup of your PC's drivers and in case of problems restore them. However, you can restore from a cloud backup</value>
+  </data>
   <data name="drvcat" xml:space="preserve">
     <value>↓ Drivers ↓</value>
   </data>

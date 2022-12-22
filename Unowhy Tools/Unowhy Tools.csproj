@@ -393,6 +393,12 @@
     <EmbeddedResource Include="changelog.resx">
       <DependentUpon>changelog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lang\en.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\fr.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="restore.resx">
       <DependentUpon>restore.cs</DependentUpon>
     </EmbeddedResource>
