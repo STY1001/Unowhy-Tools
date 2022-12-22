@@ -84,6 +84,7 @@
             this.patho.ForeColor = System.Drawing.Color.White;
             this.patho.Location = new System.Drawing.Point(8, 36);
             this.patho.Name = "patho";
+            this.patho.ReadOnly = true;
             this.patho.Size = new System.Drawing.Size(337, 22);
             this.patho.TabIndex = 8;
             // 
@@ -151,6 +152,7 @@
             this.pathn.ForeColor = System.Drawing.Color.White;
             this.pathn.Location = new System.Drawing.Point(8, 153);
             this.pathn.Name = "pathn";
+            this.pathn.ReadOnly = true;
             this.pathn.Size = new System.Drawing.Size(337, 22);
             this.pathn.TabIndex = 15;
             // 

@@ -39,6 +39,12 @@ namespace Unowhy_Tools
         public bkconv()
         {
             InitializeComponent();
+            browsen.Text = getlang("browse");
+            browseo.Text = getlang("browse");
+            labnew.Text = getlang("new");
+            labold.Text = getlang("old");
+            conv.Text = getlang("conv");
+            this.Text = getlang("conv.form");
         }
 
         private void browseo_Click(object sender, EventArgs e)
