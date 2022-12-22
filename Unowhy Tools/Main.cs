@@ -969,6 +969,16 @@ namespace Unowhy_Tools
             {
                 serv.start("Hisqoolmanager");
                 check();
+                if (!starthis.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
                       
         }
@@ -983,6 +993,16 @@ namespace Unowhy_Tools
             {
                 serv.stop("Hisqoolmanager");
                 check();
+                if (!stophis.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -996,6 +1016,16 @@ namespace Unowhy_Tools
             {
                 serv.auto("Hisqoolmanager");
                 check();
+                if (!enhis.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1009,6 +1039,16 @@ namespace Unowhy_Tools
             {
                 serv.dis("Hisqoolmanager");
                 check();
+                if (!dishis.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1022,6 +1062,16 @@ namespace Unowhy_Tools
             {
                 System.Diagnostics.Process.Start("C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe");
                 check();
+                if (!delhis.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1036,6 +1086,16 @@ namespace Unowhy_Tools
                 serv.del("Hisqoolmanager");
                 runmin("rmdir", "/s /q C:\\Program Files\\Unowhy\\HisqoolManager", true);
                 check();
+                if (!delhism.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1049,6 +1109,16 @@ namespace Unowhy_Tools
             {
                 runmin("reg", "add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\WinLogon\" /v Shell /d explorer.exe /t REG_SZ /f", true);
                 check();
+                if (!shell.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1062,6 +1132,16 @@ namespace Unowhy_Tools
             {
                 runmin("net", "user ENT /delete", true);
                 check();
+                if (!ent.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1081,6 +1161,16 @@ namespace Unowhy_Tools
             {
                 runmin("del", "/q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"", true);
                 check();
+                if (!fixboot.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1095,6 +1185,16 @@ namespace Unowhy_Tools
                 runmin("del", "/q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"", true);
                 runmin("rmdir", "/s /q \"C:\\Program Files\\Unowhy\\TO_INSTALL\"", true);
                 check();
+                if (!delti.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1102,7 +1202,6 @@ namespace Unowhy_Tools
         {
             var s = new Settings("0");     //Show settings
             s.ShowDialog();
-            delay(1000);
             langswitch();
         }
 
@@ -1116,6 +1215,16 @@ namespace Unowhy_Tools
             {
                 runmin("rmdir", "/s /q \"C:\\ProgramData\\RIDF\"", true);
                 check();
+                if (!delridf.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1164,6 +1273,16 @@ namespace Unowhy_Tools
             {
                 runmin("rmdir", "/s /q \"C:\\Windows\\System32\\OEM\"", true);
                 check();
+                if (!deloem.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1185,6 +1304,16 @@ namespace Unowhy_Tools
             {
                 runmin("rmdir", "/s /q \"C:\\ProgramData\\ENT\"", true);
                 check();
+                if (!entf.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1204,6 +1333,16 @@ namespace Unowhy_Tools
             {
                 runmin("dsregcmd", "/leave", true);
                 check();
+                if (!aadleave.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1217,6 +1356,16 @@ namespace Unowhy_Tools
             {
                 runmin("net", $"localgroup Administrateurs /add \"{debuser.Text}\"", true);
                 check();
+                if (!admin.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1242,6 +1391,16 @@ namespace Unowhy_Tools
             {
                 serv.del("Hisqoolmanager");
                 check();
+                if (!delhismserv.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1288,6 +1447,16 @@ namespace Unowhy_Tools
                 runmin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock\" /v \"Plugins\" /t REG_SZ /d \"<rule schemaVersion=\\\"1.0\\\"> <signal type=\\\"bluetooth\\\" scenario=\\\"Dynamic Lock\\\" classOfDevice=\\\"512\\\" rssiMin=\\\"-10\\\" rssiMaxDelta=\\\"-10\\\"/> </rule> \" /f", true);
                 runmin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider\" /v \"Domain Accounts\" /t REG_DWORD /d \"1\" /f", true);
                 check();
+                if (!enwhe.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1320,6 +1489,16 @@ namespace Unowhy_Tools
             {
                 runmin("reg", "delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe\" /f", true);
                 check();
+                if (!bootim.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
@@ -1375,6 +1554,16 @@ namespace Unowhy_Tools
             {
                 runmin("bcdedit", "/deletevalue bootstatuspolicy", true);
                 check();
+                if (!bcdfail.Enabled)
+                {
+                    var i = new info(getlang("done"), Properties.Resources.yes);
+                    i.ShowDialog();
+                }
+                else
+                {
+                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    i.ShowDialog();
+                }
             }
         }
 
