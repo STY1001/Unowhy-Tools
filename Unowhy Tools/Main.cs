@@ -478,8 +478,8 @@ namespace Unowhy_Tools
                             using (var client = new WebClient())
                             {
                                 gitver = client.DownloadString("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt");
-                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\fr.resx");         //Update Languages
-                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\en.resx");         //Update Languages
+                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/fr.resx", ".\\fr.resx");         //Update Languages
+                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/en.resx", ".\\en.resx");         //Update Languages
                             }
 
                             int gitint = Convert.ToInt32(gitver);       //Convert string to int
