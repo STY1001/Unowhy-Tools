@@ -740,72 +740,91 @@ namespace Unowhy_Tools
 
             #region Folders
 
+            Write2Log("=== Folders ===");
             if (Directory.Exists("C:\\ProgramData\\RIDF") == false)
             {
                 dbtn(delridf);
+                Write2Log("RIDF: False");
             }
             else
             {
                 ebtn(delridf);
+                Write2Log("RIDF: True");
             }
             if (Directory.Exists("C:\\ProgramData\\ENT") == false)
             {
                 dbtn(entf);
+                Write2Log("ENT: False");
             }
             else
             {
                 ebtn(entf);
+                Write2Log("ENT: True");
             }
             if (Directory.Exists("C:\\Windows\\sysnative\\OEM") == false)
             {
                 dbtn(deloem);
+                Write2Log("OEM: False");
             }
             else
             {
                 ebtn(deloem);
+                Write2Log("OEM: True");
             }
             if (Directory.Exists("C:\\Program Files\\Unowhy\\TO_INSTALL") == false)
             {
                 dbtn(delti);
+                Write2Log("TO_INSTALL: False");
             }
             else
             {
                 ebtn(delti);
+                Write2Log("TO_INSTALL: True");
             }
             if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager") == false)
             {
                 dbtn(delhism);
+                Write2Log("Hisqool Manager: False");
             }
             else
             {
                 ebtn(delhism);
+                Write2Log("Hisqool Manager: True");
             }
             if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
             {
                 dbtn(delhis);
+                Write2Log("Hisqool: False");
             }
             else
             {
                 ebtn(delhis);
+                Write2Log("Hisqool: True");
             }
+            Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
 
             #region ENT user
 
+            Write2Log("=== ./ENT ===");
             if (users.Contains("ENT"))
             {
                 ebtn(ent);
+                Write2Log("ENT User is present");
             }
             else
             {
                 dbtn(ent);
+                Write2Log("ENT User is not present");
             }
+            Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
 
             #region Windows Hello Enterprise
 
+            Write2Log("=== Win Hello Ent ===");
             RegistryKey whe1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork");
             RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
             RegistryKey whe3 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock");
@@ -853,57 +872,71 @@ namespace Unowhy_Tools
             {
                 whe3.Close();
             }
+            Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
 
             #region TI Start
 
+            Write2Log("=== Auto script of TI ===");
             DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
             FileInfo[] files = dir.GetFiles("silent_" + "*.*");
             if (files.Length > 0)
             {
                 ebtn(fixboot);
+                Write2Log("Present");
             }
             else
             {
                 dbtn(fixboot);
+                Write2Log("Not present");
             }
+            Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
 
             #region BootIM
 
+            Write2Log("=== BootIM ===");
             RegistryKey bim1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe");
             if (bim1 == null)
             {
                 dbtn(bootim);
+                Write2Log("OK");
             }
             else
             {
                 ebtn(bootim);
+                Write2Log("Redirected");
             }
             if(bim1 != null)
             {
                 bim1.Close();
             }
+            Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
 
             #region BCDedit
 
+            Write2Log("=== BCD ===");
             if (bcd.Contains("IgnoreAllFailures"))
             {
                 ebtn(bcdfail);
+                Write2Log("BCD patched");
             }
             else
             {
                 dbtn(bcdfail);
+                Write2Log("BCD normal");
             }
+            Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
 
             #region Shell
 
+            Write2Log("=== Shell ===");
             RegistryKey shellkey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon");
             string shellval = shellkey.GetValue("Shell").ToString();
             if(shellval == "explorer.exe")
@@ -914,6 +947,8 @@ namespace Unowhy_Tools
             {
                 ebtn(shell);
             }
+            Write2Log($"Shell: {shellval}");
+            Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
 
