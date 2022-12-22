@@ -1349,6 +1349,7 @@ namespace Unowhy_Tools
             ebtn(rest);
             ebtn(bkcloud);
             ebtn(bootim);
+            ebtn(bcdfail);
         }
 
         private void debugenable_Click(object sender, EventArgs e)  // Enable all button (debug mode)
