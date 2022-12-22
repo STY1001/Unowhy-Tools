@@ -492,9 +492,12 @@ namespace Unowhy_Tools
                                 s.ShowDialog();
                                 splashstatus.open();
                             }
-                            else
+                            else if(gitint < progint)
                             {
-
+                                splashstatus.close();
+                                var d = new info("You are in the futur", Properties.Resources.yes);
+                                d.ShowDialog();
+                                splashstatus.open();
                             }
                         }
                     }
