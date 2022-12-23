@@ -44,11 +44,12 @@ namespace Unowhy_Tools
             // label
             // 
             this.label.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.Location = new System.Drawing.Point(50, 9);
+            this.label.Location = new System.Drawing.Point(50, 3);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(305, 35);
+            this.label.Size = new System.Drawing.Size(305, 54);
             this.label.TabIndex = 0;
             this.label.Text = "Question";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox2
             // 
@@ -73,9 +74,9 @@ namespace Unowhy_Tools
             // icon
             // 
             this.icon.Image = global::Unowhy_Tools.Properties.Resources.question;
-            this.icon.Location = new System.Drawing.Point(9, 9);
+            this.icon.Location = new System.Drawing.Point(12, 14);
             this.icon.Name = "icon";
-            this.icon.Size = new System.Drawing.Size(35, 35);
+            this.icon.Size = new System.Drawing.Size(32, 32);
             this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.icon.TabIndex = 2;
             this.icon.TabStop = false;

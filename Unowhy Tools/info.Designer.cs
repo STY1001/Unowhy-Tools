@@ -68,18 +68,19 @@
             // label1
             // 
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(51, 8);
+            this.label1.Location = new System.Drawing.Point(50, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 35);
+            this.label1.Size = new System.Drawing.Size(305, 56);
             this.label1.TabIndex = 2;
             this.label1.Text = "Info";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.about;
-            this.pictureBox2.Location = new System.Drawing.Point(10, 8);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 14);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
