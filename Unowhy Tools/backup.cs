@@ -102,7 +102,7 @@ namespace Unowhy_Tools
                 FileInfo fi = new FileInfo(path.Text);
                 if (fi.Length > 1000000)
                 {
-                    var d = new info(getlang("done"), Properties.Resources.no);
+                    var d = new info(getlang("done"), Properties.Resources.yes);
                     d.ShowDialog();
                 }
                 else
