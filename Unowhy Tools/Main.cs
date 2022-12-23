@@ -478,8 +478,16 @@ namespace Unowhy_Tools
                             using (var client = new WebClient())
                             {
                                 gitver = client.DownloadString("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt");
-                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/fr.resx", ".\\fr.resx");         //Update Languages
-                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/en.resx", ".\\en.resx");         //Update Languages
+                                if (!File.Exists("debug"))
+                                {
+                                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/fr.resx", ".\\fr.resx");         //Update Languages
+                                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/en.resx", ".\\en.resx");         //Update Languages
+                                }
+                                else
+                                {
+                                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\fr.resx");         //Update Languages
+                                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\en.resx");         //Update Languages
+                                }
                             }
 
                             int gitint = Convert.ToInt32(gitver);       //Convert string to int
@@ -495,7 +503,7 @@ namespace Unowhy_Tools
                             else if(gitint < progint)
                             {
                                 splashstatus.close();
-                                var d = new info("You are in the futur", Properties.Resources.yes);
+                                var d = new info("This is a pre-release", Properties.Resources.yes);
                                 d.ShowDialog();
                                 splashstatus.open();
                             }
@@ -644,7 +652,7 @@ namespace Unowhy_Tools
             ProgBar.Visible = true;
 
             string azure = getline(returncmd("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow"), 6);
-            string admins = returncmd("net", "localgroups Administrateurs");
+            string admins = returncmd("net", "localgroup Administrateurs");
             string users = returncmd("net", "user");
             string bcd = returncmd("bcdedit", "");
 
@@ -1012,7 +1020,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1036,7 +1044,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1059,7 +1067,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1082,7 +1090,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1105,7 +1113,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1129,7 +1137,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1152,7 +1160,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1175,7 +1183,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1204,7 +1212,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1228,7 +1236,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1258,7 +1266,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1316,7 +1324,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1347,7 +1355,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1376,7 +1384,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1399,7 +1407,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1434,7 +1442,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1490,7 +1498,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1532,7 +1540,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
@@ -1597,7 +1605,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    var i = new info(getlang("fail"), Properties.Resources.no);
+                    var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
                 }
             }
