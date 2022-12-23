@@ -735,6 +735,7 @@ namespace Unowhy_Tools
                 ebtn(admin);
                 Write2Log("User is not admin");
             }
+            Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
 
