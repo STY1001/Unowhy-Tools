@@ -73,14 +73,11 @@ namespace Unowhy_Tools
 
             if (r.IsMatch(changename.Text.ToString().Trim()) || changename.Text.Length < 2 || changename.Text.Length > 15 || changename.Text.Contains(" "))
             {
-                this.Height = 244;
-                this.Width = 236;
-                avert.Visible = true;
+                var i = new info(getlang("avert"), Properties.Resources.no);
+                i.ShowDialog();
             }
             else
             {
-                this.Height = 169;
-                this.Width = 236;
                 string msg = this.Text;
                 Image ico = Resources.customize;
                 dialog d = new dialog(msg, ico);
