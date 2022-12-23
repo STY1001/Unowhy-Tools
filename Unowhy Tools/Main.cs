@@ -1106,7 +1106,7 @@ namespace Unowhy_Tools
             {
                 System.Diagnostics.Process.Start("C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe");
                 check();
-                if (!delhis.Enabled)
+                /*if (!delhis.Enabled)
                 {
                     var i = new info(getlang("done"), Properties.Resources.yes);
                     i.ShowDialog();
@@ -1115,7 +1115,7 @@ namespace Unowhy_Tools
                 {
                     var i = new info(getlang("failed"), Properties.Resources.no);
                     i.ShowDialog();
-                }
+                }*/
             }
         }
 
