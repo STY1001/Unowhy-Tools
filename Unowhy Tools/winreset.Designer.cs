@@ -36,7 +36,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.repmsg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -99,7 +98,7 @@
             // debwinre
             // 
             this.debwinre.AutoSize = true;
-            this.debwinre.Location = new System.Drawing.Point(7, 38);
+            this.debwinre.Location = new System.Drawing.Point(348, 20);
             this.debwinre.Name = "debwinre";
             this.debwinre.Size = new System.Drawing.Size(36, 13);
             this.debwinre.TabIndex = 1;
@@ -136,21 +135,12 @@
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
-            // repmsg
-            // 
-            this.repmsg.AutoSize = true;
-            this.repmsg.Location = new System.Drawing.Point(12, 40);
-            this.repmsg.Name = "repmsg";
-            this.repmsg.Size = new System.Drawing.Size(0, 13);
-            this.repmsg.TabIndex = 3;
-            // 
             // winreset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(473, 61);
-            this.Controls.Add(this.repmsg);
+            this.ClientSize = new System.Drawing.Size(473, 41);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -184,6 +174,5 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label repmsg;
     }
 }
