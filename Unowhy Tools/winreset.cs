@@ -80,7 +80,6 @@ namespace Unowhy_Tools
                 dbtn(ena);
                 dbtn(rep);
                 ebtn(dis);
-                repmsg.Text = "";
             }
             else
             {
@@ -89,14 +88,14 @@ namespace Unowhy_Tools
                     dbtn(ena);
                     ebtn(rep);
                     dbtn(dis);
-                    repmsg.Text = getlang("winremsg");
+                    var i = new info(getlang("winremsg"), Properties.Resources.no);
+                    i.ShowDialog();
                 }
                 else
                 {
                     ebtn(ena);
                     dbtn(rep);
                     dbtn(dis);
-                    repmsg.Text = "";
                 }
             }
         }
