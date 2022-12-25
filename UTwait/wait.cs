@@ -18,6 +18,7 @@ using System.Windows;
 using System.Threading;
 using System.Windows.Input;
 using System.Runtime.CompilerServices;
+using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace UTwait
 {
