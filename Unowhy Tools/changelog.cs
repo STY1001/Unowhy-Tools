@@ -38,14 +38,7 @@ namespace Unowhy_Tools
         {
             InitializeComponent();
 
-            using(var client = new WebClient())
-            {
-                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/clog.html", ".\\clog.html");
-            }
-
-            string path = Directory.GetCurrentDirectory();
-            string urlp = "file://" + path + "\\clog.html";
-            webclog.Navigate(urlp);
+            webclog.Navigate("https://sty1001.cf/dl/ut/clog.html");
 
             this.MouseWheel += scrollnav;
         }
