@@ -198,6 +198,7 @@ using System.Windows.Forms.VisualStyles;
 
 using Unowhy_Tools.Properties;
 using static Unowhy_Tools.UTclass;
+using Microsoft.WindowsAPICodePack.Dialogs.Controls;
 
 namespace Unowhy_Tools
 {   
@@ -362,6 +363,203 @@ namespace Unowhy_Tools
 
             if (checkAdmin())
             {
+                #region Cleanup Old Files
+
+                if (File.Exists("temp\\adminusers.txt"))
+                {
+                    File.Delete("temp\\adminusers.txt");
+                }
+                if (File.Exists("temp\\azure.txt"))
+                {
+                    File.Delete("temp\\azure.txt");
+                }
+                if (File.Exists("temp\\ene.txt"))
+                {
+                    File.Delete("temp\\ene.txt");
+                }
+                if (File.Exists("temp\\entuser.txt"))
+                {
+                    File.Delete("temp\\entuser.txt");
+                }
+                if (File.Exists("temp\\gitversion.txt"))
+                {
+                    File.Delete("temp\\gitversion.txt");
+                }
+                if (File.Exists("temp\\hsmst.txt"))
+                {
+                    File.Delete("temp\\hsmst.txt");
+                }
+                if (File.Exists("temp\\ifp.txt"))
+                {
+                    File.Delete("temp\\ifp.txt");
+                }
+                if (File.Exists("temp\\mf.txt"))
+                {
+                    File.Delete("temp\\mf.txt");
+                }
+                if (File.Exists("temp\\model.txt"))
+                {
+                    File.Delete("temp\\model.txt");
+                }
+                if (File.Exists("temp\\os.txt"))
+                {
+                    File.Delete("temp\\os.txt");
+                }
+                if (File.Exists("temp\\pcname.txt"))
+                {
+                    File.Delete("temp\\pcname.txt");
+                }
+                if (File.Exists("temp\\rs.txt"))
+                {
+                    File.Delete("temp\\rs.txt");
+                }
+                if (File.Exists("temp\\shell.txt"))
+                {
+                    File.Delete("temp\\shell.txt");
+                }
+                if (File.Exists("temp\\username.txt"))
+                {
+                    File.Delete("temp\\username.txt");
+                }
+                if (File.Exists("azureleave.exe"))
+                {
+                    File.Delete("azureleave.exe");
+                }
+                if (File.Exists("bootim.exe"))
+                {
+                    File.Delete("bootim.exe");
+                }
+                if (File.Exists("cuaboff.exe"))
+                {
+                    File.Delete("cuaboff.exe");
+                }
+                if (File.Exists("cuabon.exe"))
+                {
+                    File.Delete("cuabon.exe");
+                }
+                if (File.Exists("delent.exe"))
+                {
+                    File.Delete("delent.exe");
+                }
+                if (File.Exists("delentf.exe"))
+                {
+                    File.Delete("delentf.exe");
+                }
+                if (File.Exists("delhismserv.exe"))
+                {
+                    File.Delete("delhismserv.exe");
+                }
+                if (File.Exists("deloem.exe"))
+                {
+                    File.Delete("deloem.exe");
+                }
+                if (File.Exists("delridf.exe"))
+                {
+                    File.Delete("delridf.exe");
+                }
+                if (File.Exists("disadmin.exe"))
+                {
+                    File.Delete("disadmin.exe");
+                }
+                if (File.Exists("dishis.exe"))
+                {
+                    File.Delete("dishis.exe");
+                }
+                if (File.Exists("enadmin.exe"))
+                {
+                    File.Delete("enadmin.exe");
+                }
+                if (File.Exists("enhis.exe"))
+                {
+                    File.Delete("enhis.exe");
+                }
+                if (File.Exists("fixti.exe"))
+                {
+                    File.Delete("fixti.exe");
+                }
+                if (File.Exists("fullsoftinfo.txt"))
+                {
+                    File.Delete("fullsoftinfo.txt");
+                }
+                if (File.Exists("fullpcinfo.txt"))
+                {
+                    File.Delete("fullpcinfo.txt");
+                }
+                if (File.Exists("getpcinfo.exe"))
+                {
+                    File.Delete("getpcinfo.exe");
+                }
+                if (File.Exists("getsoftinfo.exe"))
+                {
+                    File.Delete("getsoftinfo.exe");
+                }
+                if (File.Exists("getuserinfo.exe"))
+                {
+                    File.Delete("getuserinfo.exe");
+                }
+                if (File.Exists("langen.exe"))
+                {
+                    File.Delete("langen.exe");
+                }
+                if (File.Exists("langfr.exe"))
+                {
+                    File.Delete("langfr.exe");
+                }
+                if (File.Exists("old2new.bak"))
+                {
+                    File.Delete("old2new.bak");
+                }
+                if (File.Exists("rdti.exe"))
+                {
+                    File.Delete("rdti.exe");
+                }
+                if (File.Exists("reboot.exe"))
+                {
+                    File.Delete("reboot.exe");
+                }
+                if (File.Exists("rmdirhismgr.exe"))
+                {
+                    File.Delete("rmdirhismgr.exe");
+                }
+                if (File.Exists("shell.exe"))
+                {
+                    File.Delete("shell.exe");
+                }
+                if (File.Exists("starthis.exe"))
+                {
+                    File.Delete("starthis.exe");
+                }
+                if (File.Exists("stophis.exe"))
+                {
+                    File.Delete("stophis.exe");
+                }
+                if (File.Exists("UnowhyToolsUpdater.exe"))
+                {
+                    File.Delete("UnowhyToolsUpdater.exe");
+                }
+                if (File.Exists("utconfdel.exe"))
+                {
+                    File.Delete("utconfdel.exe");
+                }
+                if (File.Exists("utkeydel.exe"))
+                {
+                    File.Delete("utkeydel.exe");
+                }
+                if (File.Exists("version.exe"))
+                {
+                    File.Delete("version.exe");
+                }
+                if (File.Exists("winheloent.exe"))
+                {
+                    File.Delete("winheloent.exe");
+                }
+                if (File.Exists("winre.exe"))
+                {
+                    File.Delete("winre.exe");
+                }
+
+                #endregion
+
                 #region First Start
 
                 //File.WriteAllText(".\\temp\\verbose.txt", "Preparing...");
