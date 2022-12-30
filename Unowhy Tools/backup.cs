@@ -114,6 +114,7 @@ namespace Unowhy_Tools
             else
             {
                 var d = new info(getlang("space6gusb"), Properties.Resources.no);
+                d.ShowDialog();
             }
         }
     }
