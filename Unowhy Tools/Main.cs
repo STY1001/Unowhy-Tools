@@ -505,9 +505,9 @@ namespace Unowhy_Tools
                 {
                     File.Delete("langfr.exe");
                 }
-                if (File.Exists("old2new.bak"))
+                if (File.Exists("old2new"))
                 {
-                    File.Delete("old2new.bak");
+                    File.Delete("old2new");
                 }
                 if (File.Exists("rdti.exe"))
                 {
@@ -533,9 +533,9 @@ namespace Unowhy_Tools
                 {
                     File.Delete("stophis.exe");
                 }
-                if (File.Exists("UnowhyToolsUpdater.exe"))
+                if (File.Exists("Unowhy Tools Updater.exe"))
                 {
-                    File.Delete("UnowhyToolsUpdater.exe");
+                    File.Delete("Unowhy Tools Updater.exe");
                 }
                 if (File.Exists("utconfdel.exe"))
                 {
@@ -545,19 +545,22 @@ namespace Unowhy_Tools
                 {
                     File.Delete("utkeydel.exe");
                 }
-                if (File.Exists("version.exe"))
+                if (File.Exists("version.txt"))
                 {
-                    File.Delete("version.exe");
+                    File.Delete("version.txt");
                 }
-                if (File.Exists("winheloent.exe"))
+                if (File.Exists("winhelloent.exe"))
                 {
-                    File.Delete("winheloent.exe");
+                    File.Delete("winhelloent.exe");
                 }
                 if (File.Exists("winre.exe"))
                 {
                     File.Delete("winre.exe");
                 }
-
+                if (File.Exists("update.zip"))
+                {
+                    File.Delete("update.zip");
+                }
                 #endregion
 
                 #region First Start
