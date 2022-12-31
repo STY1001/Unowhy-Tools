@@ -561,6 +561,39 @@ namespace Unowhy_Tools
                 {
                     File.Delete("update.zip");
                 }
+                if (File.Exists("delhisqool.exe"))
+                {
+                    File.Delete("delhisqool.exe");
+                }
+                if (File.Exists("ene.txt"))
+                {
+                    File.Delete("ene.txt");
+                }
+                if (File.Exists("model.txt"))
+                {
+                    File.Delete("model.txt");
+                }
+                if (File.Exists("os.txt"))
+                {
+                    File.Delete("os.txt");
+                }
+                if (File.Exists("pcname.txt"))
+                {
+                    File.Delete("pcname.txt");
+                }
+                if (File.Exists("tversion.txt"))
+                {
+                    File.Delete("tversion.txt");
+                }
+                if (File.Exists("username.txt"))
+                {
+                    File.Delete("username.txt");
+                }
+                /*if (File.Exists(""))
+                {
+                    File.Delete("");
+                }*/
+
                 #endregion
 
                 #region First Start
