@@ -137,6 +137,7 @@ namespace Unowhy_Tools_Installer
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7z.dll", "Files", "7z.dll");
             statusbar.Value = 20;
             TaskbarManager.Instance.SetProgressValue(20, 100);
+            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip", "Files", "install.zip");
             statusbar.Value = 25;
             TaskbarManager.Instance.SetProgressValue(25, 100);
             statusbar.Value = 30;
@@ -151,7 +152,6 @@ namespace Unowhy_Tools_Installer
             TaskbarManager.Instance.SetProgressValue(50, 100);
             statusbar.Value = 55;
             TaskbarManager.Instance.SetProgressValue(55, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip", "Files", "install.zip");
             statusbar.Value = 60;
             TaskbarManager.Instance.SetProgressValue(60, 100);
 
