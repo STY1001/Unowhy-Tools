@@ -250,8 +250,8 @@ namespace Unowhy_Tools_Installer
             statusbar.Value = 100;
             TaskbarManager.Instance.SetProgressValue(100, 100);
             status.Text = "Finished !";
-            run.Visible = true;
-            pictureBox3.Visible = true;
+            //run.Visible = true;
+            //pictureBox3.Visible = true;
             ok.Visible = true;
             pictureBox6.Visible = true;
             
@@ -299,13 +299,13 @@ namespace Unowhy_Tools_Installer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (run.Checked == true)
+            /*if (run.Checked == true)
             {
                 Process p = new Process();
                 p.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools.exe";
                 p.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools";
                 p.Start();
-            }
+            }*/
 
             delay(100);
 
