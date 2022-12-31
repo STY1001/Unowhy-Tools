@@ -589,10 +589,10 @@ namespace Unowhy_Tools
                 {
                     File.Delete("username.txt");
                 }
-                /*if (File.Exists(""))
+                if (File.Exists("clog.html"))
                 {
-                    File.Delete("");
-                }*/
+                    File.Delete("clog.html");
+                }
 
                 #endregion
 
