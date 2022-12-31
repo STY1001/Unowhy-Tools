@@ -141,7 +141,6 @@ namespace Unowhy_Tools_Installer
             TaskbarManager.Instance.SetProgressValue(25, 100);
             statusbar.Value = 30;
             TaskbarManager.Instance.SetProgressValue(30, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\uninstall.exe", "Files", "uninstall.exe");
             statusbar.Value = 35;
             TaskbarManager.Instance.SetProgressValue(35, 100);
             statusbar.Value = 40;
