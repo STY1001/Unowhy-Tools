@@ -734,13 +734,6 @@ namespace Unowhy_Tools
                                 s.ShowDialog();
                                 splashstatus.open();
                             }
-                            else if(gitint < progint)
-                            {
-                                splashstatus.close();
-                                var d = new info("This is a pre-release", Properties.Resources.yes);
-                                d.ShowDialog();
-                                splashstatus.open();
-                            }
                         }
                     }
                 }
