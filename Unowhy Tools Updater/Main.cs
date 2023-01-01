@@ -83,10 +83,6 @@ namespace Unowhy_Tools_Updater
             
             delay(3000);
 
-            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Uninstall/uninstall.exe", ".\\uninstall.exe");
-
-            delay(500);
-
             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7zip.exe", ".\\7zip.exe");
 
             delay(500);
