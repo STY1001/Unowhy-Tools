@@ -393,8 +393,12 @@
     <EmbeddedResource Include="changelog.resx">
       <DependentUpon>changelog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lang\en.resx" />
-    <EmbeddedResource Include="Lang\fr.resx" />
+    <EmbeddedResource Include="Lang\en.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\fr.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="restore.resx">
       <DependentUpon>restore.cs</DependentUpon>
     </EmbeddedResource>
@@ -509,11 +513,13 @@
     <Content Include="Resources\adduser.ico" />
     <Content Include="Resources\admin.ico" />
     <Content Include="Resources\adminuser.ico" />
+    <None Include="Resources\azgar.gif" />
     <Content Include="Resources\azure.ico" />
     <None Include="Resources\cmd.png" />
     <None Include="Resources\clouddl.png" />
     <None Include="Resources\boot.png" />
     <None Include="Resources\convert.png" />
+    <None Include="Resources\cs.png" />
     <Content Include="Resources\customize.ico" />
     <Content Include="Resources\datamatrix.ico" />
     <Content Include="Resources\delete.ico" />
@@ -522,10 +528,12 @@
     <None Include="Resources\drivers.png" />
     <None Include="Resources\download.png" />
     <None Include="Resources\dism.png" />
+    <None Include="Resources\discord.png" />
     <Content Include="Resources\enable.ico" />
     <None Include="Resources\explorer.png" />
     <Content Include="Resources\folder.ico" />
     <None Include="Resources\fp.png" />
+    <None Include="Resources\g9.png" />
     <Content Include="Resources\github.ico" />
     <None Include="Resources\ic.png" />
     <None Include="Resources\guide.png" />
@@ -536,6 +544,7 @@
     <Content Include="Resources\language.ico" />
     <Content Include="Resources\laptop.ico" />
     <None Include="Resources\manufacturer.png" />
+    <None Include="Resources\Logo STY1001 V7 Carre.png" />
     <Content Include="Resources\manufacturer.ico" />
     <Content Include="Resources\no.ico" />
     <Content Include="Resources\noupdate.ico" />
@@ -574,6 +583,7 @@
     <None Include="Resources\upload.png" />
     <Content Include="Resources\user.ico" />
     <None Include="Resources\UTLogoWhite2.0.png" />
+    <None Include="Resources\vs.png" />
     <Content Include="Resources\wait.ico" />
     <Content Include="Resources\win10.ico" />
     <Content Include="Resources\win11.ico" />
