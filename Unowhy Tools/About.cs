@@ -13,6 +13,7 @@ using System.Resources;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
 using Unowhy_Tools.Properties;
+using static Unowhy_Tools.UTclass;
 
 namespace Unowhy_Tools
 {
@@ -36,18 +37,8 @@ namespace Unowhy_Tools
 
         public About()
         {
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-
-            if (utls == "EN") resxFile = @".\en.resx";
-            else resxFile = @".\fr.resx";
-
-            InitializeComponent();
-
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-
-            update.Text = resxSet.GetString("udcheck");
-            this.Text = resxSet.GetString("about");
+            update.Text = getlang("udcheck");
+            this.Text = getlang("about");
 
             string ver = Unowhy_Tools.Properties.Resources.Version.ToString() + Environment.NewLine + Unowhy_Tools.Properties.Resources.Debug.ToString();
             aver.Text = ver;
