@@ -783,8 +783,6 @@ namespace Unowhy_Tools
             splashstatus.close();
         }
 
-        #region Custom Function
-
         #region Lang System
 
         //Lang System
@@ -837,7 +835,7 @@ namespace Unowhy_Tools
 
         #endregion
 
-        #region Other Func
+        #region Custom Func
 
         public void userid(string iduserpath)
         {
@@ -1230,8 +1228,6 @@ namespace Unowhy_Tools
 
             new_check();
         }
-
-        #endregion
 
         #endregion
 
