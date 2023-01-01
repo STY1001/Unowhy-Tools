@@ -3,12 +3,12 @@
 
 # A tool for Unowhy Y13 computers !
 
-*Unowhy Tools and STY1001 are __NOT__ affiliate with Unowhy !*
+*Unowhy Tools and STY1001 are __NOT__ affiliated with Unowhy !*
 #### _**This in French : https://sty1001.cf/unowhy-tools/**_
 
 ## Features
-Currently, with this tools you can:
-- Enable/Disable/Stop/Start "HiSqool Manager" service
+Currently, with this tool you can:
+- Enable/Disable/Stop/Start the "HiSqool Manager" service
 - Delete the local "ENT" account
 - Restore the "Shell" value to "explorer.exe" in the registery
 - Uninstall "HiSqool" and delete "HiSqool Manager" service and folder
@@ -28,23 +28,23 @@ Currently, with this tools you can:
 - Enable/Disable/Repair Winre (reagentc)
 - Enable Windows Hello Enterprise
 - Repair BootIM (Blue Menu)
-- Launch quickly CMD, TaskMgr, REGedit, GPedit
-- Download a UT drivers backup from cloud
+- Quickly launch CMD, TaskMgr, REGedit, GPedit
+- Download an UT driver backup from cloud
 
-More features come soon
+More features coming soon
 
 ## How to use
-### You need admin privilege
+### You need admin privileges
 1. Go to [releases](https://github.com/STY1001/Unowhy-Tools/releases/latest) and download "Unowhy Tools x.0 Setup.exe"
 2. Launch and install "Unowhy Tools Setup"
 3. When it's installed, launch "Unowhy Tools"
 4. Use "Unowhy Tools" as you want
 
 ## "Presentation" Mode
-This is a mode for me to make screenshot of UT.
-You can enable "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
+This is a mode for me to make screenshots of UT.
+You can enable the "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
 
-## Screenshot
+## Screenshots
 
 18.0
 

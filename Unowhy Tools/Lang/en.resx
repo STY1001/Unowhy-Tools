@@ -124,7 +124,7 @@
     <value>About</value>
   </data>
   <data name="adduser" xml:space="preserve">
-    <value>Create a new local user (acccount)</value>
+    <value>Create a new local user acccount</value>
   </data>
   <data name="admin" xml:space="preserve">
     <value>Set this account as admin</value>
@@ -139,7 +139,7 @@
     <value>Actual name</value>
   </data>
   <data name="avert" xml:space="preserve">
-    <value>The name must be composed of alphanumeric characters (dashes allowed) between 2 and 15 characters but without specials characters and space</value>
+    <value>The name must be composed of alphanumeric characters (dashes allowed) between 2 and 15 characters but without specials characters and spaces</value>
   </data>
   <data name="back" xml:space="preserve">
     <value>Backup drivers</value>
@@ -166,7 +166,7 @@
     <value>The backup failed, use DISM</value>
   </data>
   <data name="bootim" xml:space="preserve">
-    <value>Repair BootIM (blue menu)</value>
+    <value>Repair BootIM (Blue menu)</value>
   </data>
   <data name="browse" xml:space="preserve">
     <value>Browse</value>
@@ -187,13 +187,13 @@
     <value>Convert a backup</value>
   </data>
   <data name="conv.nout" xml:space="preserve">
-    <value>This is not an UT drivers backup</value>
+    <value>This is not an UT driver backup</value>
   </data>
   <data name="convdesc" xml:space="preserve">
     <value>Convert an old backup (&lt;18.0) to the new format</value>
   </data>
   <data name="cuab" xml:space="preserve">
-    <value>Check update at startup</value>
+    <value>Check for updates at startup</value>
   </data>
   <data name="cuscat" xml:space="preserve">
     <value>↓ Customize ↓</value>
@@ -232,13 +232,13 @@
     <value>Set this account as local admin. With this, you can accept admin rights by clicking "Yes" without entering ".\administrateur"</value>
   </data>
   <data name="descadminset" xml:space="preserve">
-    <value>Manage the built-in ".\administrator" account. Don't disable the admin account if you don't have an other account as admin ! So before, create a local account as admin or set this account as admin</value>
+    <value>Manage the built-in ".\administrateur" account. Don't disable the admin account if you don't have an other account as admin ! So before, create a local account as admin or set this account as admin</value>
   </data>
   <data name="descbcdfail" xml:space="preserve">
     <value>Remove "IgnoreAllFailures" (BootStatusPolicy) in BCD, to re-enable blue screen "Recovery" (Not WinRE/BootIM) and diagnostics ("Please wait") in case of boot issue, also allows to boot with a different behavior ( Safe Mode, Low Resolution, and more)</value>
   </data>
   <data name="descbkcloud" xml:space="preserve">
-    <value>Download a Unowhy Tools drivers backup from cloud made by another user. If you have an driver issue and if you haven't made a backup of your drivers, you can try to restore a cloud backup, use the guide to learn more about this method</value>
+    <value>Download a Unowhy Tools driver backup from cloud made by another user. If you have an driver issue and if you haven't made a backup of your drivers, you can try to restore a cloud backup, use the guide to learn more about this method</value>
   </data>
   <data name="descbootim" xml:space="preserve">
     <value>Repair BootIM (Boot Immersive Menu) (Blue Menu). Unowhy deployed a patch to disable bootim.exe, via bootim.exe redirection. If you want to boot from a USB device with a 2022 Y13, do this</value>
@@ -250,7 +250,7 @@
     <value>Delete the first logon script, start menu icons and wallpapers (In : C:\Windows\System32)</value>
   </data>
   <data name="descdismbr" xml:space="preserve">
-    <value>This tools is currently in test (in beta) but probably work. Backup and Restore drivers with DISM. Allways, make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers by the way of DISM commands with user friendly GUI</value>
+    <value>This tools is currently in test (in beta) but probably work. Backup and Restore drivers with DISM. Always make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers with DISM commands from a user friendly GUI</value>
   </data>
   <data name="descent" xml:space="preserve">
     <value>Delete "ENT" local account. This the account to configure your "ENT" account</value>
@@ -271,7 +271,7 @@
     <value>Change the name of this PC (NETBIOS). By default, the Windows PC name of the Y13 is the serial number (IFP...)</value>
   </data>
   <data name="descpsbr" xml:space="preserve">
-    <value>!!! Warning: For some PCs powershell backup does not work, use DISM backup instead !!! This tools is currently in test (in beta) but probably work. Backup and Restore drivers with PowerShell. Allways, make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers by the way of Power Shell commands with user friendly GUI</value>
+    <value>!!! Warning: For some PCs powershell backup does not work, use DISM backup instead !!! This tools is currently in test (in beta) but probably work. Backup and Restore drivers with PowerShell. Always, make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers by the way of Power Shell commands with user friendly GUI</value>
   </data>
   <data name="descridf" xml:space="preserve">
     <value>Delete the first logon script and video folder (In : C:\ProgramData)</value>
@@ -286,7 +286,7 @@
     <value>Delete school's texbooks installers folder (In : C:\Program Data\Unowhy)</value>
   </data>
   <data name="descwinre" xml:space="preserve">
-    <value>Do this if you want to reset Windows. Unowhy has deployed a patch to disable Windows Recovery Environment (to disable reset). For some users, the activation will failled, in this case, Unowhy Tools will suggest you to repair the problem by downloading WinRE image</value>
+    <value>Do this if you want to reset Windows. Unowhy has deployed a patch to disable Windows Recovery Environment (to disable reset). For some users, the activation will fail, in this case, you should be able to repair the problem by downloading a WinRE image</value>
   </data>
   <data name="disable" xml:space="preserve">
     <value>Disable</value>
@@ -391,7 +391,7 @@
     <value>Password</value>
   </data>
   <data name="pcinfo" xml:space="preserve">
-    <value>Sytem Info</value>
+    <value>System Info</value>
   </data>
   <data name="pcn" xml:space="preserve">
     <value>Windows PC Name</value>
@@ -457,7 +457,7 @@
     <value>Stop "HiSqoolManager" service</value>
   </data>
   <data name="udcheck" xml:space="preserve">
-    <value>Check for update</value>
+    <value>Check for updates</value>
   </data>
   <data name="unow" xml:space="preserve">
     <value>Update now</value>
