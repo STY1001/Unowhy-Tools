@@ -112,5 +112,15 @@ namespace Unowhy_Tools
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void discord_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://discord.com/invite/dw3ZJ9u7WS");
+        }
     }
 }
