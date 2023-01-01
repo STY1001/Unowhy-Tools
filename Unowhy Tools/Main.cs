@@ -829,7 +829,7 @@ namespace Unowhy_Tools
             bootim.Text = getlang("bootim");
             bcdfail.Text = getlang("bcdfail");
             bkcloud.Text = getlang("bkcloud");
-            string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
+            string ver = Unowhy_Tools.Properties.Resources.Version.ToString() + Environment.NewLine + Unowhy_Tools.Properties.Resources.Debug.ToString();
             version.Text = ver;
         }
 
