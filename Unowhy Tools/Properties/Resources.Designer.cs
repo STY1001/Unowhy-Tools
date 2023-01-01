@@ -171,6 +171,15 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (Debug).
+        /// </summary>
+        internal static string Debug {
+            get {
+                return ResourceManager.GetString("Debug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap delete {
