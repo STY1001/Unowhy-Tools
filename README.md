@@ -27,7 +27,7 @@ Currently, with this tool you can:
 - Backup and Restore drivers (powered by DISM)
 - Enable/Disable/Repair Winre (reagentc)
 - Enable Windows Hello Enterprise
-- Repair BootIM (Recovery Menu)
+- Repair BootIM (Blue Menu)
 - Quickly launch CMD, TaskMgr, REGedit, GPedit
 - Download an UT driver backup from cloud
 
