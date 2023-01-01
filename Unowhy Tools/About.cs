@@ -49,7 +49,7 @@ namespace Unowhy_Tools
             update.Text = resxSet.GetString("udcheck");
             this.Text = resxSet.GetString("about");
 
-            string ver = Unowhy_Tools.Properties.Resources.Version.ToString();
+            string ver = Unowhy_Tools.Properties.Resources.Version.ToString() + Environment.NewLine + Unowhy_Tools.Properties.Resources.Debug.ToString();
             aver.Text = ver;
         }
 
