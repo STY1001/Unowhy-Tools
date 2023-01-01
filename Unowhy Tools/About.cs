@@ -37,6 +37,8 @@ namespace Unowhy_Tools
 
         public About()
         {
+            InitializeComponent();
+
             update.Text = getlang("udcheck");
             this.Text = getlang("about");
 
