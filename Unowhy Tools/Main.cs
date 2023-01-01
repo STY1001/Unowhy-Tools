@@ -593,6 +593,14 @@ namespace Unowhy_Tools
                 {
                     File.Delete("clog.html");
                 }
+                if (File.Exists("fr.resx"))
+                {
+                    File.Delete("fr.resx");
+                }
+                if (File.Exists("en.resx"))
+                {
+                    File.Delete("en.resx");
+                }
 
                 #endregion
 
