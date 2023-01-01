@@ -1061,7 +1061,7 @@ namespace Unowhy_Tools
 
             Write2Log("=== Win Hello Ent ===");
             RegistryKey whe1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork");
-            RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
+            //RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
             RegistryKey whe3 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock");
             if (whe1 == null || /*whe2 == null ||*/ whe3 == null)
             {
@@ -1099,10 +1099,10 @@ namespace Unowhy_Tools
             {
                 whe1.Close();
             }
-            if (whe2 != null)
+            /*if (whe2 != null)
             {
                 whe2.Close();
-            }
+            }*/
             if (whe3 != null)
             {
                 whe3.Close();
