@@ -152,8 +152,8 @@ namespace Unowhy_Tools
             string resxFile;
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
-            string enresx = @".\en.resx";
-            string frresx = @".\fr.resx";
+            string enresx = @".\lang\en.resx";
+            string frresx = @".\lang\fr.resx";
             //Chose the ResX file
             if (utls == "EN") resxFile = enresx;    //English   
             else resxFile = frresx;               //French

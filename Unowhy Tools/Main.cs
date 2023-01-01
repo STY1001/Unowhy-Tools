@@ -697,13 +697,13 @@ namespace Unowhy_Tools
                         }
                         else
                         {
-                            if (File.Exists(".\\fr.resx"))    //Check if the file exist
+                            if (File.Exists(".\\lang\\fr.resx"))    //Check if the file exist
                             {
-                                File.Delete(".\\fr.resx");    //Delete it if exist
+                                File.Delete(".\\lang\\fr.resx");    //Delete it if exist
                             }
-                            if (File.Exists(".\\en.resx"))    //Check if the file exist
+                            if (File.Exists(".\\lang\\en.resx"))    //Check if the file exist
                             {
-                                File.Delete(".\\en.resx");    //Delete it if exist
+                                File.Delete(".\\lang\\en.resx");    //Delete it if exist
                             }
 
                             string gitver;
@@ -712,16 +712,9 @@ namespace Unowhy_Tools
                             using (var client = new WebClient())
                             {
                                 gitver = client.DownloadString("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Version.txt");
-                                if (!File.Exists("debug"))
-                                {
-                                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/fr.resx", ".\\fr.resx");         //Update Languages
-                                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/en.resx", ".\\en.resx");         //Update Languages
-                                }
-                                else
-                                {
-                                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\fr.resx");         //Update Languages
-                                    client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\en.resx");         //Update Languages
-                                }
+                                
+                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/fr.resx", ".\\lang\\fr.resx");         //Update Languages
+                                client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools/Lang/en.resx", ".\\lang\\en.resx");         //Update Languages
                             }
 
                             int gitint = Convert.ToInt32(gitver);       //Convert string to int
