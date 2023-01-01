@@ -1060,9 +1060,11 @@ namespace Unowhy_Tools
             #region Windows Hello Enterprise
 
             Write2Log("=== Win Hello Ent ===");
+            Write2Log("Open Key");
             RegistryKey whe1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork");
             //RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
             RegistryKey whe3 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock");
+            Write2Log("Open Key End");
             if (whe1 == null || /*whe2 == null ||*/ whe3 == null)
             {
                 ebtn(enwhe);
@@ -1070,11 +1072,13 @@ namespace Unowhy_Tools
             }
             else
             {
+                Write2Log("Open Val");
                 string val5 = whe3.GetValue("DynamicLock").ToString();
                 //string val2 = whe2.GetValue("Domain Accounts").ToString();
                 string val1 = whe1.GetValue("Enabled").ToString();
                 string val3 = whe1.GetValue("RequireSecurityDevice").ToString();
                 //string val4 = whe1.GetValue("UseCertificateForOnPremAuth").ToString();
+                Write2Log("Open Val End");
 
                 if (val1 == null || val3 == null || val5 == null)
                 {
@@ -1083,6 +1087,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
+                    Write2Log("Read Val");
                     if (val1.Contains("1") && /*val2.Contains("1") &&*/ val3.Contains("1") && /*val4.Contains("1") &&*/ val5.Contains("1"))
                     {
                         dbtn(enwhe);
@@ -1093,6 +1098,7 @@ namespace Unowhy_Tools
                         ebtn(enwhe);
                         Write2Log("WHE Not OK");
                     }
+                    Write2Log("Read Val End");
                 }
             }
             if(whe1 != null)
