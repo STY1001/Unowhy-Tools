@@ -1073,10 +1073,10 @@ namespace Unowhy_Tools
             else
             {
                 Write2Log("Open Val");
-                string val5 = whe3.GetValue("DynamicLock").ToString();
-                //string val2 = whe2.GetValue("Domain Accounts").ToString();
-                string val1 = whe1.GetValue("Enabled").ToString();
-                string val3 = whe1.GetValue("RequireSecurityDevice").ToString();
+                var val5 = whe3.GetValue("DynamicLock");
+                //string val2 = whe2.GetValue("Domain Accounts");
+                var val1 = whe1.GetValue("Enabled");
+                var val3 = whe1.GetValue("RequireSecurityDevice");
                 //string val4 = whe1.GetValue("UseCertificateForOnPremAuth").ToString();
                 Write2Log("Open Val End");
 
@@ -1087,8 +1087,11 @@ namespace Unowhy_Tools
                 }
                 else
                 {
+                    string val21 = val1.ToString();
+                    string val23 = val3.ToString();
+                    string val25 = val5.ToString();
                     Write2Log("Read Val");
-                    if (val1.Contains("1") && /*val2.Contains("1") &&*/ val3.Contains("1") && /*val4.Contains("1") &&*/ val5.Contains("1"))
+                    if (val21.Contains("1") && /*val2.Contains("1") &&*/ val23.Contains("1") && /*val4.Contains("1") &&*/ val25.Contains("1"))
                     {
                         dbtn(enwhe);
                         Write2Log("WHE OK");
