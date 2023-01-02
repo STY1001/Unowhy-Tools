@@ -264,7 +264,7 @@
     </Compile>
     <None Include="app.manifest" />
     <EmbeddedResource Include="Files\Unowhy Tools.lnk" />
-    <None Include="Files\install.zip" />
+    <EmbeddedResource Include="Files\install.zip" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
