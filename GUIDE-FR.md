@@ -4,6 +4,7 @@
 [Sauvegarder et Restorer les pilotes](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#sauvegarder-et-restorer-les-pilotes)  
 > [Sauvegarder](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#sauvgarder)  
 > [Restorer a partir d'une sauvegarde personnel](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#restorer-a-partir-dune-sauvegarde-personnel)  
+> [Convertir un ancienne sauv. vers le nouveau format](https://github.com/STY1001/Unowhy-Tools/edit/master/GUIDE-FR.md#convertir-une-ancienne-sauvegarde-dans-le-nouveau-format)  
 > [Restorer a partir d'une sauvgarde recuperé en ligne (faite par une autre personne genereuse)](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md##restorer-a-partir-dune-sauvgarde-recuper%C3%A9-en-ligne-faite-par-une-autre-personne-genereuse)  
   
 ## Sauvegarder et Restorer les pilotes
@@ -17,7 +18,7 @@
 >![image](https://user-images.githubusercontent.com/57889852/210242803-ca9de747-8f8b-45a6-85fe-f9fa30a3699a.png)
 >4. Cliquez sur "Explorer" et séléctionnez l'enplacement de votre future sauvegarde  
 >![image](https://user-images.githubusercontent.com/57889852/210245373-3cfbdd23-96af-4189-819e-27392dc63996.png)
->5. Si le dossier a bien été selectinné, il y aura marqué "UT-...-Drv_HH-MM_JJ-MM-AAAA", cliquez sur "Sauv."
+>5. Si le dossier a bien été selectinné, il y aura marqué "UT-...-Drv_HH-MM_JJ-MM-AAAA.zip", cliquez sur "Sauv."
 >![image](https://user-images.githubusercontent.com/57889852/210246295-dd0657c0-adf3-4717-a4ca-9dec4d6be8f8.png)
 >6. Patientez que la sauvegarde finisse (que la fenetre "Veuillez patienter" se ferme automatiquement)  
 >![image](https://user-images.githubusercontent.com/57889852/197404624-aaa5c19a-527e-44e8-a8c9-198b9bfa4fd2.png)
@@ -27,16 +28,16 @@
 
 ___
 ### Restorer a partir d'une sauvegarde personnel:
->1. Ouvrez Unowhy Tools
+>1. Ouvrez Unowhy Tools  
 >![image](https://user-images.githubusercontent.com/57889852/210237547-7a6d970f-72ba-4302-9af9-63b5833c17c6.png)
->2. Cliquez sur l'un des 2 choix selon votre sauvegarde (meme si cela revien a la meme chose)  
->![image](https://user-images.githubusercontent.com/57889852/197388473-38eef5f4-40e9-4edb-850a-ddda5d1cd1c5.png)
->3. Cliquez sur "Explorer" dans la partie "Restorer"(en bas)  
->![image](https://user-images.githubusercontent.com/57889852/197414023-6501c509-921d-4737-ba83-debe89688d4c.png)
->4. Selectionnez l'emplacement de votre sauvegarde (selectionnez le dossier UT-...-Drv_HH-MM_JJ-MM-AAAA) puis cliquez sur "OK"
->![image](https://user-images.githubusercontent.com/57889852/197415962-e924719b-f922-47eb-b111-6812808be2d2.png)
->5. Si le dossier a bien été selectinné, il y aura marqué "UT-...-Drv_HH-MM_JJ-MM-AAAA\UT-Restore.exe", cliquez sur "Rest."  
->![image](https://user-images.githubusercontent.com/57889852/197416224-c7a728de-b32f-479f-a65d-1c14af9de475.png)
+>2. Cliquez sur "Restaurer les pilotes"  
+>![image](https://user-images.githubusercontent.com/57889852/210255749-2492c51f-f14c-4bb2-b304-94a9f53c2e41.png)
+>3. Cliquez sur "Explorer" 
+>![image](https://user-images.githubusercontent.com/57889852/210256713-f9f9864d-9c8a-4c9d-a2fd-8c8babf1de8b.png)
+>4. Selectionnez l'emplacement de votre sauvegarde
+>![image](https://user-images.githubusercontent.com/57889852/210256804-6107541b-03de-47ba-863d-af99da8de51e.png)
+>5. Si le dossier a bien été selectinné, il y aura marqué "UT-...-Drv_HH-MM_JJ-MM-AAAA.zip", cliquez sur "Rest."  
+>![image](https://user-images.githubusercontent.com/57889852/210256949-771bc83d-dccc-4f2d-9992-8b31192114c9.png)
 >6. Patientez que la restoration finisse (que la fenetre "Veuillez patienter" se ferme automatiquement)  
 >![image](https://user-images.githubusercontent.com/57889852/197404624-aaa5c19a-527e-44e8-a8c9-198b9bfa4fd2.png)
 >7. Une fois la restoration terminé, Unowhy Tools vous demandera de redemarrer votre PC donc cliquez sur "Redemarrer", si le PC ne redemarre pas, redemmarer le manuelement (Important, ne pas eteindre puis rallumer, redemarrer uniquement)  
