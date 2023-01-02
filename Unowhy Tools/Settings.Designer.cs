@@ -224,7 +224,7 @@ namespace Unowhy_Tools
             this.logopen.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.logopen.Size = new System.Drawing.Size(98, 20);
             this.logopen.TabIndex = 5;
-            this.logopen.Text = "Cleanup";
+            this.logopen.Text = "Open";
             this.logopen.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // Settings
