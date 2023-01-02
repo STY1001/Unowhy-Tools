@@ -30,6 +30,7 @@ Currently, with this tool you can:
 - Repair BootIM (Blue Menu)
 - Quickly launch CMD, TaskMgr, REGedit, GPedit
 - Download an UT driver backup from cloud
+- Del "IgnoreAllFailures" (Boot Status Policy) in BCD
 
 More features coming soon
 
