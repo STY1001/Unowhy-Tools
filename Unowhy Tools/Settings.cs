@@ -41,8 +41,16 @@ namespace Unowhy_Tools
 
             InitializeComponent();
 
+            string fp = Path.GetTempPath() + "\\UT_Logs.txt";
+            FileInfo fi = new FileInfo(fp);
+            string size;
+            if (fi.Length > 1000000) size = (fi.Length / 1000000).ToString() + " MB";
+            else size = (fi.Length / 1000).ToString() + " KB";
+
             this.Text = getlang("settings");
             cbupdate.Text = getlang("cuab");
+            loglab.Text = getlang("logsclean");
+            clean.Text = getlang("clean") + " (" + size + ")";
 
             RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utlst = lcs.GetValue("Lang").ToString();
@@ -115,6 +123,17 @@ namespace Unowhy_Tools
         private void cbupdate_CheckedChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void clean_Click(object sender, EventArgs e)
+        {
+            string fp = Path.GetTempPath() + "\\UT_Logs.txt";
+            File.Create(fp).Close();
+            FileInfo fi = new FileInfo(fp);
+            string size;
+            if (fi.Length > 1000000) size = (fi.Length / 1000000).ToString() + " MB";
+            else size = (fi.Length / 1000).ToString() + "KB";
+            clean.Text = getlang("clean") + " (" + size + ")";
         }
     }
 }

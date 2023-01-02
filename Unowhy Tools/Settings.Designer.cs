@@ -38,10 +38,14 @@ namespace Unowhy_Tools
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.okbtn = new ReaLTaiizor.Controls.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.clean = new ReaLTaiizor.Controls.Button();
+            this.loglab = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // langlab
@@ -75,7 +79,7 @@ namespace Unowhy_Tools
             this.cbupdate.AutoSize = true;
             this.cbupdate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbupdate.ForeColor = System.Drawing.Color.White;
-            this.cbupdate.Location = new System.Drawing.Point(35, 45);
+            this.cbupdate.Location = new System.Drawing.Point(31, 44);
             this.cbupdate.Name = "cbupdate";
             this.cbupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cbupdate.Size = new System.Drawing.Size(150, 17);
@@ -117,7 +121,7 @@ namespace Unowhy_Tools
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox4.Location = new System.Drawing.Point(141, 73);
+            this.pictureBox4.Location = new System.Drawing.Point(144, 107);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(20, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -133,7 +137,7 @@ namespace Unowhy_Tools
             this.okbtn.Image = null;
             this.okbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.okbtn.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.okbtn.Location = new System.Drawing.Point(162, 72);
+            this.okbtn.Location = new System.Drawing.Point(165, 106);
             this.okbtn.Name = "okbtn";
             this.okbtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.okbtn.Size = new System.Drawing.Size(72, 23);
@@ -142,19 +146,61 @@ namespace Unowhy_Tools
             this.okbtn.TextAlignment = System.Drawing.StringAlignment.Center;
             this.okbtn.Click += new System.EventHandler(this.okbtn_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Unowhy_Tools.Properties.Resources.script;
+            this.pictureBox5.Location = new System.Drawing.Point(10, 75);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 4;
+            this.pictureBox5.TabStop = false;
+            // 
+            // clean
+            // 
+            this.clean.BackColor = System.Drawing.Color.Transparent;
+            this.clean.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clean.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.clean.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clean.Image = null;
+            this.clean.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clean.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.clean.Location = new System.Drawing.Point(126, 75);
+            this.clean.Name = "clean";
+            this.clean.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.clean.Size = new System.Drawing.Size(98, 20);
+            this.clean.TabIndex = 5;
+            this.clean.Text = "Cleanup";
+            this.clean.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.clean.Click += new System.EventHandler(this.clean_Click);
+            // 
+            // loglab
+            // 
+            this.loglab.AutoSize = true;
+            this.loglab.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loglab.ForeColor = System.Drawing.Color.White;
+            this.loglab.Location = new System.Drawing.Point(33, 78);
+            this.loglab.Name = "loglab";
+            this.loglab.Size = new System.Drawing.Size(75, 13);
+            this.loglab.TabIndex = 0;
+            this.loglab.Text = "Cleanup logs";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(238, 99);
+            this.ClientSize = new System.Drawing.Size(238, 130);
+            this.Controls.Add(this.clean);
             this.Controls.Add(this.okbtn);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbupdate);
             this.Controls.Add(this.langsel);
+            this.Controls.Add(this.loglab);
             this.Controls.Add(this.langlab);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -169,6 +215,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +231,8 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private ReaLTaiizor.Controls.Button okbtn;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private ReaLTaiizor.Controls.Button clean;
+        private System.Windows.Forms.Label loglab;
     }
 }
