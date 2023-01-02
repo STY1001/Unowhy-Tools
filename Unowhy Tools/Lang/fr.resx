@@ -351,6 +351,9 @@
   <data name="logsclean" xml:space="preserve">
     <value>Nettoyer les logs</value>
   </data>
+  <data name="logsopen" xml:space="preserve">
+    <value>Ouvrir les logs</value>
+  </data>
   <data name="mfm" xml:space="preserve">
     <value>Fabricant / Modèle</value>
   </data>
@@ -377,6 +380,9 @@
   </data>
   <data name="old" xml:space="preserve">
     <value>Vieille</value>
+  </data>
+  <data name="open" xml:space="preserve">
+    <value>Ouvrir</value>
   </data>
   <data name="opencmd" xml:space="preserve">
     <value>Ouvrir CMD</value>
