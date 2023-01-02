@@ -51,6 +51,8 @@ namespace Unowhy_Tools
             cbupdate.Text = getlang("cuab");
             loglab.Text = getlang("logsclean");
             clean.Text = getlang("clean") + " (" + size + ")";
+            logopen.Text = getlang("open");
+            log2lab.Text = getlang("logsopen");
 
             RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utlst = lcs.GetValue("Lang").ToString();

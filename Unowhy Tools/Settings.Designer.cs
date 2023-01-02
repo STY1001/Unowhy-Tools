@@ -41,11 +41,15 @@ namespace Unowhy_Tools
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.clean = new ReaLTaiizor.Controls.Button();
             this.loglab = new System.Windows.Forms.Label();
+            this.log2lab = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.logopen = new ReaLTaiizor.Controls.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // langlab
@@ -79,7 +83,7 @@ namespace Unowhy_Tools
             this.cbupdate.AutoSize = true;
             this.cbupdate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbupdate.ForeColor = System.Drawing.Color.White;
-            this.cbupdate.Location = new System.Drawing.Point(31, 44);
+            this.cbupdate.Location = new System.Drawing.Point(31, 42);
             this.cbupdate.Name = "cbupdate";
             this.cbupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cbupdate.Size = new System.Drawing.Size(150, 17);
@@ -101,7 +105,7 @@ namespace Unowhy_Tools
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Unowhy_Tools.Properties.Resources.update;
-            this.pictureBox2.Location = new System.Drawing.Point(10, 42);
+            this.pictureBox2.Location = new System.Drawing.Point(10, 40);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -111,7 +115,7 @@ namespace Unowhy_Tools
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Unowhy_Tools.Properties.Resources.startup;
-            this.pictureBox3.Location = new System.Drawing.Point(15, 47);
+            this.pictureBox3.Location = new System.Drawing.Point(15, 45);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(10, 10);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -121,7 +125,7 @@ namespace Unowhy_Tools
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Unowhy_Tools.Properties.Resources.yes;
-            this.pictureBox4.Location = new System.Drawing.Point(144, 107);
+            this.pictureBox4.Location = new System.Drawing.Point(144, 145);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(20, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -137,7 +141,7 @@ namespace Unowhy_Tools
             this.okbtn.Image = null;
             this.okbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.okbtn.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.okbtn.Location = new System.Drawing.Point(165, 106);
+            this.okbtn.Location = new System.Drawing.Point(165, 143);
             this.okbtn.Name = "okbtn";
             this.okbtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.okbtn.Size = new System.Drawing.Size(72, 23);
@@ -148,8 +152,8 @@ namespace Unowhy_Tools
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Unowhy_Tools.Properties.Resources.script;
-            this.pictureBox5.Location = new System.Drawing.Point(10, 75);
+            this.pictureBox5.Image = global::Unowhy_Tools.Properties.Resources.delete;
+            this.pictureBox5.Location = new System.Drawing.Point(10, 69);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(20, 20);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -165,7 +169,7 @@ namespace Unowhy_Tools
             this.clean.Image = null;
             this.clean.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.clean.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.clean.Location = new System.Drawing.Point(126, 75);
+            this.clean.Location = new System.Drawing.Point(126, 69);
             this.clean.Name = "clean";
             this.clean.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.clean.Size = new System.Drawing.Size(98, 20);
@@ -179,26 +183,67 @@ namespace Unowhy_Tools
             this.loglab.AutoSize = true;
             this.loglab.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loglab.ForeColor = System.Drawing.Color.White;
-            this.loglab.Location = new System.Drawing.Point(33, 78);
+            this.loglab.Location = new System.Drawing.Point(33, 72);
             this.loglab.Name = "loglab";
             this.loglab.Size = new System.Drawing.Size(75, 13);
             this.loglab.TabIndex = 0;
             this.loglab.Text = "Cleanup logs";
+            // 
+            // log2lab
+            // 
+            this.log2lab.AutoSize = true;
+            this.log2lab.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.log2lab.ForeColor = System.Drawing.Color.White;
+            this.log2lab.Location = new System.Drawing.Point(33, 102);
+            this.log2lab.Name = "log2lab";
+            this.log2lab.Size = new System.Drawing.Size(61, 13);
+            this.log2lab.TabIndex = 0;
+            this.log2lab.Text = "Open logs";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Unowhy_Tools.Properties.Resources.script;
+            this.pictureBox6.Location = new System.Drawing.Point(10, 99);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 4;
+            this.pictureBox6.TabStop = false;
+            // 
+            // logopen
+            // 
+            this.logopen.BackColor = System.Drawing.Color.Transparent;
+            this.logopen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logopen.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.logopen.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logopen.Image = null;
+            this.logopen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.logopen.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.logopen.Location = new System.Drawing.Point(126, 99);
+            this.logopen.Name = "logopen";
+            this.logopen.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.logopen.Size = new System.Drawing.Size(98, 20);
+            this.logopen.TabIndex = 5;
+            this.logopen.Text = "Cleanup";
+            this.logopen.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(238, 130);
+            this.ClientSize = new System.Drawing.Size(238, 167);
+            this.Controls.Add(this.logopen);
             this.Controls.Add(this.clean);
             this.Controls.Add(this.okbtn);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbupdate);
+            this.Controls.Add(this.log2lab);
             this.Controls.Add(this.langsel);
             this.Controls.Add(this.loglab);
             this.Controls.Add(this.langlab);
@@ -216,6 +261,7 @@ namespace Unowhy_Tools
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +280,8 @@ namespace Unowhy_Tools
         private System.Windows.Forms.PictureBox pictureBox5;
         private ReaLTaiizor.Controls.Button clean;
         private System.Windows.Forms.Label loglab;
+        private System.Windows.Forms.Label log2lab;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private ReaLTaiizor.Controls.Button logopen;
     }
 }
