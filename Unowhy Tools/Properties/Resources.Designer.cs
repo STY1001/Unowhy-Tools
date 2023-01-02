@@ -191,7 +191,7 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (Debug).
+        ///   Looks up a localized string similar to .
         /// </summary>
         internal static string Debug {
             get {
