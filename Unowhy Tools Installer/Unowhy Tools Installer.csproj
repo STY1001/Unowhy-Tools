@@ -243,14 +243,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Files\7z.dll" />
     <EmbeddedResource Include="Files\7zip.exe" />
-    <EmbeddedResource Include="Files\en.resx" />
-    <EmbeddedResource Include="Files\fr.resx" />
-    <EmbeddedResource Include="Files\install.zip" />
-    <EmbeddedResource Include="Files\uninstall.exe" />
-    <EmbeddedResource Include="Files\utconfdel.exe" />
-    <EmbeddedResource Include="Files\utkeydel.exe" />
-    <EmbeddedResource Include="Files\utkeyinst.exe" />
-    <EmbeddedResource Include="Files\utkeyinst.reg" />
     <EmbeddedResource Include="info.resx">
       <DependentUpon>info.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +264,7 @@
     </Compile>
     <None Include="app.manifest" />
     <EmbeddedResource Include="Files\Unowhy Tools.lnk" />
+    <None Include="Files\install.zip" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
