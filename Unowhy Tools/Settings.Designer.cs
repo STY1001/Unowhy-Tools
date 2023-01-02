@@ -226,6 +226,7 @@ namespace Unowhy_Tools
             this.logopen.TabIndex = 5;
             this.logopen.Text = "Open";
             this.logopen.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.logopen.Click += new System.EventHandler(this.logopen_Click);
             // 
             // Settings
             // 

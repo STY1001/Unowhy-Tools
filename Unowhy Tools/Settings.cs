@@ -137,5 +137,10 @@ namespace Unowhy_Tools
             else size = (fi.Length / 1000).ToString() + "KB";
             clean.Text = getlang("clean") + " (" + size + ")";
         }
+
+        private void logopen_Click(object sender, EventArgs e)
+        {
+            Process.Start(Path.GetTempPath() + "\\UT_Logs.txt");
+        }
     }
 }
