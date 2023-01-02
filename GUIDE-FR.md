@@ -6,6 +6,12 @@
 > [Restorer a partir d'une sauvegarde personnel](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#restorer-a-partir-dune-sauvegarde-personnel)  
 > [Convertir un ancienne sauv. vers le nouveau format](https://github.com/STY1001/Unowhy-Tools/edit/master/GUIDE-FR.md#convertir-une-ancienne-sauvegarde-dans-le-nouveau-format)  
 > [Restorer a partir d'une sauvgarde recuperé en ligne (faite par une autre personne genereuse)](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md##restorer-a-partir-dune-sauvgarde-recuper%C3%A9-en-ligne-faite-par-une-autre-personne-genereuse)  
+
+[Reinitialisation](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#reinitialisation)  
+> [Activer/Reparer WinRE](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#activerreparer-winre)  
+
+[Menu bleu (BootIM)](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#menu-bleu-bootim)
+> [Reactiver le menu bleu (BootIM)](https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE-FR.md#reactiver-le-menu-bleu-bootim)
   
 ## Sauvegarder et Restorer les pilotes
 ### Sauvgarder:
@@ -81,7 +87,7 @@ ___
 >![image](https://user-images.githubusercontent.com/57889852/197416722-890d8c6c-c810-455a-bcb0-b893b565129b.png)
 ___
 
-## Réinitialisation
+## Reinitialisation
 ### Activer/Reparer WinRE
 >1. Ouvrez Unowhy Tools  
 >![image](https://user-images.githubusercontent.com/57889852/210237547-7a6d970f-72ba-4302-9af9-63b5833c17c6.png)
