@@ -191,7 +191,7 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to (Debug).
         /// </summary>
         internal static string Debug {
             get {
@@ -730,7 +730,7 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 19.
+        ///   Looks up a localized string similar to 20.
         /// </summary>
         internal static string ver {
             get {
@@ -739,7 +739,7 @@ namespace Unowhy_Tools.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version 19.0.
+        ///   Looks up a localized string similar to Version 20.0.
         /// </summary>
         internal static string Version {
             get {
