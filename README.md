@@ -30,6 +30,7 @@ Currently, with this tool you can:
 - Repair BootIM (Blue Menu)
 - Quickly launch CMD, TaskMgr, REGedit, GPedit
 - Download an UT driver backup from cloud
+- Del "IgnoreAllFailures" (Boot Status Policy) in BCD
 
 More features coming soon
 
@@ -45,6 +46,11 @@ This is a mode for me to make screenshots of UT.
 You can enable the "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
 
 ## Screenshots
+
+19.0
+
+![UT Screen](/README/UT19.0.1.png)
+![UT Screen](/README/UT19.0.2.png)
 
 18.0
 
