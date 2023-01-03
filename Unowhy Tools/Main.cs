@@ -157,7 +157,7 @@
                                                                 Unowhy Tools by STY1001                                                                                                                                                      
                                                                A tool for Y13 computer !
 
-                                                        https://sty1001.wordpress.com/unowhy-tools/
+                                                            https://sty1001.cf/unowhy-tools/
                                                          https://github.com/STY1001/Unowhy-Tools/
 
                                                 Unowhy Tools and STY1001 are NOT affiliate with Unowhy !
