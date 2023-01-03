@@ -90,7 +90,14 @@ namespace Unowhy_Tools
             public static void open()
             {
                 Write2Log("Open splash");
-                Process.Start(".\\UTsplash.exe");
+                if (Properties.Resources.Debug.Contains("Debug"))
+                {
+                    Process.Start(".\\UTsplash.exe", $"-d -v \"{Properties.Resources.Version}\"");
+                }
+                else
+                {
+                    Process.Start(".\\UTsplash.exe", "-v \"{Properties.Resources.Version}\"");
+                }
             }
         }
 
