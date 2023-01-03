@@ -17,6 +17,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Threading;
 using System.Windows.Input;
+using CommandLine;
 
 namespace UTsplash
 {
@@ -36,11 +37,34 @@ namespace UTsplash
             DwmSetWindowAttribute(Handle, 38, new[] { 1 }, 4);
         }
 
+        public class Options
+        {
+            [Option('v', "version", Required = false, HelpText = "Version to show")]
+            public string Ver { get; set; }
 
-        public Splash()
+            [Option('d', "debug", Required = false, HelpText = "Is Debug")]
+            public bool Deb { get; set; }
+        }
+
+        public Splash(string[] args)
         {
             InitializeComponent();
-            label4.Text = "Version 19.0";
+            Parser.Default.ParseArguments<Options>(args)
+                   .WithParsed<Options>(o =>
+                   {
+                       if (o.Ver == null)
+                       {
+                           label4.Text = "";
+                       }
+                       else
+                       {
+                           label4.Text = o.Ver;
+                           if (o.Deb == true)
+                           {
+                               label4.Text = o.Ver + Environment.NewLine + "(Debug)";
+                           }
+                       }
+                   });
         }
 
         public void close()
