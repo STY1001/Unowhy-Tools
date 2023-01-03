@@ -1,22 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using Microsoft.Win32;
 using System.Windows.Forms;
-using System.Globalization;
-using System.Resources;
-using System.Net;
 using System.Runtime.InteropServices;
-using System.Windows;
-using System.Threading;
-using System.Windows.Input;
 using CommandLine;
 
 namespace UTsplash
