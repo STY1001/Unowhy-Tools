@@ -93,9 +93,9 @@ ___
 ### Activer/Reparer WinRE
 >1. Ouvrez Unowhy Tools  
 >![image](https://user-images.githubusercontent.com/57889852/210237547-7a6d970f-72ba-4302-9af9-63b5833c17c6.png)
->2. Cliquez sur "Paramètres WinRE"
+>2. Cliquez sur "Paramètres WinRE"  
 >![image](https://user-images.githubusercontent.com/57889852/210263081-b2242ac5-c15a-4e40-b9b2-0707f23cc53a.png)
->3. Cliquez sur "Activer", il se peut que vous devez reparer WinRE dans ce cas la, cliquez sur "Réparer"
+>3. Cliquez sur "Activer", il se peut que vous devez reparer WinRE dans ce cas la, cliquez sur "Réparer"  
 >![image](https://user-images.githubusercontent.com/57889852/210263276-de8223c3-ff02-475e-bcee-b4f9587f2daa.png)
 ___
 
@@ -103,6 +103,6 @@ ___
 ### Reactiver le menu bleu (BootIM)
 >1. Ouvrez Unowhy Tools  
 >![image](https://user-images.githubusercontent.com/57889852/210237547-7a6d970f-72ba-4302-9af9-63b5833c17c6.png)
->2. Cliquez sur "Réparer BootIM"
+>2. Cliquez sur "Réparer BootIM"  
 >![image](https://user-images.githubusercontent.com/57889852/210263480-31e3b8f1-6ce9-4410-a1b0-79891082aebb.png)
 ___
