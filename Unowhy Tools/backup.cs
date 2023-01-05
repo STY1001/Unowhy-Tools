@@ -77,44 +77,48 @@ namespace Unowhy_Tools
 
         private void back_Click(object sender, EventArgs e)
         {
-            string drivel = path.Text.Substring(0, 1);
-            DriveInfo di = new DriveInfo(drivel);
-            long afs = di.AvailableFreeSpace;
-            if(path.Text == "")
+            if (path.Text == "")
             {
 
             }
-            else if (afs > 6000000000)
+            else
             {
-                Directory.CreateDirectory(drivel + ":\\UT-Drv-TMP");
-                string backuptemp = drivel + ":\\UT-Drv-TMP";
-                File.Copy(".\\UT-Restore.exe", backuptemp + "\\UT-Restore.exe");
-                if (dism.Checked)
+                string drivel = path.Text.Substring(0, 1);
+                DriveInfo di = new DriveInfo(drivel);
+                long afs = di.AvailableFreeSpace;
+
+                if (afs > 6000000000)
                 {
-                    runmin("dism.exe", "/online /export-driver /destination:\"" + backuptemp + "\"", true);
-                }
-                else if(ps.Checked)
-                {
-                    runmin("powershell.exe", "Export-WindowsDriver -Online -Destination \"" + backuptemp + "\"", true);
-                }
-                runmin("7zip.exe", "a \"" + path.Text + "\" \"" + backuptemp + "\\*\" -tzip -mx=0", true);
-                Directory.Delete(backuptemp, true);
-                FileInfo fi = new FileInfo(path.Text);
-                if (fi.Length > 1000000)
-                {
-                    var d = new info(getlang("done"), Properties.Resources.yes);
-                    d.ShowDialog();
+                    Directory.CreateDirectory(drivel + ":\\UT-Drv-TMP");
+                    string backuptemp = drivel + ":\\UT-Drv-TMP";
+                    File.Copy(".\\UT-Restore.exe", backuptemp + "\\UT-Restore.exe");
+                    if (dism.Checked)
+                    {
+                        runmin("dism.exe", "/online /export-driver /destination:\"" + backuptemp + "\"", true);
+                    }
+                    else if (ps.Checked)
+                    {
+                        runmin("powershell.exe", "Export-WindowsDriver -Online -Destination \"" + backuptemp + "\"", true);
+                    }
+                    runmin("7zip.exe", "a \"" + path.Text + "\" \"" + backuptemp + "\\*\" -tzip -mx=0", true);
+                    Directory.Delete(backuptemp, true);
+                    FileInfo fi = new FileInfo(path.Text);
+                    if (fi.Length > 1000000)
+                    {
+                        var d = new info(getlang("done"), Properties.Resources.yes);
+                        d.ShowDialog();
+                    }
+                    else
+                    {
+                        var d = new info(getlang("bkfail"), Properties.Resources.no);
+                        d.ShowDialog();
+                    }
                 }
                 else
                 {
-                    var d = new info(getlang("bkfail"), Properties.Resources.no);
+                    var d = new info(getlang("space6gusb"), Properties.Resources.no);
                     d.ShowDialog();
                 }
-            }
-            else
-            {
-                var d = new info(getlang("space6gusb"), Properties.Resources.no);
-                d.ShowDialog();
             }
         }
     }
