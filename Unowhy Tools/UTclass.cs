@@ -96,7 +96,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    Process.Start(".\\UTsplash.exe", "-v \"{Properties.Resources.Version}\"");
+                    Process.Start(".\\UTsplash.exe", $"-v \"{Properties.Resources.Version}\"");
                 }
             }
         }
