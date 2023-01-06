@@ -10,6 +10,8 @@ namespace UTsplash
 {
     public partial class Splash : Form
     {
+        public int i;
+
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern bool Wow64DisableWow64FsRedirection(ref IntPtr ptr);
 
@@ -63,11 +65,11 @@ namespace UTsplash
             [Option('d', "debug", Required = false, HelpText = "Is Debug")]
             public bool Deb { get; set; }
 
-            [Option('c', "crashdetect", Required = false, HelpText = "Detect if main app crashed")]
+            [Option('m', "verbosemsg", Required = false, HelpText = "Verbose")]
             public bool Cra { get; set; }
         }
 
-        public void crash()
+        /*public void crash()
         {
             for (int i = 1; i > 0; i++)
             {
@@ -81,11 +83,37 @@ namespace UTsplash
                     returncmd("taskill", "/f /im \"UTsplash.exe\"");
                 }
             }
+        }*/
+
+        public void verbose()
+        {
+            i = 1;
+            while (i == 1)
+            {
+                if (File.Exists(".\\temp\\verbose.txt"))
+                {
+                    string s = File.ReadAllText(".\\temp\\verbose.txt");
+                    
+                    if (s == "")
+                    {
+                        label1.Text = "Loading...";
+                    }
+                    else
+                    {
+                        label1.Text = s;
+                    }
+                }
+                else
+                {
+                    label1.Text = "Loading...";
+                }
+            }
         }
 
         public Splash(string[] args)
         {
             InitializeComponent();
+            AppDomain.CurrentDomain.ProcessExit += new EventHandler(closeall);
             Parser.Default.ParseArguments<Options>(args)
                    .WithParsed<Options>(o =>
                    {
@@ -103,13 +131,15 @@ namespace UTsplash
                        }
                        if (o.Cra == true)
                        {
-                           crash();
+                           Thread t = new Thread(new ThreadStart(verbose));
+                           t.Start();
                        }
                    });
         }
 
-        public void close()
+        public void closeall(object sender, EventArgs e)
         {
+            i = 0;
             this.Close();
         }
 
