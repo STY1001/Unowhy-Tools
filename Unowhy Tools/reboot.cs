@@ -61,7 +61,7 @@ namespace Unowhy_Tools
         private void restart_Click(object sender, EventArgs e)
         {
             runmin("shutdown.exe", "-r -t 10 -c \"Unowhy Tools\"", false);
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

@@ -120,6 +120,7 @@ namespace Unowhy_Tools
             this.bcdfail = new ReaLTaiizor.Controls.Button();
             this.debud = new System.Windows.Forms.Button();
             this.ProgBar = new System.Windows.Forms.ProgressBar();
+            this.debwpf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -1031,12 +1032,20 @@ namespace Unowhy_Tools
             this.ProgBar.Name = "ProgBar";
             this.ProgBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             // 
+            // debwpf
+            // 
+            resources.ApplyResources(this.debwpf, "debwpf");
+            this.debwpf.Name = "debwpf";
+            this.debwpf.UseVisualStyleBackColor = true;
+            this.debwpf.Click += new System.EventHandler(this.debwpf_Click);
+            // 
             // main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.ProgBar);
+            this.Controls.Add(this.debwpf);
             this.Controls.Add(this.debud);
             this.Controls.Add(this.stophis);
             this.Controls.Add(this.fixboot);
@@ -1268,6 +1277,7 @@ namespace Unowhy_Tools
         private ReaLTaiizor.Controls.Button bcdfail;
         private System.Windows.Forms.Button debud;
         private System.Windows.Forms.ProgressBar ProgBar;
+        private System.Windows.Forms.Button debwpf;
     }
 }
 

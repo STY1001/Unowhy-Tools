@@ -195,6 +195,7 @@ using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using System.Security.Principal;
 using System.Windows.Forms.VisualStyles;
+using System.Windows.Forms.Integration;
 
 using Unowhy_Tools.Properties;
 using static Unowhy_Tools.UTclass;
@@ -246,7 +247,7 @@ namespace Unowhy_Tools
                 string getidpath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
                 startInfo.Arguments = $"-u {getidpath}";
                 Process.Start(startInfo);
-                Application.Exit();
+                System.Windows.Forms.Application.Exit();
                 this.Close();
             }
         }
@@ -758,6 +759,7 @@ namespace Unowhy_Tools
                     debuglab.Visible = true;
                     debuser.Visible = true;
                     debud.Visible = true;
+                    debwpf.Visible = true;
                 }
 
                 #endregion
@@ -1850,6 +1852,13 @@ namespace Unowhy_Tools
             WebClient client = new WebClient();
             client.DownloadFile(new Uri("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/Unowhy%20Tools%20Updater.exe"), ".\\updater.exe");
             System.Diagnostics.Process.Start(".\\updater.exe");
+        }
+
+        private void debwpf_Click(object sender, EventArgs e)
+        {
+            /*var wpfwindow = new MainWindow();
+            ElementHost.EnableModelessKeyboardInterop(wpfwindow);
+            wpfwindow.Show();*/
         }
 
         #endregion

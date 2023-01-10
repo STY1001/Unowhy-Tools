@@ -60,7 +60,7 @@ namespace Unowhy_Tools
 
         private void browse_Click(object sender, EventArgs e)
         {
-            using (var fb = new SaveFileDialog())
+            using (var fb = new System.Windows.Forms.SaveFileDialog())
             {
                 fb.FileName = "UT-Drv_" + DateTime.Now.ToString("HH-mm_dd-MM-yy");
                 fb.DefaultExt = "zip";
