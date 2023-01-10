@@ -20,6 +20,9 @@ namespace Unowhy_Tools
 {
     public static class UTclass
     {
+        [DllImport("DwmApi")]
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
+
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern bool Wow64DisableWow64FsRedirection(ref IntPtr ptr);
 

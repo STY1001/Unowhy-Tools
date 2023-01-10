@@ -4148,7 +4148,7 @@
     <value>settings</value>
   </data>
   <data name="&gt;&gt;settings.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;settings.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4208,7 +4208,7 @@
     <value>starthis</value>
   </data>
   <data name="&gt;&gt;starthis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;starthis.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4235,7 +4235,7 @@
     <value>pcinfo</value>
   </data>
   <data name="&gt;&gt;pcinfo.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pcinfo.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4262,7 +4262,7 @@
     <value>about</value>
   </data>
   <data name="&gt;&gt;about.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;about.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4289,7 +4289,7 @@
     <value>enhis</value>
   </data>
   <data name="&gt;&gt;enhis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;enhis.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4316,7 +4316,7 @@
     <value>stophis</value>
   </data>
   <data name="&gt;&gt;stophis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;stophis.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4343,7 +4343,7 @@
     <value>dishis</value>
   </data>
   <data name="&gt;&gt;dishis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;dishis.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4370,7 +4370,7 @@
     <value>delhismserv</value>
   </data>
   <data name="&gt;&gt;delhismserv.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delhismserv.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4397,7 +4397,7 @@
     <value>shell</value>
   </data>
   <data name="&gt;&gt;shell.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;shell.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4424,7 +4424,7 @@
     <value>winre</value>
   </data>
   <data name="&gt;&gt;winre.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;winre.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4451,7 +4451,7 @@
     <value>aadleave</value>
   </data>
   <data name="&gt;&gt;aadleave.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;aadleave.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4478,7 +4478,7 @@
     <value>fixboot</value>
   </data>
   <data name="&gt;&gt;fixboot.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fixboot.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4505,7 +4505,7 @@
     <value>back</value>
   </data>
   <data name="&gt;&gt;back.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;back.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4532,7 +4532,7 @@
     <value>delhis</value>
   </data>
   <data name="&gt;&gt;delhis.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delhis.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4559,7 +4559,7 @@
     <value>ent</value>
   </data>
   <data name="&gt;&gt;ent.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ent.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4586,7 +4586,7 @@
     <value>delti</value>
   </data>
   <data name="&gt;&gt;delti.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delti.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4613,7 +4613,7 @@
     <value>delridf</value>
   </data>
   <data name="&gt;&gt;delridf.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delridf.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4640,7 +4640,7 @@
     <value>delhism</value>
   </data>
   <data name="&gt;&gt;delhism.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;delhism.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4667,7 +4667,7 @@
     <value>deloem</value>
   </data>
   <data name="&gt;&gt;deloem.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;deloem.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4694,7 +4694,7 @@
     <value>entf</value>
   </data>
   <data name="&gt;&gt;entf.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;entf.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4721,7 +4721,7 @@
     <value>pcname</value>
   </data>
   <data name="&gt;&gt;pcname.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pcname.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4748,7 +4748,7 @@
     <value>admin</value>
   </data>
   <data name="&gt;&gt;admin.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;admin.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4775,7 +4775,7 @@
     <value>adduser</value>
   </data>
   <data name="&gt;&gt;adduser.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;adduser.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4802,7 +4802,7 @@
     <value>adminset</value>
   </data>
   <data name="&gt;&gt;adminset.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;adminset.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4856,7 +4856,7 @@
     <value>rest</value>
   </data>
   <data name="&gt;&gt;rest.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;rest.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4950,7 +4950,7 @@
     <value>enwhe</value>
   </data>
   <data name="&gt;&gt;enwhe.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;enwhe.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5153,7 +5153,7 @@
     <value>opencmd</value>
   </data>
   <data name="&gt;&gt;opencmd.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;opencmd.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5180,7 +5180,7 @@
     <value>unprog</value>
   </data>
   <data name="&gt;&gt;unprog.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;unprog.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5207,7 +5207,7 @@
     <value>guide</value>
   </data>
   <data name="&gt;&gt;guide.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;guide.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5261,7 +5261,7 @@
     <value>bkcloud</value>
   </data>
   <data name="&gt;&gt;bkcloud.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;bkcloud.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5342,7 +5342,7 @@
     <value>opengp</value>
   </data>
   <data name="&gt;&gt;opengp.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;opengp.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5369,7 +5369,7 @@
     <value>openreg</value>
   </data>
   <data name="&gt;&gt;openreg.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;openreg.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5423,7 +5423,7 @@
     <value>bootim</value>
   </data>
   <data name="&gt;&gt;bootim.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;bootim.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5477,7 +5477,7 @@
     <value>opentask</value>
   </data>
   <data name="&gt;&gt;opentask.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;opentask.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5504,7 +5504,7 @@
     <value>desc</value>
   </data>
   <data name="&gt;&gt;desc.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;desc.Parent" xml:space="preserve">
     <value>$this</value>
@@ -5558,7 +5558,7 @@
     <value>bcdfail</value>
   </data>
   <data name="&gt;&gt;bcdfail.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.8.8, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.Button, ReaLTaiizor, Version=3.7.9.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;bcdfail.Parent" xml:space="preserve">
     <value>$this</value>
