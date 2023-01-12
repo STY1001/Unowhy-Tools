@@ -7,27 +7,72 @@
     <LangVersion>10.0</LangVersion>
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationIcon>applicationIcon.ico</ApplicationIcon>
+    <ApplicationIcon>UT.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="applicationIcon.ico" />
+    <None Remove="Resources\fluent-ui-microsoft.png" />
+    <None Remove="Resources\geo_icons.png" />
+    <None Remove="Resources\halo_infinite.jpg" />
+    <None Remove="Resources\master_chief.jpg" />
+    <None Remove="Resources\microsoft-icon-store.png" />
+    <None Remove="Resources\microsoft-shell-accessibility.ico" />
+    <None Remove="Resources\microsoft-shell-colors.ico" />
+    <None Remove="Resources\microsoft-shell-desktop.ico" />
+    <None Remove="Resources\microsoft-shell-gallery.ico" />
+    <None Remove="Resources\microsoft-shell-monitor.ico" />
+    <None Remove="Resources\microsoft-shell-settings.ico" />
+    <None Remove="Resources\microsoft-shell-workspace.ico" />
+    <None Remove="Resources\the_witcher_wallpaper.jpg" />
+    <None Remove="Resources\wpfui.png" />
+    <None Remove="Resources\wpfui_full.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="UT.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="WPF-UI" Version="2.0.3" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0"/>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Assets\applicationIcon-1024.png" />
-    <None Remove="Assets\applicationIcon-256.png" />
+    <Resource Include="Resources\fluent-ui-microsoft.png" />
+    <Resource Include="Resources\geo_icons.png" />
+    <Resource Include="Resources\halo_infinite.jpg" />
+    <Resource Include="Resources\master_chief.jpg" />
+    <Resource Include="Resources\microsoft-icon-store.png" />
+    <Resource Include="Resources\microsoft-shell-accessibility.ico" />
+    <Resource Include="Resources\microsoft-shell-colors.ico" />
+    <Resource Include="Resources\microsoft-shell-desktop.ico" />
+    <Resource Include="Resources\microsoft-shell-gallery.ico" />
+    <Resource Include="Resources\microsoft-shell-monitor.ico" />
+    <Resource Include="Resources\microsoft-shell-settings.ico" />
+    <Resource Include="Resources\microsoft-shell-workspace.ico" />
+    <Resource Include="Resources\the_witcher_wallpaper.jpg" />
+    <Resource Include="Resources\wpfui.png" />
+    <Resource Include="Resources\wpfui_full.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\applicationIcon-1024.png" />
-    <Resource Include="Assets\applicationIcon-256.png" />
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

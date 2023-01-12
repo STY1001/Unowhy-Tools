@@ -1,47 +1,141 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿// This Source Code Form is subject to the terms of the MIT License.
+// If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT.
+// Copyright (C) Leszek Pomianowski and WPF UI Contributors.
+// All Rights Reserved.
+
 using System;
 using System.Collections.Generic;
 using System.Windows.Media;
-using Unowhy_Tools_WPF.Models;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Wpf.Ui.Common.Interfaces;
+using Unowhy_Tools_WPF.Models.Data;
 
-namespace Unowhy_Tools_WPF.ViewModels
+namespace Unowhy_Tools_WPF.ViewModels;
+
+public class DataViewModel : ObservableObject, INavigationAware
 {
-    public partial class DataViewModel : ObservableObject, INavigationAware
+    private bool _dataInitialized = false;
+
+    private IEnumerable<string> _listBoxItemCollection = new string[] { };
+
+    private IEnumerable<Customer> _dataGridItemCollection = new Customer[] { };
+
+    private IEnumerable<Brush> _brushCollection = new Brush[] { };
+
+    public IEnumerable<string> ListBoxItemCollection
     {
-        private bool _isInitialized = false;
+        get => _listBoxItemCollection;
+        set => SetProperty(ref _listBoxItemCollection, value);
+    }
 
-        [ObservableProperty]
-        private IEnumerable<DataColor> _colors;
+    public IEnumerable<Customer> DataGridItemCollection
+    {
+        get => _dataGridItemCollection;
+        set => SetProperty(ref _dataGridItemCollection, value);
+    }
 
-        public void OnNavigatedTo()
+    public IEnumerable<Brush> BrushCollection
+    {
+        get => _brushCollection;
+        set => SetProperty(ref _brushCollection, value);
+    }
+
+    public void OnNavigatedTo()
+    {
+        if (!_dataInitialized)
+            InitializeData();
+    }
+
+    public void OnNavigatedFrom()
+    {
+    }
+
+    private void InitializeData()
+    {
+        ListBoxItemCollection = new List<string>()
         {
-            if (!_isInitialized)
-                InitializeViewModel();
+            "Somewhere over the rainbow",
+            "Way up high",
+            "And the dreams that you dream of",
+            "Once in a lullaby, oh"
+        };
+
+        DataGridItemCollection = new List<Customer>()
+        {
+            new()
+            {
+                Email = "john.doe@example.com",
+                MailTo = "mailto:john.doe@example.com",
+                FirstName = "John",
+                LastName = "Doe",
+                IsMember = true,
+                Status = OrderStatus.Processing
+            },
+            new()
+            {
+                Email = "chloe.clarkson@example.com",
+                MailTo = "mailto:chloe.clarkson@example.com",
+                FirstName = "Chloe",
+                LastName = "Clarkson",
+                IsMember = true,
+                Status = OrderStatus.Processing
+            },
+            new()
+            {
+                Email = "eric.brown@example.com",
+                MailTo = "mailto:eric.brown@example.com",
+                FirstName = "Eric",
+                LastName = "Brown",
+                IsMember = false,
+                Status = OrderStatus.New
+            },
+            new()
+            {
+                Email = "john.doe@example.com",
+                MailTo = "mailto:john.doe@example.com",
+                FirstName = "John",
+                LastName = "Doe",
+                IsMember = true,
+                Status = OrderStatus.Processing
+            },
+            new()
+            {
+                Email = "chloe.clarkson@example.com",
+                MailTo = "mailto:chloe.clarkson@example.com",
+                FirstName = "Chloe",
+                LastName = "Clarkson",
+                IsMember = true,
+                Status = OrderStatus.Shipped
+            },
+            new()
+            {
+                Email = "eric.brown@example.com",
+                MailTo = "mailto:eric.brown@example.com",
+                FirstName = "Eric",
+                LastName = "Brown",
+                IsMember = false,
+                Status = OrderStatus.Received
+            }
+        };
+
+        var random = new Random();
+        var brushList = new List<Brush>();
+
+        for (int i = 0; i < 4096; i++)
+        {
+            brushList.Add(new SolidColorBrush
+            {
+                Color = Color.FromArgb(
+                    (byte)200,
+                    (byte)random.Next(0, 250),
+                    (byte)random.Next(0, 250),
+                    (byte)random.Next(0, 250))
+            });
         }
 
-        public void OnNavigatedFrom()
-        {
-        }
+        BrushCollection = brushList;
 
-        private void InitializeViewModel()
-        {
-            var random = new Random();
-            var colorCollection = new List<DataColor>();
-
-            for (int i = 0; i < 8192; i++)
-                colorCollection.Add(new DataColor
-                {
-                    Color = new SolidColorBrush(Color.FromArgb(
-                        (byte)200,
-                        (byte)random.Next(0, 250),
-                        (byte)random.Next(0, 250),
-                        (byte)random.Next(0, 250)))
-                });
-
-            Colors = colorCollection;
-
-            _isInitialized = true;
-        }
+        _dataInitialized = true;
     }
 }
+

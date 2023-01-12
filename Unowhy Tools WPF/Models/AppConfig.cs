@@ -1,9 +1,8 @@
-﻿namespace Unowhy_Tools_WPF.Models
-{
-    public class AppConfig
-    {
-        public string ConfigurationsFolder { get; set; }
+﻿namespace Unowhy_Tools_WPF.Models;
 
-        public string AppPropertiesFileName { get; set; }
-    }
+public class AppConfig
+{
+    public string ConfigurationsFolder { get; set; }
+
+    public string AppPropertiesFileName { get; set; }
 }
