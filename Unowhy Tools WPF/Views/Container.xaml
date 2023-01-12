@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="WPF UI"
+    Title="Unowhy Tools"
     Width="1200"
     Height="654"
     d:DesignHeight="650"
@@ -54,49 +54,24 @@
                     <ui:NavigationItem
                         Cache="True"
                         Content="Home"
-                        Icon="Home24"
+                        Image="pack://application:,,,/Resources/home.png"
                         PageTag="dashboard"
                         PageType="{x:Type pages:Dashboard}" />
                     <ui:NavigationSeparator />
-                    <ui:NavigationItem
-                        Content="Controls"
-                        Icon="Fluent24"
-                        PageType="{x:Type pages:Controls}" />
+                    
                     <!--
                     <ui:NavigationHeader Icon="Fluent24" Text="Header" />
                     -->
-                    <ui:NavigationItem
-                        Cache="True"
-                        Content="Input"
-                        Icon="ChannelSubtract24"
-                        PageType="{x:Type pages:Input}" />
-                    <ui:NavigationItem
-                        Content="Data"
-                        Icon="CloudFlow24"
-                        PageType="{x:Type pages:Data}" />
-                    <ui:NavigationItem
-                        Content="Buttons"
-                        Icon="DualScreenSpan24"
-                        PageType="{x:Type pages:Buttons}" />
-                    <ui:NavigationItem
-                        Content="Menus"
-                        Icon="Shortpick24"
-                        PageType="{x:Type pages:Menus}" />
-                    <ui:NavigationItem
-                        Content="Colors"
-                        Icon="Color24"
-                        PageType="{x:Type pages:Colors}" />
-                    <ui:NavigationItem
-                        Content="Icons"
-                        Icon="Diversity24"
-                        PageType="{x:Type pages:Icons}" />
+                    
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <!--  A navigation element that does not point to the page can be used as a button.  -->
                     <ui:NavigationItem
-                        Click="NavigationButtonTheme_OnClick"
-                        Content="Theme"
-                        Icon="DarkTheme24" />
+                        Cache="True"
+                        Content="About"
+                        Image="pack://application:,,,/Resources/about.png"
+                        PageTag="about"
+                        PageType="{x:Type pages:About}" />
                 </ui:NavigationStore.Footer>
             </ui:NavigationStore>
 
@@ -145,7 +120,7 @@
                 <Image
                     MaxWidth="180"
                     RenderOptions.BitmapScalingMode="HighQuality"
-                    Source="pack://application:,,,/Resources/geo_icons.png" />
+                    Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
             </Grid>
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
                 <ui:ProgressRing IsIndeterminate="True" />
@@ -153,7 +128,7 @@
                     Margin="0,12,0,0"
                     FontSize="16"
                     FontWeight="Medium"
-                    Text="Preparing app for you."
+                    Text="Loading..."
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
             </StackPanel>
@@ -193,7 +168,7 @@
             Foreground="Red"
         -->
         <ui:TitleBar
-            Title="WPF UI - Fluent design system"
+            Title="Unowhy Tools"
             Grid.Row="0"
             ForceShutdown="False"
             Icon="pack://application:,,,/Resources/wpfui.png"

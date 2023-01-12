@@ -69,39 +69,9 @@ public partial class App
             services.AddScoped<Views.Pages.Dashboard>();
             services.AddScoped<DashboardViewModel>();
 
-            services.AddScoped<Views.Pages.ExperimentalDashboard>();
-            services.AddScoped<ExperimentalViewModel>();
-
-            services.AddScoped<Views.Pages.Controls>();
-
-            services.AddScoped<Views.Pages.Menus>();
-
-            services.AddScoped<Views.Pages.Colors>();
-            services.AddScoped<ColorsViewModel>();
-
-            services.AddScoped<Views.Pages.Debug>();
-            services.AddScoped<DebugViewModel>();
-
-            services.AddScoped<Views.Pages.Buttons>();
-            services.AddScoped<ButtonsViewModel>();
-
-            services.AddScoped<Views.Pages.Data>();
-            services.AddScoped<DataViewModel>();
-
-            services.AddScoped<Views.Pages.Input>();
-            services.AddScoped<InputViewModel>();
-
-            services.AddScoped<Views.Pages.Icons>();
-            services.AddScoped<IconsViewModel>();
-
             // Test windows
-            services.AddTransient<Views.Windows.TaskManagerWindow>();
-            services.AddTransient<TaskManagerViewModel>();
-
-            services.AddTransient<Views.Windows.EditorWindow>();
-            services.AddTransient<Views.Windows.SettingsWindow>();
-            services.AddTransient<Views.Windows.StoreWindow>();
-            services.AddTransient<Views.Windows.ExperimentalWindow>();
+            
+            services.AddScoped<Views.Pages.About>();
 
             // Configuration
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));

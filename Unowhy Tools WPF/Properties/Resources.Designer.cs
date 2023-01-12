@@ -193,6 +193,16 @@ namespace Unowhy_Tools_WPF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap UTLogoWhite2_0 {
+            get {
+                object obj = ResourceManager.GetObject("UTLogoWhite2_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wpfui {
             get {
                 object obj = ResourceManager.GetObject("wpfui", resourceCulture);

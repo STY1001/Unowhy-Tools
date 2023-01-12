@@ -15,9 +15,42 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\about.png" />
+    <None Remove="Resources\adduser.png" />
+    <None Remove="Resources\admin.png" />
+    <None Remove="Resources\adminuser.png" />
+    <None Remove="Resources\azure.png" />
+    <None Remove="Resources\boot.png" />
+    <None Remove="Resources\clouddl.png" />
+    <None Remove="Resources\cmd.png" />
+    <None Remove="Resources\convert.png" />
+    <None Remove="Resources\cs.png" />
+    <None Remove="Resources\customize.png" />
+    <None Remove="Resources\datamatrix.png" />
+    <None Remove="Resources\delete.png" />
+    <None Remove="Resources\deluser.png" />
+    <None Remove="Resources\desktop.png" />
+    <None Remove="Resources\disable.png" />
+    <None Remove="Resources\discord.png" />
+    <None Remove="Resources\dism.png" />
+    <None Remove="Resources\download.png" />
+    <None Remove="Resources\drivers.png" />
+    <None Remove="Resources\enable.png" />
+    <None Remove="Resources\explorer.png" />
     <None Remove="Resources\fluent-ui-microsoft.png" />
+    <None Remove="Resources\folder.png" />
+    <None Remove="Resources\fp.png" />
     <None Remove="Resources\geo_icons.png" />
+    <None Remove="Resources\github.png" />
+    <None Remove="Resources\guide.png" />
     <None Remove="Resources\halo_infinite.jpg" />
+    <None Remove="Resources\home.png" />
+    <None Remove="Resources\ic.png" />
+    <None Remove="Resources\instprog.png" />
+    <None Remove="Resources\key.png" />
+    <None Remove="Resources\language.png" />
+    <None Remove="Resources\laptop.png" />
+    <None Remove="Resources\manufacturer.png" />
     <None Remove="Resources\master_chief.jpg" />
     <None Remove="Resources\microsoft-icon-store.png" />
     <None Remove="Resources\microsoft-shell-accessibility.ico" />
@@ -27,9 +60,52 @@
     <None Remove="Resources\microsoft-shell-monitor.ico" />
     <None Remove="Resources\microsoft-shell-settings.ico" />
     <None Remove="Resources\microsoft-shell-workspace.ico" />
+    <None Remove="Resources\no.png" />
+    <None Remove="Resources\noupdate.png" />
+    <None Remove="Resources\nowifi.png" />
+    <None Remove="Resources\passno.png" />
+    <None Remove="Resources\passyes.png" />
+    <None Remove="Resources\pcinfo.png" />
+    <None Remove="Resources\powershell.png" />
+    <None Remove="Resources\pwcno.png" />
+    <None Remove="Resources\pwcyes.png" />
+    <None Remove="Resources\question.png" />
+    <None Remove="Resources\reboot.png" />
+    <None Remove="Resources\recovery.png" />
+    <None Remove="Resources\registry.png" />
+    <None Remove="Resources\repair.png" />
+    <None Remove="Resources\script.png" />
+    <None Remove="Resources\service.png" />
+    <None Remove="Resources\settings.png" />
+    <None Remove="Resources\softinfo.png" />
+    <None Remove="Resources\start.png" />
+    <None Remove="Resources\startup.png" />
+    <None Remove="Resources\stop.png" />
+    <None Remove="Resources\taskmgr.png" />
     <None Remove="Resources\the_witcher_wallpaper.jpg" />
+    <None Remove="Resources\uninstall.png" />
+    <None Remove="Resources\update.png" />
+    <None Remove="Resources\upload.png" />
+    <None Remove="Resources\user.png" />
+    <None Remove="Resources\userinfo.png" />
+    <None Remove="Resources\UT.png" />
+    <None Remove="Resources\UTB.png" />
+    <None Remove="Resources\UTI.png" />
+    <None Remove="Resources\UTL.png" />
+    <None Remove="Resources\UTLogoWhite2.0.png" />
+    <None Remove="Resources\UTPE.png" />
+    <None Remove="Resources\UTU.png" />
+    <None Remove="Resources\UTUI.png" />
+    <None Remove="Resources\UTUS.png" />
+    <None Remove="Resources\UTW.png" />
+    <None Remove="Resources\vs.png" />
+    <None Remove="Resources\wait.png" />
+    <None Remove="Resources\win10.png" />
+    <None Remove="Resources\win11.png" />
     <None Remove="Resources\wpfui.png" />
     <None Remove="Resources\wpfui_full.png" />
+    <None Remove="Resources\yes.png" />
+    <None Remove="Resources\yesupdate.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,14 +114,47 @@
 
   <ItemGroup>
     <PackageReference Include="WPF-UI" Version="2.0.3" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\about.png" />
+    <Resource Include="Resources\adduser.png" />
+    <Resource Include="Resources\admin.png" />
+    <Resource Include="Resources\adminuser.png" />
+    <Resource Include="Resources\azure.png" />
+    <Resource Include="Resources\boot.png" />
+    <Resource Include="Resources\clouddl.png" />
+    <Resource Include="Resources\cmd.png" />
+    <Resource Include="Resources\convert.png" />
+    <Resource Include="Resources\cs.png" />
+    <Resource Include="Resources\customize.png" />
+    <Resource Include="Resources\datamatrix.png" />
+    <Resource Include="Resources\delete.png" />
+    <Resource Include="Resources\deluser.png" />
+    <Resource Include="Resources\desktop.png" />
+    <Resource Include="Resources\disable.png" />
+    <Resource Include="Resources\discord.png" />
+    <Resource Include="Resources\dism.png" />
+    <Resource Include="Resources\download.png" />
+    <Resource Include="Resources\drivers.png" />
+    <Resource Include="Resources\enable.png" />
+    <Resource Include="Resources\explorer.png" />
     <Resource Include="Resources\fluent-ui-microsoft.png" />
+    <Resource Include="Resources\folder.png" />
+    <Resource Include="Resources\fp.png" />
     <Resource Include="Resources\geo_icons.png" />
+    <Resource Include="Resources\github.png" />
+    <Resource Include="Resources\guide.png" />
     <Resource Include="Resources\halo_infinite.jpg" />
+    <Resource Include="Resources\home.png" />
+    <Resource Include="Resources\ic.png" />
+    <Resource Include="Resources\instprog.png" />
+    <Resource Include="Resources\key.png" />
+    <Resource Include="Resources\language.png" />
+    <Resource Include="Resources\laptop.png" />
+    <Resource Include="Resources\manufacturer.png" />
     <Resource Include="Resources\master_chief.jpg" />
     <Resource Include="Resources\microsoft-icon-store.png" />
     <Resource Include="Resources\microsoft-shell-accessibility.ico" />
@@ -55,9 +164,52 @@
     <Resource Include="Resources\microsoft-shell-monitor.ico" />
     <Resource Include="Resources\microsoft-shell-settings.ico" />
     <Resource Include="Resources\microsoft-shell-workspace.ico" />
+    <Resource Include="Resources\no.png" />
+    <Resource Include="Resources\noupdate.png" />
+    <Resource Include="Resources\nowifi.png" />
+    <Resource Include="Resources\passno.png" />
+    <Resource Include="Resources\passyes.png" />
+    <Resource Include="Resources\pcinfo.png" />
+    <Resource Include="Resources\powershell.png" />
+    <Resource Include="Resources\pwcno.png" />
+    <Resource Include="Resources\pwcyes.png" />
+    <Resource Include="Resources\question.png" />
+    <Resource Include="Resources\reboot.png" />
+    <Resource Include="Resources\recovery.png" />
+    <Resource Include="Resources\registry.png" />
+    <Resource Include="Resources\repair.png" />
+    <Resource Include="Resources\script.png" />
+    <Resource Include="Resources\service.png" />
+    <Resource Include="Resources\settings.png" />
+    <Resource Include="Resources\softinfo.png" />
+    <Resource Include="Resources\start.png" />
+    <Resource Include="Resources\startup.png" />
+    <Resource Include="Resources\stop.png" />
+    <Resource Include="Resources\taskmgr.png" />
     <Resource Include="Resources\the_witcher_wallpaper.jpg" />
+    <Resource Include="Resources\uninstall.png" />
+    <Resource Include="Resources\update.png" />
+    <Resource Include="Resources\upload.png" />
+    <Resource Include="Resources\user.png" />
+    <Resource Include="Resources\userinfo.png" />
+    <Resource Include="Resources\UT.png" />
+    <Resource Include="Resources\UTB.png" />
+    <Resource Include="Resources\UTI.png" />
+    <Resource Include="Resources\UTL.png" />
+    <Resource Include="Resources\UTLogoWhite2.0.png" />
+    <Resource Include="Resources\UTPE.png" />
+    <Resource Include="Resources\UTU.png" />
+    <Resource Include="Resources\UTUI.png" />
+    <Resource Include="Resources\UTUS.png" />
+    <Resource Include="Resources\UTW.png" />
+    <Resource Include="Resources\vs.png" />
+    <Resource Include="Resources\wait.png" />
+    <Resource Include="Resources\win10.png" />
+    <Resource Include="Resources\win11.png" />
     <Resource Include="Resources\wpfui.png" />
     <Resource Include="Resources\wpfui_full.png" />
+    <Resource Include="Resources\yes.png" />
+    <Resource Include="Resources\yesupdate.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -73,6 +225,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Windows\" />
   </ItemGroup>
 
 </Project>

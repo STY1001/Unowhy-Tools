@@ -34,17 +34,17 @@ public class DashboardViewModel : ObservableObject, INavigationAware
 
     public void OnNavigatedTo()
     {
-        System.Diagnostics.Debug.WriteLine($"INFO | {typeof(DashboardViewModel)} navigated", "Wpf.Ui.Demo");
+        System.Diagnostics.Debug.WriteLine($"INFO | {typeof(DashboardViewModel)} navigated", "Unowhy_Tools_WPF");
     }
 
     public void OnNavigatedFrom()
     {
-        System.Diagnostics.Debug.WriteLine($"INFO | {typeof(DashboardViewModel)} navigated", "Wpf.Ui.Demo");
+        System.Diagnostics.Debug.WriteLine($"INFO | {typeof(DashboardViewModel)} navigated", "Unowhy_Tools_WPF");
     }
 
     private void OnNavigate(string parameter)
     {
-        switch (parameter)
+        /*switch (parameter)
         {
             case "navigate_to_input":
                 _navigationService.Navigate(typeof(Views.Pages.Input));
@@ -61,14 +61,14 @@ public class DashboardViewModel : ObservableObject, INavigationAware
             case "navigate_to_icons":
                 _navigationService.Navigate(typeof(Views.Pages.Icons));
                 return;
-        }
+        }*/
     }
 
     private void OnOpenWindow(string parameter)
     {
         switch (parameter)
         {
-            case "open_window_store":
+            /*case "open_window_store":
                 _testWindowService.Show<Views.Windows.StoreWindow>();
                 return;
 
@@ -86,7 +86,7 @@ public class DashboardViewModel : ObservableObject, INavigationAware
 
             case "open_window_experimental":
                 _testWindowService.Show<Views.Windows.ExperimentalWindow>();
-                return;
+                return;*/
         }
     }
 }
