@@ -58,7 +58,19 @@
                         PageTag="dashboard"
                         PageType="{x:Type pages:Dashboard}" />
                     <ui:NavigationSeparator />
-                    
+                    <ui:NavigationItem
+                        Cache="True"
+                        Content="Hisqool Manager"
+                        Image="pack://application:,,,/Resources/Service.png"
+                        PageTag="hisqoolmanger"
+                        PageType="{x:Type pages:HisqoolManager}"/>
+                    <ui:NavigationItem
+                        Cache="True"
+                        Content="Repair"
+                        Image="pack://application:,,,/Resources/repair.png"
+                        PageTag="repair"
+                        PageType="{x:Type pages:Repair}"/>
+
                     <!--
                     <ui:NavigationHeader Icon="Fluent24" Text="Header" />
                     -->
@@ -96,13 +108,10 @@
 
                     <ui:Snackbar
                         x:Name="RootSnackbar"
-                        Title="Hello World!"
                         Grid.Row="1"
                         MaxWidth="600"
-                        Appearance="Secondary"
+                        Appearance="Primary"
                         CloseButtonEnabled="True"
-                        Icon="PuzzlePiece24"
-                        Message="Remember that the Heat Death of Universe is coming someday, no time to explain - let's go!"
                         Timeout="5000" />
                 </Grid>
             </Border>
@@ -118,7 +127,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Image
-                    MaxWidth="180"
+                    MaxWidth="360"
                     RenderOptions.BitmapScalingMode="HighQuality"
                     Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
             </Grid>
@@ -141,10 +150,10 @@
         <!--  Dialogue is above all controls except the navigation buttons. So it covers all the content, but allows you to close or move the application.  -->
         <ui:Dialog
             x:Name="RootDialog"
-            Title="WPF UI"
+            Title="Unowhy Tools"
             Grid.Row="0"
             Grid.RowSpan="2"
-            ButtonLeftName="Click me if you can!" />
+            ButtonLeftName="" />
 
         <!--
             For debugging the focus and the keyboard navigation,
@@ -181,7 +190,7 @@
             <ui:TitleBar.Tray>
                 <ui:NotifyIcon
                     FocusOnLeftClick="True"
-                    Icon="pack://application:,,,/Resources/wpfui.png"
+                    Icon="pack://application:,,,/Resources/UT.png"
                     MenuOnRightClick="True"
                     TooltipText="WPF UI">
                     <ui:NotifyIcon.Menu>
