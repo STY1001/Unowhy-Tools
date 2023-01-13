@@ -171,7 +171,7 @@
             Title="Unowhy Tools"
             Grid.Row="0"
             ForceShutdown="False"
-            Icon="pack://application:,,,/Resources/wpfui.png"
+            Icon="pack://application:,,,/Resources/UT.png"
             MinimizeToTray="False"
             ShowHelp="False"
             ShowClose="True"

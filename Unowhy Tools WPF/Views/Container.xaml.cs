@@ -115,7 +115,7 @@ public partial class Container : INavigationWindow
         if (_initialized)
             return;
 
-        _initialized = true;
+        //_initialized = true;
 
         RootMainGrid.Visibility = Visibility.Collapsed;
         RootWelcomeGrid.Visibility = Visibility.Visible;
@@ -126,7 +126,7 @@ public partial class Container : INavigationWindow
         {
             // Remember to always include Delays and Sleeps in
             // your applications to be able to charge the client for optimizations later.
-            await Task.Delay(4000);
+            await Task.Delay(1000);
 
             await Dispatcher.InvokeAsync(() =>
             {
@@ -164,7 +164,7 @@ public partial class Container : INavigationWindow
         // to which the banner will cover the entire page nicely.
         RootFrame.Margin = new Thickness(
             left: 0,
-            top: sender?.Current?.PageTag == "dashboard" ? -69 : 0,
+            top: sender?.Current?.PageTag == "" ? -69 : 0,
             right: 0,
             bottom: 0);
     }
