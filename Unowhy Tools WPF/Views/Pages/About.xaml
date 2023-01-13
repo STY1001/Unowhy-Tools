@@ -44,6 +44,7 @@
                         VerticalAlignment="Center"
                         Background="Transparent">
                         <TextBlock
+                            x:Name="Title"
                             FontSize="28"
                             FontWeight="Bold"
                             Foreground="#FFFFFF"
@@ -67,6 +68,145 @@
                 </Grid>
             </Border>
         </Border>
+
+        <Grid Grid.Row="1" Margin="12,18,12,0" HorizontalAlignment="Right">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+
+            <ui:Button
+                Click="Github_Click" Grid.ColumnSpan="4" HorizontalAlignment="Stretch">
+
+                <Grid Grid.Row="0" 
+                      Grid.Column="0" 
+                      Margin="0,0,0,0">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="../../Resources/github.png" Grid.Column="0" Margin="0,0,0,0"/>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock
+                        Margin="0"
+                        FontSize="13"
+                        FontWeight="Medium"
+                        Text="Unowhy Tools's Github" />
+                        <TextBlock
+                        FontSize="12"
+                        Foreground="#bebebe"
+                        Text="STY1001/Unowhy-Tools" />
+                    </StackPanel>
+                </Grid>
+            </ui:Button>
+
+            <ui:Button
+                Grid.Row="1"
+                Grid.Column="0"
+                Click="STY1001_Click" HorizontalAlignment="Stretch" Margin="0,10,0,0">
+
+                <Grid Grid.Row="0" Margin="0,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="../../Resources/laptop.png" Grid.Column="0" Margin="0,0,0,0"/>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock
+                        Margin="0"
+                        FontSize="13"
+                        FontWeight="Medium"
+                        Text="STY1001's WebSite" />
+                        <TextBlock
+                        FontSize="12"
+                        Foreground="#bebebe"
+                        Text="sty1001.cf" />
+                    </StackPanel>
+                </Grid>
+            </ui:Button>
+
+            <ui:Button
+                Grid.Row="2"
+                Grid.Column="0"
+                Click="Discord_Click" 
+                HorizontalAlignment="Stretch" 
+                Margin="0,10,0,0">
+
+                <Grid Grid.Row="1" Margin="0,0,0,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="../../Resources/discord.png" Grid.Column="0" />
+                    <StackPanel Grid.Column="2">
+                        <TextBlock
+                        Margin="0"
+                        FontSize="13"
+                        FontWeight="Medium"
+                        Text="Discord for Y13" />
+                        <TextBlock
+                        FontSize="12"
+                        Foreground="#bebebe"
+                        Text="{}{unohelp}" />
+                    </StackPanel>
+                </Grid>
+            </ui:Button>
+
+            <ui:Button
+                Grid.Row="3"
+                Grid.Column="0"
+                Click="Update_Click" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,10,0,0">
+
+                <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="../../Resources/update.png" Grid.Column="0"/>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock
+                        Margin="0"
+                        FontSize="13"
+                        FontWeight="Medium"
+                        Text="Check for Update" />
+                        <TextBlock
+                        FontSize="12"
+                        Foreground="#bebebe"
+                        Text="Click to check" />
+                    </StackPanel>
+                </Grid>
+            </ui:Button>
+        </Grid>
+
 
     </Grid>
 </ui:UiPage>
