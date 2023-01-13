@@ -41,6 +41,7 @@
     <None Remove="Resources\folder.png" />
     <None Remove="Resources\fp.png" />
     <None Remove="Resources\geo_icons.png" />
+    <None Remove="Resources\github.ico" />
     <None Remove="Resources\github.png" />
     <None Remove="Resources\guide.png" />
     <None Remove="Resources\halo_infinite.jpg" />
@@ -145,6 +146,7 @@
     <Resource Include="Resources\folder.png" />
     <Resource Include="Resources\fp.png" />
     <Resource Include="Resources\geo_icons.png" />
+    <Resource Include="Resources\github.ico" />
     <Resource Include="Resources\github.png" />
     <Resource Include="Resources\guide.png" />
     <Resource Include="Resources\halo_infinite.jpg" />
