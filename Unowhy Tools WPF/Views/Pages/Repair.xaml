@@ -92,7 +92,7 @@
                 </Grid>
             </ui:CardControl.Header>
             <ui:Button
-                Grid.Column="0"
+                Grid.Column="0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_winre"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">

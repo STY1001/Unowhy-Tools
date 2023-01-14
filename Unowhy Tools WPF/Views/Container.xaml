@@ -48,12 +48,13 @@
                 Navigated="RootNavigation_OnNavigated"
                 Precache="False"
                 SelectedPageIndex="-1"
-                TransitionDuration="200"
-                TransitionType="FadeInWithSlide">
+                TransitionDuration="250"
+                TransitionType="SlideBottom">
                 <ui:NavigationStore.Items>
                     <ui:NavigationItem
                         Cache="True"
                         Content="Home"
+                        ToolTip="Home"
                         Image="pack://application:,,,/Resources/home.png"
                         PageTag="dashboard"
                         PageType="{x:Type pages:Dashboard}" />
@@ -61,30 +62,35 @@
                     <ui:NavigationItem
                         Cache="True"
                         Content="Hisqool Manager"
+                        ToolTip="Hisqool Manager"
                         Image="pack://application:,,,/Resources/Service.png"
                         PageTag="hisqoolmanger"
                         PageType="{x:Type pages:HisqoolManager}"/>
                     <ui:NavigationItem
                         Cache="True"
                         Content="Repair"
+                        ToolTip="Repair"
                         Image="pack://application:,,,/Resources/repair.png"
                         PageTag="repair"
                         PageType="{x:Type pages:Repair}"/>
                     <ui:NavigationItem
                         Cache="True"
                         Content="Delete"
+                        ToolTip="Delete"
                         Image="pack://application:,,,/Resources/delete.png"
                         PageTag="delete"
                         PageType="{x:Type pages:Delete}"/>
                     <ui:NavigationItem
                         Cache="True"
                         Content="Customize"
+                        ToolTip="Customize"
                         Image="pack://application:,,,/Resources/Customize.png"
                         PageTag="customize"
                         PageType="{x:Type pages:Customize}"/>
                     <ui:NavigationItem
                         Cache="True"
                         Content="Drivers"
+                        ToolTip="Drivers"
                         Image="pack://application:,,,/Resources/drivers.png"
                         PageTag="drivers"
                         PageType="{x:Type pages:Drivers}"/>
@@ -93,6 +99,7 @@
                     <ui:NavigationItem
                         Cache="True"
                         Content="About"
+                        ToolTip="About"
                         Image="pack://application:,,,/Resources/about.png"
                         PageTag="about"
                         PageType="{x:Type pages:About}" />

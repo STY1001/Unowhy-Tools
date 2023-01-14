@@ -1,9 +1,4 @@
-﻿
-
-
-
-
-using Wpf.Ui.Common.Interfaces;
+﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
@@ -11,14 +6,14 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// <summary>
 /// Interaction logic for Dashboard.xaml
 /// </summary>
-public partial class Drivers : INavigableView<DashboardViewModel>
+public partial class WinRE : INavigableView<DashboardViewModel>
 {
     public DashboardViewModel ViewModel
     {
         get;
     }
 
-    public Drivers(DashboardViewModel viewModel)
+    public WinRE(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
 

@@ -1,9 +1,4 @@
-﻿// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT.
-// Copyright (C) Leszek Pomianowski and WPF UI Contributors.
-// All Rights Reserved.
-
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Common.Interfaces;
@@ -44,24 +39,12 @@ public class DashboardViewModel : ObservableObject, INavigationAware
 
     private void OnNavigate(string parameter)
     {
-        /*switch (parameter)
+        switch (parameter)
         {
-            case "navigate_to_input":
-                _navigationService.Navigate(typeof(Views.Pages.Input));
+            case "navigate_to_winre":
+                _navigationService.Navigate(typeof(Views.Pages.WinRE));
                 return;
-
-            case "navigate_to_controls":
-                _navigationService.Navigate(typeof(Views.Pages.Controls));
-                return;
-
-            case "navigate_to_colors":
-                _navigationService.Navigate(typeof(Views.Pages.Colors));
-                return;
-
-            case "navigate_to_icons":
-                _navigationService.Navigate(typeof(Views.Pages.Icons));
-                return;
-        }*/
+        }
     }
 
     private void OnOpenWindow(string parameter)

@@ -1,7 +1,7 @@
-﻿// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT.
-// Copyright (C) Leszek Pomianowski and WPF UI Contributors.
-// All Rights Reserved.
+﻿
+
+
+
 
 using System.IO;
 using System.Reflection;
@@ -77,6 +77,8 @@ public partial class App
             services.AddScoped<Views.Pages.Delete>();
             services.AddScoped<Views.Pages.Customize>();
             services.AddScoped<Views.Pages.Drivers>();
+            services.AddScoped<Views.Pages.WinRE>();
+
             
             // Configuration
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
