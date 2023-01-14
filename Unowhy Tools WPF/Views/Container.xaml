@@ -76,6 +76,18 @@
                         Image="pack://application:,,,/Resources/delete.png"
                         PageTag="delete"
                         PageType="{x:Type pages:Delete}"/>
+                    <ui:NavigationItem
+                        Cache="True"
+                        Content="Customize"
+                        Image="pack://application:,,,/Resources/Customize.png"
+                        PageTag="customize"
+                        PageType="{x:Type pages:Customize}"/>
+                    <ui:NavigationItem
+                        Cache="True"
+                        Content="Drivers"
+                        Image="pack://application:,,,/Resources/drivers.png"
+                        PageTag="drivers"
+                        PageType="{x:Type pages:Drivers}"/>
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem
