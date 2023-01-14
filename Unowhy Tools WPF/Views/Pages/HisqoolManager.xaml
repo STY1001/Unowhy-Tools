@@ -17,16 +17,19 @@
     <StackPanel>
         <ui:CardControl Margin="10,10,10,0">
             <ui:CardControl.Header>
-                <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                    <TextBlock
+                <Grid>
+                    <Image Source="pack://application:,,,/Resources/service.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
+                        <TextBlock
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Modify Hisqool Manager service" />
-                    <TextBlock
+                        <TextBlock
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
-                </StackPanel>
+                    </StackPanel>
+                </Grid>
             </ui:CardControl.Header>
             <StackPanel>
                 <Grid>
