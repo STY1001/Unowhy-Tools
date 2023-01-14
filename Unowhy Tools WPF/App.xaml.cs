@@ -75,7 +75,9 @@ public partial class App
             services.AddScoped<Views.Pages.HisqoolManager>();
             services.AddScoped<Views.Pages.Repair>();
             services.AddScoped<Views.Pages.Delete>();
-
+            services.AddScoped<Views.Pages.Customize>();
+            services.AddScoped<Views.Pages.Drivers>();
+            
             // Configuration
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
         }).Build();
