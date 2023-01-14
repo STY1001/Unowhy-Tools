@@ -72,6 +72,9 @@ public partial class App
             // Test windows
             
             services.AddScoped<Views.Pages.About>();
+            services.AddScoped<Views.Pages.HisqoolManager>();
+            services.AddScoped<Views.Pages.Repair>();
+            services.AddScoped<Views.Pages.Delete>();
 
             // Configuration
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
