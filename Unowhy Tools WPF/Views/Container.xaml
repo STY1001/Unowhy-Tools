@@ -70,14 +70,14 @@
                         Image="pack://application:,,,/Resources/repair.png"
                         PageTag="repair"
                         PageType="{x:Type pages:Repair}"/>
-
-                    <!--
-                    <ui:NavigationHeader Icon="Fluent24" Text="Header" />
-                    -->
-                    
+                    <ui:NavigationItem
+                        Cache="True"
+                        Content="Delete"
+                        Image="pack://application:,,,/Resources/delete.png"
+                        PageTag="delete"
+                        PageType="{x:Type pages:Delete}"/>
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
-                    <!--  A navigation element that does not point to the page can be used as a button.  -->
                     <ui:NavigationItem
                         Cache="True"
                         Content="About"
