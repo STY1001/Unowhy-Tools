@@ -30,7 +30,7 @@
                     RenderOptions.BitmapScalingMode="HighQuality"
                     Stretch="Uniform" />
             </Border.Background>
-            <Border CornerRadius="8,0,0,0">
+            <Border CornerRadius="8,8,8,8">
                 <Border.Background>
                     <RadialGradientBrush>
                         <GradientStop Offset="0" Color="#1F000000" />
@@ -64,7 +64,7 @@
                         VerticalAlignment="Bottom"
                         FontSize="10"
                         Foreground="#57FFFFFF"
-                        Text="" />
+                        Text="Version 20.0 (WPF 1.0) (Debug)" />
                 </Grid>
             </Border>
         </Border>

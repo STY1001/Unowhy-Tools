@@ -94,6 +94,12 @@
                         Image="pack://application:,,,/Resources/drivers.png"
                         PageTag="drivers"
                         PageType="{x:Type pages:Drivers}"/>
+                    <ui:NavigationItem
+                        Cache="True"
+                        Visibility="Hidden"
+                        Content="Change PC name"
+                        PageTag="pcname"
+                        PageType="{x:Type pages:PCname}"/>
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem

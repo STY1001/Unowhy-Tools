@@ -32,6 +32,8 @@
                 </Grid>
             </ui:CardControl.Header>
             <ui:Button
+                Command="{Binding ViewModel.NavigateCommand}"
+                CommandParameter="navigate_to_pcname"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -92,6 +94,8 @@
                 </Grid>
             </ui:CardControl.Header>
             <ui:Button
+                Command="{Binding ViewModel.NavigateCommand}"
+                CommandParameter="navigate_to_adduser"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -122,7 +126,7 @@
                 </Grid>
             </ui:CardControl.Header>
             <ui:Button
-                Grid.Column="0"
+                Grid.Column="0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_adminuser"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
