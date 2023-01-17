@@ -67,7 +67,7 @@ public partial class Container : INavigationWindow
 
         // We initialize a cute and pointless loading splash that prepares the view and navigate at the end.
         Loaded += (_, _) => InvokeSplashScreen();
-
+        
         // We register a window in the Watcher class, which changes the application's theme if the system theme changes.
         // Wpf.Ui.Appearance.Watcher.Watch(this, Appearance.BackgroundType.Mica, true, false);
     }
@@ -110,11 +110,12 @@ public partial class Container : INavigationWindow
         if (_initialized)
             return;
 
-        //_initialized = true;
-
+        _initialized = true;
+        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
+        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
         RootMainGrid.Visibility = Visibility.Collapsed;
         RootWelcomeGrid.Visibility = Visibility.Visible;
-
+        
         _taskBarService.SetState(this, TaskBarProgressState.Indeterminate);
 
         Task.Run(async () =>
@@ -132,7 +133,6 @@ public partial class Container : INavigationWindow
 
                 _taskBarService.SetState(this, TaskBarProgressState.None);
             });
-
             return true;
         });
     }

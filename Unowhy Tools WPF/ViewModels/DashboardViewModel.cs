@@ -60,11 +60,25 @@ public class DashboardViewModel : ObservableObject, INavigationAware
             case "navigate_to_drvback":
                 _navigationService.Navigate(typeof(Views.Pages.DrvBack));
                 return;
+
             case "navigate_to_drvrest":
                 _navigationService.Navigate(typeof(Views.Pages.DrvRest));
                 return;
+
             case "navigate_to_drvconv":
                 _navigationService.Navigate(typeof(Views.Pages.DrvConv));
+                return;
+            
+            case "navigate_to_drivers":
+                _navigationService.Navigate(typeof(Views.Pages.Drivers));
+                return;
+            
+            case "navigate_to_customize":
+                _navigationService.Navigate(typeof(Views.Pages.Customize));
+                return;
+            
+            case "navigate_to_repair":
+                _navigationService.Navigate(typeof(Views.Pages.Repair));
                 return;
         }
     }

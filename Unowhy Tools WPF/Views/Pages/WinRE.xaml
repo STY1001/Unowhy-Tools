@@ -20,7 +20,11 @@
             <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+        <ui:Button
+            Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_repair"
+            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
+            <Image Source="../../Resources/back.png" Height="16"/>
+        </ui:Button>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

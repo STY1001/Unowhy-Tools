@@ -84,6 +84,7 @@ public partial class App
             services.AddScoped<Views.Pages.DrvBack>();
             services.AddScoped<Views.Pages.DrvRest>();
             services.AddScoped<Views.Pages.DrvConv>();
+            services.AddScoped<Views.Pages.PCinfo>();
             
             // Configuration
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));

@@ -52,7 +52,6 @@
                 TransitionType="SlideBottom">
                 <ui:NavigationStore.Items>
                     <ui:NavigationItem
-                        Cache="True"
                         Content="Home"
                         ToolTip="Home"
                         Image="pack://application:,,,/Resources/home.png"
@@ -60,50 +59,73 @@
                         PageType="{x:Type pages:Dashboard}" />
                     <ui:NavigationSeparator />
                     <ui:NavigationItem
-                        Cache="True"
                         Content="Hisqool Manager"
                         ToolTip="Hisqool Manager"
                         Image="pack://application:,,,/Resources/Service.png"
                         PageTag="hisqoolmanger"
                         PageType="{x:Type pages:HisqoolManager}"/>
                     <ui:NavigationItem
-                        Cache="True"
                         Content="Repair"
                         ToolTip="Repair"
                         Image="pack://application:,,,/Resources/repair.png"
                         PageTag="repair"
                         PageType="{x:Type pages:Repair}"/>
                     <ui:NavigationItem
-                        Cache="True"
                         Content="Delete"
                         ToolTip="Delete"
                         Image="pack://application:,,,/Resources/delete.png"
                         PageTag="delete"
                         PageType="{x:Type pages:Delete}"/>
                     <ui:NavigationItem
-                        Cache="True"
                         Content="Customize"
                         ToolTip="Customize"
                         Image="pack://application:,,,/Resources/Customize.png"
                         PageTag="customize"
                         PageType="{x:Type pages:Customize}"/>
                     <ui:NavigationItem
-                        Cache="True"
                         Content="Drivers"
                         ToolTip="Drivers"
                         Image="pack://application:,,,/Resources/drivers.png"
                         PageTag="drivers"
                         PageType="{x:Type pages:Drivers}"/>
                     <ui:NavigationItem
-                        Cache="True"
                         Visibility="Hidden"
+                        Height="0"
                         Content="Change PC name"
-                        PageTag="pcname"
                         PageType="{x:Type pages:PCname}"/>
+                    <ui:NavigationItem
+                        Visibility="Hidden"
+                        Height="0"
+                        Content="Add a new local account"
+                        PageType="{x:Type pages:AddUser}"/>
+                    <ui:NavigationItem
+                        Visibility="Hidden"
+                        Height="0"
+                        Content="Built-in &quot;Admin&quot; local account settings"
+                        PageType="{x:Type pages:AdminUser}"/>
+                    <ui:NavigationItem
+                        Visibility="Hidden"
+                        Height="0"
+                        Content="Drivers backup"
+                        PageType="{x:Type pages:DrvBack}"/>
+                    <ui:NavigationItem
+                        Visibility="Hidden"
+                        Height="0"
+                        Content="Drivers restore"
+                        PageType="{x:Type pages:DrvRest}"/>
+                    <ui:NavigationItem
+                        Visibility="Hidden"
+                        Height="0"
+                        Content="Convert an old drivers backup"
+                        PageType="{x:Type pages:DrvConv}"/>
+                    <ui:NavigationItem
+                        Visibility="Hidden"
+                        Height="0"
+                        Content="WinRE (reagentc) settings"
+                        PageType="{x:Type pages:WinRE}"/>
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem
-                        Cache="True"
                         Content="About"
                         ToolTip="About"
                         Image="pack://application:,,,/Resources/about.png"

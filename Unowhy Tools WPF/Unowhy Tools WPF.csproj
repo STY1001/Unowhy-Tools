@@ -24,7 +24,9 @@
     <None Remove="Resources\adduser.png" />
     <None Remove="Resources\admin.png" />
     <None Remove="Resources\adminuser.png" />
+    <None Remove="Resources\azgard.gif" />
     <None Remove="Resources\azure.png" />
+    <None Remove="Resources\back.png" />
     <None Remove="Resources\boot.png" />
     <None Remove="Resources\clouddl.png" />
     <None Remove="Resources\cmd.png" />
@@ -45,6 +47,7 @@
     <None Remove="Resources\fluent-ui-microsoft.png" />
     <None Remove="Resources\folder.png" />
     <None Remove="Resources\fp.png" />
+    <None Remove="Resources\g9.png" />
     <None Remove="Resources\geo_icons.png" />
     <None Remove="Resources\github.ico" />
     <None Remove="Resources\github.png" />
@@ -87,6 +90,7 @@
     <None Remove="Resources\start.png" />
     <None Remove="Resources\startup.png" />
     <None Remove="Resources\stop.png" />
+    <None Remove="Resources\sty1001.png" />
     <None Remove="Resources\taskmgr.png" />
     <None Remove="Resources\the_witcher_wallpaper.jpg" />
     <None Remove="Resources\uninstall.png" />
@@ -129,7 +133,9 @@
     <Resource Include="Resources\adduser.png" />
     <Resource Include="Resources\admin.png" />
     <Resource Include="Resources\adminuser.png" />
+    <Resource Include="Resources\azgard.gif" />
     <Resource Include="Resources\azure.png" />
+    <Resource Include="Resources\back.png" />
     <Resource Include="Resources\boot.png" />
     <Resource Include="Resources\clouddl.png" />
     <Resource Include="Resources\cmd.png" />
@@ -150,6 +156,7 @@
     <Resource Include="Resources\fluent-ui-microsoft.png" />
     <Resource Include="Resources\folder.png" />
     <Resource Include="Resources\fp.png" />
+    <Resource Include="Resources\g9.png" />
     <Resource Include="Resources\geo_icons.png" />
     <Resource Include="Resources\github.ico" />
     <Resource Include="Resources\github.png" />
@@ -192,6 +199,7 @@
     <Resource Include="Resources\start.png" />
     <Resource Include="Resources\startup.png" />
     <Resource Include="Resources\stop.png" />
+    <Resource Include="Resources\sty1001.png" />
     <Resource Include="Resources\taskmgr.png" />
     <Resource Include="Resources\the_witcher_wallpaper.jpg" />
     <Resource Include="Resources\uninstall.png" />

@@ -15,6 +15,11 @@
     mc:Ignorable="d">
 
     <Grid>
+        <ui:Button
+            Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_customize"
+            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
+            <Image Source="../../Resources/back.png" Height="16"/>
+        </ui:Button>
         <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="32"/>
