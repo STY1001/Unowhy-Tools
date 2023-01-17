@@ -82,6 +82,8 @@ public partial class App
             services.AddScoped<Views.Pages.AddUser>();
             services.AddScoped<Views.Pages.AdminUser>();
             services.AddScoped<Views.Pages.DrvBack>();
+            services.AddScoped<Views.Pages.DrvRest>();
+            services.AddScoped<Views.Pages.DrvConv>();
             
             // Configuration
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));

@@ -56,6 +56,16 @@ public class DashboardViewModel : ObservableObject, INavigationAware
             case "navigate_to_adminuser":
                 _navigationService.Navigate(typeof(Views.Pages.AdminUser));
                 return;
+            
+            case "navigate_to_drvback":
+                _navigationService.Navigate(typeof(Views.Pages.DrvBack));
+                return;
+            case "navigate_to_drvrest":
+                _navigationService.Navigate(typeof(Views.Pages.DrvRest));
+                return;
+            case "navigate_to_drvconv":
+                _navigationService.Navigate(typeof(Views.Pages.DrvConv));
+                return;
         }
     }
 
