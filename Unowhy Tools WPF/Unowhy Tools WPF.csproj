@@ -8,10 +8,6 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>UT.ico</ApplicationIcon>
-	<PublishSingleFile>true</PublishSingleFile>
-	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
-	<PlatformTarget>x64</PlatformTarget>
-	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
