@@ -70,12 +70,25 @@
                     Grid.Row="4"
                     Text="Backup Path:"
                     Foreground="#ffffff"/>
-                <ui:TextBox
-                    Grid.Row="6"
-                    Foreground="#ffffff"
-                    HorizontalAlignment="Stretch">
-                    
-                </ui:TextBox>
+                <Grid Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ui:TextBox
+                        Grid.Column="0"
+                        IsEnabled="False"
+                        Foreground="#ffffff"
+                        HorizontalAlignment="Stretch"/>
+                    <ui:Button
+                        HorizontalAlignment="Right"
+                        Grid.Column="2"
+                        Content="..."
+                        Foreground="#ffffff"/>
+                </Grid>
+                
                 <Grid Grid.Row="14">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
