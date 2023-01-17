@@ -15,7 +15,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="32"/>
                 <ColumnDefinition Width="5"/>
@@ -35,7 +35,7 @@
 
             </Grid>
 
-            <Grid Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid Grid.Column="2" VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="3"/>
@@ -44,7 +44,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="3"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock
@@ -63,7 +63,7 @@
                                  GroupName="bkapp"/>
                     <RadioButton Grid.Column="2"
                                  Content="DISM (Recommanded)"
-                                 GroupName="bkname"
+                                 GroupName="bkapp"
                                  IsChecked="True"/>
                 </Grid>
                 <TextBlock
@@ -84,11 +84,12 @@
                         HorizontalAlignment="Stretch"/>
                     <ui:Button
                         HorizontalAlignment="Right"
+                        VerticalAlignment="Stretch"
                         Grid.Column="2"
                         Content="..."
                         Foreground="#ffffff"/>
                 </Grid>
-                
+
                 <Grid Grid.Row="14">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
