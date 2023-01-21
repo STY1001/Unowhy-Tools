@@ -33,5 +33,7 @@ public partial class Drivers : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 }
