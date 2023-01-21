@@ -66,6 +66,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock
+                    x:Name="labu"
                     Grid.Row="0"
                     Text="Name:"
                     Foreground="#ffffff"/>
@@ -74,6 +75,7 @@
                     Width="200"
                     Foreground="#ffffff"/>
                 <TextBlock
+                    x:Name="labp"
                     Grid.Row="4"
                     Text="Password:"
                     Foreground="#ffffff"/>
@@ -82,6 +84,7 @@
                     Foreground="#ffffff"
                     Width="200"/>
                 <TextBlock
+                    x:Name="labc"
                     Grid.Row="8"
                     Text="Password:"
                     Foreground="#ffffff"/>
@@ -90,6 +93,7 @@
                     Foreground="#ffffff"
                     Width="200"/>
                 <CheckBox
+                    x:Name="laba"
                     Grid.Row="12"
                     Content="Local Admin"
                     IsChecked="True"/>
@@ -114,10 +118,11 @@
                                 <Image Source="../../Resources/adduser.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
                                 <StackPanel VerticalAlignment="Center" Grid.Column="2">
                                     <TextBlock
-                                    Margin="0"
-                                    FontSize="13"
-                                    FontWeight="Medium"
-                                    Text="Add" />
+                                        x:Name="labb"
+                                        Margin="0"
+                                        FontSize="13"
+                                        FontWeight="Medium"
+                                        Text="Add" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
