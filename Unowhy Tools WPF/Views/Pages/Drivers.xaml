@@ -20,11 +20,11 @@
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/clouddl.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="dlcloud_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Download a driver backup from cloud" />
-                        <TextBlock
+                        <TextBlock x:Name="dlcloud_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -36,7 +36,7 @@
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock
+                        <TextBlock x:Name="dlcloud_btn"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Regular"
@@ -50,11 +50,11 @@
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/upload.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="bk_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Backup drivers" />
-                        <TextBlock
+                        <TextBlock x:Name="bk_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -66,7 +66,7 @@
             Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock
+                        <TextBlock x:Name="bk_btn"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Regular"
@@ -80,11 +80,11 @@
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/download.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="rt_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Restore drivers" />
-                        <TextBlock
+                        <TextBlock x:Name="rt_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -96,7 +96,7 @@
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock
+                        <TextBlock x:Name="rt_btn"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Regular"
