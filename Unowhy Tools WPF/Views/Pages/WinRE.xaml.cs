@@ -27,5 +27,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 }
