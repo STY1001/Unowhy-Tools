@@ -51,5 +51,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 }
