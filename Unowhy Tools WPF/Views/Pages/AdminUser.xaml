@@ -52,10 +52,11 @@
                                 <Image Source="../../Resources/key.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
                                 <StackPanel VerticalAlignment="Center" Grid.Column="2">
                                     <TextBlock
-                                    Margin="0"
-                                    FontSize="13"
-                                    FontWeight="Medium"
-                                    Text="Change password" />
+                                        x:Name="snpw"
+                                        Margin="0"
+                                        FontSize="13"
+                                        FontWeight="Medium"
+                                        Text="Change password" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
@@ -85,10 +86,11 @@
                                 <Image Source="../../Resources/enable.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
                                 <StackPanel VerticalAlignment="Center" Grid.Column="2">
                                     <TextBlock
-                                    Margin="0"
-                                    FontSize="13"
-                                    FontWeight="Medium"
-                                    Text="Enable account" />
+                                        x:Name="en"
+                                        Margin="0"
+                                        FontSize="13"
+                                        FontWeight="Medium"
+                                        Text="Enable account" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
@@ -108,10 +110,11 @@
                                 <Image Source="../../Resources/disable.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
                                 <StackPanel VerticalAlignment="Center" Grid.Column="2">
                                     <TextBlock
-                                    Margin="0"
-                                    FontSize="13"
-                                    FontWeight="Medium"
-                                    Text="Disable account" />
+                                        x:Name="dis"
+                                        Margin="0"
+                                        FontSize="13"
+                                        FontWeight="Medium"
+                                        Text="Disable account" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
