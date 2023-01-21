@@ -27,5 +27,7 @@ public partial class PCname : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 }
