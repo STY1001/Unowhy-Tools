@@ -31,5 +31,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 }
