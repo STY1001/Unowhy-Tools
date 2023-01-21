@@ -53,7 +53,7 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock
+                <TextBlock x:Name="labold"
                     Grid.Row="0"
                     Text="Old:"
                     Foreground="#ffffff"/>
@@ -64,7 +64,7 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <ui:TextBox
+                    <ui:TextBox x:Name="oldpath"
                         Grid.Column="0"
                         IsEnabled="False"
                         Foreground="#ffffff"
@@ -76,7 +76,7 @@
                         Content="..."
                         Foreground="#ffffff"/>
                 </Grid>
-                <TextBlock
+                <TextBlock x:Name="labnew"
                     Grid.Row="4"
                     Text="New:"
                     Foreground="#ffffff"/>
@@ -87,7 +87,7 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <ui:TextBox
+                    <ui:TextBox x:Name="newpath"
                         Grid.Column="0"
                         IsEnabled="False"
                         Foreground="#ffffff"
@@ -120,7 +120,7 @@
 
                                 <Image Source="../../Resources/convert.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
                                 <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                    <TextBlock
+                                    <TextBlock x:Name="conv_btn"
                                     Margin="0"
                                     FontSize="13"
                                     FontWeight="Medium"

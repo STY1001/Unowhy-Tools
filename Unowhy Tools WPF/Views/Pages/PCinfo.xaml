@@ -15,55 +15,97 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Border
-            Grid.Row="0"
-            Height="250"
-            CornerRadius="8,0,0,0">
-            <Border.Background>
-                <ImageBrush
-                    ImageSource="../../Resources/UTLogoWhite2.0.png"
-                    RenderOptions.BitmapScalingMode="HighQuality"
-                    Stretch="Uniform" />
-            </Border.Background>
-            <Border CornerRadius="8,8,8,8">
-                <Border.Background>
-                    <RadialGradientBrush>
-                        <GradientStop Offset="0" Color="#1F000000" />
-                        <GradientStop Offset="1" Color="#4F000000" />
-                    </RadialGradientBrush>
-                </Border.Background>
-                <Grid>
-                    <StackPanel
-                        Margin="64"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Background="Transparent">
-                        <TextBlock
-                            FontSize="28"
-                            FontWeight="Bold"
-                            Foreground="#FFFFFF"
-                            Text="Unowhy Tools" />
-                        <TextBlock
-                            FontSize="18"
-                            Foreground="#B7FFFFFF"
-                            Text="A tool for Y13 computers !" />
-                        <TextBlock 
-                            FontSize="11"
-                            Foreground="#B7FFFFFF"
-                            Text="by STY1001"/>
-                    </StackPanel>
-                    <TextBlock
-                        Margin="12"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom"
-                        FontSize="10"
-                        Foreground="#57FFFFFF"
-                        Text="Version 20.0 (WPF 1.0) (Debug)" />
-                </Grid>
-            </Border>
-        </Border>
+        <ui:Button
+            Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_home"
+            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
+            <Image Source="../../Resources/back.png" Height="16"/>
+        </ui:Button>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="32"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="/resources/laptop.png" Grid.Row="0" Grid.Column="0"/>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Windows PC name:" Foreground="#ffffff" Grid.Row="0" x:Name="labpnc"/>
+                <TextBlock Text="[NAME]" Foreground="#bebebe" FontFamily="Lucida Console" Grid.Row="2" x:Name="pcn"/>
+            </Grid>
+            <Image Source="/resources/user.png" Grid.Row="2" Grid.Column="0"/>
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="User ID:" Foreground="#ffffff" Grid.Row="0" x:Name="labuid"/>
+                <TextBlock Text="[USER]" Foreground="#bebebe" FontFamily="Lucida Console" Grid.Row="2" x:Name="uid"/>
+            </Grid>
+            <Image Source="/resources/manufacturer.png" Grid.Row="4" Grid.Column="0"/>
+            <Grid Grid.Row="4" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Manufacturer/Model:" Foreground="#ffffff" Grid.Row="0" x:Name="labmf"/>
+                <TextBlock Text="[MANUFACTURER]" Foreground="#bebebe" FontFamily="Lucida Console" Grid.Row="2" x:Name="mf"/>
+            </Grid>
+            <Image Source="/resources/datamatrix.png" Grid.Row="6" Grid.Column="0"/>
+            <Grid Grid.Row="6" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Serial Number:" Foreground="#ffffff" Grid.Row="0" x:Name="labsn"/>
+                <TextBlock Text="[SN]" Foreground="#bebebe" FontFamily="Lucida Console" Grid.Row="2" x:Name="sn"/>
+            </Grid>
+            <Image Source="/resources/ic.png" Grid.Row="8" Grid.Column="0"/>
+            <Grid Grid.Row="8" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="BIOS Version:" Foreground="#ffffff" Grid.Row="0" x:Name="labbv"/>
+                <TextBlock Text="[BIOS]" Foreground="#bebebe" FontFamily="Lucida Console" Grid.Row="2" x:Name="bv"/>
+            </Grid>
+            <Image Source="/resources/win11.png" Grid.Row="10" Grid.Column="0" x:Name="imgwv"/>
+            <Grid Grid.Row="10" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Windows Version:" Foreground="#ffffff" Grid.Row="0" x:Name="labwv"/>
+                <TextBlock Text="[WIN]" Foreground="#bebebe" FontFamily="Lucida Console" Grid.Row="2" x:Name="wv"/>
+            </Grid>
+        </Grid>
     </Grid>
 </ui:UiPage>

@@ -15,16 +15,16 @@
     mc:Ignorable="d">
 
     <StackPanel>
-        <ui:CardControl Margin="10,10,10,0">
+        <ui:CardControl Margin="10,10,10,0" x:Name="shell">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/folder.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="shell_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Change &quot;Shell&quot; value to &quot;explorer.exe&quot;" />
-                        <TextBlock
+                        <TextBlock x:Name="shell_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -36,7 +36,7 @@
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock
+                        <TextBlock x:Name="shell_btn"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Regular"
@@ -45,16 +45,16 @@
                 </StackPanel>
             </ui:Button>
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0">
+        <ui:CardControl Margin="10,10,10,0" x:Name="tis">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/script.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="tis_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Delete &quot;silent_*.vbs&quot; in &quot;Startup&quot; folder" />
-                        <TextBlock
+                        <TextBlock x:Name="tis_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -66,7 +66,7 @@
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock
+                        <TextBlock x:Name="tis_btn"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Regular"
@@ -75,16 +75,16 @@
                 </StackPanel>
             </ui:Button>
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0">
+        <ui:CardControl Margin="10,10,10,0" x:Name="wre">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/recovery.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="wre_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="WinRE (reagentc) settings" />
-                        <TextBlock
+                        <TextBlock x:Name="wre_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -96,7 +96,7 @@
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock
+                        <TextBlock x:Name="wre_btn"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Regular"
@@ -105,16 +105,16 @@
                 </StackPanel>
             </ui:Button>
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0">
+        <ui:CardControl Margin="10,10,10,0" x:Name="bim">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/registry.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="bim_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Repair BootIM (Blue menu)" />
-                        <TextBlock
+                        <TextBlock x:Name="bim_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -126,7 +126,7 @@
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock
+                        <TextBlock x:Name="bim_btn"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Regular"
@@ -135,16 +135,16 @@
                 </StackPanel>
             </ui:Button>
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0">
+        <ui:CardControl Margin="10,10,10,0" x:Name="whe">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/fp.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="whe_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Enable &quot;Windows Hello Enterprise&quot;" />
-                        <TextBlock
+                        <TextBlock x:Name="whe_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -156,7 +156,7 @@
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock
+                        <TextBlock x:Name="whe_btn"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Regular"
@@ -165,16 +165,16 @@
                 </StackPanel>
             </ui:Button>
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0">
+        <ui:CardControl Margin="10,10,10,0" x:Name="iaf">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/boot.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="iaf_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Delete &quot;IgnoreAllFailures&quot; in BCD" />
-                        <TextBlock
+                        <TextBlock x:Name="iaf_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -186,7 +186,7 @@
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <StackPanel VerticalAlignment="Center">
-                        <TextBlock
+                        <TextBlock x:Name="iaf_btn"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Regular"

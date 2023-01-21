@@ -20,9 +20,9 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <!--
-        So far Visual Studio has been very reluctant to accept the default window styles.
-    -->
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo x:Name="tbinfo"/>
+    </Window.TaskbarItemInfo>
 
     <Grid>
         <Grid.RowDefinitions>

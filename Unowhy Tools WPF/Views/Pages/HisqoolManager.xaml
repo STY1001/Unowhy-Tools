@@ -15,16 +15,16 @@
     mc:Ignorable="d">
 
     <StackPanel>
-        <ui:CardControl Margin="10,10,10,0">
+        <ui:CardControl Margin="10,10,10,0" x:Name="hsqm">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/service.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock
+                        <TextBlock x:Name="hsqm_txt"
                         FontSize="13"
                         FontWeight="Medium"
                         Text="Modify Hisqool Manager service" />
-                        <TextBlock
+                        <TextBlock x:Name="hsqm_desc"
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" />
@@ -40,7 +40,7 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0">
-                        <ui:Button
+                        <ui:Button x:Name="hsqm_start"
                         Grid.Column="0"
                         Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                             <StackPanel>
@@ -56,7 +56,7 @@
 
                                     <Image Source="../../Resources/start.png" Grid.Column="0"/>
                                     <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                        <TextBlock
+                                        <TextBlock x:Name="hsqm_start_txt"
                                        Margin="0"
                                        FontSize="13"
                                        FontWeight="Medium"
@@ -65,7 +65,7 @@
                                 </Grid>
                             </StackPanel>
                         </ui:Button>
-                        <ui:Button
+                        <ui:Button x:Name="hsqm_enable"
                         Grid.Column="0"
                         Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,10,0,0">
                             <StackPanel>
@@ -81,7 +81,7 @@
 
                                     <Image Source="../../Resources/enable.png" Grid.Column="0"/>
                                     <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                        <TextBlock
+                                        <TextBlock x:Name="hsqm_enable_txt"
                                        Margin="0"
                                        FontSize="13"
                                        FontWeight="Medium"
@@ -92,7 +92,7 @@
                         </ui:Button>
                     </StackPanel>
                     <StackPanel Grid.Column="2">
-                        <ui:Button
+                        <ui:Button x:Name="hsqm_stop"
                         Grid.Column="0"
                         Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                             <StackPanel>
@@ -108,7 +108,7 @@
 
                                     <Image Source="../../Resources/stop.png" Grid.Column="0"/>
                                     <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                        <TextBlock
+                                        <TextBlock x:Name="hsqm_stop_txt"
                                        Margin="0"
                                        FontSize="13"
                                        FontWeight="Medium"
@@ -117,7 +117,7 @@
                                 </Grid>
                             </StackPanel>
                         </ui:Button>
-                        <ui:Button
+                        <ui:Button x:Name="hsqm_disable"
                         Grid.Column="0"
                         Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,10,0,0">
                             <StackPanel>
@@ -133,7 +133,7 @@
 
                                     <Image Source="../../Resources/disable.png" Grid.Column="0"/>
                                     <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                        <TextBlock
+                                        <TextBlock x:Name="hsqm_disable_txt"
                                        Margin="0"
                                        FontSize="13"
                                        FontWeight="Medium"
@@ -144,7 +144,7 @@
                         </ui:Button>
                     </StackPanel>
                 </Grid>
-                <ui:Button
+                <ui:Button x:Name="hsqm_delete"
                         Grid.Column="0"
                         Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,10,0,0">
                             <StackPanel>
@@ -160,7 +160,7 @@
 
                                     <Image Source="../../Resources/delete.png" Grid.Column="0"/>
                                     <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                        <TextBlock
+                                    <TextBlock x:Name="hsqm_delete_txt"
                                        Margin="0"
                                        FontSize="13"
                                        FontWeight="Medium"

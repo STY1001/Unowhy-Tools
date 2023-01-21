@@ -33,7 +33,7 @@
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ui:Button
+            <ui:Button x:Name="en"
                 Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <Grid Grid.Row="1" Margin="0,0,0,0">
@@ -47,7 +47,7 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="../../Resources/enable.png" Grid.Column="0"/>
                         <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                            <TextBlock
+                            <TextBlock x:Name="en_txt"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Medium"
@@ -56,7 +56,7 @@
                     </Grid>
                 </StackPanel>
             </ui:Button>
-            <ui:Button
+            <ui:Button x:Name="dis"
                 Grid.Column="2" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <Grid Grid.Row="1" Margin="0,0,0,0">
@@ -70,7 +70,7 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="../../Resources/Disable.png" Grid.Column="0"/>
                         <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                            <TextBlock
+                            <TextBlock x:Name="dis_txt"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Medium"
@@ -79,7 +79,7 @@
                     </Grid>
                 </StackPanel>
             </ui:Button>
-            <ui:Button
+            <ui:Button x:Name="rep"
                 Grid.Column="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
                     <Grid Grid.Row="1" Margin="0,0,0,0">
@@ -93,7 +93,7 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="../../Resources/repair.png" Grid.Column="0"/>
                         <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                            <TextBlock
+                            <TextBlock x:Name="rep_txt"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Medium"

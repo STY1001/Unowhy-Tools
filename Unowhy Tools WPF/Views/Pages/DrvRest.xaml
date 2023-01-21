@@ -52,16 +52,16 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="45*"/>
                 </Grid.RowDefinitions>
-                <TextBlock
+                <TextBlock x:Name="labconv"
                     Grid.Row="0"
                     Text="Convert an old backup (&lt;18.0):"
                     Foreground="#ffffff"/>
-                <ui:Button
+                <ui:Button x:Name="convbtn"
                     Command="{Binding ViewModel.NavigateCommand}"
                     CommandParameter="navigate_to_drvconv"
                     Grid.Row="2"
                     Content="Convert"/>
-                <TextBlock
+                <TextBlock x:Name="labpath"
                     Grid.Row="4"
                     Text="Backup Path:"
                     Foreground="#ffffff"/>
@@ -105,7 +105,7 @@
 
                                 <Image Source="../../Resources/download.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
                                 <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                    <TextBlock
+                                    <TextBlock x:Name="rest_btn"
                                     Margin="0"
                                     FontSize="13"
                                     FontWeight="Medium"

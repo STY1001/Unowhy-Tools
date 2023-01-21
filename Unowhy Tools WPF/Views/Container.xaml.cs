@@ -31,45 +31,21 @@ public partial class Container : INavigationWindow
 
     public Container(ContainerViewModel viewModel, INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)
     {
-        // Assign the view model
         ViewModel = viewModel;
         DataContext = this;
-
-        // Attach the theme service
         _themeService = themeService;
-
-        // Attach the taskbar service
         _taskBarService = taskBarService;
 
-        //// Context provided by the service provider.
-        //DataContext = viewModel;
-
-        // Initial preparation of the window.
         InitializeComponent();
 
-        // We define a page provider for navigation
         SetPageService(pageService);
-
-        // If you want to use INavigationService instead of INavigationWindow you can define its navigation here.
         navigationService.SetNavigationControl(RootNavigation);
-
-        // Allows you to use the Snackbar control defined in this window in other pages or windows
         snackbarService.SetSnackbarControl(RootSnackbar);
-
-        // Allows you to use the Dialog control defined in this window in other pages or windows
         dialogService.SetDialogControl(RootDialog);
 
-        // !! Experimental option
-        //RemoveTitlebar();
-
-        // !! Experimental option
-        //ApplyBackdrop(Wpf.Ui.Appearance.BackgroundType.Mica);
-
-        // We initialize a cute and pointless loading splash that prepares the view and navigate at the end.
-        Loaded += (_, _) => InvokeSplashScreen();
         
-        // We register a window in the Watcher class, which changes the application's theme if the system theme changes.
-        // Wpf.Ui.Appearance.Watcher.Watch(this, Appearance.BackgroundType.Mica, true, false);
+        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
+        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
     }
 
     /// <summary>
@@ -111,8 +87,7 @@ public partial class Container : INavigationWindow
             return;
 
         _initialized = true;
-        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
-        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
+        
         RootMainGrid.Visibility = Visibility.Collapsed;
         RootWelcomeGrid.Visibility = Visibility.Visible;
         

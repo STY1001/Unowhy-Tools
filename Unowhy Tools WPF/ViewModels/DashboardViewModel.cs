@@ -80,6 +80,10 @@ public class DashboardViewModel : ObservableObject, INavigationAware
             case "navigate_to_repair":
                 _navigationService.Navigate(typeof(Views.Pages.Repair));
                 return;
+            
+            case "navigate_to_home":
+                _navigationService.Navigate(typeof(Views.Pages.Dashboard));
+                return;
         }
     }
 

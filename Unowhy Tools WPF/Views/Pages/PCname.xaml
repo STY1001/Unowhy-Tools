@@ -32,20 +32,20 @@
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock
+            <TextBlock x:Name="labold"
                 Grid.Row="0"
                 Text="Actual name:"
                 Foreground="#ffffff"/>
-            <TextBlock
+            <TextBlock x:Name="old"
                 Grid.Row="2"
-                FontSize="15"
                 Text="[NAME]"
-                Foreground="#ffffff"/>
-            <TextBlock
+                FontFamily="Lucida Console"
+                Foreground="#bebebe"/>
+            <TextBlock x:Name="labnew"
                 Grid.Row="4"
                 Text="New name:"
                 Foreground="#ffffff"/>
-            <ui:TextBox
+            <ui:TextBox x:Name="new"
                 Grid.Row="6"
                 Foreground="#ffffff"
                 Width="200"/>
@@ -70,7 +70,7 @@
 
                             <Image Source="../../Resources/customize.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
                             <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                <TextBlock
+                                <TextBlock x:Name="pcn_btn"
                                     Margin="0"
                                     FontSize="13"
                                     FontWeight="Medium"
