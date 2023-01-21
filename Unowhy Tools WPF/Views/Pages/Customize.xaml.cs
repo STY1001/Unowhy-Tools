@@ -36,6 +36,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
         applylang();
     }
 }
