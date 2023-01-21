@@ -52,7 +52,7 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock
+                <TextBlock  x:Name="labbkapp"
                     Grid.Row="0"
                     Text="Backup App:"
                     Foreground="#ffffff"/>
@@ -64,14 +64,16 @@
                     </Grid.ColumnDefinitions>
 
                     <RadioButton Grid.Column="0"
+                                  x:Name="psbk"
                                  Content="PowerShell"
                                  GroupName="bkapp"/>
                     <RadioButton Grid.Column="2"
+                                  x:Name="disbbk"
                                  Content="DISM (Recommanded)"
                                  GroupName="bkapp"
                                  IsChecked="True"/>
                 </Grid>
-                <TextBlock
+                <TextBlock x:Name="labpath"
                     Grid.Row="4"
                     Text="Backup Path:"
                     Foreground="#ffffff"/>
@@ -82,11 +84,10 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <ui:TextBox
+                    <ui:TextBox x:Name="bkpath"
                         Grid.Column="0"
                         IsEnabled="False"
-                        Foreground="#ffffff"
-                        HorizontalAlignment="Stretch"/>
+                        Foreground="#ffffff" Grid.ColumnSpan="2" Margin="0,0,10,0" VerticalAlignment="Bottom"/>
                     <ui:Button
                         HorizontalAlignment="Right"
                         VerticalAlignment="Stretch"
@@ -115,7 +116,7 @@
 
                                 <Image Source="../../Resources/upload.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
                                 <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                    <TextBlock
+                                    <TextBlock x:Name="bk_btn"
                                     Margin="0"
                                     FontSize="13"
                                     FontWeight="Medium"
