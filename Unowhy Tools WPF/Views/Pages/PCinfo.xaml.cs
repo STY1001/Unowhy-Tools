@@ -30,5 +30,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 }
