@@ -28,5 +28,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 }
