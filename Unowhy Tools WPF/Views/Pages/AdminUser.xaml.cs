@@ -27,5 +27,7 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 }
