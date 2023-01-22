@@ -504,6 +504,51 @@
   <data name="stophis" xml:space="preserve">
     <value>Arrêter le service "HiSqoolManager"</value>
   </data>
+  <data name="titleabout" xml:space="preserve">
+    <value>A propos</value>
+  </data>
+  <data name="titleadduser" xml:space="preserve">
+    <value>Ajouter un compte local</value>
+  </data>
+  <data name="titleadminset" xml:space="preserve">
+    <value>Paramètre du compte local "admin" intégré</value>
+  </data>
+  <data name="titleconv" xml:space="preserve">
+    <value>Convertir une sauvegarde de pilotes</value>
+  </data>
+  <data name="titlecust" xml:space="preserve">
+    <value>Personnaliser</value>
+  </data>
+  <data name="titledelete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="titledrv" xml:space="preserve">
+    <value>Pilotes</value>
+  </data>
+  <data name="titledrvbk" xml:space="preserve">
+    <value>Sauvegarder les pilotes</value>
+  </data>
+  <data name="titledrvrt" xml:space="preserve">
+    <value>Restaurer les pilotes</value>
+  </data>
+  <data name="titlehome" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="titlehsqm" xml:space="preserve">
+    <value>HiSqool Manager</value>
+  </data>
+  <data name="titlepci" xml:space="preserve">
+    <value>Info Système</value>
+  </data>
+  <data name="titlepcn" xml:space="preserve">
+    <value>Changer le nom du PC</value>
+  </data>
+  <data name="titlerepair" xml:space="preserve">
+    <value>Réparer</value>
+  </data>
+  <data name="titlewre" xml:space="preserve">
+    <value>Paramètre WinRE (reagentc)</value>
+  </data>
   <data name="udcheck" xml:space="preserve">
     <value>Vérifier les mises à jour</value>
   </data>

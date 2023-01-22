@@ -504,6 +504,51 @@
   <data name="stophis" xml:space="preserve">
     <value>Stop "HiSqoolManager" service</value>
   </data>
+  <data name="titleabout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="titleadduser" xml:space="preserve">
+    <value>Add an local account</value>
+  </data>
+  <data name="titleadminset" xml:space="preserve">
+    <value>Built-in "Admin" local account settings</value>
+  </data>
+  <data name="titleconv" xml:space="preserve">
+    <value>Convert a driver backup</value>
+  </data>
+  <data name="titlecust" xml:space="preserve">
+    <value>Customize</value>
+  </data>
+  <data name="titledelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="titledrv" xml:space="preserve">
+    <value>Drivers</value>
+  </data>
+  <data name="titledrvbk" xml:space="preserve">
+    <value>Backup drivers</value>
+  </data>
+  <data name="titledrvrt" xml:space="preserve">
+    <value>Restore drivers</value>
+  </data>
+  <data name="titlehome" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="titlehsqm" xml:space="preserve">
+    <value>HiSqool Manager</value>
+  </data>
+  <data name="titlepci" xml:space="preserve">
+    <value>System Info</value>
+  </data>
+  <data name="titlepcn" xml:space="preserve">
+    <value>Change PC name</value>
+  </data>
+  <data name="titlerepair" xml:space="preserve">
+    <value>Repair</value>
+  </data>
+  <data name="titlewre" xml:space="preserve">
+    <value>WinRE (reagentc) settings</value>
+  </data>
   <data name="udcheck" xml:space="preserve">
     <value>Check for updates</value>
   </data>
