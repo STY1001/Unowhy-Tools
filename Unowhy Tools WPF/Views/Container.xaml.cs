@@ -9,6 +9,8 @@ using Unowhy_Tools_WPF.ViewModels;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.TaskBar;
 
+using static Unowhy_Tools_WPF.UTclass;
+
 namespace Unowhy_Tools_WPF.Views;
 
 /// <summary>
@@ -26,7 +28,25 @@ public partial class Container : INavigationWindow
     {
         get;
     }
-
+    
+    public void applylang()
+    {
+        home.Content = getlang("titlehome");
+        hsqm.Content = getlang("titlehsqm");
+        repair.Content = getlang("titlerepair");
+        delete.Content = getlang("titledelete");
+        customize.Content = getlang("titlecust");
+        drivers.Content = getlang("titledrv");
+        pcname.Content = getlang("titlepcn");
+        wre.Content = getlang("titlewre");
+        adduser.Content = getlang("titleadduser");
+        adminset.Content = getlang("titleadminset");
+        about.Content = getlang("titleabout");
+        drvbk.Content = getlang("titledrvbk");
+        drvrt.Content = getlang("titledrvrt");
+        drvconv.Content = getlang("titleconv");
+    }
+    
     // NOTICE: In the case of this window, we navigate to the Dashboard after loading with Container.InitializeUi()
 
     public Container(ContainerViewModel viewModel, INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)
@@ -37,6 +57,8 @@ public partial class Container : INavigationWindow
         _taskBarService = taskBarService;
 
         InitializeComponent();
+
+        applylang();
 
         SetPageService(pageService);
         navigationService.SetNavigationControl(RootNavigation);

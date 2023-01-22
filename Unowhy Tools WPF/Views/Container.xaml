@@ -52,6 +52,7 @@
                 TransitionType="SlideBottom">
                 <ui:NavigationStore.Items>
                     <ui:NavigationItem
+                        x:Name="home"
                         Content="Home"
                         ToolTip="Home"
                         Image="pack://application:,,,/Resources/home.png"
@@ -59,66 +60,78 @@
                         PageType="{x:Type pages:Dashboard}" />
                     <ui:NavigationSeparator />
                     <ui:NavigationItem
+                        x:Name="hsqm"
                         Content="Hisqool Manager"
                         ToolTip="Hisqool Manager"
                         Image="pack://application:,,,/Resources/Service.png"
                         PageTag="hisqoolmanger"
                         PageType="{x:Type pages:HisqoolManager}"/>
                     <ui:NavigationItem
+                        x:Name="repair"
                         Content="Repair"
                         ToolTip="Repair"
                         Image="pack://application:,,,/Resources/repair.png"
                         PageTag="repair"
                         PageType="{x:Type pages:Repair}"/>
                     <ui:NavigationItem
+                        x:Name="delete"
                         Content="Delete"
                         ToolTip="Delete"
                         Image="pack://application:,,,/Resources/delete.png"
                         PageTag="delete"
                         PageType="{x:Type pages:Delete}"/>
                     <ui:NavigationItem
+                        x:Name="customize"
                         Content="Customize"
                         ToolTip="Customize"
                         Image="pack://application:,,,/Resources/Customize.png"
                         PageTag="customize"
                         PageType="{x:Type pages:Customize}"/>
                     <ui:NavigationItem
+                        x:Name="drivers"
                         Content="Drivers"
                         ToolTip="Drivers"
                         Image="pack://application:,,,/Resources/drivers.png"
                         PageTag="drivers"
                         PageType="{x:Type pages:Drivers}"/>
                     <ui:NavigationItem
+                        x:Name="pcname"
                         Visibility="Hidden"
                         Height="0"
                         Content="Change PC name"
                         PageType="{x:Type pages:PCname}"/>
                     <ui:NavigationItem
+                        x:Name="adduser"
                         Visibility="Hidden"
                         Height="0"
                         Content="Add a new local account"
                         PageType="{x:Type pages:AddUser}"/>
                     <ui:NavigationItem
+                        x:Name="adminset"
                         Visibility="Hidden"
                         Height="0"
                         Content="Built-in &quot;Admin&quot; local account settings"
                         PageType="{x:Type pages:AdminUser}"/>
                     <ui:NavigationItem
+                        x:Name="drvbk"
                         Visibility="Hidden"
                         Height="0"
                         Content="Drivers backup"
                         PageType="{x:Type pages:DrvBack}"/>
                     <ui:NavigationItem
+                        x:Name="drvrt"
                         Visibility="Hidden"
                         Height="0"
                         Content="Drivers restore"
                         PageType="{x:Type pages:DrvRest}"/>
                     <ui:NavigationItem
+                        x:Name="drvconv"
                         Visibility="Hidden"
                         Height="0"
                         Content="Convert an old drivers backup"
                         PageType="{x:Type pages:DrvConv}"/>
                     <ui:NavigationItem
+                        x:Name="wre"
                         Visibility="Hidden"
                         Height="0"
                         Content="WinRE (reagentc) settings"
@@ -126,12 +139,14 @@
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem
+                        x:Name="deb"
                         Content="Debug"
                         ToolTip="Debug"
                         Image="pack://application:,,,/Resources/code.png"
                         PageTag="debug"
                         PageType="{x:Type pages:DebugPage}" />
                     <ui:NavigationItem
+                        x:Name="about"
                         Content="About"
                         ToolTip="About"
                         Image="pack://application:,,,/Resources/about.png"
