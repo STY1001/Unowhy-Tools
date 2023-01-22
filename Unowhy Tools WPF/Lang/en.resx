@@ -165,6 +165,9 @@
   <data name="bkfail" xml:space="preserve">
     <value>The backup failed, use DISM</value>
   </data>
+  <data name="bkpath" xml:space="preserve">
+    <value>Backup path</value>
+  </data>
   <data name="bootim" xml:space="preserve">
     <value>Repair BootIM (Blue menu)</value>
   </data>
@@ -207,11 +210,17 @@
   <data name="cuscat" xml:space="preserve">
     <value>↓ Customize ↓</value>
   </data>
+  <data name="del" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="delcat" xml:space="preserve">
     <value>↓ Delete/Uninstall ↓</value>
   </data>
   <data name="delentf" xml:space="preserve">
     <value>Delete "ENT" folder</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="delhis" xml:space="preserve">
     <value>Uninstall "HiSqool"</value>
@@ -227,6 +236,9 @@
   </data>
   <data name="delridf" xml:space="preserve">
     <value>Delete "RIDF" folder</value>
+  </data>
+  <data name="delserv" xml:space="preserve">
+    <value>Delete service only</value>
   </data>
   <data name="delti" xml:space="preserve">
     <value>Delete "TO_INSTALL" folder</value>
@@ -303,6 +315,9 @@
   <data name="disablea" xml:space="preserve">
     <value>Disable account</value>
   </data>
+  <data name="disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
   <data name="dishis" xml:space="preserve">
     <value>Disable "HiSqoolManager" service</value>
   </data>
@@ -311,6 +326,9 @@
   </data>
   <data name="dismdrv.title" xml:space="preserve">
     <value>DISM Drv GUI for Unowhy Tools</value>
+  </data>
+  <data name="dl" xml:space="preserve">
+    <value>Télécharger</value>
   </data>
   <data name="domuser" xml:space="preserve">
     <value>Current user ID ([DOMAIN] \ [USER])</value>
@@ -353,6 +371,9 @@
   </data>
   <data name="la" xml:space="preserve">
     <value>Local Admin</value>
+  </data>
+  <data name="labhsmq" xml:space="preserve">
+    <value>HiSqool Manager service</value>
   </data>
   <data name="logsclean" xml:space="preserve">
     <value>Cleanup logs</value>
@@ -471,14 +492,23 @@
   <data name="space6gusb" xml:space="preserve">
     <value>You need more free space on your PC/Devices (6GB)</value>
   </data>
+  <data name="start" xml:space="preserve">
+    <value>Start</value>
+  </data>
   <data name="starthis" xml:space="preserve">
     <value>Start "HiSqoolManager" service</value>
+  </data>
+  <data name="stop" xml:space="preserve">
+    <value>Stop</value>
   </data>
   <data name="stophis" xml:space="preserve">
     <value>Stop "HiSqoolManager" service</value>
   </data>
   <data name="udcheck" xml:space="preserve">
     <value>Check for updates</value>
+  </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>Uninstall</value>
   </data>
   <data name="unow" xml:space="preserve">
     <value>Update now</value>
