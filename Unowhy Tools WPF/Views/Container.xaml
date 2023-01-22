@@ -126,6 +126,12 @@
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem
+                        Content="Debug"
+                        ToolTip="Debug"
+                        Image="pack://application:,,,/Resources/code.png"
+                        PageTag="debug"
+                        PageType="{x:Type pages:DebugPage}" />
+                    <ui:NavigationItem
                         Content="About"
                         ToolTip="About"
                         Image="pack://application:,,,/Resources/about.png"

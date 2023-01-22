@@ -31,6 +31,7 @@
     <None Remove="Resources\boot.png" />
     <None Remove="Resources\clouddl.png" />
     <None Remove="Resources\cmd.png" />
+    <None Remove="Resources\code.png" />
     <None Remove="Resources\convert.png" />
     <None Remove="Resources\cs.png" />
     <None Remove="Resources\customize.png" />
@@ -141,6 +142,7 @@
     <Resource Include="Resources\boot.png" />
     <Resource Include="Resources\clouddl.png" />
     <Resource Include="Resources\cmd.png" />
+    <Resource Include="Resources\code.png" />
     <Resource Include="Resources\convert.png" />
     <Resource Include="Resources\cs.png" />
     <Resource Include="Resources\customize.png" />
