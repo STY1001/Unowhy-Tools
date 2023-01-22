@@ -27,7 +27,7 @@
                         <TextBlock x:Name="pcname_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -59,7 +59,7 @@
                         <TextBlock x:Name="adminset_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -89,7 +89,7 @@
                         <TextBlock x:Name="adduser_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -121,7 +121,7 @@
                         <TextBlock x:Name="auset_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>

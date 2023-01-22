@@ -27,7 +27,7 @@
                         <TextBlock x:Name="hsqm_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>

@@ -27,7 +27,7 @@
                         <TextBlock x:Name="shell_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -57,7 +57,7 @@
                         <TextBlock x:Name="tis_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -87,7 +87,7 @@
                         <TextBlock x:Name="wre_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -117,7 +117,7 @@
                         <TextBlock x:Name="bim_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -147,7 +147,7 @@
                         <TextBlock x:Name="whe_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -177,7 +177,7 @@
                         <TextBlock x:Name="iaf_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>

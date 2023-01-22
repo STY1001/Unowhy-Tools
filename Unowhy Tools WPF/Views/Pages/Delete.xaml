@@ -27,7 +27,7 @@
                         <TextBlock x:Name="instprog_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -57,7 +57,7 @@
                         <TextBlock x:Name="entu_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -87,7 +87,7 @@
                         <TextBlock x:Name="hsq_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -117,7 +117,7 @@
                         <TextBlock x:Name="aad_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -147,7 +147,7 @@
                         <TextBlock  x:Name="hsmqf_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -177,7 +177,7 @@
                         <TextBlock x:Name="tif_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -207,7 +207,7 @@
                         <TextBlock x:Name="ridff_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -237,7 +237,7 @@
                         <TextBlock x:Name="oemf_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -267,7 +267,7 @@
                         <TextBlock x:Name="entf_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>

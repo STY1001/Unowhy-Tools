@@ -27,7 +27,7 @@
                         <TextBlock x:Name="dlcloud_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -57,7 +57,7 @@
                         <TextBlock x:Name="bk_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
@@ -87,7 +87,7 @@
                         <TextBlock x:Name="rt_desc"
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Description" />
+                        Text="Description" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
