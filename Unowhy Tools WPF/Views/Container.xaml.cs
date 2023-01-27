@@ -8,8 +8,11 @@ using Wpf.Ui.Controls.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.TaskBar;
+using Unowhy_Tools_WPF.Services;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
+using Wpf.Ui.Mvvm.Interfaces;
+using Wpf.Ui.Mvvm.Services;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -28,25 +31,27 @@ public partial class Container : INavigationWindow
     {
         get;
     }
-    
+
     public void applylang()
     {
-        home.Content = getlang("titlehome");
-        hsqm.Content = getlang("titlehsqm");
-        repair.Content = getlang("titlerepair");
-        delete.Content = getlang("titledelete");
-        customize.Content = getlang("titlecust");
-        drivers.Content = getlang("titledrv");
-        pcname.Content = getlang("titlepcn");
-        wre.Content = getlang("titlewre");
-        adduser.Content = getlang("titleadduser");
-        adminset.Content = getlang("titleadminset");
-        about.Content = getlang("titleabout");
-        drvbk.Content = getlang("titledrvbk");
-        drvrt.Content = getlang("titledrvrt");
-        drvconv.Content = getlang("titleconv");
+        home.Content = UT.getlang("titlehome");
+        hsqm.Content = UT.getlang("titlehsqm");
+        repair.Content = UT.getlang("titlerepair");
+        delete.Content = UT.getlang("titledelete");
+        customize.Content = UT.getlang("titlecust");
+        drivers.Content = UT.getlang("titledrv");
+        pcname.Content = UT.getlang("titlepcn");
+        wre.Content = UT.getlang("titlewre");
+        adduser.Content = UT.getlang("titleadduser");
+        adminset.Content = UT.getlang("titleadminset");
+        about.Content = UT.getlang("titleabout");
+        drvbk.Content = UT.getlang("titledrvbk");
+        drvrt.Content = UT.getlang("titledrvrt");
+        drvconv.Content = UT.getlang("titleconv");
+        settings.Content = UT.getlang("titlesettings");
+        pcinfo.Content = UT.getlang("titlepci");
     }
-    
+
     // NOTICE: In the case of this window, we navigate to the Dashboard after loading with Container.InitializeUi()
 
     public Container(ContainerViewModel viewModel, INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)
@@ -55,11 +60,7 @@ public partial class Container : INavigationWindow
         DataContext = this;
         _themeService = themeService;
         _taskBarService = taskBarService;
-
         InitializeComponent();
-
-        applylang();
-
         SetPageService(pageService);
         navigationService.SetNavigationControl(RootNavigation);
         snackbarService.SetSnackbarControl(RootSnackbar);
@@ -68,6 +69,16 @@ public partial class Container : INavigationWindow
         
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
+
+        RootMainGrid.Visibility = Visibility.Collapsed;
+        RootWelcomeGrid.Visibility = Visibility.Visible;
+
+        applylang();
+
+        await Task.Delay(10000);
+
+        RootWelcomeGrid.Visibility = Visibility.Hidden;
+        RootMainGrid.Visibility = Visibility.Visible;
     }
 
     /// <summary>
@@ -102,37 +113,6 @@ public partial class Container : INavigationWindow
         => Close();
 
     #endregion INavigationWindow methods
-
-    private void InvokeSplashScreen()
-    {
-        if (_initialized)
-            return;
-
-        _initialized = true;
-        
-        RootMainGrid.Visibility = Visibility.Collapsed;
-        RootWelcomeGrid.Visibility = Visibility.Visible;
-        
-        _taskBarService.SetState(this, TaskBarProgressState.Indeterminate);
-
-        Task.Run(async () =>
-        {
-            // Remember to always include Delays and Sleeps in
-            // your applications to be able to charge the client for optimizations later.
-            await Task.Delay(1000);
-
-            await Dispatcher.InvokeAsync(() =>
-            {
-                RootWelcomeGrid.Visibility = Visibility.Hidden;
-                RootMainGrid.Visibility = Visibility.Visible;
-
-                Navigate(typeof(Pages.Dashboard));
-
-                _taskBarService.SetState(this, TaskBarProgressState.None);
-            });
-            return true;
-        });
-    }
 
     private void NavigationButtonTheme_OnClick(object sender, RoutedEventArgs e)
     {
