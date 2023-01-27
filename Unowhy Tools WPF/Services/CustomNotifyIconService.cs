@@ -16,6 +16,7 @@ public class CustomNotifyIconService : NotifyIconService
 {
     public CustomNotifyIconService()
     {
+        /*
         TooltipText = "WPF UI - Service Icon";
 
         // If this icon is not defined, the application icon will be used.
@@ -57,6 +58,7 @@ public class CustomNotifyIconService : NotifyIconService
         foreach (var singleContextMenuItem in ContextMenu.Items)
             if (singleContextMenuItem is MenuItem)
                 ((MenuItem)singleContextMenuItem).Click += OnMenuItemClick;
+        */
     }
 
     protected override void OnLeftClick()
