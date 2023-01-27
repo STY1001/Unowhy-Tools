@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,24 +17,24 @@ public partial class Repair : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        shell_txt.Text = getlang("shell");
-        shell_desc.Text = getlang("descshell");
-        shell_btn.Text = getlang("change");
-        tis_txt.Text = getlang("fixboot");
-        tis_desc.Text = getlang("descstart");
-        tis_btn.Text = getlang("del");
-        wre_txt.Text = getlang("winre");
-        wre_desc.Text = getlang("descwinre");
-        wre_btn.Text = getlang("open");
-        bim_txt.Text = getlang("bootim");
-        bim_desc.Text = getlang("descbootim");
-        bim_btn.Text = getlang("repair");
-        whe_txt.Text = getlang("enwhe");
-        whe_desc.Text = getlang("descenwhe");
-        whe_btn.Text = getlang("enable");
-        iaf_txt.Text = getlang("bcdfail");
-        iaf_desc.Text = getlang("descbcdfail");
-        iaf_btn.Text = getlang("del");
+        shell_txt.Text = UT.getlang("shell");
+        shell_desc.Text = UT.getlang("descshell");
+        shell_btn.Text = UT.getlang("change");
+        tis_txt.Text = UT.getlang("fixboot");
+        tis_desc.Text = UT.getlang("descstart");
+        tis_btn.Text = UT.getlang("del");
+        wre_txt.Text = UT.getlang("winre");
+        wre_desc.Text = UT.getlang("descwinre");
+        wre_btn.Text = UT.getlang("open");
+        bim_txt.Text = UT.getlang("bootim");
+        bim_desc.Text = UT.getlang("descbootim");
+        bim_btn.Text = UT.getlang("repair");
+        whe_txt.Text = UT.getlang("enwhe");
+        whe_desc.Text = UT.getlang("descenwhe");
+        whe_btn.Text = UT.getlang("enable");
+        iaf_txt.Text = UT.getlang("bcdfail");
+        iaf_desc.Text = UT.getlang("descbcdfail");
+        iaf_btn.Text = UT.getlang("del");
     }
 
     public Repair(DashboardViewModel viewModel)

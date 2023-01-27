@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,11 +17,11 @@ public partial class AddUser : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labu.Text = getlang("name");
-        labp.Text = getlang("password");
-        labc.Text = getlang("confpw");
-        laba.Content = getlang("la");
-        labb.Text = getlang("create");
+        labu.Text = UT.getlang("name");
+        labp.Text = UT.getlang("password");
+        labc.Text = UT.getlang("confpw");
+        laba.Content = UT.getlang("la");
+        labb.Text = UT.getlang("create");
     }
 
     public AddUser(DashboardViewModel viewModel)

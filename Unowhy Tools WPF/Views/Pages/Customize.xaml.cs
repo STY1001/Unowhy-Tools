@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,18 +17,18 @@ public partial class Customize : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        pcname_txt.Text = getlang("pcname");
-        pcname_desc.Text = getlang("descpcname");
-        pcname_btn.Text = getlang("change");
-        adminset_txt.Text = getlang("admin");
-        adminset_desc.Text = getlang("descadmin");
-        adminset_btn.Text = getlang("set");
-        adduser_txt.Text = getlang("adduser");
-        adduser_desc.Text = getlang("descadduser");
-        adduser_btn.Text = getlang("create");
-        auset_txt.Text = getlang("adminset");
-        auset_desc.Text = getlang("descadminset");
-        auset_btn.Text = getlang("open");
+        pcname_txt.Text = UT.getlang("pcname");
+        pcname_desc.Text = UT.getlang("descpcname");
+        pcname_btn.Text = UT.getlang("change");
+        adminset_txt.Text = UT.getlang("admin");
+        adminset_desc.Text = UT.getlang("descadmin");
+        adminset_btn.Text = UT.getlang("set");
+        adduser_txt.Text = UT.getlang("adduser");
+        adduser_desc.Text = UT.getlang("descadduser");
+        adduser_btn.Text = UT.getlang("create");
+        auset_txt.Text = UT.getlang("adminset");
+        auset_desc.Text = UT.getlang("descadminset");
+        auset_btn.Text = UT.getlang("open");
     }
 
     public Customize(DashboardViewModel viewModel)

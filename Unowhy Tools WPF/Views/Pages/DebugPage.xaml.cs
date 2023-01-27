@@ -4,6 +4,8 @@ using System.Diagnostics;
 using Wpf.Ui.Common;
 using Wpf.Ui.Mvvm.Contracts;
 
+using Unowhy_Tools;
+
 namespace Unowhy_Tools_WPF.Views.Pages;
 
 /// <summary>
@@ -57,5 +59,11 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     public void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
         _snackbarService.Show("Update checker", "Not done", SymbolRegular.ErrorCircle24, ControlAppearance.Danger);
+    }
+
+    public void al_click(object sender, System.Windows.RoutedEventArgs e)
+    {
+        UT.applylang_global();
+        instprog_txt.Text = "Hello";
     }
 }

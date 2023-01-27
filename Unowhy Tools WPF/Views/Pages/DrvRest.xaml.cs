@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,10 +17,10 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labconv.Text = getlang("convdesc");
-        convbtn.Content = getlang("conv");
-        labpath.Text = getlang("bkpath");
-        rest_btn.Text = getlang("restore");
+        labconv.Text = UT.getlang("convdesc");
+        convbtn.Content = UT.getlang("conv");
+        labpath.Text = UT.getlang("bkpath");
+        rest_btn.Text = UT.getlang("restore");
     }
 
     public DrvRest(DashboardViewModel viewModel)

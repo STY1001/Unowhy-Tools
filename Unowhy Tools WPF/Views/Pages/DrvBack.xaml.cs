@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,9 +17,9 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labbkapp.Text = getlang("bkapp");
-        labpath.Text = getlang("bkpath");
-        bk_btn.Text = getlang("backup");
+        labbkapp.Text = UT.getlang("bkapp");
+        labpath.Text = UT.getlang("bkpath");
+        bk_btn.Text = UT.getlang("backup");
     }
 
     public DrvBack(DashboardViewModel viewModel)

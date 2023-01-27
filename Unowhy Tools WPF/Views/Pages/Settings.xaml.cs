@@ -2,13 +2,14 @@
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
+using System.Windows.Forms;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
 /// <summary>
 /// Interaction logic for Dashboard.xaml
 /// </summary>
-public partial class AdminUser : INavigableView<DashboardViewModel>
+public partial class Settings : INavigableView<DashboardViewModel>
 {
     public DashboardViewModel ViewModel
     {
@@ -17,12 +18,14 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        snpw.Text = UT.getlang("snpw");
-        en.Text = UT.getlang("enablea");
-        dis.Text = UT.getlang("disablea");
+        labol.Text = UT.getlang("logsopen");
+        labdl.Text = UT.getlang("logsdel");
+        dl.Content = UT.getlang("delete");
+        ol.Content = UT.getlang("open");
+        lablang.Text = UT.getlang("lang");
     }
 
-    public AdminUser(DashboardViewModel viewModel)
+    public Settings(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
 

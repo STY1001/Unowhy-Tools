@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,9 +17,9 @@ public partial class PCname : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labold.Text = getlang("ancat");
-        labnew.Text = getlang("cncat");
-        pcn_btn.Text = getlang("change");
+        labold.Text = UT.getlang("ancat");
+        labnew.Text = UT.getlang("cncat");
+        pcn_btn.Text = UT.getlang("change");
     }
 
     public PCname(DashboardViewModel viewModel)

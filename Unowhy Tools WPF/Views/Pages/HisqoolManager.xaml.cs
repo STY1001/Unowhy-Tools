@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,13 +17,13 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        hsqm_txt.Text = getlang("labhsmq");
-        hsqm_desc.Text = getlang("deschism");
-        hsqm_start_txt.Text = getlang("start");
-        hsqm_stop_txt.Text = getlang("stop");
-        hsqm_enable_txt.Text = getlang("enable");
-        hsqm_disable_txt.Text = getlang("disable");
-        hsqm_delete_txt.Text = getlang("delserv");
+        hsqm_txt.Text = UT.getlang("labhsmq");
+        hsqm_desc.Text = UT.getlang("deschism");
+        hsqm_start_txt.Text = UT.getlang("start");
+        hsqm_stop_txt.Text = UT.getlang("stop");
+        hsqm_enable_txt.Text = UT.getlang("enable");
+        hsqm_disable_txt.Text = UT.getlang("disable");
+        hsqm_delete_txt.Text = UT.getlang("delserv");
     }
 
     public HisqoolManager(DashboardViewModel viewModel)

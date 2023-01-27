@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,9 +17,9 @@ public partial class WinRE : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        en_txt.Text = getlang("enable");
-        dis_txt.Text = getlang("disable");
-        rep_txt.Text = getlang("repair");
+        en_txt.Text = UT.getlang("enable");
+        dis_txt.Text = UT.getlang("disable");
+        rep_txt.Text = UT.getlang("repair");
     }
 
     public WinRE(DashboardViewModel viewModel)

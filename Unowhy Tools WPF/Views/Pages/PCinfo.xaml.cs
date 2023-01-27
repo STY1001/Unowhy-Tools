@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,12 +17,12 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labpnc.Text = getlang("pcn");
-        labuid.Text = getlang("domuser");
-        labmf.Text = getlang("mfm");
-        labsn.Text = getlang("serial");
-        labbv.Text = getlang("biosversion");
-        labwv.Text = getlang("os");
+        labpnc.Text = UT.getlang("pcn");
+        labuid.Text = UT.getlang("domuser");
+        labmf.Text = UT.getlang("mfm");
+        labsn.Text = UT.getlang("serial");
+        labbv.Text = UT.getlang("biosversion");
+        labwv.Text = UT.getlang("os");
     }
 
     public PCinfo(DashboardViewModel viewModel)

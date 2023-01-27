@@ -283,5 +283,6 @@
                 </ui:Button>
             </ui:CardControl>
         </Grid>
+        <ui:Button Content="Apply lang" Margin="10,191,0,0" Grid.Row="1" VerticalAlignment="Top" Click="al_click"/>
     </Grid>
 </ui:UiPage>

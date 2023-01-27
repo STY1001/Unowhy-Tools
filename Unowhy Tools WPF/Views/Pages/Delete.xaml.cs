@@ -1,7 +1,7 @@
 ﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
-using static Unowhy_Tools_WPF.UTclass;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,33 +17,33 @@ public partial class Delete : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        instprog_txt.Text = getlang("unprog");
+        instprog_txt.Text = UT.getlang("unprog");
         instprog_desc.Text = "";
-        instprog_btn.Text = getlang("open");
-        entu_txt.Text = getlang("ent");
-        entu_desc.Text = getlang("descent");
-        entu_btn.Text = getlang("del");
-        hsq_txt.Text = getlang("delhis");
-        hsq_desc.Text = getlang("deschisdel");
-        hsq_btn.Text = getlang("uninstall");
-        aad_txt.Text = getlang("aadleave");
-        aad_desc.Text = getlang("descaadleave");
-        aad_btn.Text = getlang("disconnect");
-        hsmqf_txt.Text = getlang("delhism");
-        hsmqf_desc.Text = getlang("deschismdel");
-        hsmqf_btn.Text = getlang("delete");
-        tif_txt.Text = getlang("delti");
-        tif_desc.Text = getlang("desctidel");
-        tif_btn.Text = getlang("delete");
-        ridff_txt.Text = getlang("delridf");
-        ridff_desc.Text = getlang("descridf");
-        ridff_btn.Text = getlang("delete");
-        oemf_txt.Text = getlang("deloem");
-        oemf_desc.Text = getlang("descdeloem");
-        oemf_btn.Text = getlang("delete");
-        entf_txt.Text = getlang("delentf");
-        entf_desc.Text = getlang("descdelentf");
-        entf_btn.Text = getlang("delete");
+        instprog_btn.Text = UT.getlang("open");
+        entu_txt.Text = UT.getlang("ent");
+        entu_desc.Text = UT.getlang("descent");
+        entu_btn.Text = UT.getlang("del");
+        hsq_txt.Text = UT.getlang("delhis");
+        hsq_desc.Text = UT.getlang("deschisdel");
+        hsq_btn.Text = UT.getlang("uninstall");
+        aad_txt.Text = UT.getlang("aadleave");
+        aad_desc.Text = UT.getlang("descaadleave");
+        aad_btn.Text = UT.getlang("disconnect");
+        hsmqf_txt.Text = UT.getlang("delhism");
+        hsmqf_desc.Text = UT.getlang("deschismdel");
+        hsmqf_btn.Text = UT.getlang("delete");
+        tif_txt.Text = UT.getlang("delti");
+        tif_desc.Text = UT.getlang("desctidel");
+        tif_btn.Text = UT.getlang("delete");
+        ridff_txt.Text = UT.getlang("delridf");
+        ridff_desc.Text = UT.getlang("descridf");
+        ridff_btn.Text = UT.getlang("delete");
+        oemf_txt.Text = UT.getlang("deloem");
+        oemf_desc.Text = UT.getlang("descdeloem");
+        oemf_btn.Text = UT.getlang("delete");
+        entf_txt.Text = UT.getlang("delentf");
+        entf_desc.Text = UT.getlang("descdelentf");
+        entf_btn.Text = UT.getlang("delete");
     }
 
     public Delete(DashboardViewModel viewModel)
