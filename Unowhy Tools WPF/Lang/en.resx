@@ -375,8 +375,14 @@
   <data name="labhsmq" xml:space="preserve">
     <value>HiSqool Manager service</value>
   </data>
+  <data name="lang" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="logsclean" xml:space="preserve">
     <value>Cleanup logs</value>
+  </data>
+  <data name="logsdel" xml:space="preserve">
+    <value>Delete logs</value>
   </data>
   <data name="logsopen" xml:space="preserve">
     <value>Open logs</value>
@@ -545,6 +551,9 @@
   </data>
   <data name="titlerepair" xml:space="preserve">
     <value>Repair</value>
+  </data>
+  <data name="titlesettings" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="titlewre" xml:space="preserve">
     <value>WinRE (reagentc) settings</value>
