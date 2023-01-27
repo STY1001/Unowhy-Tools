@@ -44,11 +44,13 @@
     <None Remove="Resources\dism.png" />
     <None Remove="Resources\download.png" />
     <None Remove="Resources\drivers.png" />
+    <None Remove="Resources\en.png" />
     <None Remove="Resources\enable.png" />
     <None Remove="Resources\explorer.png" />
     <None Remove="Resources\fluent-ui-microsoft.png" />
     <None Remove="Resources\folder.png" />
     <None Remove="Resources\fp.png" />
+    <None Remove="Resources\fr.png" />
     <None Remove="Resources\g9.png" />
     <None Remove="Resources\geo_icons.png" />
     <None Remove="Resources\github.ico" />
@@ -155,11 +157,13 @@
     <Resource Include="Resources\dism.png" />
     <Resource Include="Resources\download.png" />
     <Resource Include="Resources\drivers.png" />
+    <Resource Include="Resources\en.png" />
     <Resource Include="Resources\enable.png" />
     <Resource Include="Resources\explorer.png" />
     <Resource Include="Resources\fluent-ui-microsoft.png" />
     <Resource Include="Resources\folder.png" />
     <Resource Include="Resources\fp.png" />
+    <Resource Include="Resources\fr.png" />
     <Resource Include="Resources\g9.png" />
     <Resource Include="Resources\geo_icons.png" />
     <Resource Include="Resources\github.ico" />
