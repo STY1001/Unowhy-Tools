@@ -136,15 +136,29 @@
                         Height="0"
                         Content="WinRE (reagentc) settings"
                         PageType="{x:Type pages:WinRE}"/>
+                    <ui:NavigationItem
+                        x:Name="pcinfo"
+                        Visibility="Hidden"
+                        Height="0"
+                        Content="PC Info"
+                        PageType="{x:Type pages:PCname}"/>
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem
                         x:Name="deb"
-                        Content="Debug"
-                        ToolTip="Debug"
+                        Height="0"
+                        Content="Debug Page"
                         Image="pack://application:,,,/Resources/code.png"
                         PageTag="debug"
                         PageType="{x:Type pages:DebugPage}" />
+                    <ui:NavigationSeparator/>
+                    <ui:NavigationItem
+                        x:Name="settings"
+                        Content="Settings"
+                        ToolTip="Settings"
+                        Image="pack://application:,,,/Resources/settings.png"
+                        PageTag="settings"
+                        PageType="{x:Type pages:Settings}" />
                     <ui:NavigationItem
                         x:Name="about"
                         Content="About"
@@ -188,21 +202,28 @@
         <Grid
             x:Name="RootWelcomeGrid"
             Grid.Row="1"
-            Visibility="Hidden">
+            Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="400" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="1" Grid.Row="1">
                 <Image
-                    MaxWidth="360"
                     RenderOptions.BitmapScalingMode="HighQuality"
                     Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
             </Grid>
-            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <ui:ProgressRing IsIndeterminate="True" />
+            <StackPanel Grid.Column="1" Grid.Row="3" VerticalAlignment="Center">
+                <ProgressBar x:Name="SplashBar" Height="25"/>
                 <TextBlock
-                    Margin="0,12,0,0"
+                    Margin="0,-25,0,0"
                     FontSize="16"
                     FontWeight="Medium"
                     Text="Loading..."
