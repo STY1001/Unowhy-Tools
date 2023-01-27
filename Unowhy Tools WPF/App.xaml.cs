@@ -1,15 +1,11 @@
-﻿
-
-
-
-
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Unowhy_Tools;
 using Unowhy_Tools_WPF.Models;
 using Unowhy_Tools_WPF.Services;
 using Unowhy_Tools_WPF.Services.Contracts;
@@ -86,9 +82,13 @@ public partial class App
             services.AddScoped<Views.Pages.DrvConv>();
             services.AddScoped<Views.Pages.PCinfo>();
             services.AddScoped<Views.Pages.DebugPage>();
+            services.AddScoped<Views.Pages.Settings>();
             
             // Configuration
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
+
+
+            services.AddScoped<UT>();
         }).Build();
 
     /// <summary>
