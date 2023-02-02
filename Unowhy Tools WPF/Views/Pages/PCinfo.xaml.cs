@@ -30,6 +30,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
 
     public void infoapply()
     {
+        uid.Text = UTdata.UserID;
         pcn.Text = UTdata.HostName;
         mf.Text = UT.getline(UTdata.mf, 1) + " " + UT.getline(UTdata.md, 1);
         sn.Text = UTdata.sn;
