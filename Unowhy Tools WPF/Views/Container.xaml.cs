@@ -13,6 +13,7 @@ using Unowhy_Tools_WPF.Services;
 using Unowhy_Tools;
 using Wpf.Ui.Mvvm.Interfaces;
 using Wpf.Ui.Mvvm.Services;
+using Unowhy_Tools_WPF.Views.Pages;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -21,6 +22,7 @@ namespace Unowhy_Tools_WPF.Views;
 /// </summary>
 public partial class Container : INavigationWindow
 {
+    UT.Data UTdata = new UT.Data();
     private bool _initialized = false;
 
     private readonly IThemeService _themeService;
@@ -52,8 +54,6 @@ public partial class Container : INavigationWindow
         pcinfo.Content = UT.getlang("titlepci");
     }
 
-    // NOTICE: In the case of this window, we navigate to the Dashboard after loading with Container.InitializeUi()
-
     public Container(ContainerViewModel viewModel, INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)
     {
         ViewModel = viewModel;
@@ -65,20 +65,11 @@ public partial class Container : INavigationWindow
         navigationService.SetNavigationControl(RootNavigation);
         snackbarService.SetSnackbarControl(RootSnackbar);
         dialogService.SetDialogControl(RootDialog);
-
         
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
 
-        RootMainGrid.Visibility = Visibility.Collapsed;
-        RootWelcomeGrid.Visibility = Visibility.Visible;
-
         applylang();
-
-        await Task.Delay(10000);
-
-        RootWelcomeGrid.Visibility = Visibility.Hidden;
-        RootMainGrid.Visibility = Visibility.Visible;
     }
 
     /// <summary>
@@ -113,6 +104,40 @@ public partial class Container : INavigationWindow
         => Close();
 
     #endregion INavigationWindow methods
+
+    private async void Init(object sender, RoutedEventArgs e)
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        RootMainGrid.Visibility = Visibility.Collapsed;
+        RootWelcomeGrid.Visibility = Visibility.Visible;
+
+        await Task.Delay(1000);
+
+        Navigate(typeof(HisqoolManager));
+        SplashBar.Value = 25;
+        await Task.Delay(100);
+        Navigate(typeof(Customize));
+        SplashBar.Value = 35;
+        await Task.Delay(100);
+        Navigate(typeof(Delete));
+        SplashBar.Value = 50;
+        await Task.Delay(100);
+        Navigate(typeof(Customize));
+        SplashBar.Value = 75;
+        await Task.Delay(100);
+        Navigate(typeof(Drivers));
+        SplashBar.Value = 100;
+        await Task.Delay(100);
+        UT.check();
+        RootWelcomeGrid.Visibility = Visibility.Hidden;
+        RootMainGrid.Visibility = Visibility.Visible;
+
+        Navigate(typeof(Dashboard));
+    }
 
     private void NavigationButtonTheme_OnClick(object sender, RoutedEventArgs e)
     {

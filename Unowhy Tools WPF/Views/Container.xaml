@@ -18,7 +18,8 @@
     WindowBackdropType="Mica"
     WindowCornerPreference="Round"
     WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Loaded="Init">
 
     <Window.TaskbarItemInfo>
         <TaskbarItemInfo x:Name="tbinfo"/>
