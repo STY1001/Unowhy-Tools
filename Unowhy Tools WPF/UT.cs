@@ -247,12 +247,31 @@ namespace Unowhy_Tools
 
             Write2Log("Getting PC Infos");
 
-            UTdata.HostName = returncmd("hostname", "").Replace("\n", "").Replace("\r", "");
+            UTdata.HostName = returncmd("hostname", "").Replace("\n", "").Replace("\r", "").Replace(" ", "");
             UTdata.mf = getline(returncmd("wmic", "computersystem get manufacturer"), 2);
             UTdata.md = getline(returncmd("wmic", "computersystem get model"), 2);
             UTdata.os = getline(returncmd("wmic", "os get caption"), 2);
             UTdata.bios = getline(returncmd("wmic", "bios get smbiosbiosversion"), 2);
             UTdata.sn = getline(returncmd("wmic", "bios get serialnumber"), 2);
+
+            if (UTdata.UserID.Contains(UTdata.HostName.ToLower()))
+            {
+                UTdata.User = UTdata.UserID.Replace(UTdata.HostName.ToLower() + "\\", "");
+            }
+            else if (UTdata.UserID.Contains("AzureAD"))
+            {
+                UTdata.User = UTdata.UserID;
+                UTdata.AADUser = true;
+            }
+
+            Write2Log(UTdata.HostName);
+            Write2Log(UTdata.User);
+            Write2Log(UTdata.UserID);
+            Write2Log(UTdata.mf);
+            Write2Log(UTdata.md);
+            Write2Log(UTdata.os);
+            Write2Log(UTdata.bios);
+            Write2Log(UTdata.sn);
 
             Write2Log("Done");
 
@@ -339,7 +358,7 @@ namespace Unowhy_Tools
             #region Admins
 
             Write2Log("=== Admins ===");
-            /*if (admins.Contains(UTdata.User))
+            if (admins.Contains(UTdata.User))
             {
                 UTdata.Admin = true;
                 Write2Log("User is admin");
@@ -348,7 +367,7 @@ namespace Unowhy_Tools
             {
                 UTdata.Admin = false;
                 Write2Log("User is not admin");
-            }*/
+            }
             Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
@@ -597,6 +616,7 @@ namespace Unowhy_Tools
             private static string _bios;
             private static bool _admin;
             private static bool _aad;
+            private static bool _aaduser;
             private static bool _bcd;
             private static bool _entuser;
             private static bool _whe;
@@ -701,6 +721,15 @@ namespace Unowhy_Tools
                 set
                 {
                     _aad = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool AADUser
+            {
+                get { return _aaduser; }
+                set
+                {
+                    _aaduser = value;
                     OnPropertyChanged();
                 }
             }
