@@ -221,8 +221,7 @@
                         FontSize="12"
                         Foreground="#bebebe"
                         x:Name="pcname"
-                        Text="[PC Name]" 
-                        MaxHeight="18"/>
+                        Text="[PC Name]"/>
                     </StackPanel>
                 </Grid>
             </ui:CardAction>
