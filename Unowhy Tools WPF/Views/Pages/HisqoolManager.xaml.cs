@@ -10,6 +10,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class HisqoolManager : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     public DashboardViewModel ViewModel
     {
         get;
@@ -26,6 +28,62 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         hsqm_delete_txt.Text = UT.getlang("delserv");
     }
 
+    public void CheckBTN()
+    {
+        UT.check();
+        hsqm_delete.IsEnabled = true;
+        hsqm_enable.IsEnabled = true;
+        hsqm_disable.IsEnabled = true;
+        hsqm_start.IsEnabled = true;
+        hsqm_stop.IsEnabled = true;
+        if (UTdata.HSMExist == true)
+        {
+            hsqm_delete.IsEnabled = true;
+
+            if (UTdata.HSMExeExist == true)
+            {
+                if (UTdata.HSMEnabled == true)
+                {
+                    hsqm_disable.IsEnabled = true;
+                    hsqm_enable.IsEnabled = false;
+
+                    if (UTdata.HSMRunning == true)
+                    {
+                        hsqm_stop.IsEnabled = true;
+                        hsqm_start.IsEnabled = false;
+                    }
+                    else
+                    {
+                        hsqm_start.IsEnabled = true;
+                        hsqm_stop.IsEnabled = false;
+                    }
+                }
+                else
+                {
+                    hsqm_disable.IsEnabled = false;
+                    hsqm_enable.IsEnabled = true;
+                    hsqm_start.IsEnabled = false;
+                    hsqm_stop.IsEnabled = false;
+                }
+            }
+            else
+            {
+                hsqm_disable.IsEnabled = false;
+                hsqm_enable.IsEnabled = false;
+                hsqm_start.IsEnabled = false;
+                hsqm_stop.IsEnabled = false;
+            }
+        }
+        else
+        {
+            hsqm_delete.IsEnabled = false;
+            hsqm_enable.IsEnabled = false;
+            hsqm_disable.IsEnabled = false;
+            hsqm_start.IsEnabled = false;
+            hsqm_stop.IsEnabled = false;
+        }
+    }
+
     public HisqoolManager(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
@@ -33,5 +91,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
+
+        CheckBTN();
     }
 }
