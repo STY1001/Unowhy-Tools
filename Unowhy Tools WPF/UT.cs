@@ -145,7 +145,7 @@ namespace Unowhy_Tools
         {
             int line2 = line - 1;
             var lines = text.Split('\n');
-            return lines[line2];
+            return lines[line2].Replace("\n", "").Replace("\r", "");
         }
 
         public static string getlang(string name)
@@ -247,7 +247,7 @@ namespace Unowhy_Tools
 
             Write2Log("Getting PC Infos");
 
-            UTdata.HostName = returncmd("hostname", "");
+            UTdata.HostName = returncmd("hostname", "").Replace("\n", "").Replace("\r", "");
             UTdata.mf = getline(returncmd("wmic", "computersystem get manufacturer"), 2);
             UTdata.md = getline(returncmd("wmic", "computersystem get model"), 2);
             UTdata.os = getline(returncmd("wmic", "os get caption"), 2);
