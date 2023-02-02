@@ -13,7 +13,7 @@
     d:DesignWidth="800"
     Scrollable="True"
     mc:Ignorable="d">
-
+    
     <Grid>
         <ui:Button
             Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_home"

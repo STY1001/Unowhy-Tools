@@ -2,6 +2,7 @@
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
+using System.Windows.Media.Imaging;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -10,6 +11,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class PCinfo : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     public DashboardViewModel ViewModel
     {
         get;
@@ -25,6 +28,23 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         labwv.Text = UT.getlang("os");
     }
 
+    public void infoapply()
+    {
+        pcn.Text = UTdata.HostName;
+        mf.Text = UT.getline(UTdata.mf, 1) + " " + UT.getline(UTdata.md, 1);
+        sn.Text = UTdata.sn;
+        bv.Text = UTdata.bios;
+        wv.Text = UTdata.os;
+        if (wv.Text.Contains("11"))
+        {
+            imgwv.Source = new BitmapImage(new System.Uri("pack://application:,,,/Resources/win11.png"));
+        }
+        else if (wv.Text.Contains("10"))
+        {
+            imgwv.Source = new BitmapImage(new System.Uri("pack://application:,,,/Resources/win10.png"));
+        }
+    }
+
     public PCinfo(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
@@ -32,5 +52,6 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
+        infoapply();
     }
 }
