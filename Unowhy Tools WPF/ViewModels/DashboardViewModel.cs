@@ -84,6 +84,18 @@ public class DashboardViewModel : ObservableObject, INavigationAware
             case "navigate_to_home":
                 _navigationService.Navigate(typeof(Views.Pages.Dashboard));
                 return;
+            
+            case "navigate_to_pcinfo":
+                _navigationService.Navigate(typeof(Views.Pages.PCinfo));
+                return;
+            
+            case "navigate_to_about":
+                _navigationService.Navigate(typeof(Views.Pages.About));
+                return;
+            
+            case "navigate_to_settings":
+                _navigationService.Navigate(typeof(Views.Pages.Settings));
+                return;
         }
     }
 
