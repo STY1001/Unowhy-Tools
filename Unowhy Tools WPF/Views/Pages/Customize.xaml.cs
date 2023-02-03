@@ -10,6 +10,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class Customize : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     public DashboardViewModel ViewModel
     {
         get;
@@ -31,6 +33,13 @@ public partial class Customize : INavigableView<DashboardViewModel>
         auset_btn.Text = UT.getlang("open");
     }
 
+    public void CheckBTN()
+    {
+        UT.check();
+        if(UTdata.Admin == true) adminset.IsEnabled = false;
+        else adminset.IsEnabled = true;
+    }
+
     public Customize(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
@@ -38,5 +47,6 @@ public partial class Customize : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
+        CheckBTN();
     }
 }
