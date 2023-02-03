@@ -278,7 +278,7 @@ namespace Unowhy_Tools
             Write2Log("====== Dynamic Buttons ======");
 
             string azure = getline(returncmd("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow"), 6);
-            string admins = returncmd("net", "localgroup Administrateurs");
+            string admins = returncmd("net", "localgroup Administrateurs").ToLower();
             string users = returncmd("net", "user");
             string bcd = returncmd("bcdedit", "");
 
