@@ -13,6 +13,9 @@ using Unowhy_Tools_WPF.ViewModels;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
 
+using Unowhy_Tools;
+using System;
+
 namespace Unowhy_Tools_WPF;
 
 /// <summary>
@@ -107,6 +110,20 @@ public partial class App
     /// </summary>
     private async void OnStartup(object sender, StartupEventArgs e)
     {
+        UT.Data UTdata = new UT.Data();
+
+        if (e.Args.Length > 0)
+        {
+            if (e.Args[0] == "-u")
+            {
+                UTdata.UserID = e.Args[1];
+            }
+        }
+        else
+        {
+            UTdata.UserID = UT.getline(UT.returncmd("whoami", ""), 1);
+        }
+
         await _host.StartAsync();
     }
 
