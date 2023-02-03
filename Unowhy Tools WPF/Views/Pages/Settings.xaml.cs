@@ -3,6 +3,8 @@ using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
 using System.Windows.Forms;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -25,6 +27,28 @@ public partial class Settings : INavigableView<DashboardViewModel>
         lablang.Text = UT.getlang("lang");
     }
 
+    public void CheckBTN()
+    {
+        RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+        string utlst = lcs.GetValue("Lang").ToString();
+        if (utlst == "EN")
+        {
+            lang_en.IsSelected = true;
+        }
+        else
+        {
+            lang_fr.IsSelected = true;
+        }
+
+        string fp = Path.GetTempPath() + "\\UT_Logs.txt";
+        FileInfo fi = new FileInfo(fp);
+        string size;
+        if (fi.Length > 1000000) size = (fi.Length / 1000000).ToString() + " MB";
+        else size = (fi.Length / 1000).ToString() + " KB";
+
+        dl.Content = UT.getlang("clean") + " (" + size + ")";
+    }
+
     public Settings(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
@@ -32,5 +56,6 @@ public partial class Settings : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
+        CheckBTN();
     }
 }
