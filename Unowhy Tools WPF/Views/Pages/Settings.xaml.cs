@@ -5,6 +5,8 @@ using Unowhy_Tools;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.IO;
+using System.Windows;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -47,6 +49,38 @@ public partial class Settings : INavigableView<DashboardViewModel>
         else size = (fi.Length / 1000).ToString() + " KB";
 
         dl.Content = UT.getlang("clean") + " (" + size + ")";
+    }
+
+    public void Logs_Clear(object sender, RoutedEventArgs e)
+    {
+        string fp = Path.GetTempPath() + "\\UT_Logs.txt";
+        File.Create(fp).Close();
+        FileInfo fi = new FileInfo(fp);
+        string size;
+        if (fi.Length > 1000000) size = (fi.Length / 1000000).ToString() + " MB";
+        else size = (fi.Length / 1000).ToString() + "KB";
+        dl.Content = UT.getlang("clean") + " (" + size + ")";
+    }
+
+    public void Logs_Open(object sender, RoutedEventArgs e)
+    {
+        System.Diagnostics.Process.Start(new ProcessStartInfo
+        {
+            FileName = Path.GetTempPath() + "\\UT_Logs.txt",
+            UseShellExecute = true
+        });
+    }
+
+    public void Apply_Settings(object sender, RoutedEventArgs e)
+    {
+        if (lang_en.IsSelected)
+        {
+            UT.runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f", true);
+        }
+        else if (lang_fr.IsSelected)
+        {
+            UT.runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d FR /t REG_SZ /f", true);
+        }
     }
 
     public Settings(DashboardViewModel viewModel)

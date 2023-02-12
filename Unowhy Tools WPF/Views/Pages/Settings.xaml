@@ -85,6 +85,7 @@
                     Foreground="#ffffff"/>
                 <ui:Button
                     x:Name="ol"
+                    Click="Logs_Open"
                     Content="Open"
                     Grid.Row="6"
                     Foreground="#ffffff"
@@ -96,6 +97,7 @@
                     Foreground="#ffffff"/>
                 <ui:Button
                     x:Name="dl"
+                    Click="Logs_Clear"
                     Content="Delete"
                     Grid.Row="10"
                     Foreground="#ffffff"
@@ -105,7 +107,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <ui:Button
+                    <ui:Button Click="Apply_Settings"
                         Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,0">
                         <StackPanel>
                             <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
