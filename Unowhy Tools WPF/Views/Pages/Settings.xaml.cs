@@ -81,6 +81,9 @@ public partial class Settings : INavigableView<DashboardViewModel>
         {
             UT.runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d FR /t REG_SZ /f", true);
         }
+
+        System.Windows.Forms.Application.Restart();
+        System.Windows.Application.Current.Shutdown();
     }
 
     public Settings(DashboardViewModel viewModel)
