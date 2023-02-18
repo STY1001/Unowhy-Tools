@@ -2,6 +2,8 @@
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
+using System.Windows;
+using System.Net;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -10,6 +12,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class WinRE : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     public DashboardViewModel ViewModel
     {
         get;
@@ -22,6 +26,66 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         rep_txt.Text = UT.getlang("repair");
     }
 
+    public void CheckBTN()
+    {
+        string out1 = UT.returncmd("reagentc.exe", "/info");
+        if (out1.Contains("Enable"))
+        {
+            en.IsEnabled = false;
+            dis.IsEnabled = true;
+            rep.IsEnabled = false;
+        }
+        else
+        {
+            if (UTdata.WinRE == true)
+            {
+                en.IsEnabled = false;
+                rep.IsEnabled = true;
+                dis.IsEnabled = false;
+                //var i = new info(getlang("winremsg"), Properties.Resources.no);
+                //i.ShowDialog();
+            }
+            else
+            {
+                en.IsEnabled = true;
+                rep.IsEnabled = false;
+                dis.IsEnabled = false;
+            }
+        }
+    }
+
+    public void Enable_Click(object sender, RoutedEventArgs e)
+    {
+        UTdata.WinRE = true;
+        UT.runmin("reagentc.exe", "/enable", true);
+        CheckBTN();
+    }
+
+    public void Disable_Click(object sender, RoutedEventArgs e)
+    {
+        UTdata.WinRE = false;
+        UT.runmin("reagentc.exe", "/disable", true);
+        CheckBTN();
+    }
+
+    public void Repair_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.CheckInternet())
+        {
+            using (var web = new WebClient())
+            {
+                web.DownloadFile("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim", "C:\\Windows\\System32\\Recovery\\WinRE.wim");
+            }
+
+            UT.runmin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery", false);
+            UT.runmin("reagentc.exe", "/enable", false);
+
+            UTdata.WinRE = true;
+
+            CheckBTN();
+        }
+    }
+
     public WinRE(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
@@ -29,5 +93,6 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
+        CheckBTN();
     }
 }
