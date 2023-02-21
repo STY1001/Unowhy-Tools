@@ -13,6 +13,8 @@ using System.Security.Principal;
 using System.Collections.Generic;
 using System.ServiceProcess;
 using System.Runtime.CompilerServices;
+using Unowhy_Tools_WPF.Views.Windows;
+using System.Windows;
 
 namespace Unowhy_Tools
 {
@@ -230,7 +232,7 @@ namespace Unowhy_Tools
                 startInfo.Verb = "runas";
                 startInfo.Arguments = $"{args}";
                 Process.Start(startInfo);
-                Application.Exit();
+                System.Windows.Application.Current.Shutdown();
             }
         }
 
@@ -598,6 +600,21 @@ namespace Unowhy_Tools
             Write2Log("====== End ======");
         }
 
+        public static bool DialogQShow(Window window, string msg)
+        {
+            //var mainWindow = Window.GetWindow(this) as Unowhy_Tools_WPF.Views.Container;
+
+            var mainWindow = window as Unowhy_Tools_WPF.Views.Container;
+            if (mainWindow.ShowDialogQ(msg))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public class Data : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler PropertyChanged;
@@ -633,6 +650,7 @@ namespace Unowhy_Tools
             private static bool _tifolderexist;
             private static bool _hsqmfolderexist;
             private static bool _hsqfolderexist;
+            private static bool _winre;
 
             public string HostName 
             {
@@ -874,6 +892,15 @@ namespace Unowhy_Tools
                 set
                 {
                     _hsqfolderexist = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool WinRE
+            {
+                get { return _winre; }
+                set
+                {
+                    _winre = value;
                     OnPropertyChanged();
                 }
             }
