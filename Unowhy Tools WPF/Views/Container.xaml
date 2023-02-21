@@ -7,6 +7,8 @@
     xmlns:diagnostics="clr-namespace:Unowhy_Tools_WPF.Views.Diagnostics"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
+    xmlns:windows="clr-namespace:Unowhy_Tools_WPF.Views.Windows"
+    xmlns:controls="clr-namespace:Unowhy_Tools_WPF.Views.Windows"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="Unowhy Tools"
     Width="1200"
@@ -25,12 +27,11 @@
         <TaskbarItemInfo x:Name="tbinfo"/>
     </Window.TaskbarItemInfo>
 
-    <Grid>
+    <Grid x:Name="ParentOfRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
         <Grid
             x:Name="RootMainGrid"
             Grid.Row="1"
@@ -173,7 +174,7 @@
             <!--  We display our pages inside this element.  -->
             <Border
                 Grid.Column="1"
-                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                Background="#202020"
                 CornerRadius="8,8,8,8">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -240,11 +241,10 @@
         <!--  Dialogue is above all controls except the navigation buttons. So it covers all the content, but allows you to close or move the application.  -->
         <ui:Dialog
             x:Name="RootDialog"
-            Title="Unowhy Tools"
             Grid.Row="0"
-            Grid.RowSpan="2"
-            ButtonLeftName="" />
-
+            Grid.RowSpan="2">
+            
+        </ui:Dialog>
         <!--
             For debugging the focus and the keyboard navigation,
             please make this view visible.
@@ -277,6 +277,7 @@
             ShowMaximize="True"
             ShowMinimize="True"
             UseSnapLayout="True">
+            <!--
             <ui:TitleBar.Tray>
                 <ui:NotifyIcon
                     FocusOnLeftClick="True"
@@ -310,6 +311,8 @@
                     </ui:NotifyIcon.Menu>
                 </ui:NotifyIcon>
             </ui:TitleBar.Tray>
+            -->
         </ui:TitleBar>
+        <controls:DialogQ x:Name="DialogQRoot" Grid.Row="1"/>
     </Grid>
 </ui:UiWindow>

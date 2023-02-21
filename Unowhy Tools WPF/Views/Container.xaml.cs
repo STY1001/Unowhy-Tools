@@ -14,6 +14,9 @@ using Unowhy_Tools;
 using Wpf.Ui.Mvvm.Interfaces;
 using Wpf.Ui.Mvvm.Services;
 using Unowhy_Tools_WPF.Views.Pages;
+using System.Windows.Controls.Primitives;
+using Unowhy_Tools_WPF.Views.Windows;
+using System.Windows.Forms;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -65,11 +68,26 @@ public partial class Container : INavigationWindow
         navigationService.SetNavigationControl(RootNavigation);
         snackbarService.SetSnackbarControl(RootSnackbar);
         dialogService.SetDialogControl(RootDialog);
-        
+
+        DialogQRoot.SetParent(ParentOfRoot);
+
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
 
         applylang();
+    }
+
+    public bool ShowDialogQ(string msg)
+    {
+        var result = DialogQRoot.ShowDialog(msg);
+        if (result)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /// <summary>
@@ -80,7 +98,7 @@ public partial class Container : INavigationWindow
         base.OnClosed(e);
 
         // Make sure that closing this window will begin the process of closing the application.
-        Application.Current.Shutdown();
+        System.Windows.Application.Current.Shutdown();
     }
 
     #region INavigationWindow methods
