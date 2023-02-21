@@ -5,6 +5,7 @@ using Wpf.Ui.Common;
 using Wpf.Ui.Mvvm.Contracts;
 
 using Unowhy_Tools;
+using System.Windows;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -65,5 +66,17 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     {
         UT.applylang_global();
         instprog_txt.Text = "Hello";
+    }
+
+    public void DialoQ_Test(object sender, System.Windows.RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(Window.GetWindow(this) , "This is a dialog") == true)
+        {
+            dqtest.Content = "YES";
+        }
+        else
+        {
+            dqtest.Content = "NO";
+        }
     }
 }
