@@ -20,113 +20,115 @@
             VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
             <Image Source="../../Resources/back.png" Height="16"/>
         </ui:Button>
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="32"/>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <Border Background="#272727" CornerRadius="8,8,8,8" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Margin="20,20,20,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="19"/>
-                    <RowDefinition Height="32"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="33"/>
-                </Grid.RowDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="19"/>
+                        <RowDefinition Height="32"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="33"/>
+                    </Grid.RowDefinitions>
 
-                <Image Source="../../Resources/settings.png" Grid.Row="1"/>
-                <Image Source="/Resources/folder.png" Grid.Row="3"/>
+                    <Image Source="../../Resources/settings.png" Grid.Row="1"/>
+                    <Image Source="/Resources/folder.png" Grid.Row="3"/>
 
-            </Grid>
+                </Grid>
 
-            <Grid Grid.Column="2" VerticalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="3"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="3"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <TextBlock  x:Name="labbkapp"
+                <Grid Grid.Column="2" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock  x:Name="labbkapp"
                     Grid.Row="0"
                     Text="Backup App:"
                     Foreground="#ffffff"/>
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <RadioButton Grid.Column="0"
+                        <RadioButton Grid.Column="0"
                                   x:Name="psbk"
                                  Content="PowerShell"
                                  GroupName="bkapp"/>
-                    <RadioButton Grid.Column="2"
+                        <RadioButton Grid.Column="2"
                                   x:Name="disbbk"
                                  Content="DISM (Recommanded)"
                                  GroupName="bkapp"
                                  IsChecked="True"/>
-                </Grid>
-                <TextBlock x:Name="labpath"
+                    </Grid>
+                    <TextBlock x:Name="labpath"
                     Grid.Row="4"
                     Text="Backup Path:"
                     Foreground="#ffffff"/>
-                <Grid Grid.Row="6">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
-                    <ui:TextBox x:Name="bkpath"
+                        <ui:TextBox x:Name="bkpath"
                         Grid.Column="0"
                         IsEnabled="False"
                         Foreground="#ffffff" Grid.ColumnSpan="2" Margin="0,0,10,0" VerticalAlignment="Bottom"/>
-                    <ui:Button
+                        <ui:Button
                         HorizontalAlignment="Right"
                         VerticalAlignment="Stretch"
                         Grid.Column="2"
                         Content="..."
                         Foreground="#ffffff"/>
-                </Grid>
+                    </Grid>
 
-                <Grid Grid.Row="14">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="14">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <ui:Button
+                        <ui:Button
                         Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,0">
-                        <StackPanel>
-                            <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="32" />
-                                    <ColumnDefinition Width="10" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-                                <Image Source="../../Resources/upload.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
-                                <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                    <TextBlock x:Name="bk_btn"
+                                    <Image Source="../../Resources/upload.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
+                                    <StackPanel VerticalAlignment="Center" Grid.Column="2">
+                                        <TextBlock x:Name="bk_btn"
                                     Margin="0"
                                     FontSize="13"
                                     FontWeight="Medium"
                                     Text="Backup" />
-                                </StackPanel>
-                            </Grid>
-                        </StackPanel>
-                    </ui:Button>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                    </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+        </Border>
     </Grid>
 </ui:UiPage>
