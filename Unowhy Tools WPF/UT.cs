@@ -16,6 +16,8 @@ using System.Runtime.CompilerServices;
 using Unowhy_Tools_WPF.Views.Windows;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Net;
+using System.Net.Http;
 
 namespace Unowhy_Tools
 {
@@ -34,6 +36,44 @@ namespace Unowhy_Tools
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
+
+        public static string ver = "20.0";
+        public static int verfull = 2000;
+        public static int verbuild = 2222157;
+        public static bool verisdeb = true;
+
+        public class version
+        {
+            public static string getver()
+            {
+                return ver;
+            }
+
+            public static int getverfull()
+            {
+                return verfull;
+            }
+
+            public static bool isdeb()
+            {
+                return verisdeb;
+            }
+
+            public static bool newver()
+            {
+                var web = new HttpClient();
+                string newver = web.GetStringAsync("https://bit.ly/UTnvTXT").Result;
+                int newverint = Convert.ToInt32(newver);
+                if (verfull < newverint)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         public class serv
         {
