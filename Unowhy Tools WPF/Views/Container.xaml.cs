@@ -17,6 +17,7 @@ using Unowhy_Tools_WPF.Views.Pages;
 using System.Windows.Controls.Primitives;
 using Unowhy_Tools_WPF.Views.Windows;
 using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -70,6 +71,7 @@ public partial class Container : INavigationWindow
         dialogService.SetDialogControl(RootDialog);
 
         DialogQRoot.SetParent(ParentOfRoot);
+        DialogIRoot.SetParent(ParentOfRoot);
 
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
@@ -77,9 +79,9 @@ public partial class Container : INavigationWindow
         applylang();
     }
 
-    public bool ShowDialogQ(string msg)
+    public bool ShowDialogQ(string msg, BitmapImage img)
     {
-        var result = DialogQRoot.ShowDialog(msg);
+        var result = DialogQRoot.ShowDialog(msg, img);
         if (result)
         {
             return true;
@@ -88,6 +90,11 @@ public partial class Container : INavigationWindow
         {
             return false;
         }
+    }
+
+    public void ShowDialogI(string msg, BitmapImage img)
+    {
+        DialogIRoot.ShowDialog(msg, img);
     }
 
     /// <summary>

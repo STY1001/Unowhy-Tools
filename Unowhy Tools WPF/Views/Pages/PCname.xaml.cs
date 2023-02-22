@@ -10,6 +10,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class PCname : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     public DashboardViewModel ViewModel
     {
         get;
@@ -22,6 +24,11 @@ public partial class PCname : INavigableView<DashboardViewModel>
         pcn_btn.Text = UT.getlang("change");
     }
 
+    private void CheckBTN()
+    {
+        old.Text = UTdata.HostName;
+    }
+
     public PCname(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
@@ -29,5 +36,6 @@ public partial class PCname : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
+        CheckBTN();
     }
 }

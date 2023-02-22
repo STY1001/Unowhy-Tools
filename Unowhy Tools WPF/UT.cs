@@ -15,6 +15,7 @@ using System.ServiceProcess;
 using System.Runtime.CompilerServices;
 using Unowhy_Tools_WPF.Views.Windows;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace Unowhy_Tools
 {
@@ -600,12 +601,12 @@ namespace Unowhy_Tools
             Write2Log("====== End ======");
         }
 
-        public static bool DialogQShow(Window window, string msg)
+        public static bool DialogQShow(Window window, string msg, string img)
         {
             //var mainWindow = Window.GetWindow(this) as Unowhy_Tools_WPF.Views.Container;
 
             var mainWindow = window as Unowhy_Tools_WPF.Views.Container;
-            if (mainWindow.ShowDialogQ(msg))
+            if (mainWindow.ShowDialogQ(msg, GetImgSource(img)))
             {
                 return true;
             }
@@ -613,6 +614,18 @@ namespace Unowhy_Tools
             {
                 return false;
             }
+        }
+
+        public static void DialogIShow(Window window, string msg, string img)
+        {
+            var mainWindow = window as Unowhy_Tools_WPF.Views.Container;
+            mainWindow.ShowDialogI(msg, GetImgSource(img)) ;
+        }
+
+        public static BitmapImage GetImgSource(string resname)
+        {
+            BitmapImage bmp = new BitmapImage(new System.Uri("pack://application:,,,/Resources/" + resname));
+            return bmp;
         }
 
         public class Data : INotifyPropertyChanged

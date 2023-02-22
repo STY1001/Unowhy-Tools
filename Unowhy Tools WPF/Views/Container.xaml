@@ -314,5 +314,6 @@
             -->
         </ui:TitleBar>
         <controls:DialogQ x:Name="DialogQRoot" Grid.Row="1"/>
+        <controls:DialogI x:Name="DialogIRoot" Grid.Row="1"/>
     </Grid>
 </ui:UiWindow>
