@@ -15,94 +15,90 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="500"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <ui:Button
             Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_repair"
             VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
             <Image Source="../../Resources/back.png" Height="16"/>
         </ui:Button>
-        <Grid Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <ui:Button x:Name="en"
+        <Border Background="#272727" CornerRadius="8,8,8,8" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Grid.Column="1" Margin="20,20,20,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ui:Button x:Name="en"
                 Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-                <StackPanel>
-                    <Grid Grid.Row="1" Margin="0,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="32" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="../../Resources/enable.png" Grid.Column="0"/>
-                        <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                            <TextBlock x:Name="en_txt"
+                    <StackPanel>
+                        <Grid Grid.Row="1" Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/enable.png" Grid.Column="0"/>
+                            <StackPanel VerticalAlignment="Center" Grid.Column="2">
+                                <TextBlock x:Name="en_txt"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Medium"
                             Text="Enable" />
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-            </ui:Button>
-            <ui:Button x:Name="dis"
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </ui:Button>
+                <ui:Button x:Name="dis"
                 Grid.Column="2" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-                <StackPanel>
-                    <Grid Grid.Row="1" Margin="0,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="32" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="../../Resources/Disable.png" Grid.Column="0"/>
-                        <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                            <TextBlock x:Name="dis_txt"
+                    <StackPanel>
+                        <Grid Grid.Row="1" Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/Disable.png" Grid.Column="0"/>
+                            <StackPanel VerticalAlignment="Center" Grid.Column="2">
+                                <TextBlock x:Name="dis_txt"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Medium"
                             Text="Disable" />
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-            </ui:Button>
-            <ui:Button x:Name="rep"
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </ui:Button>
+                <ui:Button x:Name="rep"
                 Grid.Column="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-                <StackPanel>
-                    <Grid Grid.Row="1" Margin="0,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="32" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="../../Resources/repair.png" Grid.Column="0"/>
-                        <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                            <TextBlock x:Name="rep_txt"
+                    <StackPanel>
+                        <Grid Grid.Row="1" Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/repair.png" Grid.Column="0"/>
+                            <StackPanel VerticalAlignment="Center" Grid.Column="2">
+                                <TextBlock x:Name="rep_txt"
                             Margin="0"
                             FontSize="13"
                             FontWeight="Medium"
                             Text="Repair" />
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-            </ui:Button>
-        </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </ui:Button>
+            </Grid>
+        </Border>
     </Grid>
-    
 </ui:UiPage>
