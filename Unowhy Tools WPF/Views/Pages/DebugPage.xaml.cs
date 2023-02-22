@@ -70,7 +70,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public void DialoQ_Test(object sender, System.Windows.RoutedEventArgs e)
     {
-        if (UT.DialogQShow(Window.GetWindow(this) , "This is a dialog") == true)
+        if (UT.DialogQShow(Window.GetWindow(this) , dialogtxt.Text, "question.png") == true)
         {
             dqtest.Content = "YES";
         }
@@ -78,5 +78,10 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         {
             dqtest.Content = "NO";
         }
+    }
+
+    public void DialogI_Test(object sender, System.Windows.RoutedEventArgs e)
+    {
+        UT.DialogIShow(Window.GetWindow(this), dialogtxt.Text, "about.png");
     }
 }

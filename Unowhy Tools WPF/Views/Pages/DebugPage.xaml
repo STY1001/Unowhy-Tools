@@ -283,7 +283,11 @@
                 </ui:Button>
             </ui:CardControl>
         </Grid>
-        <ui:Button Content="Apply lang" Margin="10,191,0,0" Grid.Row="1" VerticalAlignment="Top" Click="al_click"/>
-        <ui:Button Content="Test DialogQ" Margin="10,220,0,0" Grid.Row="1" Click="DialoQ_Test" x:Name="dqtest"/>
+        <StackPanel Orientation="Horizontal" Margin="0,200,0,0" Grid.Row="1">
+            <ui:Button Content="Apply lang" Click="al_click"/>
+            <ui:TextBox Text="Dialog Text Test" x:Name="dialogtxt" Width="250"/>
+            <ui:Button Content="Test DialogQ" Click="DialoQ_Test" x:Name="dqtest"/>
+            <ui:Button Content="Test DialogI" Click="DialogI_Test"/>
+        </StackPanel>
     </Grid>
 </ui:UiPage>
