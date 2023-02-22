@@ -20,66 +20,68 @@
             VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
             <Image Source="../../Resources/back.png" Height="16"/>
         </ui:Button>
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="0"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="3"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <TextBlock x:Name="labold"
+        <Border Background="#272727" CornerRadius="8,8,8,8" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20,20,20,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="labold"
                 Grid.Row="0"
                 Text="Actual name:"
                 Foreground="#ffffff"/>
-            <TextBlock x:Name="old"
+                <TextBlock x:Name="old"
                 Grid.Row="2"
                 Text="[NAME]"
                 FontFamily="Lucida Console"
                 Foreground="#bebebe"/>
-            <TextBlock x:Name="labnew"
+                <TextBlock x:Name="labnew"
                 Grid.Row="4"
                 Text="New name:"
                 Foreground="#ffffff"/>
-            <ui:TextBox x:Name="new"
+                <ui:TextBox x:Name="new"
                 Grid.Row="6"
                 Foreground="#ffffff"
                 Width="200"/>
-            <Grid Grid.Row="8">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="85"/>
-                    <ColumnDefinition Width="115"/>
-                </Grid.ColumnDefinitions>
-                
-                <ui:Button
-                    Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-                    <StackPanel>
-                        <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="32" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
+                <Grid Grid.Row="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85"/>
+                        <ColumnDefinition Width="115"/>
+                    </Grid.ColumnDefinitions>
 
-                            <Image Source="../../Resources/customize.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
-                            <StackPanel VerticalAlignment="Center" Grid.Column="2">
-                                <TextBlock x:Name="pcn_btn"
+                    <ui:Button
+                    Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+                        <StackPanel>
+                            <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="../../Resources/customize.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
+                                <StackPanel VerticalAlignment="Center" Grid.Column="2">
+                                    <TextBlock x:Name="pcn_btn"
                                     Margin="0"
                                     FontSize="13"
                                     FontWeight="Medium"
                                     Text="Change" />
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
-                </ui:Button>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </ui:Button>
+                </Grid>
             </Grid>
-        </Grid>
+        </Border>
     </Grid>
 </ui:UiPage>
