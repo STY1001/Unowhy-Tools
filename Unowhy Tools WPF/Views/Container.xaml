@@ -205,7 +205,7 @@
             x:Name="RootWelcomeGrid"
             Grid.Row="1"
             Visibility="Visible">
-            <Border Background="#272727" CornerRadius="8,8,8,8" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border Background="#303030" CornerRadius="8,8,8,8" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20" />
