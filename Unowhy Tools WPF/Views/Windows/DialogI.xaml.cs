@@ -16,14 +16,12 @@ namespace Unowhy_Tools_WPF.Views.Windows
     /// <summary>
     /// Interaction logic for DialogQ.xaml
     /// </summary>
-    public partial class DialogQ : System.Windows.Controls.UserControl
+    public partial class DialogI : System.Windows.Controls.UserControl
     {
-        public DialogQ()
+        public DialogI()
         {
             InitializeComponent();
             Visibility = Visibility.Hidden;
-            btn_no.Text = UT.getlang("no");
-            btn_yes.Text = UT.getlang("yes");
         }
 
         private bool _hideRequest = false;
@@ -34,6 +32,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             _parent = parent;
         }
+
 
         public bool ShowDialog(string message, BitmapImage image)
         {
@@ -68,15 +67,9 @@ namespace Unowhy_Tools_WPF.Views.Windows
             _parent.IsEnabled = true;
         }
 
-        private void YesButton_Click(object sender, RoutedEventArgs e)
+        private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             _result = true;
-            HideDialog();
-        }
-
-        private void NoButton_Click(object sender, RoutedEventArgs e)
-        {
-            _result = false;
             HideDialog();
         }
     }
