@@ -3,6 +3,7 @@ using Unowhy_Tools_WPF.ViewModels;
 using System.Windows;
 
 using Unowhy_Tools;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -42,7 +43,11 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
     
     public void CMD(object sender, RoutedEventArgs e)
     {
-        System.Diagnostics.Process.Start("cmd.exe");
+        //System.Diagnostics.Process.Start("cmd.exe");
+        Process p = new Process();
+        p.StartInfo.FileName = "cmd.exe";
+        p.StartInfo.WorkingDirectory = "C:\\Windows\\System32\\";
+        p.Start();
     }
     
     public void Regedit(object sender, RoutedEventArgs e)
