@@ -174,7 +174,7 @@
             <!--  We display our pages inside this element.  -->
             <Border
                 Grid.Column="1"
-                Background="#202020"
+                Background="#272727"
                 CornerRadius="8,8,8,8">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -204,34 +204,38 @@
         <Grid
             x:Name="RootWelcomeGrid"
             Grid.Row="1"
-            Visibility="Hidden">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="400" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Column="1" Grid.Row="1">
-                <Image
+            Visibility="Visible">
+            <Border Background="#272727" CornerRadius="8,8,8,8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="1" Grid.Row="1">
+                        <Image
                     RenderOptions.BitmapScalingMode="HighQuality"
                     Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
-            </Grid>
-            <StackPanel Grid.Column="1" Grid.Row="3" VerticalAlignment="Center">
-                <ProgressBar x:Name="SplashBar" Height="25"/>
-                <TextBlock
+                    </Grid>
+                    <StackPanel Grid.Column="1" Grid.Row="3" VerticalAlignment="Center">
+                        <ProgressBar x:Name="SplashBar" Height="25"/>
+                        <TextBlock
                     Margin="0,-25,0,0"
                     FontSize="16"
                     FontWeight="Medium"
                     Text="Loading..."
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
-            </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
         </Grid>
 
         <!--
