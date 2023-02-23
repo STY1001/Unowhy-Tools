@@ -57,14 +57,14 @@ public partial class WinRE : INavigableView<DashboardViewModel>
     public void Enable_Click(object sender, RoutedEventArgs e)
     {
         UTdata.WinRE = true;
-        UT.runmin("reagentc.exe", "/enable", true);
+        UT.runmin("reagentc.exe", "/enable");
         CheckBTN();
     }
 
     public void Disable_Click(object sender, RoutedEventArgs e)
     {
         UTdata.WinRE = false;
-        UT.runmin("reagentc.exe", "/disable", true);
+        UT.runmin("reagentc.exe", "/disable");
         CheckBTN();
     }
 
@@ -77,8 +77,8 @@ public partial class WinRE : INavigableView<DashboardViewModel>
                 web.DownloadFile("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim", "C:\\Windows\\System32\\Recovery\\WinRE.wim");
             }
 
-            UT.runmin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery", false);
-            UT.runmin("reagentc.exe", "/enable", false);
+            UT.runmin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
+            UT.runmin("reagentc.exe", "/enable");
 
             UTdata.WinRE = true;
 

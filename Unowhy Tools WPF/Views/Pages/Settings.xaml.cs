@@ -73,13 +73,14 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public void Apply_Settings(object sender, RoutedEventArgs e)
     {
+        UT.waitstatus.open();
         if (lang_en.IsSelected)
         {
-            UT.runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f", true);
+            UT.runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f");
         }
         else if (lang_fr.IsSelected)
         {
-            UT.runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d FR /t REG_SZ /f", true);
+            UT.runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d FR /t REG_SZ /f");
         }
 
         System.Windows.Forms.Application.Restart();
