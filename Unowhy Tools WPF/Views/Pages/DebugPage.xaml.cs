@@ -26,8 +26,9 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
         InitializeComponent();
 
-        _snackbarService = snackbarService;
+        verlab.Text = "Debug Page";
 
+        _snackbarService = snackbarService;
     }
 
     public void Github_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -50,16 +51,23 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        System.Diagnostics.Process.Start(new ProcessStartInfo
-        {
-            FileName = "https://discord.com/invite/dw3ZJ9u7WS",
-            UseShellExecute = true
-        });
+        UT.waitstatus.open();
     }
 
     public void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        _snackbarService.Show("Update checker", "Not done", SymbolRegular.ErrorCircle24, ControlAppearance.Danger);
+        UT.waitstatus.open();
+        if (UT.version.newver())
+        {
+            UT.waitstatus.close();
+            _snackbarService.Show("Update Checker", "Update !", SymbolRegular.Checkmark24, ControlAppearance.Info);
+        }
+        else
+        {
+            UT.waitstatus.close();
+            _snackbarService.Show("Update checker", "No", SymbolRegular.ErrorCircle24, ControlAppearance.Danger);
+        }
+        
     }
 
     public void al_click(object sender, System.Windows.RoutedEventArgs e)
@@ -70,7 +78,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public void DialoQ_Test(object sender, System.Windows.RoutedEventArgs e)
     {
-        if (UT.DialogQShow(Window.GetWindow(this) , dialogtxt.Text, "question.png") == true)
+        if (UT.DialogQShow(dialogtxt.Text, "question.png") == true)
         {
             dqtest.Content = "YES";
         }
@@ -82,6 +90,6 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public void DialogI_Test(object sender, System.Windows.RoutedEventArgs e)
     {
-        UT.DialogIShow(Window.GetWindow(this), dialogtxt.Text, "about.png");
+        UT.DialogIShow(dialogtxt.Text, "about.png");
     }
 }

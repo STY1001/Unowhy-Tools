@@ -26,9 +26,9 @@
             CornerRadius="8,0,0,0">
             <Border.Background>
                 <ImageBrush
-                    ImageSource="../../Resources/UTLogoWhite2.0.png"
+                    ImageSource="../../Resources/fluent-ui-microsoft.png"
                     RenderOptions.BitmapScalingMode="HighQuality"
-                    Stretch="Uniform" />
+                    Stretch="UniformToFill" />
             </Border.Background>
             <Border CornerRadius="8,8,8,8">
                 <Border.Background>
@@ -52,7 +52,7 @@
                         <TextBlock
                             FontSize="18"
                             Foreground="#B7FFFFFF"
-                            Text="A tool for Y13 computers !" />
+                            Text="Test Page for dev, not user friendly" />
                         <TextBlock 
                             FontSize="11"
                             Foreground="#B7FFFFFF"
@@ -64,6 +64,7 @@
                         VerticalAlignment="Bottom"
                         FontSize="10"
                         Foreground="#57FFFFFF"
+                        x:Name="verlab"
                         Text="Version 20.0 (WPF 1.0) (Debug)" />
                 </Grid>
             </Border>
@@ -206,17 +207,17 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="../../Resources/discord.png" Grid.Column="0" />
+                        <Image Source="../../Resources/wait.png" Grid.Column="0" />
                         <StackPanel Grid.Column="2">
                             <TextBlock
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Discord for Y13" />
+                        Text="Wait test" />
                             <TextBlock
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="{}{unohelp}" />
+                        Text="{}Not the btn of {unohelp}" />
                         </StackPanel>
                     </Grid>
                 </ui:Button>
