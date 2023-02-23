@@ -6,6 +6,7 @@ using Wpf.Ui.Mvvm.Contracts;
 
 using Unowhy_Tools;
 using System.Windows;
+using System.Threading;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -52,6 +53,8 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     public void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
     {
         UT.waitstatus.open();
+        Thread.Sleep(1000);
+        UT.waitstatus.close();
     }
 
     public void Update_Click(object sender, System.Windows.RoutedEventArgs e)
