@@ -29,7 +29,7 @@
                             <RowDefinition Height="0"/>
                         </Grid.RowDefinitions>
                         <Image Grid.Column="1" Grid.Row="1" Source="../../Resources/wait.png" />
-                        <TextBlock Grid.Column="4" Grid.Row="1" Text="Wait" Foreground="#FFFFFF" FontSize="11" FontFamily="Segoe UI SemiNormal" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="4" Grid.Row="1" Text="Wait" Foreground="#FFFFFF" FontSize="11" FontFamily="Segoe UI SemiNormal" VerticalAlignment="Center" x:Name="lab1"/>
                     </Grid>
 
                     <Grid Grid.Row="1">

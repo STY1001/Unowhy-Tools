@@ -28,20 +28,12 @@ namespace Unowhy_Tools_WPF.Views.Windows
 
         private bool _hideRequest = false;
         private bool _result = false;
-        private UIElement _parent;
-
-        public void SetParent(UIElement parent)
-        {
-            _parent = parent;
-        }
 
         public bool ShowDialog(string message, BitmapImage image)
         {
             icon.Source = image;
             text.Text = message;
             Visibility = Visibility.Visible;
-
-            _parent.IsEnabled = true;
 
             _hideRequest = false;
             while (!_hideRequest)
@@ -65,7 +57,6 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             _hideRequest = true;
             Visibility = Visibility.Hidden;
-            _parent.IsEnabled = true;
         }
 
         private void YesButton_Click(object sender, RoutedEventArgs e)

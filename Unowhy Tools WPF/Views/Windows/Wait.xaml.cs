@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Windows
 {
@@ -25,33 +26,21 @@ namespace Unowhy_Tools_WPF.Views.Windows
         public Wait()
         {
             InitializeComponent();
+
+            lab1.Text = UT.getlang("wait");
+            text.Text = UT.getlang("wait");
+
             Visibility = Visibility.Hidden;
         }
-
-        private bool _hideRequest = false;
-        private bool _result = false;
-        private UIElement _parent;
-
-        public void SetParent(UIElement parent)
-        {
-            _parent = parent;
-        }
-
 
         public void Show()
         {
             Visibility = Visibility.Visible;
-
-            _parent.IsEnabled = true;
-
-            _hideRequest = false;
         }
 
         public void Hide()
         {
-            _hideRequest = true;
             Visibility = Visibility.Hidden;
-            _parent.IsEnabled = true;
         }
     }
 }
