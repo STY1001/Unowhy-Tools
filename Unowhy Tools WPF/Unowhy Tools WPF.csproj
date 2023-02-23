@@ -9,6 +9,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>UT.ico</ApplicationIcon>
     <UseWindowsForms>True</UseWindowsForms>
+	  <AssemblyName>Unowhy Tools</AssemblyName>
+	  <Company>STY Inc. (STY1001)</Company>
+	  <Product>Unowhy Tools</Product>
+	  <Description>A tool for Y13 computers !</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
