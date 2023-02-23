@@ -25,6 +25,13 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
+        string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
+
+        if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
+        else ver = ver + "(Release)";
+
+        verlab.Text = ver;
+
         applylang();
         pcname.Text = UT.getline(UTdata.HostName, 1);
     }

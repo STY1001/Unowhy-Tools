@@ -12,6 +12,7 @@ using System.Diagnostics;
 using Wpf.Ui.Common;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
+using Unowhy_Tools;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -31,6 +32,15 @@ public partial class About : INavigableView<DashboardViewModel>
     {
         ViewModel = viewModel;
         InitializeComponent();
+
+
+        string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
+
+        if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
+        else ver = ver + "(Release)";
+
+        verlab.Text = ver;
+
 
         _snackbarService = snackbarService;
 

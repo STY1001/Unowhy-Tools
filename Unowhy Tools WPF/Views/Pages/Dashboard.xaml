@@ -63,12 +63,13 @@
                         VerticalAlignment="Bottom"
                         FontSize="10"
                         Foreground="#57FFFFFF"
-                        Text="Version 20.0 (WPF 1.0) (Debug)" />
+                        x:Name="verlab"
+                        Text="Version --.- (Build -------)" />
                 </Grid>
             </Border>
         </Border>
         <Border Grid.Row="1" Background="#1b1b1b" CornerRadius="0,0,8,8">
-            <Grid Margin="12,18,12,18">
+            <Grid Margin="12,18,12,12">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="10" />
