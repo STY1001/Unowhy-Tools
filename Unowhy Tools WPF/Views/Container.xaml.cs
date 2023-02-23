@@ -70,10 +70,6 @@ public partial class Container : INavigationWindow
         snackbarService.SetSnackbarControl(RootSnackbar);
         dialogService.SetDialogControl(RootDialog);
 
-        DialogQRoot.SetParent(ParentOfRoot);
-        DialogIRoot.SetParent(ParentOfRoot);
-        WaitRoot.SetParent(ParentOfRoot);
-
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
 
@@ -154,18 +150,23 @@ public partial class Container : INavigationWindow
         await Task.Delay(1000);
 
         Navigate(typeof(HisqoolManager));
+        SplashText.Text = "Loading panels (Customize)...";
         SplashBar.Value = 25;
         await Task.Delay(100);
         Navigate(typeof(Customize));
+        SplashText.Text = "Loading panels (Delete)...";
         SplashBar.Value = 35;
         await Task.Delay(100);
         Navigate(typeof(Delete));
+        SplashText.Text = "Loading panels (Repair)...";
         SplashBar.Value = 50;
         await Task.Delay(100);
-        Navigate(typeof(Customize));
+        Navigate(typeof(Repair));
+        SplashText.Text = "Loading panels (Drivers)...";
         SplashBar.Value = 75;
         await Task.Delay(100);
         Navigate(typeof(Drivers));
+        SplashText.Text = "Welcome";
         SplashBar.Value = 100;
         await Task.Delay(100);
         UT.check();

@@ -228,6 +228,7 @@
                     <StackPanel Grid.Column="1" Grid.Row="3" VerticalAlignment="Center">
                         <ProgressBar x:Name="SplashBar" Height="25"/>
                         <TextBlock
+                            x:Name="SplashText"
                     Margin="0,-25,0,0"
                     FontSize="16"
                     FontWeight="Medium"
