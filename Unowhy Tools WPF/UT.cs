@@ -18,6 +18,8 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Net;
 using System.Net.Http;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Windows.Interop;
 
 namespace Unowhy_Tools
 {
@@ -57,6 +59,11 @@ namespace Unowhy_Tools
             public static bool isdeb()
             {
                 return verisdeb;
+            }
+
+            public static int getverbuild()
+            {
+                return verbuild;
             }
 
             public static bool newver()
@@ -128,11 +135,15 @@ namespace Unowhy_Tools
         {
             public static void close()
             {
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                mainWindow.HideWait();
                 Write2Log("Close wait");
             }
 
             public static void open()
             {
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                mainWindow.ShowWait();
                 Write2Log("Open wait");
             }
         }
@@ -640,25 +651,29 @@ namespace Unowhy_Tools
 
             Write2Log("====== End ======");
         }
+        
 
-        public static bool DialogQShow(Window window, string msg, string img)
+        public static bool DialogQShow(string msg, string img)
         {
             //var mainWindow = Window.GetWindow(this) as Unowhy_Tools_WPF.Views.Container;
-
-            var mainWindow = window as Unowhy_Tools_WPF.Views.Container;
+            Write2Log("DialogQ: " + msg + " " + img);
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
             if (mainWindow.ShowDialogQ(msg, GetImgSource(img)))
             {
+                Write2Log("Result: Yes");
                 return true;
             }
             else
             {
+                Write2Log("Result: No");
                 return false;
             }
         }
 
-        public static void DialogIShow(Window window, string msg, string img)
+        public static void DialogIShow(string msg, string img)
         {
-            var mainWindow = window as Unowhy_Tools_WPF.Views.Container;
+            Write2Log("DialogI: " + msg + " " + img);
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
             mainWindow.ShowDialogI(msg, GetImgSource(img)) ;
         }
 
