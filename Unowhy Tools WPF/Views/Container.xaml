@@ -175,7 +175,8 @@
             <Border
                 Grid.Column="1"
                 Background="#272727"
-                CornerRadius="8,8,8,8">
+                CornerRadius="8,8,8,8"
+                Margin="1,1,1,1">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -204,7 +205,7 @@
         <Grid
             x:Name="RootWelcomeGrid"
             Grid.Row="1"
-            Visibility="Visible">
+            Visibility="Hidden">
             <Border Background="#303030" CornerRadius="8,8,8,8" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -319,5 +320,6 @@
         </ui:TitleBar>
         <controls:DialogQ Visibility="Hidden" x:Name="DialogQRoot" Grid.Row="1"/>
         <controls:DialogI Visibility="Hidden" x:Name="DialogIRoot" Grid.Row="1"/>
+        <controls:Wait Visibility="Hidden" x:Name="WaitRoot" Grid.Row="1"/>
     </Grid>
 </ui:UiWindow>

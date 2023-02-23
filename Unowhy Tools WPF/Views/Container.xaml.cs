@@ -72,6 +72,7 @@ public partial class Container : INavigationWindow
 
         DialogQRoot.SetParent(ParentOfRoot);
         DialogIRoot.SetParent(ParentOfRoot);
+        WaitRoot.SetParent(ParentOfRoot);
 
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
@@ -95,6 +96,16 @@ public partial class Container : INavigationWindow
     public void ShowDialogI(string msg, BitmapImage img)
     {
         DialogIRoot.ShowDialog(msg, img);
+    }
+
+    public void ShowWait()
+    {
+        WaitRoot.Show();
+    }
+
+    public void HideWait()
+    {
+        WaitRoot.Hide();
     }
 
     /// <summary>
