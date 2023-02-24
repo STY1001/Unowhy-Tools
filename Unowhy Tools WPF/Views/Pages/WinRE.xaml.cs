@@ -6,6 +6,8 @@ using System.Windows;
 using System.Net;
 using System.Threading.Tasks;
 using System;
+using System.Net.Http;
+using System.IO;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -57,25 +59,37 @@ public partial class WinRE : INavigableView<DashboardViewModel>
 
     public async void Enable_Click(object sender, RoutedEventArgs e)
     {
-        UTdata.WinRE = true;
-        await UT.RunMin("reagentc.exe", "/enable");
-        await CheckBTN();
+        if (UT.DialogQShow(UT.GetLang("winre.ena"), "enable.png"))
+        {
+            await UT.waitstatus.open();
+            UTdata.WinRE = true;
+            await UT.RunMin("reagentc.exe", "/enable");
+            await CheckBTN();
+            await UT.waitstatus.close();
+        }
     }
 
     public async void Disable_Click(object sender, RoutedEventArgs e)
     {
-        UTdata.WinRE = false;
-        await UT.RunMin("reagentc.exe", "/disable");
-        await CheckBTN();
+        if(UT.DialogQShow(UT.GetLang("winre.dis"), "disable.png"))
+        {
+            await UT.waitstatus.open();
+            UTdata.WinRE = false;
+            await UT.RunMin("reagentc.exe", "/disable");
+            await CheckBTN();
+            await UT.waitstatus.close();
+        }
     }
 
     public async void Repair_Click(object sender, RoutedEventArgs e)
     {
         if (UT.CheckInternet())
         {
-            using (var web = new WebClient())
+            await UT.waitstatus.open();
+            using (var web = new HttpClient())
             {
-                web.DownloadFileAsync(new System.Uri("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim"), "C:\\Windows\\System32\\Recovery\\WinRE.wim");
+                var filebyte = await web.GetByteArrayAsync("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim");
+                File.WriteAllBytes("C:\\Windows\\System32\\Recovery\\WinRE.wim", filebyte);
             }
 
             await UT.RunMin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
@@ -84,6 +98,11 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             UTdata.WinRE = true;
 
             await CheckBTN();
+            await UT.waitstatus.close();
+        }
+        else
+        {
+            UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
         }
     }
 
