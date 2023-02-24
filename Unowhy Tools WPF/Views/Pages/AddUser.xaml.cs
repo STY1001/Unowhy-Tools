@@ -17,11 +17,11 @@ public partial class AddUser : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labu.Text = UT.getlang("name");
-        labp.Text = UT.getlang("password");
-        labc.Text = UT.getlang("confpw");
-        laba.Content = UT.getlang("la");
-        labb.Text = UT.getlang("create");
+        labu.Text = UT.GetLang("name");
+        labp.Text = UT.GetLang("password");
+        labc.Text = UT.GetLang("confpw");
+        laba.Content = UT.GetLang("la");
+        labb.Text = UT.GetLang("create");
     }
 
     public AddUser(DashboardViewModel viewModel)

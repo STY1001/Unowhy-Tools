@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Hisqool Manager Services"
+    Title="Hisqool Manager Services" Initialized="Init"
     d:DataContext="{d:DesignInstance local:HisqoolManager,
                                      IsDesignTimeCreatable=False}"
     d:DesignHeight="750"

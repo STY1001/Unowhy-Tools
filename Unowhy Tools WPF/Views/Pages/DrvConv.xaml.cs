@@ -17,9 +17,9 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labnew.Text = UT.getlang("new");
-        labold.Text = UT.getlang("old");
-        conv_btn.Text = UT.getlang("conv");
+        labnew.Text = UT.GetLang("new");
+        labold.Text = UT.GetLang("old");
+        conv_btn.Text = UT.GetLang("conv");
     }
 
     public DrvConv(DashboardViewModel viewModel)

@@ -19,9 +19,9 @@ public partial class PCname : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labold.Text = UT.getlang("ancat");
-        labnew.Text = UT.getlang("cncat");
-        pcn_btn.Text = UT.getlang("change");
+        labold.Text = UT.GetLang("ancat");
+        labnew.Text = UT.GetLang("cncat");
+        pcn_btn.Text = UT.GetLang("change");
     }
 
     private void CheckBTN()

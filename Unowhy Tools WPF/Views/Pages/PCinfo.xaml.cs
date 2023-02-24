@@ -20,19 +20,19 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labpnc.Text = UT.getlang("pcn");
-        labuid.Text = UT.getlang("domuser");
-        labmf.Text = UT.getlang("mfm");
-        labsn.Text = UT.getlang("serial");
-        labbv.Text = UT.getlang("biosversion");
-        labwv.Text = UT.getlang("os");
+        labpnc.Text = UT.GetLang("pcn");
+        labuid.Text = UT.GetLang("domuser");
+        labmf.Text = UT.GetLang("mfm");
+        labsn.Text = UT.GetLang("serial");
+        labbv.Text = UT.GetLang("biosversion");
+        labwv.Text = UT.GetLang("os");
     }
 
     public void infoapply()
     {
         uid.Text = UTdata.UserID;
         pcn.Text = UTdata.HostName;
-        mf.Text = UT.getline(UTdata.mf, 1) + " " + UT.getline(UTdata.md, 1);
+        mf.Text = UT.GetLine(UTdata.mf, 1) + " " + UT.GetLine(UTdata.md, 1);
         sn.Text = UTdata.sn;
         bv.Text = UTdata.bios;
         wv.Text = UTdata.os;

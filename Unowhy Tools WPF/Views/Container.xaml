@@ -148,7 +148,7 @@
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem
                         x:Name="deb"
-                        Height="0"
+                        Height="30"
                         Content="Debug Page"
                         Image="pack://application:,,,/Resources/code.png"
                         PageTag="debug"

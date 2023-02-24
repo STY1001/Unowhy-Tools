@@ -27,18 +27,18 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             InitializeComponent();
 
-            lab1.Text = UT.getlang("wait");
-            text.Text = UT.getlang("wait");
+            lab1.Text = UT.GetLang("wait");
+            text.Text = UT.GetLang("wait");
 
             Visibility = Visibility.Hidden;
         }
 
-        public void Show()
+        public async Task Show()
         {
             Visibility = Visibility.Visible;
         }
 
-        public void Hide()
+        public async Task Hide()
         {
             Visibility = Visibility.Hidden;
         }

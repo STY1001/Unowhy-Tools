@@ -17,10 +17,10 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labconv.Text = UT.getlang("convdesc");
-        convbtn.Content = UT.getlang("conv");
-        labpath.Text = UT.getlang("bkpath");
-        rest_btn.Text = UT.getlang("restore");
+        labconv.Text = UT.GetLang("convdesc");
+        convbtn.Content = UT.GetLang("conv");
+        labpath.Text = UT.GetLang("bkpath");
+        rest_btn.Text = UT.GetLang("restore");
     }
 
     public DrvRest(DashboardViewModel viewModel)

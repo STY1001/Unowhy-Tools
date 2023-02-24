@@ -4,6 +4,8 @@ using Unowhy_Tools_WPF.ViewModels;
 using Unowhy_Tools;
 using System.Windows;
 using System.Net;
+using System.Threading.Tasks;
+using System;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -21,14 +23,14 @@ public partial class WinRE : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        en_txt.Text = UT.getlang("enable");
-        dis_txt.Text = UT.getlang("disable");
-        rep_txt.Text = UT.getlang("repair");
+        en_txt.Text = UT.GetLang("enable");
+        dis_txt.Text = UT.GetLang("disable");
+        rep_txt.Text = UT.GetLang("repair");
     }
 
-    public void CheckBTN()
+    public async Task CheckBTN()
     {
-        string out1 = UT.returncmd("reagentc.exe", "/info");
+        string out1 = await UT.RunReturn("reagentc.exe", "/info");
         if (out1.Contains("Enable"))
         {
             en.IsEnabled = false;
@@ -42,8 +44,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
                 en.IsEnabled = false;
                 rep.IsEnabled = true;
                 dis.IsEnabled = false;
-                //var i = new info(getlang("winremsg"), Properties.Resources.no);
-                //i.ShowDialog();
+                UT.DialogIShow(UT.GetLang("winremsg"), "no.png");
             }
             else
             {
@@ -54,36 +55,42 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         }
     }
 
-    public void Enable_Click(object sender, RoutedEventArgs e)
+    public async void Enable_Click(object sender, RoutedEventArgs e)
     {
         UTdata.WinRE = true;
-        UT.runmin("reagentc.exe", "/enable");
-        CheckBTN();
+        await UT.RunMin("reagentc.exe", "/enable");
+        await CheckBTN();
     }
 
-    public void Disable_Click(object sender, RoutedEventArgs e)
+    public async void Disable_Click(object sender, RoutedEventArgs e)
     {
         UTdata.WinRE = false;
-        UT.runmin("reagentc.exe", "/disable");
-        CheckBTN();
+        await UT.RunMin("reagentc.exe", "/disable");
+        await CheckBTN();
     }
 
-    public void Repair_Click(object sender, RoutedEventArgs e)
+    public async void Repair_Click(object sender, RoutedEventArgs e)
     {
         if (UT.CheckInternet())
         {
             using (var web = new WebClient())
             {
-                web.DownloadFile("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim", "C:\\Windows\\System32\\Recovery\\WinRE.wim");
+                web.DownloadFileAsync(new System.Uri("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim"), "C:\\Windows\\System32\\Recovery\\WinRE.wim");
             }
 
-            UT.runmin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
-            UT.runmin("reagentc.exe", "/enable");
+            await UT.RunMin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
+            await UT.RunMin("reagentc.exe", "/enable");
 
             UTdata.WinRE = true;
 
-            CheckBTN();
+            await CheckBTN();
         }
+    }
+
+    public async void Init(object sender, EventArgs e)
+    {
+        applylang();
+        await CheckBTN();
     }
 
     public WinRE(DashboardViewModel viewModel)
@@ -91,8 +98,5 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
-
-        applylang();
-        CheckBTN();
     }
 }

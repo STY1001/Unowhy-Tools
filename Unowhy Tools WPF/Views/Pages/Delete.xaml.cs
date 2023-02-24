@@ -2,6 +2,9 @@
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
+using System.Windows;
+using System.Threading.Tasks;
+using System;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -19,38 +22,38 @@ public partial class Delete : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        instprog_txt.Text = UT.getlang("unprog");
+        instprog_txt.Text = UT.GetLang("unprog");
         instprog_desc.Text = "";
-        instprog_btn.Text = UT.getlang("open");
-        entu_txt.Text = UT.getlang("ent");
-        entu_desc.Text = UT.getlang("descent");
-        entu_btn.Text = UT.getlang("del");
-        hsq_txt.Text = UT.getlang("delhis");
-        hsq_desc.Text = UT.getlang("deschisdel");
-        hsq_btn.Text = UT.getlang("uninstall");
-        aad_txt.Text = UT.getlang("aadleave");
-        aad_desc.Text = UT.getlang("descaadleave");
-        aad_btn.Text = UT.getlang("disconnect");
-        hsmqf_txt.Text = UT.getlang("delhism");
-        hsmqf_desc.Text = UT.getlang("deschismdel");
-        hsmqf_btn.Text = UT.getlang("delete");
-        tif_txt.Text = UT.getlang("delti");
-        tif_desc.Text = UT.getlang("desctidel");
-        tif_btn.Text = UT.getlang("delete");
-        ridff_txt.Text = UT.getlang("delridf");
-        ridff_desc.Text = UT.getlang("descridf");
-        ridff_btn.Text = UT.getlang("delete");
-        oemf_txt.Text = UT.getlang("deloem");
-        oemf_desc.Text = UT.getlang("descdeloem");
-        oemf_btn.Text = UT.getlang("delete");
-        entf_txt.Text = UT.getlang("delentf");
-        entf_desc.Text = UT.getlang("descdelentf");
-        entf_btn.Text = UT.getlang("delete");
+        instprog_btn.Text = UT.GetLang("open");
+        entu_txt.Text = UT.GetLang("ent");
+        entu_desc.Text = UT.GetLang("descent");
+        entu_btn.Text = UT.GetLang("del");
+        hsq_txt.Text = UT.GetLang("delhis");
+        hsq_desc.Text = UT.GetLang("deschisdel");
+        hsq_btn.Text = UT.GetLang("uninstall");
+        aad_txt.Text = UT.GetLang("aadleave");
+        aad_desc.Text = UT.GetLang("descaadleave");
+        aad_btn.Text = UT.GetLang("disconnect");
+        hsmqf_txt.Text = UT.GetLang("delhism");
+        hsmqf_desc.Text = UT.GetLang("deschismdel");
+        hsmqf_btn.Text = UT.GetLang("delete");
+        tif_txt.Text = UT.GetLang("delti");
+        tif_desc.Text = UT.GetLang("desctidel");
+        tif_btn.Text = UT.GetLang("delete");
+        ridff_txt.Text = UT.GetLang("delridf");
+        ridff_desc.Text = UT.GetLang("descridf");
+        ridff_btn.Text = UT.GetLang("delete");
+        oemf_txt.Text = UT.GetLang("deloem");
+        oemf_desc.Text = UT.GetLang("descdeloem");
+        oemf_btn.Text = UT.GetLang("delete");
+        entf_txt.Text = UT.GetLang("delentf");
+        entf_desc.Text = UT.GetLang("descdelentf");
+        entf_btn.Text = UT.GetLang("delete");
     }
 
-    public void CheckBTN()
+    public async Task CheckBTN()
     {
-        UT.check();
+        await UT.Check();
         entu.IsEnabled = true;
         hsq.IsEnabled = true;
         aad.IsEnabled = true;
@@ -77,13 +80,21 @@ public partial class Delete : INavigableView<DashboardViewModel>
         else entf.IsEnabled = false;
     }
 
+    public async void Init(object sender, EventArgs e)
+    {
+        applylang();
+        await CheckBTN();
+    }
+
     public Delete(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
 
         InitializeComponent();
+    }
 
-        applylang();
-        CheckBTN();
+    public void _Click(object sender, RoutedEventArgs e)
+    {
+
     }
 }

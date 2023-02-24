@@ -7,6 +7,8 @@ using Microsoft.Win32;
 using System.IO;
 using System.Windows;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using System;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -22,14 +24,14 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labol.Text = UT.getlang("logsopen");
-        labdl.Text = UT.getlang("logsdel");
-        dl.Content = UT.getlang("delete");
-        ol.Content = UT.getlang("open");
-        lablang.Text = UT.getlang("lang");
+        labol.Text = UT.GetLang("logsopen");
+        labdl.Text = UT.GetLang("logsdel");
+        dl.Content = UT.GetLang("delete");
+        ol.Content = UT.GetLang("open");
+        lablang.Text = UT.GetLang("lang");
     }
 
-    public void CheckBTN()
+    public async Task CheckBTN()
     {
         RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
         string utlst = lcs.GetValue("Lang").ToString();
@@ -48,7 +50,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         if (fi.Length > 1000000) size = (fi.Length / 1000000).ToString() + " MB";
         else size = (fi.Length / 1000).ToString() + " KB";
 
-        dl.Content = UT.getlang("clean") + " (" + size + ")";
+        dl.Content = UT.GetLang("clean") + " (" + size + ")";
     }
 
     public void Logs_Clear(object sender, RoutedEventArgs e)
@@ -59,7 +61,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         string size;
         if (fi.Length > 1000000) size = (fi.Length / 1000000).ToString() + " MB";
         else size = (fi.Length / 1000).ToString() + "KB";
-        dl.Content = UT.getlang("clean") + " (" + size + ")";
+        dl.Content = UT.GetLang("clean") + " (" + size + ")";
     }
 
     public void Logs_Open(object sender, RoutedEventArgs e)
@@ -71,20 +73,26 @@ public partial class Settings : INavigableView<DashboardViewModel>
         });
     }
 
-    public void Apply_Settings(object sender, RoutedEventArgs e)
+    public async void Apply_Settings(object sender, RoutedEventArgs e)
     {
-        UT.waitstatus.open();
+        await UT.waitstatus.open();
         if (lang_en.IsSelected)
         {
-            UT.runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f");
+            await UT.RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f");
         }
         else if (lang_fr.IsSelected)
         {
-            UT.runmin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d FR /t REG_SZ /f");
+            await UT.RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d FR /t REG_SZ /f");
         }
 
         System.Windows.Forms.Application.Restart();
         System.Windows.Application.Current.Shutdown();
+    }
+
+    public async void Init(object sender, EventArgs e)
+    {
+        applylang();
+        await CheckBTN();
     }
 
     public Settings(DashboardViewModel viewModel)
@@ -92,8 +100,5 @@ public partial class Settings : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
-
-        applylang();
-        CheckBTN();
     }
 }

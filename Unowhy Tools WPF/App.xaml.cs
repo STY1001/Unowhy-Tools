@@ -121,7 +121,8 @@ public partial class App
         }
         else
         {
-            UTdata.UserID = UT.getline(UT.returncmd("whoami", ""), 1);
+            string user = await UT.RunReturn("whoami", "");
+            UTdata.UserID = UT.GetLine(user, 1);
         }
 
         await _host.StartAsync();

@@ -7,6 +7,8 @@ using Wpf.Ui.Mvvm.Contracts;
 using Unowhy_Tools;
 using System.Windows;
 using System.Threading;
+using System.Threading.Tasks;
+using System;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -50,28 +52,29 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         });
     }
 
-    public void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
+    public async void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        UT.waitstatus.open();
-        Thread.Sleep(1000);
-        UT.waitstatus.close();
+        await UT.waitstatus.open();
+        await Task.Delay(1000);
+        await UT.waitstatus.close();
     }
 
-    public void Update_Click(object sender, System.Windows.RoutedEventArgs e)
+    public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        UT.waitstatus.open();
-        if (UT.version.newver())
+        await UT.waitstatus.open();
+        await Task.Delay(1000);
+        if (await UT.version.newver())
         {
-            UT.waitstatus.close();
+            await UT.waitstatus.close();
             _snackbarService.Show("Update Checker", "Update !", SymbolRegular.Checkmark24, ControlAppearance.Info);
         }
         else
         {
-            UT.waitstatus.close();
+            await UT.waitstatus.close();
             _snackbarService.Show("Update checker", "No", SymbolRegular.ErrorCircle24, ControlAppearance.Danger);
         }
         
-    }
+    }   
 
     public void al_click(object sender, System.Windows.RoutedEventArgs e)
     {

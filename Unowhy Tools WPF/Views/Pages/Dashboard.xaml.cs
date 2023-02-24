@@ -33,14 +33,14 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         verlab.Text = ver;
 
         applylang();
-        pcname.Text = UT.getline(UTdata.HostName, 1);
+        pcname.Text = UT.GetLine(UTdata.HostName, 1);
     }
 
     public void applylang()
     {
-        lababout.Text = UT.getlang("about");
-        labinfo.Text = UT.getlang("pcinfo");
-        labset.Text = UT.getlang("settings");
+        lababout.Text = UT.GetLang("about");
+        labinfo.Text = UT.GetLang("pcinfo");
+        labset.Text = UT.GetLang("settings");
     }
 
     public void Taskmgr(object sender, RoutedEventArgs e)

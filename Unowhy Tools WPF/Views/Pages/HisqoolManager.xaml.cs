@@ -3,6 +3,8 @@ using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
 using System.Windows;
+using System.Threading.Tasks;
+using System;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -20,18 +22,18 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        hsqm_txt.Text = UT.getlang("labhsmq");
-        hsqm_desc.Text = UT.getlang("deschism");
-        hsqm_start_txt.Text = UT.getlang("start");
-        hsqm_stop_txt.Text = UT.getlang("stop");
-        hsqm_enable_txt.Text = UT.getlang("enable");
-        hsqm_disable_txt.Text = UT.getlang("disable");
-        hsqm_delete_txt.Text = UT.getlang("delserv");
+        hsqm_txt.Text = UT.GetLang("labhsmq");
+        hsqm_desc.Text = UT.GetLang("deschism");
+        hsqm_start_txt.Text = UT.GetLang("start");
+        hsqm_stop_txt.Text = UT.GetLang("stop");
+        hsqm_enable_txt.Text = UT.GetLang("enable");
+        hsqm_disable_txt.Text = UT.GetLang("disable");
+        hsqm_delete_txt.Text = UT.GetLang("delserv");
     }
 
-    public void CheckBTN()
+    public async Task CheckBTN()
     {
-        UT.check();
+        await UT.Check();
         hsqm_delete.IsEnabled = true;
         hsqm_enable.IsEnabled = true;
         hsqm_disable.IsEnabled = true;
@@ -85,108 +87,110 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         }
     }
 
+    public async void Init(object sender, EventArgs e)
+    {
+        applylang();
+        await CheckBTN();
+    }
+
     public HisqoolManager(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
 
         InitializeComponent();
-
-        applylang();
-
-        CheckBTN();
     }
 
-    public void start_Click(object sender, RoutedEventArgs e)
+    public async void start_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(UT.getlang("starthis"), "start.png"))
+        if(UT.DialogQShow(UT.GetLang("starthis"), "start.png"))
         {
-            UT.waitstatus.open();
-            UT.serv.start("HiSqoolManager");
-            CheckBTN();
-            UT.waitstatus.close();
+            await UT.waitstatus.open();
+            await UT.serv.start("HiSqoolManager");
+            await CheckBTN();
+            await UT.waitstatus.close();
             if(!hsqm_start.IsEnabled)
             {
-                UT.DialogIShow(UT.getlang("done"), "yes.png");
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.getlang("failed"), "no.png");
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
             }
         }
     }
 
-    public void stop_Click(object sender, RoutedEventArgs e)
+    public async void stop_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.getlang("stophis"), "stop.png"))
+        if (UT.DialogQShow(UT.GetLang("stophis"), "stop.png"))
         {
-            UT.waitstatus.open();
-            UT.serv.stop("HiSqoolManager");
-            CheckBTN();
-            UT.waitstatus.close();
+            await UT.waitstatus.open();
+            await UT.serv.stop("HiSqoolManager");
+            await CheckBTN();
+            await UT.waitstatus.close();
             if (!hsqm_stop.IsEnabled)
             {
-                UT.DialogIShow(UT.getlang("done"), "yes.png");
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.getlang("failed"), "no.png");
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
             }
         }
     }
 
-    public void enable_Click(object sender, RoutedEventArgs e)
+    public async void enable_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.getlang("enhis"), "enable.png"))
+        if (UT.DialogQShow(UT.GetLang("enhis"), "enable.png"))
         {
-            UT.waitstatus.open();
-            UT.serv.auto("HiSqoolManager");
-            CheckBTN();
-            UT.waitstatus.close();
+            await UT.waitstatus.open();
+            await UT.serv.auto("HiSqoolManager");
+            await CheckBTN();
+            await UT.waitstatus.close();
             if (!hsqm_enable.IsEnabled)
             {
-                UT.DialogIShow(UT.getlang("done"), "yes.png");
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.getlang("failed"), "no.png");
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
             }
         }
     }
 
-    public void disable_Click(object sender, RoutedEventArgs e)
+    public async void disable_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.getlang("dishis"), "disable.png"))
+        if (UT.DialogQShow(UT.GetLang("dishis"), "disable.png"))
         {
-            UT.waitstatus.open();
-            UT.serv.dis("HiSqoolManager");
-            CheckBTN();
-            UT.waitstatus.close();
+            await UT.waitstatus.open();
+            await UT.serv.dis("HiSqoolManager");
+            await CheckBTN();
+            await UT.waitstatus.close();
             if (!hsqm_disable.IsEnabled)
             {
-                UT.DialogIShow(UT.getlang("done"), "yes.png");
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.getlang("failed"), "no.png");
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
             }
         }
     }
 
-    public void del_Click(object sender, RoutedEventArgs e)
+    public async void del_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.getlang("delhismserv"), "delete.png"))
+        if (UT.DialogQShow(UT.GetLang("delhismserv"), "delete.png"))
         {
-            UT.waitstatus.open();
-            UT.serv.del("HiSqoolManager");
-            CheckBTN();
-            UT.waitstatus.close();
+            await UT.waitstatus.open();
+            await UT.serv.del("HiSqoolManager");
+            await CheckBTN();
+            await UT.waitstatus.close();
             if (!hsqm_stop.IsEnabled)
             {
-                UT.DialogIShow(UT.getlang("done"), "yes.png");
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.getlang("failed"), "no.png");
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
             }
         }
     }

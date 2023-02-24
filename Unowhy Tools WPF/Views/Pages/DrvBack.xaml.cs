@@ -17,9 +17,9 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        labbkapp.Text = UT.getlang("bkapp");
-        labpath.Text = UT.getlang("bkpath");
-        bk_btn.Text = UT.getlang("backup");
+        labbkapp.Text = UT.GetLang("bkapp");
+        labpath.Text = UT.GetLang("bkpath");
+        bk_btn.Text = UT.GetLang("backup");
     }
 
     public DrvBack(DashboardViewModel viewModel)

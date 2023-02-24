@@ -40,22 +40,22 @@ public partial class Container : INavigationWindow
 
     public void applylang()
     {
-        home.Content = UT.getlang("titlehome");
-        hsqm.Content = UT.getlang("titlehsqm");
-        repair.Content = UT.getlang("titlerepair");
-        delete.Content = UT.getlang("titledelete");
-        customize.Content = UT.getlang("titlecust");
-        drivers.Content = UT.getlang("titledrv");
-        pcname.Content = UT.getlang("titlepcn");
-        wre.Content = UT.getlang("titlewre");
-        adduser.Content = UT.getlang("titleadduser");
-        adminset.Content = UT.getlang("titleadminset");
-        about.Content = UT.getlang("titleabout");
-        drvbk.Content = UT.getlang("titledrvbk");
-        drvrt.Content = UT.getlang("titledrvrt");
-        drvconv.Content = UT.getlang("titleconv");
-        settings.Content = UT.getlang("titlesettings");
-        pcinfo.Content = UT.getlang("titlepci");
+        home.Content = UT.GetLang("titlehome");
+        hsqm.Content = UT.GetLang("titlehsqm");
+        repair.Content = UT.GetLang("titlerepair");
+        delete.Content = UT.GetLang("titledelete");
+        customize.Content = UT.GetLang("titlecust");
+        drivers.Content = UT.GetLang("titledrv");
+        pcname.Content = UT.GetLang("titlepcn");
+        wre.Content = UT.GetLang("titlewre");
+        adduser.Content = UT.GetLang("titleadduser");
+        adminset.Content = UT.GetLang("titleadminset");
+        about.Content = UT.GetLang("titleabout");
+        drvbk.Content = UT.GetLang("titledrvbk");
+        drvrt.Content = UT.GetLang("titledrvrt");
+        drvconv.Content = UT.GetLang("titleconv");
+        settings.Content = UT.GetLang("titlesettings");
+        pcinfo.Content = UT.GetLang("titlepci");
     }
 
     public Container(ContainerViewModel viewModel, INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)
@@ -94,14 +94,14 @@ public partial class Container : INavigationWindow
         DialogIRoot.ShowDialog(msg, img);
     }
 
-    public void ShowWait()
+    public async Task ShowWait()
     {
-        WaitRoot.Show();
+        await WaitRoot.Show();
     }
 
-    public void HideWait()
+    public async Task HideWait()
     {
-        WaitRoot.Hide();
+        await WaitRoot.Hide();
     }
 
     /// <summary>
@@ -169,7 +169,7 @@ public partial class Container : INavigationWindow
         SplashText.Text = "Welcome";
         SplashBar.Value = 100;
         await Task.Delay(100);
-        UT.check();
+        await UT.Check();
         RootWelcomeGrid.Visibility = Visibility.Hidden;
         RootMainGrid.Visibility = Visibility.Visible;
 

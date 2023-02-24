@@ -17,9 +17,9 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        snpw.Text = UT.getlang("snpw");
-        en.Text = UT.getlang("enablea");
-        dis.Text = UT.getlang("disablea");
+        snpw.Text = UT.GetLang("snpw");
+        en.Text = UT.GetLang("enablea");
+        dis.Text = UT.GetLang("disablea");
     }
 
     public AdminUser(DashboardViewModel viewModel)

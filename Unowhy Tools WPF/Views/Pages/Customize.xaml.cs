@@ -2,6 +2,8 @@
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
+using System.Threading.Tasks;
+using System;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -19,25 +21,31 @@ public partial class Customize : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        pcname_txt.Text = UT.getlang("pcname");
-        pcname_desc.Text = UT.getlang("descpcname");
-        pcname_btn.Text = UT.getlang("change");
-        adminset_txt.Text = UT.getlang("admin");
-        adminset_desc.Text = UT.getlang("descadmin");
-        adminset_btn.Text = UT.getlang("set");
-        adduser_txt.Text = UT.getlang("adduser");
-        adduser_desc.Text = UT.getlang("descadduser");
-        adduser_btn.Text = UT.getlang("create");
-        auset_txt.Text = UT.getlang("adminset");
-        auset_desc.Text = UT.getlang("descadminset");
-        auset_btn.Text = UT.getlang("open");
+        pcname_txt.Text = UT.GetLang("pcname");
+        pcname_desc.Text = UT.GetLang("descpcname");
+        pcname_btn.Text = UT.GetLang("change");
+        adminset_txt.Text = UT.GetLang("admin");
+        adminset_desc.Text = UT.GetLang("descadmin");
+        adminset_btn.Text = UT.GetLang("set");
+        adduser_txt.Text = UT.GetLang("adduser");
+        adduser_desc.Text = UT.GetLang("descadduser");
+        adduser_btn.Text = UT.GetLang("create");
+        auset_txt.Text = UT.GetLang("adminset");
+        auset_desc.Text = UT.GetLang("descadminset");
+        auset_btn.Text = UT.GetLang("open");
     }
 
-    public void CheckBTN()
+    public async Task CheckBTN()
     {
-        UT.check();
+        await UT.Check();
         if(UTdata.Admin == true) adminset.IsEnabled = false;
         else adminset.IsEnabled = true;
+    }
+
+    public async void Init(object sender, EventArgs e)
+    {
+        applylang();
+        await CheckBTN();
     }
 
     public Customize(DashboardViewModel viewModel)
@@ -45,8 +53,5 @@ public partial class Customize : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
-
-        applylang();
-        CheckBTN();
     }
 }

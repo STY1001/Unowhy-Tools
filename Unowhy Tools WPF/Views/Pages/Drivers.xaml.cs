@@ -17,15 +17,15 @@ public partial class Drivers : INavigableView<DashboardViewModel>
 
     public void applylang()
     {
-        dlcloud_txt.Text = UT.getlang("bkcloud");
-        dlcloud_desc.Text = UT.getlang("descbkcloud");
-        dlcloud_btn.Text = UT.getlang("dl");
-        bk_txt.Text = UT.getlang("back");
-        bk_desc.Text = UT.getlang("drvbr");
-        bk_btn.Text = UT.getlang("backup");
-        rt_txt.Text = UT.getlang("rest");
-        rt_desc.Text = UT.getlang("drvbr");
-        rt_btn.Text = UT.getlang("restore");
+        dlcloud_txt.Text = UT.GetLang("bkcloud");
+        dlcloud_desc.Text = UT.GetLang("descbkcloud");
+        dlcloud_btn.Text = UT.GetLang("dl");
+        bk_txt.Text = UT.GetLang("back");
+        bk_desc.Text = UT.GetLang("drvbr");
+        bk_btn.Text = UT.GetLang("backup");
+        rt_txt.Text = UT.GetLang("rest");
+        rt_desc.Text = UT.GetLang("drvbr");
+        rt_btn.Text = UT.GetLang("restore");
     }
 
     public Drivers(DashboardViewModel viewModel)
