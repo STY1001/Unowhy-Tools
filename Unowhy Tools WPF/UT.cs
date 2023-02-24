@@ -20,6 +20,7 @@ using System.Net;
 using System.Net.Http;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Interop;
+using System.Threading.Tasks;
 
 namespace Unowhy_Tools
 {
@@ -41,7 +42,7 @@ namespace Unowhy_Tools
 
         public static string ver = "20.0";
         public static int verfull = 2000;
-        public static int verbuild = 2222157;
+        public static int verbuild = 2422143;
         public static bool verisdeb = true;
 
         public class version
@@ -66,10 +67,10 @@ namespace Unowhy_Tools
                 return verbuild;
             }
 
-            public static bool newver()
+            public static async Task<bool> newver()
             {
                 var web = new HttpClient();
-                string newver = web.GetStringAsync("https://bit.ly/UTnvTXT").Result;
+                string newver = await web.GetStringAsync("https://bit.ly/UTnvTXT");
                 int newverint = Convert.ToInt32(newver);
                 if (verfull < newverint)
                 {
@@ -84,10 +85,10 @@ namespace Unowhy_Tools
 
         public class serv
         {
-            public static bool exist(string service)
+            public static async Task<bool> exist(string service)
             {
                 Write2Log("Check " + service);
-                string s = returncmd("sc", "query \"" + service + "\"");
+                string s = await RunReturn("sc", "query \"" + service + "\"");
                 if (s.Contains("1060"))
                 {
                     return false;
@@ -98,52 +99,52 @@ namespace Unowhy_Tools
                 }
             }
 
-            public static void stop(string service)
+            public static async Task stop(string service)
             {
                 Write2Log("Stop " + service);
-                runmin("net", "stop \"" + service + "\" /y", true);
+                await RunMin("net", "stop \"" + service + "\" /y");
             }
 
-            public static void start(string service)
+            public static async Task start(string service)
             {
                 Write2Log("Start " + service);
-                runmin("net", "start \"" + service + "\"", true);
+                await RunMin("net", "start \"" + service + "\"");
             }
 
-            public static void auto(string service)
+            public static async Task auto(string service)
             {
                 Write2Log("Enable " + service);
-                runmin("sc", "config \"" + service + "\" start=auto", true);
+                await RunMin("sc", "config \"" + service + "\" start=auto");
             }
 
-            public static void dis(string service)
+            public static async Task dis(string service)
             {
                 Write2Log("Disable " + service);
-                serv.stop(service);
-                runmin("sc", "config \"" + service + "\" start=disabled", true);
+                await serv.stop(service);
+                await RunMin("sc", "config \"" + service + "\" start=disabled");
             }
 
-            public static void del(string service)
+            public static async Task del(string service)
             {
                 Write2Log("Delete " + service);
-                serv.stop(service);
-                runmin("sc", "delete \"" + service + "\"", true);
+                await serv.stop(service);
+                await RunMin("sc", "delete \"" + service + "\"");
             }
         }
 
         public class waitstatus
         {
-            public static void close()
+            public async static Task close()
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
-                mainWindow.HideWait();
+                await mainWindow.HideWait();
                 Write2Log("Close wait");
             }
 
-            public static void open()
+            public async static Task open()
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
-                mainWindow.ShowWait();
+                await mainWindow.ShowWait();
                 Write2Log("Open wait");
             }
         }
@@ -161,7 +162,7 @@ namespace Unowhy_Tools
             }
         }
 
-        public static void delay(int Time_delay)
+        public static void Delay(int Time_delay)
         {
             int i = 0;
             System.Timers.Timer _delayTimer = new System.Timers.Timer();
@@ -172,37 +173,40 @@ namespace Unowhy_Tools
             while (i == 0) { };
         }
 
-        public static string returncmd(string file, string args)
+        public static async Task<string> RunReturn(string file, string args)
         {
             IntPtr wow64Value = IntPtr.Zero;
             Wow64DisableWow64FsRedirection(ref wow64Value);
 
             Write2Log("ReturnCMD " + file + " " + args);
 
-            Process get = new Process();
-            get.StartInfo.FileName = file;
-            get.StartInfo.Arguments = args;
-            get.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            get.StartInfo.UseShellExecute = false;
-            get.StartInfo.RedirectStandardOutput = true;
-            get.StartInfo.CreateNoWindow = true;
-            get.Start();
-            get.WaitForExit();
-            string output = get.StandardOutput.ReadToEnd();
+            string output = await Task.Run(() =>
+            {
+                Process get = new Process();
+                get.StartInfo.FileName = file;
+                get.StartInfo.Arguments = args;
+                get.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                get.StartInfo.UseShellExecute = false;
+                get.StartInfo.RedirectStandardOutput = true;
+                get.StartInfo.CreateNoWindow = true;
+                get.Start();
+                get.WaitForExit();
+                return get.StandardOutput.ReadToEnd();
+            });
 
             Write2Log("Done ReturnCMD " + file + " " + args + " => " + output);
 
             return output;
         }
 
-        public static string getline(string text, int line)
+        public static string GetLine(string text, int line)
         {
             int line2 = line - 1;
             var lines = text.Split('\n');
             return lines[line2].Replace("\n", "").Replace("\r", "");
         }
 
-        public static string getlang(string name)
+        public static string GetLang(string name)
         {
             //Check the current saved language
             string resxFile;
@@ -218,34 +222,23 @@ namespace Unowhy_Tools
             return resxSet.GetString(name);
         }
 
-        public static void runmin(string file, string args, bool msg)
+        public async static Task RunMin(string file, string args)
         {
             IntPtr wow64Value = IntPtr.Zero;
             Wow64DisableWow64FsRedirection(ref wow64Value);
 
             Write2Log("RunMin " + file + " " + args);
 
-            if (msg == true)
+            await Task.Run(() =>
             {
-
-            }
-
-            if (msg == true)
-            {
-                waitstatus.open();
-            }
-
-            Process p = new Process();
-            p.StartInfo.FileName = file;
-            p.StartInfo.Arguments = args;
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            p.StartInfo.CreateNoWindow = true;
-            p.Start();
-            p.WaitForExit();
-            if (msg == true)
-            {
-                waitstatus.close();
-            }
+                Process p = new Process();
+                p.StartInfo.FileName = file;
+                p.StartInfo.Arguments = args;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.Start();
+                p.WaitForExit();
+            });
 
             Write2Log("Done RunMin " + file + " " + args);
         }
@@ -266,16 +259,16 @@ namespace Unowhy_Tools
             
         }
 
-        public static bool checkAdmin()
+        public static bool CheckAdmin()
         {
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
             WindowsPrincipal principal = new WindowsPrincipal(identity);
             return principal.IsInRole(WindowsBuiltInRole.Administrator);
         }
 
-        private void runAdmin(string args)
+        private static void RunAdmin(string args)
         {
-            if (!checkAdmin())
+            if (!CheckAdmin())
             {
                 // Restart and run as admin
                 var exeName = Process.GetCurrentProcess().MainModule.FileName;
@@ -295,18 +288,25 @@ namespace Unowhy_Tools
             else return false;
         }
 
-        public static void check()
+        public static async Task Check()
         {
             Data UTdata = new Data();
 
             Write2Log("Getting PC Infos");
 
-            UTdata.HostName = returncmd("hostname", "").Replace("\n", "").Replace("\r", "").Replace(" ", "");
-            UTdata.mf = getline(returncmd("wmic", "computersystem get manufacturer"), 2);
-            UTdata.md = getline(returncmd("wmic", "computersystem get model"), 2);
-            UTdata.os = getline(returncmd("wmic", "os get caption"), 2);
-            UTdata.bios = getline(returncmd("wmic", "bios get smbiosbiosversion"), 2);
-            UTdata.sn = getline(returncmd("wmic", "bios get serialnumber"), 2);
+            string hn = await RunReturn("hostname", "");
+            string mf = await RunReturn("wmic", "computersystem get manufacturer");
+            string md = await RunReturn("wmic", "computersystem get model");
+            string os = await RunReturn("wmic", "os get caption");
+            string bios = await RunReturn("wmic", "bios get smbiosbiosversion");
+            string sn = await RunReturn("wmic", "bios get serialnumber");
+
+            UTdata.HostName = hn.Replace("\n", "").Replace("\r", "").Replace(" ", "");
+            UTdata.mf = GetLine(mf, 2);
+            UTdata.md = GetLine(md, 2);
+            UTdata.os = GetLine(os, 2);
+            UTdata.bios = GetLine(bios, 2);
+            UTdata.sn = GetLine(sn, 2);
 
             if (UTdata.UserID.Contains(UTdata.HostName.ToLower()))
             {
@@ -331,15 +331,19 @@ namespace Unowhy_Tools
 
             Write2Log("====== Dynamic Buttons ======");
 
-            string azure = getline(returncmd("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow"), 6);
-            string admins = returncmd("net", "localgroup Administrateurs").ToLower();
-            string users = returncmd("net", "user");
-            string bcd = returncmd("bcdedit", "");
+            string preazure = await RunReturn("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow");
+            string preadmins = await RunReturn("net", "localgroup Administrateurs"); ;
+            string users = await RunReturn("net", "user");
+            string bcd = await RunReturn("bcdedit", "");
+
+            string admins = preadmins.ToLower();
+            string azure = GetLine(preazure, 6);
 
             #region Hisqool Manager
 
             Write2Log("=== HSM service ===");
-            if (UT.serv.exist("HiSqoolManager"))
+            bool hsme = await UT.serv.exist("HiSqoolManager");
+            if (hsme)
             {
                 ServiceController sc = new ServiceController();
                 sc.ServiceName = "HiSqoolManager";
