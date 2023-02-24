@@ -32,7 +32,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
         public bool ShowDialog(string message, BitmapImage image)
         {
             icon.Source = image;
-            text.Text = message;
+            text.Text = message + " ?";
             Visibility = Visibility.Visible;
 
             _hideRequest = false;
