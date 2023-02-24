@@ -600,6 +600,12 @@
   <data name="winre" xml:space="preserve">
     <value>WinRE (reagentc) settings</value>
   </data>
+  <data name="winre.dis" xml:space="preserve">
+    <value>Disable WinRE</value>
+  </data>
+  <data name="winre.ena" xml:space="preserve">
+    <value>Enable WinRE</value>
+  </data>
   <data name="winre.title" xml:space="preserve">
     <value>WinRE settings GUI for Unowhy Tools</value>
   </data>
