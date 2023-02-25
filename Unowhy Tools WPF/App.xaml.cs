@@ -86,6 +86,7 @@ public partial class App
             services.AddScoped<Views.Pages.PCinfo>();
             services.AddScoped<Views.Pages.DebugPage>();
             services.AddScoped<Views.Pages.Settings>();
+            services.AddScoped<Views.Pages.Updater>();
             
             // Configuration
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
