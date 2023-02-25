@@ -570,11 +570,14 @@
   <data name="unprog" xml:space="preserve">
     <value>Program. installés (Paramètres Windows)</value>
   </data>
+  <data name="update.check" xml:space="preserve">
+    <value>Verification...</value>
+  </data>
   <data name="update.del" xml:space="preserve">
     <value>Suppression "update.zip"</value>
   </data>
   <data name="update.dl" xml:space="preserve">
-    <value>Téléchargement "update.zip"</value>
+    <value>Téléchargement "update.zip"...</value>
   </data>
   <data name="update.ext" xml:space="preserve">
     <value>Extraction "update.zip"</value>
