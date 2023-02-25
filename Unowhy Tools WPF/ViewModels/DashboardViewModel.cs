@@ -96,6 +96,10 @@ public class DashboardViewModel : ObservableObject, INavigationAware
             case "navigate_to_settings":
                 _navigationService.Navigate(typeof(Views.Pages.Settings));
                 return;
+            
+            case "navigate_to_updater":
+                _navigationService.Navigate(typeof(Views.Pages.Updater));
+                return;
         }
     }
 
