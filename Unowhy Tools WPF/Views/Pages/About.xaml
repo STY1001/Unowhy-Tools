@@ -225,7 +225,7 @@
                     <ui:Button
                 Grid.Row="3"
                 Grid.Column="0"
-                Click="Update_Click" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,10,0,0">
+                Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_updater" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,10,0,0">
 
                         <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                             <Grid.RowDefinitions>
@@ -243,11 +243,11 @@
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Check for Update" />
+                        Text="Unowhy Tools Updater" />
                                 <TextBlock
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Click to check" />
+                        Text="Check for update" />
                             </StackPanel>
                         </Grid>
                     </ui:Button>

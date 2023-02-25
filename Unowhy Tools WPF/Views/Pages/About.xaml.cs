@@ -73,8 +73,8 @@ public partial class About : INavigableView<DashboardViewModel>
         });
     }
 
-    public void Update_Click(object sender, System.Windows.RoutedEventArgs e)
+    public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        _snackbarService.Show("Update checker", "Not done", SymbolRegular.ErrorCircle24, ControlAppearance.Danger);
+
     }
 }
