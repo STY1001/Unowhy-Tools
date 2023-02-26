@@ -98,49 +98,49 @@
                         PageType="{x:Type pages:Drivers}"/>
                     <ui:NavigationItem
                         x:Name="pcname"
-                        Visibility="Hidden"
+                        Visibility="Collapsed"
                         Height="0"
                         Content="Change PC name"
                         PageType="{x:Type pages:PCname}"/>
                     <ui:NavigationItem
                         x:Name="adduser"
-                        Visibility="Hidden"
+                        Visibility="Collapsed"
                         Height="0"
                         Content="Add a new local account"
                         PageType="{x:Type pages:AddUser}"/>
                     <ui:NavigationItem
                         x:Name="adminset"
-                        Visibility="Hidden"
+                        Visibility="Collapsed"
                         Height="0"
                         Content="Built-in &quot;Admin&quot; local account settings"
                         PageType="{x:Type pages:AdminUser}"/>
                     <ui:NavigationItem
                         x:Name="drvbk"
-                        Visibility="Hidden"
+                        Visibility="Collapsed"
                         Height="0"
                         Content="Drivers backup"
                         PageType="{x:Type pages:DrvBack}"/>
                     <ui:NavigationItem
                         x:Name="drvrt"
-                        Visibility="Hidden"
+                        Visibility="Collapsed"
                         Height="0"
                         Content="Drivers restore"
                         PageType="{x:Type pages:DrvRest}"/>
                     <ui:NavigationItem
                         x:Name="drvconv"
-                        Visibility="Hidden"
+                        Visibility="Collapsed"
                         Height="0"
                         Content="Convert an old drivers backup"
                         PageType="{x:Type pages:DrvConv}"/>
                     <ui:NavigationItem
                         x:Name="wre"
-                        Visibility="Hidden"
+                        Visibility="Collapsed"
                         Height="0"
                         Content="WinRE (reagentc) settings"
                         PageType="{x:Type pages:WinRE}"/>
                     <ui:NavigationItem
                         x:Name="pcinfo"
-                        Visibility="Hidden"
+                        Visibility="Collapsed"
                         Height="0"
                         Content="PC Info"
                         PageType="{x:Type pages:PCname}"/>
@@ -148,7 +148,7 @@
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem
                         x:Name="deb"
-                        Height="30"
+                        Height="0"
                         Content="Debug Page"
                         Image="pack://application:,,,/Resources/code.png"
                         PageTag="debug"

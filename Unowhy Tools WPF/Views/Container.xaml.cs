@@ -147,33 +147,23 @@ public partial class Container : INavigationWindow
         RootMainGrid.Visibility = Visibility.Collapsed;
         RootWelcomeGrid.Visibility = Visibility.Visible;
 
-        await Task.Delay(1000);
-
-        Navigate(typeof(HisqoolManager));
-        SplashText.Text = "Loading panels (Customize)...";
-        SplashBar.Value = 25;
-        await Task.Delay(100);
-        Navigate(typeof(Customize));
-        SplashText.Text = "Loading panels (Delete)...";
-        SplashBar.Value = 35;
-        await Task.Delay(100);
-        Navigate(typeof(Delete));
-        SplashText.Text = "Loading panels (Repair)...";
-        SplashBar.Value = 50;
-        await Task.Delay(100);
-        Navigate(typeof(Repair));
-        SplashText.Text = "Loading panels (Drivers)...";
-        SplashBar.Value = 75;
-        await Task.Delay(100);
-        Navigate(typeof(Drivers));
-        SplashText.Text = "Welcome";
-        SplashBar.Value = 100;
-        await Task.Delay(100);
+        SplashText.Text = "Preparing...";
+        await Task.Delay(10);
+        bool fs = await UT.FirstStart();
         await UT.Check();
+        SplashText.Text = "Welcome";
+        await Task.Delay(10);
+
         RootWelcomeGrid.Visibility = Visibility.Hidden;
         RootMainGrid.Visibility = Visibility.Visible;
 
         Navigate(typeof(Dashboard));
+        if (fs)
+        {
+            await Task.Delay(100);
+            Navigate(typeof(Settings));
+            UT.DialogIShow("Hello, select your language and click \"OK\" \n\nBonjour, séléctionner votre langue et cliquer sur \"OK\"", "hi.png");
+        }
     }
 
     private void NavigationButtonTheme_OnClick(object sender, RoutedEventArgs e)
