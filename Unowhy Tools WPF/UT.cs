@@ -195,21 +195,19 @@ namespace Unowhy_Tools
                 f.Close();
             }
 
-            RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);
+            RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
             if (keysty == null)
             {
-                RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);
-                stykey.CreateSubKey("STY1001");
+                keysty.CreateSubKey("STY1001");
             }
 
-            RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
             if (keyut == null)
             {
-                RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
-                utkey.CreateSubKey("Unowhy Tools");
+                keyut.CreateSubKey("Unowhy Tools");
             }
 
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools");
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             object us = key.GetValue("UpdateStart", null);
             if (us == null)
             {
