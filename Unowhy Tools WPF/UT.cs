@@ -40,9 +40,9 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static string ver = "20.0";
+        public static string ver = "20.00";
         public static int verfull = 2000;
-        public static int verbuild = 2422143;
+        public static int verbuild = 2522244;
         public static bool verisdeb = true;
 
         public class version
@@ -162,6 +162,61 @@ namespace Unowhy_Tools
             }
         }
 
+        public static async Task FirstStart()
+        {
+            if(!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools");
+            }
+
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Logs");
+            }
+
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps");
+            }
+
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Update"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Update");
+            }
+
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers");
+            }
+
+            RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);
+            if (keysty == null)
+            {
+                RegistryKey stykey = Registry.CurrentUser.OpenSubKey(@"Software", true);
+                stykey.CreateSubKey("STY1001");
+            }
+
+            RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            if (keyut == null)
+            {
+                RegistryKey utkey = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
+                utkey.CreateSubKey("Unowhy Tools");
+            }
+
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools");
+            object us = key.GetValue("UpdateStart", null);
+            if (us == null)
+            {
+                await RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v UpdateStart /d 1 /t REG_SZ /f");
+            }
+
+            object o = key.GetValue("Lang", null);
+            if (o == null)
+            {
+                await RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f");
+            }
+        }
+
         public static void Delay(int Time_delay)
         {
             int i = 0;
@@ -245,13 +300,13 @@ namespace Unowhy_Tools
 
         public static void Write2Log(string log)
         {
-            if (!File.Exists(Path.GetTempPath() + "\\UT_Logs.txt"))
+            if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\UT_Logs.txt"))
             {
-                var f = File.CreateText(Path.GetTempPath() + "\\UT_Logs.txt");
+                var f = File.CreateText(Path.GetTempPath() + "\\Unowhy Tools\\UT_Logs.txt");
                 f.Close();
             }
 
-            File.AppendAllText(Path.GetTempPath() + "\\UT_Logs.txt", DateTime.Now.ToString() + " : " + log + Environment.NewLine);
+            File.AppendAllText(Path.GetTempPath() + "\\Unowhy Tools\\UT_Logs.txt", DateTime.Now.ToString() + " : " + log + Environment.NewLine);
         }
 
         public static void applylang_global()
