@@ -76,15 +76,17 @@ public partial class Settings : INavigableView<DashboardViewModel>
     public async void Apply_Settings(object sender, RoutedEventArgs e)
     {
         await UT.waitstatus.open();
+        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
         if (lang_en.IsSelected)
         {
-            await UT.RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f");
+            key.SetValue("Lang", "EN");
         }
         else if (lang_fr.IsSelected)
         {
-            await UT.RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d FR /t REG_SZ /f");
+            key.SetValue("Lang", "FR");
         }
 
+        key.SetValue("Init", "1");
         System.Windows.Forms.Application.Restart();
         System.Windows.Application.Current.Shutdown();
     }
