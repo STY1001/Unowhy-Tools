@@ -44,7 +44,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             lang_fr.IsSelected = true;
         }
 
-        string fp = Path.GetTempPath() + "\\UT_Logs.txt";
+        string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         FileInfo fi = new FileInfo(fp);
         string size;
         if (fi.Length > 1000000) size = (fi.Length / 1000000).ToString() + " MB";
@@ -55,7 +55,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public void Logs_Clear(object sender, RoutedEventArgs e)
     {
-        string fp = Path.GetTempPath() + "\\UT_Logs.txt";
+        string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         File.Create(fp).Close();
         FileInfo fi = new FileInfo(fp);
         string size;
@@ -68,7 +68,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
     {
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
-            FileName = Path.GetTempPath() + "\\UT_Logs.txt",
+            FileName = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt",
             UseShellExecute = true
         });
     }
