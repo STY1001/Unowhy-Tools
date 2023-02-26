@@ -202,6 +202,8 @@ namespace Unowhy_Tools
             {
                 keysoft.CreateSubKey("STY1001");
             }
+            
+            keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
 
             RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
             if (keyut == null)
