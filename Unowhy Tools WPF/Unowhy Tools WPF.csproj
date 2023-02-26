@@ -61,6 +61,7 @@
     <None Remove="Resources\github.png" />
     <None Remove="Resources\guide.png" />
     <None Remove="Resources\halo_infinite.jpg" />
+    <None Remove="Resources\hi.png" />
     <None Remove="Resources\home.png" />
     <None Remove="Resources\ic.png" />
     <None Remove="Resources\instprog.png" />
@@ -176,6 +177,7 @@
     <Resource Include="Resources\github.png" />
     <Resource Include="Resources\guide.png" />
     <Resource Include="Resources\halo_infinite.jpg" />
+    <Resource Include="Resources\hi.png" />
     <Resource Include="Resources\home.png" />
     <Resource Include="Resources\ic.png" />
     <Resource Include="Resources\instprog.png" />
