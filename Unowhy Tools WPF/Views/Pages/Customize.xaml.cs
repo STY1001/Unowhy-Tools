@@ -4,6 +4,7 @@ using Unowhy_Tools_WPF.ViewModels;
 using Unowhy_Tools;
 using System.Threading.Tasks;
 using System;
+using System.Windows;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -38,7 +39,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     public async Task CheckBTN()
     {
         await UT.Check();
-        if(UTdata.Admin == true) adminset.IsEnabled = false;
+        if (UTdata.Admin == true) adminset.IsEnabled = false;
         else adminset.IsEnabled = true;
     }
 
@@ -53,5 +54,24 @@ public partial class Customize : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+    }
+
+    public async void adminset_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("admin"), "admin.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("net", $"localgroup Administrateurs /add \"{UTdata.User}\"");
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!adminset.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
     }
 }
