@@ -2,6 +2,8 @@
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
+using System.Threading.Tasks;
+using System;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -10,6 +12,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class Repair : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     public DashboardViewModel ViewModel
     {
         get;
@@ -37,12 +41,36 @@ public partial class Repair : INavigableView<DashboardViewModel>
         iaf_btn.Text = UT.GetLang("del");
     }
 
+    public async Task CheckBTN()
+    {
+        await UT.Check();
+        shell.IsEnabled = true;
+        tis.IsEnabled = true;
+        bim.IsEnabled = true;
+        whe.IsEnabled = true;
+        iaf.IsEnabled = true;
+        if (UTdata.WHE) whe.IsEnabled = false;
+        else whe.IsEnabled = true;
+        if(UTdata.BIM) bim.IsEnabled = false;
+        else bim.IsEnabled = true;
+        if(UTdata.BCD) bim.IsEnabled = false;
+        else bim.IsEnabled = true;
+        if(UTdata.ShellOK) shell.IsEnabled = false;
+        else shell.IsEnabled = true;
+        if(UTdata.TIStartup) tis.IsEnabled = true;
+        else tis.IsEnabled = false;
+    }
+
+    public async void Init(object sender, EventArgs e)
+    {
+        applylang();
+        await CheckBTN();
+    }
+
     public Repair(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
 
         InitializeComponent();
-
-        applylang();
     }
 }
