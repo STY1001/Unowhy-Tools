@@ -195,16 +195,18 @@ namespace Unowhy_Tools
                 f.Close();
             }
 
+            RegistryKey keysoft = Registry.CurrentUser.OpenSubKey(@"Software", true);
+
             RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
             if (keysty == null)
             {
-                keysty.CreateSubKey("STY1001");
+                keysoft.CreateSubKey("STY1001");
             }
 
             RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
             if (keyut == null)
             {
-                keyut.CreateSubKey("Unowhy Tools");
+                keysty.CreateSubKey("Unowhy Tools");
             }
 
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
@@ -286,18 +288,46 @@ namespace Unowhy_Tools
 
         public static string GetLang(string name)
         {
+            string resxFile = @".\lang\en.resx";
+            string enresx = @".\lang\en.resx";
+            string frresx = @".\lang\fr.resx";
+            RegistryKey ut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            if (ut != null)
+            {
+                object utl = ut.GetValue("Lang", null);
+                if (utl != null)
+                {
+                    if (ut.GetValue("Lang").ToString() == "EN") resxFile = enresx;
+                    else if(ut.GetValue("Lang").ToString() == "FR") resxFile = frresx;
+                    ResXResourceSet resxSet1 = new ResXResourceSet(resxFile);
+                    Write2Log("Get lang " + name + " => " + resxSet1.GetString(name));
+                    return resxSet1.GetString(name);
+                }
+
+                ResXResourceSet resxSet2 = new ResXResourceSet(resxFile);
+                Write2Log("Get lang " + name + " => " + resxSet2.GetString(name));
+                return resxSet2.GetString(name);
+            }
+            
+            ResXResourceSet resxSet3 = new ResXResourceSet(resxFile);
+            Write2Log("Get lang " + name + " => " + resxSet3.GetString(name));
+            return resxSet3.GetString(name);
+
+
+            /*
             //Check the current saved language
-            string resxFile;
+            string resxFile = @".\lang\en.resx";
             RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utls = utl.GetValue("Lang").ToString();
             string enresx = @".\lang\en.resx";
             string frresx = @".\lang\fr.resx";
             //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;    //English   
-            else resxFile = frresx;               //French
+            if (utls == "EN") resxFile = enresx;                     //English   
+            else if (utls == "FR") resxFile = frresx;               //French
             ResXResourceSet resxSet = new ResXResourceSet(resxFile);
             Write2Log("Get lang " + name + " => " + resxSet.GetString(name));
             return resxSet.GetString(name);
+            */
         }
 
         public async static Task RunMin(string file, string args)
