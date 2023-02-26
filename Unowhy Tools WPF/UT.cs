@@ -162,7 +162,7 @@ namespace Unowhy_Tools
             }
         }
 
-        public static async Task FirstStart()
+        public static async Task<bool> FirstStart()
         {
             if(!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools"))
             {
@@ -189,6 +189,12 @@ namespace Unowhy_Tools
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers");
             }
 
+            if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
+            {
+                var f = File.CreateText(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
+                f.Close();
+            }
+
             RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", false);
             if (keysty == null)
             {
@@ -207,14 +213,33 @@ namespace Unowhy_Tools
             object us = key.GetValue("UpdateStart", null);
             if (us == null)
             {
-                await RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v UpdateStart /d 1 /t REG_SZ /f");
+                //await RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v UpdateStart /d 1 /t REG_SZ /f");
+                key.SetValue("UpdateStart", "1", RegistryValueKind.String);
             }
 
             object o = key.GetValue("Lang", null);
             if (o == null)
             {
-                await RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f");
+                //await RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f");
+                key.SetValue("Lang", "EN", RegistryValueKind.String);
             }
+            
+            object i = key.GetValue("Init", null);
+            if(i == null)
+            {
+                key.SetValue("Init", "0", RegistryValueKind.String);
+            }
+
+            string i2 = key.GetValue("Init").ToString();
+            if(i2 == "1")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
         }
 
         public static void Delay(int Time_delay)
@@ -233,7 +258,7 @@ namespace Unowhy_Tools
             IntPtr wow64Value = IntPtr.Zero;
             Wow64DisableWow64FsRedirection(ref wow64Value);
 
-            Write2Log("ReturnCMD " + file + " " + args);
+            Write2Log("RunReturn " + file + " " + args);
 
             string output = await Task.Run(() =>
             {
@@ -249,7 +274,7 @@ namespace Unowhy_Tools
                 return get.StandardOutput.ReadToEnd();
             });
 
-            Write2Log("Done ReturnCMD " + file + " " + args + " => " + output);
+            Write2Log("Done RunReturn " + file + " " + args + " => " + output);
 
             return output;
         }
@@ -300,13 +325,10 @@ namespace Unowhy_Tools
 
         public static void Write2Log(string log)
         {
-            if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\UT_Logs.txt"))
+            if(File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
             {
-                var f = File.CreateText(Path.GetTempPath() + "\\Unowhy Tools\\UT_Logs.txt");
-                f.Close();
+                File.AppendAllText(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt", DateTime.Now.ToString() + " : " + log + Environment.NewLine);
             }
-
-            File.AppendAllText(Path.GetTempPath() + "\\Unowhy Tools\\UT_Logs.txt", DateTime.Now.ToString() + " : " + log + Environment.NewLine);
         }
 
         public static void applylang_global()
