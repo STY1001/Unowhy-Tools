@@ -193,6 +193,7 @@ namespace Unowhy_Tools
             {
                 var f = File.CreateText(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
                 f.Close();
+                Write2Log("=== Unowhy Tools Logs ===");
             }
 
             RegistryKey keysoft = Registry.CurrentUser.OpenSubKey(@"Software", true);
