@@ -144,6 +144,12 @@
                         Height="0"
                         Content="PC Info"
                         PageType="{x:Type pages:PCname}"/>
+                    <ui:NavigationItem
+                        x:Name="updater"
+                        Visibility="Collapsed"
+                        Height="0"
+                        Content="Unowhy Tools Updater"
+                        PageType="{x:Type pages:Updater}"/>
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem
