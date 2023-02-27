@@ -151,7 +151,7 @@ public partial class Container : INavigationWindow
         await Task.Delay(10);
         SplashText.Text = "Loading (Cleaning...)";
         await UT.Cleanup();
-        SplashText.Text = "Preparing (Checking Files...)";
+        SplashText.Text = "Loading (Checking Files...)";
         bool fs = await UT.FirstStart();
         SplashText.Text = "Preparing (Checking System...)";
         await UT.Check();
