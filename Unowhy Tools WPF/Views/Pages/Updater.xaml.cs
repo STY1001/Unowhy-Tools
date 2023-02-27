@@ -78,6 +78,6 @@ public partial class Updater : INavigableView<DashboardViewModel>
         string pre = utemp + "\\update\\*";
         string post = Directory.GetCurrentDirectory() + "\\*";
 
-        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & copy \"{pre}\" \"{post}\" & \"Unowhy Tools.exe\"");
+        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & del /s /q \"{post}\" & copy \"{pre}\" \"{post}\" & \"Unowhy Tools.exe\"");
     }
 }
