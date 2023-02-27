@@ -125,6 +125,7 @@
     <None Remove="Resources\wpfui_full.png" />
     <None Remove="Resources\yes.png" />
     <None Remove="Resources\yesupdate.png" />
+    <None Remove="Resources\zip.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -241,6 +242,7 @@
     <Resource Include="Resources\wpfui_full.png" />
     <Resource Include="Resources\yes.png" />
     <Resource Include="Resources\yesupdate.png" />
+    <Resource Include="Resources\zip.png" />
   </ItemGroup>
 
   <ItemGroup>
