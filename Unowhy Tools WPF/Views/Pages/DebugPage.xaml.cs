@@ -9,6 +9,9 @@ using System.Windows;
 using System.Threading;
 using System.Threading.Tasks;
 using System;
+using System.IO.Compression;
+using System.IO;
+using System.Net.Http;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -61,19 +64,16 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        await UT.waitstatus.open();
-        await Task.Delay(1000);
-        if (await UT.version.newver())
-        {
-            await UT.waitstatus.close();
-            _snackbarService.Show("Update Checker", "Update !", SymbolRegular.Checkmark24, ControlAppearance.Info);
-        }
-        else
-        {
-            await UT.waitstatus.close();
-            _snackbarService.Show("Update checker", "No", SymbolRegular.ErrorCircle24, ControlAppearance.Danger);
-        }
-        
+        var web = new HttpClient();
+        var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTdebupdateZIP");
+        string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
+        File.WriteAllBytes(utemp + "\\update.zip", filebyte);
+        ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
+        string pre = utemp + "\\update\\*";
+        string post = Directory.GetCurrentDirectory() + "\\*";
+
+        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & copy \"{pre}\" \"{post}\" & \"Unowhy Tools.exe\"");
+
     }   
 
     public void al_click(object sender, System.Windows.RoutedEventArgs e)

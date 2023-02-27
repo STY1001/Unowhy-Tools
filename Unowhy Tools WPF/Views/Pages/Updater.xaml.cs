@@ -8,6 +8,7 @@ using Microsoft.Web.WebView2.Core;
 using System.Windows.Controls;
 using System.Net.Http;
 using System.IO;
+using System.IO.Compression;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -71,6 +72,12 @@ public partial class Updater : INavigableView<DashboardViewModel>
         labtext.Text = UT.GetLang("update.dl");
         var web = new HttpClient();
         var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTupdateZIP");
-        File.WriteAllBytes("update.zip", filebyte);
+        string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
+        File.WriteAllBytes(utemp + "\\update.zip", filebyte);
+        ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
+        string pre = utemp + "\\update\\*";
+        string post = Directory.GetCurrentDirectory() + "\\*";
+
+        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & copy \"{pre}\" \"{post}\" & \"Unowhy Tools.exe\"");
     }
 }
