@@ -53,8 +53,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         else whe.IsEnabled = true;
         if(UTdata.BIM) bim.IsEnabled = false;
         else bim.IsEnabled = true;
-        if(UTdata.BCD) bim.IsEnabled = false;
-        else bim.IsEnabled = true;
+        if(UTdata.BCD) iaf.IsEnabled = false;
+        else iaf.IsEnabled = true;
         if(UTdata.ShellOK) shell.IsEnabled = false;
         else shell.IsEnabled = true;
         if(UTdata.TIStartup) tis.IsEnabled = true;
