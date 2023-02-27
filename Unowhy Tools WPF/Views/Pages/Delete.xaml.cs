@@ -5,6 +5,7 @@ using Unowhy_Tools;
 using System.Windows;
 using System.Threading.Tasks;
 using System;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -93,8 +94,170 @@ public partial class Delete : INavigableView<DashboardViewModel>
         InitializeComponent();
     }
 
-    public void _Click(object sender, RoutedEventArgs e)
+    public async void instprog_Click(object sender, RoutedEventArgs e)
     {
+        System.Diagnostics.Process.Start(new ProcessStartInfo
+        {
+            FileName = "ms-settings:appsfeatures",
+                        UseShellExecute = true
+        });
+    }
 
+    public async void entu_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("ent"), "deluser.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("net", "user ENT /delete");
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!entu.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void hsq_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("delhis"), "uninstall.png"))
+        {
+            await UT.waitstatus.open();
+            await Task.Run(() =>
+            {
+                Process p = Process.Start("C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe"); 
+                p.WaitForExit();
+            });
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!hsq.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void aad_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("aadleave"), "azure.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("dsregcmd", "/leave");
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!aad.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void hsmqf_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("delhism"), "service.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.serv.del("Hisqoolmanager");
+            await UT.RunMin("rmdir", "/s /q \"C:\\Program Files\\Unowhy\\Hisqool manager");
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!hsmqf.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void tif_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("delti"), "folder.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("rmdir", "/q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
+            await UT.RunMin("rmdir", "/q /s \"c:\\Program Files\\Unowhy\\TO_INSTALL\"");
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!tif.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void ridff_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("delridf"), "folder.png"))
+        {
+            await UT.waitstatus.open();
+            
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!ridff.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void oemf_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("deloem"), "folder.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("rmdir", "/q /s \"c:\\Windows\\System32\\OEM\"");
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!oemf.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void entf_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("delentf"), "folder.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("rmdir", "/q /s \"c:\\ProgramData\\ENT\"");
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!entf.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
     }
 }

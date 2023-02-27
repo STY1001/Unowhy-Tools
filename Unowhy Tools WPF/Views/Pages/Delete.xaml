@@ -31,7 +31,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="instprog_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -61,7 +61,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="entu_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -91,7 +91,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="hsq_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -121,7 +121,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="aad_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -151,7 +151,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="hsmqf_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -181,7 +181,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="tif_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -211,7 +211,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="ridff_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -241,7 +241,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="oemf_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -271,7 +271,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="entf_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
