@@ -118,7 +118,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("bootim"), "registry.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("reg", "delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe\" /f";
+            await UT.RunMin("reg", "delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe\" /f");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!bim.IsEnabled)
