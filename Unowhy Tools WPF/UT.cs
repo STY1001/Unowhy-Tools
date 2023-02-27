@@ -162,6 +162,270 @@ namespace Unowhy_Tools
             }
         }
 
+        public static async Task Cleanup()
+        {
+            if (File.Exists("temp\\adminusers.txt"))
+            {
+                File.Delete("temp\\adminusers.txt");
+            }
+            if (File.Exists("temp\\azure.txt"))
+            {
+                File.Delete("temp\\azure.txt");
+            }
+            if (File.Exists("temp\\ene.txt"))
+            {
+                File.Delete("temp\\ene.txt");
+            }
+            if (File.Exists("temp\\entuser.txt"))
+            {
+                File.Delete("temp\\entuser.txt");
+            }
+            if (File.Exists("temp\\gitversion.txt"))
+            {
+                File.Delete("temp\\gitversion.txt");
+            }
+            if (File.Exists("temp\\hsmst.txt"))
+            {
+                File.Delete("temp\\hsmst.txt");
+            }
+            if (File.Exists("temp\\ifp.txt"))
+            {
+                File.Delete("temp\\ifp.txt");
+            }
+            if (File.Exists("temp\\mf.txt"))
+            {
+                File.Delete("temp\\mf.txt");
+            }
+            if (File.Exists("temp\\model.txt"))
+            {
+                File.Delete("temp\\model.txt");
+            }
+            if (File.Exists("temp\\os.txt"))
+            {
+                File.Delete("temp\\os.txt");
+            }
+            if (File.Exists("temp\\pcname.txt"))
+            {
+                File.Delete("temp\\pcname.txt");
+            }
+            if (File.Exists("temp\\rs.txt"))
+            {
+                File.Delete("temp\\rs.txt");
+            }
+            if (File.Exists("temp\\shell.txt"))
+            {
+                File.Delete("temp\\shell.txt");
+            }
+            if (File.Exists("temp\\username.txt"))
+            {
+                File.Delete("temp\\username.txt");
+            }
+            if (File.Exists("azureleave.exe"))
+            {
+                File.Delete("azureleave.exe");
+            }
+            if (File.Exists("bootim.exe"))
+            {
+                File.Delete("bootim.exe");
+            }
+            if (File.Exists("cuaboff.exe"))
+            {
+                File.Delete("cuaboff.exe");
+            }
+            if (File.Exists("cuabon.exe"))
+            {
+                File.Delete("cuabon.exe");
+            }
+            if (File.Exists("delent.exe"))
+            {
+                File.Delete("delent.exe");
+            }
+            if (File.Exists("delentf.exe"))
+            {
+                File.Delete("delentf.exe");
+            }
+            if (File.Exists("delhismserv.exe"))
+            {
+                File.Delete("delhismserv.exe");
+            }
+            if (File.Exists("deloem.exe"))
+            {
+                File.Delete("deloem.exe");
+            }
+            if (File.Exists("delridf.exe"))
+            {
+                File.Delete("delridf.exe");
+            }
+            if (File.Exists("disadmin.exe"))
+            {
+                File.Delete("disadmin.exe");
+            }
+            if (File.Exists("dishis.exe"))
+            {
+                File.Delete("dishis.exe");
+            }
+            if (File.Exists("enadmin.exe"))
+            {
+                File.Delete("enadmin.exe");
+            }
+            if (File.Exists("enhis.exe"))
+            {
+                File.Delete("enhis.exe");
+            }
+            if (File.Exists("fixti.exe"))
+            {
+                File.Delete("fixti.exe");
+            }
+            if (File.Exists("fullsoftinfo.txt"))
+            {
+                File.Delete("fullsoftinfo.txt");
+            }
+            if (File.Exists("fullpcinfo.txt"))
+            {
+                File.Delete("fullpcinfo.txt");
+            }
+            if (File.Exists("getpcinfo.exe"))
+            {
+                File.Delete("getpcinfo.exe");
+            }
+            if (File.Exists("getsoftinfo.exe"))
+            {
+                File.Delete("getsoftinfo.exe");
+            }
+            if (File.Exists("getuserinfo.exe"))
+            {
+                File.Delete("getuserinfo.exe");
+            }
+            if (File.Exists("langen.exe"))
+            {
+                File.Delete("langen.exe");
+            }
+            if (File.Exists("langfr.exe"))
+            {
+                File.Delete("langfr.exe");
+            }
+            if (File.Exists("old2new"))
+            {
+                File.Delete("old2new");
+            }
+            if (File.Exists("rdti.exe"))
+            {
+                File.Delete("rdti.exe");
+            }
+            if (File.Exists("reboot.exe"))
+            {
+                File.Delete("reboot.exe");
+            }
+            if (File.Exists("rmdirhismgr.exe"))
+            {
+                File.Delete("rmdirhismgr.exe");
+            }
+            if (File.Exists("shell.exe"))
+            {
+                File.Delete("shell.exe");
+            }
+            if (File.Exists("starthis.exe"))
+            {
+                File.Delete("starthis.exe");
+            }
+            if (File.Exists("stophis.exe"))
+            {
+                File.Delete("stophis.exe");
+            }
+            if (File.Exists("Unowhy Tools Updater.exe"))
+            {
+                File.Delete("Unowhy Tools Updater.exe");
+            }
+            if (File.Exists("utconfdel.exe"))
+            {
+                File.Delete("utconfdel.exe");
+            }
+            if (File.Exists("utkeydel.exe"))
+            {
+                File.Delete("utkeydel.exe");
+            }
+            if (File.Exists("version.txt"))
+            {
+                File.Delete("version.txt");
+            }
+            if (File.Exists("winhelloent.exe"))
+            {
+                File.Delete("winhelloent.exe");
+            }
+            if (File.Exists("winre.exe"))
+            {
+                File.Delete("winre.exe");
+            }
+            if (File.Exists("update.zip"))
+            {
+                File.Delete("update.zip");
+            }
+            if (File.Exists("delhisqool.exe"))
+            {
+                File.Delete("delhisqool.exe");
+            }
+            if (File.Exists("ene.txt"))
+            {
+                File.Delete("ene.txt");
+            }
+            if (File.Exists("model.txt"))
+            {
+                File.Delete("model.txt");
+            }
+            if (File.Exists("os.txt"))
+            {
+                File.Delete("os.txt");
+            }
+            if (File.Exists("pcname.txt"))
+            {
+                File.Delete("pcname.txt");
+            }
+            if (File.Exists("tversion.txt"))
+            {
+                File.Delete("tversion.txt");
+            }
+            if (File.Exists("username.txt"))
+            {
+                File.Delete("username.txt");
+            }
+            if (File.Exists("clog.html"))
+            {
+                File.Delete("clog.html");
+            }
+            if (File.Exists("fr.resx"))
+            {
+                File.Delete("fr.resx");
+            }
+            if (File.Exists("en.resx"))
+            {
+                File.Delete("en.resx");
+            }
+            if (File.Exists("UTwait.exe"))
+            {
+                File.Delete("UTwait.exe");
+            }
+            if (File.Exists("UTsplash.exe"))
+            {
+                File.Delete("UTsplash.exe");
+            }
+            if (File.Exists("7z.dll"))
+            {
+                File.Delete("7z.dll");
+            }
+            if (File.Exists("7zip.exe"))
+            {
+                File.Delete("7zip.exe");
+            }
+            if (Directory.Exists("temp"))
+            {
+                Directory.Delete("temp", true);
+            }
+            if (Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
+            {
+                Directory.Delete(Path.GetTempPath() + "\\Unowhy Tools\\Temps", true);
+            }
+        }
+
         public static async Task<bool> FirstStart()
         {
             if(!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools"))
