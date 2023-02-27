@@ -69,10 +69,10 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
         File.WriteAllBytes(utemp + "\\update.zip", filebyte);
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
-        string pre = utemp + "\\update\\*";
-        string post = Directory.GetCurrentDirectory() + "\\*";
+        string pre = utemp + "\\update";
+        string post = Directory.GetCurrentDirectory();
 
-        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & del /s /q \"{post}\" & copy \"{pre}\" \"{post}\" & \"Unowhy Tools.exe\"");
+        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /E/H/C/I & \"Unowhy Tools.exe\"");
 
     }   
 
