@@ -75,9 +75,10 @@ public partial class Updater : INavigableView<DashboardViewModel>
         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
         File.WriteAllBytes(utemp + "\\update.zip", filebyte);
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
-        string pre = utemp + "\\update\\*";
-        string post = Directory.GetCurrentDirectory() + "\\*";
+        string pre = utemp + "\\update";
+        string post = Directory.GetCurrentDirectory();
 
-        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & del /s /q \"{post}\" & copy \"{pre}\" \"{post}\" & \"Unowhy Tools.exe\"");
+        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & \"Unowhy Tools.exe\"");
+
     }
 }
