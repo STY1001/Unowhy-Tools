@@ -58,7 +58,7 @@
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" TextWrapping="Wrap"/>
-                    </StackPanel>S
+                    </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
             <ui:Button Click="tis_Click"
