@@ -161,7 +161,7 @@ public partial class Container : INavigationWindow
         Navigate(typeof(Dashboard));
         if (fs)
         {
-            UT.DialogIShow("\nHello, select your language and click \"OK\" \n\nBonjour, séléctionner votre langue et cliquer sur \"OK\"", "hi.png");
+            UT.DialogIShow("\n\nHello, select your language and click \"OK\" \n\nBonjour, séléctionner votre langue et cliquer sur \"OK\"", "hi.png");
             Navigate(typeof(Settings));
         }
     }
