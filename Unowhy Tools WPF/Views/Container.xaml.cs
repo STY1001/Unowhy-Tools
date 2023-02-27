@@ -147,7 +147,7 @@ public partial class Container : INavigationWindow
         RootMainGrid.Visibility = Visibility.Collapsed;
         RootWelcomeGrid.Visibility = Visibility.Visible;
 
-        SplashText.Text = "Preparing...";
+        SplashText.Text = "Loading...";
         await Task.Delay(10);
         SplashText.Text = "Preparing (Cleaning...)";
         await UT.Cleanup();
