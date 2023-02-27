@@ -93,7 +93,7 @@ namespace Unowhy_Tools_Updater
 
             Process p1 = new Process();
             p1.StartInfo.FileName = ".\\7zip.exe";
-            p1.StartInfo.Arguments = "e \"update.zip\" -aoa";
+            p1.StartInfo.Arguments = "x \"update.zip\" -aoa";
             p1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             p1.Start();
             p1.WaitForExit();
