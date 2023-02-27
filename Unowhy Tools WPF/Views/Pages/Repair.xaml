@@ -31,7 +31,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="shell_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -58,10 +58,10 @@
                         FontSize="12"
                         Foreground="#bebebe"
                         Text="Description" TextWrapping="Wrap"/>
-                    </StackPanel>
+                    </StackPanel>S
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="tis_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -121,7 +121,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="bim_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -151,7 +151,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="whe_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
@@ -181,7 +181,7 @@
                     </StackPanel>
                 </Grid>
             </ui:CardControl.Header>
-            <ui:Button
+            <ui:Button Click="iaf_Click"
                 Grid.Column="0"
                 Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <StackPanel>
