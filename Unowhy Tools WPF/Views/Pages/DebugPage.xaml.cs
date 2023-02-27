@@ -72,7 +72,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         string pre = utemp + "\\update";
         string post = Directory.GetCurrentDirectory();
 
-        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /E/H/C/I & \"Unowhy Tools.exe\"");
+        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /E/H/C/I/Y & \"Unowhy Tools.exe\"");
 
     }   
 
