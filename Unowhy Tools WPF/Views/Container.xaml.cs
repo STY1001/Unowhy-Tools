@@ -155,7 +155,7 @@ public partial class Container : INavigationWindow
         bool fs = await UT.FirstStart();
         SplashText.Text = "Checking System...";
         await UT.Check();
-        SplashText.Text = "Welcome";
+        SplashText.Text = "Hi";
         await Task.Delay(10);
 
         RootWelcomeGrid.Visibility = Visibility.Hidden;
