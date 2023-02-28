@@ -35,10 +35,9 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <ui:PasswordBox
-                    Grid.Row="0" Width="200"/>
+                    <ui:PasswordBox x:Name="passbox" Grid.Row="0" Width="200"/>
                     <Grid Grid.Row="2">
-                        <ui:Button HorizontalAlignment="Right" Margin="0,0,0,0">
+                        <ui:Button Click="Pass_Click" HorizontalAlignment="Right" Margin="0,0,0,0">
                             <StackPanel>
                                 <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                     <Grid.RowDefinitions>
@@ -72,7 +71,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <ui:Button Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+                        <ui:Button Click="Ena_Click" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                             <StackPanel>
                                 <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                     <Grid.RowDefinitions>
@@ -96,7 +95,7 @@
                                 </Grid>
                             </StackPanel>
                         </ui:Button>
-                        <ui:Button Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+                        <ui:Button Click="Dis_Click" Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                             <StackPanel>
                                 <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                     <Grid.RowDefinitions>

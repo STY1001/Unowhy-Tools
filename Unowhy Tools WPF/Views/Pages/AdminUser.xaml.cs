@@ -2,6 +2,7 @@
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
+using System.Windows;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -29,5 +30,35 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
+    }
+
+    public async void Pass_Click(object sender, RoutedEventArgs e)
+    {
+        if(UT.DialogQShow(UT.GetLang("snpw"), "key.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("net", $"user Administrateur \"{passbox.Text}\"");
+            await UT.waitstatus.close();
+        }
+    }
+    
+    public async void Ena_Click(object sender, RoutedEventArgs e)
+    {
+        if(UT.DialogQShow(UT.GetLang("enablea"), "enable.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("net", "user Administrateur /active:yes");
+            await UT.waitstatus.close();
+        }
+    }
+    
+    public async void Dis_Click(object sender, RoutedEventArgs e)
+    {
+        if(UT.DialogQShow(UT.GetLang("disablea"), "disable.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("net", "user Administrateur /active:no");
+            await UT.waitstatus.close();
+        }
     }
 }
