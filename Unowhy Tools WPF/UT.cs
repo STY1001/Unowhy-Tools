@@ -42,7 +42,7 @@ namespace Unowhy_Tools
 
         public static string ver = "20.00";
         public static int verfull = 2000;
-        public static int verbuild = 2821114;
+        public static int verbuild = 2821157;
         public static bool verisdeb = true;
 
         public class version
@@ -645,6 +645,7 @@ namespace Unowhy_Tools
                 // Restart and run as admin
                 var exeName = Process.GetCurrentProcess().MainModule.FileName;
                 ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+                startInfo.UseShellExecute = true;
                 startInfo.WorkingDirectory = Directory.GetCurrentDirectory();
                 startInfo.Verb = "runas";
                 startInfo.Arguments = $"{args}";
