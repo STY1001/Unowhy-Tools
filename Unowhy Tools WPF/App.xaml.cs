@@ -33,43 +33,19 @@ public partial class App
         .ConfigureAppConfiguration(c => { c.SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)); })
         .ConfigureServices((context, services) =>
         {
-            // App Host
             services.AddHostedService<ApplicationHostService>();
-
-            // Theme manipulation
             services.AddSingleton<IThemeService, ThemeService>();
-
-            // Taskbar manipulation
             services.AddSingleton<ITaskBarService, TaskBarService>();
-
-            // Snackbar service
             services.AddSingleton<ISnackbarService, SnackbarService>();
-
-            // Dialog service
             services.AddSingleton<IDialogService, DialogService>();
-
-            // Tray icon
             services.AddSingleton<INotifyIconService, CustomNotifyIconService>();
-
-            // Page resolver service
             services.AddSingleton<IPageService, PageService>();
-
-            // Page resolver service
             services.AddSingleton<ITestWindowService, TestWindowService>();
-
-            // Service containing navigation, same as INavigationWindow... but without window
             services.AddSingleton<INavigationService, NavigationService>();
-
-            // Main window container with navigation
             services.AddScoped<INavigationWindow, Views.Container>();
             services.AddScoped<ContainerViewModel>();
-
-            // Views and ViewModels
             services.AddScoped<Views.Pages.Dashboard>();
             services.AddScoped<DashboardViewModel>();
-
-            // Test windows
-            
             services.AddScoped<Views.Pages.About>();
             services.AddScoped<Views.Pages.HisqoolManager>();
             services.AddScoped<Views.Pages.Repair>();
@@ -87,11 +63,7 @@ public partial class App
             services.AddScoped<Views.Pages.DebugPage>();
             services.AddScoped<Views.Pages.Settings>();
             services.AddScoped<Views.Pages.Updater>();
-            
-            // Configuration
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
-
-
             services.AddScoped<UT>();
         }).Build();
 
