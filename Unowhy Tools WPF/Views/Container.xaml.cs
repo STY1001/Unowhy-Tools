@@ -150,26 +150,25 @@ public partial class Container : INavigationWindow
         if (!UT.CheckAdmin())
         {
             SplashText.Text = "Restarting as admin...";
+            SplashBar.Value = 100;
             await Task.Delay(1000);
             UT.RunAdmin($"-u {UTdata.UserID}");
         }
         else
         {
-            SplashText.Text = "Loading...";
+            SplashText.Text = "Hi !";
             await Task.Delay(1000);
-            SplashText.Text = "Loading (Cleaning...)";
+            SplashText.Text = "Loading... (Cleaning)";
             SplashBar.Value = 25;
             await UT.Cleanup();
-            await Task.Delay(1000);
-            SplashText.Text = "Loading (Checking Files...)";
+            SplashText.Text = "Loading... (Checking Files)";
             SplashBar.Value = 50;
             bool fs = await UT.FirstStart();
             await Task.Delay(1000);
-            SplashText.Text = "Loading (Checking System...)";
+            SplashText.Text = "Loading... (Checking System)";
             SplashBar.Value = 75;
             await UT.Check();
-            await Task.Delay(1000);
-            SplashText.Text = "Hi !";
+            SplashText.Text = "Ready !";
             SplashBar.Value = 100;
             await Task.Delay(1000);
 
