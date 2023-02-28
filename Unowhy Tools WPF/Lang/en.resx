@@ -328,7 +328,7 @@
     <value>DISM Drv GUI for Unowhy Tools</value>
   </data>
   <data name="dl" xml:space="preserve">
-    <value>Télécharger</value>
+    <value>Download</value>
   </data>
   <data name="domuser" xml:space="preserve">
     <value>Current user ID ([DOMAIN] \ [USER])</value>
