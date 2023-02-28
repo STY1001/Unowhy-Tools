@@ -638,7 +638,7 @@ namespace Unowhy_Tools
             return principal.IsInRole(WindowsBuiltInRole.Administrator);
         }
 
-        private static void RunAdmin(string args)
+        public static void RunAdmin(string args)
         {
             if (!CheckAdmin())
             {
