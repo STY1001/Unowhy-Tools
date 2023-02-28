@@ -147,25 +147,41 @@ public partial class Container : INavigationWindow
         RootMainGrid.Visibility = Visibility.Collapsed;
         RootWelcomeGrid.Visibility = Visibility.Visible;
 
-        SplashText.Text = "Loading...";
-        await Task.Delay(10);
-        SplashText.Text = "Loading (Cleaning...)";
-        await UT.Cleanup();
-        SplashText.Text = "Loading (Checking Files...)";
-        bool fs = await UT.FirstStart();
-        SplashText.Text = "Loading (Checking System...)";
-        await UT.Check();
-        SplashText.Text = "Hi !";
-        await Task.Delay(10);
-
-        RootWelcomeGrid.Visibility = Visibility.Hidden;
-        RootMainGrid.Visibility = Visibility.Visible;
-
-        Navigate(typeof(Dashboard));
-        if (fs)
+        if (!UT.CheckAdmin())
         {
-            UT.DialogIShow("\n\nHello, select your language and click \"OK\" \n\nBonjour, séléctionner votre langue et cliquer sur \"OK\"", "hi.png");
-            Navigate(typeof(Settings));
+            SplashText.Text = "Restarting as admin...";
+            await Task.Delay(1000);
+            UT.RunAdmin($"-u {UTdata.UserID}");
+        }
+        else
+        {
+            SplashText.Text = "Loading...";
+            await Task.Delay(1000);
+            SplashText.Text = "Loading (Cleaning...)";
+            SplashBar.Value = 25;
+            await UT.Cleanup();
+            await Task.Delay(1000);
+            SplashText.Text = "Loading (Checking Files...)";
+            SplashBar.Value = 50;
+            bool fs = await UT.FirstStart();
+            await Task.Delay(1000);
+            SplashText.Text = "Loading (Checking System...)";
+            SplashBar.Value = 75;
+            await UT.Check();
+            await Task.Delay(1000);
+            SplashText.Text = "Hi !";
+            SplashBar.Value = 100;
+            await Task.Delay(1000);
+
+            RootWelcomeGrid.Visibility = Visibility.Hidden;
+            RootMainGrid.Visibility = Visibility.Visible;
+
+            Navigate(typeof(Dashboard));
+            if (fs)
+            {
+                UT.DialogIShow("\n\nHello, select your language and click \"OK\" \n\nBonjour, séléctionner votre langue et cliquer sur \"OK\"", "hi.png");
+                Navigate(typeof(Settings));
+            }
         }
     }
 
