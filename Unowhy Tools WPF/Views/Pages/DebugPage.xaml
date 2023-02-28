@@ -242,11 +242,11 @@
                         Margin="0"
                         FontSize="13"
                         FontWeight="Medium"
-                        Text="Check for Update" />
+                        Text="Update Debug Version" />
                             <TextBlock
                         FontSize="12"
                         Foreground="#bebebe"
-                        Text="Click to check" />
+                        Text="Click to update" />
                         </StackPanel>
                     </Grid>
                 </ui:Button>
