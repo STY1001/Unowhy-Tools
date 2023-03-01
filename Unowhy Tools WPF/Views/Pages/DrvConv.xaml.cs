@@ -73,9 +73,16 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
 
     public async void Conv_Click(object sender, RoutedEventArgs e)
     {
-        await UT.waitstatus.open();
-        ZipFile.CreateFromDirectory(oldpath.Text, newpath.Text, CompressionLevel.NoCompression, false);
-        await UT.waitstatus.close();
-        UT.DialogIShow(UT.GetLang("done"), "yes.png");
+        if(newpath.Text == "" || oldpath.Text == "")
+        {
+
+        }
+        else
+        {
+            await UT.waitstatus.open();
+            ZipFile.CreateFromDirectory(oldpath.Text, newpath.Text, CompressionLevel.NoCompression, false);
+            await UT.waitstatus.close();
+            UT.DialogIShow(UT.GetLang("done"), "yes.png");
+        }
     }
 }
