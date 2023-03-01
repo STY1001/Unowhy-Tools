@@ -74,11 +74,13 @@
                         </Grid.ColumnDefinitions>
 
                         <ui:TextBox
+                        x:Name="rtpath"
                         Grid.Column="0"
-                        IsEnabled="False"
+                        IsReadOnly="True"
                         Foreground="#ffffff"
                         HorizontalAlignment="Stretch"/>
                         <ui:Button
+                        Click="Browse_Click"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Stretch"
                         Grid.Column="2"
@@ -91,7 +93,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <ui:Button
+                        <ui:Button Click="Restore_Click"
                         Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,0">
                             <StackPanel>
                                 <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
