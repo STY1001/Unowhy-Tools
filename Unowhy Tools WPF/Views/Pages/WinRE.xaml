@@ -29,7 +29,7 @@
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ui:Button x:Name="en"
+                <ui:Button x:Name="en" Click="Enable_Click"
                 Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                     <StackPanel>
                         <Grid Grid.Row="1" Margin="0,0,0,0">
@@ -52,7 +52,7 @@
                         </Grid>
                     </StackPanel>
                 </ui:Button>
-                <ui:Button x:Name="dis"
+                <ui:Button x:Name="dis" Click="Disable_Click"
                 Grid.Column="2" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                     <StackPanel>
                         <Grid Grid.Row="1" Margin="0,0,0,0">
@@ -75,7 +75,7 @@
                         </Grid>
                     </StackPanel>
                 </ui:Button>
-                <ui:Button x:Name="rep"
+                <ui:Button x:Name="rep" Click="Repair_Click"
                 Grid.Column="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                     <StackPanel>
                         <Grid Grid.Row="1" Margin="0,0,0,0">
