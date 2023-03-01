@@ -48,7 +48,7 @@ public partial class PCname : INavigableView<DashboardViewModel>
 
         if (r.IsMatch(newbox.Text.ToString().Trim()) || newbox.Text.Length < 2 || newbox.Text.Length > 15 || newbox.Text.Contains(" "))
         {
-            UT.DialogIShow(UT.GetLang("avert"), "no.png")
+            UT.DialogIShow(UT.GetLang("avert"), "no.png");
         }
         else
         {
