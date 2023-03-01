@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.IO;
 using System;
 using System.IO.Compression;
+using System.Threading.Tasks;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -80,6 +81,7 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
         else
         {
             await UT.waitstatus.open();
+            await Task.Delay(1000);
             ZipFile.CreateFromDirectory(oldpath.Text, newpath.Text, CompressionLevel.NoCompression, false);
             await UT.waitstatus.close();
             UT.DialogIShow(UT.GetLang("done"), "yes.png");
