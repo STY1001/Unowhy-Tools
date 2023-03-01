@@ -86,7 +86,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
         {
             if (passbox1.Text == passbox2.Text)
             {
-                if (UT.DialogQShow(UT.GetLang("adduser"), "adduser.png")
+                if (UT.DialogQShow(UT.GetLang("adduser"), "adduser.png"))
                 {
                     await UT.waitstatus.open();
 
