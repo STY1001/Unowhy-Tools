@@ -69,7 +69,7 @@
                                  Content="PowerShell"
                                  GroupName="bkapp"/>
                         <RadioButton Grid.Column="2"
-                                  x:Name="disbbk"
+                                  x:Name="dismbk"
                                  Content="DISM (Recommanded)"
                                  GroupName="bkapp"
                                  IsChecked="True"/>
@@ -87,9 +87,10 @@
 
                         <ui:TextBox x:Name="bkpath"
                         Grid.Column="0"
-                        IsEnabled="False"
+                        IsReadOnly="True"
                         Foreground="#ffffff" Grid.ColumnSpan="2" Margin="0,0,10,0" VerticalAlignment="Bottom"/>
                         <ui:Button
+                        Click="Browse_Click"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Stretch"
                         Grid.Column="2"
@@ -102,7 +103,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <ui:Button
+                        <ui:Button Click="Backup_Click"
                         Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,0">
                             <StackPanel>
                                 <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
