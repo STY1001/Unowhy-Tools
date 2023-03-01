@@ -41,9 +41,9 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Image Source="../../Resources/user.png" Grid.Row="1"/>
-                    <Image Source="/Resources/passno.png" Grid.Row="3"/>
-                    <Image Source="/Resources/pwcyes.png" Grid.Row="5"/>
+                    <Image x:Name="uimg1" Source="../../Resources/user.png" Grid.Row="1"/>
+                    <Image x:Name="pimg1" Source="/Resources/passno.png" Grid.Row="3"/>
+                    <Image x:Name="pimg2" Source="/Resources/pwcyes.png" Grid.Row="5"/>
                     <Image Source="/Resources/admin.png" Grid.Row="7"/>
 
                 </Grid>
@@ -72,6 +72,9 @@
                     Text="Name:"
                     Foreground="#ffffff"/>
                     <TextBox
+                    x:Name="namebox"
+                    SelectionChanged="name_Changed"
+                    MaxLength="20"
                     Grid.Row="2"
                     Width="200"
                     Foreground="#ffffff"/>
@@ -81,6 +84,8 @@
                     Text="Password:"
                     Foreground="#ffffff"/>
                     <ui:PasswordBox
+                    x:Name="passbox1"
+                    SelectionChanged="pass_Changed"
                     Grid.Row="6"
                     Foreground="#ffffff"
                     Width="200"/>
@@ -90,6 +95,8 @@
                     Text="Password:"
                     Foreground="#ffffff"/>
                     <ui:PasswordBox
+                    x:Name="passbox2"
+                    SelectionChanged="pass_Changed"
                     Grid.Row="10"
                     Foreground="#ffffff"
                     Width="200"/>

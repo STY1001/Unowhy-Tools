@@ -126,6 +126,9 @@
   <data name="adduser" xml:space="preserve">
     <value>Create a new local user acccount</value>
   </data>
+  <data name="adduser.id" xml:space="preserve">
+    <value>The ID of the new account</value>
+  </data>
   <data name="admin" xml:space="preserve">
     <value>Set this account as admin</value>
   </data>
