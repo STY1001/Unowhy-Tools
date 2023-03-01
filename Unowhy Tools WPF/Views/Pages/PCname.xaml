@@ -46,7 +46,8 @@
                 Grid.Row="4"
                 Text="New name:"
                 Foreground="#ffffff"/>
-                <ui:TextBox x:Name="new"
+                <ui:TextBox x:Name="newbox"
+                MaxLength="15"
                 Grid.Row="6"
                 Foreground="#ffffff"
                 Width="200"/>
