@@ -189,7 +189,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("delti"), "folder.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("rmdir", "/q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
+            await UT.RunMin("del", "/q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
             await UT.RunMin("rmdir", "/q /s \"c:\\Program Files\\Unowhy\\TO_INSTALL\"");
             await CheckBTN();
             await UT.waitstatus.close();
