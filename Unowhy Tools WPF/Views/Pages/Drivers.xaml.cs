@@ -2,6 +2,8 @@
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
+using System.Windows;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -35,5 +37,14 @@ public partial class Drivers : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
+    }
+
+    public void dl_Click(object sender, RoutedEventArgs e)
+    {
+        System.Diagnostics.Process.Start(new ProcessStartInfo
+        {
+            FileName = "https://bit.ly/UTbkcloud",
+            UseShellExecute = true
+        });
     }
 }
