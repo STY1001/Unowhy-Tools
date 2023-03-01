@@ -99,7 +99,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("fixboot"), "script.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("rmdir", "/q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
+            await UT.RunMin("dir", "/q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!tis.IsEnabled)
