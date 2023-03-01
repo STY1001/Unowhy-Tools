@@ -21,6 +21,8 @@ using System.Net.Http;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Interop;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.IO.Packaging;
 
 namespace Unowhy_Tools
 {
@@ -1028,7 +1030,26 @@ namespace Unowhy_Tools
 
             Write2Log("====== End ======");
         }
-        
+
+        public static async Task Extract(string file, string outPath)
+        {
+            string packUri = "pack://application:,,,/Resources/" + file;
+            var uri = new Uri(packUri);
+            var partUri = PackUriHelper.GetPartUri(uri);
+            var streamInfo = System.Windows.Application.GetResourceStream(uri);
+
+            using (var inputStream = streamInfo.Stream)
+            using (var outputStream = File.Create(outPath))
+            {
+                await inputStream.CopyToAsync(outputStream);
+            }
+        }
+
+        public static BitmapImage GetImgSource(string resname)
+        {
+            BitmapImage bmp = new BitmapImage(new System.Uri("pack://application:,,,/Resources/" + resname));
+            return bmp;
+        }
 
         public static bool DialogQShow(string msg, string img)
         {
@@ -1052,12 +1073,6 @@ namespace Unowhy_Tools
             Write2Log("DialogI: " + msg + " " + img);
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
             mainWindow.ShowDialogI(msg, GetImgSource(img)) ;
-        }
-
-        public static BitmapImage GetImgSource(string resname)
-        {
-            BitmapImage bmp = new BitmapImage(new System.Uri("pack://application:,,,/Resources/" + resname));
-            return bmp;
         }
 
         public class Data : INotifyPropertyChanged

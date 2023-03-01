@@ -107,6 +107,7 @@
     <None Remove="Resources\upload.png" />
     <None Remove="Resources\user.png" />
     <None Remove="Resources\userinfo.png" />
+    <None Remove="Resources\UT-Restore.exe" />
     <None Remove="Resources\UT.png" />
     <None Remove="Resources\UTB.png" />
     <None Remove="Resources\UTI.png" />
@@ -224,6 +225,9 @@
     <Resource Include="Resources\upload.png" />
     <Resource Include="Resources\user.png" />
     <Resource Include="Resources\userinfo.png" />
+    <Resource Include="Resources\UT-Restore.exe">
+      <CustomToolNamespace></CustomToolNamespace>
+    </Resource>
     <Resource Include="Resources\UT.png" />
     <Resource Include="Resources\UTB.png" />
     <Resource Include="Resources\UTI.png" />
