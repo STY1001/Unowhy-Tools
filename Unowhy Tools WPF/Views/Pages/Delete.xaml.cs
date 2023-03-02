@@ -170,7 +170,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.serv.del("Hisqoolmanager");
-            await UT.RunMin("rmdir", "/s /q \"C:\\Program Files\\Unowhy\\Hisqool manager");
+            await UT.RunMin("cmd", "/w /c rmdir /s /q \"C:\\Program Files\\Unowhy\\Hisqool manager\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!hsmqf.IsEnabled)
@@ -189,8 +189,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("delti"), "folder.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("del", "/q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
-            await UT.RunMin("rmdir", "/q /s \"C:\\Program Files\\Unowhy\\TO_INSTALL\"");
+            await UT.RunMin("cmd", "/w /c del /q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
+            await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Program Files\\Unowhy\\TO_INSTALL\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!tif.IsEnabled)
@@ -209,7 +209,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("delridf"), "folder.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("rmdir", "/q /s \"C:\\ProgramData\\RIDF\"");
+            await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\ProgramData\\RIDF\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!ridff.IsEnabled)
@@ -228,7 +228,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("deloem"), "folder.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("rmdir", "/q /s \"C:\\Windows\\System32\\OEM\"");
+            await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Windows\\System32\\OEM\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!oemf.IsEnabled)
@@ -247,7 +247,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("delentf"), "folder.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("rmdir", "/q /s \"c:\\ProgramData\\ENT\"");
+            await UT.RunMin("cmd", "/w /c rmdir /q /s \"c:\\ProgramData\\ENT\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!entf.IsEnabled)
