@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:wv="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
-    Title="Unowhy Tools Updater"
+    Title="Unowhy Tools Updater" Initialized="Init"
     d:DataContext="{d:DesignInstance local:Updater,
                                      IsDesignTimeCreatable=False}"
     d:DesignHeight="600"
@@ -28,6 +28,17 @@
             <Image Source="../../Resources/back.png" Height="16"/>
         </ui:Button>
         <wv:WebView2 x:Name="browser" HorizontalAlignment="Stretch" Grid.Row="1"/>
+        <Grid x:Name="noco" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="64" Source="/Resources/nowifi.png"/>
+                <TextBlock Text="No Internet Connection"
+                           FontFamily="Segoe UI SemiBold"
+                           Foreground="#ffffff"
+                           FontSize="18"
+                           VerticalAlignment="Center"
+                           Margin="30,0,0,0"/>
+            </StackPanel>
+        </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -35,7 +46,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ui:Button Click="GithubButton_Click" Margin="10" Grid.Column="0">
+            <ui:Button x:Name="gitbtn" Click="GithubButton_Click" Margin="10" Grid.Column="0">
                 <Grid Grid.Row="0" Margin="0,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />

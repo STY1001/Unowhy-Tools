@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.IO;
 using System.IO.Compression;
 using System.Threading.Tasks;
+using Microsoft.Web.WebView2.Wpf;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -25,15 +26,35 @@ public partial class Updater : INavigableView<DashboardViewModel>
         get;
     }
 
+    public async void Init(object sender, System.EventArgs e)
+    {
+        string path = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2";
+
+        browser.CreationProperties = new CoreWebView2CreationProperties()
+        {
+            UserDataFolder = path
+        };
+
+        if (UT.CheckInternet())
+        {
+            noco.Visibility = Visibility.Collapsed;
+            browser.Source = new System.Uri("https://bit.ly/UTclogHTMLPrev");
+        }
+        else
+        {
+            browser.Visibility = Visibility.Hidden;
+            gitbtn.Visibility = Visibility.Hidden;
+            UpdateBTN.Visibility = Visibility.Hidden;
+        }
+        labimg.Visibility = Visibility.Hidden;
+        labtext.Visibility = Visibility.Hidden;
+    }
+
     public Updater(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
 
         InitializeComponent();
-
-        browser.Source = new System.Uri("https://bit.ly/UTclogHTMLPrev"); 
-        labimg.Visibility = Visibility.Hidden;
-        labtext.Visibility = Visibility.Hidden;
     }
 
     public async void GithubButton_Click(object sender, RoutedEventArgs e)
