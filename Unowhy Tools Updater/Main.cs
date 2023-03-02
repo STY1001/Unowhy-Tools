@@ -90,6 +90,10 @@ namespace Unowhy_Tools_Updater
             client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/7z.dll", ".\\7z.dll");
 
             delay(1000);
+            
+            client.DownloadFile("https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Unowhy%20Tools%20Installer/Files/dotnetwdrt6.0.14.exe", ".\\dotnetwdrt6.0.14.exe");
+
+            delay(1000);
 
             Process p1 = new Process();
             p1.StartInfo.FileName = ".\\7zip.exe";
@@ -97,6 +101,14 @@ namespace Unowhy_Tools_Updater
             p1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             p1.Start();
             p1.WaitForExit();
+            
+            Process p12 = new Process();
+            p12.StartInfo.FileName = ".\\dotnetwdrt6.0.14.exe";
+            p12.StartInfo.Arguments = "/install /passive";
+            p12.Start();
+            p12.WaitForExit();
+
+            File.Delete(".\\dotnetwdrt6.0.14.exe");
 
             System.Diagnostics.Process.Start(".\\Unowhy Tools.exe");
 
