@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Net.Http;
 using System.IO;
 using System.IO.Compression;
+using System.Threading.Tasks;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -70,15 +71,18 @@ public partial class Updater : INavigableView<DashboardViewModel>
         UpdateBTN.IsEnabled = false;
         labimg.Source = UT.GetImgSource("download.png");
         labtext.Text = UT.GetLang("update.dl");
+        await Task.Delay(1000);
         var web = new HttpClient();
         var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTupdateZIP");
         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
         File.WriteAllBytes(utemp + "\\update.zip", filebyte);
         labtext.Text = UT.GetLang("update.ext");
         labimg.Source = UT.GetImgSource("zip.png");
+        await Task.Delay(1000);
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
         labtext.Text = UT.GetLang("update.updating");
         labimg.Source = UT.GetImgSource("update.png");
+        await Task.Delay(1000);
         string pre = utemp + "\\update";
         string post = Directory.GetCurrentDirectory();
 
