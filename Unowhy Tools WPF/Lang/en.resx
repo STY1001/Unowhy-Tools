@@ -459,6 +459,9 @@
   <data name="reboot" xml:space="preserve">
     <value>A reboot is required</value>
   </data>
+  <data name="rebootmsg" xml:space="preserve">
+    <value>To finalize the action, your computer needs to reboot. Save your work, then click "OK"</value>
+  </data>
   <data name="repair" xml:space="preserve">
     <value>Repair</value>
   </data>

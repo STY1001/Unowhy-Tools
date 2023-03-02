@@ -459,6 +459,9 @@
   <data name="reboot" xml:space="preserve">
     <value>Un redémarrage est nécessaire</value>
   </data>
+  <data name="rebootmsg" xml:space="preserve">
+    <value>Pour finaliser l'action, votre ordinateur doit redémarrer. Enregistrez votre travail, puis cliquez sur "OK"</value>
+  </data>
   <data name="repair" xml:space="preserve">
     <value>Réparer</value>
   </data>
