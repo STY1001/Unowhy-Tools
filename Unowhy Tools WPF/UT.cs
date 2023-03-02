@@ -454,6 +454,11 @@ namespace Unowhy_Tools
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers");
             }
+            
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2");
+            }
 
             if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
             {
