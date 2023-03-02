@@ -64,8 +64,16 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             await UT.waitstatus.open();
             UTdata.WinRE = true;
             await UT.RunMin("reagentc.exe", "/enable");
-            await CheckBTN();
             await UT.waitstatus.close();
+            await CheckBTN();
+            if (!en.IsEnabled & !rep.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
         }
     }
 
@@ -78,6 +86,14 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             await UT.RunMin("reagentc.exe", "/disable");
             await CheckBTN();
             await UT.waitstatus.close();
+            if (!dis.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
         }
     }
 
@@ -99,6 +115,14 @@ public partial class WinRE : INavigableView<DashboardViewModel>
 
             await CheckBTN();
             await UT.waitstatus.close();
+            if (dis.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
         }
         else
         {
