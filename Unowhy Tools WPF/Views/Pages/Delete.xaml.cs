@@ -25,31 +25,31 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         instprog_txt.Text = UT.GetLang("unprog");
         instprog_desc.Text = "";
-        instprog_btn.Text = UT.GetLang("open");
+        instprog_btn.Content = UT.GetLang("open");
         entu_txt.Text = UT.GetLang("ent");
         entu_desc.Text = UT.GetLang("descent");
-        entu_btn.Text = UT.GetLang("del");
+        entu_btn.Content = UT.GetLang("del");
         hsq_txt.Text = UT.GetLang("delhis");
         hsq_desc.Text = UT.GetLang("deschisdel");
-        hsq_btn.Text = UT.GetLang("uninstall");
+        hsq_btn.Content = UT.GetLang("uninstall");
         aad_txt.Text = UT.GetLang("aadleave");
         aad_desc.Text = UT.GetLang("descaadleave");
-        aad_btn.Text = UT.GetLang("disconnect");
+        aad_btn.Content = UT.GetLang("disconnect");
         hsmqf_txt.Text = UT.GetLang("delhism");
         hsmqf_desc.Text = UT.GetLang("deschismdel");
-        hsmqf_btn.Text = UT.GetLang("delete");
+        hsmqf_btn.Content = UT.GetLang("delete");
         tif_txt.Text = UT.GetLang("delti");
         tif_desc.Text = UT.GetLang("desctidel");
-        tif_btn.Text = UT.GetLang("delete");
+        tif_btn.Content = UT.GetLang("delete");
         ridff_txt.Text = UT.GetLang("delridf");
         ridff_desc.Text = UT.GetLang("descridf");
-        ridff_btn.Text = UT.GetLang("delete");
+        ridff_btn.Content = UT.GetLang("delete");
         oemf_txt.Text = UT.GetLang("deloem");
         oemf_desc.Text = UT.GetLang("descdeloem");
-        oemf_btn.Text = UT.GetLang("delete");
+        oemf_btn.Content = UT.GetLang("delete");
         entf_txt.Text = UT.GetLang("delentf");
         entf_desc.Text = UT.GetLang("descdelentf");
-        entf_btn.Text = UT.GetLang("delete");
+        entf_btn.Content = UT.GetLang("delete");
     }
 
     public async Task CheckBTN()

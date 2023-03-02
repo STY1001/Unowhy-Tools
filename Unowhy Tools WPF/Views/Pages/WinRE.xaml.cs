@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System;
 using System.Net.Http;
 using System.IO;
+using System.Windows.Media;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -17,6 +18,9 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 public partial class WinRE : INavigableView<DashboardViewModel>
 {
     UT.Data UTdata = new UT.Data();
+
+    Color disabled = (Color)ColorConverter.ConvertFromString("#888888");
+    Color enabled = (Color)ColorConverter.ConvertFromString("#FFFFFF");
 
     public DashboardViewModel ViewModel
     {
@@ -36,23 +40,32 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         if (out1.Contains("Enable"))
         {
             en.IsEnabled = false;
+            en_txt.Foreground = new SolidColorBrush(disabled);
             dis.IsEnabled = true;
+            dis_txt.Foreground = new SolidColorBrush(enabled);
             rep.IsEnabled = false;
+            rep_txt.Foreground = new SolidColorBrush(disabled);
         }
         else
         {
             if (UTdata.WinRE == true)
             {
                 en.IsEnabled = false;
+                en_txt.Foreground = new SolidColorBrush(disabled);
                 rep.IsEnabled = true;
+                rep_txt.Foreground = new SolidColorBrush(enabled);
                 dis.IsEnabled = false;
+                dis_txt.Foreground = new SolidColorBrush(disabled);
                 UT.DialogIShow(UT.GetLang("winremsg"), "no.png");
             }
             else
             {
                 en.IsEnabled = true;
+                en_txt.Foreground = new SolidColorBrush(enabled);
                 rep.IsEnabled = false;
+                rep_txt.Foreground = new SolidColorBrush(disabled);
                 dis.IsEnabled = false;
+                dis_txt.Foreground = new SolidColorBrush(disabled);
             }
         }
     }

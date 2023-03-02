@@ -5,6 +5,7 @@ using Unowhy_Tools;
 using System.Windows;
 using System.Threading.Tasks;
 using System;
+using System.Windows.Media;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -14,6 +15,9 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 public partial class HisqoolManager : INavigableView<DashboardViewModel>
 {
     UT.Data UTdata = new UT.Data();
+
+    Color disabled = (Color)ColorConverter.ConvertFromString("#888888");
+    Color enabled = (Color)ColorConverter.ConvertFromString("#FFFFFF");
 
     public DashboardViewModel ViewModel
     {
@@ -34,6 +38,11 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     public async Task CheckBTN()
     {
         await UT.Check();
+        hsqm_delete_txt.Foreground = new SolidColorBrush(enabled);
+        hsqm_disable_txt.Foreground = new SolidColorBrush(enabled);
+        hsqm_enable_txt.Foreground = new SolidColorBrush(enabled);
+        hsqm_start_txt.Foreground = new SolidColorBrush(enabled);
+        hsqm_stop_txt.Foreground = new SolidColorBrush(enabled);
         hsqm_delete.IsEnabled = true;
         hsqm_enable.IsEnabled = true;
         hsqm_disable.IsEnabled = true;
@@ -42,48 +51,68 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         if (UTdata.HSMExist == true)
         {
             hsqm_delete.IsEnabled = true;
+            hsqm_delete_txt.Foreground = new SolidColorBrush(enabled);
 
             if (UTdata.HSMExeExist == true)
             {
                 if (UTdata.HSMEnabled == true)
                 {
                     hsqm_disable.IsEnabled = true;
+                    hsqm_disable_txt.Foreground = new SolidColorBrush(enabled);
                     hsqm_enable.IsEnabled = false;
+                    hsqm_enable_txt.Foreground = new SolidColorBrush(disabled);
 
                     if (UTdata.HSMRunning == true)
                     {
                         hsqm_stop.IsEnabled = true;
+                        hsqm_stop_txt.Foreground = new SolidColorBrush(enabled);
                         hsqm_start.IsEnabled = false;
+                        hsqm_start_txt.Foreground = new SolidColorBrush(disabled);
                     }
                     else
                     {
                         hsqm_start.IsEnabled = true;
+                        hsqm_start_txt.Foreground = new SolidColorBrush(enabled);
                         hsqm_stop.IsEnabled = false;
+                        hsqm_stop_txt.Foreground = new SolidColorBrush(disabled);
                     }
                 }
                 else
                 {
                     hsqm_disable.IsEnabled = false;
+                    hsqm_disable_txt.Foreground = new SolidColorBrush(disabled);
                     hsqm_enable.IsEnabled = true;
+                    hsqm_enable_txt.Foreground = new SolidColorBrush(enabled);
                     hsqm_start.IsEnabled = false;
+                    hsqm_start_txt.Foreground = new SolidColorBrush(disabled);
                     hsqm_stop.IsEnabled = false;
+                    hsqm_stop_txt.Foreground = new SolidColorBrush(disabled);
                 }
             }
             else
             {
                 hsqm_disable.IsEnabled = false;
+                hsqm_disable_txt.Foreground = new SolidColorBrush(disabled);
                 hsqm_enable.IsEnabled = false;
+                hsqm_enable_txt.Foreground = new SolidColorBrush(disabled);
                 hsqm_start.IsEnabled = false;
+                hsqm_start_txt.Foreground = new SolidColorBrush(disabled);
                 hsqm_stop.IsEnabled = false;
+                hsqm_stop_txt.Foreground = new SolidColorBrush(disabled);
             }
         }
         else
         {
             hsqm_delete.IsEnabled = false;
+            hsqm_delete_txt.Foreground = new SolidColorBrush(disabled);
             hsqm_enable.IsEnabled = false;
+            hsqm_enable_txt.Foreground = new SolidColorBrush(disabled);
             hsqm_disable.IsEnabled = false;
+            hsqm_disable_txt.Foreground = new SolidColorBrush(disabled);
             hsqm_start.IsEnabled = false;
+            hsqm_start_txt.Foreground = new SolidColorBrush(disabled);
             hsqm_stop.IsEnabled = false;
+            hsqm_stop_txt.Foreground = new SolidColorBrush(disabled);
         }
     }
 

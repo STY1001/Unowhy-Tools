@@ -24,16 +24,16 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         pcname_txt.Text = UT.GetLang("pcname");
         pcname_desc.Text = UT.GetLang("descpcname");
-        pcname_btn.Text = UT.GetLang("change");
+        pcname_btn.Content = UT.GetLang("change");
         adminset_txt.Text = UT.GetLang("admin");
         adminset_desc.Text = UT.GetLang("descadmin");
-        adminset_btn.Text = UT.GetLang("set");
+        adminset_btn.Content = UT.GetLang("set");
         adduser_txt.Text = UT.GetLang("adduser");
         adduser_desc.Text = UT.GetLang("descadduser");
-        adduser_btn.Text = UT.GetLang("create");
+        adduser_btn.Content = UT.GetLang("create");
         auset_txt.Text = UT.GetLang("adminset");
         auset_desc.Text = UT.GetLang("descadminset");
-        auset_btn.Text = UT.GetLang("open");
+        auset_btn.Content = UT.GetLang("open");
     }
 
     public async Task CheckBTN()
