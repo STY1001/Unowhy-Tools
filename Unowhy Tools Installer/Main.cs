@@ -131,10 +131,10 @@ namespace Unowhy_Tools_Installer
         {
             status.Text = "Extracting...";
             delay(1000);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\7zip.exe", "Files", "7zip.exe");
+            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe", "Files", "7zip.exe");
             statusbar.Value = 15;
             TaskbarManager.Instance.SetProgressValue(15, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\7z.dll", "Files", "7z.dll");
+            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7z.dll", "Files", "7z.dll");
             statusbar.Value = 20;
             TaskbarManager.Instance.SetProgressValue(20, 100);
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip", "Files", "install.zip");
@@ -174,9 +174,9 @@ namespace Unowhy_Tools_Installer
             TaskbarManager.Instance.SetProgressValue(60, 100);
 
             Process p1 = new Process();
-            p1.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\7zip.exe";
+            p1.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe";
             p1.StartInfo.Arguments = "x \"C:\\Program Files (x86)\\Unowhy Tools\\update.zip\" -aoa";
-            p1.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\";
+            p1.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools";
             p1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             p1.StartInfo.CreateNoWindow = true;
             p1.Start();
