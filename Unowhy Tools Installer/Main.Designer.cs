@@ -187,11 +187,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(245, 111);
+            this.label2.Location = new System.Drawing.Point(242, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 39;
-            this.label2.Text = "Ver 19.0";
+            this.label2.Text = "Ver 20.00";
             // 
             // pictureBox6
             // 

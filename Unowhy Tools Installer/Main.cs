@@ -91,7 +91,7 @@ namespace Unowhy_Tools_Installer
             p.WaitForExit();
         }
 
-        private void install_pre()
+        private async Task install_pre()
         {
             statusbar.Value = 0;
             TaskbarManager.Instance.SetProgressValue(0, 100);
@@ -124,22 +124,23 @@ namespace Unowhy_Tools_Installer
             statusbar.Value = 10;
             TaskbarManager.Instance.SetProgressValue(10, 100);
 
-            install_dl();
+            await install_dl();
         }
 
-        private void install_dl()
+        private async Task install_dl()
         {
             status.Text = "Extracting...";
             delay(1000);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe", "Files", "7zip.exe");
+            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\7zip.exe", "Files", "7zip.exe");
             statusbar.Value = 15;
             TaskbarManager.Instance.SetProgressValue(15, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7z.dll", "Files", "7z.dll");
+            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\7z.dll", "Files", "7z.dll");
             statusbar.Value = 20;
             TaskbarManager.Instance.SetProgressValue(20, 100);
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip", "Files", "install.zip");
             statusbar.Value = 25;
             TaskbarManager.Instance.SetProgressValue(25, 100);
+            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\dotnetwdrt6.0.14.exe", "Files", "dotnetwdrt6.0.14.exe");
             statusbar.Value = 30;
             TaskbarManager.Instance.SetProgressValue(30, 100);
             statusbar.Value = 35;
@@ -152,20 +153,30 @@ namespace Unowhy_Tools_Installer
             TaskbarManager.Instance.SetProgressValue(50, 100);
             statusbar.Value = 55;
             TaskbarManager.Instance.SetProgressValue(55, 100);
-            statusbar.Value = 60;
-            TaskbarManager.Instance.SetProgressValue(60, 100);
 
             status.Text = "Installing...";
             
-            install_inst();
+            await install_inst();
         }
 
-        private void install_inst()
+        private async Task install_inst()
         {
+            Process p12 = new Process();
+            p12.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\dotnetwdrt6.0.14.exe";
+            p12.StartInfo.Arguments = "/install /passive";
+            p12.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp";
+            p12.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            p12.StartInfo.CreateNoWindow = true;
+            p12.Start();
+            p12.WaitForExit();
+            
+            statusbar.Value = 60;
+            TaskbarManager.Instance.SetProgressValue(60, 100);
+
             Process p1 = new Process();
-            p1.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe";
-            p1.StartInfo.Arguments = "e \"C:\\Program Files (x86)\\Unowhy Tools\\update.zip\" -aoa";
-            p1.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools";
+            p1.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\7zip.exe";
+            p1.StartInfo.Arguments = "x \"C:\\Program Files (x86)\\Unowhy Tools\\update.zip\" -aoa";
+            p1.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\";
             p1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             p1.StartInfo.CreateNoWindow = true;
             p1.Start();
@@ -186,10 +197,11 @@ namespace Unowhy_Tools_Installer
 
             statusbar.Value = 70;
             TaskbarManager.Instance.SetProgressValue(70, 100);
-            install_post();
+
+            await install_post();
         }
 
-        private void install_post()
+        private async Task install_post()
         {
             status.Text = "Finalizing...";
 
@@ -205,10 +217,11 @@ namespace Unowhy_Tools_Installer
 
             statusbar.Value = 80;
             TaskbarManager.Instance.SetProgressValue(80, 100);
-            install_clean();
+
+            await install_clean();
         }
         
-        private void install_clean()
+        private async Task install_clean()
         {
             status.Text = "Cleaning...";
 
@@ -241,10 +254,10 @@ namespace Unowhy_Tools_Installer
                 Directory.Delete(".\\temp", true);
             }
 
-            install_finish();
+            await install_finish();
         }
 
-        private void install_finish()
+        private async Task install_finish()
         {
             statusbar.Value = 100;
             TaskbarManager.Instance.SetProgressValue(100, 100);
@@ -261,12 +274,12 @@ namespace Unowhy_Tools_Installer
             this.Close();
         }
 
-        private void install_Click(object sender, EventArgs e)
+        private async void install_Click(object sender, EventArgs e)
         {
             DriveInfo c = new DriveInfo("C");
-            if (c.AvailableFreeSpace < 30000000)
+            if (c.AvailableFreeSpace < 75000000)
             {
-                var i = new info("30 MB free space required");
+                var i = new info("75 MB free space required");
                 i.ShowDialog();
             }
             else
@@ -291,7 +304,7 @@ namespace Unowhy_Tools_Installer
                     pictureBox5.Visible = false;
 
                     status.Text = "";
-                    install_pre();
+                    await install_pre();
                 }
             }
         }
