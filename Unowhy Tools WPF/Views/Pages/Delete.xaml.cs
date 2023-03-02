@@ -150,7 +150,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("aadleave"), "azure.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("dsregcmd", "/leave");
+            await UT.RunMin("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/leave\" -nonewwindow");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!aad.IsEnabled)
@@ -189,8 +189,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("delti"), "folder.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("del", "/q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
-            await UT.RunMin("rmdir", "/q /s \"c:\\Program Files\\Unowhy\\TO_INSTALL\"");
+            await UT.RunMin("del", "/q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
+            await UT.RunMin("rmdir", "/q /s \"C:\\Program Files\\Unowhy\\TO_INSTALL\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!tif.IsEnabled)
@@ -209,7 +209,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("delridf"), "folder.png"))
         {
             await UT.waitstatus.open();
-            
+            await UT.RunMin("rmdir", "/q /s \"C:\\ProgramData\\RIDF\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!ridff.IsEnabled)
@@ -228,7 +228,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("deloem"), "folder.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("rmdir", "/q /s \"c:\\Windows\\System32\\OEM\"");
+            await UT.RunMin("rmdir", "/q /s \"C:\\Windows\\System32\\OEM\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!oemf.IsEnabled)
