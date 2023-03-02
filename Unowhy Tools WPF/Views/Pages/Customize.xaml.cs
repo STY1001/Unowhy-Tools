@@ -45,8 +45,10 @@ public partial class Customize : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
+        await UT.waitstatus.open();
         applylang();
         await CheckBTN();
+        await UT.waitstatus.close();
     }
 
     public Customize(DashboardViewModel viewModel)

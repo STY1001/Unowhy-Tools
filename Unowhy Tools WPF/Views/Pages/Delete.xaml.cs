@@ -83,8 +83,10 @@ public partial class Delete : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
+        await UT.waitstatus.open();
         applylang();
         await CheckBTN();
+        await UT.waitstatus.close();
     }
 
     public Delete(DashboardViewModel viewModel)

@@ -64,8 +64,10 @@ public partial class Repair : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
+        await UT.waitstatus.open();
         applylang();
         await CheckBTN();
+        await UT.waitstatus.close();
     }
 
     public Repair(DashboardViewModel viewModel)
