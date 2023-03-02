@@ -5,6 +5,7 @@ using Unowhy_Tools;
 using System.Windows;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -54,11 +55,15 @@ public partial class PCname : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(UT.GetLang("pcname"), "customize.png"))
             {
+                await UT.waitstatus.open();
                 string name = newbox.Text;
                 string arg = ($"-Command \"& {{Rename-Computer -NewName \"{name}\" -Force}}\"");
 
                 await UT.RunMin("powershell", arg);
-                old.Text = await UT.RunReturn("hostname", "");
+                old.Text = newbox.Text;
+                await UT.waitstatus.close();
+                UT.DialogIShow(UT.GetLang("rebootmsg"), "reboot.png");
+                Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
             }
         }
     }
