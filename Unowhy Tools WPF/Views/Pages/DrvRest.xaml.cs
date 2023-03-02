@@ -96,7 +96,9 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                 }
                 Directory.Delete(rttemps, true);
                 Directory.CreateDirectory(rttemps);
-                UT.waitstatus.close();
+                await UT.waitstatus.close();
+                UT.DialogIShow(UT.GetLang("rebootmsg"), "reboot.png");
+                Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
             }
             else
             {
