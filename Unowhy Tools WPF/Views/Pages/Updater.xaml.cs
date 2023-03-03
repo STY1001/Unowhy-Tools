@@ -11,6 +11,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Threading.Tasks;
 using Microsoft.Web.WebView2.Wpf;
+using System.Windows.Media;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -24,6 +25,11 @@ public partial class Updater : INavigableView<DashboardViewModel>
     public DashboardViewModel ViewModel
     {
         get;
+    }
+
+    public void applylang()
+    {
+        updatebtntext.Text = UT.GetLang("udcheck");
     }
 
     public async void Init(object sender, System.EventArgs e)
@@ -55,6 +61,8 @@ public partial class Updater : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 
     public async void GithubButton_Click(object sender, RoutedEventArgs e)
@@ -90,6 +98,8 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void InstallButton_Click(object sender, RoutedEventArgs e)
     {
+        Color disabled = (Color)ColorConverter.ConvertFromString("#888888");
+        updatebtntext.Foreground = new SolidColorBrush(disabled);
         UpdateBTN.IsEnabled = false;
         labimg.Source = UT.GetImgSource("download.png");
         labtext.Text = UT.GetLang("update.dl");
