@@ -36,7 +36,7 @@ More features coming soon
 
 ## How to use
 ### You need admin privileges
-1. Go to [releases](https://github.com/STY1001/Unowhy-Tools/releases/latest) and download "Unowhy Tools x.0 Setup.exe"
+1. Go to [releases](https://github.com/STY1001/Unowhy-Tools/releases/latest) and download "Unowhy Tools xx.xx Setup.exe"
 2. Launch and install "Unowhy Tools Setup"
 3. When it's installed, launch "Unowhy Tools"
 4. Use "Unowhy Tools" as you want
@@ -46,6 +46,10 @@ This is a mode for me to make screenshots of UT.
 You can enable the "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
 
 ## Screenshots
+
+20.00
+
+![UT Screen](/README/UT20.00.png)
 
 19.0
 
