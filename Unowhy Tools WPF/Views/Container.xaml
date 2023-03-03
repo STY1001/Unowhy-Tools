@@ -207,20 +207,9 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Column="1"
                           Grid.Row="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="20" />
-                        </Grid.RowDefinitions>
                         <Image Grid.Row="0"
                                RenderOptions.BitmapScalingMode="HighQuality"
                                Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
-                        <TextBlock Grid.Row="2"
-                                   x:Name="SplashVer"
-                                   Text="Version"
-                                   FontFamily="Segoe UI SemiBold"
-                                   Foreground="#bebebe"
-                                   HorizontalAlignment="Right"
-                                   Margin="0,0,10,0" />
                     </Grid>
                     <StackPanel Grid.Column="1"
                                 Grid.Row="3"
@@ -237,6 +226,14 @@
                     </StackPanel>
                 </Grid>
             </Border>
+            <TextBlock x:Name="SplashVer"
+                       Text="Version"
+                       FontFamily="Segoe UI SemiBold"
+                       FontSize="12"
+                       Foreground="#bebebe"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Margin="0,0,20,20" />
         </Grid>
 
         <!--
