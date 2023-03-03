@@ -13,6 +13,9 @@ using Wpf.Ui.Common;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
 using Unowhy_Tools;
+using System.Windows.Media;
+using Microsoft.Win32;
+using System;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -28,12 +31,14 @@ public partial class About : INavigableView<DashboardViewModel>
         get;
     }
 
-    public About(DashboardViewModel viewModel, ISnackbarService snackbarService)
+    public void applylang()
     {
-        ViewModel = viewModel;
-        InitializeComponent();
+        ubtnlab.Text = UT.GetLang("udcheck");
+    }
 
-
+    public async void Init(object sender, EventArgs e)
+    {
+        applylang();
         string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
 
         if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
@@ -41,9 +46,53 @@ public partial class About : INavigableView<DashboardViewModel>
 
         verlab.Text = ver;
 
+        RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+        string utcuab = lcs.GetValue("UpdateStart").ToString();
+        if (utcuab == "1")
+        {
+            ubtnlab.Text = UT.GetLang("update.check");
+            if (await UT.version.newver())
+            {
+                Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
+                Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
+                ubtnlab.Text = UT.GetLang("newver");
+                ubtnlab.Foreground = new SolidColorBrush(white);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(gray);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(white);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(gray);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(white);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(gray);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(white);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(gray);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(white);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(gray);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(white);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(gray);
+                await Task.Delay(500);
+                ubtnlab.Foreground = new SolidColorBrush(white);
+            }
+            else
+            {
+                ubtnlab.Text = UT.GetLang("udcheck");
+            }
+        }
+    }
 
-        _snackbarService = snackbarService;
-
+    public About(DashboardViewModel viewModel, ISnackbarService snackbarService)
+    {
+        ViewModel = viewModel;
+        InitializeComponent();
     }
 
     public void Github_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -71,10 +120,5 @@ public partial class About : INavigableView<DashboardViewModel>
             FileName = "https://discord.com/invite/dw3ZJ9u7WS",
             UseShellExecute = true
         });
-    }
-
-    public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
-    {
-
     }
 }
