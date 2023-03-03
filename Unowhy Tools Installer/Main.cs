@@ -277,9 +277,9 @@ namespace Unowhy_Tools_Installer
         private async void install_Click(object sender, EventArgs e)
         {
             DriveInfo c = new DriveInfo("C");
-            if (c.AvailableFreeSpace < 75000000)
+            if (c.AvailableFreeSpace < 100000000)
             {
-                var i = new info("75 MB free space required");
+                var i = new info("100 MB free space required");
                 i.ShowDialog();
             }
             else
