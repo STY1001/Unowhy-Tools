@@ -147,6 +147,11 @@ public partial class Container : INavigationWindow
         RootMainGrid.Visibility = Visibility.Collapsed;
         RootWelcomeGrid.Visibility = Visibility.Visible;
 
+        string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
+        if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
+        else ver = ver + "(Release)";
+        SplashVer.Text = ver;
+
         if (!UT.CheckAdmin())
         {
             SplashText.Text = "Restarting as admin...";
