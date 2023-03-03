@@ -12,9 +12,33 @@
     font-kerning: normal;
     padding: 30px;
   }
-      
-  :root {
-  color-scheme: dark;
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #272727;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 20px;
+  border: 3px solid #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.scroll-container {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.scroll-content {
+  padding: 10px;
+  color: #eee;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: #1f1f1f;
 }
   
   @media only screen and (max-width: 600px) {
@@ -201,6 +225,20 @@
 <body>
   <h1 id="unowhy-tools-change-log">Unowhy Tools Change Log</h1>
   <h2 id="-added-modified-patched-fixed-removed">✅:Added | ✏️:Modified | 🩹:Patched/Fixed | ❌:Removed</h2>
+  <h2>20.00 - (03/03/2023)</h2>
+  <h3>The new Unowhy Tools</h3>
+  <ul>
+    <li>✅ Based on C# WPF and .NET 6.0</li>
+    <li>✅ Fluent Design (with WPF UI by Lepoco)</li>
+    <li>✅ 90% of the code has been rewritten</li>
+    <li>✅ Using Async and Task to bypass UI and performance issue</li>
+    <li>✏️ UI redesign</li>
+    <li>✏️ New updater</li>
+    <li>🩹 A lots of bugs fix</li>
+    <li>🩹 Fixed Win Def issue</li>
+    <li>❌ Removed old updater</li>
+    <li>❌ 7-zip now not required</li>
+  </ul>
   <h2 id="date19">19.0 - (02/01/2023)</h2>
   <h3 id="msg19">Bug Fix, Features and Improvement update</h3>
   <ul>
