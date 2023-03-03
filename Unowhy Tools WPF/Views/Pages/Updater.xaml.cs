@@ -76,6 +76,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
             newver = newver.Insert(2, ".");
             string newverfull = UT.GetLang("newver") + " (" + UT.version.getver() + " -> " + newver + ")";
             labtext.Text = newverfull;
+            UpdateBTN.Click -= CheckButton_Click;
             UpdateBTN.Click += InstallButton_Click;
             updatebtnimg.Source = UT.GetImgSource("download.png");
             updatebtntext.Text = UT.GetLang("unow");
