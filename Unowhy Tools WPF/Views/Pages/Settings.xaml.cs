@@ -29,6 +29,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         dl.Content = UT.GetLang("delete");
         ol.Content = UT.GetLang("open");
         lablang.Text = UT.GetLang("lang");
+        labus.Text = UT.GetLang("cuab");
     }
 
     public async Task CheckBTN()
@@ -42,6 +43,16 @@ public partial class Settings : INavigableView<DashboardViewModel>
         else
         {
             lang_fr.IsSelected = true;
+        }
+
+        string utcuab = lcs.GetValue("UpdateStart").ToString();
+        if(utcuab == "1")
+        {
+            us.IsChecked = true;
+        }
+        else
+        {
+            us.IsChecked = false;
         }
 
         string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
@@ -84,6 +95,16 @@ public partial class Settings : INavigableView<DashboardViewModel>
         else if (lang_fr.IsSelected)
         {
             key.SetValue("Lang", "FR");
+        }
+
+        if (us.IsChecked == true)
+        {
+            key.SetValue("UpdateStart", "1");
+
+        }
+        else
+        {
+            key.SetValue("UpdateStart", "0");
         }
 
         key.SetValue("Init", "1");
