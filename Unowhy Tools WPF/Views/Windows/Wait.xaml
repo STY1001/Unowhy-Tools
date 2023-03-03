@@ -42,17 +42,17 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Grid.Column="1" Source="/Resources/wait.png" x:Name="icon"/>
-                        <ui:ProgressRing IsIndeterminate="True" RenderTransformOrigin="0.5,0.5" Margin="4,0,79,0" Grid.ColumnSpan="4">
+                        <ui:ProgressRing IsIndeterminate="True" RenderTransformOrigin="0.5,0.5" Margin="4,0,79,0" Grid.ColumnSpan="4" Grid.Column="0" HorizontalAlignment="Left">
                             <ui:ProgressRing.RenderTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleY="0.5" ScaleX="0.5"/>
+                                    <ScaleTransform ScaleY="0.6" ScaleX="0.6"/>
                                     <SkewTransform/>
                                     <RotateTransform/>
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </ui:ProgressRing.RenderTransform>
                         </ui:ProgressRing>
-                        <TextBlock Grid.Column="3" Text="Please wait..." TextWrapping="Wrap" MaxWidth="300" Foreground="#dfdfdf" FontSize="15" FontFamily="Segoe UI Normal" VerticalAlignment="Center" x:Name="text"/>
+                        <TextBlock Grid.Column="3" Text="Please wait..." TextWrapping="Wrap" MaxWidth="300" Foreground="#dfdfdf" FontSize="15" FontFamily="Segoe UI Normal" VerticalAlignment="Center" x:Name="text" Margin="5,0,0,0"/>
                     </Grid>
                 </Grid>
             </Border>
