@@ -63,7 +63,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("admin"), "admin.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("net", $"localgroup Administrateurs /add \"{UTdata.User}\"");
+            await UT.RunMin("net", $"localgroup {UTdata.AdminsName} /add \"{UTdata.User}\"");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!adminset.IsEnabled)
