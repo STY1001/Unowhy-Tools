@@ -47,6 +47,10 @@ You can enable the "Presentation" Mode by clicking on Unowhy Tools logo in Main 
 
 ## Screenshots
 
+20.02
+
+![UT Screen](/README/UT20.02.png)
+
 20.01
 
 ![UT Screen](/README/UT20.01.png)
