@@ -42,10 +42,10 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static string ver = "20.01";
+        public static string ver = "20.02";
         public static int verfull = 2001;
         public static int verbuild = 225003323;
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -709,6 +709,34 @@ namespace Unowhy_Tools
 
             Write2Log("Done");
 
+            Write2Log("Checking if is Administrator or Adminitrateur");
+
+            string adminname = await RunReturn("net", "user");
+            if (adminname.Contains("Administrateur"))
+            {
+                UTdata.AdminName = "Administrateur";
+            }
+            else if (adminname.Contains("Administrator"))
+            {
+                UTdata.AdminName = "Administrator";
+            }
+
+            Write2Log("=> " +  UTdata.AdminName);
+            
+            Write2Log("Checking if is Administrators or Adminitrateurs");
+
+            string adminsname = await RunReturn("net", "localgroup");
+            if (adminsname.Contains("Administrateurs"))
+            {
+                UTdata.AdminsName = "Administrateurs";
+            }
+            else if (adminsname.Contains("Administrators"))
+            {
+                UTdata.AdminsName = "Administrators";
+            }
+
+            Write2Log("=> " +  UTdata.AdminsName);
+
             Write2Log("====== Dynamic Buttons ======");
 
             string preazure = await RunReturn("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow");
@@ -1096,6 +1124,8 @@ namespace Unowhy_Tools
             private static string _md;
             private static string _os;
             private static string _bios;
+            private static string _adminsname;
+            private static string _adminname;
             private static bool _admin;
             private static bool _aad;
             private static bool _aaduser;
@@ -1186,6 +1216,24 @@ namespace Unowhy_Tools
                 set
                 {
                     _bios = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string AdminsName
+            {
+                get { return _adminsname; }
+                set
+                {
+                    _adminsname = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string AdminName
+            {
+                get { return _adminname; }
+                set
+                {
+                    _adminname = value;
                     OnPropertyChanged();
                 }
             }
