@@ -154,6 +154,8 @@ public partial class Container : INavigationWindow
 
         if (!UT.CheckAdmin())
         {
+            SplashText.Text = "Hi !";
+            await Task.Delay(1000);
             SplashText.Text = "Restarting as admin...";
             SplashBar.Value = 100;
             await Task.Delay(1000);
@@ -169,7 +171,6 @@ public partial class Container : INavigationWindow
             SplashText.Text = "Loading... (Checking Files)";
             SplashBar.Value = 50;
             bool fs = await UT.FirstStart();
-            await Task.Delay(1000);
             SplashText.Text = "Loading... (Checking System)";
             SplashBar.Value = 75;
             await UT.Check();
