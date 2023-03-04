@@ -30,9 +30,18 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
 
     public void infoapply()
     {
+        string year = "";
+        if (UTdata.sn.Contains("IFP2")) year = "(2022)";
+        if (UTdata.sn.Contains("IFP1")) year = "(2021)";
+        if (UTdata.sn.Contains("IFP0")) year = "(2020)";
+        if (UTdata.sn.Contains("IFP9")) year = "(2019)";
+        if (UTdata.md.Contains("Y13G012")) year = "(2022)";
+        if (UTdata.md.Contains("Y13G011")) year = "(2021)";
+        if (UTdata.md.Contains("Y13G010")) year = "(2020)";
+        if (UTdata.md.Contains("Y13G002")) year = "(2019)";
         uid.Text = UTdata.UserID;
         pcn.Text = UTdata.HostName;
-        mf.Text = UT.GetLine(UTdata.mf, 1) + " " + UT.GetLine(UTdata.md, 1);
+        mf.Text = UT.GetLine(UTdata.mf, 1).Replace(" ", "") + " " + UT.GetLine(UTdata.md, 1).Replace(" ", "") + " " + year;
         sn.Text = UTdata.sn;
         bv.Text = UTdata.bios;
         wv.Text = UTdata.os;
