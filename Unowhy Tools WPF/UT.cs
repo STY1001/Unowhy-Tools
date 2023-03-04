@@ -740,7 +740,7 @@ namespace Unowhy_Tools
             Write2Log("====== Dynamic Buttons ======");
 
             string preazure = await RunReturn("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow");
-            string preadmins = await RunReturn("net", "localgroup Administrateurs"); ;
+            string preadmins = await RunReturn("net", $"localgroup {UTdata.AdminsName}");
             string users = await RunReturn("net", "user");
             string bcd = await RunReturn("bcdedit", "");
 
