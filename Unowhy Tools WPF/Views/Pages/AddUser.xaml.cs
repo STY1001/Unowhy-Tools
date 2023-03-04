@@ -16,6 +16,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class AddUser : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     public DashboardViewModel ViewModel
     {
         get;
@@ -96,7 +98,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
 
                         if (laba.IsChecked == true)
                         {
-                            await UT.RunMin("net", $"localgroup Administrateurs \"{namebox.Text}\" /add");
+                            await UT.RunMin("net", $"localgroup {UTdata.AdminsName} \"{namebox.Text}\" /add");
                         }
                     }
                     else
@@ -105,13 +107,13 @@ public partial class AddUser : INavigableView<DashboardViewModel>
 
                         if (laba.IsChecked == true)
                         {
-                            await UT.RunMin("net", $"localgroup Administrateurs \"{namebox.Text}\" /add");
+                            await UT.RunMin("net", $"localgroup {UTdata.AdminsName} \"{namebox.Text}\" /add");
                         }
                     }
 
                     await UT.waitstatus.close();
 
-                    UT.DialogIShow(UT.GetLang("adduser.id") + $": \"{namebox.Text}\"", "user.png");
+                    UT.DialogIShow(UT.GetLang("adduser.id") + $": \".\\{namebox.Text}\"", "user.png");
                 }
             }
             else

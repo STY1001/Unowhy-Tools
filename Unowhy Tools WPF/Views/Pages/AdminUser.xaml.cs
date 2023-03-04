@@ -11,6 +11,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class AdminUser : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     public DashboardViewModel ViewModel
     {
         get;
@@ -37,7 +39,7 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
         if(UT.DialogQShow(UT.GetLang("snpw"), "key.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("net", $"user Administrateur \"{passbox.Text}\"");
+            await UT.RunMin("net", $"user {UTdata.AdminName} \"{passbox.Text}\"");
             await UT.waitstatus.close();
         }
     }
@@ -47,7 +49,7 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
         if(UT.DialogQShow(UT.GetLang("enablea"), "enable.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("net", "user Administrateur /active:yes");
+            await UT.RunMin("net", $"user {UTdata.AdminName} /active:yes");
             await UT.waitstatus.close();
         }
     }
@@ -57,7 +59,7 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
         if(UT.DialogQShow(UT.GetLang("disablea"), "disable.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("net", "user Administrateur /active:no");
+            await UT.RunMin("net", $"user {UTdata.AdminName} /active:no");
             await UT.waitstatus.close();
         }
     }
