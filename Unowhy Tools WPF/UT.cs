@@ -23,6 +23,7 @@ using System.Windows.Interop;
 using System.Threading.Tasks;
 using System.Reflection;
 using System.IO.Packaging;
+using System.Windows.Input;
 
 namespace Unowhy_Tools
 {
@@ -42,10 +43,10 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static string ver = "20.03";
-        public static int verfull = 2003;
+        public static string ver = "21.00";
+        public static int verfull = 2100;
         public static int verbuild = 103205323;
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -1061,6 +1062,33 @@ namespace Unowhy_Tools
 
             #endregion
 
+            #region TaskMGR
+
+            Write2Log("=== TaskMGR ===");
+            RegistryKey tmgr = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
+            if(tmgr != null)
+            {
+                object t = tmgr.GetValue("DisableTaskMGR", null);
+                if (t == null)
+                {
+                    UTdata.TaskMGR = true;
+                    Write2Log("TaskMGR is enabled");
+                }
+                else
+                {
+                    UTdata.TaskMGR = false;
+                    Write2Log("TaskMGR is disabled");
+                }
+            }
+            else
+            {
+                UTdata.TaskMGR = true;
+                Write2Log("TaskMGR is enabled");
+            }
+            Write2Log("=== End ===" + Environment.NewLine);
+
+            #endregion
+
             Write2Log("====== End ======");
         }
 
@@ -1126,6 +1154,7 @@ namespace Unowhy_Tools
             private static string _bios;
             private static string _adminsname;
             private static string _adminname;
+            private static bool _taskmgr;
             private static bool _admin;
             private static bool _aad;
             private static bool _aaduser;
@@ -1234,6 +1263,15 @@ namespace Unowhy_Tools
                 set
                 {
                     _adminname = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool TaskMGR
+            {
+                get { return _taskmgr; }
+                set
+                {
+                    _taskmgr = value;
                     OnPropertyChanged();
                 }
             }
