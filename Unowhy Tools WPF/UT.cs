@@ -24,6 +24,9 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.IO.Packaging;
 using System.Windows.Input;
+using System.Windows.Controls;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
 
 namespace Unowhy_Tools
 {
@@ -45,7 +48,7 @@ namespace Unowhy_Tools
 
         public static string ver = "21.00";
         public static int verfull = 2100;
-        public static int verbuild = 133505323;
+        public static int verbuild = 183005323;
         public static bool verisdeb = true;
 
         public class version
@@ -83,6 +86,79 @@ namespace Unowhy_Tools
                 {
                     return false;
                 }
+            }
+        }
+
+        public class anim
+        {
+            public static Grid _grid;
+
+            public static void TransitionForw(Grid grid)
+            {
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                mainWindow.NavAnimRight();
+                _grid = grid;
+                DoubleAnimation anim = new DoubleAnimation();
+                anim.From = 0;
+                anim.To = -100;
+                anim.Duration = TimeSpan.FromMilliseconds(300);
+                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+                TranslateTransform trans = new TranslateTransform();
+                _grid.RenderTransform = trans;
+                anim.Completed += setnormalForw;
+                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            }
+
+            public static void TransitionBack(Grid grid)
+            {
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                mainWindow.NavAnimLeft();
+                _grid = grid;
+                DoubleAnimation anim = new DoubleAnimation();
+                anim.From = 0;
+                anim.To = 100;
+                anim.Duration = TimeSpan.FromMilliseconds(300);
+                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+                TranslateTransform trans = new TranslateTransform();
+                _grid.RenderTransform = trans;
+                anim.Completed += setnormalBack;
+                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            }
+
+            public static void setnormalBack(object sender, EventArgs e)
+            {
+                DoubleAnimation anim = new DoubleAnimation();
+                anim.From = -100;
+                anim.To = 0;
+                anim.Duration = TimeSpan.FromMilliseconds(300);
+                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+                TranslateTransform trans = new TranslateTransform();
+                _grid.RenderTransform = trans;
+                anim.Completed += setnormalAnim;
+                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            }
+            
+            public static void setnormalForw(object sender, EventArgs e)
+            {
+                DoubleAnimation anim = new DoubleAnimation();
+                anim.From = 100;
+                anim.To = 0;
+                anim.Duration = TimeSpan.FromMilliseconds(300);
+                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+                TranslateTransform trans = new TranslateTransform();
+                _grid.RenderTransform = trans;
+                anim.Completed += setnormalAnim;
+                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            }
+            
+            public static void setnormalAnim(object sender, EventArgs e)
+            {
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                mainWindow.NavAnimRight();
             }
         }
 
