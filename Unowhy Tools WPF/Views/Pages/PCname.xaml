@@ -1,66 +1,78 @@
-﻿<ui:UiPage
-    x:Class="Unowhy_Tools_WPF.Views.Pages.PCname"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="PCname"
-    d:DataContext="{d:DesignInstance local:PCname,
+﻿<ui:UiPage x:Class="Unowhy_Tools_WPF.Views.Pages.PCname"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+           Title="PCname"
+           d:DataContext="{d:DesignInstance local:PCname,
                                      IsDesignTimeCreatable=False}"
-    d:DesignHeight="750"
-    d:DesignWidth="800"
-    Scrollable="True"
-    mc:Ignorable="d">
+           d:DesignHeight="750"
+           d:DesignWidth="800"
+           Scrollable="True"
+           mc:Ignorable="d">
 
-    <Grid>
-        <ui:Button
-            Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_customize"
-            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
-            <Image Source="../../Resources/back.png" Height="16"/>
+    <Grid x:Name="RootGrid">
+        <ui:Button Command="{Binding ViewModel.NavigateCommand}"
+                   CommandParameter="navigate_to_customize"
+                   Click="GoBack"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="10,10,0,0">
+            <Image Source="../../Resources/back.png"
+                   Height="16" />
         </ui:Button>
-        <Border Background="#303030" CornerRadius="8,8,8,8" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20,20,20,20">
+        <Border Background="#303030"
+                CornerRadius="8,8,8,8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <Grid VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Margin="20,20,20,20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="0"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="3"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="3" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <TextBlock x:Name="labold"
-                Grid.Row="0"
-                Text="Actual name:"
-                Foreground="#ffffff"/>
+                           Grid.Row="0"
+                           Text="Actual name:"
+                           Foreground="#ffffff" />
                 <TextBlock x:Name="old"
-                Grid.Row="2"
-                Text="[NAME]"
-                FontFamily="Lucida Console"
-                Foreground="#bebebe"/>
+                           Grid.Row="2"
+                           Text="[NAME]"
+                           FontFamily="Lucida Console"
+                           Foreground="#bebebe" />
                 <TextBlock x:Name="labnew"
-                Grid.Row="4"
-                Text="New name:"
-                Foreground="#ffffff"/>
+                           Grid.Row="4"
+                           Text="New name:"
+                           Foreground="#ffffff" />
                 <ui:TextBox x:Name="newbox"
-                MaxLength="15"
-                Grid.Row="6"
-                Foreground="#ffffff"
-                Width="200"/>
+                            MaxLength="15"
+                            Grid.Row="6"
+                            Foreground="#ffffff"
+                            Width="200" />
                 <Grid Grid.Row="8">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="85"/>
-                        <ColumnDefinition Width="115"/>
+                        <ColumnDefinition Width="85" />
+                        <ColumnDefinition Width="115" />
                     </Grid.ColumnDefinitions>
 
                     <ui:Button Click="Change_Click"
-                    Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+                               Grid.Column="1"
+                               HorizontalAlignment="Stretch"
+                               Margin="0,0,0,0">
                         <StackPanel>
-                            <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Grid Grid.Row="1"
+                                  Margin="0,0,0,0"
+                                  RenderTransformOrigin="0.5,0.5">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
@@ -70,13 +82,17 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Image Source="../../Resources/customize.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
-                                <StackPanel VerticalAlignment="Center" Grid.Column="2">
+                                <Image Source="../../Resources/customize.png"
+                                       Grid.Column="0"
+                                       Height="32"
+                                       VerticalAlignment="Top" />
+                                <StackPanel VerticalAlignment="Center"
+                                            Grid.Column="2">
                                     <TextBlock x:Name="pcn_btn"
-                                    Margin="0"
-                                    FontSize="13"
-                                    FontWeight="Medium"
-                                    Text="Change" />
+                                               Margin="0"
+                                               FontSize="13"
+                                               FontWeight="Medium"
+                                               Text="Change" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>

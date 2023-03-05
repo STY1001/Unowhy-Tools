@@ -27,6 +27,11 @@ public partial class Updater : INavigableView<DashboardViewModel>
         get;
     }
 
+    public void GoBack(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionBack(RootGrid);
+    }
+
     public void applylang()
     {
         updatebtntext.Text = UT.GetLang("udcheck");

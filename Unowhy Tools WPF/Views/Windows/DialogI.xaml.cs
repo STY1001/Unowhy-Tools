@@ -25,8 +25,6 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             InitializeComponent();
             Visibility = Visibility.Hidden;
-            //Border1.Opacity = 0;
-            //Border1.LayoutTransform = new ScaleTransform(0, 0);
         }
 
         private bool _hideRequest = false;

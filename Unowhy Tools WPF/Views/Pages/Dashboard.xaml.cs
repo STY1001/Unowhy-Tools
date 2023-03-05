@@ -23,6 +23,11 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         get;
     }
 
+    public void GoForw(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionForw(RootGrid);
+    }
+
     public async void Init(object sender, EventArgs e)
     {
         string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";

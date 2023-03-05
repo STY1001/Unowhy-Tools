@@ -21,6 +21,11 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
         get;
     }
 
+    public void GoBack(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionBack(RootGrid);
+    }
+
     public void applylang()
     {
         labbkapp.Text = UT.GetLang("bkapp");

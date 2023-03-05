@@ -1,102 +1,116 @@
-﻿<ui:UiPage
-    x:Class="Unowhy_Tools_WPF.Views.Pages.DrvRest"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="DrvRest"
-    d:DataContext="{d:DesignInstance local:DrvRest,
+﻿<ui:UiPage x:Class="Unowhy_Tools_WPF.Views.Pages.DrvRest"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+           Title="DrvRest"
+           d:DataContext="{d:DesignInstance local:DrvRest,
                                      IsDesignTimeCreatable=False}"
-    d:DesignHeight="750"
-    d:DesignWidth="800"
-    Scrollable="True"
-    mc:Ignorable="d">
+           d:DesignHeight="750"
+           d:DesignWidth="800"
+           Scrollable="True"
+           mc:Ignorable="d">
 
-    <Grid>
-        <ui:Button
-            Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_drivers"
-            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
-            <Image Source="../../Resources/back.png" Height="16"/>
+    <Grid x:Name="RootGrid">
+        <ui:Button Command="{Binding ViewModel.NavigateCommand}"
+                   CommandParameter="navigate_to_drivers"
+                   Click="GoBack"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="10,10,0,0">
+            <Image Source="../../Resources/back.png"
+                   Height="16" />
         </ui:Button>
-        <Border Background="#303030" CornerRadius="8,8,8,8" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Margin="20,20,20,20">
+        <Border Background="#303030"
+                CornerRadius="8,8,8,8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <Grid VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Width="400"
+                  Margin="20,20,20,20">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="32"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="32" />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="19"/>
-                        <RowDefinition Height="32"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="33"/>
+                        <RowDefinition Height="19" />
+                        <RowDefinition Height="32" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="33" />
                     </Grid.RowDefinitions>
 
-                    <Image Source="../../Resources/convert.png" Grid.Row="1"/>
-                    <Image Source="/Resources/folder.png" Grid.Row="3"/>
+                    <Image Source="../../Resources/convert.png"
+                           Grid.Row="1" />
+                    <Image Source="/Resources/folder.png"
+                           Grid.Row="3" />
 
                 </Grid>
 
-                <Grid Grid.Column="2" VerticalAlignment="Center">
+                <Grid Grid.Column="2"
+                      VerticalAlignment="Center">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="16*"/>
-                        <RowDefinition Height="3"/>
-                        <RowDefinition Height="31.62"/>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="16*"/>
-                        <RowDefinition Height="3"/>
-                        <RowDefinition Height="35*"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="45*"/>
+                        <RowDefinition Height="16*" />
+                        <RowDefinition Height="3" />
+                        <RowDefinition Height="31.62" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="16*" />
+                        <RowDefinition Height="3" />
+                        <RowDefinition Height="35*" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="45*" />
                     </Grid.RowDefinitions>
                     <TextBlock x:Name="labconv"
-                    Grid.Row="0"
-                    Text="Convert an old backup (&lt;18.0):"
-                    Foreground="#ffffff"/>
+                               Grid.Row="0"
+                               Text="Convert an old backup (&lt;18.0):"
+                               Foreground="#ffffff" />
                     <ui:Button x:Name="convbtn"
-                    Command="{Binding ViewModel.NavigateCommand}"
-                    CommandParameter="navigate_to_drvconv"
-                    Grid.Row="2"
-                    Content="Convert"/>
+                               Command="{Binding ViewModel.NavigateCommand}"
+                               CommandParameter="navigate_to_drvconv"
+                               Grid.Row="2"
+                               Content="Convert" />
                     <TextBlock x:Name="labpath"
-                    Grid.Row="4"
-                    Text="Backup Path:"
-                    Foreground="#ffffff"/>
+                               Grid.Row="4"
+                               Text="Backup Path:"
+                               Foreground="#ffffff" />
                     <Grid Grid.Row="6">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <ui:TextBox
-                        x:Name="rtpath"
-                        Grid.Column="0"
-                        IsReadOnly="True"
-                        Foreground="#ffffff"
-                        HorizontalAlignment="Stretch"/>
-                        <ui:Button
-                        Click="Browse_Click"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Stretch"
-                        Grid.Column="2"
-                        Content="..."
-                        Foreground="#ffffff"/>
+                        <ui:TextBox x:Name="rtpath"
+                                    Grid.Column="0"
+                                    IsReadOnly="True"
+                                    Foreground="#ffffff"
+                                    HorizontalAlignment="Stretch" />
+                        <ui:Button Click="Browse_Click"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Stretch"
+                                   Grid.Column="2"
+                                   Content="..."
+                                   Foreground="#ffffff" />
                     </Grid>
 
                     <Grid Grid.Row="14">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <ui:Button Click="Restore_Click"
-                        Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,0,0">
+                                   Grid.Column="1"
+                                   HorizontalAlignment="Right"
+                                   Margin="0,0,0,0">
                             <StackPanel>
-                                <Grid Grid.Row="1" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
@@ -106,13 +120,17 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Image Source="../../Resources/download.png" Grid.Column="0" Height="32" VerticalAlignment="Top"/>
-                                    <StackPanel VerticalAlignment="Center" Grid.Column="2">
+                                    <Image Source="../../Resources/download.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
                                         <TextBlock x:Name="rest_btn"
-                                    Margin="0"
-                                    FontSize="13"
-                                    FontWeight="Medium"
-                                    Text="Restore" />
+                                                   Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Restore" />
                                     </StackPanel>
                                 </Grid>
                             </StackPanel>

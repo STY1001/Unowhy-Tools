@@ -31,6 +31,11 @@ public partial class About : INavigableView<DashboardViewModel>
         get;
     }
 
+    public void GoForw(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionForw(RootGrid);
+    }
+
     public void applylang()
     {
         ubtnlab.Text = UT.GetLang("udcheck");

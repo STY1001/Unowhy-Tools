@@ -17,6 +17,11 @@ public partial class Drivers : INavigableView<DashboardViewModel>
         get;
     }
 
+    public void GoForw(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionForw(RootGrid);
+    }
+
     public void applylang()
     {
         dlcloud_txt.Text = UT.GetLang("bkcloud");

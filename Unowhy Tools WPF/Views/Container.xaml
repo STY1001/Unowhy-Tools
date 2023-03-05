@@ -47,7 +47,7 @@
                                 Navigated="RootNavigation_OnNavigated"
                                 Precache="False"
                                 SelectedPageIndex="-1"
-                                TransitionDuration="250"
+                                TransitionDuration="300"
                                 TransitionType="SlideRight">
                 <ui:NavigationStore.Items>
                     <ui:NavigationItem x:Name="home"

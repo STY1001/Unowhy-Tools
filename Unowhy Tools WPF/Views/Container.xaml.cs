@@ -76,6 +76,16 @@ public partial class Container : INavigationWindow
         applylang();
     }
 
+    public void NavAnimLeft()
+    {
+        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideLeft;
+    }
+
+    public void NavAnimRight()
+    {
+        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
+    }
+
     public bool ShowDialogQ(string msg, BitmapImage img)
     {
         var result = DialogQRoot.ShowDialog(msg, img);

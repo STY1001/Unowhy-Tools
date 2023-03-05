@@ -20,6 +20,11 @@ public partial class Customize : INavigableView<DashboardViewModel>
         get;
     }
 
+    public void GoForw(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionForw(RootGrid);
+    }
+
     public void applylang()
     {
         pcname_txt.Text = UT.GetLang("pcname");

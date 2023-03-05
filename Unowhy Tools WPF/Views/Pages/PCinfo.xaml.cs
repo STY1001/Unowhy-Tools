@@ -3,6 +3,7 @@ using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
 using System.Windows.Media.Imaging;
+using System.Windows;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -16,6 +17,11 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
     public DashboardViewModel ViewModel
     {
         get;
+    }
+
+    public void GoBack(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionBack(RootGrid);
     }
 
     public void applylang()

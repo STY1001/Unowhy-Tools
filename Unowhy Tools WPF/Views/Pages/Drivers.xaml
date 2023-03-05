@@ -14,97 +14,129 @@
     Scrollable="True"
     mc:Ignorable="d">
 
-    <StackPanel>
-        <ui:CardControl Margin="10,10,10,0">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/clouddl.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock x:Name="dlcloud_txt"
-                        FontSize="13"
-                        FontWeight="Medium"
-                        Text="Download a driver backup from cloud" />
-                        <TextBlock x:Name="dlcloud_desc"
-                        FontSize="12"
-                        Foreground="#bebebe"
-                        Text="Description" TextWrapping="Wrap"/>
+    <Grid x:Name="RootGrid">
+        <StackPanel>
+            <ui:CardControl Margin="10,10,10,0">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/clouddl.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="dlcloud_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Download a driver backup from cloud" />
+                            <TextBlock x:Name="dlcloud_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="dl_Click"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0">
+                    <StackPanel>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock x:Name="dlcloud_btn"
+                                       Margin="0"
+                                       FontSize="13"
+                                       FontWeight="Regular"
+                                       Text="Download" />
+                        </StackPanel>
                     </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="dl_Click"
-                Grid.Column="0"
-                Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-                <StackPanel>
-                    <StackPanel VerticalAlignment="Center">
-                        <TextBlock x:Name="dlcloud_btn"
-                            Margin="0"
-                            FontSize="13"
-                            FontWeight="Regular"
-                            Text="Download" />
+                </ui:Button>
+            </ui:CardControl>
+            <ui:CardControl Margin="10,10,10,0">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/upload.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="bk_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Backup drivers" />
+                            <TextBlock x:Name="bk_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Grid.Column="0"
+                           Command="{Binding ViewModel.NavigateCommand}"
+                           CommandParameter="navigate_to_drvback"
+                           Click="GoForw"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0">
+                    <StackPanel>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock x:Name="bk_btn"
+                                       Margin="0"
+                                       FontSize="13"
+                                       FontWeight="Regular"
+                                       Text="Backup" />
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </ui:Button>
-        </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/upload.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock x:Name="bk_txt"
-                        FontSize="13"
-                        FontWeight="Medium"
-                        Text="Backup drivers" />
-                        <TextBlock x:Name="bk_desc"
-                        FontSize="12"
-                        Foreground="#bebebe"
-                        Text="Description" TextWrapping="Wrap"/>
+                </ui:Button>
+            </ui:CardControl>
+            <ui:CardControl Margin="10,10,10,0">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/download.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="rt_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Restore drivers" />
+                            <TextBlock x:Name="rt_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Grid.Column="0"
+                           Command="{Binding ViewModel.NavigateCommand}"
+                           CommandParameter="navigate_to_drvrest"
+                           Click="GoForw"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0">
+                    <StackPanel>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock x:Name="rt_btn"
+                                       Margin="0"
+                                       FontSize="13"
+                                       FontWeight="Regular"
+                                       Text="Restore" />
+                        </StackPanel>
                     </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button
-                Grid.Column="0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_drvback"
-            Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-                <StackPanel>
-                    <StackPanel VerticalAlignment="Center">
-                        <TextBlock x:Name="bk_btn"
-                            Margin="0"
-                            FontSize="13"
-                            FontWeight="Regular"
-                            Text="Backup" />
-                    </StackPanel>
-                </StackPanel>
-            </ui:Button>
-        </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/download.png" Grid.Column="0" HorizontalAlignment="Left" MaxHeight="32" MaxWidth="32"/>
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
-                        <TextBlock x:Name="rt_txt"
-                        FontSize="13"
-                        FontWeight="Medium"
-                        Text="Restore drivers" />
-                        <TextBlock x:Name="rt_desc"
-                        FontSize="12"
-                        Foreground="#bebebe"
-                        Text="Description" TextWrapping="Wrap"/>
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button
-                Grid.Column="0" Command="{Binding ViewModel.NavigateCommand}" CommandParameter="navigate_to_drvrest"
-                Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-                <StackPanel>
-                    <StackPanel VerticalAlignment="Center">
-                        <TextBlock x:Name="rt_btn"
-                            Margin="0"
-                            FontSize="13"
-                            FontWeight="Regular"
-                            Text="Restore" />
-                    </StackPanel>
-                </StackPanel>
-            </ui:Button>
-        </ui:CardControl>
-    </StackPanel>
-    
+                </ui:Button>
+            </ui:CardControl>
+        </StackPanel>
+    </Grid>
 </ui:UiPage>

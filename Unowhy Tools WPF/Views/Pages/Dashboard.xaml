@@ -13,7 +13,7 @@
            Scrollable="True"
            mc:Ignorable="d">
 
-    <Grid>
+    <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="250" />
             <RowDefinition Height="Auto" />
@@ -202,6 +202,7 @@
                 </ui:CardAction>
                 <ui:CardAction Command="{Binding ViewModel.NavigateCommand}"
                                CommandParameter="navigate_to_pcinfo"
+                               Click="GoForw"
                                Grid.Column="0"
                                Grid.Row="0"
                                HorizontalAlignment="Stretch">
@@ -265,6 +266,7 @@
                 </ui:CardAction>
                 <ui:CardAction Command="{Binding ViewModel.NavigateCommand}"
                                CommandParameter="navigate_to_settings"
+                               Click="GoForw"
                                Grid.Column="4"
                                Grid.Row="0"
                                HorizontalAlignment="Stretch">
@@ -297,6 +299,7 @@
                 </ui:CardAction>
                 <ui:CardAction Command="{Binding ViewModel.NavigateCommand}"
                                CommandParameter="navigate_to_about"
+                               Click="GoForw"
                                Grid.Column="6"
                                Grid.Row="0"
                                HorizontalAlignment="Stretch">

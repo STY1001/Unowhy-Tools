@@ -18,6 +18,11 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
         get;
     }
 
+    public void GoBack(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionBack(RootGrid);
+    }
+
     public void applylang()
     {
         snpw.Text = UT.GetLang("snpw");

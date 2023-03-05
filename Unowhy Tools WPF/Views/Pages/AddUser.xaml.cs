@@ -23,6 +23,11 @@ public partial class AddUser : INavigableView<DashboardViewModel>
         get;
     }
 
+    public void GoBack(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionBack(RootGrid);
+    }
+
     public void applylang()
     {
         labu.Text = UT.GetLang("name");

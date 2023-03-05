@@ -14,9 +14,10 @@
            Scrollable="True"
            mc:Ignorable="d">
 
-    <Grid>
+    <Grid x:Name="RootGrid">
         <ui:Button Command="{Binding ViewModel.NavigateCommand}"
                    CommandParameter="navigate_to_repair"
+                   Click="GoBack"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Margin="10,10,0,0">

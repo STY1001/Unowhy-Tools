@@ -12,6 +12,9 @@ using System;
 using System.IO.Compression;
 using System.IO;
 using System.Net.Http;
+using System.Windows.Media.Animation;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -97,5 +100,10 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     public void DialogI_Test(object sender, System.Windows.RoutedEventArgs e)
     {
         UT.DialogIShow(dialogtxt.Text, "about.png");
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionBack(Grid1);
     }
 }

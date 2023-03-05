@@ -21,6 +21,11 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         get;
     }
 
+    public void GoBack(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionBack(RootGrid);
+    }
+
     public void applylang()
     {
         labconv.Text = UT.GetLang("convdesc");

@@ -1,58 +1,96 @@
 ﻿<UserControl x:Class="Unowhy_Tools_WPF.Views.Windows.Wait"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Windows"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-             mc:Ignorable="d" 
-             d:DesignHeight="650" d:DesignWidth="900" x:Name="root">
-    <Grid DataContext="{Binding ElementName=root}" Visibility="{Binding Visibility}">
+             mc:Ignorable="d"
+             d:DesignHeight="650"
+             d:DesignWidth="900"
+             x:Name="root">
+    <Grid DataContext="{Binding ElementName=root}"
+          Visibility="{Binding Visibility}">
         <Grid Background="#9000">
-            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#272727" CornerRadius="8,8,8,8">
+            <Border x:Name="Border1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="#272727"
+                    CornerRadius="8,8,8,8"
+                    RenderTransformOrigin="0.5,0.5">
+                <Border.RenderTransform>
+                    <ScaleTransform ScaleX="1"
+                                    ScaleY="1" />
+                </Border.RenderTransform>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition MinHeight="60"/>
+                        <RowDefinition Height="30" />
+                        <RowDefinition MinHeight="60" />
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="26"/>
-                            <ColumnDefinition Width="2"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="26" />
+                            <ColumnDefinition Width="2" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="10"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="0"/>
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="0" />
                         </Grid.RowDefinitions>
-                        <Image Grid.Column="1" Grid.Row="1" Source="../../Resources/wait.png" />
-                        <TextBlock Grid.Column="4" Grid.Row="1" Text="Wait" Foreground="#FFFFFF" FontSize="11" FontFamily="Segoe UI SemiNormal" VerticalAlignment="Center" x:Name="lab1"/>
+                        <Image Grid.Column="1"
+                               Grid.Row="1"
+                               Source="../../Resources/wait.png" />
+                        <TextBlock Grid.Column="4"
+                                   Grid.Row="1"
+                                   Text="Wait"
+                                   Foreground="#FFFFFF"
+                                   FontSize="11"
+                                   FontFamily="Segoe UI SemiNormal"
+                                   VerticalAlignment="Center"
+                                   x:Name="lab1" />
                     </Grid>
 
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="18"/>
-                            <ColumnDefinition Width="32"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="18"/>
+                            <ColumnDefinition Width="18" />
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="18" />
                         </Grid.ColumnDefinitions>
 
-                        <Image Grid.Column="1" Source="/Resources/wait.png" x:Name="icon"/>
-                        <ui:ProgressRing IsIndeterminate="True" RenderTransformOrigin="0.5,0.5" Margin="4,0,79,0" Grid.ColumnSpan="4" Grid.Column="0" HorizontalAlignment="Left">
+                        <Image Grid.Column="1"
+                               Source="/Resources/wait.png"
+                               x:Name="icon" />
+                        <ui:ProgressRing IsIndeterminate="True"
+                                         RenderTransformOrigin="0.5,0.5"
+                                         Margin="4,0,79,0"
+                                         Grid.ColumnSpan="4"
+                                         Grid.Column="0"
+                                         HorizontalAlignment="Left">
                             <ui:ProgressRing.RenderTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleY="0.6" ScaleX="0.6"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
+                                    <ScaleTransform ScaleY="0.6"
+                                                    ScaleX="0.6" />
+                                    <SkewTransform />
+                                    <RotateTransform />
+                                    <TranslateTransform />
                                 </TransformGroup>
                             </ui:ProgressRing.RenderTransform>
                         </ui:ProgressRing>
-                        <TextBlock Grid.Column="3" Text="Please wait..." TextWrapping="Wrap" MaxWidth="300" Foreground="#dfdfdf" FontSize="15" FontFamily="Segoe UI Normal" VerticalAlignment="Center" x:Name="text" Margin="5,0,0,0"/>
+                        <TextBlock Grid.Column="3"
+                                   Text="Please wait..."
+                                   TextWrapping="Wrap"
+                                   MaxWidth="300"
+                                   Foreground="#dfdfdf"
+                                   FontSize="15"
+                                   FontFamily="Segoe UI Normal"
+                                   VerticalAlignment="Center"
+                                   x:Name="text"
+                                   Margin="5,0,0,0" />
                     </Grid>
                 </Grid>
             </Border>

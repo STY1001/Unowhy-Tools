@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.Services.Contracts;
 using Wpf.Ui.Mvvm.Contracts;
+using System.Threading.Tasks;
 
 namespace Unowhy_Tools_WPF.ViewModels;
 
@@ -37,8 +38,9 @@ public class DashboardViewModel : ObservableObject, INavigationAware
         System.Diagnostics.Debug.WriteLine($"INFO | {typeof(DashboardViewModel)} navigated", "Unowhy_Tools_WPF");
     }
 
-    private void OnNavigate(string parameter)
+    private async void OnNavigate(string parameter)
     {
+        await Task.Delay(150);
         switch (parameter)
         {
             case "navigate_to_winre":

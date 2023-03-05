@@ -13,139 +13,142 @@
            d:DesignWidth="800"
            Scrollable="True"
            mc:Ignorable="d">
-
-    <StackPanel>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="pcname">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/laptop.png"
+    <Grid x:Name="RootGrid">
+        <StackPanel>
+            <ui:CardControl Margin="10,10,10,0"
+                            x:Name="pcname">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/laptop.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="pcname_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Change Windows PC name" />
+                            <TextBlock x:Name="pcname_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Command="{Binding ViewModel.NavigateCommand}"
+                           CommandParameter="navigate_to_pcname"
+                           Click="GoForw"
+                           x:Name="pcname_btn"
+                           Content="Change"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="pcname_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Change Windows PC name" />
-                        <TextBlock x:Name="pcname_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Command="{Binding ViewModel.NavigateCommand}"
-                       CommandParameter="navigate_to_pcname"
-                       x:Name="pcname_btn"
-                       Content="Change"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="adminset">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/admin.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl Margin="10,10,10,0"
+                            x:Name="adminset">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/admin.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="adminset_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Set this account as administrators" />
+                            <TextBlock x:Name="adminset_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button x:Name="adminset_btn"
+                           Content="Set"
+                           Click="adminset_Click"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="adminset_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Set this account as administrators" />
-                        <TextBlock x:Name="adminset_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button x:Name="adminset_btn"
-                       Content="Set"
-                       Click="adminset_Click"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="adduser">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/adduser.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl Margin="10,10,10,0"
+                            x:Name="adduser">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/adduser.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="adduser_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Create a new local account" />
+                            <TextBlock x:Name="adduser_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Command="{Binding ViewModel.NavigateCommand}"
+                           CommandParameter="navigate_to_adduser"
+                           x:Name="adduser_btn"
+                           Click="GoForw"
+                           Content="Create"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="adduser_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Create a new local account" />
-                        <TextBlock x:Name="adduser_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Command="{Binding ViewModel.NavigateCommand}"
-                       CommandParameter="navigate_to_adduser"
-                       x:Name="adduser_btn"
-                       Content="Create"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="auset">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/adminuser.png"
-                           Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="auset_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Built-in &quot;Admin&quot; local account settings" />
-                        <TextBlock x:Name="auset_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Grid.Column="0"
-                       Command="{Binding ViewModel.NavigateCommand}"
-                       CommandParameter="navigate_to_adminuser"
-                       x:Name="auset_btn"
-                       Content="Open"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-    </StackPanel>
-
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl Margin="10,10,10,0"
+                            x:Name="auset">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/adminuser.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="auset_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Built-in &quot;Admin&quot; local account settings" />
+                            <TextBlock x:Name="auset_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Grid.Column="0"
+                           Command="{Binding ViewModel.NavigateCommand}"
+                           CommandParameter="navigate_to_adminuser"
+                           Click="GoForw"
+                           x:Name="auset_btn"
+                           Content="Open"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+        </StackPanel>
+    </Grid>
 </ui:UiPage>
