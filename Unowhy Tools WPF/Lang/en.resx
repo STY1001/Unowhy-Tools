@@ -306,6 +306,9 @@
   <data name="descstart" xml:space="preserve">
     <value>Do this before delete "TO_INSTALL". If you have error at boot (File "silent_*.vbs.lnk" not found), do this. Those files are for the auto install of your school's textbooks (In : C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup)</value>
   </data>
+  <data name="desctaskmgr" xml:space="preserve">
+    <value>Enable the Task Manager. For an unknown reason, Unowhy deployed a new version of HiSqoolManager that disable the Task Manager. Do this to enable it</value>
+  </data>
   <data name="desctidel" xml:space="preserve">
     <value>Delete school's texbooks installers folder (In : C:\Program Data\Unowhy)</value>
   </data>
@@ -515,6 +518,9 @@
   </data>
   <data name="stophis" xml:space="preserve">
     <value>Stop "HiSqoolManager" service</value>
+  </data>
+  <data name="taskmgr" xml:space="preserve">
+    <value>Enable the Task Manager</value>
   </data>
   <data name="titleabout" xml:space="preserve">
     <value>About</value>

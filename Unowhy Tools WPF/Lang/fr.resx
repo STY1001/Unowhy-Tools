@@ -306,6 +306,9 @@
   <data name="descstart" xml:space="preserve">
     <value>Faites ceci avant de supprimer "TO_INSTALL". Si vous avez une erreur au démarrage (fichier "silent_*.vbs.lnk" introuvable), faites ceci. Ces fichiers sont destinés à l'installation automatique des manuels scolaires de votre école (Dans : C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup)</value>
   </data>
+  <data name="desctaskmgr" xml:space="preserve">
+    <value>Activez le gestionnaire de tâches. Pour une raison inconnue, Unowhy a déployé une nouvelle version de HiSqoolManager qui désactive le gestionnaire de tâches. Faites ceci pour l'activer</value>
+  </data>
   <data name="desctidel" xml:space="preserve">
     <value>Supprimer les installateurs des manuels scolaires de votre école (Dans : C:\Program Files\Unowhy)</value>
   </data>
@@ -515,6 +518,9 @@
   </data>
   <data name="stophis" xml:space="preserve">
     <value>Arrêter le service "HiSqoolManager"</value>
+  </data>
+  <data name="taskmgr" xml:space="preserve">
+    <value>Activer le gestionnaire de tâches</value>
   </data>
   <data name="titleabout" xml:space="preserve">
     <value>A propos</value>
