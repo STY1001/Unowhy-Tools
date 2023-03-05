@@ -45,7 +45,7 @@ namespace Unowhy_Tools
         public static string ver = "20.03";
         public static int verfull = 2003;
         public static int verbuild = 103205323;
-        public static bool verisdeb = true;
+        public static bool verisdeb = false;
 
         public class version
         {
