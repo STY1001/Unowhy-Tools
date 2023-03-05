@@ -208,6 +208,38 @@
                        HorizontalAlignment="Stretch"
                        Margin="0,0,0,0" />
         </ui:CardControl>
+        <ui:CardControl Margin="10,10,10,0"
+                        x:Name="tmgr">
+            <ui:CardControl.Header>
+                <Grid>
+                    <Image Source="pack://application:,,,/Resources/taskmgr.png"
+                           Grid.Column="0"
+                           HorizontalAlignment="Left"
+                           MaxHeight="32"
+                           MaxWidth="32" />
+                    <StackPanel Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Margin="50,0,0,0">
+                        <TextBlock x:Name="tmgr_txt"
+                                   FontSize="13"
+                                   FontWeight="Medium"
+                                   Text="Enable TaskMGR" />
+                        <TextBlock x:Name="tmgr_desc"
+                                   FontSize="12"
+                                   Foreground="#bebebe"
+                                   Text="Description"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </Grid>
+            </ui:CardControl.Header>
+            <ui:Button Click="tmgr_Click"
+                       x:Name="tmgr_btn"
+                       Content="Enable"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="4"
+                       HorizontalAlignment="Stretch"
+                       Margin="0,0,0,0" />
+        </ui:CardControl>
     </StackPanel>
 
 </ui:UiPage>

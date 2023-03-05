@@ -40,6 +40,9 @@ public partial class Repair : INavigableView<DashboardViewModel>
         iaf_txt.Text = UT.GetLang("bcdfail");
         iaf_desc.Text = UT.GetLang("descbcdfail");
         iaf_btn.Content = UT.GetLang("del");
+        tmgr_txt.Text = UT.GetLang("taskmgr");
+        tmgr_desc.Text = UT.GetLang("desctaskmgr");
+        tmgr_btn.Content = UT.GetLang("enable");
     }
 
     public async Task CheckBTN()
@@ -60,6 +63,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         else shell.IsEnabled = true;
         if(UTdata.TIStartup) tis.IsEnabled = true;
         else tis.IsEnabled = false;
+        if (UTdata.TaskMGR) tmgr.IsEnabled = false;
+        else tmgr.IsEnabled = true;
     }
 
     public async void Init(object sender, EventArgs e)
@@ -176,5 +181,25 @@ public partial class Repair : INavigableView<DashboardViewModel>
                 UT.DialogIShow(UT.GetLang("failed"), "no.png");
             }
         }
+    }
+
+    public async void tmgr_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("taskmgr"), "taskmgr.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableTaskMgr /f");
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!tmgr.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
+
     }
 }
