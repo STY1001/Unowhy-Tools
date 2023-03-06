@@ -18,6 +18,8 @@ using System.Windows.Controls.Primitives;
 using Unowhy_Tools_WPF.Views.Windows;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -154,9 +156,18 @@ public partial class Container : INavigationWindow
 
     private async Task Load()
     {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 10000;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        RootWelcomeGrid.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
         RootMainGrid.Visibility = Visibility.Collapsed;
         RootWelcomeGrid.Visibility = Visibility.Visible;
-
+        
         string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
         if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
         else ver = ver + "(Release)";
@@ -168,7 +179,15 @@ public partial class Container : INavigationWindow
             await Task.Delay(1000);
             SplashText.Text = "Restarting as admin...";
             SplashBar.Value = 100;
-            await Task.Delay(1000);
+            await Task.Delay(500);
+
+            anim.From = 0;
+            anim.To = -10000;
+            anim.Duration = TimeSpan.FromMilliseconds(500);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            RootWelcomeGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            
             UT.RunAdmin($"-u {UTdata.UserID}");
         }
         else
@@ -187,6 +206,10 @@ public partial class Container : INavigationWindow
             SplashText.Text = "Ready !";
             SplashBar.Value = 100;
             await Task.Delay(1000);
+
+            UT.anim.TransitionForw(RootWelcomeGrid);
+
+            await Task.Delay(150);
 
             RootWelcomeGrid.Visibility = Visibility.Hidden;
             RootMainGrid.Visibility = Visibility.Visible;
