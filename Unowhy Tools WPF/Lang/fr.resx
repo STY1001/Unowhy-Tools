@@ -256,7 +256,7 @@
     <value>Définir ce compte en tant qu'admin local. Avec cela, vous pouvez accepter les droits d'administrateur en cliquant sur "Oui" sans entrer ".\administrateur"</value>
   </data>
   <data name="descadminset" xml:space="preserve">
-    <value>Gérez le compte ".\administrateur" intégré. Ne désactivez pas le compte admin si vous n'avez pas d'autre compte en tant qu'admin ! Donc, avant, créez un compte local en tant du'admin ou mettez ce compte en tant qu'admin</value>
+    <value>Gérez le compte ".\administrateur" intégré. Ne désactivez pas le compte admin si vous n'avez pas d'autre compte en tant qu'admin ! Donc, avant, créez un compte local en tant qu'admin ou mettez ce compte en tant qu'admin</value>
   </data>
   <data name="descbcdfail" xml:space="preserve">
     <value>Supprimer « IgnoreAllFailures » (BootStatusPolicy) dans BCD, réactive l’écran bleu "Recovery" (Pas WinRE/BootIM) et le diagnostic ("Veuillez patienter") en cas de problème de démarrage, permet aussi de pouvoir démarrer avec un comportement différant (Mode sans échec, Base résolution, etc…)</value>
