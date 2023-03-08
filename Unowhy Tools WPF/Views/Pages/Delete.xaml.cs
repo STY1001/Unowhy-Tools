@@ -24,7 +24,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     public void applylang()
     {
         instprog_txt.Text = UT.GetLang("unprog");
-        instprog_desc.Text = "";
+        instprog_desc.Text = "ms-settings:appsfeatures";
         instprog_btn.Content = UT.GetLang("open");
         entu_txt.Text = UT.GetLang("ent");
         entu_desc.Text = UT.GetLang("descent");
