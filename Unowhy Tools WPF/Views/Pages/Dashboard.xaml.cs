@@ -40,46 +40,53 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         applylang();
         pcname.Text = UT.GetLine(UTdata.HostName, 1);
 
-        RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-        string utcuab = lcs.GetValue("UpdateStart").ToString();
-        if (utcuab == "1")
+        if (UT.CheckInternet())
         {
-            lababout2.Text = UT.GetLang("update.check");
-            if(await UT.version.newver())
+            RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utcuab = lcs.GetValue("UpdateStart").ToString();
+            if (utcuab == "1")
             {
-                Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
-                Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
-                lababout2.Text = UT.GetLang("newver");
-                lababout2.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                lababout2.Foreground = new SolidColorBrush(white);
+                lababout2.Text = UT.GetLang("update.check");
+                if (await UT.version.newver())
+                {
+                    Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
+                    Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
+                    lababout2.Text = UT.GetLang("newver");
+                    lababout2.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    lababout2.Foreground = new SolidColorBrush(white);
+                }
+                else
+                {
+                    lababout2.Text = "Unowhy Tools";
+                }
             }
-            else
-            {
-                lababout2.Text = "Unowhy Tools";
-            }
+        }
+        else
+        {
+            lababout2.Text = "Unowhy Tools";
         }
     }
 

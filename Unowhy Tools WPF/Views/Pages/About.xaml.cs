@@ -51,46 +51,53 @@ public partial class About : INavigableView<DashboardViewModel>
 
         verlab.Text = ver;
 
-        RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-        string utcuab = lcs.GetValue("UpdateStart").ToString();
-        if (utcuab == "1")
+        if (UT.CheckInternet())
         {
-            ubtnlab.Text = UT.GetLang("update.check");
-            if (await UT.version.newver())
+            RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utcuab = lcs.GetValue("UpdateStart").ToString();
+            if (utcuab == "1")
             {
-                Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
-                Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
-                ubtnlab.Text = UT.GetLang("newver");
-                ubtnlab.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(white);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(gray);
-                await Task.Delay(500);
-                ubtnlab.Foreground = new SolidColorBrush(white);
+                ubtnlab.Text = UT.GetLang("update.check");
+                if (await UT.version.newver())
+                {
+                    Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
+                    Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
+                    ubtnlab.Text = UT.GetLang("newver");
+                    ubtnlab.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(white);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(gray);
+                    await Task.Delay(500);
+                    ubtnlab.Foreground = new SolidColorBrush(white);
+                }
+                else
+                {
+                    ubtnlab.Text = UT.GetLang("udcheck");
+                }
             }
-            else
-            {
-                ubtnlab.Text = UT.GetLang("udcheck");
-            }
+        }
+        else
+        {
+            ubtnlab.Text = UT.GetLang("udcheck");
         }
     }
 
