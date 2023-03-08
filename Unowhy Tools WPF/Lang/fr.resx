@@ -291,6 +291,9 @@
   <data name="deschismdel" xml:space="preserve">
     <value>Supprimer le gros dossier "HiSqool Manager" ainsi que le service (contient le programme pour gerer les PC (spyware/malware)) (Dans : C:\Program Files\Unowhy)</value>
   </data>
+  <data name="desclocka" xml:space="preserve">
+    <value>Activez la possibilité de verrouiller le compte d'utilisateur. Pour une raison inconnue, Unowhy a déployé une nouvelle version de HiSqoolManager qui désactive la possibilité de verrouiller le compte utilisateur (par exemple, en appuyant sur Win+L). Faites ceci pour l'activer</value>
+  </data>
   <data name="descpcname" xml:space="preserve">
     <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC (IFP...)</value>
   </data>
@@ -383,6 +386,9 @@
   </data>
   <data name="lang" xml:space="preserve">
     <value>Langue</value>
+  </data>
+  <data name="locka" xml:space="preserve">
+    <value>Activer la possibilité de verrouiller le compte utilisateur</value>
   </data>
   <data name="logsclean" xml:space="preserve">
     <value>Nettoyer les logs</value>

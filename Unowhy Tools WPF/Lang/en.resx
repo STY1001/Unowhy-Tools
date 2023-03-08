@@ -291,6 +291,9 @@
   <data name="deschismdel" xml:space="preserve">
     <value>Delete the heavy "HiSqool Manager" folder and service (contains the software to manage this PC (Spyware/Malware)) (In : C:\Program Files\Unowhy)</value>
   </data>
+  <data name="desclocka" xml:space="preserve">
+    <value>Enable the ability to lock the user account. For an unknown reason, Unowhy deployed a new version of HiSqoolManager that disable the ability to lock the user account (For exemple, by pressing Win+L). Do this to enable it</value>
+  </data>
   <data name="descpcname" xml:space="preserve">
     <value>Change the name of this PC (NETBIOS). By default, the Windows PC name of the Y13 is the serial number (IFP...)</value>
   </data>
@@ -383,6 +386,9 @@
   </data>
   <data name="lang" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <data name="locka" xml:space="preserve">
+    <value>Enable the ability to lock the user account</value>
   </data>
   <data name="logsclean" xml:space="preserve">
     <value>Cleanup logs</value>
