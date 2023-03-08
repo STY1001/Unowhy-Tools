@@ -48,7 +48,7 @@ namespace Unowhy_Tools
 
         public static string ver = "21.00";
         public static int verfull = 2100;
-        public static int verbuild = 093106323;
+        public static int verbuild = 204808323;
         public static bool verisdeb = true;
 
         public class version
@@ -1165,7 +1165,7 @@ namespace Unowhy_Tools
 
             #endregion
 
-            #region TaskMGR
+            #region Account Lockout
 
             Write2Log("=== Account Lockout ===");
             RegistryKey la = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
