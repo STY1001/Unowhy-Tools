@@ -42,7 +42,7 @@
             <!--  This is the main navigation of the application.  -->
             <ui:NavigationStore x:Name="RootNavigation"
                                 Grid.Column="0"
-                                Margin="6,0,6,0"
+                                Margin="6,0,6,1"
                                 Frame="{Binding ElementName=RootFrame}"
                                 Navigated="RootNavigation_OnNavigated"
                                 Precache="False"
