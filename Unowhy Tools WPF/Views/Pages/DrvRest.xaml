@@ -72,6 +72,7 @@
                     <ui:Button x:Name="convbtn"
                                Command="{Binding ViewModel.NavigateCommand}"
                                CommandParameter="navigate_to_drvconv"
+                               Click="GoForw"
                                Grid.Row="2"
                                Content="Convert" />
                     <TextBlock x:Name="labpath"

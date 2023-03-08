@@ -25,6 +25,11 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
     {
         UT.anim.TransitionBack(RootGrid);
     }
+    
+    public void GoForw(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionForw(RootGrid);
+    }
 
     public void applylang()
     {
