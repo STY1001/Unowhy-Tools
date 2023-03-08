@@ -87,6 +87,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
             var web = new HttpClient();
             string newver = await web.GetStringAsync("https://bit.ly/UTnvTXT");
             newver = newver.Insert(2, ".");
+            newver = newver.Replace("\n", "");
             string newverfull = UT.GetLang("newver") + " (" + UT.version.getver() + " -> " + newver + ")";
             labtext.Text = newverfull;
             UpdateBTN.Click -= CheckButton_Click;
