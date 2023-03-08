@@ -24,7 +24,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
         public DialogI()
         {
             InitializeComponent();
-            Visibility = Visibility.Hidden;
+            Visibility = Visibility.Collapsed;
         }
 
         private bool _hideRequest = false;
@@ -139,7 +139,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
 
         private void RealHideDialog(object sender, EventArgs e)
         {
-            Visibility = Visibility.Hidden;
+            Visibility = Visibility.Collapsed;
             _hideRequest = true;
         }
 

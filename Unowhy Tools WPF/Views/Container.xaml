@@ -312,14 +312,14 @@
             </ui:TitleBar.Tray>
             -->
         </ui:TitleBar>
-        <controls:DialogQ Visibility="Hidden"
+        <controls:DialogQ Visibility="Collapsed"
                           x:Name="DialogQRoot"
-                          Grid.Row="1" />
-        <controls:DialogI Visibility="Hidden"
+                          Grid.Row="0" Grid.RowSpan="2" />
+        <controls:DialogI Visibility="Collapsed"
                           x:Name="DialogIRoot"
-                          Grid.Row="1" />
-        <controls:Wait Visibility="Hidden"
+                          Grid.Row="0" Grid.RowSpan="2" />
+        <controls:Wait Visibility="Collapsed"
                        x:Name="WaitRoot"
-                       Grid.Row="1" />
+                       Grid.Row="0" Grid.RowSpan="2" />
     </Grid>
 </ui:UiWindow>

@@ -207,6 +207,9 @@ public partial class Container : INavigationWindow
             SplashBar.Value = 100;
             await Task.Delay(1000);
 
+            Navigate(typeof(Dashboard));
+            Navigate(typeof(Settings));
+
             UT.anim.TransitionForw(RootWelcomeGrid);
 
             await Task.Delay(150);
@@ -218,6 +221,7 @@ public partial class Container : INavigationWindow
             if (fs)
             {
                 UT.DialogIShow("\n\nHello, select your language and click \"OK\" \n\nBonjour, séléctionner votre langue et cliquer sur \"OK\"", "hi.png");
+                RootNavigation.Visibility = Visibility.Collapsed;
                 Navigate(typeof(Settings));
             }
         }

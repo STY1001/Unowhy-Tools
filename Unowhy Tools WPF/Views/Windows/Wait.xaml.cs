@@ -32,7 +32,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
             lab1.Text = UT.GetLang("wait");
             text.Text = UT.GetLang("wait");
 
-            Visibility = Visibility.Hidden;
+            Visibility = Visibility.Collapsed;
         }
 
         public async Task Show()
@@ -124,7 +124,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
 
         public void RealHide(object sender, EventArgs e)
         {
-            Visibility = Visibility.Hidden;
+            Visibility = Visibility.Collapsed;
         }
     }
 }

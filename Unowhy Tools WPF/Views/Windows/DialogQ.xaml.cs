@@ -23,7 +23,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
         public DialogQ()
         {
             InitializeComponent();
-            Visibility = Visibility.Hidden;
+            Visibility = Visibility.Collapsed;
             btn_no.Text = UT.GetLang("no");
             btn_yes.Text = UT.GetLang("yes");
         }
@@ -141,7 +141,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
         private void RealHideDialog(object sender, EventArgs e)
         {
             _hideRequest = true;
-            Visibility = Visibility.Hidden;
+            Visibility = Visibility.Collapsed;
         }
 
         private void YesButton_Click(object sender, RoutedEventArgs e)
