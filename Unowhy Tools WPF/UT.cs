@@ -1165,6 +1165,33 @@ namespace Unowhy_Tools
 
             #endregion
 
+            #region TaskMGR
+
+            Write2Log("=== Account Lockout ===");
+            RegistryKey la = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
+            if (la != null)
+            {
+                object l = la.GetValue("DisableLockWorkstation", null);
+                if (l == null)
+                {
+                    UTdata.LockA = true;
+                    Write2Log("Account Lockout is enabled");
+                }
+                else
+                {
+                    UTdata.LockA = false;
+                    Write2Log("Account Lockout is disabled");
+                }
+            }
+            else
+            {
+                UTdata.LockA = true;
+                Write2Log("Account Lockout is enabled");
+            }
+            Write2Log("=== End ===" + Environment.NewLine);
+
+            #endregion
+
             Write2Log("====== End ======");
         }
 
@@ -1231,6 +1258,7 @@ namespace Unowhy_Tools
             private static string _adminsname;
             private static string _adminname;
             private static bool _taskmgr;
+            private static bool _locka;
             private static bool _admin;
             private static bool _aad;
             private static bool _aaduser;
@@ -1348,6 +1376,15 @@ namespace Unowhy_Tools
                 set
                 {
                     _taskmgr = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool LockA
+            {
+                get { return _locka; }
+                set
+                {
+                    _locka = value;
                     OnPropertyChanged();
                 }
             }
