@@ -241,6 +241,38 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
+            <ui:CardControl Margin="10,10,10,0"
+                            x:Name="locka">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/key.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="locka_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Enable the ability to lock the user account" />
+                            <TextBlock x:Name="locka_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="locka_Click"
+                           x:Name="locka_btn"
+                           Content="Enable"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
         </StackPanel>
     </Grid>
 </ui:UiPage>

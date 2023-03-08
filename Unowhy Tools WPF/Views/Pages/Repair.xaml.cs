@@ -48,6 +48,9 @@ public partial class Repair : INavigableView<DashboardViewModel>
         tmgr_txt.Text = UT.GetLang("taskmgr");
         tmgr_desc.Text = UT.GetLang("desctaskmgr");
         tmgr_btn.Content = UT.GetLang("enable");
+        locka_txt.Text = UT.GetLang("locka");
+        locka_desc.Text = UT.GetLang("desclocka");
+        locka_btn.Content = UT.GetLang("enable");
     }
 
     public async Task CheckBTN()
@@ -70,6 +73,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         else tis.IsEnabled = false;
         if (UTdata.TaskMGR) tmgr.IsEnabled = false;
         else tmgr.IsEnabled = true;
+        if (UTdata.LockA) locka.IsEnabled = false;
+        else locka.IsEnabled = true;
     }
 
     public async void Init(object sender, EventArgs e)
@@ -205,6 +210,24 @@ public partial class Repair : INavigableView<DashboardViewModel>
                 UT.DialogIShow(UT.GetLang("failed"), "no.png");
             }
         }
-
+    }
+    
+    public async void locka_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("locka"), "key.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableLockWorkstation /f");
+            await CheckBTN();
+            await UT.waitstatus.close();
+            if (!tmgr.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
     }
 }
