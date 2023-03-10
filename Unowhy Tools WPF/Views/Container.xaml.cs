@@ -156,6 +156,9 @@ public partial class Container : INavigationWindow
 
     private async Task Load()
     {
+        RootMainGrid.Visibility = Visibility.Collapsed;
+        RootWelcomeGrid.Visibility = Visibility.Visible;
+        
         DoubleAnimation anim = new DoubleAnimation();
         anim.From = 10000;
         anim.To = 0;
@@ -165,9 +168,6 @@ public partial class Container : INavigationWindow
         RootWelcomeGrid.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
-        RootMainGrid.Visibility = Visibility.Collapsed;
-        RootWelcomeGrid.Visibility = Visibility.Visible;
-        
         string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
         if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
         else ver = ver + "(Release)";
@@ -193,7 +193,7 @@ public partial class Container : INavigationWindow
         else
         {
             SplashText.Text = "Hi !";
-            await Task.Delay(1000);
+            
             SplashText.Text = "Loading... (Cleaning)";
             SplashBar.Value = 25;
             await UT.Cleanup();
