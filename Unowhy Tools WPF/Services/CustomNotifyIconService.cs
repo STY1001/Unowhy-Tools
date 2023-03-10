@@ -1,9 +1,4 @@
-﻿
-
-
-
-
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -16,11 +11,10 @@ public class CustomNotifyIconService : NotifyIconService
 {
     public CustomNotifyIconService()
     {
-        /*
-        TooltipText = "WPF UI - Service Icon";
+        TooltipText = "Unowhy Tools C# Tray";
 
         // If this icon is not defined, the application icon will be used.
-        Icon = BitmapFrame.Create(new Uri("pack://application:,,,/Resources/wpfui.png", UriKind.Absolute));
+        Icon = BitmapFrame.Create(new Uri("pack://application:,,,/Resources/UT.png", UriKind.Absolute));
 
         ContextMenu = new ContextMenu
         {
@@ -58,7 +52,6 @@ public class CustomNotifyIconService : NotifyIconService
         foreach (var singleContextMenuItem in ContextMenu.Items)
             if (singleContextMenuItem is MenuItem)
                 ((MenuItem)singleContextMenuItem).Click += OnMenuItemClick;
-        */
     }
 
     protected override void OnLeftClick()
