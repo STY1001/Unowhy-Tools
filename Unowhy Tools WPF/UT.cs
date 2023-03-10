@@ -48,8 +48,8 @@ namespace Unowhy_Tools
 
         public static string ver = "21.00";
         public static int verfull = 2100;
-        public static int verbuild = 212110323;
-        public static bool verisdeb = true;
+        public static int verbuild = 224510323;
+        public static bool verisdeb = false;
 
         public class version
         {
@@ -724,18 +724,15 @@ namespace Unowhy_Tools
 
         public static void RunAdmin(string args)
         {
-            if (!CheckAdmin())
-            {
-                // Restart and run as admin
-                var exeName = Process.GetCurrentProcess().MainModule.FileName;
-                ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
-                startInfo.UseShellExecute = true;
-                startInfo.WorkingDirectory = Directory.GetCurrentDirectory();
-                startInfo.Verb = "runas";
-                startInfo.Arguments = $"{args}";
-                Process.Start(startInfo);
-                System.Windows.Application.Current.Shutdown();
-            }
+            // Restart and run as admin
+            var exeName = Process.GetCurrentProcess().MainModule.FileName;
+            ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+            startInfo.UseShellExecute = true;
+            startInfo.WorkingDirectory = Directory.GetCurrentDirectory();
+            startInfo.Verb = "runas";
+            startInfo.Arguments = $"{args}";
+            Process.Start(startInfo);
+            System.Windows.Application.Current.Shutdown();
         }
 
         public static bool CheckInternet()
