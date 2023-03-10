@@ -205,10 +205,11 @@ public partial class Container : INavigationWindow
             await UT.Check();
             SplashText.Text = "Ready !";
             SplashBar.Value = 100;
-            await Task.Delay(1000);
-
+            
             Navigate(typeof(Dashboard));
             Navigate(typeof(Settings));
+            
+            await Task.Delay(1000);
 
             UT.anim.TransitionForw(RootWelcomeGrid);
 
