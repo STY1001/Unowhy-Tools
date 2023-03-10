@@ -23,6 +23,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class DebugPage : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     private readonly ISnackbarService _snackbarService;
 
     public DashboardViewModel ViewModel
@@ -67,15 +69,17 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
+        debus.Text = "DL...";
         var web = new HttpClient();
         var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTdebupdateZIP");
         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
         File.WriteAllBytes(utemp + "\\update.zip", filebyte);
+        debus.Text = "EX...";
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
         string pre = utemp + "\\update";
         string post = Directory.GetCurrentDirectory();
 
-        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & \"Unowhy Tools.exe\"");
+        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -u {UTdata.UserID}");
 
     }   
 

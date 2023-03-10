@@ -304,6 +304,7 @@
                                        Text="Update Debug Version" />
                             <TextBlock FontSize="12"
                                        Foreground="#bebebe"
+                                       x:Name="debus"
                                        Text="Click to update" />
                         </StackPanel>
                     </Grid>

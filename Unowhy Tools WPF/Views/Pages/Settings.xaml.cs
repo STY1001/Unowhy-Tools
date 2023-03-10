@@ -17,6 +17,8 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class Settings : INavigableView<DashboardViewModel>
 {
+    UT.Data UTdata = new UT.Data();
+
     public DashboardViewModel ViewModel
     {
         get;
@@ -108,8 +110,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         }
 
         key.SetValue("Init", "1");
-        System.Windows.Forms.Application.Restart();
-        System.Windows.Application.Current.Shutdown();
+        UT.RunAdmin($"-u {UTdata.UserID}");
     }
 
     public async void Init(object sender, EventArgs e)
