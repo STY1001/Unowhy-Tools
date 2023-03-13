@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 using Wpf.Ui.Mvvm.Services;
 
 namespace Unowhy_Tools_WPF.Services;
@@ -11,11 +12,11 @@ public class CustomNotifyIconService : NotifyIconService
 {
     public CustomNotifyIconService()
     {
-        TooltipText = "Unowhy Tools C# Tray";
+        TooltipText = "Unowhy Tools";
 
         // If this icon is not defined, the application icon will be used.
         Icon = BitmapFrame.Create(new Uri("pack://application:,,,/Resources/UT.png", UriKind.Absolute));
-
+        /*
         ContextMenu = new ContextMenu
         {
             FontSize = 14d,
@@ -24,7 +25,7 @@ public class CustomNotifyIconService : NotifyIconService
                 new Wpf.Ui.Controls.MenuItem
                 {
                     Header = "Home",
-                    SymbolIcon = SymbolRegular.Library28,
+                    SymbolIcon = SymbolRegular.Home28,
                     Tag = "home"
                 },
                 new Wpf.Ui.Controls.MenuItem
@@ -52,6 +53,7 @@ public class CustomNotifyIconService : NotifyIconService
         foreach (var singleContextMenuItem in ContextMenu.Items)
             if (singleContextMenuItem is MenuItem)
                 ((MenuItem)singleContextMenuItem).Click += OnMenuItemClick;
+        */
     }
 
     protected override void OnLeftClick()
@@ -61,7 +63,7 @@ public class CustomNotifyIconService : NotifyIconService
 
     private void OnMenuItemClick(object sender, RoutedEventArgs e)
     {
-        if (sender is not MenuItem menuItem)
+        if (sender is not Wpf.Ui.Controls.MenuItem menuItem)
             return;
 
         System.Diagnostics.Debug.WriteLine($"DEBUG | WPF UI Tray clicked: {menuItem.Tag}", "Unowhy_Tools_WPF");
