@@ -8,6 +8,8 @@ using System;
 using Microsoft.Win32;
 using System.Windows.Media;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -30,6 +32,23 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = -50;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(600);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        quickoption.RenderTransform = trans;
+
+        DoubleAnimation anim2 = new DoubleAnimation();
+        anim2.From = 0;
+        anim2.To = 1;
+        anim2.Duration = TimeSpan.FromMilliseconds(600);
+        anim2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+        quickoption.BeginAnimation(Border.OpacityProperty, anim2);
+        trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
         string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
 
         if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
@@ -39,6 +58,10 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
         applylang();
         pcname.Text = UT.GetLine(UTdata.HostName, 1);
+        if (pcname.Text.Contains("Lenovo"))
+        {
+            pcname.Text = "Unowhy-Win11";
+        }
 
         if (UT.CheckInternet())
         {

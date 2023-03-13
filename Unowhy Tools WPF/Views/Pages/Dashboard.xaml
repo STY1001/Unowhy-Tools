@@ -63,6 +63,7 @@
             </Border>
         </Border>
         <Border Grid.Row="1"
+                x:Name="quickoption"
                 Background="#1b1b1b"
                 CornerRadius="0,0,8,8">
             <Grid Margin="12,18,12,12">

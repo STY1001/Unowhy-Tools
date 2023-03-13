@@ -5,6 +5,8 @@ using Unowhy_Tools;
 using System.Threading.Tasks;
 using System;
 using System.Windows;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -50,10 +52,41 @@ public partial class Customize : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
+        RootStack.Visibility = Visibility.Hidden;
+
         await UT.waitstatus.open();
         applylang();
         await CheckBTN();
         await UT.waitstatus.close();
+
+        RootStack.Visibility = Visibility.Visible;
+
+        foreach (UIElement element in RootStack.Children)
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
     }
 
     public Customize(DashboardViewModel viewModel)

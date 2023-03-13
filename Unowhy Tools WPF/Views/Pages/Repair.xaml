@@ -14,7 +14,7 @@
            Scrollable="True"
            mc:Ignorable="d">
     <Grid x:Name="RootGrid">
-        <StackPanel>
+        <StackPanel x:Name="RootStack">
             <ui:CardControl Margin="10,10,10,0"
                             x:Name="shell">
                 <ui:CardControl.Header>
