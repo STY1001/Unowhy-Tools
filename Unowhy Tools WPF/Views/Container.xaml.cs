@@ -206,8 +206,8 @@ public partial class Container : INavigationWindow
             SplashText.Text = "Ready !";
             SplashBar.Value = 100;
             
-            Navigate(typeof(Dashboard));
-            Navigate(typeof(Settings));
+            //Navigate(typeof(Dashboard));
+            //Navigate(typeof(Settings));
             
             await Task.Delay(1000);
 
