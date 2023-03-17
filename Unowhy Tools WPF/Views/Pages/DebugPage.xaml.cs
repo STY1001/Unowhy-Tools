@@ -106,8 +106,12 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         UT.DialogIShow(dialogtxt.Text, "about.png");
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private async void Button_Click(object sender, RoutedEventArgs e)
     {
+        UT.anim.BackBtnAnim(backbtn);
+        await Task.Delay(150);
         UT.anim.TransitionBack(Grid1);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(Dashboard));
     }
 }

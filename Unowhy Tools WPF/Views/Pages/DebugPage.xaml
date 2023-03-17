@@ -21,8 +21,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <ui:Button Grid.Row="2"
-                   Command="{Binding ViewModel.NavigateCommand}"
-                   CommandParameter="navigate_to_home"
+                   x:Name="backbtn"
                    Click="Button_Click"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"

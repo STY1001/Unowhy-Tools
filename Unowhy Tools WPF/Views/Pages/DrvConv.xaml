@@ -14,8 +14,7 @@
            mc:Ignorable="d">
 
     <Grid x:Name="RootGrid">
-        <ui:Button Command="{Binding ViewModel.NavigateCommand}"
-                   CommandParameter="navigate_to_drvrest"
+        <ui:Button x:Name="BackBTN"
                    Click="GoBack"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"

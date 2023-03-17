@@ -27,9 +27,13 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         get;
     }
 
-    public void GoBack(object sender, RoutedEventArgs e)
+    public async void GoBack(object sender, RoutedEventArgs e)
     {
+        UT.anim.BackBtnAnim(BackBTN);
+        await Task.Delay(150);
         UT.anim.TransitionBack(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(Repair));
     }
 
     public void applylang()

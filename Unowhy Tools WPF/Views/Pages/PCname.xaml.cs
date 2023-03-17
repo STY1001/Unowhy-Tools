@@ -6,6 +6,7 @@ using System.Windows;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -21,9 +22,13 @@ public partial class PCname : INavigableView<DashboardViewModel>
         get;
     }
 
-    public void GoBack(object sender, RoutedEventArgs e)
+    public async void GoBack(object sender, RoutedEventArgs e)
     {
+        UT.anim.BackBtnAnim(BackBTN);
+        await Task.Delay(150);
         UT.anim.TransitionBack(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(Customize));
     }
 
     public void applylang()

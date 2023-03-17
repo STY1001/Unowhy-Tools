@@ -27,6 +27,8 @@ using System.Windows.Input;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
+using System.Windows.Navigation;
+using Wpf.Ui.Controls;
 
 namespace Unowhy_Tools
 {
@@ -46,10 +48,10 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static string ver = "21.01";
-        public static int verfull = 2101;
+        public static string ver = "21.02";
+        public static int verfull = 2102;
         public static int verbuild = 204014323;
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -92,6 +94,7 @@ namespace Unowhy_Tools
         public class anim
         {
             public static Grid _grid;
+            public static Wpf.Ui.Controls.Button _button;
 
             public static void TransitionForw(Grid grid)
             {
@@ -124,6 +127,33 @@ namespace Unowhy_Tools
                 TranslateTransform trans = new TranslateTransform();
                 _grid.RenderTransform = trans;
                 anim.Completed += setnormalBack;
+                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            }
+
+            public static void BackBtnAnim(Wpf.Ui.Controls.Button btn)
+            {
+                _button = btn;
+                DoubleAnimation anim = new DoubleAnimation();
+                anim.From = 0;
+                anim.To = -150;
+                anim.Duration = TimeSpan.FromMilliseconds(500);
+                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+                
+                TranslateTransform trans = new TranslateTransform();
+                _button.RenderTransform = trans;
+                anim.Completed += setnormalBackBTN;
+                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            }
+            
+            public static void setnormalBackBTN(object sender, EventArgs e)
+            {
+                DoubleAnimation anim = new DoubleAnimation();
+                anim.From = -150;
+                anim.To = 0;
+                anim.Duration = TimeSpan.FromMilliseconds(0);
+                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+                TranslateTransform trans = new TranslateTransform();
+                _button.RenderTransform = trans;
                 trans.BeginAnimation(TranslateTransform.XProperty, anim);
             }
 
@@ -239,6 +269,12 @@ namespace Unowhy_Tools
             {
                 Write2Log("Open splash");
             }
+        }
+
+        public static async void NavigateTo(Type page)
+        {
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+            mainWindow.Navigate(page);
         }
 
         public static async Task Cleanup()

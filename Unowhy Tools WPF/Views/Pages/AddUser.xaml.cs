@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -23,9 +24,13 @@ public partial class AddUser : INavigableView<DashboardViewModel>
         get;
     }
 
-    public void GoBack(object sender, RoutedEventArgs e)
+    public async void GoBack(object sender, RoutedEventArgs e)
     {
+        UT.anim.BackBtnAnim(BackBTN);
+        await Task.Delay(150);
         UT.anim.TransitionBack(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(Customize));
     }
 
     public void applylang()

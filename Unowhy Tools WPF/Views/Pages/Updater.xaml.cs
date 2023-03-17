@@ -12,6 +12,9 @@ using System.IO.Compression;
 using System.Threading.Tasks;
 using Microsoft.Web.WebView2.Wpf;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System;
+using static Unowhy_Tools.UT;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -27,9 +30,13 @@ public partial class Updater : INavigableView<DashboardViewModel>
         get;
     }
 
-    public void GoBack(object sender, RoutedEventArgs e)
+    public async void GoBack(object sender, RoutedEventArgs e)
     {
+        UT.anim.BackBtnAnim(BackBTN);
+        await Task.Delay(150);
         UT.anim.TransitionBack(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(About));
     }
 
     public void applylang()
@@ -72,15 +79,89 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void GithubButton_Click(object sender, RoutedEventArgs e)
     {
-        browser.Source = new System.Uri("https://bit.ly/UTreleases"); 
+        browser.Source = new System.Uri("https://bit.ly/UTreleases");
+
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 150;
+        anim.Duration = TimeSpan.FromMilliseconds(600);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        gitbtn.RenderTransform = trans;
+
+        trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
+        await Task.Delay(600);
+
+        gitbtn.Click -= GithubButton_Click;
+        gitbtn.Click += GithubButton2_Click;
+        gitimg.Source = UT.GetImgSource("back.png");
+        gittxt.Text = "Change Log";
+
+        anim.From = -150;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(600);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        trans = new TranslateTransform();
+        gitbtn.RenderTransform = trans;
+
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+    }
+    
+    public async void GithubButton2_Click(object sender, RoutedEventArgs e)
+    {
+        browser.Source = new System.Uri("https://bit.ly/UTclogHTMLPrev");
+
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = -150;
+        anim.Duration = TimeSpan.FromMilliseconds(600);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        gitbtn.RenderTransform = trans;
+
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        await Task.Delay(600);
+
+        gitbtn.Click += GithubButton_Click;
+        gitbtn.Click -= GithubButton2_Click;
+        gitimg.Source = UT.GetImgSource("github.png");
+        gittxt.Text = "Github";
+
+        anim.From = 150;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(600);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        trans = new TranslateTransform();
+        gitbtn.RenderTransform = trans;
+
+        trans.BeginAnimation(TranslateTransform.YProperty, anim);
     }
     
     public async void CheckButton_Click(object sender, RoutedEventArgs e)
     {
-        labtext.Visibility = Visibility.Visible;
-        labimg.Visibility = Visibility.Visible;
         labtext.Text = UT.GetLang("update.check");
         labimg.Source = UT.GetImgSource("wait.png");
+
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 150;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(600);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        labimg.RenderTransform = trans;
+        labtext.RenderTransform = trans;
+
+        if(labimg.Visibility == Visibility.Hidden && labtext.Visibility == Visibility.Hidden)
+        {
+            labtext.Visibility = Visibility.Visible;
+            labimg.Visibility = Visibility.Visible;
+            trans.BeginAnimation(TranslateTransform.YProperty, anim);
+        }
+
+        await Task.Delay(600);
+        
         if (await UT.version.newver())
         {
             labimg.Source = UT.GetImgSource("yes.png");
