@@ -4,7 +4,7 @@
 # A tool for Unowhy Y13 computers !
 
 *Unowhy Tools and STY1001 are __NOT__ affiliated with Unowhy !*
-#### _**This in French : https://sty1001.cf/unowhy-tools/**_
+#### _**This in French : https://sty1001.fr/unowhy-tools/**_
 
 ## Features
 Currently, with this tool you can:
@@ -31,6 +31,8 @@ Currently, with this tool you can:
 - Quickly launch CMD, TaskMgr, REGedit, GPedit
 - Download an UT driver backup from cloud
 - Del "IgnoreAllFailures" (Boot Status Policy) in BCD
+- Enable TaskMGR
+- Enable account lockout
 
 More features coming soon
 
