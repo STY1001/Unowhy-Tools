@@ -802,7 +802,7 @@ namespace Unowhy_Tools
             {
                 UTdata.User = UTdata.UserID.Replace(UTdata.HostName.ToLower() + "\\", "");
             }
-            else if (UTdata.UserID.Contains("AzureAD"))
+            else if (UTdata.UserID.Contains("azuread"))
             {
                 UTdata.User = UTdata.UserID;
                 UTdata.AADUser = true;
