@@ -52,7 +52,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         if (UTdata.md.Contains("Y13G002")) year = "(2019)";
         uid.Text = UTdata.UserID;
         pcn.Text = UTdata.HostName;
-        mf.Text = UT.GetLine(UTdata.mf, 1).Replace(" ", "") + " " + UT.GetLine(UTdata.md, 1).Replace(" ", "") + " " + year;
+        mf.Text = UT.GetLine(UTdata.mf, 1).Replace("  ", "") + " " + UT.GetLine(UTdata.md, 1).Replace("  ", "") + " " + year;
         sn.Text = UTdata.sn;
         bv.Text = UTdata.bios;
         wv.Text = UTdata.os;
