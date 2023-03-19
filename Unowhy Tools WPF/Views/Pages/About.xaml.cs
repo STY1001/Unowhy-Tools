@@ -120,7 +120,7 @@ public partial class About : INavigableView<DashboardViewModel>
     {
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
-            FileName = "https://sty1001.cf",
+            FileName = "https://sty1001.fr",
             UseShellExecute = true
         });
     }

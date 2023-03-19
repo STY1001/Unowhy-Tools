@@ -234,7 +234,7 @@
                                            Text="STY1001's WebSite" />
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
-                                           Text="sty1001.cf" />
+                                           Text="sty1001.fr" />
                             </StackPanel>
                         </Grid>
                     </ui:Button>
