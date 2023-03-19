@@ -26,6 +26,78 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         UT.anim.TransitionForw(RootGrid);
     }
+    
+    public async void AdminSet_Click(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        auset_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        await Task.Delay(200);
+        UT.anim.TransitionForw(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(AdminUser));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        auset_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+    }
+    
+    public async void AddUser_Click(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        adduser_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        await Task.Delay(200);
+        UT.anim.TransitionForw(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(AdminUser));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        adduser_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+    }
+    
+    public async void PCname_Click(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        pcname_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        await Task.Delay(200);
+        UT.anim.TransitionForw(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(AdminUser));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        pcname_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+    }
 
     public void applylang()
     {

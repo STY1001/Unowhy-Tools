@@ -39,9 +39,7 @@
                         </StackPanel>
                     </Grid>
                 </ui:CardControl.Header>
-                <ui:Button Command="{Binding ViewModel.NavigateCommand}"
-                           CommandParameter="navigate_to_pcname"
-                           Click="GoForw"
+                <ui:Button Click="PCname_Click"
                            x:Name="pcname_btn"
                            Content="Change"
                            Grid.Column="0"
@@ -105,10 +103,8 @@
                         </StackPanel>
                     </Grid>
                 </ui:CardControl.Header>
-                <ui:Button Command="{Binding ViewModel.NavigateCommand}"
-                           CommandParameter="navigate_to_adduser"
-                           x:Name="adduser_btn"
-                           Click="GoForw"
+                <ui:Button x:Name="adduser_btn"
+                           Click="AddUser_Click"
                            Content="Create"
                            Grid.Column="0"
                            Grid.ColumnSpan="4"
@@ -140,9 +136,7 @@
                     </Grid>
                 </ui:CardControl.Header>
                 <ui:Button Grid.Column="0"
-                           Command="{Binding ViewModel.NavigateCommand}"
-                           CommandParameter="navigate_to_adminuser"
-                           Click="GoForw"
+                           Click="AdminSet_Click"
                            x:Name="auset_btn"
                            Content="Open"
                            Grid.ColumnSpan="4"

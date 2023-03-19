@@ -8,6 +8,9 @@ using System.IO;
 using System.Threading.Tasks;
 using System.IO.Compression;
 using System.Diagnostics;
+using System.Windows.Media.Animation;
+using System;
+using System.Windows.Media;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -30,9 +33,28 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(Drivers));
     }
     
-    public void GoForw(object sender, RoutedEventArgs e)
+    public async void GoForw(object sender, RoutedEventArgs e)
     {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        convbtn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        await Task.Delay(150);
         UT.anim.TransitionForw(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(DrvConv));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        convbtn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
 
     public void applylang()

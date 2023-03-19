@@ -104,9 +104,7 @@
                     </Grid>
                 </ui:CardControl.Header>
                 <ui:Button Grid.Column="0"
-                           Command="{Binding ViewModel.NavigateCommand}"
-                           CommandParameter="navigate_to_winre"
-                           Click="GoForw"
+                           Click="winre_Click"
                            x:Name="wre_btn"
                            Content="Open"
                            Grid.ColumnSpan="4"

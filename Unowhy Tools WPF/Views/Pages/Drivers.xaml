@@ -79,22 +79,12 @@
                     </Grid>
                 </ui:CardControl.Header>
                 <ui:Button Grid.Column="0"
-                           Command="{Binding ViewModel.NavigateCommand}"
-                           CommandParameter="navigate_to_drvback"
-                           Click="GoForw"
+                           Click="bk_Click"
+                           Content="Backup"
+                           x:Name="bk_btn"
                            Grid.ColumnSpan="4"
                            HorizontalAlignment="Stretch"
-                           Margin="0,0,0,0">
-                    <StackPanel>
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock x:Name="bk_btn"
-                                       Margin="0"
-                                       FontSize="13"
-                                       FontWeight="Regular"
-                                       Text="Backup" />
-                        </StackPanel>
-                    </StackPanel>
-                </ui:Button>
+                           Margin="0,0,0,0" />
             </ui:CardControl>
             <ui:CardControl Margin="10,10,10,0">
                 <ui:CardControl.Header>
@@ -120,22 +110,12 @@
                     </Grid>
                 </ui:CardControl.Header>
                 <ui:Button Grid.Column="0"
-                           Command="{Binding ViewModel.NavigateCommand}"
-                           CommandParameter="navigate_to_drvrest"
-                           Click="GoForw"
+                           x:Name="rt_btn"
+                           Content="Restore"
+                           Click="rt_Click"
                            Grid.ColumnSpan="4"
                            HorizontalAlignment="Stretch"
-                           Margin="0,0,0,0">
-                    <StackPanel>
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock x:Name="rt_btn"
-                                       Margin="0"
-                                       FontSize="13"
-                                       FontWeight="Regular"
-                                       Text="Restore" />
-                        </StackPanel>
-                    </StackPanel>
-                </ui:Button>
+                           Margin="0,0,0,0" />
             </ui:CardControl>
         </StackPanel>
     </Grid>

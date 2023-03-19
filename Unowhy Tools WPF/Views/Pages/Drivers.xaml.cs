@@ -26,6 +26,54 @@ public partial class Drivers : INavigableView<DashboardViewModel>
         UT.anim.TransitionForw(RootGrid);
     }
 
+    public async void bk_Click(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        bk_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        await Task.Delay(200);
+        UT.anim.TransitionForw(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(DrvBack));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        bk_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+    }
+
+    public async void rt_Click(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        rt_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        await Task.Delay(200);
+        UT.anim.TransitionForw(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(DrvRest));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        rt_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+    }
+
     public void applylang()
     {
         dlcloud_txt.Text = UT.GetLang("bkcloud");
@@ -33,10 +81,10 @@ public partial class Drivers : INavigableView<DashboardViewModel>
         dlcloud_btn.Text = UT.GetLang("dl");
         bk_txt.Text = UT.GetLang("back");
         bk_desc.Text = UT.GetLang("drvbr");
-        bk_btn.Text = UT.GetLang("backup");
+        bk_btn.Content = UT.GetLang("backup");
         rt_txt.Text = UT.GetLang("rest");
         rt_desc.Text = UT.GetLang("drvbr");
-        rt_btn.Text = UT.GetLang("restore");
+        rt_btn.Content = UT.GetLang("restore");
     }
 
     public async void Init(object sender, EventArgs e)

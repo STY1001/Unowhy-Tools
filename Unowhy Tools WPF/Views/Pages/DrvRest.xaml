@@ -69,8 +69,6 @@
                                Text="Convert an old backup (&lt;18.0):"
                                Foreground="#ffffff" />
                     <ui:Button x:Name="convbtn"
-                               Command="{Binding ViewModel.NavigateCommand}"
-                               CommandParameter="navigate_to_drvconv"
                                Click="GoForw"
                                Grid.Row="2"
                                Content="Convert" />

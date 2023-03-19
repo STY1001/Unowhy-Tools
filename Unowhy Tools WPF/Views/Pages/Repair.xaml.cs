@@ -27,6 +27,30 @@ public partial class Repair : INavigableView<DashboardViewModel>
         UT.anim.TransitionForw(RootGrid);
     }
 
+    public async void winre_Click(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        wre_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        await Task.Delay(200);
+        UT.anim.TransitionForw(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(WinRE));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        wre_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+    }
+
     public void applylang()
     {
         shell_txt.Text = UT.GetLang("shell");
