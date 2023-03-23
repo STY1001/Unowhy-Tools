@@ -235,19 +235,19 @@ public partial class Wifi : INavigableView<DashboardViewModel>
                         {
                             DataRow row = new DataRow();
 
-                            row.SSID = options["ssid"].ToString() + " ";
-                            row.Password = options["password"].ToString() + " ";
-                            row.SecurityType = options["securityType"].ToString() + " ";
+                            row.SSID = options["ssid"].ToString() + "   ";
+                            row.Password = options["password"].ToString() + "   ";
+                            row.SecurityType = options["securityType"].ToString() + "   ";
                             if (options["hidden"] != null)
                             {
-                                row.Hidden = options["hidden"].ToString() + " ";
+                                row.Hidden = options["hidden"].ToString() + "   ";
                             }
                             else
                             {
-                                row.Hidden = "Null" + " ";
+                                row.Hidden = "Null" + "   ";
                             }
 
-                            row.ProxyType = proxy["type"].ToString();
+                            row.ProxyType = proxy["type"].ToString() + "   ";
 
                             if (proxy["type"].ToString() == "none")
                             {
@@ -255,12 +255,12 @@ public partial class Wifi : INavigableView<DashboardViewModel>
                             }
                             else if (proxy["type"].ToString() == "manual")
                             {
-                                row.ProxyAddressManual = proxy["proxyHostName"].ToString() + " ";
-                                row.ProxyPortManual = proxy["proxyPort"].ToString() + " ";
+                                row.ProxyAddressManual = proxy["proxyHostName"].ToString() + "   ";
+                                row.ProxyPortManual = proxy["proxyPort"].ToString() + "   ";
                             }
                             else if (proxy["type"].ToString() == "automatic")
                             {
-                                row.ProxyUrlAutomatic = proxy["autoProxyUrl"].ToString() + " ";
+                                row.ProxyUrlAutomatic = proxy["autoProxyUrl"].ToString() + "   ";
                             }
 
                             dataRows.Add(row);

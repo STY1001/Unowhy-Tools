@@ -60,6 +60,7 @@
                 <ui:DataGrid Grid.Row="2"
                              MinHeight="300"
                              MinWidth="600"
+                             IsReadOnly="True"
                              x:Name="Board" />
             </Grid>
         </Border>
