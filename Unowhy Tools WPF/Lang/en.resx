@@ -417,6 +417,9 @@
   <data name="no" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="noid" xml:space="preserve">
+    <value>Your PC's serial number was not found, make sure you entered your serial number correctly</value>
+  </data>
   <data name="nonet" xml:space="preserve">
     <value>No internet connection</value>
   </data>
