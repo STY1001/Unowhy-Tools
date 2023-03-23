@@ -120,6 +120,7 @@ namespace Unowhy_Tools_Service
                                                 Password = options["password"].ToString();
                                                 SecurityType = options["securityType"].ToString();
                                                 ProxyType = proxy["type"].ToString();
+                                                EncryptionType = null;
 
                                                 if(SecurityType == "open")
                                                 {
@@ -135,6 +136,11 @@ namespace Unowhy_Tools_Service
                                                 {
                                                     SecurityType = "open";
                                                     EncryptionType = "WEP";
+                                                }
+                                                else if(SecurityType == "802.1x EAP")
+                                                {
+                                                    SecurityType = "WPA2Enterprise";
+                                                    EncryptionType = "AES";
                                                 }
 
                                                 if (ProxyType == "none")
