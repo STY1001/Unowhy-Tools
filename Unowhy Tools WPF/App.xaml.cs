@@ -63,6 +63,7 @@ public partial class App
             services.AddScoped<Views.Pages.DebugPage>();
             services.AddScoped<Views.Pages.Settings>();
             services.AddScoped<Views.Pages.Updater>();
+            services.AddScoped<Views.Pages.Wifi>();
             services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
             services.AddScoped<UT>();
         }).Build();
