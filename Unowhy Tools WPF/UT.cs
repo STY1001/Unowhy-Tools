@@ -48,10 +48,10 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static string ver = "21.02";
-        public static int verfull = 2102;
+        public static string ver = "22.00";
+        public static int verfull = 2200;
         public static int verbuild = 173919323;
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -580,6 +580,24 @@ namespace Unowhy_Tools
                 Write2Log("=== Unowhy Tools Logs ===");
             }
 
+            RegistryKey keysys = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
+
+            RegistryKey keysoftsys = Registry.LocalMachine.OpenSubKey(@"Software", true);
+
+            RegistryKey keystysys = Registry.LocalMachine.OpenSubKey(@"Software\STY1001", true);
+            if (keystysys == null)
+            {
+                keysoftsys.CreateSubKey("STY1001");
+            }
+
+            keystysys = Registry.LocalMachine.OpenSubKey(@"Software\STY1001", true);
+
+            RegistryKey keyutsys = Registry.LocalMachine.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
+            if (keyutsys == null)
+            {
+                keystysys.CreateSubKey("Unowhy Tools");
+            }
+
             RegistryKey keysoft = Registry.CurrentUser.OpenSubKey(@"Software", true);
 
             RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
@@ -610,7 +628,13 @@ namespace Unowhy_Tools
                 //await RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f");
                 key.SetValue("Lang", "EN", RegistryValueKind.String);
             }
-            
+
+            object d = keysys.GetValue("Device", null);
+            if (d == null)
+            {
+                keysys.SetValue("Device", "Null", RegistryValueKind.String);
+            }
+
             object i = key.GetValue("Init", null);
             if(i == null)
             {
