@@ -53,11 +53,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public void STY1001_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        System.Diagnostics.Process.Start(new ProcessStartInfo
-        {
-            FileName = "https://sty1001.cf",
-            UseShellExecute = true
-        });
+        UT.NavigateTo(typeof(Wifi));
     }
 
     public async void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
