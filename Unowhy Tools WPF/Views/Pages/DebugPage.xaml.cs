@@ -15,6 +15,8 @@ using System.Net.Http;
 using System.Windows.Media.Animation;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.IO.Pipes;
+using Wpf.Ui.Interop.WinDef;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -23,6 +25,7 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class DebugPage : INavigableView<DashboardViewModel>
 {
+    NamedPipeClientStream pipeClient;
     UT.Data UTdata = new UT.Data();
 
     private readonly ISnackbarService _snackbarService;
@@ -109,5 +112,11 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         UT.anim.TransitionBack(Grid1);
         await Task.Delay(200);
         UT.NavigateTo(typeof(Dashboard));
+    }
+
+    private async void Button_Click_1(object sender, RoutedEventArgs e)
+    {
+        string rep = await UT.UTSmsg(pipe.Text, msg.Text);
+        UT.DialogIShow(rep, "about.png");
     }
 }

@@ -13,7 +13,7 @@
            Scrollable="True"
            mc:Ignorable="d">
 
-    
+
     <Grid x:Name="Grid1">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -351,20 +351,29 @@
                 </ui:Button>
             </ui:CardControl>
         </Grid>
-        <StackPanel Orientation="Horizontal"
-                    Margin="0,200,0,0"
+        <StackPanel Margin="0,200,0,0"
                     Grid.Row="3">
-            <ui:Button Content="Apply lang"
-                       Click="al_click"
-                       IsEnabled="False" />
-            <ui:TextBox Text="Dialog Text Test"
-                        x:Name="dialogtxt"
-                        Width="250" />
-            <ui:Button Content="Test DialogQ"
-                       Click="DialoQ_Test"
-                       x:Name="dqtest" />
-            <ui:Button Content="Test DialogI"
-                       Click="DialogI_Test" />
+            <StackPanel Orientation="Horizontal">
+                <ui:Button Content="Apply lang"
+                           Click="al_click"
+                           IsEnabled="False" />
+                <ui:TextBox Text="Dialog Text Test"
+                            x:Name="dialogtxt"
+                            Width="250" />
+                <ui:Button Content="Test DialogQ"
+                           Click="DialoQ_Test"
+                           x:Name="dqtest" />
+                <ui:Button Content="Test DialogI"
+                           Click="DialogI_Test" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ui:TextBox x:Name="pipe"
+                            Width="250" />
+                <ui:TextBox x:Name="msg"
+                            Width="250" />
+                <ui:Button Content="Connect"
+                           Click="Button_Click_1" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </ui:UiPage>
