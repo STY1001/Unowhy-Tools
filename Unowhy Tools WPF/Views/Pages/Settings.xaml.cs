@@ -9,6 +9,8 @@ using System.Windows;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System;
+using System.Net.Http;
+using System.Net;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -32,10 +34,14 @@ public partial class Settings : INavigableView<DashboardViewModel>
         ol.Content = UT.GetLang("open");
         lablang.Text = UT.GetLang("lang");
         labus.Text = UT.GetLang("cuab");
+        labsn.Text = UT.GetLang("pcserial");
     }
 
     public async Task CheckBTN()
     {
+        string serial = await UT.UTSmsg("UTSW", "GetSN");
+        sn.Text = serial;
+
         RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
         string utlst = lcs.GetValue("Lang").ToString();
         if (utlst == "EN")
@@ -89,6 +95,40 @@ public partial class Settings : INavigableView<DashboardViewModel>
     public async void Apply_Settings(object sender, RoutedEventArgs e)
     {
         await UT.waitstatus.open();
+
+        if (UT.CheckInternet())
+        {
+            var web = new HttpClient();
+            string ssn = sn.Text;
+            string configurl = $"https://idf.hisqool.com/conf/devices/{ssn}/configuration";
+
+            HttpResponseMessage response = await web.GetAsync(configurl);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                await UT.UTSmsg("UTSW", $"SetSN:{ssn}");
+                await Task.Delay(1000);
+                string nsn = await UT.UTSmsg("UTSW", "GetSN"); 
+                if(!(nsn == ssn))
+                {
+                    await UT.waitstatus.close();
+                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    await UT.waitstatus.open();
+                }
+            }
+            else
+            {
+                await UT.waitstatus.close();
+                UT.DialogIShow(UT.GetLang("noid"), "no.png");
+                await UT.waitstatus.open();
+            }
+        }
+        else
+        {
+            await UT.waitstatus.close();
+            UT.DialogIShow(UT.GetLang("noco"), "nowifi.png");
+            await UT.waitstatus.open();
+        }
+
         RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
         if (lang_en.IsSelected)
         {
@@ -109,7 +149,6 @@ public partial class Settings : INavigableView<DashboardViewModel>
             key.SetValue("UpdateStart", "0");
         }
 
-        key.SetValue("Init", "1");
         UT.RunAdmin($"-u {UTdata.UserID}");
     }
 

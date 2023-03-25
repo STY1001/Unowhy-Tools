@@ -38,6 +38,8 @@
                         <RowDefinition Height="32" />
                         <RowDefinition Height="22" />
                         <RowDefinition Height="28" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="32" />
                     </Grid.RowDefinitions>
 
                     <Image Source="../../Resources/language.png"
@@ -48,6 +50,9 @@
                            Grid.Row="5" />
                     <Image Source="/Resources/update.png"
                            Grid.Row="7" />
+                    <Image Source="/Resources/datamatrix.png"
+                           Grid.Row="9" />
+                    
 
                 </Grid>
 
@@ -70,6 +75,10 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="3" />
                         <RowDefinition Height="22" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="3" />
+                        <RowDefinition Height="*" />
                         <RowDefinition Height="10" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
@@ -122,7 +131,14 @@
                     <CheckBox x:Name="us"
                               Grid.Row="14"
                               IsChecked="True" />
-                    <Grid Grid.Row="16">
+                    <TextBlock x:Name="labsn"
+                               Grid.Row="16"
+                               Text="Serial Number of this PC:"
+                               Foreground="#ffffff" />
+                    <ui:TextBox x:Name="sn"
+                                Grid.Row="18"
+                                Text="[SN]null" />
+                    <Grid Grid.Row="20">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
