@@ -262,13 +262,13 @@ namespace Unowhy_Tools_Service
                     {
                         while (true)
                         {
+                            string ret = "null";
                             string clientData = await reader.ReadLineAsync();
 
                             if (string.IsNullOrEmpty(clientData))
                             {
                                 break;
-                            }
-                            string ret = "null";
+                            }                            
 
                             if(clientData.Contains("GetSN"))
                             {

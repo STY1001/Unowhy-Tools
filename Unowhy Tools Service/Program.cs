@@ -15,6 +15,11 @@ namespace Unowhy_Tools_Service
             {
                 ServiceBase.Run(wifi);
             }
+            
+            using(var main = new Main())
+            {
+                ServiceBase.Run(main);
+            }
         }
     }
 }
