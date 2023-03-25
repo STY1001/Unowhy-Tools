@@ -126,7 +126,7 @@
                                        Visibility="Collapsed"
                                        Height="0"
                                        Content="PC Info"
-                                       PageType="{x:Type pages:PCname}" />
+                                       PageType="{x:Type pages:PCinfo}" />
                     <ui:NavigationItem x:Name="updater"
                                        Visibility="Collapsed"
                                        Height="0"
