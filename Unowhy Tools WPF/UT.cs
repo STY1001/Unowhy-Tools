@@ -29,6 +29,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using Wpf.Ui.Controls;
+using System.IO.Pipes;
 
 namespace Unowhy_Tools
 {
@@ -637,6 +638,39 @@ namespace Unowhy_Tools
                 return true;
             }
 
+        }
+
+        public static async Task<string> UTSmsg(string pipe, string msg)
+        {
+            string ret = null;
+
+            try
+            {
+                using (NamedPipeClientStream pipeClient = new NamedPipeClientStream(".", pipe, PipeDirection.InOut, PipeOptions.Asynchronous))
+                {
+                    await pipeClient.ConnectAsync();
+                    if (pipeClient.IsConnected)
+                    {
+                        using (var writer = new StreamWriter(pipeClient))
+                        using (var reader = new StreamReader(pipeClient))
+                        {
+                            await writer.WriteLineAsync(msg);
+                            await writer.FlushAsync();
+
+                            if (pipeClient.IsConnected)
+                            {
+                                ret = await reader.ReadLineAsync();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            return ret;
         }
 
         public static void Delay(int Time_delay)
