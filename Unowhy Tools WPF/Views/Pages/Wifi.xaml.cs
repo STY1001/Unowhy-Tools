@@ -33,8 +33,6 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 /// </summary>
 public partial class Wifi : INavigableView<DashboardViewModel>
 {
-    private NamedPipeClientStream pipeClient;
-
     UT.Data UTdata = new UT.Data();
 
     public DashboardViewModel ViewModel
@@ -52,22 +50,6 @@ public partial class Wifi : INavigableView<DashboardViewModel>
         
     }
 
-    private async Task SendMessage(string message)
-    {
-        using (StreamWriter writer = new StreamWriter(pipeClient))
-        using (StreamReader reader = new StreamReader(pipeClient))
-        {
-            await writer.WriteLineAsync(message);
-            await writer.FlushAsync();
-
-            if (pipeClient.IsConnected)
-            {
-                string response = await reader.ReadLineAsync();
-                UT.DialogIShow(response, "about.png");
-            }
-        }
-    }
-
     public void applylang()
     {
 
@@ -78,13 +60,6 @@ public partial class Wifi : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
-    }
-
-    private async void Button_Click(object sender, RoutedEventArgs e)
-    {
-        pipeClient = new NamedPipeClientStream(".", "UTSW", PipeDirection.InOut, PipeOptions.Asynchronous);
-        pipeClient.Connect();
-        SendMessage("Hello");
     }
 
     /*public async void Get_Click(object sender, RoutedEventArgs e)

@@ -15,13 +15,11 @@
            mc:Ignorable="d">
 
     <Grid x:Name="RootGrid">
-        <ui:Button Content="Test"
-                   VerticalAlignment="Bottom"
-                   Click="Button_Click" />
         <ui:Button x:Name="BackBTN"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Margin="10,10,0,0">
+            
             <Image Source="../../Resources/back.png"
                    Height="16" />
         </ui:Button>
