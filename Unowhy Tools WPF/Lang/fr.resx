@@ -459,6 +459,9 @@
   <data name="pcname" xml:space="preserve">
     <value>Changer le nom du PC Windows</value>
   </data>
+  <data name="pcserial" xml:space="preserve">
+    <value>Numéro de Serie de ce PC</value>
+  </data>
   <data name="psdrv" xml:space="preserve">
     <value>Sauv. et Rest. les pilotes avec PS</value>
   </data>

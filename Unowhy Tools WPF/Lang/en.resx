@@ -459,6 +459,9 @@
   <data name="pcname" xml:space="preserve">
     <value>Change Windows PC name</value>
   </data>
+  <data name="pcserial" xml:space="preserve">
+    <value>Serial Number of this PC</value>
+  </data>
   <data name="psdrv" xml:space="preserve">
     <value>Backup and Restore drivers with PS</value>
   </data>
