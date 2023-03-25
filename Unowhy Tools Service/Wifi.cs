@@ -22,7 +22,7 @@ namespace Unowhy_Tools_Service
     internal class Wifi : ServiceBase
     {
         public bool ActiveWifiSync;
-        public string msg = "default";
+        Unowhy_Tools_Service.Main.Data Data = new Unowhy_Tools_Service.Main.Data();
 
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(out int state, int value);
@@ -36,7 +36,7 @@ namespace Unowhy_Tools_Service
 
         public Wifi() 
         {
-            //ServiceName = "UTSW";
+
         }
 
         private NamedPipeServerStream _pipeServer;
@@ -67,8 +67,8 @@ namespace Unowhy_Tools_Service
                         else
                         {
                             var web = new HttpClient();
-                            string sn = File.ReadAllText("C:\\UTSConfig\\serial.txt");
-                            string configurl = $"https://idf.hisqool.com/conf/devices/{sn}/configuration";
+                            Data.serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+                            string configurl = $"https://idf.hisqool.com/conf/devices/{Data.serial}/configuration";
 
                             HttpResponseMessage response = await web.GetAsync(configurl);
                             if (response.StatusCode == HttpStatusCode.OK)
@@ -106,6 +106,7 @@ namespace Unowhy_Tools_Service
                                             string Password;
                                             string SecurityType;
                                             string EncryptionType;
+                                            string OneX;
                                             string ProxyType;
                                             string ProxyAddressManual;
                                             string ProxyPortManual;
@@ -116,42 +117,47 @@ namespace Unowhy_Tools_Service
                                             SecurityType = options["securityType"].ToString();
                                             ProxyType = proxy["type"].ToString();
                                             EncryptionType = null;
+                                            OneX = null;
 
                                             if(SecurityType == "open")
                                             {
                                                 SecurityType = "open";
                                                 EncryptionType = "none";
+                                                OneX = "false";
                                             }
                                             else if(SecurityType == "WPA/WPA2 PSK")
                                             {
                                                 SecurityType = "WPA2PSK";
                                                 EncryptionType = "AES";
+                                                OneX = "false";
                                             }
                                             else if(SecurityType == "WEP")
                                             {
                                                 SecurityType = "open";
                                                 EncryptionType = "WEP";
+                                                OneX = "false";
                                             }
                                             else if(SecurityType == "802.1x EAP")
                                             {
-                                                SecurityType = "WPA2Enterprise";
-                                                EncryptionType = "AES";
+                                                SecurityType = "open";
+                                                EncryptionType = "WEP";
+                                                OneX = "true";
                                             }
 
                                             if (ProxyType == "none")
                                             {
-                                                await AddWifi(SSID, Password, SecurityType, EncryptionType);
+                                                await AddWifi(SSID, Password, SecurityType, EncryptionType, OneX);
                                             }
                                             else if (ProxyType == "manual")
                                             {
                                                 ProxyAddressManual = proxy["proxyHostName"].ToString();
                                                 ProxyPortManual = proxy["proxyPort"].ToString();
-                                                await AddWifiProxyManual(SSID, Password, SecurityType, EncryptionType, ProxyAddressManual, ProxyPortManual);
+                                                await AddWifiProxyManual(SSID, Password, SecurityType, EncryptionType, OneX, ProxyAddressManual, ProxyPortManual);
                                             }
                                             else if (ProxyType == "automatic")
                                             {
                                                 ProxyUrlAutomatic = proxy["autoProxyUrl"].ToString();
-                                                await AddWifiProxyAuto(SSID, Password, SecurityType, EncryptionType, ProxyUrlAutomatic);
+                                                await AddWifiProxyAuto(SSID, Password, SecurityType, EncryptionType, OneX, ProxyUrlAutomatic);
                                             }
                                         }
                                     }
@@ -168,53 +174,8 @@ namespace Unowhy_Tools_Service
                 await Task.Delay(300000);
             }
         }
-        /*
-        public static async Task AddWifi(string ssid, string password, string securityType, string encType)
-        {
-            await Task.Run(() =>
-            {
-                Process psi = new Process();
-                psi.StartInfo.FileName = "netsh";
-                psi.StartInfo.Arguments = $"wlan add profile filename=\"C:\\{ssid}.xml\"";
-                psi.StartInfo.Arguments += $"ssid=\"{ssid}\" keyMaterial=\"{password}\" authentication=\"{securityType}\" encryption=\"{encType}\"";
-                psi.Start();
-                psi.WaitForExit();
-            });
-        }
-
-        public static async Task AddWifiProxyManual(string ssid, string password, string securityType, string encType, string proxyAddress, string proxyPort)
-        {
-            await Task.Run(() =>
-            {
-                Process psi = new Process();
-                psi.StartInfo.FileName = "netsh";
-                psi.StartInfo.Arguments = $"wlan add profile filename=\"C:\\{ssid}.xml\"";
-                psi.StartInfo.Arguments += $"ssid=\"{ssid}\" keyMaterial=\"{password}\" authentication=\"{securityType}\" encryption=\"{encType}\"";
-                psi.StartInfo.Arguments += $"connectiontype=ibss connectionmode=autoMacAddr proxySettings=manual";
-                psi.StartInfo.Arguments += $"manualproxy={proxyAddress}:{proxyPort}";
-                psi.Start();
-                psi.WaitForExit();
-            });
-            
-        }
-
-        public static async Task AddWifiProxyAuto(string ssid, string password, string securityType, string encType, string proxyUrl)
-        {
-            await Task.Run(() =>
-            {
-                Process psi = new Process();
-                psi.StartInfo.FileName = "netsh";
-                psi.StartInfo.Arguments = $"wlan add profile filename=\"C:\\{ssid}.xml\"";
-                psi.StartInfo.Arguments += $"ssid=\"{ssid}\" keyMaterial=\"{password}\" authentication=\"{securityType}\" encryption=\"{encType}\"";
-                psi.StartInfo.Arguments += $"connectiontype=ibss connectionmode=autoMacAddr proxySettings=autoconfig";
-                psi.StartInfo.Arguments += $"autoconfigurl={proxyUrl}";
-                psi.Start();
-                psi.WaitForExit();
-            });
-        }
-        */
         
-        public static async Task AddWifi(string ssid, string password, string securityType, string encType)
+        public async Task AddWifi(string ssid, string password, string securityType, string encType, string oneX)
         {
             string profileXml = $@"<?xml version=""1.0""?>
             <WLANProfile xmlns=""http://www.microsoft.com/networking/WLAN/profile/v1"">
@@ -231,7 +192,7 @@ namespace Unowhy_Tools_Service
                         <authEncryption>
                             <authentication>{securityType}</authentication>
                             <encryption>{encType}</encryption>
-                            <useOneX>false</useOneX>
+                            <useOneX>{oneX}</useOneX>
                         </authEncryption>
                         <sharedKey>
                             <keyType>passPhrase</keyType>
@@ -249,21 +210,21 @@ namespace Unowhy_Tools_Service
             await RunNetshCommand(arguments);
         }
 
-        public static async Task AddWifiProxyManual(string ssid, string password, string securityType, string encType, string proxyAddress, string proxyPort)
+        public async Task AddWifiProxyManual(string ssid, string password, string securityType, string encType, string oneX, string proxyAddress, string proxyPort)
         {
-            await AddWifi(ssid, password, securityType, encType);
+            await AddWifi(ssid, password, securityType, encType, oneX);
             string arguments = $@"winhttp set proxy {proxyAddress}:{proxyPort}";
             await RunNetshCommand(arguments);
         }
 
-        public static async Task AddWifiProxyAuto(string ssid, string password, string securityType, string encType, string proxyUrl)
+        public async Task AddWifiProxyAuto(string ssid, string password, string securityType, string encType, string oneX, string proxyUrl)
         {
-            await AddWifi(ssid, password, securityType, encType);
+            await AddWifi(ssid, password, securityType, encType, oneX);
             string arguments = $@"winhttp set proxy autoconfigurl={proxyUrl}";
             await RunNetshCommand(arguments);
         }
 
-        public static async Task RunNetshCommand(string arguments)
+        public async Task RunNetshCommand(string arguments)
         {
             await Task.Run(() =>
             {
@@ -274,6 +235,16 @@ namespace Unowhy_Tools_Service
                 p.Start();
                 p.WaitForExit();
             });
+        }
+
+        public async Task SetSerial(string serial)
+        {
+            ActiveWifiSync = false;
+            File.Delete("C:\\UTSConfig\\serial.txt");
+            File.WriteAllText("C:\\UTSConfig\\serial.txt", serial);
+            serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+            ActiveWifiSync = true;
+            Task.Run(() => WifiSync());
         }
 
         private async Task WaitForClientAsync()
@@ -297,8 +268,21 @@ namespace Unowhy_Tools_Service
                             {
                                 break;
                             }
+                            string ret = "null";
 
-                            await writer.WriteLineAsync("You said: " + clientData + msg);
+                            if(clientData.Contains("GetSN"))
+                            {
+                                ret = Data.serial;
+                            }
+
+                            if(clientData.Contains("SetSN:"))
+                            {
+                                string newsn = clientData.Replace("SetSN:", "");
+                                await SetSerial(newsn);
+                                ret = Data.serial;
+                            }
+
+                            await writer.WriteLineAsync(ret);
                             await writer.FlushAsync();
                         }
                     }
