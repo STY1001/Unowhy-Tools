@@ -40,19 +40,41 @@ public partial class Wifi : INavigableView<DashboardViewModel>
         get;
     }
 
-    public void GoForw(object sender, RoutedEventArgs e)
+    public async void GoForw(object sender, RoutedEventArgs e)
     {
-        UT.anim.TransitionForw(RootGrid);
+        UT.anim.BackBtnAnim(BackBTN);
+        await Task.Delay(150);
+        UT.anim.TransitionBack(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(Dashboard));
     }
 
     public async void Init(object sender, EventArgs e)
     {
-        
+        applylang();
+        string sn = await UT.UTSmsg("UTSW", "GetSN");
+        if (!(sn == "Null") && sn.Contains("IFP"))
+        {
+            serial.Text = sn;
+        }
+        ObservableCollection<DataRow> dataRows = new ObservableCollection<DataRow>();
+
+        DataRow prerow = new DataRow();
+        prerow.SSID = "SSID   ";
+        prerow.Password = "Password   ";
+        prerow.SecurityType = "Security Type   ";
+        prerow.Hidden = "Hidden ?   ";
+        prerow.ProxyType = "Proxy Type   ";
+        prerow.ProxyAddressManual = "Proxy IP (Manual)   ";
+        prerow.ProxyPortManual = "Proxy Port (Manual)   ";
+        prerow.ProxyUrlAutomatic = "Proxy URL (Automatic)   ";
+        dataRows.Add(prerow);
+        Board.ItemsSource = dataRows;
     }
 
     public void applylang()
     {
-
+        labsn.Text = UT.GetLang("pcserial");
     }
 
     public Wifi(DashboardViewModel viewModel)
@@ -188,16 +210,16 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
                 ObservableCollection<DataRow> dataRows = new ObservableCollection<DataRow>();
 
-                /*DataRow prerow = new DataRow();
-                prerow.SSID = "SSID";
-                prerow.Password = "Password";
-                prerow.SecurityType = "Security Type";
-                prerow.Hidden = "Hidden ?";
-                prerow.ProxyType = "Proxy Type";
-                prerow.ProxyAddressManual = "Proxy IP (Manual)";
-                prerow.ProxyPortManual = "Proxy Port (Manual)";
-                prerow.ProxyUrlAutomatic = "Proxy URL (Automatic)";
-                dataRows.Add(prerow);*/
+                DataRow prerow = new DataRow();
+                prerow.SSID = "SSID   ";
+                prerow.Password = "Password   ";
+                prerow.SecurityType = "Security Type   ";
+                prerow.Hidden = "Hidden ?   ";
+                prerow.ProxyType = "Proxy Type   ";
+                prerow.ProxyAddressManual = "Proxy IP (Manual)   ";
+                prerow.ProxyPortManual = "Proxy Port (Manual)   ";
+                prerow.ProxyUrlAutomatic = "Proxy URL (Automatic)   ";
+                dataRows.Add(prerow);
 
                 foreach (JProperty property in mergedJson.Properties())
                 {

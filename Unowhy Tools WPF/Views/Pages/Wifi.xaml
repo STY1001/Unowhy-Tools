@@ -16,6 +16,7 @@
 
     <Grid x:Name="RootGrid">
         <ui:Button x:Name="BackBTN"
+                   Click="GoForw"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Margin="10,10,0,0">
@@ -36,19 +37,40 @@
                 </Grid.RowDefinitions>
 
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="10" />
                         <ColumnDefinition MaxWidth="100" />
                     </Grid.ColumnDefinitions>
 
+                    <Image Source="../../Resources/datamatrix.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
+
+                    <TextBlock x:Name="labsn"
+                               Text="Enter the serial number of your PC: "
+                               Grid.Column="0"
+                               Grid.Row="0" 
+                               Grid.ColumnSpan="3"
+                               FontSize="13"
+                               Foreground="#ffffff"/>
+
                     <ui:TextBox x:Name="serial"
-                                Grid.Column="0"
+                                Grid.Column="2"
+                                Grid.Row="2"
                                 VerticalAlignment="Stretch"
                                 HorizontalAlignment="Stretch"/>
                     <ui:Button x:Name="getbtn"
                                Click="Get_Click"
-                               Grid.Column="2"
+                               Grid.Column="4"
+                               Grid.Row="2"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch"
                                Content="Get"
@@ -56,8 +78,9 @@
                 </Grid>
                 
                 <ui:DataGrid Grid.Row="2"
-                             MinHeight="300"
+                             MinHeight="0"
                              MinWidth="600"
+                             HeadersVisibility="None"
                              IsReadOnly="True"
                              x:Name="Board" />
             </Grid>
