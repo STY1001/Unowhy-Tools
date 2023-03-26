@@ -30,6 +30,7 @@ using System.Windows.Media;
 using System.Windows.Navigation;
 using Wpf.Ui.Controls;
 using System.IO.Pipes;
+using System.IO.Compression;
 
 namespace Unowhy_Tools
 {
@@ -259,16 +260,161 @@ namespace Unowhy_Tools
             }
         }
 
-        public class splashstatus
+        public class UTS
         {
-            public static void close()
+            public static async Task<string> UTSmsg(string pipe, string msg)
             {
-                Write2Log("Close splash");
+                string ret = null;
+
+                try
+                {
+                    using (NamedPipeClientStream pipeClient = new NamedPipeClientStream(".", pipe, PipeDirection.InOut, PipeOptions.Asynchronous))
+                    {
+                        await pipeClient.ConnectAsync();
+                        if (pipeClient.IsConnected)
+                        {
+                            using (var writer = new StreamWriter(pipeClient))
+                            using (var reader = new StreamReader(pipeClient))
+                            {
+                                await writer.WriteLineAsync(msg);
+                                await writer.FlushAsync();
+
+                                if (pipeClient.IsConnected)
+                                {
+                                    ret = await reader.ReadLineAsync();
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+
+                }
+
+                return ret;
             }
 
-            public static void open()
+            public static async Task UTScheck()
             {
-                Write2Log("Open splash");
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                mainWindow.SplashText.Text = "Preparing UTS... (Checking...)";
+                string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
+
+                if (!Directory.Exists(instdir))
+                {
+                    Directory.CreateDirectory(instdir);
+                }
+                mainWindow.SplashBar.Value++;
+                mainWindow.SplashBar.Value++;
+                if (!File.Exists(instdir + "\\Unowhy Tools Service.exe"))
+                {
+                    if (CheckInternet())
+                    {
+                        mainWindow.SplashText.Text = "Preparing UTS... (Downloading...)";
+                        var web = new HttpClient();
+                        var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
+                        string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
+                        File.WriteAllBytes(utemp + "\\service.zip", filebyte);
+                        mainWindow.SplashText.Text = "Preparing UTS... (Extracting...)";
+                        await Task.Delay(100);
+                        ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
+                        await Task.Delay(100);
+                    }
+                }
+                mainWindow.SplashBar.Value++;
+                mainWindow.SplashBar.Value++;
+                string utspath = instdir + "\\Unowhy Tools Service.exe";
+
+                if (await UT.serv.exist("UTS"))
+                {
+                    ServiceController sc = new ServiceController();
+                    sc.ServiceName = "UTS";
+
+                    if(sc.ServiceType == ServiceType.InteractiveProcess && sc.ServiceType == ServiceType.Win32OwnProcess)
+                    {
+
+                    }
+                    else
+                    {
+                        await UT.RunMin("sc", "config UTS type=own type=interact");
+                        mainWindow.SplashText.Text = "Preparing UTS... (Restarting...)";
+                        await UT.serv.stop("UTS");
+                        await UT.serv.start("UTS");
+                    }
+
+                    if (sc.StartType == ServiceStartMode.Automatic)
+                    {
+                        if (sc.Status == ServiceControllerStatus.Running)
+                        {
+                            mainWindow.SplashText.Text = "Preparing UTS... (Running...)";
+                        }
+                        else
+                        {
+                            await UT.serv.start("UTS");
+                            mainWindow.SplashText.Text = "Preparing UTS... (Starting...)";
+                        }
+                    }
+                    else
+                    {
+                        await UT.serv.auto("UTS");
+                        await UT.serv.start("UTS");
+                        mainWindow.SplashText.Text = "Preparing UTS... (Starting...)";
+                    }
+                }
+                else
+                {
+                    mainWindow.SplashText.Text = "Preparing UTS... (Installing...)";
+                    await UT.RunMin("sc", $"create UTS binpath=\"\\\"{utspath}\\\"\" displayname=\"Unowhy Tools Service\" start=auto type=own type=interact");
+                    await UT.serv.start("UTS");
+                }
+                mainWindow.SplashBar.Value++;
+                mainWindow.SplashBar.Value++;
+                mainWindow.SplashText.Text = "Preparing UTS... (Checking Update...)";
+                await Task.Delay(100);
+                await UT.UTS.UTSupdate();
+                mainWindow.SplashBar.Value++;
+                mainWindow.SplashBar.Value++;
+            }
+
+            public static async Task UTSupdate()
+            {   
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+
+                if (CheckInternet())
+                {
+                    var web = new HttpClient();
+                    string newver = await web.GetStringAsync("https://bit.ly/UTStext");
+
+                    if (!verisdeb)
+                    {
+                        string ver = await UT.UTS.UTSmsg("UTS", "GetVer");
+
+                        if (!(newver == ver))
+                        {
+                            mainWindow.SplashText.Text = "Preparing UTS... (" + ver + " => " + newver + ")";
+                            await Task.Delay(300);
+
+                            string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
+                            Directory.Delete(instdir, true);
+                            await Task.Delay(100);
+                            Directory.CreateDirectory(instdir);
+                            mainWindow.SplashText.Text = "Preparing UTS... (Shutting down...)";
+                            await UT.serv.stop("UTS");
+                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading...)";
+                            web = new HttpClient();
+                            var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
+                            string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
+                            File.WriteAllBytes(utemp + "\\service.zip", filebyte);
+                            mainWindow.SplashText.Text = "Preparing UTS... (Extracting...)";
+                            await Task.Delay(100);
+                            ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
+                            await Task.Delay(100);
+                            mainWindow.SplashText.Text = "Preparing UTS... (Starting up...)";
+                            await UT.serv.start("UTS");
+                        }
+                    }
+                }
             }
         }
 
@@ -280,270 +426,104 @@ namespace Unowhy_Tools
 
         public static async Task Cleanup()
         {
-            if (File.Exists("temp\\adminusers.txt"))
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+
+            List<string> oldfiles = new List<string>()
             {
-                File.Delete("temp\\adminusers.txt");
-            }
-            if (File.Exists("temp\\azure.txt"))
+                "temp\\adminusers.txt",
+                "temp\\azure.txt",
+                "temp\\ene.txt",
+                "temp\\entuser.txt",
+                "temp\\gitversion.txt",
+                "temp\\hsmst.txt",
+                "temp\\ifp.txt",
+                "temp\\mf.txt",
+                "temp\\model.txt",
+                "temp\\os.txt",
+                "temp\\pcname.txt",
+                "temp\\rs.txt",
+                "temp\\shell.txt",
+                "temp\\username.txt",
+                "azureleave.exe",
+                "bootim.exe",
+                "cuaboff.exe",
+                "cuabon.exe",
+                "delent.exe",
+                "delentf.exe",
+                "delhismserv.exe",
+                "deloem.exe",
+                "delridf.exe",
+                "disadmin.exe",
+                "dishis.exe",
+                "enadmin.exe",
+                "enhis.exe",
+                "fixti.exe",
+                "fullsoftinfo.txt",
+                "fullpcinfo.txt",
+                "getpcinfo.exe",
+                "getsoftinfo.exe",
+                "getuserinfo.exe",
+                "langen.exe",
+                "langfr.exe",
+                "old2new",
+                "rdti.exe",
+                "reboot.exe",
+                "rmdirhismgr.exe",
+                "shell.exe",
+                "starthis.exe",
+                "stophis.exe",
+                "Unowhy Tools Updater.exe",
+                "utconfdel.exe",
+                "utkeydel.exe",
+                "version.txt",
+                "winhelloent.exe",
+                "winre.exe",
+                "update.zip",
+                "delhisqool.exe",
+                "ene.txt",
+                "model.txt",
+                "os.txt",
+                "pcname.txt",
+                "tversion.txt",
+                "username.txt",
+                "clog.html",
+                "fr.resx",
+                "en.resx",
+                "UTwait.exe",
+                "UTsplash.exe",
+                "7z.dll",
+                "7zip.exe"
+            };
+            
+            foreach(string file in oldfiles)
             {
-                File.Delete("temp\\azure.txt");
+                mainWindow.SplashText.Text = "Cleanup... (" + file + ")";
+                mainWindow.SplashBar.Value++;
+                await Task.Delay(1);
+                if (File.Exists(file))
+                {
+                    File.Delete(file);
+                }
             }
-            if (File.Exists("temp\\ene.txt"))
-            {
-                File.Delete("temp\\ene.txt");
-            }
-            if (File.Exists("temp\\entuser.txt"))
-            {
-                File.Delete("temp\\entuser.txt");
-            }
-            if (File.Exists("temp\\gitversion.txt"))
-            {
-                File.Delete("temp\\gitversion.txt");
-            }
-            if (File.Exists("temp\\hsmst.txt"))
-            {
-                File.Delete("temp\\hsmst.txt");
-            }
-            if (File.Exists("temp\\ifp.txt"))
-            {
-                File.Delete("temp\\ifp.txt");
-            }
-            if (File.Exists("temp\\mf.txt"))
-            {
-                File.Delete("temp\\mf.txt");
-            }
-            if (File.Exists("temp\\model.txt"))
-            {
-                File.Delete("temp\\model.txt");
-            }
-            if (File.Exists("temp\\os.txt"))
-            {
-                File.Delete("temp\\os.txt");
-            }
-            if (File.Exists("temp\\pcname.txt"))
-            {
-                File.Delete("temp\\pcname.txt");
-            }
-            if (File.Exists("temp\\rs.txt"))
-            {
-                File.Delete("temp\\rs.txt");
-            }
-            if (File.Exists("temp\\shell.txt"))
-            {
-                File.Delete("temp\\shell.txt");
-            }
-            if (File.Exists("temp\\username.txt"))
-            {
-                File.Delete("temp\\username.txt");
-            }
-            if (File.Exists("azureleave.exe"))
-            {
-                File.Delete("azureleave.exe");
-            }
-            if (File.Exists("bootim.exe"))
-            {
-                File.Delete("bootim.exe");
-            }
-            if (File.Exists("cuaboff.exe"))
-            {
-                File.Delete("cuaboff.exe");
-            }
-            if (File.Exists("cuabon.exe"))
-            {
-                File.Delete("cuabon.exe");
-            }
-            if (File.Exists("delent.exe"))
-            {
-                File.Delete("delent.exe");
-            }
-            if (File.Exists("delentf.exe"))
-            {
-                File.Delete("delentf.exe");
-            }
-            if (File.Exists("delhismserv.exe"))
-            {
-                File.Delete("delhismserv.exe");
-            }
-            if (File.Exists("deloem.exe"))
-            {
-                File.Delete("deloem.exe");
-            }
-            if (File.Exists("delridf.exe"))
-            {
-                File.Delete("delridf.exe");
-            }
-            if (File.Exists("disadmin.exe"))
-            {
-                File.Delete("disadmin.exe");
-            }
-            if (File.Exists("dishis.exe"))
-            {
-                File.Delete("dishis.exe");
-            }
-            if (File.Exists("enadmin.exe"))
-            {
-                File.Delete("enadmin.exe");
-            }
-            if (File.Exists("enhis.exe"))
-            {
-                File.Delete("enhis.exe");
-            }
-            if (File.Exists("fixti.exe"))
-            {
-                File.Delete("fixti.exe");
-            }
-            if (File.Exists("fullsoftinfo.txt"))
-            {
-                File.Delete("fullsoftinfo.txt");
-            }
-            if (File.Exists("fullpcinfo.txt"))
-            {
-                File.Delete("fullpcinfo.txt");
-            }
-            if (File.Exists("getpcinfo.exe"))
-            {
-                File.Delete("getpcinfo.exe");
-            }
-            if (File.Exists("getsoftinfo.exe"))
-            {
-                File.Delete("getsoftinfo.exe");
-            }
-            if (File.Exists("getuserinfo.exe"))
-            {
-                File.Delete("getuserinfo.exe");
-            }
-            if (File.Exists("langen.exe"))
-            {
-                File.Delete("langen.exe");
-            }
-            if (File.Exists("langfr.exe"))
-            {
-                File.Delete("langfr.exe");
-            }
-            if (File.Exists("old2new"))
-            {
-                File.Delete("old2new");
-            }
-            if (File.Exists("rdti.exe"))
-            {
-                File.Delete("rdti.exe");
-            }
-            if (File.Exists("reboot.exe"))
-            {
-                File.Delete("reboot.exe");
-            }
-            if (File.Exists("rmdirhismgr.exe"))
-            {
-                File.Delete("rmdirhismgr.exe");
-            }
-            if (File.Exists("shell.exe"))
-            {
-                File.Delete("shell.exe");
-            }
-            if (File.Exists("starthis.exe"))
-            {
-                File.Delete("starthis.exe");
-            }
-            if (File.Exists("stophis.exe"))
-            {
-                File.Delete("stophis.exe");
-            }
-            if (File.Exists("Unowhy Tools Updater.exe"))
-            {
-                File.Delete("Unowhy Tools Updater.exe");
-            }
-            if (File.Exists("utconfdel.exe"))
-            {
-                File.Delete("utconfdel.exe");
-            }
-            if (File.Exists("utkeydel.exe"))
-            {
-                File.Delete("utkeydel.exe");
-            }
-            if (File.Exists("version.txt"))
-            {
-                File.Delete("version.txt");
-            }
-            if (File.Exists("winhelloent.exe"))
-            {
-                File.Delete("winhelloent.exe");
-            }
-            if (File.Exists("winre.exe"))
-            {
-                File.Delete("winre.exe");
-            }
-            if (File.Exists("update.zip"))
-            {
-                File.Delete("update.zip");
-            }
-            if (File.Exists("delhisqool.exe"))
-            {
-                File.Delete("delhisqool.exe");
-            }
-            if (File.Exists("ene.txt"))
-            {
-                File.Delete("ene.txt");
-            }
-            if (File.Exists("model.txt"))
-            {
-                File.Delete("model.txt");
-            }
-            if (File.Exists("os.txt"))
-            {
-                File.Delete("os.txt");
-            }
-            if (File.Exists("pcname.txt"))
-            {
-                File.Delete("pcname.txt");
-            }
-            if (File.Exists("tversion.txt"))
-            {
-                File.Delete("tversion.txt");
-            }
-            if (File.Exists("username.txt"))
-            {
-                File.Delete("username.txt");
-            }
-            if (File.Exists("clog.html"))
-            {
-                File.Delete("clog.html");
-            }
-            if (File.Exists("fr.resx"))
-            {
-                File.Delete("fr.resx");
-            }
-            if (File.Exists("en.resx"))
-            {
-                File.Delete("en.resx");
-            }
-            if (File.Exists("UTwait.exe"))
-            {
-                File.Delete("UTwait.exe");
-            }
-            if (File.Exists("UTsplash.exe"))
-            {
-                File.Delete("UTsplash.exe");
-            }
-            if (File.Exists("7z.dll"))
-            {
-                File.Delete("7z.dll");
-            }
-            if (File.Exists("7zip.exe"))
-            {
-                File.Delete("7zip.exe");
-            }
+
             if (Directory.Exists("temp"))
             {
                 Directory.Delete("temp", true);
             }
+            mainWindow.SplashBar.Value++;
             if (Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
             {
                 Directory.Delete(Path.GetTempPath() + "\\Unowhy Tools\\Temps", true);
             }
+            mainWindow.SplashBar.Value++;
         }
 
         public static async Task<bool> FirstStart()
         {
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+            mainWindow.SplashText.Text = "Checking... (Folder)";
+            await Task.Delay(100);
+
             if (!Directory.Exists("C:\\UTSConfig"))
             {
                 Directory.CreateDirectory("C:\\UTSConfig");
@@ -554,7 +534,9 @@ namespace Unowhy_Tools
                 File.WriteAllText("C:\\UTSConfig\\serial.txt", "Null");
             }
 
-            if(!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools"))
+            mainWindow.SplashBar.Value++;
+
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools");
             }
@@ -583,6 +565,11 @@ namespace Unowhy_Tools
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2");
             }
+            
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Service"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Service");
+            }
 
             if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
             {
@@ -590,6 +577,10 @@ namespace Unowhy_Tools
                 f.Close();
                 Write2Log("=== Unowhy Tools Logs ===");
             }
+            
+            mainWindow.SplashBar.Value++;
+            mainWindow.SplashText.Text = "Checking... (Registry)";
+            await Task.Delay(100);
 
             RegistryKey keysoft = Registry.CurrentUser.OpenSubKey(@"Software", true);
 
@@ -606,6 +597,8 @@ namespace Unowhy_Tools
             {
                 keysty.CreateSubKey("Unowhy Tools");
             }
+
+            mainWindow.SplashBar.Value++;
 
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             object us = key.GetValue("UpdateStart", null);
@@ -628,6 +621,8 @@ namespace Unowhy_Tools
                 key.SetValue("Init", "0", RegistryValueKind.String);
             }
 
+            mainWindow.SplashBar.Value++;
+
             string i2 = key.GetValue("Init").ToString();
             if(i2 == "1")
             {
@@ -638,39 +633,6 @@ namespace Unowhy_Tools
                 return true;
             }
 
-        }
-
-        public static async Task<string> UTSmsg(string pipe, string msg)
-        {
-            string ret = null;
-
-            try
-            {
-                using (NamedPipeClientStream pipeClient = new NamedPipeClientStream(".", pipe, PipeDirection.InOut, PipeOptions.Asynchronous))
-                {
-                    await pipeClient.ConnectAsync();
-                    if (pipeClient.IsConnected)
-                    {
-                        using (var writer = new StreamWriter(pipeClient))
-                        using (var reader = new StreamReader(pipeClient))
-                        {
-                            await writer.WriteLineAsync(msg);
-                            await writer.FlushAsync();
-
-                            if (pipeClient.IsConnected)
-                            {
-                                ret = await reader.ReadLineAsync();
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-
-            }
-
-            return ret;
         }
 
         public static void Delay(int Time_delay)
@@ -824,8 +786,12 @@ namespace Unowhy_Tools
 
         public static async Task Check()
         {
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+
             Data UTdata = new Data();
 
+            mainWindow.SplashText.Text = "Checking... (Getting Hardware Info)";
+            await Task.Delay(100);
             Write2Log("Getting PC Infos");
 
             string hn = await RunReturn("hostname", "");
@@ -834,6 +800,8 @@ namespace Unowhy_Tools
             string os = await RunReturn("wmic", "os get caption");
             string bios = await RunReturn("wmic", "bios get smbiosbiosversion");
             string sn = await RunReturn("wmic", "bios get serialnumber");
+
+            mainWindow.SplashBar.Value++;
 
             UTdata.HostName = hn.Replace("\n", "").Replace("\r", "").Replace(" ", "");
             UTdata.mf = GetLine(mf, 2);
@@ -852,6 +820,8 @@ namespace Unowhy_Tools
                 UTdata.AADUser = true;
             }
 
+            mainWindow.SplashBar.Value++;
+
             Write2Log(UTdata.HostName);
             Write2Log(UTdata.User);
             Write2Log(UTdata.UserID);
@@ -862,6 +832,10 @@ namespace Unowhy_Tools
             Write2Log(UTdata.sn);
 
             Write2Log("Done");
+
+            mainWindow.SplashBar.Value++;
+            mainWindow.SplashText.Text = "Checking... (Getting Software Info)";
+            await Task.Delay(100);
 
             Write2Log("Checking if is Administrator or Adminitrateur");
 
@@ -891,6 +865,8 @@ namespace Unowhy_Tools
 
             Write2Log("=> " +  UTdata.AdminsName);
 
+            mainWindow.SplashBar.Value++;
+
             Write2Log("====== Dynamic Buttons ======");
 
             string preazure = await RunReturn("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow");
@@ -900,6 +876,10 @@ namespace Unowhy_Tools
 
             string admins = preadmins.ToLower();
             string azure = GetLine(preazure, 6);
+
+            mainWindow.SplashBar.Value++;
+            mainWindow.SplashText.Text = "Checking... (Analysing PC Info)";
+            await Task.Delay(300);
 
             #region Hisqool Manager
 
@@ -1270,6 +1250,8 @@ namespace Unowhy_Tools
             #endregion
 
             Write2Log("====== End ======");
+
+            mainWindow.SplashBar.Value++;
         }
 
         public static async Task Extract(string file, string outPath)
