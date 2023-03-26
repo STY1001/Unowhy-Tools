@@ -1,0 +1,202 @@
+﻿<ui:UiPage x:Class="Unowhy_Tools_WPF.Views.Pages.FirstConfig"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+           Title="First Config"
+           Initialized="Init"
+           d:DataContext="{d:DesignInstance local:FirstConfig,
+                                     IsDesignTimeCreatable=False}"
+           d:DesignHeight="750"
+           d:DesignWidth="800"
+           Scrollable="True"
+           mc:Ignorable="d">
+
+    <Grid x:Name="RootGrid">
+        <Border Background="#303030"
+                ClipToBounds="True"
+                CornerRadius="8,8,8,8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <Grid Margin="20,20,20,20"
+                  MinWidth="300">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="StartHello"
+                      Visibility="Collapsed"
+                      Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Image Source="../../Resources/hi.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
+                    <TextBlock Text="Hi / Salut !"
+                               Foreground="#ffffff"
+                               FontSize="13"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               Grid.ColumnSpan="3"
+                               Grid.Column="0"
+                               Grid.Row="0" />
+                    <TextBlock Text="Welcome to Unowhy Tools&#x0a;We will take a few seconds to configure it&#x0a;Bienvenue sur Unowhy Tools&#x0a;Nous allons prendre quelques secondes pour le configurer"
+                               Foreground="#ffffff"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               Grid.Column="2"
+                               Grid.Row="2" />
+                </Grid>
+                <Grid x:Name="StartLang"
+                      Visibility="Collapsed"
+                      Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Image Source="../../Resources/language.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
+                    <TextBlock Text="Select your language / Séléctionnez votre langue"
+                               Foreground="#ffffff"
+                               FontSize="13"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               Grid.ColumnSpan="3"
+                               Grid.Column="0"
+                               Grid.Row="0" />
+                    <ComboBox Grid.Row="2"
+                              Grid.Column="2"
+                              x:Name="lang_box">
+                        <ComboBoxItem x:Name="lang_en">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/resources/en.png"
+                                       Height="16" />
+                                <TextBlock Text=" English                                                     " />
+                            </StackPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem x:Name="lang_fr">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/resources/fr.png"
+                                       Height="16" />
+                                <TextBlock Text=" French                                                      " />
+                            </StackPanel>
+                        </ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+                <Grid x:Name="StartSerial"
+                      Visibility="Collapsed"
+                      Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Image Source="../../Resources/datamatrix.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
+                    <TextBlock Text="Enter the serial number of your PC (for  Wifi sync and more) / Entrez le numéro de série de votre PC (pour la sync Wifi et plus)"
+                               Foreground="#ffffff"
+                               FontSize="13"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               Grid.ColumnSpan="3"
+                               Grid.Column="0"
+                               Grid.Row="0" />
+                    <ui:TextBox Grid.Row="2"
+                                Grid.Column="2"
+                                x:Name="snbox"/>
+                </Grid>
+                <Grid x:Name="StartUpdate"
+                      Visibility="Collapsed"
+                      Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Image Source="../../Resources/update.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
+                    <TextBlock Text="Check for updates at startup / Vérifier les mises à jour au démarrage"
+                               Foreground="#ffffff"
+                               FontSize="13"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               Grid.ColumnSpan="3"
+                               Grid.Column="0"
+                               Grid.Row="0" />
+                    <CheckBox Grid.Row="2"
+                              Grid.Column="2"
+                              x:Name="upcheck" />
+                </Grid>
+                <ui:Button Grid.Row="2"
+                           HorizontalAlignment="Right"
+                           x:Name="btn"
+                           Margin="0,0,0,0">
+                    <StackPanel>
+                        <Grid Grid.Row="1"
+                              Margin="0,0,0,0"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="../../Resources/yes.png"
+                                   Grid.Column="0"
+                                   Height="32"
+                                   VerticalAlignment="Top"
+                                   x:Name="btn_img"/>
+                            <StackPanel VerticalAlignment="Center"
+                                        Grid.Column="2">
+                                <TextBlock Margin="0"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           x:Name="btn_txt"
+                                           Text="OK" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </ui:Button>
+            </Grid>
+        </Border>
+    </Grid>
+</ui:UiPage>

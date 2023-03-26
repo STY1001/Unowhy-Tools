@@ -95,6 +95,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
     public async void Apply_Settings(object sender, RoutedEventArgs e)
     {
         await UT.waitstatus.open();
+        bool ok = true;
 
         if (UT.CheckInternet())
         {
@@ -118,6 +119,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             else
             {
                 await UT.waitstatus.close();
+                ok = false;
                 UT.DialogIShow(UT.GetLang("noid"), "no.png");
                 await UT.waitstatus.open();
             }
@@ -129,27 +131,30 @@ public partial class Settings : INavigableView<DashboardViewModel>
             await UT.waitstatus.open();
         }
 
-        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
-        if (lang_en.IsSelected)
+        if (ok)
         {
-            key.SetValue("Lang", "EN");
-        }
-        else if (lang_fr.IsSelected)
-        {
-            key.SetValue("Lang", "FR");
-        }
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
+            if (lang_en.IsSelected)
+            {
+                key.SetValue("Lang", "EN");
+            }
+            else if (lang_fr.IsSelected)
+            {
+                key.SetValue("Lang", "FR");
+            }
 
-        if (us.IsChecked == true)
-        {
-            key.SetValue("UpdateStart", "1");
+            if (us.IsChecked == true)
+            {
+                key.SetValue("UpdateStart", "1");
 
-        }
-        else
-        {
-            key.SetValue("UpdateStart", "0");
-        }
+            }
+            else
+            {
+                key.SetValue("UpdateStart", "0");
+            }
 
-        UT.RunAdmin($"-u {UTdata.UserID}");
+            UT.RunAdmin($"-u {UTdata.UserID}");
+        }
     }
 
     public async void Init(object sender, EventArgs e)
