@@ -131,10 +131,18 @@ public partial class Customize : INavigableView<DashboardViewModel>
         await CheckBTN();
         await UT.waitstatus.close();
 
+        await Task.Delay(500);
+
         RootStack.Visibility = Visibility.Visible;
 
         foreach (UIElement element in RootStack.Children)
         {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        foreach (UIElement element in RootStack.Children)
+        {
+            element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
             {
                 From = 0,
