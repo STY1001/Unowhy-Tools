@@ -184,8 +184,10 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         System.Diagnostics.Process.Start("mmc.exe", "gpedit.msc");
     }
 
-    public void Guide(object sender, RoutedEventArgs e)
+    public async void Guide(object sender, RoutedEventArgs e)
     {
-        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://github.com/STY1001/Unowhy-Tools/blob/master/GUIDE.md", UseShellExecute = true });
+        UT.anim.TransitionForw(RootGrid);
+        await Task.Delay(150);
+        UT.NavigateTo(typeof(Wifi));
     }
 }

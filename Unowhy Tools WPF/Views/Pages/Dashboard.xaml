@@ -15,12 +15,10 @@
 
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="250" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Border Grid.Row="0"
-                Height="250"
                 CornerRadius="8,0,0,0">
             <Border.Background>
                 <ImageBrush ImageSource="../../Resources/UTLogoWhite2.0.png"
@@ -66,7 +64,9 @@
                 x:Name="quickoption"
                 Background="#1b1b1b"
                 CornerRadius="0,0,8,8">
-            <Grid Margin="12,18,12,12">
+            <Grid Margin="12,18,12,12"
+                  VerticalAlignment="Bottom"
+                  x:Name="qogrid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="10" />
@@ -251,17 +251,17 @@
                             <ColumnDefinition Width="10" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Image Source="../../Resources/guide.png"
+                        <Image Source="../../Resources/UTW.png"
                                Grid.Column="0"
                                Margin="0,0,0,0" />
                         <StackPanel Grid.Column="2">
                             <TextBlock Margin="0"
                                        FontSize="13"
                                        FontWeight="Medium"
-                                       Text="Guide" />
+                                       Text="Unowhy Tools Wifi" />
                             <TextBlock FontSize="12"
                                        Foreground="#bebebe"
-                                       Text="on Github" />
+                                       Text="SSID, Password, Proxy" />
                         </StackPanel>
                     </Grid>
                 </ui:CardAction>
