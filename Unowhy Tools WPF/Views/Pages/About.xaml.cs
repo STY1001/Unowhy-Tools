@@ -16,6 +16,9 @@ using Unowhy_Tools;
 using System.Windows.Media;
 using Microsoft.Win32;
 using System;
+using System.Xml.Linq;
+using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -50,6 +53,39 @@ public partial class About : INavigableView<DashboardViewModel>
         else ver = ver + "(Release)";
 
         verlab.Text = ver;
+
+        foreach (UIElement element in OpGrid.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        foreach (UIElement element in OpGrid.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 150,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
 
         if (UT.CheckInternet())
         {

@@ -15,12 +15,10 @@
 
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Border Grid.Row="0"
-                Height="250"
                 CornerRadius="8,0,0,0">
             <Border.Background>
                 <ImageBrush ImageSource="../../Resources/UTLogoWhite2.0.png"
@@ -66,7 +64,8 @@
         <Border Grid.Row="1"
                 Background="#1b1b1b"
                 CornerRadius="0,0,8,8">
-            <Grid Margin="0,0,0,12">
+            <Grid Margin="0,0,0,12"
+                  VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -166,6 +165,7 @@
                     </Grid>
                 </Grid>
                 <Grid Grid.Column="3"
+                      x:Name="OpGrid"
                       Margin="12,18,12,0"
                       HorizontalAlignment="Right">
                     <Grid.RowDefinitions>
