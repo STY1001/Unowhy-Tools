@@ -50,6 +50,7 @@ namespace Unowhy_Tools_Service
 
         public async Task WifiSync()
         {
+            Data.serial = "Null";
             while (ActiveWifiSync == true)
             {
                 if (CheckInternet())
