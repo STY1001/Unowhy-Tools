@@ -119,4 +119,9 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         string rep = await UT.UTS.UTSmsg(pipe.Text, msg.Text);
         UT.DialogIShow(rep, "about.png");
     }
+
+    private void Button_Click_2(object sender, RoutedEventArgs e)
+    {
+        UT.DialogIShow("For UWP only :(", "no.png");
+    }
 }
