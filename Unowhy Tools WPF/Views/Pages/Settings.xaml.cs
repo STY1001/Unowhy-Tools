@@ -39,7 +39,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async Task CheckBTN()
     {
-        string serial = await UT.UTSmsg("UTSW", "GetSN");
+        string serial = await UT.UTS.UTSmsg("UTSW", "GetSN");
         sn.Text = serial;
 
         RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
@@ -106,9 +106,9 @@ public partial class Settings : INavigableView<DashboardViewModel>
             HttpResponseMessage response = await web.GetAsync(configurl);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                await UT.UTSmsg("UTSW", $"SetSN:{ssn}");
+                await UT.UTS.UTSmsg("UTSW", $"SetSN:{ssn}");
                 await Task.Delay(1000);
-                string nsn = await UT.UTSmsg("UTSW", "GetSN"); 
+                string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN"); 
                 if(!(nsn == ssn))
                 {
                     await UT.waitstatus.close();

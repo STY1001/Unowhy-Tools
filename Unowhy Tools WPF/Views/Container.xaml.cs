@@ -194,23 +194,29 @@ public partial class Container : INavigationWindow
         else
         {
             SplashText.Text = "Hi !";
-            
+            await Task.Delay(1500);
             SplashText.Text = "Loading... (Cleaning)";
-            SplashBar.Value = 25;
+            SplashBar.Value = 0;
+            await Task.Delay(500);
             await UT.Cleanup();
             SplashText.Text = "Loading... (Checking Files)";
-            SplashBar.Value = 50;
+            SplashBar.Value = 65;
+            await Task.Delay(500);
             bool fs = await UT.FirstStart();
             SplashText.Text = "Loading... (Checking System)";
-            SplashBar.Value = 75;
+            SplashBar.Value = 70;
+            await Task.Delay(500);
             await UT.Check();
+            SplashText.Text = "Loading... (Checking Unowhy Tools Service)";
+            SplashBar.Value = 80;
+            await Task.Delay(500);
+            await UT.UTS.UTScheck();
             SplashText.Text = "Ready !";
             SplashBar.Value = 100;
-            
-            //Navigate(typeof(Dashboard));
-            //Navigate(typeof(Settings));
-            
-            await Task.Delay(1000);
+
+            string utsserial = await UT.UTS.UTSmsg("UTSW", "GetSN");
+
+            await Task.Delay(500);
 
             UT.anim.TransitionForw(RootWelcomeGrid);
 
@@ -219,12 +225,14 @@ public partial class Container : INavigationWindow
             RootWelcomeGrid.Visibility = Visibility.Hidden;
             RootMainGrid.Visibility = Visibility.Visible;
 
-            Navigate(typeof(Dashboard));
-            if (fs)
+            if (fs || utsserial == "Null")
             {
-                UT.DialogIShow("\n\nHello, select your language and click \"OK\" \n\nBonjour, séléctionner votre langue et cliquer sur \"OK\"", "hi.png");
                 RootNavigation.Visibility = Visibility.Collapsed;
-                Navigate(typeof(Settings));
+                Navigate(typeof(FirstConfig));
+            }
+            else
+            {
+                Navigate(typeof(Dashboard));
             }
         }
     }

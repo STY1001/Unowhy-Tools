@@ -78,7 +78,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         string pre = utemp + "\\update";
         string post = Directory.GetCurrentDirectory();
 
-        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -u {UTdata.UserID}");
+        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & net stop UTS & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -u {UTdata.UserID}");
 
     }   
 
@@ -116,7 +116,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     private async void Button_Click_1(object sender, RoutedEventArgs e)
     {
-        string rep = await UT.UTSmsg(pipe.Text, msg.Text);
+        string rep = await UT.UTS.UTSmsg(pipe.Text, msg.Text);
         UT.DialogIShow(rep, "about.png");
     }
 }

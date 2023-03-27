@@ -132,6 +132,11 @@
                                        Height="0"
                                        Content="Unowhy Tools Updater"
                                        PageType="{x:Type pages:Updater}" />
+                    <ui:NavigationItem x:Name="wifi"
+                                       Visibility="Collapsed"
+                                       Height="0"
+                                       Content="Unowhy Tools Wifi"
+                                       PageType="{x:Type pages:Wifi}" />
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem x:Name="deb"
