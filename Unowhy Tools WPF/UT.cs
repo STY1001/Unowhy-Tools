@@ -298,7 +298,7 @@ namespace Unowhy_Tools
             public static async Task UTScheck()
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
-                mainWindow.SplashText.Text = "Preparing UTS... (Checking...)";
+                mainWindow.SplashText.Text = "Preparing UTS... (Checking)";
                 string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
 
                 if (!Directory.Exists(instdir))
@@ -311,12 +311,12 @@ namespace Unowhy_Tools
                 {
                     if (CheckInternet())
                     {
-                        mainWindow.SplashText.Text = "Preparing UTS... (Downloading...)";
+                        mainWindow.SplashText.Text = "Preparing UTS... (Downloading)";
                         var web = new HttpClient();
                         var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
                         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
                         File.WriteAllBytes(utemp + "\\service.zip", filebyte);
-                        mainWindow.SplashText.Text = "Preparing UTS... (Extracting...)";
+                        mainWindow.SplashText.Text = "Preparing UTS... (Extracting)";
                         await Task.Delay(100);
                         ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
                         await Task.Delay(100);
@@ -331,14 +331,14 @@ namespace Unowhy_Tools
                     ServiceController sc = new ServiceController();
                     sc.ServiceName = "UTS";
 
-                    if(sc.ServiceType == ServiceType.InteractiveProcess && sc.ServiceType == ServiceType.Win32OwnProcess)
+                    if(sc.ServiceType.HasFlag(ServiceType.InteractiveProcess) && sc.ServiceType.HasFlag(ServiceType.Win32OwnProcess))
                     {
 
                     }
                     else
                     {
                         await UT.RunMin("sc", "config UTS type=own type=interact");
-                        mainWindow.SplashText.Text = "Preparing UTS... (Restarting...)";
+                        mainWindow.SplashText.Text = "Preparing UTS... (Restarting)";
                         await UT.serv.stop("UTS");
                         await UT.serv.start("UTS");
                     }
@@ -347,30 +347,30 @@ namespace Unowhy_Tools
                     {
                         if (sc.Status == ServiceControllerStatus.Running)
                         {
-                            mainWindow.SplashText.Text = "Preparing UTS... (Running...)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Running)";
                         }
                         else
                         {
                             await UT.serv.start("UTS");
-                            mainWindow.SplashText.Text = "Preparing UTS... (Starting...)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Starting)";
                         }
                     }
                     else
                     {
                         await UT.serv.auto("UTS");
                         await UT.serv.start("UTS");
-                        mainWindow.SplashText.Text = "Preparing UTS... (Starting...)";
+                        mainWindow.SplashText.Text = "Preparing UTS... (Starting)";
                     }
                 }
                 else
                 {
-                    mainWindow.SplashText.Text = "Preparing UTS... (Installing...)";
+                    mainWindow.SplashText.Text = "Preparing UTS... (Installing)";
                     await UT.RunMin("sc", $"create UTS binpath=\"\\\"{utspath}\\\"\" displayname=\"Unowhy Tools Service\" start=auto type=own type=interact");
                     await UT.serv.start("UTS");
                 }
                 mainWindow.SplashBar.Value++;
                 mainWindow.SplashBar.Value++;
-                mainWindow.SplashText.Text = "Preparing UTS... (Checking Update...)";
+                mainWindow.SplashText.Text = "Preparing UTS... (Checking Update)";
                 await Task.Delay(100);
                 await UT.UTS.UTSupdate();
                 mainWindow.SplashBar.Value++;
@@ -399,18 +399,18 @@ namespace Unowhy_Tools
                             Directory.Delete(instdir, true);
                             await Task.Delay(100);
                             Directory.CreateDirectory(instdir);
-                            mainWindow.SplashText.Text = "Preparing UTS... (Shutting down...)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Shutting down)";
                             await UT.serv.stop("UTS");
-                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading...)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading)";
                             web = new HttpClient();
                             var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
                             string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
                             File.WriteAllBytes(utemp + "\\service.zip", filebyte);
-                            mainWindow.SplashText.Text = "Preparing UTS... (Extracting...)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Extracting)";
                             await Task.Delay(100);
                             ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
                             await Task.Delay(100);
-                            mainWindow.SplashText.Text = "Preparing UTS... (Starting up...)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Starting up)";
                             await UT.serv.start("UTS");
                         }
                     }
