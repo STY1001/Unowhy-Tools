@@ -88,6 +88,11 @@ public partial class Container : INavigationWindow
     {
         RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
     }
+    
+    public void NavAnimNormal()
+    {
+        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.FadeIn;
+    }
 
     public bool ShowDialogQ(string msg, BitmapImage img)
     {

@@ -190,7 +190,7 @@ namespace Unowhy_Tools
             public static void setnormalAnim(object sender, EventArgs e)
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
-                mainWindow.NavAnimRight();
+                mainWindow.NavAnimNormal();
             }
         }
 
