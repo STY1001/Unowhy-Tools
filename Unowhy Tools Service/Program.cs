@@ -11,12 +11,7 @@ namespace Unowhy_Tools_Service
     {
         static void Main(string[] args)
         {
-            using(var wifi = new Wifi())
-            {
-                ServiceBase.Run(wifi);
-            }
-            
-            using(var main = new Main())
+            using (var main = new Main())
             {
                 ServiceBase.Run(main);
             }
