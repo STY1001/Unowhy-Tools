@@ -385,6 +385,7 @@ namespace Unowhy_Tools
                 {
                     var web = new HttpClient();
                     string newver = await web.GetStringAsync("https://bit.ly/UTStext");
+                    newver = newver.Replace("\n", "").Replace("\r", "").Replace(" ", "");
 
                     if (!verisdeb)
                     {
@@ -394,14 +395,13 @@ namespace Unowhy_Tools
                         {
                             mainWindow.SplashText.Text = "Preparing UTS... (" + ver + " => " + newver + ")";
                             await Task.Delay(300);
-
+                            mainWindow.SplashText.Text = "Preparing UTS... (Shutting down)";
+                            await UT.serv.stop("UTS");
+                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading)";
                             string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
                             Directory.Delete(instdir, true);
                             await Task.Delay(100);
                             Directory.CreateDirectory(instdir);
-                            mainWindow.SplashText.Text = "Preparing UTS... (Shutting down)";
-                            await UT.serv.stop("UTS");
-                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading)";
                             web = new HttpClient();
                             var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
                             string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
