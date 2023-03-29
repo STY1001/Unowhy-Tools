@@ -28,7 +28,7 @@ namespace Unowhy_Tools_Service
         private NamedPipeServerStream _uts;
         private NamedPipeServerStream _utsw;
 
-        public string Version = "1.0";
+        public string Version = "1.1";
 
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(out int state, int value);
