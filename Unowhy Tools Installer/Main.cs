@@ -17,6 +17,7 @@ using Microsoft.WindowsAPICodePack.Taskbar;
 using System.Reflection;
 using Unowhy_Tools;
 using System.Threading;
+using System.IO.Compression;
 
 namespace Unowhy_Tools_Installer
 {
@@ -43,7 +44,7 @@ namespace Unowhy_Tools_Installer
             runmin("taskkill", "/f /im \"Unowhy Tools.exe\"");
             runmin("taskkill", "/f /im \"Unowhy Tools Updater.exe\"");
             runmin("taskkill", "/f /im \"uninstall.exe\"");
-
+            runmin("net", "stop UTS");
 
             status.Text = "Ready !";
             pictureBox3.Visible = false;
@@ -108,6 +109,16 @@ namespace Unowhy_Tools_Installer
                 Directory.CreateDirectory("C:\\Program Files (x86)\\Unowhy Tools");
             }
 
+            if (Directory.Exists("C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools Service"))
+            {
+                Directory.Delete("C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools Service", true);
+                Directory.CreateDirectory("C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools Service");
+            }
+            else
+            {
+                Directory.CreateDirectory("C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools Service");
+            }
+
             statusbar.Value = 5;
             TaskbarManager.Instance.SetProgressValue(5, 100);
 
@@ -131,13 +142,12 @@ namespace Unowhy_Tools_Installer
         {
             status.Text = "Extracting...";
             delay(1000);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe", "Files", "7zip.exe");
             statusbar.Value = 15;
             TaskbarManager.Instance.SetProgressValue(15, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\7z.dll", "Files", "7z.dll");
+            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\service.zip", "Files", "service.zip");
             statusbar.Value = 20;
             TaskbarManager.Instance.SetProgressValue(20, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\update.zip", "Files", "install.zip");
+            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\install.zip", "Files", "install.zip");
             statusbar.Value = 25;
             TaskbarManager.Instance.SetProgressValue(25, 100);
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\dotnetwdrt6.0.14.exe", "Files", "dotnetwdrt6.0.14.exe");
@@ -151,8 +161,6 @@ namespace Unowhy_Tools_Installer
             TaskbarManager.Instance.SetProgressValue(45, 100);
             statusbar.Value = 50;
             TaskbarManager.Instance.SetProgressValue(50, 100);
-            statusbar.Value = 55;
-            TaskbarManager.Instance.SetProgressValue(55, 100);
 
             status.Text = "Installing...";
             
@@ -170,17 +178,17 @@ namespace Unowhy_Tools_Installer
             p12.Start();
             p12.WaitForExit();
             
+            statusbar.Value = 55;
+            TaskbarManager.Instance.SetProgressValue(55, 100);
+
+            ZipFile.ExtractToDirectory("C:\\Program Files (x86)\\Unowhy Tools\\install.zip", "C:\\Program Files (x86)\\Unowhy Tools");
+
+
             statusbar.Value = 60;
             TaskbarManager.Instance.SetProgressValue(60, 100);
 
-            Process p1 = new Process();
-            p1.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\7zip.exe";
-            p1.StartInfo.Arguments = "x \"C:\\Program Files (x86)\\Unowhy Tools\\update.zip\" -aoa";
-            p1.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools";
-            p1.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p1.StartInfo.CreateNoWindow = true;
-            p1.Start();
-            p1.WaitForExit();
+            ZipFile.ExtractToDirectory("C:\\Program Files (x86)\\Unowhy Tools\\service.zip", "C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools Service");
+
 
             statusbar.Value = 65;
             TaskbarManager.Instance.SetProgressValue(65, 100);
@@ -233,17 +241,17 @@ namespace Unowhy_Tools_Installer
             statusbar.Value = 85;
             TaskbarManager.Instance.SetProgressValue(85, 100);
 
-            if (Directory.Exists("C:\\Program Files (x86)\\Unowhy Tools\\update"))
+            if (File.Exists("C:\\Program Files (x86)\\Unowhy Tools\\service.zip"))
             {
-                Directory.Delete("C:\\Program Files (x86)\\Unowhy Tools\\update", true);
+                File.Delete("C:\\Program Files (x86)\\Unowhy Tools\\service.zip");
             }
 
             statusbar.Value = 90;
             TaskbarManager.Instance.SetProgressValue(90, 100);
 
-            if (File.Exists("C:\\Program Files (x86)\\Unowhy Tools\\update.zip"))
+            if (File.Exists("C:\\Program Files (x86)\\Unowhy Tools\\install.zip"))
             {
-                File.Delete("C:\\Program Files (x86)\\Unowhy Tools\\update.zip");
+                File.Delete("C:\\Program Files (x86)\\Unowhy Tools\\install.zip");
             }
 
             statusbar.Value = 95;

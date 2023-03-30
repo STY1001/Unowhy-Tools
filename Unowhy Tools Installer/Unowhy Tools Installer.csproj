@@ -241,8 +241,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Files\7z.dll" />
-    <EmbeddedResource Include="Files\7zip.exe" />
     <EmbeddedResource Include="info.resx">
       <DependentUpon>info.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +263,7 @@
     <None Include="app.manifest" />
     <EmbeddedResource Include="Files\Unowhy Tools.lnk" />
     <EmbeddedResource Include="Files\install.zip" />
+    <EmbeddedResource Include="Files\service.zip" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

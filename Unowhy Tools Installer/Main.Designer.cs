@@ -110,9 +110,9 @@
             this.sty1001.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.sty1001.Location = new System.Drawing.Point(12, 123);
             this.sty1001.Name = "sty1001";
-            this.sty1001.Size = new System.Drawing.Size(122, 13);
+            this.sty1001.Size = new System.Drawing.Size(121, 13);
             this.sty1001.TabIndex = 35;
-            this.sty1001.Text = "by STY1001 | sty1001.cf";
+            this.sty1001.Text = "by STY1001 | sty1001.fr";
             // 
             // pictureBox5
             // 
@@ -191,7 +191,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 39;
-            this.label2.Text = "Ver 21.02";
+            this.label2.Text = "Ver 22.00";
             // 
             // pictureBox6
             // 
