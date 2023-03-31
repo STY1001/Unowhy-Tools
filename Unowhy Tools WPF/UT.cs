@@ -50,10 +50,10 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static string ver = "22.00";
-        public static int verfull = 2200;
-        public static int verbuild = 151629323;
-        public static bool verisdeb = false;
+        public static string ver = "22.01";
+        public static int verfull = 2201;
+        public static int verbuild = 115831323;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -497,24 +497,31 @@ namespace Unowhy_Tools
             
             foreach(string file in oldfiles)
             {
-                mainWindow.SplashText.Text = "Cleanup... (" + file + ")";
+                mainWindow.SplashText.Text = "Cleanup... (Checking)";
                 mainWindow.SplashBar.Value++;
                 await Task.Delay(1);
                 if (File.Exists(file))
                 {
+                    mainWindow.SplashText.Text = "Cleanup... (" + file + ")";
                     File.Delete(file);
                 }
             }
 
+            mainWindow.SplashText.Text = "Cleanup... (Checking)";
             if (Directory.Exists("temp"))
             {
+                mainWindow.SplashText.Text = "Cleanup... (\\temp)";
                 Directory.Delete("temp", true);
             }
+            await Task.Delay(300);
             mainWindow.SplashBar.Value++;
+            mainWindow.SplashText.Text = "Cleanup... (Checking)";
             if (Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
             {
+                mainWindow.SplashText.Text = "Cleanup... (%temp%\\Unowhy Tools\\Temps)";
                 Directory.Delete(Path.GetTempPath() + "\\Unowhy Tools\\Temps", true);
             }
+            await Task.Delay(300);
             mainWindow.SplashBar.Value++;
         }
 
