@@ -21,6 +21,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
 using System.Windows.Navigation;
+using System.Xml.Linq;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -221,6 +222,16 @@ public partial class Container : INavigationWindow
 
             string utsserial = await UT.UTS.UTSmsg("UTSW", "GetSN");
 
+            RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
+            foreach (UIElement elements in RootNavigation.Items)
+            {
+                elements.Visibility = Visibility.Hidden;
+            }
+            foreach (UIElement elements in RootNavigation.Footer)
+            {
+                elements.Visibility = Visibility.Hidden;
+            }
+
             await Task.Delay(500);
 
             UT.anim.TransitionForw(RootWelcomeGrid);
@@ -238,7 +249,65 @@ public partial class Container : INavigationWindow
             else
             {
                 Navigate(typeof(Dashboard));
+
+                foreach (UIElement elements in RootNavigation.Items)
+                {
+                    elements.Visibility = Visibility.Visible;
+                    DoubleAnimation opacityAnimation = new DoubleAnimation
+                    {
+                        From = 0,
+                        To = 1,
+                        Duration = TimeSpan.FromSeconds(0.5),
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                    };
+
+                    DoubleAnimation translateAnimation = new DoubleAnimation
+                    {
+                        From = -50,
+                        To = 0,
+                        Duration = TimeSpan.FromSeconds(0.5),
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                    };
+
+                    TranslateTransform transform = new TranslateTransform();
+                    elements.RenderTransform = transform;
+
+                    elements.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                    transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+                    await Task.Delay(50);
+                }
+
+                foreach (UIElement elements in RootNavigation.Footer)
+                {
+                    elements.Visibility = Visibility.Visible;
+                    DoubleAnimation opacityAnimation = new DoubleAnimation
+                    {
+                        From = 0,
+                        To = 1,
+                        Duration = TimeSpan.FromSeconds(0.5),
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                    };
+
+                    DoubleAnimation translateAnimation = new DoubleAnimation
+                    {
+                        From = 50,
+                        To = 0,
+                        Duration = TimeSpan.FromSeconds(0.5),
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                    };
+
+                    TranslateTransform transform = new TranslateTransform();
+                    elements.RenderTransform = transform;
+
+                    elements.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                    transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+                    await Task.Delay(150);
+                }
             }
+            await Task.Delay(1000);
+            RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.FadeIn;
         }
     }
 
