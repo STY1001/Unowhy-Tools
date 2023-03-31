@@ -89,16 +89,11 @@ public partial class Drivers : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        RootStack.Visibility = Visibility.Hidden;
-
-        await UT.waitstatus.open();
         applylang();
-        await UT.waitstatus.close();
+    }
 
-        await Task.Delay(500);
-
-        RootStack.Visibility = Visibility.Visible;
-
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Hidden;
@@ -117,7 +112,7 @@ public partial class Drivers : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = 50,
+                From = -50,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }

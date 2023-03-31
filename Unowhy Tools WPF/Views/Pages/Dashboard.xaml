@@ -5,7 +5,9 @@
            xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-           Title="Dashboard" Initialized="Init"
+           Title="Dashboard"
+           Initialized="Init"
+           Loaded="InitAnim"
            d:DataContext="{d:DesignInstance local:Dashboard,
                                      IsDesignTimeCreatable=False}"
            d:DesignHeight="750"
@@ -328,7 +330,7 @@
                             <TextBlock FontSize="12"
                                        Foreground="#bebebe"
                                        Text="Unowhy Tools"
-                                       x:Name="lababout2"/>
+                                       x:Name="lababout2" />
                         </StackPanel>
                     </Grid>
                 </ui:CardAction>

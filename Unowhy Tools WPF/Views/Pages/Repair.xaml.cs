@@ -79,9 +79,12 @@ public partial class Repair : INavigableView<DashboardViewModel>
         locka_btn.Content = UT.GetLang("enable");
     }
 
-    public async Task CheckBTN()
+    public async Task CheckBTN(bool check)
     {
-        await UT.Check();
+        if (check)
+        {
+            await UT.Check();
+        }
         shell.IsEnabled = true;
         tis.IsEnabled = true;
         bim.IsEnabled = true;
@@ -105,21 +108,18 @@ public partial class Repair : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        RootStack.Visibility = Visibility.Hidden;
-
-        await UT.waitstatus.open();
         applylang();
-        await CheckBTN();
-        await UT.waitstatus.close();
+        await CheckBTN(false);
+    }
 
-        await Task.Delay(500);
-
-        RootStack.Visibility = Visibility.Visible;
-
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
+
+        await CheckBTN(false);
 
         foreach (UIElement element in RootStack.Children)
         {
@@ -134,7 +134,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = 50,
+                From = -50,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -163,7 +163,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("reg", "add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\WinLogon\" /v Shell /d explorer.exe /t REG_SZ /f");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!shell.IsEnabled)
             {
@@ -182,7 +182,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("cmd", "/w /c del /q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!tis.IsEnabled)
             {
@@ -201,7 +201,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("reg", "delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe\" /f");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!bim.IsEnabled)
             {
@@ -226,7 +226,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock\" /v \"DynamicLock\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock\" /v \"Plugins\" /t REG_SZ /d \"<rule schemaVersion=\\\"1.0\\\"> <signal type=\\\"bluetooth\\\" scenario=\\\"Dynamic Lock\\\" classOfDevice=\\\"512\\\" rssiMin=\\\"-10\\\" rssiMaxDelta=\\\"-10\\\"/> </rule> \" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider\" /v \"Domain Accounts\" /t REG_DWORD /d \"1\" /f");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!whe.IsEnabled)
             {
@@ -245,7 +245,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("bcdedit", "/deletevalue bootstatuspolicy");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!iaf.IsEnabled)
             {
@@ -264,7 +264,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableTaskMgr /f");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!tmgr.IsEnabled)
             {
@@ -283,7 +283,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableLockWorkstation /f");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!tmgr.IsEnabled)
             {

@@ -36,9 +36,12 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         hsqm_delete_txt.Text = UT.GetLang("delserv");
     }
 
-    public async Task CheckBTN()
+    public async Task CheckBTN(bool check)
     {
-        await UT.Check();
+        if (check)
+        {
+            await UT.Check();
+        }
         hsqm_delete_txt.Foreground = new SolidColorBrush(enabled);
         hsqm_disable_txt.Foreground = new SolidColorBrush(enabled);
         hsqm_enable_txt.Foreground = new SolidColorBrush(enabled);
@@ -119,17 +122,22 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        RootStack.Visibility = Visibility.Hidden;
-
-        await UT.waitstatus.open();
         applylang();
-        await CheckBTN();
-        await UT.waitstatus.close();
+        await CheckBTN(false);
+    }
 
-        RootStack.Visibility = Visibility.Visible;
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        foreach (UIElement element in RootStack.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        await CheckBTN(false);
 
         foreach (UIElement element in RootStack.Children)
         {
+            element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
             {
                 From = 0,
@@ -140,7 +148,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = 50,
+                From = -50,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -169,7 +177,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.serv.start("HiSqoolManager");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if(!hsqm_start.IsEnabled)
             {
@@ -188,7 +196,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.serv.stop("HiSqoolManager");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsqm_stop.IsEnabled)
             {
@@ -207,7 +215,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.serv.auto("HiSqoolManager");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsqm_enable.IsEnabled)
             {
@@ -226,7 +234,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.serv.dis("HiSqoolManager");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsqm_disable.IsEnabled)
             {
@@ -245,7 +253,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.serv.del("HiSqoolManager");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsqm_stop.IsEnabled)
             {

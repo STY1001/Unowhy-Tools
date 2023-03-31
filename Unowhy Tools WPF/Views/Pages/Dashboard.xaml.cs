@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -32,23 +33,6 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        DoubleAnimation anim = new DoubleAnimation();
-        anim.From = -50;
-        anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(600);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-        TranslateTransform trans = new TranslateTransform();
-        quickoption.RenderTransform = trans;
-
-        DoubleAnimation anim2 = new DoubleAnimation();
-        anim2.From = 0;
-        anim2.To = 1;
-        anim2.Duration = TimeSpan.FromMilliseconds(600);
-        anim2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-
-        quickoption.BeginAnimation(Border.OpacityProperty, anim2);
-        trans.BeginAnimation(TranslateTransform.YProperty, anim);
-
         string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
 
         if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
@@ -61,39 +45,6 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         if (pcname.Text.Contains("Lenovo"))
         {
             pcname.Text = "Unowhy-Win11";
-        }
-
-        foreach (UIElement element in qogrid.Children)
-        {
-            element.Visibility = Visibility.Hidden;
-        }
-
-        foreach (UIElement element in qogrid.Children)
-        {
-            element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = -50,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-            await Task.Delay(50);
         }
 
         if (UT.CheckInternet())
@@ -143,6 +94,59 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         else
         {
             lababout2.Text = "Unowhy Tools";
+        }
+    }
+
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = -50;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(600);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        quickoption.RenderTransform = trans;
+
+        DoubleAnimation anim2 = new DoubleAnimation();
+        anim2.From = 0;
+        anim2.To = 1;
+        anim2.Duration = TimeSpan.FromMilliseconds(600);
+        anim2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+        quickoption.BeginAnimation(Border.OpacityProperty, anim2);
+        trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
+        foreach (UIElement element in qogrid.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        foreach (UIElement element in qogrid.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
         }
     }
 

@@ -55,9 +55,12 @@ public partial class Delete : INavigableView<DashboardViewModel>
         entf_btn.Content = UT.GetLang("delete");
     }
 
-    public async Task CheckBTN()
+    public async Task CheckBTN(bool check)
     {
-        await UT.Check();
+        if (check)
+        {
+            await UT.Check();
+        }
         entu.IsEnabled = true;
         hsq.IsEnabled = true;
         aad.IsEnabled = true;
@@ -86,22 +89,19 @@ public partial class Delete : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        RootStack.Visibility = Visibility.Hidden;
-
-        await UT.waitstatus.open();
         applylang();
-        await CheckBTN();
-        await UT.waitstatus.close();
+        await CheckBTN(false);
+    }
 
-        await Task.Delay(500);
-
-        RootStack.Visibility = Visibility.Visible;
-
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
 
+        await CheckBTN(false);
+        
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Visible;
@@ -115,7 +115,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = 50,
+                From = -50,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -153,7 +153,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("net", "user ENT /delete");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!entu.IsEnabled)
             {
@@ -176,7 +176,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
                 Process p = Process.Start("C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe"); 
                 p.WaitForExit();
             });
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsq.IsEnabled)
             {
@@ -195,7 +195,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/leave\" -nonewwindow");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!aad.IsEnabled)
             {
@@ -215,7 +215,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.waitstatus.open();
             await UT.serv.del("Hisqoolmanager");
             await UT.RunMin("cmd", "/w /c rmdir /s /q \"C:\\Program Files\\Unowhy\\Hisqool manager\"");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsmqf.IsEnabled)
             {
@@ -235,7 +235,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.waitstatus.open();
             await UT.RunMin("cmd", "/w /c del /q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Program Files\\Unowhy\\TO_INSTALL\"");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!tif.IsEnabled)
             {
@@ -254,7 +254,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\ProgramData\\RIDF\"");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!ridff.IsEnabled)
             {
@@ -273,7 +273,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Windows\\System32\\OEM\"");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!oemf.IsEnabled)
             {
@@ -292,7 +292,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"c:\\ProgramData\\ENT\"");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!entf.IsEnabled)
             {

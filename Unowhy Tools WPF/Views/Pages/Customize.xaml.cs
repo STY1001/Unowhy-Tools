@@ -115,30 +115,30 @@ public partial class Customize : INavigableView<DashboardViewModel>
         auset_btn.Content = UT.GetLang("open");
     }
 
-    public async Task CheckBTN()
+    public async Task CheckBTN(bool check)
     {
-        await UT.Check();
+        if (check)
+        {
+            await UT.Check();
+        }
         if (UTdata.Admin == true) adminset.IsEnabled = false;
         else adminset.IsEnabled = true;
     }
 
     public async void Init(object sender, EventArgs e)
     {
-        RootStack.Visibility = Visibility.Hidden;
-
-        await UT.waitstatus.open();
         applylang();
-        await CheckBTN();
-        await UT.waitstatus.close();
+        await CheckBTN(false);
+    }
 
-        await Task.Delay(500);
-
-        RootStack.Visibility = Visibility.Visible;
-
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
+
+        await CheckBTN(false);
 
         foreach (UIElement element in RootStack.Children)
         {
@@ -153,7 +153,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = 50,
+                From = -50,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -182,7 +182,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("net", $"localgroup {UTdata.AdminsName} /add \"{UTdata.User}\"");
-            await CheckBTN();
+            await CheckBTN(true);
             await UT.waitstatus.close();
             if (!adminset.IsEnabled)
             {
