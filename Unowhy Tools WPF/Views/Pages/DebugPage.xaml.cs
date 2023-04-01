@@ -124,4 +124,9 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     {
         UT.DialogIShow("For UWP only :(", "no.png");
     }
+
+    private async void UiPage_Unloaded(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionBack(Grid1);
+    }
 }

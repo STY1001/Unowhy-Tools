@@ -112,7 +112,7 @@ public partial class Drivers : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = -50,
+                From = -10,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -122,7 +122,7 @@ public partial class Drivers : INavigableView<DashboardViewModel>
             element.RenderTransform = transform;
 
             element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
 
             await Task.Delay(50);
         }

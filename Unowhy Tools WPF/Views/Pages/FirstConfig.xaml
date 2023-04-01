@@ -53,7 +53,7 @@
                                Grid.ColumnSpan="3"
                                Grid.Column="0"
                                Grid.Row="0" />
-                    <TextBlock Text="Welcome to Unowhy Tools&#x0a;We will take a few seconds to configure it&#x0a;Bienvenue sur Unowhy Tools&#x0a;Nous allons prendre quelques secondes pour le configurer"
+                    <TextBlock Text="Welcome to Unowhy Tools&#x0a;We will take a few seconds to configure it&#x0a;&#x0a;Bienvenue sur Unowhy Tools&#x0a;Nous allons prendre quelques secondes pour le configurer"
                                Foreground="#ffffff"
                                TextWrapping="Wrap"
                                VerticalAlignment="Center"

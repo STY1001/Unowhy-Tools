@@ -275,7 +275,66 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
             mainWindow.RootNavigation.Visibility = Visibility.Visible;
             mainWindow.applylang();
+            mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
             UT.NavigateTo(typeof(Dashboard));
+
+            foreach (UIElement elements in mainWindow.RootNavigation.Items)
+            {
+                elements.Visibility = Visibility.Visible;
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = -50,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                elements.RenderTransform = transform;
+
+                elements.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+                await Task.Delay(50);
+            }
+            foreach (UIElement elements in mainWindow.RootNavigation.Footer)
+            {
+                elements.Visibility = Visibility.Visible;
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 50,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                elements.RenderTransform = transform;
+
+                elements.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+                await Task.Delay(150);
+            }
+
+            await Task.Delay(1000);
+            mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
 
             RegistryKey keyf = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             if (InitOK)
