@@ -48,7 +48,7 @@
                                 Precache="False"
                                 SelectedPageIndex="-1"
                                 TransitionDuration="300"
-                                TransitionType="FadeIn">
+                                TransitionType="SlideBottom">
                 <ui:NavigationStore.Items>
                     <ui:NavigationItem x:Name="home"
                                        Content="Home"
@@ -137,6 +137,11 @@
                                        Height="0"
                                        Content="Unowhy Tools Wifi"
                                        PageType="{x:Type pages:Wifi}" />
+                    <ui:NavigationItem x:Name="fc"
+                                       Visibility="Collapsed"
+                                       Height="0"
+                                       Content="Unowhy Tools First Config"
+                                       PageType="{x:Type pages:FirstConfig}" />
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem x:Name="deb"
@@ -192,11 +197,12 @@
 
         <Grid x:Name="RootWelcomeGrid"
               Grid.Row="1"
-              Visibility="Visible">
+              Visibility="Collapsed">
             <Border Background="#303030"
                     CornerRadius="8,8,8,8"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
+                    VerticalAlignment="Center"
+                    ClipToBounds="True">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20" />
@@ -213,6 +219,7 @@
                     <Grid Grid.Column="1"
                           Grid.Row="1">
                         <Image Grid.Row="0"
+                               x:Name="SplashImg"
                                RenderOptions.BitmapScalingMode="HighQuality"
                                Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
                     </Grid>

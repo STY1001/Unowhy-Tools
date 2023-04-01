@@ -92,7 +92,7 @@ public partial class Container : INavigationWindow
     
     public void NavAnimNormal()
     {
-        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.FadeIn;
+        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
     }
 
     public bool ShowDialogQ(string msg, BitmapImage img)
@@ -164,10 +164,11 @@ public partial class Container : INavigationWindow
     private async Task Load()
     {
         RootMainGrid.Visibility = Visibility.Collapsed;
+        await Task.Delay(1500);
         RootWelcomeGrid.Visibility = Visibility.Visible;
-        
+
         DoubleAnimation anim = new DoubleAnimation();
-        anim.From = 10000;
+        anim.From = 1000;
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(500);
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
@@ -175,10 +176,39 @@ public partial class Container : INavigationWindow
         RootWelcomeGrid.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
+        anim = new DoubleAnimation();
+        anim.From = -1000;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        trans = new TranslateTransform();
+        SplashImg.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
+        anim = new DoubleAnimation();
+        anim.From = 1000;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        trans = new TranslateTransform();
+        SplashBar.RenderTransform = trans;
+        SplashText.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
         string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
         if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
         else ver = ver + "(Release)";
         SplashVer.Text = ver;
+
+        anim = new DoubleAnimation();
+        anim.From = 1000;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        trans = new TranslateTransform();
+        SplashVer.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
         if (!UT.CheckAdmin())
         {
@@ -217,6 +247,19 @@ public partial class Container : INavigationWindow
             SplashBar.Value = 80;
             await Task.Delay(500);
             await UT.UTS.UTScheck();
+            SplashText.Text = "Loading... (Preloading pages)";
+            Navigate(typeof(Dashboard));
+            Navigate(typeof(HisqoolManager));
+            Navigate(typeof(Repair));
+            Navigate(typeof(Delete));
+            Navigate(typeof(Customize));
+            Navigate(typeof(Drivers));
+            Navigate(typeof(Settings));
+            Navigate(typeof(About));
+            Navigate(typeof(Updater));
+            SplashBar.Value = 90;
+            await Task.Delay(500);
+
             SplashText.Text = "Ready !";
             SplashBar.Value = 100;
 
@@ -234,6 +277,44 @@ public partial class Container : INavigationWindow
 
             await Task.Delay(500);
 
+            anim = new DoubleAnimation();
+            anim.From = 0;
+            anim.To = 1000;
+            anim.Duration = TimeSpan.FromMilliseconds(500);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            trans = new TranslateTransform();
+            RootWelcomeGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+            anim = new DoubleAnimation();
+            anim.From = 0;
+            anim.To = -1000;
+            anim.Duration = TimeSpan.FromMilliseconds(500);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            trans = new TranslateTransform();
+            SplashImg.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
+            anim = new DoubleAnimation();
+            anim.From = 0;
+            anim.To = 1000;
+            anim.Duration = TimeSpan.FromMilliseconds(500);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            trans = new TranslateTransform();
+            SplashBar.RenderTransform = trans;
+            SplashText.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
+            anim = new DoubleAnimation();
+            anim.From = 0;
+            anim.To = 1000;
+            anim.Duration = TimeSpan.FromMilliseconds(500);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            trans = new TranslateTransform();
+            SplashVer.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
             UT.anim.TransitionForw(RootWelcomeGrid);
 
             await Task.Delay(150);
@@ -249,7 +330,6 @@ public partial class Container : INavigationWindow
             else
             {
                 Navigate(typeof(Dashboard));
-
                 foreach (UIElement elements in RootNavigation.Items)
                 {
                     elements.Visibility = Visibility.Visible;
@@ -277,7 +357,6 @@ public partial class Container : INavigationWindow
 
                     await Task.Delay(50);
                 }
-
                 foreach (UIElement elements in RootNavigation.Footer)
                 {
                     elements.Visibility = Visibility.Visible;
@@ -305,9 +384,9 @@ public partial class Container : INavigationWindow
 
                     await Task.Delay(150);
                 }
+                await Task.Delay(1000);
+                RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
             }
-            await Task.Delay(1000);
-            RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.FadeIn;
         }
     }
 
