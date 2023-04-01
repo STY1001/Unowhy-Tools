@@ -43,6 +43,11 @@ public partial class PCname : INavigableView<DashboardViewModel>
         old.Text = UTdata.HostName;
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public PCname(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;

@@ -79,6 +79,11 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         }
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public async void Enable_Click(object sender, RoutedEventArgs e)
     {
         if (UT.DialogQShow(UT.GetLang("winre.ena"), "enable.png"))

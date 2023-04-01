@@ -33,6 +33,11 @@ public partial class AddUser : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(Customize));
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public void applylang()
     {
         labu.Text = UT.GetLang("name");

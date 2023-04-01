@@ -8,6 +8,7 @@
            xmlns:wv="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
            Title="Unowhy Tools Updater"
            Initialized="Init"
+           Loaded="InitAnim"
            d:DataContext="{d:DesignInstance local:Updater,
                                      IsDesignTimeCreatable=False}"
            d:DesignHeight="600"

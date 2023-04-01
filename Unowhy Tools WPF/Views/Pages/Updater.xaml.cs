@@ -68,6 +68,11 @@ public partial class Updater : INavigableView<DashboardViewModel>
         labtext.Visibility = Visibility.Hidden;
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public Updater(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;

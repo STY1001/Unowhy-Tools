@@ -65,6 +65,11 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         rest_btn.Text = UT.GetLang("restore");
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public DrvRest(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;

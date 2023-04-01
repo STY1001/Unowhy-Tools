@@ -35,6 +35,11 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
         dis.Text = UT.GetLang("disablea");
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public AdminUser(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;

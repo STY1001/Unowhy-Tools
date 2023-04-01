@@ -37,6 +37,11 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
         bk_btn.Text = UT.GetLang("backup");
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public DrvBack(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;

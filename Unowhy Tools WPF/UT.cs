@@ -146,7 +146,22 @@ namespace Unowhy_Tools
                 anim.Completed += setnormalBackBTN;
                 trans.BeginAnimation(TranslateTransform.XProperty, anim);
             }
-            
+
+            public static void BackBtnAnimForw(Wpf.Ui.Controls.Button btn)
+            {
+                _button = btn;
+                DoubleAnimation anim = new DoubleAnimation();
+                anim.From = -150;
+                anim.To = 0;
+                anim.Duration = TimeSpan.FromMilliseconds(500);
+                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+                TranslateTransform trans = new TranslateTransform();
+                _button.RenderTransform = trans;
+                anim.Completed += setnormalBackBTN;
+                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            }
+
             public static void setnormalBackBTN(object sender, EventArgs e)
             {
                 DoubleAnimation anim = new DoubleAnimation();

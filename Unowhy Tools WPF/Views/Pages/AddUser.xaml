@@ -6,6 +6,7 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
            Title="AddUser"
+           Loaded="InitAnim"
            d:DataContext="{d:DesignInstance local:AddUser,
                                      IsDesignTimeCreatable=False}"
            d:DesignHeight="750"

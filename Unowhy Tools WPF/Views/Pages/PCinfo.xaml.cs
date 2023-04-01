@@ -66,6 +66,11 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         }
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public PCinfo(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;

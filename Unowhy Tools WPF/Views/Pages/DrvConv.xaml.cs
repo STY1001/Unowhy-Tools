@@ -37,6 +37,11 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
         conv_btn.Text = UT.GetLang("conv");
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public DrvConv(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
