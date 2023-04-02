@@ -160,6 +160,30 @@ public partial class Container : INavigationWindow
     {
         await Load();
     }
+    
+    private async void NavClick(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation opacityAnimation = new DoubleAnimation
+        {
+            From = 0,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.1),
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        DoubleAnimation translateAnimation = new DoubleAnimation
+        {
+            From = 150,
+            To = 0,
+            Duration = TimeSpan.FromSeconds(0.1),
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        TranslateTransform transform = new TranslateTransform();
+        RootFrame.RenderTransform = transform;
+        RootFrame.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+        transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+    }
 
     private async Task Load()
     {

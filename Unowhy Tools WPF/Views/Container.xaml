@@ -55,38 +55,44 @@
                                        ToolTip="Home"
                                        Image="pack://application:,,,/Resources/home.png"
                                        PageTag="dashboard"
-                                       PageType="{x:Type pages:Dashboard}" />
+                                       PageType="{x:Type pages:Dashboard}" 
+                                       Click="NavClick"/>
                     <ui:NavigationSeparator />
                     <ui:NavigationItem x:Name="hsqm"
                                        Content="Hisqool Manager"
                                        ToolTip="Hisqool Manager"
                                        Image="pack://application:,,,/Resources/Service.png"
                                        PageTag="hisqoolmanger"
-                                       PageType="{x:Type pages:HisqoolManager}" />
+                                       PageType="{x:Type pages:HisqoolManager}"
+                                       Click="NavClick" />
                     <ui:NavigationItem x:Name="repair"
                                        Content="Repair"
                                        ToolTip="Repair"
                                        Image="pack://application:,,,/Resources/repair.png"
                                        PageTag="repair"
-                                       PageType="{x:Type pages:Repair}" />
+                                       PageType="{x:Type pages:Repair}"
+                                       Click="NavClick" />
                     <ui:NavigationItem x:Name="delete"
                                        Content="Delete"
                                        ToolTip="Delete"
                                        Image="pack://application:,,,/Resources/delete.png"
                                        PageTag="delete"
-                                       PageType="{x:Type pages:Delete}" />
+                                       PageType="{x:Type pages:Delete}"
+                                       Click="NavClick" />
                     <ui:NavigationItem x:Name="customize"
                                        Content="Customize"
                                        ToolTip="Customize"
                                        Image="pack://application:,,,/Resources/Customize.png"
                                        PageTag="customize"
-                                       PageType="{x:Type pages:Customize}" />
+                                       PageType="{x:Type pages:Customize}"
+                                       Click="NavClick" />
                     <ui:NavigationItem x:Name="drivers"
                                        Content="Drivers"
                                        ToolTip="Drivers"
                                        Image="pack://application:,,,/Resources/drivers.png"
                                        PageTag="drivers"
-                                       PageType="{x:Type pages:Drivers}" />
+                                       PageType="{x:Type pages:Drivers}"
+                                       Click="NavClick" />
                     <ui:NavigationItem x:Name="pcname"
                                        Visibility="Collapsed"
                                        Height="0"
@@ -149,20 +155,23 @@
                                        Content="Debug Page"
                                        Image="pack://application:,,,/Resources/code.png"
                                        PageTag="debug"
-                                       PageType="{x:Type pages:DebugPage}" />
+                                       PageType="{x:Type pages:DebugPage}"
+                                       Click="NavClick" />
                     <ui:NavigationSeparator />
                     <ui:NavigationItem x:Name="settings"
                                        Content="Settings"
                                        ToolTip="Settings"
                                        Image="pack://application:,,,/Resources/settings.png"
                                        PageTag="settings"
-                                       PageType="{x:Type pages:Settings}" />
+                                       PageType="{x:Type pages:Settings}"
+                                       Click="NavClick" />
                     <ui:NavigationItem x:Name="about"
                                        Content="About"
                                        ToolTip="About"
                                        Image="pack://application:,,,/Resources/about.png"
                                        PageTag="about"
-                                       PageType="{x:Type pages:About}" />
+                                       PageType="{x:Type pages:About}"
+                                       Click="NavClick" />
                 </ui:NavigationStore.Footer>
             </ui:NavigationStore>
 
