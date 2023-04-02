@@ -54,7 +54,7 @@
                                Margin="0,5,0,0"
                                Foreground="#57FFFFFF"
                                x:Name="verlab"
-                               Text="Version --.-- (Build ---------)" />
+                               Text="Version --.-- (Build ----------)" />
                 </StackPanel>
             </Grid>
         </Border>

@@ -239,7 +239,7 @@
                 </Grid>
             </Border>
             <TextBlock x:Name="SplashVer"
-                       Text="Version"
+                       Text="Version --.-- (Build ----------)"
                        FontFamily="Segoe UI SemiBold"
                        FontSize="12"
                        Foreground="#bebebe"

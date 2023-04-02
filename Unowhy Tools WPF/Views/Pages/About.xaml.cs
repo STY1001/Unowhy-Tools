@@ -42,9 +42,9 @@ public partial class About : INavigableView<DashboardViewModel>
     public async void Init(object sender, EventArgs e)
     {
         applylang();
-        string ver = "Version " + UT.version.getver() + " (Build " + UT.version.getverbuild().ToString() + ") ";
+        string ver = "Version " + UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
 
-        if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
+        if (UT.version.isdeb()) ver = ver + "(Debug)";
         else ver = ver + "(Release)";
 
         verlab.Text = ver;
