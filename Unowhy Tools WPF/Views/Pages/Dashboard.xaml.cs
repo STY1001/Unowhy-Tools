@@ -100,7 +100,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
         DoubleAnimation anim = new DoubleAnimation();
-        anim.From = -50;
+        anim.From = 0;
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(600);
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
@@ -108,7 +108,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         quickoption.RenderTransform = trans;
 
         DoubleAnimation anim2 = new DoubleAnimation();
-        anim2.From = 0;
+        anim2.From = 1;
         anim2.To = 1;
         anim2.Duration = TimeSpan.FromMilliseconds(600);
         anim2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
@@ -116,9 +116,42 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         quickoption.BeginAnimation(Border.OpacityProperty, anim2);
         trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
+        foreach (UIElement element in utlabs.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
         foreach (UIElement element in qogrid.Children)
         {
             element.Visibility = Visibility.Hidden;
+        }
+
+        foreach (UIElement element in utlabs.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
         }
 
         foreach (UIElement element in qogrid.Children)

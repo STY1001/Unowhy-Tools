@@ -8,58 +8,53 @@
            Title="Dashboard" Initialized="Init" Loaded="InitAnim"
            d:DataContext="{d:DesignInstance local:About,
                                      IsDesignTimeCreatable=False}"
-           d:DesignHeight="750"
-           d:DesignWidth="800"
+           d:DesignHeight="601"
+           d:DesignWidth="1126"
            Scrollable="True"
            mc:Ignorable="d">
 
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <Border Grid.Row="0"
-                CornerRadius="8,0,0,0">
-            <Border.Background>
-                <ImageBrush ImageSource="../../Resources/UTLogoWhite2.0.png"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Stretch="Uniform" />
-            </Border.Background>
-            <Border CornerRadius="8,8,0,0">
-                <Border.Background>
-                    <RadialGradientBrush>
-                        <GradientStop Offset="0"
-                                      Color="#1F000000" />
-                        <GradientStop Offset="1"
-                                      Color="#4F000000" />
-                    </RadialGradientBrush>
-                </Border.Background>
-                <Grid>
-                    <StackPanel Margin="64"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                Background="Transparent">
-                        <TextBlock x:Name="Title"
-                                   FontSize="28"
-                                   FontWeight="Bold"
-                                   Foreground="#FFFFFF"
-                                   Text="Unowhy Tools" />
-                        <TextBlock FontSize="18"
-                                   Foreground="#B7FFFFFF"
-                                   Text="A tool for Y13 computers !" />
-                        <TextBlock FontSize="11"
-                                   Foreground="#B7FFFFFF"
-                                   Text="by STY1001" />
-                    </StackPanel>
-                    <TextBlock Margin="12"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Bottom"
-                               FontSize="10"
+        <Border Grid.Column="0"
+                CornerRadius="8,8,0,0"
+                Background="#1b1b1b">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="../../Resources/UTLogoWhite2.0.png"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Grid.Column="1"
+                       Width="480"
+                       Height="180" />
+                <StackPanel HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="Transparent"
+                            Grid.Column="0"
+                            x:Name="utlabs">
+                    <TextBlock FontSize="40"
+                               FontWeight="Bold"
+                               Foreground="#FFFFFF"
+                               Text="Unowhy Tools" />
+                    <TextBlock FontSize="22"
+                               Foreground="#B7FFFFFF"
+                               Text="A tool for Y13 computers !" />
+                    <TextBlock FontSize="16"
+                               Foreground="#B7FFFFFF"
+                               Text="by STY1001"
+                               Margin="0,5,0,0" />
+                    <TextBlock FontSize="13"
+                               Margin="0,5,0,0"
                                Foreground="#57FFFFFF"
                                x:Name="verlab"
-                               Text="Version --.- (Build -------)" />
-                </Grid>
-            </Border>
+                               Text="Version --.-- (Build ---------)" />
+                </StackPanel>
+            </Grid>
         </Border>
         <Border Grid.Row="1"
                 Background="#1b1b1b"
