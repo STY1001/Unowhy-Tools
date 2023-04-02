@@ -121,6 +121,7 @@
                         </Grid.ColumnDefinitions>
 
                         <ui:Button Grid.Column="1"
+                                   Click="Create_Changed"
                                    HorizontalAlignment="Right"
                                    Margin="0,0,0,0">
                             <StackPanel>
