@@ -72,6 +72,11 @@ public partial class Wifi : INavigableView<DashboardViewModel>
         Board.ItemsSource = dataRows;
     }
 
+    public async void InitAnim(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnimForw(BackBTN);
+    }
+
     public void applylang()
     {
         labsn.Text = UT.GetLang("pcserial");
