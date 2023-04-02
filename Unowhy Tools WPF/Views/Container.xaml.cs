@@ -37,6 +37,10 @@ public partial class Container : INavigationWindow
 
     private readonly ITaskBarService _taskBarService;
 
+    private readonly ISnackbarService _snackbarService;
+
+    private readonly IDialogService _dialogService;
+
     public ContainerViewModel ViewModel
     {
         get;
@@ -73,6 +77,9 @@ public partial class Container : INavigationWindow
         navigationService.SetNavigationControl(RootNavigation);
         snackbarService.SetSnackbarControl(RootSnackbar);
         dialogService.SetDialogControl(RootDialog);
+
+        _snackbarService = snackbarService;
+        _dialogService = dialogService;
 
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
@@ -187,8 +194,19 @@ public partial class Container : INavigationWindow
 
     private async Task Load()
     {
-        RootMainGrid.Visibility = Visibility.Collapsed;
-        await Task.Delay(1500);
+        if (UT.version.isdeb())
+        {
+            await _snackbarService.ShowAsync("Important info", "Take note, you are using a debug version of Unowhy Tools, this debug version might be bugged", SymbolRegular.Edit32, ControlAppearance.Danger);
+            RootMainGrid.Visibility = Visibility.Collapsed;
+            RootTitleBar.Visibility = Visibility.Collapsed;
+        }
+        
+        if (!UT.version.isdeb())
+        {
+            RootMainGrid.Visibility = Visibility.Collapsed;
+            RootTitleBar.Visibility = Visibility.Collapsed;
+            await Task.Delay(1500);
+        }
         RootWelcomeGrid.Visibility = Visibility.Visible;
 
         DoubleAnimation anim = new DoubleAnimation();
@@ -196,23 +214,47 @@ public partial class Container : INavigationWindow
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(500);
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        DoubleAnimation animopac = new DoubleAnimation();
+        animopac.From = 0;
+        animopac.To = 1;
+        animopac.Duration = TimeSpan.FromMilliseconds(500);
+        animopac.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
         TranslateTransform trans = new TranslateTransform();
         RootWelcomeGrid.RenderTransform = trans;
+        RootWelcomeGrid.BeginAnimation(UIElement.OpacityProperty, animopac);
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
         anim = new DoubleAnimation();
         anim.From = -1000;
         anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.Duration = TimeSpan.FromMilliseconds(1000);
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
         trans = new TranslateTransform();
         SplashImg.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
         anim = new DoubleAnimation();
+        anim.From = -1000;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(1000);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        trans = new TranslateTransform();
+        SplashDesc.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        anim = new DoubleAnimation();
         anim.From = 1000;
         anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.Duration = TimeSpan.FromMilliseconds(1000);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        trans = new TranslateTransform();
+        SplashCredit.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        anim = new DoubleAnimation();
+        anim.From = 1000;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(1000);
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
         trans = new TranslateTransform();
         SplashBar.RenderTransform = trans;
@@ -303,17 +345,8 @@ public partial class Container : INavigationWindow
 
             anim = new DoubleAnimation();
             anim.From = 0;
-            anim.To = 1000;
-            anim.Duration = TimeSpan.FromMilliseconds(500);
-            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-            trans = new TranslateTransform();
-            RootWelcomeGrid.RenderTransform = trans;
-            trans.BeginAnimation(TranslateTransform.XProperty, anim);
-
-            anim = new DoubleAnimation();
-            anim.From = 0;
             anim.To = -1000;
-            anim.Duration = TimeSpan.FromMilliseconds(500);
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
             trans = new TranslateTransform();
             SplashImg.RenderTransform = trans;
@@ -321,8 +354,26 @@ public partial class Container : INavigationWindow
 
             anim = new DoubleAnimation();
             anim.From = 0;
+            anim.To = -1000;
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            trans = new TranslateTransform();
+            SplashDesc.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+            anim = new DoubleAnimation();
+            anim.From = 0;
             anim.To = 1000;
-            anim.Duration = TimeSpan.FromMilliseconds(500);
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            trans = new TranslateTransform();
+            SplashCredit.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+            anim = new DoubleAnimation();
+            anim.From = 0;
+            anim.To = 1000;
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
             trans = new TranslateTransform();
             SplashBar.RenderTransform = trans;
@@ -339,12 +390,24 @@ public partial class Container : INavigationWindow
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
             trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
+            await Task.Delay(500);
+
             UT.anim.TransitionForw(RootWelcomeGrid);
 
             await Task.Delay(150);
 
             RootWelcomeGrid.Visibility = Visibility.Hidden;
+            RootTitleBar.Visibility = Visibility.Visible;
             RootMainGrid.Visibility = Visibility.Visible;
+
+            anim = new DoubleAnimation();
+            anim.From = -50;
+            anim.To = 0;
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            trans = new TranslateTransform();
+            RootTitleBar.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
             if (fs || utsserial == "Null")
             {
