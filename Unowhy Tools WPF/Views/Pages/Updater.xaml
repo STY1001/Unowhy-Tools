@@ -31,9 +31,13 @@
             <Image Source="../../Resources/back.png"
                    Height="16" />
         </ui:Button>
-        <wv:WebView2 x:Name="browser"
-                     HorizontalAlignment="Stretch"
-                     Grid.Row="1" />
+        <Border HorizontalAlignment="Stretch"
+                Grid.Row="1"
+                Background="#272727"
+                CornerRadius="8,8,8,8">
+            <wv:WebView2 x:Name="browser"
+                         Margin="8,8,8,8"/>
+        </Border>
         <Grid x:Name="noco"
               HorizontalAlignment="Center"
               VerticalAlignment="Center"

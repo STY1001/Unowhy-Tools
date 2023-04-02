@@ -11,11 +11,11 @@
              x:Name="root">
     <Grid DataContext="{Binding ElementName=root}"
           Visibility="{Binding Visibility}">
-        <Grid Background="#9000">
+        <Grid Background="#aa000000">
             <Border x:Name="Border1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Background="#272727"
+                    Background="#aa272727"
                     CornerRadius="8,8,8,8"
                     RenderTransformOrigin="0.5,0.5">
                 <Border.RenderTransform>

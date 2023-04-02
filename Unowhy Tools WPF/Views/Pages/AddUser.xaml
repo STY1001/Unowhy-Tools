@@ -23,7 +23,7 @@
             <Image Source="../../Resources/back.png"
                    Height="16" />
         </ui:Button>
-        <Border Background="#303030"
+        <Border Background="#0affffff"
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">

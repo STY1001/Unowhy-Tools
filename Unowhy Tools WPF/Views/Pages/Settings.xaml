@@ -15,7 +15,7 @@
            mc:Ignorable="d">
 
     <Grid>
-        <Border Background="#303030"
+        <Border Background="#0affffff"
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">

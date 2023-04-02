@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <Border Grid.Column="0"
                 CornerRadius="8,8,0,0"
-                Background="#1b1b1b">
+                Background="#0affffff">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -61,7 +61,7 @@
         <Border Grid.Row="1"
                 x:Name="quickoption"
                 CornerRadius="0,0,8,8"
-                Background="#1b1b1b">
+                Background="#0affffff">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />

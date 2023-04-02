@@ -177,7 +177,7 @@
 
             <!--  We display our pages inside this element.  -->
             <Border Grid.Column="1"
-                    Background="#272727"
+                    Background="Transparent"
                     CornerRadius="8,8,8,8"
                     Margin="1,1,1,1">
                 <Grid>
@@ -208,7 +208,7 @@
         <Grid x:Name="RootWelcomeGrid"
               Grid.Row="1"
               Visibility="Collapsed">
-            <Border Background="#303030"
+            <Border Background="#0affffff"
                     CornerRadius="8,8,8,8"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
@@ -242,12 +242,14 @@
                                    x:Name="SplashDesc"
                                    HorizontalAlignment="Left"
                                    Foreground="#B7FFFFFF"
+                                   FontFamily="Segoe UI SemiBold"
                                    Text="A tool for Y13 computers !" />
                         <TextBlock FontSize="15"
                                    Margin="0,0,5,0"
                                    x:Name="SplashCredit"
                                    HorizontalAlignment="Right"
                                    Foreground="#B7FFFFFF"
+                                   FontFamily="Segoe UI SemiBold"
                                    Text="by STY1001" />
                     </Grid>
                     <StackPanel Grid.Column="1"
