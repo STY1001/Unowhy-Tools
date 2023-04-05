@@ -11,13 +11,18 @@
              x:Name="root">
     <Grid DataContext="{Binding ElementName=root}"
           Visibility="{Binding Visibility}">
-        <Grid Background="#aa000000">
+        <Grid Background="#00000000">
             <Border x:Name="Border1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Background="#aa272727"
+                    Background="#272727"
                     CornerRadius="8,8,8,8"
                     RenderTransformOrigin="0.5,0.5">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="10"
+                                      Direction="270"
+                                      BlurRadius="50" />
+                </Border.Effect>
                 <Border.RenderTransform>
                     <ScaleTransform ScaleX="1"
                                     ScaleY="1" />
