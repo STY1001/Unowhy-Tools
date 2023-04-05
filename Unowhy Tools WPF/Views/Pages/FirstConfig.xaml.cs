@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Net.Http;
 using System.Net;
 using System.Windows.Input;
+using System.Xml.Linq;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -335,6 +336,18 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
             await Task.Delay(1000);
             mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
+
+            mainWindow.pcname.Visibility = Visibility.Collapsed;
+            mainWindow.adduser.Visibility = Visibility.Collapsed;
+            mainWindow.adminset.Visibility = Visibility.Collapsed;
+            mainWindow.drvbk.Visibility = Visibility.Collapsed;
+            mainWindow.drvrt.Visibility = Visibility.Collapsed;
+            mainWindow.drvconv.Visibility = Visibility.Collapsed;
+            mainWindow.wre.Visibility = Visibility.Collapsed;
+            mainWindow.pcinfo.Visibility = Visibility.Collapsed;
+            mainWindow.updater.Visibility = Visibility.Collapsed;
+            mainWindow.wifi.Visibility = Visibility.Collapsed;
+            mainWindow.fc.Visibility = Visibility.Collapsed;
 
             RegistryKey keyf = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             if (InitOK)
