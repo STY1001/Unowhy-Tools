@@ -51,8 +51,8 @@ namespace Unowhy_Tools
         #endregion
 
         public static int verfull = 2300;
-        public static string verbuild = "2022020423";
-        public static bool verisdeb = true;
+        public static string verbuild = "1949050423";
+        public static bool verisdeb = false;
 
         public class version
         {
