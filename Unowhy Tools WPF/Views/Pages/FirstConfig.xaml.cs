@@ -39,7 +39,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
         pn = pn.Replace("\n", "").Replace("\r", "");
         sn = UT.GetLine(sn, 2);
-        sn = sn.Replace("      ", "");
+        sn = sn.Replace(" ", "");
 
         if (pn.Contains("IFP"))
         {
