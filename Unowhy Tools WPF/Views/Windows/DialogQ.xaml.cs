@@ -41,13 +41,13 @@ namespace Unowhy_Tools_WPF.Views.Windows
             {
                 From = 0,
                 To = 1,
-                Duration = TimeSpan.FromSeconds(0.25),
+                Duration = TimeSpan.FromSeconds(0.15),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
             };
 
             var zoomAnimation1 = new DoubleAnimation
             {
-                From = 0.50,
+                From = 1.1,
                 To = 1,
                 Duration = TimeSpan.FromSeconds(0.15),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
@@ -55,7 +55,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
 
             var zoomAnimation2 = new DoubleAnimation
             {
-                From = 0.50,
+                From = 1.1,
                 To = 1,
                 Duration = TimeSpan.FromSeconds(0.15),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
@@ -100,23 +100,23 @@ namespace Unowhy_Tools_WPF.Views.Windows
             {
                 From = 1,
                 To = 0,
-                Duration = TimeSpan.FromSeconds(0.1),
+                Duration = TimeSpan.FromSeconds(0.25),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
             var zoomAnimation12 = new DoubleAnimation
             {
                 From = 1,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.25),
+                To = 1.1,
+                Duration = TimeSpan.FromSeconds(0.15),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
             var zoomAnimation22 = new DoubleAnimation
             {
                 From = 1,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.25),
+                To = 1.1,
+                Duration = TimeSpan.FromSeconds(0.15),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
 
