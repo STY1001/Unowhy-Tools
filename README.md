@@ -33,6 +33,7 @@ Currently, with this tool you can:
 - Del "IgnoreAllFailures" (Boot Status Policy) in BCD
 - Enable TaskMGR
 - Enable account lockout
+- Get and sync Wifi settings with Serial Number
 
 More features coming soon
 
