@@ -52,7 +52,7 @@ namespace Unowhy_Tools
 
         public static int verfull = 2300;
         public static string verbuild = "1949050423";
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
