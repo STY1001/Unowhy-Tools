@@ -14,7 +14,8 @@
 
     <Grid DataContext="{Binding ElementName=root}"
           Visibility="{Binding Visibility}">
-        <Grid Background="#00000000">
+        <Grid Background="#88000000"
+              x:Name="RootGrid">
             <Border HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Background="#272727"

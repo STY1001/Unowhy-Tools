@@ -43,26 +43,26 @@ namespace Unowhy_Tools_WPF.Views.Windows
                 From = 0,
                 To = 1,
                 Duration = TimeSpan.FromSeconds(0.15),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
             };
 
             var zoomAnimation1 = new DoubleAnimation
             {
                 From = 1.1,
                 To = 1,
-                Duration = TimeSpan.FromSeconds(0.15),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
             };
 
             var zoomAnimation2 = new DoubleAnimation
             {
                 From = 1.1,
                 To = 1,
-                Duration = TimeSpan.FromSeconds(0.15),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
             };
 
-            Storyboard.SetTarget(fadeInAnimation, Border1);
+            Storyboard.SetTarget(fadeInAnimation, RootGrid);
             Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(OpacityProperty));
 
             Storyboard.SetTarget(zoomAnimation1, Border1);
@@ -85,7 +85,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
                 From = 1,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.25),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
             };
 
             var zoomAnimation12 = new DoubleAnimation
@@ -93,7 +93,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
                 From = 1,
                 To = 1.1,
                 Duration = TimeSpan.FromSeconds(0.15),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
             };
 
             var zoomAnimation22 = new DoubleAnimation
@@ -101,10 +101,10 @@ namespace Unowhy_Tools_WPF.Views.Windows
                 From = 1,
                 To = 1.1,
                 Duration = TimeSpan.FromSeconds(0.15),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
             };
 
-            Storyboard.SetTarget(fadeInAnimation2, Border1);
+            Storyboard.SetTarget(fadeInAnimation2, RootGrid);
             Storyboard.SetTargetProperty(fadeInAnimation2, new PropertyPath(OpacityProperty));
 
             Storyboard.SetTarget(zoomAnimation12, Border1);
