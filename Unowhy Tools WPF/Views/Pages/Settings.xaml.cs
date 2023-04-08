@@ -78,8 +78,9 @@ public partial class Settings : INavigableView<DashboardViewModel>
         File.Create(fp).Close();
         FileInfo fi = new FileInfo(fp);
         string size;
-        if (fi.Length > 1000000) size = (fi.Length / 1000000).ToString() + " MB";
-        else size = (fi.Length / 1000).ToString() + "KB";
+        if (fi.Length > 1024 * 1024) size = (fi.Length / 1024 * 1024).ToString() + " MB";
+        else if (fi.Length > 1024) size = (fi.Length / 1024).ToString() + " KB";
+        else size = fi.Length.ToString() + " B";
         dl.Content = UT.GetLang("clean") + " (" + size + ")";
     }
 
