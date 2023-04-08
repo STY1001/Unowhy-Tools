@@ -178,6 +178,8 @@
             <!--  We display our pages inside this element.  -->
             <Border Grid.Column="1"
                     Background="Transparent"
+                    BorderThickness="1"
+                    BorderBrush="#353535"
                     CornerRadius="8,8,8,8"
                     Margin="1,1,1,1">
                 <Grid>
