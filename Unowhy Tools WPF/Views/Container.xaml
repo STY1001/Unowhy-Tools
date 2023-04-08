@@ -192,11 +192,10 @@
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
                                    FontSize="24"
-                                   Navigation="{Binding ElementName=RootNavigation}" />
+                                   Navigation="{Binding ElementName=RootNavigation}"/>
 
                     <ui:Snackbar x:Name="RootSnackbar"
                                  Grid.Row="1"
-                                 MaxWidth="600"
                                  Appearance="Primary"
                                  CloseButtonEnabled="True"
                                  Timeout="5000"
@@ -307,6 +306,20 @@
             ButtonsForeground="Aqua"
             Foreground="Red"
         -->
+
+        <controls:DialogQ Visibility="Collapsed"
+                          x:Name="DialogQRoot"
+                          Grid.Row="0"
+                          Grid.RowSpan="2" />
+        <controls:DialogI Visibility="Collapsed"
+                          x:Name="DialogIRoot"
+                          Grid.Row="0"
+                          Grid.RowSpan="2" />
+        <controls:Wait Visibility="Collapsed"
+                       x:Name="WaitRoot"
+                       Grid.Row="0"
+                       Grid.RowSpan="2" />
+
         <ui:TitleBar Title="Unowhy Tools"
                      x:Name="RootTitleBar"
                      Grid.Row="0"
@@ -348,17 +361,5 @@
                 </ui:NotifyIcon>
             </ui:TitleBar.Tray>
         </ui:TitleBar>
-        <controls:DialogQ Visibility="Collapsed"
-                          x:Name="DialogQRoot"
-                          Grid.Row="0"
-                          Grid.RowSpan="2" />
-        <controls:DialogI Visibility="Collapsed"
-                          x:Name="DialogIRoot"
-                          Grid.Row="0"
-                          Grid.RowSpan="2" />
-        <controls:Wait Visibility="Collapsed"
-                       x:Name="WaitRoot"
-                       Grid.Row="0"
-                       Grid.RowSpan="2" />
     </Grid>
 </ui:UiWindow>

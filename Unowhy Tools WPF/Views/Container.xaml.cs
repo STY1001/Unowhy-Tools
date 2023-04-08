@@ -196,9 +196,11 @@ public partial class Container : INavigationWindow
     {
         if (UT.version.isdeb())
         {
+            RootNavigation.Visibility = Visibility.Collapsed;
             await Task.Delay(150);
             await _snackbarService.ShowAsync("Important info", "Take note, you are using a debug version of Unowhy Tools, this debug version might be bugged", SymbolRegular.Edit32, ControlAppearance.Danger);
             await Task.Delay(150);
+            RootNavigation.Visibility = Visibility.Visible;
             RootMainGrid.Visibility = Visibility.Collapsed;
             RootTitleBar.Visibility = Visibility.Collapsed;
         }
