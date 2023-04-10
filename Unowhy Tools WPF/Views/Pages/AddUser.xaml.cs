@@ -43,7 +43,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
         labu.Text = UT.GetLang("name");
         labp.Text = UT.GetLang("password");
         labc.Text = UT.GetLang("confpw");
-        laba.Content = UT.GetLang("la");
+        laba.Text = UT.GetLang("la");
         labb.Text = UT.GetLang("create");
     }
 
@@ -111,7 +111,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
                     {
                         await UT.RunMin("net", $"user \"{namebox.Text}\" /add");
 
-                        if (laba.IsChecked == true)
+                        if (acheck.IsChecked == true)
                         {
                             await UT.RunMin("net", $"localgroup {UTdata.AdminsName} \"{namebox.Text}\" /add");
                         }
@@ -120,7 +120,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
                     {
                         await UT.RunMin("net", $"user \"{namebox.Text}\" \"{passbox1.Text}\" /add");
 
-                        if (laba.IsChecked == true)
+                        if (acheck.IsChecked == true)
                         {
                             await UT.RunMin("net", $"localgroup {UTdata.AdminsName} \"{namebox.Text}\" /add");
                         }

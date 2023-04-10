@@ -27,156 +27,179 @@
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <Grid HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  Margin="20,20,20,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="32" />
-                    <ColumnDefinition Width="5" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Image Source="/resources/laptop.png"
-                       Grid.Row="0"
-                       Grid.Column="0" />
-                <Grid Grid.Row="0"
-                      Grid.Column="2">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="20,20,20,20">
+                <StackPanel.Resources>
+                    <Style TargetType="Grid">
+                        <Setter Property="Margin"
+                                Value="0,0,0,10" />
+                    </Style>
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="0" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
+                    <Image Source="/resources/laptop.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
                     <TextBlock Text="Windows PC name:"
                                Foreground="#ffffff"
                                Grid.Row="0"
+                               Grid.ColumnSpan="3"
                                x:Name="labpnc" />
                     <TextBlock Text="[NAME]"
                                Foreground="#bebebe"
                                FontFamily="Lucida Console"
                                Grid.Row="2"
-                               x:Name="pcn" />
+                               Grid.Column="2"
+                               x:Name="pcn"
+                               VerticalAlignment="Center" />
                 </Grid>
-                <Image Source="/resources/user.png"
-                       Grid.Row="2"
-                       Grid.Column="0" />
-                <Grid Grid.Row="2"
-                      Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="0" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
+                    <Image Source="/resources/user.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
                     <TextBlock Text="User ID:"
                                Foreground="#ffffff"
                                Grid.Row="0"
+                               Grid.ColumnSpan="3"
                                x:Name="labuid" />
                     <TextBlock Text="[USER]"
                                Foreground="#bebebe"
                                FontFamily="Lucida Console"
                                Grid.Row="2"
-                               x:Name="uid" />
+                               Grid.Column="2"
+                               x:Name="uid"
+                               VerticalAlignment="Center" />
                 </Grid>
-                <Image Source="/resources/manufacturer.png"
-                       Grid.Row="4"
-                       Grid.Column="0" />
-                <Grid Grid.Row="4"
-                      Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="0" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
+                    <Image Source="/resources/manufacturer.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
                     <TextBlock Text="Manufacturer/Model:"
                                Foreground="#ffffff"
                                Grid.Row="0"
+                               Grid.ColumnSpan="3"
                                x:Name="labmf" />
                     <TextBlock Text="[MANUFACTURER]"
                                Foreground="#bebebe"
                                FontFamily="Lucida Console"
                                Grid.Row="2"
-                               x:Name="mf" />
+                               Grid.Column="2"
+                               x:Name="mf"
+                               VerticalAlignment="Center" />
                 </Grid>
-                <Image Source="/resources/datamatrix.png"
-                       Grid.Row="6"
-                       Grid.Column="0" />
-                <Grid Grid.Row="6"
-                      Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="0" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
+                    <Image Source="/resources/datamatrix.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
                     <TextBlock Text="Serial Number:"
                                Foreground="#ffffff"
                                Grid.Row="0"
+                               Grid.ColumnSpan="3"
                                x:Name="labsn" />
                     <TextBlock Text="[SN]"
                                Foreground="#bebebe"
                                FontFamily="Lucida Console"
                                Grid.Row="2"
-                               x:Name="sn" />
+                               Grid.Column="2"
+                               x:Name="sn"
+                               VerticalAlignment="Center" />
                 </Grid>
-                <Image Source="/resources/ic.png"
-                       Grid.Row="8"
-                       Grid.Column="0" />
-                <Grid Grid.Row="8"
-                      Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="0" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
+                    <Image Source="/resources/ic.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
                     <TextBlock Text="BIOS Version:"
                                Foreground="#ffffff"
                                Grid.Row="0"
+                               Grid.ColumnSpan="3"
                                x:Name="labbv" />
                     <TextBlock Text="[BIOS]"
                                Foreground="#bebebe"
                                FontFamily="Lucida Console"
                                Grid.Row="2"
-                               x:Name="bv" />
+                               Grid.Column="2"
+                               x:Name="bv"
+                               VerticalAlignment="Center" />
                 </Grid>
-                <Image Source="/resources/win11.png"
-                       Grid.Row="10"
-                       Grid.Column="0"
-                       x:Name="imgwv" />
-                <Grid Grid.Row="10"
-                      Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="0" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
+                    <Image Source="/resources/win11.png"
+                           x:Name="imgwv"
+                           Grid.Row="2"
+                           Grid.Column="0" />
                     <TextBlock Text="Windows Version:"
                                Foreground="#ffffff"
                                Grid.Row="0"
+                               Grid.ColumnSpan="3"
                                x:Name="labwv" />
                     <TextBlock Text="[WIN]"
                                Foreground="#bebebe"
                                FontFamily="Lucida Console"
                                Grid.Row="2"
-                               x:Name="wv" />
+                               Grid.Column="2"
+                               x:Name="wv"
+                               VerticalAlignment="Center" />
                 </Grid>
-            </Grid>
+            </StackPanel>
         </Border>
     </Grid>
 </ui:UiPage>

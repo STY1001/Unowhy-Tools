@@ -27,134 +27,160 @@
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <Grid VerticalAlignment="Center"
-                  HorizontalAlignment="Center"
-                  Margin="20,20,20,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="32" />
-                    <ColumnDefinition Width="5" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="0">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="20,20,20,20">
+                <StackPanel.Resources>
+                    <Style TargetType="Grid">
+                        <Setter Property="Margin"
+                                Value="0,0,0,15" />
+                    </Style>
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="19" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="33" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="31" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="12" />
-                        <RowDefinition Height="32" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
                     <Image x:Name="uimg1"
                            Source="../../Resources/user.png"
-                           Grid.Row="1" />
-                    <Image x:Name="pimg1"
-                           Source="/Resources/passno.png"
-                           Grid.Row="3" />
-                    <Image x:Name="pimg2"
-                           Source="/Resources/pwcyes.png"
-                           Grid.Row="5" />
-                    <Image Source="/Resources/admin.png"
-                           Grid.Row="7" />
-
-                </Grid>
-
-                <Grid Grid.Column="2"
-                      VerticalAlignment="Center"
-                      HorizontalAlignment="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="3" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="3" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="3" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+                           Grid.Row="2"
+                           Grid.Column="0" />
                     <TextBlock x:Name="labu"
                                Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
                                Text="Name:"
                                Foreground="#ffffff" />
                     <TextBox x:Name="namebox"
                              SelectionChanged="name_Changed"
                              MaxLength="20"
                              Grid.Row="2"
+                             Grid.Column="2"
                              Width="200"
                              Foreground="#ffffff" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image x:Name="pimg1"
+                           Source="/Resources/passno.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
                     <TextBlock x:Name="labp"
-                               Grid.Row="4"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
                                Text="Password:"
                                Foreground="#ffffff" />
                     <ui:PasswordBox x:Name="passbox1"
                                     SelectionChanged="pass_Changed"
-                                    Grid.Row="6"
+                                    Grid.Row="2"
+                                    Grid.Column="2"
                                     Foreground="#ffffff"
                                     Width="200" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image x:Name="pimg2"
+                           Source="/Resources/pwcyes.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
                     <TextBlock x:Name="labc"
-                               Grid.Row="8"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
                                Text="Password:"
                                Foreground="#ffffff" />
                     <ui:PasswordBox x:Name="passbox2"
                                     SelectionChanged="pass_Changed"
-                                    Grid.Row="10"
+                                    Grid.Row="2"
+                                    Grid.Column="2"
                                     Foreground="#ffffff"
                                     Width="200" />
-                    <CheckBox x:Name="laba"
-                              Grid.Row="12"
-                              Content="Local Admin"
-                              IsChecked="True" />
-                    <Grid Grid.Row="14">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <ui:Button Grid.Column="1"
-                                   Click="Create_Changed"
-                                   HorizontalAlignment="Right"
-                                   Margin="0,0,0,0">
-                            <StackPanel>
-                                <Grid Grid.Row="1"
-                                      Margin="0,0,0,0"
-                                      RenderTransformOrigin="0.5,0.5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Image Source="../../Resources/adduser.png"
-                                           Grid.Column="0"
-                                           Height="32"
-                                           VerticalAlignment="Top" />
-                                    <StackPanel VerticalAlignment="Center"
-                                                Grid.Column="2">
-                                        <TextBlock x:Name="labb"
-                                                   Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="Add" />
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </ui:Button>
-                    </Grid>
                 </Grid>
-            </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image Source="/Resources/admin.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
+                    <TextBlock x:Name="laba"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
+                               Text="Local Admin: "
+                               Foreground="#ffffff" />
+                    <CheckBox x:Name="acheck"
+                              Grid.Row="2"
+                              Grid.Column="2"
+                              Content=""
+                              IsChecked="True" />
+                </Grid>
+
+                <ui:Button Grid.Column="1"
+                           Click="Create_Changed"
+                           HorizontalAlignment="Right"
+                           Margin="0,0,0,0">
+                    <StackPanel>
+                        <Grid Grid.Row="1"
+                              Margin="0,0,0,0"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="../../Resources/adduser.png"
+                                   Grid.Column="0"
+                                   Height="32"
+                                   VerticalAlignment="Top" />
+                            <StackPanel VerticalAlignment="Center"
+                                        Grid.Column="2">
+                                <TextBlock x:Name="labb"
+                                           Margin="0"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           Text="Add" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </ui:Button>
+            </StackPanel>
         </Border>
     </Grid>
 </ui:UiPage>

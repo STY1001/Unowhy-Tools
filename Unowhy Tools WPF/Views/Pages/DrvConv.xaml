@@ -27,131 +27,126 @@
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <Grid VerticalAlignment="Center"
-                  HorizontalAlignment="Center"
-                  Width="400"
-                  Margin="20,20,20,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="32" />
-                    <ColumnDefinition Width="5" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="0">
+            <StackPanel Width="400"
+                        Margin="20,20,20,20">
+                <StackPanel.Resources>
+                    <Style TargetType="Grid">
+                        <Setter Property="Margin"
+                                Value="0,0,0,15" />
+                    </Style>
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="19" />
-                        <RowDefinition Height="32" />
-                        <RowDefinition Height="30" />
-                        <RowDefinition Height="33" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
                     <Image Source="../../Resources/download.png"
-                           Grid.Row="1" />
-                    <Image Source="/Resources/upload.png"
-                           Grid.Row="3" />
-
-                </Grid>
-
-                <Grid Grid.Column="2"
-                      VerticalAlignment="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="3" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="3" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="20" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+                           Grid.Row="2"
+                           Grid.Column="0"/>
                     <TextBlock x:Name="labold"
                                Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
                                Text="Old:"
                                Foreground="#ffffff" />
-                    <Grid Grid.Row="2">
+                    <Grid Grid.Row="2"
+                          Grid.Column="2"
+                          Margin="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
 
                         <ui:TextBox x:Name="oldpath"
                                     Grid.Column="0"
                                     IsReadOnly="True"
                                     Foreground="#ffffff"
-                                    HorizontalAlignment="Stretch" />
+                                    Margin="0,0,10,0"/>
                         <ui:Button Click="oldpath_Click"
-                                   HorizontalAlignment="Right"
-                                   VerticalAlignment="Stretch"
                                    Grid.Column="2"
                                    Content="..."
-                                   Foreground="#ffffff" />
+                                   Foreground="#ffffff" 
+                                   VerticalAlignment="Stretch"/>
                     </Grid>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image Source="/Resources/upload.png"
+                           Grid.Row="2"
+                           Grid.Column="0"/>
                     <TextBlock x:Name="labnew"
-                               Grid.Row="4"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
                                Text="New:"
                                Foreground="#ffffff" />
-                    <Grid Grid.Row="6">
+                    <Grid Grid.Row="2"
+                          Grid.Column="2"
+                          Margin="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
-
                         <ui:TextBox x:Name="newpath"
                                     Grid.Column="0"
                                     IsReadOnly="True"
                                     Foreground="#ffffff"
-                                    HorizontalAlignment="Stretch" />
+                                    Margin="0,0,10,0"/>
                         <ui:Button Click="newpath_Click"
-                                   HorizontalAlignment="Right"
-                                   VerticalAlignment="Stretch"
                                    Grid.Column="2"
                                    Content="..."
-                                   Foreground="#ffffff" />
-                    </Grid>
-
-                    <Grid Grid.Row="14">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <ui:Button Click="Conv_Click"
-                                   Grid.Column="1"
-                                   HorizontalAlignment="Right"
-                                   Margin="0,0,0,0">
-                            <StackPanel>
-                                <Grid Grid.Row="1"
-                                      Margin="0,0,0,0"
-                                      RenderTransformOrigin="0.5,0.5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Image Source="../../Resources/convert.png"
-                                           Grid.Column="0"
-                                           Height="32"
-                                           VerticalAlignment="Top" />
-                                    <StackPanel VerticalAlignment="Center"
-                                                Grid.Column="2">
-                                        <TextBlock x:Name="conv_btn"
-                                                   Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="Convert" />
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </ui:Button>
+                                   Foreground="#ffffff" 
+                                   VerticalAlignment="Stretch"/>
                     </Grid>
                 </Grid>
-            </Grid>
+                <ui:Button Click="Conv_Click"
+                           Grid.Column="1"
+                           HorizontalAlignment="Right"
+                           Margin="0,0,0,0">
+                    <StackPanel>
+                        <Grid Grid.Row="1"
+                              Margin="0,0,0,0"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="../../Resources/convert.png"
+                                   Grid.Column="0"
+                                   Height="32"
+                                   VerticalAlignment="Top" />
+                            <StackPanel VerticalAlignment="Center"
+                                        Grid.Column="2">
+                                <TextBlock x:Name="conv_btn"
+                                           Margin="0"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           Text="Convert" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </ui:Button>
+            </StackPanel>
         </Border>
     </Grid>
 </ui:UiPage>
