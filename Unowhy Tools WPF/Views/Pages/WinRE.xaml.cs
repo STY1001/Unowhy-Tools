@@ -9,6 +9,7 @@ using System;
 using System.Net.Http;
 using System.IO;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -81,7 +82,40 @@ public partial class WinRE : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
+        foreach (UIElement element in btngrid.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
         UT.anim.BackBtnAnimForw(BackBTN);
+
+        foreach (UIElement element in btngrid.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
     }
 
     public async void Enable_Click(object sender, RoutedEventArgs e)

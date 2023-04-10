@@ -29,7 +29,8 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
             <Grid Grid.Column="1"
-                  Margin="20,20,20,20">
+                  Margin="20,20,20,20"
+                  x:Name="btngrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="10" />
