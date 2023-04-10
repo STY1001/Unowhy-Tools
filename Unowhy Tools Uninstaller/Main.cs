@@ -69,6 +69,30 @@ namespace Unowhy_Tools_Uninstaller
             p.StartInfo.CreateNoWindow = true;
             p.Start();
             p.WaitForExit();
+            
+            Process p2 = new Process();
+            p2.StartInfo.FileName = "net";
+            p2.StartInfo.Arguments = "stop UTS";
+            p2.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p2.StartInfo.CreateNoWindow = true;
+            p2.Start();
+            p2.WaitForExit();
+            
+            Process p4 = new Process();
+            p4.StartInfo.FileName = "taskkill";
+            p4.StartInfo.Arguments = "/f /im \"Unowhy Tools Service.exe\"";
+            p4.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p4.StartInfo.CreateNoWindow = true;
+            p4.Start();
+            p4.WaitForExit();
+            
+            Process p5 = new Process();
+            p5.StartInfo.FileName = "sc";
+            p5.StartInfo.Arguments = "delete UTS";
+            p5.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p5.StartInfo.CreateNoWindow = true;
+            p5.Start();
+            p5.WaitForExit();
 
             Process p1 = new Process();
             p1.StartInfo.FileName = "reg";
@@ -80,7 +104,7 @@ namespace Unowhy_Tools_Uninstaller
 
             Process p3 = new Process();
             p3.StartInfo.FileName = "cmd.exe";
-            p3.StartInfo.Arguments = "/c echo \"Wait...\" & timeout /t 1 & taskkill /f /im uninstall.exe & timeout /t 1 & rmdir /q /s \"C:\\Program Files (x86)\\Unowhy Tools\" & echo \"Done\" & timeout /t 1 & exit";
+            p3.StartInfo.Arguments = "/c echo \"Wait...\" & timeout /t 1 & taskkill /f /im uninstall.exe & timeout /t 1 & rmdir /q /s \"C:\\Program Files (x86)\\Unowhy Tools\" & rmdir /q /s \"C:\\UTSConfig\" & echo \"Done\" & timeout /t 1 & exit";
             p3.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p3.StartInfo.CreateNoWindow = true;
             p3.Start();
