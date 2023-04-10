@@ -16,8 +16,8 @@
            mc:Ignorable="d">
 
     <StackPanel x:Name="RootStack">
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="instprog">
+        <ui:CardControl x:Name="instprog"
+                        Margin="10,0,10,10">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/instprog.png"
@@ -48,8 +48,8 @@
                        HorizontalAlignment="Stretch"
                        Margin="0,0,0,0" />
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="entu">
+        <ui:CardControl x:Name="entu"
+                        Margin="10,0,10,10">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/deluser.png"
@@ -80,8 +80,8 @@
                        HorizontalAlignment="Stretch"
                        Margin="0,0,0,0" />
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="hsq">
+        <ui:CardControl x:Name="hsq"
+                        Margin="10,0,10,10">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/uninstall.png"
@@ -112,8 +112,8 @@
                        HorizontalAlignment="Stretch"
                        Margin="0,0,0,0" />
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="aad">
+        <ui:CardControl x:Name="aad"
+                        Margin="10,0,10,10">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/azure.png"
@@ -144,8 +144,8 @@
                        HorizontalAlignment="Stretch"
                        Margin="0,0,0,0" />
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="hsmqf">
+        <ui:CardControl x:Name="hsmqf"
+                        Margin="10,0,10,10">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/service.png"
@@ -176,8 +176,8 @@
                        HorizontalAlignment="Stretch"
                        Margin="0,0,0,0" />
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="tif">
+        <ui:CardControl x:Name="tif"
+                        Margin="10,0,10,10">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/folder.png"
@@ -208,8 +208,8 @@
                        HorizontalAlignment="Stretch"
                        Margin="0,0,0,0" />
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="ridff">
+        <ui:CardControl x:Name="ridff"
+                        Margin="10,0,10,10">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/folder.png"
@@ -240,8 +240,8 @@
                        HorizontalAlignment="Stretch"
                        Margin="0,0,0,0" />
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="oemf">
+        <ui:CardControl x:Name="oemf"
+                        Margin="10,0,10,10">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/folder.png"
@@ -272,8 +272,8 @@
                        HorizontalAlignment="Stretch"
                        Margin="0,0,0,0" />
         </ui:CardControl>
-        <ui:CardControl Margin="10,10,10,0"
-                        x:Name="entf">
+        <ui:CardControl x:Name="entf"
+                        Margin="10,0,10,10">
             <ui:CardControl.Header>
                 <Grid>
                     <Image Source="pack://application:,,,/Resources/folder.png"

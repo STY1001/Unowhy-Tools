@@ -14,10 +14,11 @@
            d:DesignWidth="800"
            Scrollable="True"
            mc:Ignorable="d">
+
     <Grid x:Name="RootGrid">
         <StackPanel x:Name="RootStack">
-            <ui:CardControl Margin="10,10,10,0"
-                            x:Name="pcname">
+            <ui:CardControl x:Name="pcname"
+                            Margin="10,0,10,10">
                 <ui:CardControl.Header>
                     <Grid>
                         <Image Source="pack://application:,,,/Resources/laptop.png"
@@ -48,8 +49,8 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
-                            x:Name="adminset">
+            <ui:CardControl x:Name="adminset"
+                            Margin="10,0,10,10">
                 <ui:CardControl.Header>
                     <Grid>
                         <Image Source="pack://application:,,,/Resources/admin.png"
@@ -80,8 +81,8 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
-                            x:Name="adduser">
+            <ui:CardControl x:Name="adduser"
+                            Margin="10,0,10,10">
                 <ui:CardControl.Header>
                     <Grid>
                         <Image Source="pack://application:,,,/Resources/adduser.png"
@@ -112,8 +113,8 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
-                            x:Name="auset">
+            <ui:CardControl x:Name="auset"
+                            Margin="10,0,10,10">
                 <ui:CardControl.Header>
                     <Grid>
                         <Image Source="pack://application:,,,/Resources/adminuser.png"

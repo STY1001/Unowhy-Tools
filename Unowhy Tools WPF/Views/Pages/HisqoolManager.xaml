@@ -16,7 +16,7 @@
            mc:Ignorable="d">
 
     <StackPanel x:Name="RootStack">
-        <ui:CardControl Margin="10,10,10,0"
+        <ui:CardControl Margin="10,0,10,10"
                         x:Name="hsqm">
             <ui:CardControl.Header>
                 <Grid>

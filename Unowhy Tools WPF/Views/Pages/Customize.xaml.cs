@@ -89,7 +89,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
         await Task.Delay(200);
         UT.anim.TransitionForw(RootGrid);
         await Task.Delay(200);
-        UT.NavigateTo(typeof(AdminUser));
+        UT.NavigateTo(typeof(PCname));
 
         anim.From = 0;
         anim.To = 0;

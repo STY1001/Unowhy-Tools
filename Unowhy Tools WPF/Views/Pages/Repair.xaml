@@ -16,7 +16,7 @@
            mc:Ignorable="d">
     <Grid x:Name="RootGrid">
         <StackPanel x:Name="RootStack">
-            <ui:CardControl Margin="10,10,10,0"
+            <ui:CardControl Margin="10,0,10,10"
                             x:Name="shell">
                 <ui:CardControl.Header>
                     <Grid>
@@ -48,7 +48,7 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
+            <ui:CardControl Margin="10,0,10,10"
                             x:Name="tis">
                 <ui:CardControl.Header>
                     <Grid>
@@ -80,7 +80,7 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
+            <ui:CardControl Margin="10,0,10,10"
                             x:Name="wre">
                 <ui:CardControl.Header>
                     <Grid>
@@ -112,7 +112,7 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
+            <ui:CardControl Margin="10,0,10,10"
                             x:Name="bim">
                 <ui:CardControl.Header>
                     <Grid>
@@ -144,7 +144,7 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
+            <ui:CardControl Margin="10,0,10,10"
                             x:Name="whe">
                 <ui:CardControl.Header>
                     <Grid>
@@ -176,7 +176,7 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
+            <ui:CardControl Margin="10,0,10,10"
                             x:Name="iaf">
                 <ui:CardControl.Header>
                     <Grid>
@@ -208,7 +208,7 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
+            <ui:CardControl Margin="10,0,10,10"
                             x:Name="tmgr">
                 <ui:CardControl.Header>
                     <Grid>
@@ -240,7 +240,7 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0"
+            <ui:CardControl Margin="10,0,10,10"
                             x:Name="locka">
                 <ui:CardControl.Header>
                     <Grid>

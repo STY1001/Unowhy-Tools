@@ -17,7 +17,7 @@
 
     <Grid x:Name="RootGrid">
         <StackPanel x:Name="RootStack">
-            <ui:CardControl Margin="10,10,10,0">
+            <ui:CardControl Margin="10,0,10,10">
                 <ui:CardControl.Header>
                     <Grid>
                         <Image Source="pack://application:,,,/Resources/clouddl.png"
@@ -56,7 +56,7 @@
                     </StackPanel>
                 </ui:Button>
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0">
+            <ui:CardControl Margin="10,0,10,10">
                 <ui:CardControl.Header>
                     <Grid>
                         <Image Source="pack://application:,,,/Resources/upload.png"
@@ -87,7 +87,7 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-            <ui:CardControl Margin="10,10,10,0">
+            <ui:CardControl Margin="10,0,10,10">
                 <ui:CardControl.Header>
                     <Grid>
                         <Image Source="pack://application:,,,/Resources/download.png"
