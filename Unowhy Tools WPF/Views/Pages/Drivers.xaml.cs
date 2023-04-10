@@ -112,7 +112,7 @@ public partial class Drivers : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = -10,
+                From = 30,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
