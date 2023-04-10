@@ -3,7 +3,7 @@
 
 # A tool for Unowhy Y13 computers !
 
-*Unowhy Tools and STY1001 are __NOT__ affiliated with Unowhy !*
+*Unowhy Tools and STY1001 are __NOT__ affiliated with Unowhy SAS !*
 #### _**This in French : https://sty1001.fr/unowhy-tools/**_
 
 ## Features
