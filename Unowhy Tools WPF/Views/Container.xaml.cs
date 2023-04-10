@@ -266,7 +266,7 @@ public partial class Container : INavigationWindow
         trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
         string ver = "Version " + UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
-        if (UT.version.isdeb()) ver = ver + "(Debug/Beta)";
+        if (UT.version.isdeb()) ver = ver + "(Debug)";
         else ver = ver + "(Release)";
         SplashVer.Text = ver;
 
