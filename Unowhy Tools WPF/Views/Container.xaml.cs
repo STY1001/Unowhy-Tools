@@ -229,6 +229,13 @@ public partial class Container : INavigationWindow
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
         anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 1;
+        anim.Duration = TimeSpan.FromMilliseconds(1000);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        SplashBorder.BeginAnimation(ScaleTransform.ScaleYProperty, anim);
+
+        anim = new DoubleAnimation();
         anim.From = -1000;
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(1000);

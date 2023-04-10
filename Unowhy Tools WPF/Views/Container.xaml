@@ -214,7 +214,8 @@
                     CornerRadius="8,8,8,8"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    ClipToBounds="True">
+                    ClipToBounds="True"
+                    x:Name="SplashBorder">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20" />
