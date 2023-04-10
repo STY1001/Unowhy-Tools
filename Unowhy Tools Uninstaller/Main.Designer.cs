@@ -54,7 +54,7 @@
             // pyes
             // 
             this.pyes.Image = global::Unowhy_Tools_Uninstaller.Properties.Resources.yes;
-            this.pyes.Location = new System.Drawing.Point(291, 58);
+            this.pyes.Location = new System.Drawing.Point(232, 59);
             this.pyes.Name = "pyes";
             this.pyes.Size = new System.Drawing.Size(24, 24);
             this.pyes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -74,7 +74,7 @@
             // pno
             // 
             this.pno.Image = global::Unowhy_Tools_Uninstaller.Properties.Resources.no;
-            this.pno.Location = new System.Drawing.Point(221, 58);
+            this.pno.Location = new System.Drawing.Point(100, 59);
             this.pno.Name = "pno";
             this.pno.Size = new System.Drawing.Size(24, 24);
             this.pno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,10 +100,10 @@
             this.no.Image = null;
             this.no.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.no.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.no.Location = new System.Drawing.Point(247, 59);
+            this.no.Location = new System.Drawing.Point(126, 59);
             this.no.Name = "no";
             this.no.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.no.Size = new System.Drawing.Size(29, 23);
+            this.no.Size = new System.Drawing.Size(100, 24);
             this.no.TabIndex = 5;
             this.no.Text = "No";
             this.no.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -118,10 +118,10 @@
             this.yes.Image = null;
             this.yes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.yes.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.yes.Location = new System.Drawing.Point(315, 59);
+            this.yes.Location = new System.Drawing.Point(256, 59);
             this.yes.Name = "yes";
             this.yes.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.yes.Size = new System.Drawing.Size(37, 23);
+            this.yes.Size = new System.Drawing.Size(100, 24);
             this.yes.TabIndex = 5;
             this.yes.Text = "Yes";
             this.yes.TextAlignment = System.Drawing.StringAlignment.Center;
