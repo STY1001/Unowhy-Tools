@@ -9,6 +9,9 @@ using System.Xml.Linq;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
+using System;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -35,7 +38,42 @@ public partial class AddUser : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
+        foreach (UIElement element in RootStack.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
         UT.anim.BackBtnAnimForw(BackBTN);
+
+        await Task.Delay(150);
+
+        foreach (UIElement element in RootStack.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
     }
 
     public void applylang()

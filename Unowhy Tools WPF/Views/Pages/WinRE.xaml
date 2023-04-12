@@ -27,7 +27,8 @@
         <Border Background="#0affffff"
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                VerticalAlignment="Center"
+                ClipToBounds="True">
             <Grid Grid.Column="1"
                   Margin="20,20,20,20"
                   x:Name="btngrid">

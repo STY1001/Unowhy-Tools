@@ -23,7 +23,8 @@
             <StackPanel VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Margin="20,20,20,20"
-                        Width="230">
+                        Width="230"
+                        x:Name="RootStack">
                 <StackPanel.Resources>
                     <Style TargetType="Grid">
                         <Setter Property="Margin"

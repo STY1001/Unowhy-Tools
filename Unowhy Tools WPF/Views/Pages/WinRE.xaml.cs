@@ -88,6 +88,8 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         }
 
         UT.anim.BackBtnAnimForw(BackBTN);
+        
+        await Task.Delay(150);
 
         foreach (UIElement element in btngrid.Children)
         {
@@ -102,7 +104,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = -10,
+                From = 10,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }

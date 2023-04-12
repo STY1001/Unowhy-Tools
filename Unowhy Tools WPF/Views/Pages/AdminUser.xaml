@@ -29,7 +29,8 @@
                 VerticalAlignment="Center">
             <Grid VerticalAlignment="Center"
                   HorizontalAlignment="Center"
-                  Margin="20,20,20,20">
+                  Margin="20,20,20,20"
+                  x:Name="RootGrid2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="20" />

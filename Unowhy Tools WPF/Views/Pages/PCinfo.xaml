@@ -26,10 +26,12 @@
         <Border Background="#0affffff"
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                VerticalAlignment="Center"
+                ClipToBounds="True">
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Margin="20,20,20,20">
+                        Margin="20,20,20,20"
+                        x:Name="RootStack">
                 <StackPanel.Resources>
                     <Style TargetType="Grid">
                         <Setter Property="Margin"
