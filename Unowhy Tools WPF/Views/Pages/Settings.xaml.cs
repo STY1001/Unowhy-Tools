@@ -68,7 +68,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         FileInfo fi = new FileInfo(fp);
         string size;
-        if (fi.Length > 1024 * 1024) size = (fi.Length / 1024 * 1024).ToString() + " MB";
+        if (fi.Length > 1024 * 1024) size = (fi.Length / (1024 * 1024)).ToString() + " MB";
         else if (fi.Length > 1024) size = (fi.Length / 1024).ToString() + " KB";
         else size = fi.Length.ToString() + " B";
         dl.Content = UT.GetLang("clean") + " (" + size + ")";
@@ -84,7 +84,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         FileInfo fi = new FileInfo(fp);
         string size;
-        if (fi.Length > 1024 * 1024) size = (fi.Length / 1024 * 1024).ToString() + " MB";
+        if (fi.Length > 1024 * 1024) size = (fi.Length / (1024 * 1024)).ToString() + " MB";
         else if (fi.Length > 1024) size = (fi.Length / 1024).ToString() + " KB";
         else size = fi.Length.ToString() + " B";
         dl.Content = UT.GetLang("clean") + " (" + size + ")";
