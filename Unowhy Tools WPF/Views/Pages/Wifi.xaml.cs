@@ -226,6 +226,18 @@ public partial class Wifi : INavigableView<DashboardViewModel>
             HttpResponseMessage response = await web.GetAsync(configurl);
             if (response.StatusCode == HttpStatusCode.OK)
             {
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1000,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseIn }
+                };
+                TranslateTransform transform = new TranslateTransform();
+                Board.RenderTransform = transform;
+                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+                await Task.Delay(500);
+
                 string g = await web.GetStringAsync(configurl);
                 string jsonString = g;
                 List<dynamic> dataList = JsonConvert.DeserializeObject<List<dynamic>>(jsonString);
@@ -307,6 +319,18 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
                 Board.ItemsSource = dataRows;
                 await UT.waitstatus.close();
+
+                await Task.Delay(500);
+                translateAnimation = new DoubleAnimation
+                {
+                    From = -1000,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+                transform = new TranslateTransform();
+                Board.RenderTransform = transform;
+                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
             }
             else
             {

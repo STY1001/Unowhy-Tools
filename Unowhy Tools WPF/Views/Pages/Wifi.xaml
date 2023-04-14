@@ -28,16 +28,18 @@
         <Border Background="#0affffff"
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                VerticalAlignment="Center"
+                ClipToBounds="True">
             <Grid Grid.Column="1"
-                  Margin="20,20,20,20">
+                  Margin="20,20,20,20"
+                  x:Name="RootGrid2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="10" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Grid x:Name="RootGrid2">
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="5" />
