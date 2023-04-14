@@ -191,7 +191,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 39;
-            this.label2.Text = "Ver 23.00";
+            this.label2.Text = "Ver 23.01";
             // 
             // pictureBox6
             // 
