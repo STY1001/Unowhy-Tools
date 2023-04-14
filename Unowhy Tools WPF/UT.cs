@@ -50,9 +50,9 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static int verfull = 2301;
+        public static int verfull = 2302;
         public static string verbuild = "1825120423";
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
