@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
 using System;
+using System.IO;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -40,6 +41,9 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         labsn.Text = UT.GetLang("serial");
         labbv.Text = UT.GetLang("biosversion");
         labwv.Text = UT.GetLang("os");
+        labcpu.Text = UT.GetLang("cpuinfo");
+        labram.Text = UT.GetLang("raminfo");
+        labstor.Text = UT.GetLang("storageinfo");
     }
 
     public void infoapply()
@@ -59,6 +63,11 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         sn.Text = UTdata.sn;
         bv.Text = UTdata.bios;
         wv.Text = UTdata.os;
+        cpu.Text = UTdata.cpu;
+        string sram = UTdata.ram.Replace(" ", "").Replace("\r", "").Replace("\n", "");
+        double preram = Convert.ToDouble(sram);
+        double postram = preram / (1024 * 1024 * 1024);
+        ram.Text = String.Format("{0:0.0} GB", postram);
         if (wv.Text.Contains("11"))
         {
             imgwv.Source = new BitmapImage(new System.Uri("pack://application:,,,/Resources/win11.png"));
@@ -75,12 +84,82 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         {
             element.Visibility = Visibility.Hidden;
         }
+        foreach (UIElement element in RootStack2.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in RootStack3.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
 
         UT.anim.BackBtnAnimForw(BackBTN);
+
+        DriveInfo drive = new DriveInfo("C");
+        double totalSpace = drive.TotalSize / 1024.0 / 1024.0 / 1024.0;
+        double freeSpace = drive.AvailableFreeSpace / 1024.0 / 1024.0 / 1024.0;
+        double usedSpace = totalSpace - freeSpace;
+        int percentFree = (int)((freeSpace / totalSpace) * 100);
+
+        stor.Text = String.Format("{0:0.00} GB / {1:0.00} GB ({2}% {3})", usedSpace, totalSpace, percentFree, UT.GetLang("free")); 
 
         await Task.Delay(150);
 
         foreach (UIElement element in RootStack.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in RootStack2.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in RootStack3.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation

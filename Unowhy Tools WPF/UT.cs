@@ -437,7 +437,7 @@ namespace Unowhy_Tools
         public static async Task Cleanup()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
-
+            /*
             List<string> oldfiles = new List<string>()
             {
                 "temp\\adminusers.txt",
@@ -516,7 +516,7 @@ namespace Unowhy_Tools
                     File.Delete(file);
                 }
             }
-
+            */
             mainWindow.SplashText.Text = "Cleanup... (Checking)";
             if (Directory.Exists("temp"))
             {
@@ -817,6 +817,8 @@ namespace Unowhy_Tools
             string os = await RunReturn("wmic", "os get caption");
             string bios = await RunReturn("wmic", "bios get smbiosbiosversion");
             string sn = await RunReturn("wmic", "bios get serialnumber");
+            string cpu = await RunReturn("wmic", "cpu get name");
+            string ram = await RunReturn("wmic", "computersystem get totalphysicalmemory");
 
             mainWindow.SplashBar.Value++;
 
@@ -826,6 +828,8 @@ namespace Unowhy_Tools
             UTdata.os = GetLine(os, 2);
             UTdata.bios = GetLine(bios, 2);
             UTdata.sn = GetLine(sn, 2);
+            UTdata.cpu = GetLine(cpu, 2);
+            UTdata.ram = GetLine(ram, 2);
 
             if (UTdata.UserID.Contains(UTdata.HostName.ToLower()))
             {
@@ -847,6 +851,8 @@ namespace Unowhy_Tools
             Write2Log(UTdata.os);
             Write2Log(UTdata.bios);
             Write2Log(UTdata.sn);
+            Write2Log(UTdata.cpu);
+            Write2Log(UTdata.ram);
 
             Write2Log("Done");
 
@@ -1331,6 +1337,8 @@ namespace Unowhy_Tools
             private static string _md;
             private static string _os;
             private static string _bios;
+            private static string _cpu;
+            private static string _ram;
             private static string _adminsname;
             private static string _adminname;
             private static bool _taskmgr;
@@ -1425,6 +1433,24 @@ namespace Unowhy_Tools
                 set
                 {
                     _bios = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string cpu
+            {
+                get { return _cpu; }
+                set
+                {
+                    _cpu = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string ram
+            {
+                get { return _ram; }
+                set
+                {
+                    _ram = value;
                     OnPropertyChanged();
                 }
             }

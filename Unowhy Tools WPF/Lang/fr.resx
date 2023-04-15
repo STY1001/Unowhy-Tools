@@ -204,6 +204,9 @@
   <data name="convdesc" xml:space="preserve">
     <value>Conv. une vieille sauvegarde (&lt;18.0) dans le nv. format</value>
   </data>
+  <data name="cpuinfo" xml:space="preserve">
+    <value>Info du CPU</value>
+  </data>
   <data name="create" xml:space="preserve">
     <value>Créer</value>
   </data>
@@ -375,6 +378,9 @@
   <data name="fixboot" xml:space="preserve">
     <value>Supprimer "silent_*.vbs" dans "StartUp"</value>
   </data>
+  <data name="free" xml:space="preserve">
+    <value>libre</value>
+  </data>
   <data name="guide" xml:space="preserve">
     <value>Guide</value>
   </data>
@@ -471,6 +477,9 @@
   <data name="pwmis" xml:space="preserve">
     <value>Les mots de passe ne correspondent pas</value>
   </data>
+  <data name="raminfo" xml:space="preserve">
+    <value>Info de la RAM</value>
+  </data>
   <data name="reboot" xml:space="preserve">
     <value>Un redémarrage est nécessaire</value>
   </data>
@@ -530,6 +539,9 @@
   </data>
   <data name="stophis" xml:space="preserve">
     <value>Arrêter le service "HiSqoolManager"</value>
+  </data>
+  <data name="storageinfo" xml:space="preserve">
+    <value>Info du stockage (utilisé/total)</value>
   </data>
   <data name="taskmgr" xml:space="preserve">
     <value>Activer le gestionnaire de tâches</value>

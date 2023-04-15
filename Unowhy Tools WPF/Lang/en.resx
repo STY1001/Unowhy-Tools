@@ -204,6 +204,9 @@
   <data name="convdesc" xml:space="preserve">
     <value>Convert an old backup (&lt;18.0) to the new format</value>
   </data>
+  <data name="cpuinfo" xml:space="preserve">
+    <value>CPU Info</value>
+  </data>
   <data name="create" xml:space="preserve">
     <value>Create</value>
   </data>
@@ -375,6 +378,9 @@
   <data name="fixboot" xml:space="preserve">
     <value>Delete "silent_*.vbs" in "Startup" folder</value>
   </data>
+  <data name="free" xml:space="preserve">
+    <value>free</value>
+  </data>
   <data name="guide" xml:space="preserve">
     <value>Guide</value>
   </data>
@@ -471,6 +477,9 @@
   <data name="pwmis" xml:space="preserve">
     <value>Passwords do not match</value>
   </data>
+  <data name="raminfo" xml:space="preserve">
+    <value>RAM Info</value>
+  </data>
   <data name="reboot" xml:space="preserve">
     <value>A reboot is required</value>
   </data>
@@ -530,6 +539,9 @@
   </data>
   <data name="stophis" xml:space="preserve">
     <value>Stop "HiSqoolManager" service</value>
+  </data>
+  <data name="storageinfo" xml:space="preserve">
+    <value>Storage Info (used/total)</value>
   </data>
   <data name="taskmgr" xml:space="preserve">
     <value>Enable the Task Manager</value>

@@ -37,6 +37,7 @@
     <None Remove="Resources\cmd.png" />
     <None Remove="Resources\code.png" />
     <None Remove="Resources\convert.png" />
+    <None Remove="Resources\cpu.png" />
     <None Remove="Resources\cs.png" />
     <None Remove="Resources\customize.png" />
     <None Remove="Resources\datamatrix.png" />
@@ -88,6 +89,7 @@
     <None Remove="Resources\pwcno.png" />
     <None Remove="Resources\pwcyes.png" />
     <None Remove="Resources\question.png" />
+    <None Remove="Resources\ram.png" />
     <None Remove="Resources\reboot.png" />
     <None Remove="Resources\recovery.png" />
     <None Remove="Resources\registry.png" />
@@ -99,6 +101,7 @@
     <None Remove="Resources\start.png" />
     <None Remove="Resources\startup.png" />
     <None Remove="Resources\stop.png" />
+    <None Remove="Resources\storage.png" />
     <None Remove="Resources\sty1001.png" />
     <None Remove="Resources\taskmgr.png" />
     <None Remove="Resources\the_witcher_wallpaper.jpg" />
@@ -156,6 +159,7 @@
     <Resource Include="Resources\cmd.png" />
     <Resource Include="Resources\code.png" />
     <Resource Include="Resources\convert.png" />
+    <Resource Include="Resources\cpu.png" />
     <Resource Include="Resources\cs.png" />
     <Resource Include="Resources\customize.png" />
     <Resource Include="Resources\datamatrix.png" />
@@ -207,6 +211,7 @@
     <Resource Include="Resources\pwcno.png" />
     <Resource Include="Resources\pwcyes.png" />
     <Resource Include="Resources\question.png" />
+    <Resource Include="Resources\ram.png" />
     <Resource Include="Resources\reboot.png" />
     <Resource Include="Resources\recovery.png" />
     <Resource Include="Resources\registry.png" />
@@ -218,6 +223,7 @@
     <Resource Include="Resources\start.png" />
     <Resource Include="Resources\startup.png" />
     <Resource Include="Resources\stop.png" />
+    <Resource Include="Resources\storage.png" />
     <Resource Include="Resources\sty1001.png" />
     <Resource Include="Resources\taskmgr.png" />
     <Resource Include="Resources\the_witcher_wallpaper.jpg" />
