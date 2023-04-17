@@ -676,7 +676,7 @@ namespace Unowhy_Tools
             }
             catch
             {
-                return "0.00 B";
+                return "-.-- B";
             }
         }
 
