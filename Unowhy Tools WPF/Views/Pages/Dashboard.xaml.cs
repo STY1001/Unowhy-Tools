@@ -59,31 +59,14 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
                     Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
                     Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
                     lababout2.Text = UT.GetLang("newver");
-                    lababout2.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    lababout2.Foreground = new SolidColorBrush(white);
+
+                    while (true)
+                    {
+                        lababout2.Foreground = new SolidColorBrush(white);
+                        await Task.Delay(500);
+                        lababout2.Foreground = new SolidColorBrush(gray);
+                        await Task.Delay(500);
+                    }
                 }
                 else
                 {

@@ -61,31 +61,14 @@ public partial class About : INavigableView<DashboardViewModel>
                     Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
                     Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
                     ubtnlab.Text = UT.GetLang("newver");
-                    ubtnlab.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(white);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(gray);
-                    await Task.Delay(500);
-                    ubtnlab.Foreground = new SolidColorBrush(white);
+
+                    while (true)
+                    {
+                        ubtnlab.Foreground = new SolidColorBrush(white);
+                        await Task.Delay(500);
+                        ubtnlab.Foreground = new SolidColorBrush(gray);
+                        await Task.Delay(500);
+                    }
                 }
                 else
                 {
