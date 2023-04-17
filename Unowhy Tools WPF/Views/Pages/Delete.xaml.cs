@@ -85,7 +85,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         else oemf.IsEnabled = false;
         if (UTdata.ENTFolderExist == true) entf.IsEnabled = true;
         else entf.IsEnabled = false;
-        if (!check)
+        if (check)
         {
             hsq_txt.Text = UT.GetLang("delhis") + "  (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\HiSqool") + ")";
             hsmqf_txt.Text = UT.GetLang("delhism") + "   (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\Hisqool manager") + ")";
