@@ -31,6 +31,7 @@ using System.Windows.Navigation;
 using Wpf.Ui.Controls;
 using System.IO.Pipes;
 using System.IO.Compression;
+using System.Threading;
 
 namespace Unowhy_Tools
 {
@@ -650,6 +651,50 @@ namespace Unowhy_Tools
                 return true;
             }
 
+        }
+
+        public static async Task<string> FolderSizeString(string directoryPath)
+        {
+            try
+            {
+                long size = 0;
+                DirectoryInfo directoryInfo = new DirectoryInfo(directoryPath);
+
+                await Task.Run(() =>
+                {
+                    FileInfo[] files = directoryInfo.GetFiles("*", SearchOption.AllDirectories);
+
+                    foreach (FileInfo file in files)
+                    {
+                        Interlocked.Add(ref size, file.Length);
+                    }
+                });
+
+                string rep = "0.00 B";
+                rep = FormatSize(size);
+                return rep;
+            }
+            catch
+            {
+                return "0.00 B";
+            }
+        }
+
+        public static string FormatSize(long byteSize)
+        {
+            const int scale = 1024;
+            string[] orders = { "GB", "MB", "KB", "B" };
+            long max = (long)Math.Pow(scale, orders.Length - 1);
+
+            foreach (string order in orders)
+            {
+                if (byteSize > max)
+                    return string.Format("{0:0.00} {1}", (double)byteSize / max, order);
+
+                max /= scale;
+            }
+
+            return "0.00 B";
         }
 
         public static void Delay(int Time_delay)
