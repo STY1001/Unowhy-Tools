@@ -85,6 +85,16 @@ public partial class Delete : INavigableView<DashboardViewModel>
         else oemf.IsEnabled = false;
         if (UTdata.ENTFolderExist == true) entf.IsEnabled = true;
         else entf.IsEnabled = false;
+        if (!check)
+        {
+            hsq_txt.Text = UT.GetLang("delhis") + "  (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\HiSqool") + ")";
+            hsmqf_txt.Text = UT.GetLang("delhism") + "   (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\Hisqool manager") + ")";
+            tif_txt.Text = UT.GetLang("delti") + "   (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\TO_INSTALL") + ")";
+            ridff_txt.Text = UT.GetLang("delridf") + "   (" + await UT.FolderSizeString("C:\\ProgramData\\RIDF") + ")";
+            oemf_txt.Text = UT.GetLang("deloem") + "   (" + await UT.FolderSizeString("C:\\Windows\\System32\\OEM") + ")";
+            entf_txt.Text = UT.GetLang("delentf") + "   (" + await UT.FolderSizeString("C:\\ProgramData\\ENT") + ")";
+
+        }
     }
 
     public async void Init(object sender, EventArgs e)
@@ -291,7 +301,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         if (UT.DialogQShow(UT.GetLang("delentf"), "folder.png"))
         {
             await UT.waitstatus.open();
-            await UT.RunMin("cmd", "/w /c rmdir /q /s \"c:\\ProgramData\\ENT\"");
+            await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\ProgramData\\ENT\"");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!entf.IsEnabled)
