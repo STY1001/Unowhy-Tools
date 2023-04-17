@@ -87,20 +87,25 @@ public partial class Delete : INavigableView<DashboardViewModel>
         else entf.IsEnabled = false;
         if (check)
         {
-            hsq_txt.Text = UT.GetLang("delhis") + "  (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\HiSqool") + ")";
-            hsmqf_txt.Text = UT.GetLang("delhism") + "   (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\Hisqool manager") + ")";
-            tif_txt.Text = UT.GetLang("delti") + "   (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\TO_INSTALL") + ")";
-            ridff_txt.Text = UT.GetLang("delridf") + "   (" + await UT.FolderSizeString("C:\\ProgramData\\RIDF") + ")";
-            oemf_txt.Text = UT.GetLang("deloem") + "   (" + await UT.FolderSizeString("C:\\Windows\\System32\\OEM") + ")";
-            entf_txt.Text = UT.GetLang("delentf") + "   (" + await UT.FolderSizeString("C:\\ProgramData\\ENT") + ")";
-
+            await CheckFolderSize();
         }
+    }
+
+    public async Task CheckFolderSize()
+    {
+        hsq_txt.Text = UT.GetLang("delhis") + "   (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\HiSqool") + ")";
+        hsmqf_txt.Text = UT.GetLang("delhism") + "   (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\Hisqool manager") + ")";
+        tif_txt.Text = UT.GetLang("delti") + "   (" + await UT.FolderSizeString("C:\\Program Files\\Unowhy\\TO_INSTALL") + ")";
+        ridff_txt.Text = UT.GetLang("delridf") + "   (" + await UT.FolderSizeString("C:\\ProgramData\\RIDF") + ")";
+        oemf_txt.Text = UT.GetLang("deloem") + "   (" + await UT.FolderSizeString("C:\\Windows\\System32\\OEM") + ")";
+        entf_txt.Text = UT.GetLang("delentf") + "   (" + await UT.FolderSizeString("C:\\ProgramData\\ENT") + ")";
     }
 
     public async void Init(object sender, EventArgs e)
     {
         applylang();
         await CheckBTN(false);
+        await CheckFolderSize();
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
