@@ -518,6 +518,7 @@ namespace Unowhy_Tools
                 }
             }
             */
+            mainWindow.SplashBar.Value = 15;
             mainWindow.SplashText.Text = "Cleanup... (Checking)";
             if (Directory.Exists("temp"))
             {
@@ -525,7 +526,7 @@ namespace Unowhy_Tools
                 Directory.Delete("temp", true);
             }
             await Task.Delay(300);
-            mainWindow.SplashBar.Value++;
+            mainWindow.SplashBar.Value = 30;
             mainWindow.SplashText.Text = "Cleanup... (Checking)";
             if (Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
             {
@@ -533,7 +534,8 @@ namespace Unowhy_Tools
                 Directory.Delete(Path.GetTempPath() + "\\Unowhy Tools\\Temps", true);
             }
             await Task.Delay(300);
-            mainWindow.SplashBar.Value++;
+            mainWindow.SplashBar.Value = 45;
+            await Task.Delay(300);
         }
 
         public static async Task<bool> FirstStart()
