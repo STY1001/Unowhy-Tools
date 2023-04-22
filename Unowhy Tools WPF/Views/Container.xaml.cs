@@ -217,7 +217,7 @@ public partial class Container : INavigationWindow
         anim.From = 1000;
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(500);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         DoubleAnimation animopac = new DoubleAnimation();
         animopac.From = 0;
         animopac.To = 1;
@@ -232,14 +232,14 @@ public partial class Container : INavigationWindow
         anim.From = 0;
         anim.To = 1;
         anim.Duration = TimeSpan.FromMilliseconds(1000);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         SplashBorder.BeginAnimation(ScaleTransform.ScaleYProperty, anim);
 
         anim = new DoubleAnimation();
         anim.From = -1000;
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(1000);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         trans = new TranslateTransform();
         SplashImg.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.YProperty, anim);
@@ -248,7 +248,7 @@ public partial class Container : INavigationWindow
         anim.From = -1000;
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(1000);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         trans = new TranslateTransform();
         SplashDesc.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
@@ -257,7 +257,7 @@ public partial class Container : INavigationWindow
         anim.From = 1000;
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(1000);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         trans = new TranslateTransform();
         SplashCredit.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
@@ -266,7 +266,7 @@ public partial class Container : INavigationWindow
         anim.From = 1000;
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(1000);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         trans = new TranslateTransform();
         SplashBar.RenderTransform = trans;
         SplashText.RenderTransform = trans;
@@ -281,11 +281,11 @@ public partial class Container : INavigationWindow
         anim.From = 1000;
         anim.To = 0;
         anim.Duration = TimeSpan.FromMilliseconds(500);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         trans = new TranslateTransform();
         SplashVer.RenderTransform = trans;
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
         trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
 
         if (!UT.CheckAdmin())
         {
@@ -308,6 +308,26 @@ public partial class Container : INavigationWindow
         {
             SplashText.Text = "Hi !";
             await Task.Delay(1500);
+
+            DoubleAnimation animsb = new DoubleAnimation();
+            animsb.From = 0;
+            animsb.To = 50;
+            animsb.Duration = TimeSpan.FromMilliseconds(1800);
+            animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+            DoubleAnimation animsb2 = new DoubleAnimation();
+            animsb2.From = 0;
+            animsb2.To = -50;
+            animsb2.Duration = TimeSpan.FromMilliseconds(1800);
+            animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+            TranslateTransform transsb = new TranslateTransform();
+            TranslateTransform transsb2 = new TranslateTransform();
+            SB1.RenderTransform = transsb;
+            SB2.RenderTransform = transsb2;
+            transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
+            transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
+
             SplashText.Text = "Loading... (Cleaning)";
             SplashBar.Value = 0;
             await Task.Delay(500);
@@ -337,6 +357,25 @@ public partial class Container : INavigationWindow
             SplashBar.Value = 90;
             await Task.Delay(500);
 
+            animsb = new DoubleAnimation();
+            animsb.From = 50;
+            animsb.To = 0;
+            animsb.Duration = TimeSpan.FromMilliseconds(1000);
+            animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
+            animsb2 = new DoubleAnimation();
+            animsb2.From = -50;
+            animsb2.To = 0;
+            animsb2.Duration = TimeSpan.FromMilliseconds(1000);
+            animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
+            transsb = new TranslateTransform();
+            transsb2 = new TranslateTransform();
+            SB1.RenderTransform = transsb;
+            SB2.RenderTransform = transsb2;
+            transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
+            transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
+
             SplashText.Text = "Ready !";
             SplashBar.Value = 100;
 
@@ -358,7 +397,7 @@ public partial class Container : INavigationWindow
             anim.From = 0;
             anim.To = -1000;
             anim.Duration = TimeSpan.FromMilliseconds(1000);
-            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
             trans = new TranslateTransform();
             SplashImg.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.YProperty, anim);
@@ -367,7 +406,7 @@ public partial class Container : INavigationWindow
             anim.From = 0;
             anim.To = -1000;
             anim.Duration = TimeSpan.FromMilliseconds(1000);
-            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
             trans = new TranslateTransform();
             SplashDesc.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
@@ -376,7 +415,7 @@ public partial class Container : INavigationWindow
             anim.From = 0;
             anim.To = 1000;
             anim.Duration = TimeSpan.FromMilliseconds(1000);
-            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
             trans = new TranslateTransform();
             SplashCredit.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
@@ -385,7 +424,7 @@ public partial class Container : INavigationWindow
             anim.From = 0;
             anim.To = 1000;
             anim.Duration = TimeSpan.FromMilliseconds(1000);
-            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
             trans = new TranslateTransform();
             SplashBar.RenderTransform = trans;
             SplashText.RenderTransform = trans;
@@ -395,10 +434,9 @@ public partial class Container : INavigationWindow
             anim.From = 0;
             anim.To = 1000;
             anim.Duration = TimeSpan.FromMilliseconds(500);
-            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
             trans = new TranslateTransform();
             SplashVer.RenderTransform = trans;
-            trans.BeginAnimation(TranslateTransform.XProperty, anim);
             trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
             await Task.Delay(500);
@@ -415,7 +453,7 @@ public partial class Container : INavigationWindow
             anim.From = -50;
             anim.To = 0;
             anim.Duration = TimeSpan.FromMilliseconds(1000);
-            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
             trans = new TranslateTransform();
             RootTitleBar.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.YProperty, anim);

@@ -210,6 +210,26 @@
         <Grid x:Name="RootWelcomeGrid"
               Grid.Row="1"
               Visibility="Collapsed">
+            <Border Background="Transparent"
+                    BorderThickness="1"
+                    BorderBrush="#353535"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CornerRadius="8,8,8,8"
+                    x:Name="SB1">
+                <Grid MinWidth="440"
+                      MinHeight="243" />
+            </Border>
+            <Border Background="Transparent"
+                    BorderThickness="1"
+                    BorderBrush="#353535"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CornerRadius="8,8,8,8"
+                    x:Name="SB2">
+                <Grid MinWidth="440"
+                      MinHeight="243" />
+            </Border>
             <Border Background="#0affffff"
                     CornerRadius="8,8,8,8"
                     HorizontalAlignment="Center"
@@ -275,9 +295,9 @@
                        FontFamily="Segoe UI SemiBold"
                        FontSize="12"
                        Foreground="#bebebe"
-                       HorizontalAlignment="Right"
+                       HorizontalAlignment="Center"
                        VerticalAlignment="Bottom"
-                       Margin="0,0,20,20" />
+                       Margin="0,0,0,20" />
         </Grid>
 
         <!--
