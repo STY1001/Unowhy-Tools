@@ -211,12 +211,13 @@
               Grid.Row="1"
               Visibility="Collapsed">
             <Border Background="Transparent"
-                    BorderThickness="1"
+                    BorderThickness="3"
                     BorderBrush="#353535"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     CornerRadius="8,8,8,8"
-                    x:Name="SB1">
+                    x:Name="SB1"
+                    Panel.ZIndex="0">
                 <Grid MinWidth="440"
                       MinHeight="243" />
             </Border>
@@ -226,7 +227,8 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     CornerRadius="8,8,8,8"
-                    x:Name="SB2">
+                    x:Name="SB2"
+                    Panel.ZIndex="0">
                 <Grid MinWidth="440"
                       MinHeight="243" />
             </Border>
@@ -235,7 +237,10 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     ClipToBounds="True"
-                    x:Name="SplashBorder">
+                    x:Name="SplashBorder"
+                    Panel.ZIndex="1"
+                    BorderThickness="2"
+                    BorderBrush="#353535">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20" />
