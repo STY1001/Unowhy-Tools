@@ -23,6 +23,7 @@
         <Border Grid.Column="0"
                 CornerRadius="8,8,0,0"
                 Background="#0affffff">
+            <!--
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -54,8 +55,104 @@
                                Margin="0,5,0,0"
                                Foreground="#57FFFFFF"
                                x:Name="verlab"
-                               Text="Version --.-- (Build ----------)" />
+                               Text="Version  (Build )" />
                 </StackPanel>
+            </Grid>
+            -->
+            <Grid x:Name="LogoGrid"
+                  Grid.Row="1">
+                <Border Background="Transparent"
+                        BorderThickness="3"
+                        BorderBrush="#353535"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        CornerRadius="8,8,8,8"
+                        x:Name="SB1"
+                        Panel.ZIndex="0">
+                    <Grid MinWidth="444"
+                          MinHeight="202" />
+                </Border>
+                <Border Background="Transparent"
+                        BorderThickness="1"
+                        BorderBrush="#353535"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        CornerRadius="8,8,8,8"
+                        x:Name="SB2"
+                        Panel.ZIndex="0">
+                    <Grid MinWidth="444"
+                          MinHeight="202" />
+                </Border>
+                <Border Background="#0affffff"
+                        CornerRadius="8,8,8,8"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        ClipToBounds="True"
+                        x:Name="LogoBorder"
+                        Panel.ZIndex="1"
+                        BorderThickness="2"
+                        BorderBrush="#353535">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="400" />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Column="1"
+                              Grid.Row="1">
+                            <Image Grid.Row="0"
+                                   x:Name="LogoImg"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
+                        </Grid>
+                        <Grid Grid.Column="1"
+                              Grid.Row="2">
+                            <TextBlock FontSize="15"
+                                       Margin="5,0,0,0"
+                                       x:Name="LogoDesc"
+                                       HorizontalAlignment="Left"
+                                       Foreground="#B7FFFFFF"
+                                       FontFamily="Segoe UI SemiBold"
+                                       Text="A tool for Y13 computers !" />
+                            <TextBlock FontSize="15"
+                                       Margin="0,0,5,0"
+                                       x:Name="LogoCredit"
+                                       HorizontalAlignment="Right"
+                                       Foreground="#B7FFFFFF"
+                                       FontFamily="Segoe UI SemiBold"
+                                       Text="by STY1001" />
+                        </Grid>
+                        <StackPanel Grid.Column="1"
+                                    Grid.Row="5"
+                                    VerticalAlignment="Center"
+                                    Visibility="Collapsed">
+                            <ProgressBar x:Name="SplashBar"
+                                         Height="25" />
+                            <TextBlock x:Name="SplashText"
+                                       Margin="0,-25,0,0"
+                                       FontSize="16"
+                                       FontWeight="Medium"
+                                       Text="Loading..."
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <TextBlock x:Name="LogoVer"
+                           Text="Version --.-- (Build ----------)"
+                           FontFamily="Segoe UI SemiBold"
+                           FontSize="12"
+                           Foreground="#bebebe"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom"
+                           Margin="0,0,0,20" />
             </Grid>
         </Border>
         <Border Grid.Row="1"
@@ -315,7 +412,8 @@
                                    Grid.Column="6"
                                    Grid.Row="0"
                                    HorizontalAlignment="Stretch"
-                                   VerticalAlignment="Stretch">
+                                   VerticalAlignment="Stretch"
+                                   ClipToBounds="True">
                         <Grid Grid.Row="0"
                               Grid.Column="0"
                               Margin="0,0,0,0">
