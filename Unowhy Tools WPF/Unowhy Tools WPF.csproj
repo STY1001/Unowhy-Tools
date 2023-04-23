@@ -117,6 +117,7 @@
     <None Remove="Resources\UTL.png" />
     <None Remove="Resources\UTLogoWhite2.0.png" />
     <None Remove="Resources\UTPE.png" />
+    <None Remove="Resources\UTS.png" />
     <None Remove="Resources\UTU.png" />
     <None Remove="Resources\UTUI.png" />
     <None Remove="Resources\UTUS.png" />
@@ -241,6 +242,7 @@
     <Resource Include="Resources\UTL.png" />
     <Resource Include="Resources\UTLogoWhite2.0.png" />
     <Resource Include="Resources\UTPE.png" />
+    <Resource Include="Resources\UTS.png" />
     <Resource Include="Resources\UTU.png" />
     <Resource Include="Resources\UTUI.png" />
     <Resource Include="Resources\UTUS.png" />
