@@ -231,7 +231,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
                     From = 0,
                     To = 1000,
                     Duration = TimeSpan.FromSeconds(0.5),
-                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseIn }
+                    EasingFunction = new PowerEase { EasingMode = EasingMode.EaseIn, Power = 5 }
                 };
                 TranslateTransform transform = new TranslateTransform();
                 Board.RenderTransform = transform;
@@ -326,7 +326,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
                     From = -1000,
                     To = 0,
                     Duration = TimeSpan.FromSeconds(0.5),
-                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new PowerEase { EasingMode = EasingMode.EaseOut, Power = 5 }
                 };
                 transform = new TranslateTransform();
                 Board.RenderTransform = transform;
