@@ -15,7 +15,16 @@
            Scrollable="True"
            mc:Ignorable="d">
 
-    <Grid>
+    <Grid x:Name="RootGrid">
+        <ui:Button Click="GoBack"
+                   x:Name="BackBTN"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="10,10,0,0"
+                   Panel.ZIndex="2">
+            <Image Source="../../Resources/back.png"
+                   Height="16" />
+        </ui:Button>
         <Border Background="#0affffff"
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"

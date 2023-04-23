@@ -39,6 +39,15 @@ public partial class Settings : INavigableView<DashboardViewModel>
         labsn.Text = UT.GetLang("pcserial");
     }
 
+    public async void GoBack(object sender, RoutedEventArgs e)
+    {
+        UT.anim.BackBtnAnim(BackBTN);
+        await Task.Delay(150);
+        UT.anim.TransitionBack(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(Dashboard));
+    }
+
     public async Task CheckBTN()
     {
         string serial = await UT.UTS.UTSmsg("UTSW", "GetSN");
@@ -76,6 +85,8 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
+        UT.anim.BackBtnAnimForw(BackBTN);
+
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Hidden;
