@@ -42,12 +42,16 @@ public partial class About : INavigableView<DashboardViewModel>
     public async void Init(object sender, EventArgs e)
     {
         applylang();
-        string ver = "Version " + UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
+        string UTsver = "Unowhy Tools version " + UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
 
-        if (UT.version.isdeb()) ver = ver + "(Debug)";
-        else ver = ver + "(Release)";
+        if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
+        else UTsver = UTsver + "(Release)";
 
-        verlab.Text = ver;
+        string UTSsver = "Unowhy Tools Service version " + await UT.UTS.UTSmsg("UTS", "GetVer");
+
+        LogoVer.Text = UTsver;
+        UTverlab.Text = UTsver;
+        UTSverlab.Text = UTSsver;
 
         if (UT.CheckInternet())
         {
@@ -84,7 +88,45 @@ public partial class About : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, System.Windows.RoutedEventArgs e)
     {
-        foreach (UIElement element in utlabs.Children)
+        DoubleAnimation preanimsb = new DoubleAnimation();
+        preanimsb.From = 0;
+        preanimsb.To = 0;
+        preanimsb.Duration = TimeSpan.FromMilliseconds(0);
+        preanimsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation preanimsb2 = new DoubleAnimation();
+        preanimsb2.From = 0;
+        preanimsb2.To = 0;
+        preanimsb2.Duration = TimeSpan.FromMilliseconds(0);
+        preanimsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform pretranssb = new TranslateTransform();
+        TranslateTransform pretranssb2 = new TranslateTransform();
+        SB1.RenderTransform = pretranssb;
+        SB2.RenderTransform = pretranssb2;
+        pretranssb.BeginAnimation(TranslateTransform.XProperty, preanimsb);
+        pretranssb.BeginAnimation(TranslateTransform.YProperty, preanimsb2);
+        pretranssb2.BeginAnimation(TranslateTransform.XProperty, preanimsb2);
+        pretranssb2.BeginAnimation(TranslateTransform.YProperty, preanimsb);
+
+        DoubleAnimation animsb = new DoubleAnimation();
+        animsb.From = 0;
+        animsb.To = 25;
+        animsb.Duration = TimeSpan.FromMilliseconds(1800);
+        animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animsb2 = new DoubleAnimation();
+        animsb2.From = 0;
+        animsb2.To = -25;
+        animsb2.Duration = TimeSpan.FromMilliseconds(1800);
+        animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transsb = new TranslateTransform();
+        TranslateTransform transsb2 = new TranslateTransform();
+        SB1.RenderTransform = transsb;
+        SB2.RenderTransform = transsb2;
+        transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
+        transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
+
+        foreach (UIElement element in InfoStack.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
@@ -94,7 +136,7 @@ public partial class About : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        foreach (UIElement element in utlabs.Children)
+        foreach (UIElement element in InfoStack.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -125,29 +167,20 @@ public partial class About : INavigableView<DashboardViewModel>
         foreach (UIElement element in OpGrid.Children)
         {
             element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
                 From = 150,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                EasingFunction = new BackEase { EasingMode = EasingMode.EaseOut, Amplitude = 0.3}
             };
 
             TranslateTransform transform = new TranslateTransform();
             element.RenderTransform = transform;
 
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
 
-            await Task.Delay(50);
+            await Task.Delay(100);
         }
     }
 

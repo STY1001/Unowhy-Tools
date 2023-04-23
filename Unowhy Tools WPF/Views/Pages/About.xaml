@@ -5,7 +5,9 @@
            xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-           Title="Dashboard" Initialized="Init" Loaded="InitAnim"
+           Title="Dashboard"
+           Initialized="Init"
+           Loaded="InitAnim"
            d:DataContext="{d:DesignInstance local:About,
                                      IsDesignTimeCreatable=False}"
            d:DesignHeight="601"
@@ -15,12 +17,14 @@
 
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*"
+                           MinHeight="356" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Border Grid.Column="0"
                 CornerRadius="8,8,0,0"
                 Background="#0affffff">
+            <!--
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -52,130 +56,265 @@
                                Margin="0,5,0,0"
                                Foreground="#57FFFFFF"
                                x:Name="verlab"
-                               Text="Version --.-- (Build ----------)" />
+                               Text="Version  (Build )" />
                 </StackPanel>
             </Grid>
-        </Border>
-        <Border Grid.Row="1"
-                Background="#0affffff"
-                CornerRadius="0,0,8,8">
-            <Grid Margin="0,0,0,12"
-                  VerticalAlignment="Bottom">
+            -->
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="1">
-                    <TextBlock Text="More info:"
-                               Margin="12,15,12,0"
-                               HorizontalAlignment="Left"
-                               Foreground="#ffffff" />
-                    <Grid Grid.Row="1"
-                          Margin="12,36,12,0"
-                          HorizontalAlignment="Left">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="5" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="5" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="32" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="/resources/vs.png"
-                               Grid.Column="0"
-                               Grid.Row="0" />
-                        <TextBlock Text="Dev on Visual Studio 2022 Enterprise"
-                                   Grid.Column="2"
-                                   Grid.Row="0"
-                                   Foreground="#ffffff"
-                                   VerticalAlignment="Center" />
-                        <Image Source="/resources/cs.png"
-                               Grid.Column="0"
-                               Grid.Row="2" />
-                        <TextBlock Text="Dev in C# (C Sharp)"
-                                   Grid.Column="2"
-                                   Grid.Row="2"
-                                   Foreground="#ffffff"
-                                   VerticalAlignment="Center" />
-                        <Image Source="/resources/wpfui.png"
-                               Grid.Column="0"
-                               Grid.Row="4" />
-                        <TextBlock Text="Using WPF UI by Lepoco"
-                                   Grid.Column="2"
-                                   Grid.Row="4"
-                                   Foreground="#ffffff"
-                                   VerticalAlignment="Center" />
-                    </Grid>
+                <Grid x:Name="LogoGrid"
+                      Grid.ColumnSpan="2">
+                    <Border Background="Transparent"
+                            BorderThickness="3"
+                            BorderBrush="#353535"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            CornerRadius="8,8,8,8"
+                            x:Name="SB1"
+                            Panel.ZIndex="0">
+                        <Grid MinWidth="444"
+                              MinHeight="202" />
+                    </Border>
+                    <Border Background="Transparent"
+                            BorderThickness="1"
+                            BorderBrush="#353535"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            CornerRadius="8,8,8,8"
+                            x:Name="SB2"
+                            Panel.ZIndex="0">
+                        <Grid MinWidth="444"
+                              MinHeight="202" />
+                    </Border>
+                    <Border Background="#0affffff"
+                            CornerRadius="8,8,8,8"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            ClipToBounds="True"
+                            x:Name="LogoBorder"
+                            Panel.ZIndex="1"
+                            BorderThickness="2"
+                            BorderBrush="#353535">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="400" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="20" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="1"
+                                  Grid.Row="1">
+                                <Image Grid.Row="0"
+                                       x:Name="LogoImg"
+                                       RenderOptions.BitmapScalingMode="HighQuality"
+                                       Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
+                            </Grid>
+                            <Grid Grid.Column="1"
+                                  Grid.Row="2">
+                                <TextBlock FontSize="15"
+                                           Margin="5,0,0,0"
+                                           x:Name="LogoDesc"
+                                           HorizontalAlignment="Left"
+                                           Foreground="#B7FFFFFF"
+                                           FontFamily="Segoe UI SemiBold"
+                                           Text="A tool for Y13 computers !" />
+                                <TextBlock FontSize="15"
+                                           Margin="0,0,5,0"
+                                           x:Name="LogoCredit"
+                                           HorizontalAlignment="Right"
+                                           Foreground="#B7FFFFFF"
+                                           FontFamily="Segoe UI SemiBold"
+                                           Text="by STY1001" />
+                            </Grid>
+                            <StackPanel Grid.Column="1"
+                                        Grid.Row="5"
+                                        VerticalAlignment="Center"
+                                        Visibility="Collapsed">
+                                <ProgressBar x:Name="SplashBar"
+                                             Height="25" />
+                                <TextBlock x:Name="SplashText"
+                                           Margin="0,-25,0,0"
+                                           FontSize="16"
+                                           FontWeight="Medium"
+                                           Text="Loading..."
+                                           TextAlignment="Center"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <TextBlock x:Name="LogoVer"
+                               Text="Version --.-- (Build ----------)"
+                               FontFamily="Segoe UI SemiBold"
+                               FontSize="12"
+                               Foreground="#bebebe"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               Visibility="Collapsed"
+                               Margin="0,0,0,20" />
                 </Grid>
-                <Grid>
-                    <TextBlock Text="Contributors (Thanks to):"
-                               Margin="12,15,12,0"
-                               HorizontalAlignment="Left"
-                               Foreground="#ffffff" />
-                    <Grid Grid.Row="1"
-                          Margin="12,36,12,0"
-                          HorizontalAlignment="Left">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="5" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="5" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="32" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="/resources/sty1001.png"
-                               Grid.Column="0"
-                               Grid.Row="0" />
-                        <TextBlock Text="STY1001"
-                                   Grid.Column="2"
-                                   Grid.Row="0"
-                                   Foreground="#ffffff"
-                                   VerticalAlignment="Center" />
-                        <Image Source="/resources/azgard.gif"
-                               Grid.Column="0"
-                               Grid.Row="2" />
-                        <TextBlock Text="Azguard"
-                                   Grid.Column="2"
-                                   Grid.Row="2"
-                                   Foreground="#ffffff"
-                                   VerticalAlignment="Center" />
-                        <Image Source="/resources/g9.png"
-                               Grid.Column="0"
-                               Grid.Row="4" />
-                        <TextBlock Text="G9-Dev"
-                                   Grid.Column="2"
-                                   Grid.Row="4"
-                                   Foreground="#ffffff"
-                                   VerticalAlignment="Center" />
-                    </Grid>
+                <Grid x:Name="InfoGrid"
+                      Grid.Column="2"
+                      Margin="20">
+                    <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                x:Name="InfoStack">
+                        <TextBlock Margin="0,0,0,5"
+                                   Text="Info:"
+                                   HorizontalAlignment="Left"
+                                   Foreground="#ffffff" />
+                        <Grid Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/UT.png"
+                                   Grid.Column="0" />
+                            <TextBlock Text="Unowhy Tools version --.-- (Build ----------)"
+                                       TextWrapping="Wrap"
+                                       Foreground="#ffffff"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center"
+                                       x:Name="UTverlab"/>
+                        </Grid>
+                        <Grid Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/UTS.png"
+                                   Grid.Column="0" />
+                            <TextBlock Text="Unowhy Tools Service version --.--"
+                                       TextWrapping="Wrap"
+                                       Foreground="#ffffff"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center"
+                                       x:Name="UTSverlab" />
+                        </Grid>
+                        <ui:NavigationSeparator />
+                        <TextBlock Margin="0,0,0,5"
+                                   Text="More info:"
+                                   HorizontalAlignment="Left"
+                                   Foreground="#ffffff" />
+                        <Grid Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/vs.png"
+                                   Grid.Column="0" />
+                            <TextBlock Text="Dev on Visual Studio 2022 Enterprise"
+                                       Foreground="#ffffff"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                        <Grid Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/cs.png"
+                                   Grid.Column="0" />
+                            <TextBlock Text="Dev in C# (C Sharp)"
+                                       Foreground="#ffffff"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                        <Grid Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/wpfui.png"
+                                   Grid.Column="0" />
+                            <TextBlock Text="UI powered by WPF UI by Lepoco"
+                                       Foreground="#ffffff"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                        <ui:NavigationSeparator />
+                        <TextBlock Margin="0,0,0,5"
+                                   Text="Contributors:"
+                                   HorizontalAlignment="Left"
+                                   Foreground="#ffffff" />
+                        <Grid Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/sty1001.png"
+                                   Grid.Column="0" />
+                            <TextBlock Text="STY1001"
+                                       Foreground="#ffffff"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                        <Grid Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/azgard.gif"
+                                   Grid.Column="0" />
+                            <TextBlock Text="Azgar"
+                                       Foreground="#ffffff"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                        <Grid Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/g9.png"
+                                   Grid.Column="0" />
+                            <TextBlock Text="G9-Dev"
+                                       Foreground="#ffffff"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </StackPanel>
                 </Grid>
-                <Grid Grid.Column="3"
-                      x:Name="OpGrid"
-                      Margin="12,18,12,0"
-                      HorizontalAlignment="Right">
+            </Grid>
+        </Border>
+        <Border Grid.Row="1"
+                Background="#0affffff"
+                CornerRadius="0,0,8,8">
+            <Grid VerticalAlignment="Bottom"
+                  Margin="5">
+                <Grid x:Name="OpGrid">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="65" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-
                     <ui:Button Click="Github_Click"
-                               Grid.ColumnSpan="4"
-                               HorizontalAlignment="Stretch">
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               Margin="5"
+                               Grid.Column="0">
                         <Grid Grid.Row="0"
                               Grid.Column="0"
                               Margin="0,0,0,0">
@@ -202,11 +341,11 @@
                             </StackPanel>
                         </Grid>
                     </ui:Button>
-                    <ui:Button Grid.Row="1"
-                               Grid.Column="0"
-                               Click="STY1001_Click"
+                    <ui:Button Click="STY1001_Click"
                                HorizontalAlignment="Stretch"
-                               Margin="0,10,0,0">
+                               VerticalAlignment="Stretch"
+                               Margin="5"
+                               Grid.Column="1">
                         <Grid Grid.Row="0"
                               Margin="0,0,0,0">
                             <Grid.RowDefinitions>
@@ -233,11 +372,11 @@
                             </StackPanel>
                         </Grid>
                     </ui:Button>
-                    <ui:Button Grid.Row="2"
-                               Grid.Column="0"
-                               Click="Discord_Click"
+                    <ui:Button Click="Discord_Click"
                                HorizontalAlignment="Stretch"
-                               Margin="0,10,0,0">
+                               VerticalAlignment="Stretch"
+                               Margin="5"
+                               Grid.Column="2">
                         <Grid Grid.Row="1"
                               Margin="0,0,0,0">
                             <Grid.RowDefinitions>
@@ -263,15 +402,13 @@
                             </StackPanel>
                         </Grid>
                     </ui:Button>
-                    <ui:Button Grid.Row="3"
-                               Grid.Column="0"
-                               Command="{Binding ViewModel.NavigateCommand}"
+                    <ui:Button Command="{Binding ViewModel.NavigateCommand}"
                                CommandParameter="navigate_to_updater"
                                Click="GoForw"
-                               Grid.ColumnSpan="4"
                                HorizontalAlignment="Stretch"
-                               Margin="0,10,0,0">
-
+                               VerticalAlignment="Stretch"
+                               Margin="5"
+                               Grid.Column="3">
                         <Grid Grid.Row="1"
                               Margin="0,0,0,0"
                               RenderTransformOrigin="0.5,0.5">
@@ -293,8 +430,8 @@
                                            Text="Unowhy Tools Updater" />
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
-                                           Text="Check for update" 
-                                           x:Name="ubtnlab"/>
+                                           Text="Check for update"
+                                           x:Name="ubtnlab" />
                             </StackPanel>
                         </Grid>
                     </ui:Button>
