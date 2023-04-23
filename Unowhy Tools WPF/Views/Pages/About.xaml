@@ -21,6 +21,15 @@
                            MinHeight="356" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+        <ui:Button Click="GoBack"
+                   x:Name="BackBTN"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="10,10,0,0"
+                   Panel.ZIndex="2">
+            <Image Source="../../Resources/back.png"
+                   Height="16" />
+        </ui:Button>
         <Border Grid.Column="0"
                 CornerRadius="8,8,0,0"
                 Background="#0affffff">

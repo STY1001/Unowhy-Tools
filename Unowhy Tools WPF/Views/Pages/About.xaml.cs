@@ -34,6 +34,71 @@ public partial class About : INavigableView<DashboardViewModel>
         UT.anim.TransitionForw(RootGrid);
     }
 
+    public async void GoBack(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation animsb = new DoubleAnimation();
+        animsb.From = 20;
+        animsb.To = 0;
+        animsb.Duration = TimeSpan.FromMilliseconds(500);
+        animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animsb2 = new DoubleAnimation();
+        animsb2.From = -20;
+        animsb2.To = 0;
+        animsb2.Duration = TimeSpan.FromMilliseconds(500);
+        animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transsb = new TranslateTransform();
+        TranslateTransform transsb2 = new TranslateTransform();
+        SB1.RenderTransform = transsb;
+        SB2.RenderTransform = transsb2;
+        transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
+        transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
+
+        DoubleAnimation animqo = new DoubleAnimation();
+        animqo.From = 0;
+        animqo.To = 250;
+        animqo.Duration = TimeSpan.FromMilliseconds(500);
+        animqo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transqo = new TranslateTransform();
+        OpGrid.RenderTransform = transqo;
+        transqo.BeginAnimation(TranslateTransform.YProperty, animqo);
+
+        DoubleAnimation animlogo = new DoubleAnimation();
+        animlogo.From = 0;
+        animlogo.To = -45;
+        animlogo.Duration = TimeSpan.FromMilliseconds(500);
+        animlogo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animlogo2 = new DoubleAnimation();
+        animlogo2.From = 0;
+        animlogo2.To = 187;
+        animlogo2.Duration = TimeSpan.FromMilliseconds(500);
+        animlogo2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform translogo = new TranslateTransform();
+        LogoGrid.RenderTransform = translogo;
+        translogo.BeginAnimation(TranslateTransform.YProperty, animlogo);
+        translogo.BeginAnimation(TranslateTransform.XProperty, animlogo2);
+
+        DoubleAnimation animis = new DoubleAnimation();
+        animis.From = 0;
+        animis.To = 500;
+        animis.Duration = TimeSpan.FromMilliseconds(500);
+        animis.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transis = new TranslateTransform();
+        InfoStack.RenderTransform = transis;
+        transis.BeginAnimation(TranslateTransform.YProperty, animis);
+
+        UT.anim.BackBtnAnim(BackBTN);
+
+        await Task.Delay(500);
+
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
+        UT.NavigateTo(typeof(Dashboard));
+        await Task.Delay(1000);
+        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
+    }
+
     public void applylang()
     {
         ubtnlab.Text = UT.GetLang("udcheck");
@@ -88,6 +153,41 @@ public partial class About : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, System.Windows.RoutedEventArgs e)
     {
+        UT.anim.BackBtnAnimForw(BackBTN);
+
+        DoubleAnimation animis = new DoubleAnimation();
+        animis.From = 0;
+        animis.To = 0;
+        animis.Duration = TimeSpan.FromMilliseconds(0);
+        animis.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transis = new TranslateTransform();
+        InfoStack.RenderTransform = transis;
+        transis.BeginAnimation(TranslateTransform.YProperty, animis);
+
+        DoubleAnimation animqo = new DoubleAnimation();
+        animqo.From = 0;
+        animqo.To = 0;
+        animqo.Duration = TimeSpan.FromMilliseconds(0);
+        animqo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transqo = new TranslateTransform();
+        OpGrid.RenderTransform = transqo;
+        transqo.BeginAnimation(TranslateTransform.YProperty, animqo);
+
+        DoubleAnimation animlogo = new DoubleAnimation();
+        animlogo.From = 0;
+        animlogo.To = 0;
+        animlogo.Duration = TimeSpan.FromMilliseconds(0);
+        animlogo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animlogo2 = new DoubleAnimation();
+        animlogo2.From = 0;
+        animlogo2.To = 0;
+        animlogo2.Duration = TimeSpan.FromMilliseconds(0);
+        animlogo2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform translogo = new TranslateTransform();
+        LogoGrid.RenderTransform = translogo;
+        translogo.BeginAnimation(TranslateTransform.YProperty, animlogo);
+        translogo.BeginAnimation(TranslateTransform.XProperty, animlogo2);
+
         DoubleAnimation preanimsb = new DoubleAnimation();
         preanimsb.From = 0;
         preanimsb.To = 0;
@@ -109,12 +209,12 @@ public partial class About : INavigableView<DashboardViewModel>
 
         DoubleAnimation animsb = new DoubleAnimation();
         animsb.From = 0;
-        animsb.To = 25;
+        animsb.To = 20;
         animsb.Duration = TimeSpan.FromMilliseconds(1800);
         animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         DoubleAnimation animsb2 = new DoubleAnimation();
         animsb2.From = 0;
-        animsb2.To = -25;
+        animsb2.To = -20;
         animsb2.Duration = TimeSpan.FromMilliseconds(1800);
         animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         TranslateTransform transsb = new TranslateTransform();
