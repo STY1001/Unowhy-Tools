@@ -131,6 +131,49 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
+        DoubleAnimation animqo = new DoubleAnimation();
+        animqo.From = 0;
+        animqo.To = 0;
+        animqo.Duration = TimeSpan.FromMilliseconds(0);
+        animqo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transqo = new TranslateTransform();
+        qogrid.RenderTransform = transqo;
+        transqo.BeginAnimation(TranslateTransform.YProperty, animqo);
+
+        DoubleAnimation animlogo = new DoubleAnimation();
+        animlogo.From = 0;
+        animlogo.To = 0;
+        animlogo.Duration = TimeSpan.FromMilliseconds(0);
+        animlogo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animlogo2 = new DoubleAnimation();
+        animlogo2.From = 0;
+        animlogo2.To = 0;
+        animlogo2.Duration = TimeSpan.FromMilliseconds(0);
+        animlogo2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform translogo = new TranslateTransform();
+        LogoGrid.RenderTransform = translogo;
+        translogo.BeginAnimation(TranslateTransform.YProperty, animlogo);
+        translogo.BeginAnimation(TranslateTransform.XProperty, animlogo2);
+
+        DoubleAnimation preanimsb = new DoubleAnimation();
+        preanimsb.From = 0;
+        preanimsb.To = 0;
+        preanimsb.Duration = TimeSpan.FromMilliseconds(0);
+        preanimsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation preanimsb2 = new DoubleAnimation();
+        preanimsb2.From = 0;
+        preanimsb2.To = 0;
+        preanimsb2.Duration = TimeSpan.FromMilliseconds(0);
+        preanimsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform pretranssb = new TranslateTransform();
+        TranslateTransform pretranssb2 = new TranslateTransform();
+        SB1.RenderTransform = pretranssb;
+        SB2.RenderTransform = pretranssb2;
+        pretranssb.BeginAnimation(TranslateTransform.XProperty, preanimsb);
+        pretranssb.BeginAnimation(TranslateTransform.YProperty, preanimsb2);
+        pretranssb2.BeginAnimation(TranslateTransform.XProperty, preanimsb2);
+        pretranssb2.BeginAnimation(TranslateTransform.YProperty, preanimsb);
+
         DoubleAnimation anim = new DoubleAnimation();
         anim.From = 0;
         anim.To = 0;
@@ -148,66 +191,10 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         quickoption.BeginAnimation(Border.OpacityProperty, anim2);
         trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
-        DoubleAnimation animsb = new DoubleAnimation();
-        animsb.From = 0;
-        animsb.To = 50;
-        animsb.Duration = TimeSpan.FromMilliseconds(1800);
-        animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-        DoubleAnimation animsb2 = new DoubleAnimation();
-        animsb2.From = 0;
-        animsb2.To = -50;
-        animsb2.Duration = TimeSpan.FromMilliseconds(1800);
-        animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-        TranslateTransform transsb = new TranslateTransform();
-        TranslateTransform transsb2 = new TranslateTransform();
-        SB1.RenderTransform = transsb;
-        SB2.RenderTransform = transsb2;
-        transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
-        transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
-        transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
-        transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
-
-        /*
-        foreach (UIElement element in utlabs.Children)
-        {
-            element.Visibility = Visibility.Hidden;
-        }
-        */
-
         foreach (UIElement element in qogrid.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
-
-        /*
-        foreach (UIElement element in utlabs.Children)
-        {
-            element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 50,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-            await Task.Delay(50);
-        }
-        */
 
         foreach (UIElement element in qogrid.Children)
         {
@@ -236,6 +223,25 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
             await Task.Delay(50);
         }
+
+        DoubleAnimation animsb = new DoubleAnimation();
+        animsb.From = 0;
+        animsb.To = 20;
+        animsb.Duration = TimeSpan.FromMilliseconds(1800);
+        animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animsb2 = new DoubleAnimation();
+        animsb2.From = 0;
+        animsb2.To = -20;
+        animsb2.Duration = TimeSpan.FromMilliseconds(1800);
+        animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transsb = new TranslateTransform();
+        TranslateTransform transsb2 = new TranslateTransform();
+        SB1.RenderTransform = transsb;
+        SB2.RenderTransform = transsb2;
+        transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
+        transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
     }
 
     public Dashboard(DashboardViewModel viewModel)
@@ -250,6 +256,60 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         lababout.Text = UT.GetLang("about");
         labinfo.Text = UT.GetLang("pcinfo");
         labset.Text = UT.GetLang("settings");
+    }
+
+    public async void About(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation animsb = new DoubleAnimation();
+        animsb.From = 20;
+        animsb.To = 0;
+        animsb.Duration = TimeSpan.FromMilliseconds(500);
+        animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animsb2 = new DoubleAnimation();
+        animsb2.From = -20;
+        animsb2.To = 0;
+        animsb2.Duration = TimeSpan.FromMilliseconds(500);
+        animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transsb = new TranslateTransform();
+        TranslateTransform transsb2 = new TranslateTransform();
+        SB1.RenderTransform = transsb;
+        SB2.RenderTransform = transsb2;
+        transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
+        transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
+
+        DoubleAnimation animqo = new DoubleAnimation();
+        animqo.From = 0;
+        animqo.To = 250;
+        animqo.Duration = TimeSpan.FromMilliseconds(500);
+        animqo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transqo = new TranslateTransform();
+        qogrid.RenderTransform = transqo;
+        transqo.BeginAnimation(TranslateTransform.YProperty, animqo);
+
+        DoubleAnimation animlogo = new DoubleAnimation();
+        animlogo.From = 0;
+        animlogo.To = 45;
+        animlogo.Duration = TimeSpan.FromMilliseconds(500);
+        animlogo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animlogo2 = new DoubleAnimation();
+        animlogo2.From = 0;
+        animlogo2.To = -187;
+        animlogo2.Duration = TimeSpan.FromMilliseconds(500);
+        animlogo2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform translogo = new TranslateTransform();
+        LogoGrid.RenderTransform = translogo;
+        translogo.BeginAnimation(TranslateTransform.YProperty, animlogo);
+        translogo.BeginAnimation(TranslateTransform.XProperty, animlogo2);
+
+        await Task.Delay(500);
+
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
+        UT.NavigateTo(typeof(About));
+        await Task.Delay(1000);
+        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
     }
 
     public void Taskmgr(object sender, RoutedEventArgs e)

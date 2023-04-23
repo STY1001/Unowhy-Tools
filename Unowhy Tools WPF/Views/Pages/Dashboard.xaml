@@ -17,7 +17,8 @@
 
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*"
+                           MinHeight="356" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Border Grid.Column="0"
@@ -59,8 +60,7 @@
                 </StackPanel>
             </Grid>
             -->
-            <Grid x:Name="LogoGrid"
-                  Grid.Row="1">
+            <Grid x:Name="LogoGrid">
                 <Border Background="Transparent"
                         BorderThickness="3"
                         BorderBrush="#353535"
@@ -152,6 +152,7 @@
                            Foreground="#bebebe"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Bottom"
+                           Visibility="Collapsed"
                            Margin="0,0,0,20" />
             </Grid>
         </Border>
@@ -164,7 +165,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Grid Margin="12,18,12,12"
+                <Grid Margin="10"
                       Grid.Row="1"
                       VerticalAlignment="Stretch"
                       x:Name="qogrid">
@@ -406,9 +407,7 @@
                             </StackPanel>
                         </Grid>
                     </ui:CardAction>
-                    <ui:CardAction Command="{Binding ViewModel.NavigateCommand}"
-                                   CommandParameter="navigate_to_about"
-                                   Click="GoForw"
+                    <ui:CardAction Click="About"
                                    Grid.Column="6"
                                    Grid.Row="0"
                                    HorizontalAlignment="Stretch"
