@@ -177,6 +177,9 @@
   <data name="browse" xml:space="preserve">
     <value>Browse</value>
   </data>
+  <data name="camoverena" xml:space="preserve">
+    <value>Enable camera privacy indicator (Virtual camera LED)</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="descbootim" xml:space="preserve">
     <value>Repair BootIM (Boot Immersive Menu) (Blue Menu). Unowhy deployed a patch to disable bootim.exe, via bootim.exe redirection. If you want to boot from a USB device with a 2022 Y13, do this</value>
+  </data>
+  <data name="desccamoverena" xml:space="preserve">
+    <value>Enable camera privacy indicator (Virtual camera LED). Windows 10/11 contain a features to indicate you with a popup overlay, if the camera is used, when the camera is turned on/off. By default, this feature is disabled, because, the most of laptop/webcam has an physical LED indicator. I don't know, why OEM (for exemple, UNOWHY) doesn't enable this feature (Windows cannot detect if a LED is present, and can't auto enable-it)</value>
   </data>
   <data name="descdelentf" xml:space="preserve">
     <value>Delete extra softwares installers folder (In : C:\ProgramData)</value>
