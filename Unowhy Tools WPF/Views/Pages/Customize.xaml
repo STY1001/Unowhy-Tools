@@ -145,6 +145,38 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
+            <ui:CardControl x:Name="camoverena"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/camera.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="camoverena_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Enable camera privacy indicator (Virtual camera LED)" />
+                            <TextBlock x:Name="camoverena_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Grid.Column="0"
+                           Click="camover_Click"
+                           x:Name="camoverena_btn"
+                           Content="Enable"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
         </StackPanel>
     </Grid>
 </ui:UiPage>
