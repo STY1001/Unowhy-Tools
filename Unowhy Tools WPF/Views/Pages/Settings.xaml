@@ -153,7 +153,7 @@
                                Grid.ColumnSpan="3"
                                Text="Check for update at startup:"
                                Foreground="#ffffff" />
-                    <ui:ToggleSwitch x:Name="us"
+                    <CheckBox x:Name="us"
                               Grid.Row="2"
                               Grid.Column="2"
                               IsChecked="True" />

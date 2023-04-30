@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Common.Interfaces;
+using Unowhy_Tools_WPF.Services.Contracts;
 using Wpf.Ui.Mvvm.Contracts;
 using System.Threading.Tasks;
 using Wpf.Ui.Controls;
@@ -13,6 +14,8 @@ public class DashboardViewModel : ObservableObject, INavigationAware
 {
     private readonly INavigationService _navigationService;
 
+    private readonly ITestWindowService _testWindowService;
+
     private ICommand _navigateCommand;
 
     private ICommand _openWindowCommand;
@@ -21,9 +24,10 @@ public class DashboardViewModel : ObservableObject, INavigationAware
 
     public ICommand OpenWindowCommand => _openWindowCommand ??= new RelayCommand<string>(OnOpenWindow);
 
-    public DashboardViewModel(INavigationService navigationService)
+    public DashboardViewModel(INavigationService navigationService, ITestWindowService testWindowService)
     {
         _navigationService = navigationService;
+        _testWindowService = testWindowService;
     }
 
     public void OnNavigatedTo()

@@ -142,7 +142,7 @@
                                Grid.ColumnSpan="3"
                                Text="Local Admin: "
                                Foreground="#ffffff" />
-                    <ui:ToggleSwitch x:Name="acheck"
+                    <CheckBox x:Name="acheck"
                               Grid.Row="2"
                               Grid.Column="2"
                               Content=""
