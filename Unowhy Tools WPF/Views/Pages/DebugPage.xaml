@@ -375,7 +375,7 @@
                            Click="Button_Click_1" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <ui:Button Content="Metro Test"
+                <ui:Button Content="Launch Tray"
                            Click="Button_Click_2" />
             </StackPanel>
         </StackPanel>
