@@ -213,7 +213,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
                 key.SetValue("UpdateStart", "0");
             }
 
-            UT.RunAdmin($"-user {UTdata.UserID}");
+            UT.RunAdmin($"-u {UTdata.UserID}");
         }
     }
 

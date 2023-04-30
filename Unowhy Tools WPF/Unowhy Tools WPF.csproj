@@ -33,7 +33,6 @@
     <None Remove="Resources\azure.png" />
     <None Remove="Resources\back.png" />
     <None Remove="Resources\boot.png" />
-    <None Remove="Resources\camera.png" />
     <None Remove="Resources\clouddl.png" />
     <None Remove="Resources\cmd.png" />
     <None Remove="Resources\code.png" />
@@ -72,7 +71,6 @@
     <None Remove="Resources\laptop.png" />
     <None Remove="Resources\manufacturer.png" />
     <None Remove="Resources\master_chief.jpg" />
-    <None Remove="Resources\micro.png" />
     <None Remove="Resources\microsoft-icon-store.png" />
     <None Remove="Resources\microsoft-shell-accessibility.ico" />
     <None Remove="Resources\microsoft-shell-colors.ico" />
@@ -117,7 +115,7 @@
     <None Remove="Resources\UTB.png" />
     <None Remove="Resources\UTI.png" />
     <None Remove="Resources\UTL.png" />
-    <None Remove="Resources\UTLogoWhite3.0.png" />
+    <None Remove="Resources\UTLogoWhite2.0.png" />
     <None Remove="Resources\UTPE.png" />
     <None Remove="Resources\UTS.png" />
     <None Remove="Resources\UTU.png" />
@@ -150,12 +148,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="System.Management">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Management.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Resources\about.png" />
     <Resource Include="Resources\adduser.png" />
     <Resource Include="Resources\admin.png" />
@@ -164,7 +156,6 @@
     <Resource Include="Resources\azure.png" />
     <Resource Include="Resources\back.png" />
     <Resource Include="Resources\boot.png" />
-    <Resource Include="Resources\camera.png" />
     <Resource Include="Resources\clouddl.png" />
     <Resource Include="Resources\cmd.png" />
     <Resource Include="Resources\code.png" />
@@ -203,7 +194,6 @@
     <Resource Include="Resources\laptop.png" />
     <Resource Include="Resources\manufacturer.png" />
     <Resource Include="Resources\master_chief.jpg" />
-    <Resource Include="Resources\micro.png" />
     <Resource Include="Resources\microsoft-icon-store.png" />
     <Resource Include="Resources\microsoft-shell-accessibility.ico" />
     <Resource Include="Resources\microsoft-shell-colors.ico" />
@@ -250,7 +240,7 @@
     <Resource Include="Resources\UTB.png" />
     <Resource Include="Resources\UTI.png" />
     <Resource Include="Resources\UTL.png" />
-    <Resource Include="Resources\UTLogoWhite3.0.png" />
+    <Resource Include="Resources\UTLogoWhite2.0.png" />
     <Resource Include="Resources\UTPE.png" />
     <Resource Include="Resources\UTS.png" />
     <Resource Include="Resources\UTU.png" />
