@@ -85,8 +85,8 @@
                             CornerRadius="8,8,8,8"
                             x:Name="SB1"
                             Panel.ZIndex="0">
-                        <Grid MinWidth="444"
-                              MinHeight="202" />
+                        <Grid MinWidth="440"
+                              MinHeight="184" />
                     </Border>
                     <Border Background="Transparent"
                             BorderThickness="1"
@@ -97,7 +97,7 @@
                             x:Name="SB2"
                             Panel.ZIndex="0">
                         <Grid MinWidth="444"
-                              MinHeight="202" />
+                              MinHeight="188" />
                     </Border>
                     <Border Background="#0affffff"
                             CornerRadius="8,8,8,8"
@@ -126,7 +126,7 @@
                                 <Image Grid.Row="0"
                                        x:Name="LogoImg"
                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                       Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
+                                       Source="pack://application:,,,/Resources/UTLogoWhite3.0.png" />
                             </Grid>
                             <Grid Grid.Column="1"
                                   Grid.Row="2">
@@ -189,7 +189,8 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Image Source="../../Resources/UT.png"
-                                   Grid.Column="0" />
+                                   Grid.Column="0"
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
                             <TextBlock Text="Unowhy Tools version --.-- (Build ----------)"
                                        TextWrapping="Wrap"
                                        Foreground="#ffffff"
@@ -204,7 +205,8 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Image Source="../../Resources/UTS.png"
-                                   Grid.Column="0" />
+                                   Grid.Column="0"
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
                             <TextBlock Text="Unowhy Tools Service version --.--"
                                        TextWrapping="Wrap"
                                        Foreground="#ffffff"
@@ -311,7 +313,7 @@
                   Margin="5">
                 <Grid x:Name="OpGrid">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="65" />
+                        <RowDefinition Height="75" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -319,7 +321,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <ui:Button Click="Github_Click"
+                    <ui:CardAction Click="Github_Click"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch"
                                Margin="5"
@@ -343,14 +345,16 @@
                                 <TextBlock Margin="0"
                                            FontSize="13"
                                            FontWeight="Medium"
-                                           Text="Unowhy Tools's Github" />
+                                           Text="Unowhy Tools's Github"
+                                           FontFamily="Segoe UI"/>
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
-                                           Text="STY1001/Unowhy-Tools" />
+                                           Text="STY1001/Unowhy-Tools"
+                                           FontFamily="Segoe UI" />
                             </StackPanel>
                         </Grid>
-                    </ui:Button>
-                    <ui:Button Click="STY1001_Click"
+                    </ui:CardAction>
+                    <ui:CardAction Click="STY1001_Click"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch"
                                Margin="5"
@@ -374,14 +378,16 @@
                                 <TextBlock Margin="0"
                                            FontSize="13"
                                            FontWeight="Medium"
-                                           Text="STY1001's WebSite" />
+                                           Text="STY1001's WebSite"
+                                           FontFamily="Segoe UI" />
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
-                                           Text="sty1001.fr" />
+                                           Text="sty1001.fr"
+                                           FontFamily="Segoe UI" />
                             </StackPanel>
                         </Grid>
-                    </ui:Button>
-                    <ui:Button Click="Discord_Click"
+                    </ui:CardAction>
+                    <ui:CardAction Click="Discord_Click"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch"
                                Margin="5"
@@ -404,14 +410,16 @@
                                 <TextBlock Margin="0"
                                            FontSize="13"
                                            FontWeight="Medium"
-                                           Text="Discord for Y13" />
+                                           Text="Discord for Y13"
+                                           FontFamily="Segoe UI" />
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
-                                           Text="{}{unohelp}" />
+                                           Text="{}{unohelp}"
+                                           FontFamily="Segoe UI" />
                             </StackPanel>
                         </Grid>
-                    </ui:Button>
-                    <ui:Button Command="{Binding ViewModel.NavigateCommand}"
+                    </ui:CardAction>
+                    <ui:CardAction Command="{Binding ViewModel.NavigateCommand}"
                                CommandParameter="navigate_to_updater"
                                Click="GoForw"
                                HorizontalAlignment="Stretch"
@@ -436,14 +444,16 @@
                                 <TextBlock Margin="0"
                                            FontSize="13"
                                            FontWeight="Medium"
-                                           Text="Unowhy Tools Updater" />
+                                           Text="Unowhy Tools Updater"
+                                           FontFamily="Segoe UI" />
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
                                            Text="Check for update"
-                                           x:Name="ubtnlab" />
+                                           x:Name="ubtnlab"
+                                           FontFamily="Segoe UI" />
                             </StackPanel>
                         </Grid>
-                    </ui:Button>
+                    </ui:CardAction>
                 </Grid>
             </Grid>
         </Border>

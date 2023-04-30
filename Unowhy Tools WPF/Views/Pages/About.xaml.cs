@@ -66,7 +66,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
         DoubleAnimation animlogo = new DoubleAnimation();
         animlogo.From = 0;
-        animlogo.To = -45;
+        animlogo.To = -40;
         animlogo.Duration = TimeSpan.FromMilliseconds(500);
         animlogo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         DoubleAnimation animlogo2 = new DoubleAnimation();
@@ -92,7 +92,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
         await Task.Delay(500);
 
-        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
         mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
         UT.NavigateTo(typeof(Dashboard));
         await Task.Delay(1000);

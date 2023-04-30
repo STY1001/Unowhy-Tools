@@ -69,8 +69,8 @@
                         CornerRadius="8,8,8,8"
                         x:Name="SB1"
                         Panel.ZIndex="0">
-                    <Grid MinWidth="444"
-                          MinHeight="202" />
+                    <Grid MinWidth="440"
+                          MinHeight="184" />
                 </Border>
                 <Border Background="Transparent"
                         BorderThickness="1"
@@ -81,7 +81,7 @@
                         x:Name="SB2"
                         Panel.ZIndex="0">
                     <Grid MinWidth="444"
-                          MinHeight="202" />
+                          MinHeight="188" />
                 </Border>
                 <Border Background="#0affffff"
                         CornerRadius="8,8,8,8"
@@ -110,7 +110,7 @@
                             <Image Grid.Row="0"
                                    x:Name="LogoImg"
                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                   Source="pack://application:,,,/Resources/UTLogoWhite2.0.png" />
+                                   Source="pack://application:,,,/Resources/UTLogoWhite3.0.png" />
                         </Grid>
                         <Grid Grid.Column="1"
                               Grid.Row="2">
