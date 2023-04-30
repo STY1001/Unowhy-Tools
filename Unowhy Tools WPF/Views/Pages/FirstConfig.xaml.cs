@@ -306,48 +306,9 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
                 await Task.Delay(50);
             }
-            foreach (UIElement elements in mainWindow.RootNavigation.Footer)
-            {
-                elements.Visibility = Visibility.Visible;
-                DoubleAnimation opacityAnimation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(0.5),
-                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-                };
-
-                DoubleAnimation translateAnimation = new DoubleAnimation
-                {
-                    From = 50,
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(0.5),
-                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-                };
-
-                TranslateTransform transform = new TranslateTransform();
-                elements.RenderTransform = transform;
-
-                elements.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-                await Task.Delay(150);
-            }
 
             await Task.Delay(1000);
             mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
-
-            mainWindow.pcname.Visibility = Visibility.Collapsed;
-            mainWindow.adduser.Visibility = Visibility.Collapsed;
-            mainWindow.adminset.Visibility = Visibility.Collapsed;
-            mainWindow.drvbk.Visibility = Visibility.Collapsed;
-            mainWindow.drvrt.Visibility = Visibility.Collapsed;
-            mainWindow.drvconv.Visibility = Visibility.Collapsed;
-            mainWindow.wre.Visibility = Visibility.Collapsed;
-            mainWindow.pcinfo.Visibility = Visibility.Collapsed;
-            mainWindow.updater.Visibility = Visibility.Collapsed;
-            mainWindow.wifi.Visibility = Visibility.Collapsed;
-            mainWindow.fc.Visibility = Visibility.Collapsed;
 
             RegistryKey keyf = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             if (InitOK)

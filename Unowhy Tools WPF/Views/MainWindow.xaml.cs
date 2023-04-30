@@ -22,13 +22,9 @@ public partial class MainWindow : INavigationWindow
 {
     UT.Data UTdata = new UT.Data();
     private bool _initialized = false;
-
     private readonly IThemeService _themeService;
-
     private readonly ITaskBarService _taskBarService;
-
     private readonly ISnackbarService _snackbarService;
-
     private readonly IDialogService _dialogService;
 
     public void applylang()
@@ -182,7 +178,7 @@ public partial class MainWindow : INavigationWindow
         {
             RootNavigation.Visibility = Visibility.Collapsed;
             await Task.Delay(150);
-            await _snackbarService.ShowAsync("Important info", "Take note, you are using a debug version of Unowhy Tools, this debug version might be bugged", SymbolRegular.Edit32, ControlAppearance.Danger);
+            await _snackbarService.ShowAsync("Warning, Take note !", "You are using a debug version of Unowhy Tools, this debug version might be bugged", SymbolRegular.Edit32, ControlAppearance.Danger);
             await Task.Delay(150);
             RootNavigation.Visibility = Visibility.Visible;
             RootMainGrid.Visibility = Visibility.Collapsed;
@@ -195,6 +191,7 @@ public partial class MainWindow : INavigationWindow
             RootTitleBar.Visibility = Visibility.Collapsed;
             await Task.Delay(1500);
         }
+
         RootWelcomeGrid.Visibility = Visibility.Visible;
 
         DoubleAnimation anim = new DoubleAnimation();
@@ -370,10 +367,6 @@ public partial class MainWindow : INavigationWindow
             {
                 elements.Visibility = Visibility.Hidden;
             }
-            foreach (UIElement elements in RootNavigation.Footer)
-            {
-                elements.Visibility = Visibility.Hidden;
-            }
 
             await Task.Delay(500);
 
@@ -477,47 +470,8 @@ public partial class MainWindow : INavigationWindow
 
                     await Task.Delay(50);
                 }
-                foreach (UIElement elements in RootNavigation.Footer)
-                {
-                    elements.Visibility = Visibility.Visible;
-                    DoubleAnimation opacityAnimation = new DoubleAnimation
-                    {
-                        From = 0,
-                        To = 1,
-                        Duration = TimeSpan.FromSeconds(0.5),
-                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-                    };
-
-                    DoubleAnimation translateAnimation = new DoubleAnimation
-                    {
-                        From = 50,
-                        To = 0,
-                        Duration = TimeSpan.FromSeconds(0.5),
-                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-                    };
-
-                    TranslateTransform transform = new TranslateTransform();
-                    elements.RenderTransform = transform;
-
-                    elements.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-                    transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-                    await Task.Delay(150);
-                }
                 await Task.Delay(1000);
                 RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
-
-                pcname.Visibility = Visibility.Collapsed;
-                adduser.Visibility = Visibility.Collapsed;
-                adminset.Visibility = Visibility.Collapsed;
-                drvbk.Visibility = Visibility.Collapsed;
-                drvrt.Visibility = Visibility.Collapsed;
-                drvconv.Visibility = Visibility.Collapsed;
-                wre.Visibility = Visibility.Collapsed;
-                pcinfo.Visibility = Visibility.Collapsed;
-                updater.Visibility = Visibility.Collapsed;
-                wifi.Visibility = Visibility.Collapsed;
-                fc.Visibility = Visibility.Collapsed;
             }
         }
     }

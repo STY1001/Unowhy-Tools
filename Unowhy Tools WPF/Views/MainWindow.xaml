@@ -22,9 +22,9 @@
              mc:Ignorable="d"
              Loaded="Init">
 
-    <Window.TaskbarItemInfo>
+    <ui:UiWindow.TaskbarItemInfo>
         <TaskbarItemInfo x:Name="tbinfo" />
-    </Window.TaskbarItemInfo>
+    </ui:UiWindow.TaskbarItemInfo>
 
     <Grid x:Name="ParentOfRoot">
         <Grid.RowDefinitions>
@@ -157,21 +157,23 @@
                                        PageTag="debug"
                                        PageType="{x:Type pages:DebugPage}"
                                        Click="NavClick" />
-                    <ui:NavigationSeparator />
+                    <ui:NavigationSeparator Visibility="Collapsed"/>
                     <ui:NavigationItem x:Name="settings"
                                        Content="Settings"
                                        ToolTip="Settings"
                                        Image="pack://application:,,,/Resources/settings.png"
                                        PageTag="settings"
                                        PageType="{x:Type pages:Settings}"
-                                       Click="NavClick" />
+                                       Click="NavClick"
+                                       Visibility="Collapsed"/>
                     <ui:NavigationItem x:Name="about"
                                        Content="About"
                                        ToolTip="About"
                                        Image="pack://application:,,,/Resources/about.png"
                                        PageTag="about"
                                        PageType="{x:Type pages:About}"
-                                       Click="NavClick" />
+                                       Click="NavClick"
+                                       Visibility="Collapsed"/>
                 </ui:NavigationStore.Footer>
             </ui:NavigationStore>
 
