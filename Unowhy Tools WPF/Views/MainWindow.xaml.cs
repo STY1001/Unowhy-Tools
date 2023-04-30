@@ -7,28 +7,18 @@ using Wpf.Ui.Common;
 using Wpf.Ui.Controls.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 using Wpf.Ui.Mvvm.Contracts;
-using Wpf.Ui.TaskBar;
-using Unowhy_Tools_WPF.Services;
-
 using Unowhy_Tools;
-using Wpf.Ui.Mvvm.Interfaces;
-using Wpf.Ui.Mvvm.Services;
 using Unowhy_Tools_WPF.Views.Pages;
-using System.Windows.Controls.Primitives;
-using Unowhy_Tools_WPF.Views.Windows;
-using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
-using System.Windows.Navigation;
-using System.Xml.Linq;
 
 namespace Unowhy_Tools_WPF.Views;
 
 /// <summary>
 /// Interaction logic for Container.xaml
 /// </summary>
-public partial class Container : INavigationWindow
+public partial class MainWindow : INavigationWindow
 {
     UT.Data UTdata = new UT.Data();
     private bool _initialized = false;
@@ -40,11 +30,6 @@ public partial class Container : INavigationWindow
     private readonly ISnackbarService _snackbarService;
 
     private readonly IDialogService _dialogService;
-
-    public ContainerViewModel ViewModel
-    {
-        get;
-    }
 
     public void applylang()
     {
@@ -66,9 +51,8 @@ public partial class Container : INavigationWindow
         pcinfo.Content = UT.GetLang("titlepci");
     }
 
-    public Container(ContainerViewModel viewModel, INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)
+    public MainWindow(INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)
     {
-        ViewModel = viewModel;
         DataContext = this;
         _themeService = themeService;
         _taskBarService = taskBarService;
@@ -302,7 +286,7 @@ public partial class Container : INavigationWindow
             RootWelcomeGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
             
-            UT.RunAdmin($"-u {UTdata.UserID}");
+            UT.RunAdmin($"-user {UTdata.UserID}");
         }
         else
         {
@@ -360,12 +344,12 @@ public partial class Container : INavigationWindow
             animsb = new DoubleAnimation();
             animsb.From = 20;
             animsb.To = 0;
-            animsb.Duration = TimeSpan.FromMilliseconds(500);
+            animsb.Duration = TimeSpan.FromMilliseconds(1000);
             animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
             animsb2 = new DoubleAnimation();
             animsb2.From = -20;
             animsb2.To = 0;
-            animsb2.Duration = TimeSpan.FromMilliseconds(500);
+            animsb2.Duration = TimeSpan.FromMilliseconds(1000);
             animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
             transsb = new TranslateTransform();
             transsb2 = new TranslateTransform();
