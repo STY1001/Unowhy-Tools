@@ -32,6 +32,7 @@ using Wpf.Ui.Controls;
 using System.IO.Pipes;
 using System.IO.Compression;
 using System.Threading;
+using System.Drawing;
 
 namespace Unowhy_Tools
 {
@@ -96,7 +97,7 @@ namespace Unowhy_Tools
 
             public static void TransitionForw(Grid grid)
             {
-                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                 mainWindow.NavAnimRight();
                 _grid = grid;
                 DoubleAnimation anim = new DoubleAnimation();
@@ -113,7 +114,7 @@ namespace Unowhy_Tools
 
             public static void TransitionBack(Grid grid)
             {
-                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                 mainWindow.NavAnimLeft();
                 _grid = grid;
                 DoubleAnimation anim = new DoubleAnimation();
@@ -200,7 +201,7 @@ namespace Unowhy_Tools
             
             public static void setnormalAnim(object sender, EventArgs e)
             {
-                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                 mainWindow.NavAnimNormal();
             }
         }
@@ -258,14 +259,14 @@ namespace Unowhy_Tools
         {
             public async static Task close()
             {
-                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                 await mainWindow.HideWait();
                 Write2Log("Close wait");
             }
 
             public async static Task open()
             {
-                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                 await mainWindow.ShowWait();
                 Write2Log("Open wait");
             }
@@ -308,7 +309,7 @@ namespace Unowhy_Tools
 
             public static async Task UTScheck()
             {
-                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                 mainWindow.SplashText.Text = "Preparing UTS... (Checking)";
                 string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
 
@@ -390,7 +391,7 @@ namespace Unowhy_Tools
 
             public static async Task UTSupdate()
             {   
-                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
 
                 if (CheckInternet())
                 {
@@ -431,13 +432,13 @@ namespace Unowhy_Tools
 
         public static async void NavigateTo(Type page)
         {
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             mainWindow.Navigate(page);
         }
 
         public static async Task Cleanup()
         {
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             /*
             List<string> oldfiles = new List<string>()
             {
@@ -540,7 +541,7 @@ namespace Unowhy_Tools
 
         public static async Task<bool> FirstStart()
         {
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             mainWindow.SplashText.Text = "Checking... (Folder)";
             await Task.Delay(100);
 
@@ -850,7 +851,7 @@ namespace Unowhy_Tools
 
         public static async Task Check()
         {
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
 
             Data UTdata = new Data();
 
@@ -1319,6 +1320,42 @@ namespace Unowhy_Tools
 
             #endregion
 
+            #region Camera Privacy Overlay
+
+            Write2Log("=== Camera Privacy Overlay ===");
+            RegistryKey co = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\OEM\\Device\\Capture");
+            if (co != null)
+            {
+                object c = co.GetValue("NoPhysicalCameraLED", null);
+                if (c == null)
+                {
+                    UTdata.CamOver = false;
+                    Write2Log("CPO No val");
+                }
+                else
+                {
+                    int lc2 = (int)co.GetValue("NoPhysicalCameraLED", 0);
+                    if (lc2 == 1)
+                    {
+                        UTdata.CamOver = true;
+                        Write2Log("CPO OK");
+                    }
+                    else
+                    {
+                        UTdata.CamOver = false;
+                        Write2Log("CPO is 0");
+                    }
+                }
+            }
+            else
+            {
+                UTdata.CamOver = false;
+                Write2Log("CPO No key");
+            }
+            Write2Log("=== End ===" + Environment.NewLine);
+
+            #endregion
+
             Write2Log("====== End ======");
 
             mainWindow.SplashBar.Value++;
@@ -1344,11 +1381,29 @@ namespace Unowhy_Tools
             return bmp;
         }
 
+        public static Icon GetIconFromRes(string resname)
+        {
+            var imgsource = UT.GetImgSource(resname);
+
+            Bitmap bitmap = null;
+            var encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(imgsource));
+            using (MemoryStream ms = new MemoryStream())
+            {
+                encoder.Save(ms);
+                ms.Seek(0, SeekOrigin.Begin);
+                bitmap = new Bitmap(ms);
+            }
+
+            Icon icon = Icon.FromHandle(bitmap.GetHicon());
+            return icon;
+        }
+
         public static bool DialogQShow(string msg, string img)
         {
-            //var mainWindow = Window.GetWindow(this) as Unowhy_Tools_WPF.Views.Container;
+            //var mainWindow = Window.GetWindow(this) as Unowhy_Tools_WPF.Views.MainWindow;
             Write2Log("DialogQ: " + msg + " " + img);
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             if (mainWindow.ShowDialogQ(msg, GetImgSource(img)))
             {
                 Write2Log("Result: Yes");
@@ -1364,7 +1419,7 @@ namespace Unowhy_Tools
         public static void DialogIShow(string msg, string img)
         {
             Write2Log("DialogI: " + msg + " " + img);
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             mainWindow.ShowDialogI(msg, GetImgSource(img)) ;
         }
 
@@ -1410,6 +1465,7 @@ namespace Unowhy_Tools
             private static bool _hsqmfolderexist;
             private static bool _hsqfolderexist;
             private static bool _winre;
+            private static bool _camover;
 
             public string HostName 
             {
@@ -1714,6 +1770,15 @@ namespace Unowhy_Tools
                 set
                 {
                     _winre = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool CamOver
+            {
+                get { return _camover; }
+                set
+                {
+                    _camover = value;
                     OnPropertyChanged();
                 }
             }
