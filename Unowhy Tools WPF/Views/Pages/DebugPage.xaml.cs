@@ -17,6 +17,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.IO.Pipes;
 using Wpf.Ui.Interop.WinDef;
+using Unowhy_Tools_WPF.Services.Contracts;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -28,6 +29,8 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     NamedPipeClientStream pipeClient;
     UT.Data UTdata = new UT.Data();
 
+
+    private readonly ITestWindowService _testWindowService;
     private readonly ISnackbarService _snackbarService;
 
     public DashboardViewModel ViewModel
@@ -35,13 +38,14 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         get;
     }
 
-    public DebugPage(DashboardViewModel viewModel, ISnackbarService snackbarService)
+    public DebugPage(DashboardViewModel viewModel, ISnackbarService snackbarService, ITestWindowService testWindowService)
     {
         ViewModel = viewModel;
         InitializeComponent();
 
         verlab.Text = "Debug Page";
 
+        _testWindowService = testWindowService;
         _snackbarService = snackbarService;
     }
 
@@ -78,7 +82,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         string pre = utemp + "\\update";
         string post = Directory.GetCurrentDirectory();
 
-        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & net stop UTS & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -u {UTdata.UserID}");
+        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & net stop UTS & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -user {UTdata.UserID}");
 
     }   
 
@@ -120,9 +124,28 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         UT.DialogIShow(rep, "about.png");
     }
 
+    private async void LaunchDebugTray()
+    {
+        try
+        {
+            _testWindowService.Show<Views.TrayWindow>();
+        }
+        catch (Exception ex)
+        {
+            UT.DialogIShow(ex.ToString(), "no.png");
+        }
+    }
+
     private void Button_Click_2(object sender, RoutedEventArgs e)
     {
-        UT.DialogIShow("For UWP only :(", "no.png");
+        try
+        {
+            LaunchDebugTray();
+        }
+        catch (Exception ex)
+        {
+            UT.DialogIShow(ex.ToString(), "no.png");
+        }
     }
 
     private async void UiPage_Unloaded(object sender, RoutedEventArgs e)

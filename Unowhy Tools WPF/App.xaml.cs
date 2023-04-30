@@ -6,15 +6,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Unowhy_Tools;
-using Unowhy_Tools_WPF.Models;
 using Unowhy_Tools_WPF.Services;
 using Unowhy_Tools_WPF.Services.Contracts;
 using Unowhy_Tools_WPF.ViewModels;
+using Unowhy_Tools_WPF.Views;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
-
-using Unowhy_Tools;
-using System;
 
 namespace Unowhy_Tools_WPF;
 
@@ -38,12 +35,10 @@ public partial class App
             services.AddSingleton<ITaskBarService, TaskBarService>();
             services.AddSingleton<ISnackbarService, SnackbarService>();
             services.AddSingleton<IDialogService, DialogService>();
-            services.AddSingleton<INotifyIconService, CustomNotifyIconService>();
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<ITestWindowService, TestWindowService>();
             services.AddSingleton<INavigationService, NavigationService>();
-            services.AddScoped<INavigationWindow, Views.Container>();
-            services.AddScoped<ContainerViewModel>();
+            services.AddScoped<INavigationWindow, MainWindow>();
             services.AddScoped<Views.Pages.Dashboard>();
             services.AddScoped<DashboardViewModel>();
             services.AddScoped<Views.Pages.About>();
@@ -65,7 +60,7 @@ public partial class App
             services.AddScoped<Views.Pages.Updater>();
             services.AddScoped<Views.Pages.Wifi>();
             services.AddScoped<Views.Pages.FirstConfig>();
-            services.Configure<AppConfig>(context.Configuration.GetSection(nameof(AppConfig)));
+            services.AddScoped<TrayWindow>();
             services.AddScoped<UT>();
         }).Build();
 
@@ -89,9 +84,14 @@ public partial class App
 
         if (e.Args.Length > 0)
         {
-            if (e.Args[0] == "-u")
+            if (e.Args[0] == "-user")
             {
                 UTdata.UserID = e.Args[1];
+            }
+            else
+            {
+                string user = await UT.RunReturn("whoami", "");
+                UTdata.UserID = UT.GetLine(user, 1);
             }
         }
         else

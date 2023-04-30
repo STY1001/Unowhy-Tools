@@ -159,7 +159,7 @@
                                Grid.ColumnSpan="3"
                                Grid.Column="0"
                                Grid.Row="0" />
-                    <CheckBox Grid.Row="2"
+                    <ui:ToggleSwitch Grid.Row="2"
                               Grid.Column="2"
                               x:Name="upcheck" />
                 </Grid>
