@@ -93,6 +93,16 @@
                                        PageTag="drivers"
                                        PageType="{x:Type pages:Drivers}"
                                        Click="NavClick" />
+                </ui:NavigationStore.Items>
+                <ui:NavigationStore.Footer>
+                    <ui:NavigationItem x:Name="deb"
+                                       Height="3"
+                                       Content="Debug Page"
+                                       Image="pack://application:,,,/Resources/code.png"
+                                       PageTag="debug"
+                                       PageType="{x:Type pages:DebugPage}"
+                                       Click="NavClick" />
+                    <ui:NavigationSeparator Visibility="Collapsed"/>
                     <ui:NavigationItem x:Name="pcname"
                                        Visibility="Collapsed"
                                        Height="0"
@@ -148,15 +158,6 @@
                                        Height="0"
                                        Content="Unowhy Tools First Config"
                                        PageType="{x:Type pages:FirstConfig}" />
-                </ui:NavigationStore.Items>
-                <ui:NavigationStore.Footer>
-                    <ui:NavigationItem x:Name="deb"
-                                       Height="3"
-                                       Content="Debug Page"
-                                       Image="pack://application:,,,/Resources/code.png"
-                                       PageTag="debug"
-                                       PageType="{x:Type pages:DebugPage}"
-                                       Click="NavClick" />
                     <ui:NavigationSeparator Visibility="Collapsed"/>
                     <ui:NavigationItem x:Name="settings"
                                        Content="Settings"
