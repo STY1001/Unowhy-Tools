@@ -273,7 +273,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
             await Task.Delay(150);
 
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.Container;
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             mainWindow.RootNavigation.Visibility = Visibility.Visible;
             mainWindow.applylang();
             mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
