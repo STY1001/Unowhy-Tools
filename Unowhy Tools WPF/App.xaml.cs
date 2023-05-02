@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
@@ -20,6 +22,9 @@ namespace Unowhy_Tools_WPF;
 /// </summary>
 public partial class App
 {
+    [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+    private static extern bool AllocConsole();
+
     // The .NET Generic Host provides dependency injection, configuration, logging, and other services.
     // https://docs.microsoft.com/dotnet/core/extensions/generic-host
     // https://docs.microsoft.com/dotnet/core/extensions/dependency-injection
@@ -81,7 +86,7 @@ public partial class App
     private async void OnStartup(object sender, StartupEventArgs e)
     {
         UT.Data UTdata = new UT.Data();
-
+        /*
         if (e.Args.Length > 0)
         {
             if (e.Args[0] == "-user")
@@ -93,14 +98,84 @@ public partial class App
                 string user = await UT.RunReturn("whoami", "");
                 UTdata.UserID = UT.GetLine(user, 1);
             }
+
+            if (e.Args[])
         }
         else
         {
             string user = await UT.RunReturn("whoami", "");
             UTdata.UserID = UT.GetLine(user, 1);
         }
+        */
 
-        await _host.StartAsync();
+        bool useTray = false;
+        string userId = null;
+        bool isHelp = false;
+
+        if(e.Args.Length > 0)
+        {
+            string args = string.Join(" ", e.Args);
+            UT.Write2Log("Unowhy Tools Args: " + args);
+        }
+        else
+        {
+            UT.Write2Log("Unowhy Tools Args: No arg");
+        }
+
+        if (e.Args.Length > 0)
+        {
+            for (int i = 0; i < e.Args.Length; i++)
+            {
+                if (e.Args[i] == "-user")
+                {
+                    if (i < e.Args.Length - 1)
+                    {
+                        userId = e.Args[i + 1];
+                    }
+                    i++;
+                }
+                else if (e.Args[i] == "-tray")
+                {
+                    useTray = true;
+                }
+                else if (e.Args[i] == "-help" || e.Args[i] == "-?")
+                {
+                    isHelp = true;
+                }
+            }
+        }
+
+        if (userId == null)
+        {
+            string user = await UT.RunReturn("whoami", "");
+            userId = UT.GetLine(user, 1);
+        }
+
+        UTdata.UserID = userId;
+
+        if(useTray)
+        {
+            UTdata.RunTray = true;
+        }
+
+        if (isHelp)
+        {
+            string UTsver = UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
+
+            if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
+            else UTsver = UTsver + "(Release)";
+            AllocConsole();
+            Console.WriteLine($"Unowhy Tools by STY1001\nVersion {UTsver}\n\n\nArgs for Unowhy Tools:\n");
+            Console.WriteLine("-user [string]           Set a custom UserID");
+            Console.WriteLine("-tray                    Launch UT in tray mode, can only open 1 tray simultaneously");
+            Console.WriteLine("-help                    Display help");
+            Console.ReadKey();
+            Application.Current.Shutdown();
+        }
+        else
+        {
+            await _host.StartAsync();
+        }   
     }
 
     /// <summary>
