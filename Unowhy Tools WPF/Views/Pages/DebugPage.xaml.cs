@@ -29,6 +29,8 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     NamedPipeClientStream pipeClient;
     UT.Data UTdata = new UT.Data();
 
+    [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+    private static extern bool AllocConsole();
 
     private readonly ITestWindowService _testWindowService;
     private readonly ISnackbarService _snackbarService;
@@ -151,5 +153,16 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     private async void UiPage_Unloaded(object sender, RoutedEventArgs e)
     {
         UT.anim.TransitionBack(Grid1);
+    }
+
+    private void Button_Click_3(object sender, RoutedEventArgs e)
+    {
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+        mainWindow.ChangeTheme();
+    }
+
+    private void Button_Click_4(object sender, RoutedEventArgs e)
+    {
+        AllocConsole();
     }
 }

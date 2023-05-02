@@ -377,6 +377,10 @@
             <StackPanel Orientation="Horizontal">
                 <ui:Button Content="Launch Tray"
                            Click="Button_Click_2" />
+                <ui:Button Content="Change Theme"
+                           Click="Button_Click_3" />
+                <ui:Button Content="Launch Console"
+                           Click="Button_Click_4" />
             </StackPanel>
         </StackPanel>
     </Grid>
