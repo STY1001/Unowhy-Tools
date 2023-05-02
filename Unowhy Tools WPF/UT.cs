@@ -53,7 +53,7 @@ namespace Unowhy_Tools
         #endregion
 
         public static int verfull = 2400;
-        public static string verbuild = "2000230423";
+        public static string verbuild = "1245020523";
         public static bool verisdeb = true;
 
         public class version
@@ -654,6 +654,23 @@ namespace Unowhy_Tools
                 return true;
             }
 
+        }
+
+        public static async Task<bool> CheckTray()
+        {
+            bool trayrun = false;
+            string tl = await RunReturn("powershell", "start-process -FilePath \"tasklist\" -ArgumentList \"/v\" -nonewwindow");
+            if (tl.Contains("Unowhy Tools Tray"))
+            {
+                trayrun = true;
+                Write2Log("UT Tray is already running");
+            }
+            else
+            {
+                Write2Log("UT Tray is not running");
+            }
+
+            return trayrun;
         }
 
         public static async Task<string> FolderSizeString(string directoryPath)
@@ -1467,6 +1484,9 @@ namespace Unowhy_Tools
             private static bool _winre;
             private static bool _camover;
 
+            private static bool _trayrunok;
+            private static bool _runtray;
+
             public string HostName 
             {
                 get { return _hostname; }
@@ -1779,6 +1799,25 @@ namespace Unowhy_Tools
                 set
                 {
                     _camover = value;
+                    OnPropertyChanged();
+                }
+            }
+
+            public bool TrayRunOK
+            {
+                get { return _trayrunok; }
+                set
+                {
+                    _trayrunok = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool RunTray
+            {
+                get { return _runtray; }
+                set
+                {
+                    _runtray = value;
                     OnPropertyChanged();
                 }
             }
