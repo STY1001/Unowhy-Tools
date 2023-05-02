@@ -75,17 +75,18 @@ public partial class TrayWindow : Window
     public async Task CheckStats()
     {
         var cpuCounter1 = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
+        var cpucapp1 = new PerformanceCounter("Processor Information", "Processor Frequency", "_Total");
+        var cpucapp2 = new PerformanceCounter("Processor Information", "% Processor Performance", "_Total");
         cpuCounter1.NextValue();
+        cpucapp1.NextValue();
+        cpucapp2.NextValue();
         await Task.Delay(100);
         var cpurint = Convert.ToInt32(cpuCounter1.NextValue());
         if(cpurint > 100) cpurint = 100;
         var cpupstring = $"{cpurint.ToString("0")} %";
-        var cpucapp1 = new PerformanceCounter("Processor Information", "Processor Frequency", "_Total");
-        var cpucapp2 = new PerformanceCounter("Processor Information", "% Processor Performance", "_Total");
-        cpucapp1.NextValue();
-        await Task.Delay(100);
-        var cpucstring = $"{((cpucapp1.NextValue() / 1000.0) * (cpucapp2.NextValue() / 100.0)).ToString("0.00")} GHz / {(cpucapp1.NextValue() / 1000.0).ToString("0.00")} GHz";
-        
+        var cpucstring = $"{((ulong)cpucapp1.NextValue() * (ulong)cpucapp2.NextValue() / 100000.0).ToString("0.00")} GHz / {(cpucapp1.NextValue() / 1000.0).ToString("0.00")} GHz";
+
+
         var ramCounter1 = new PerformanceCounter("Memory", "Available Bytes");
         var ramCounter2 = new PerformanceCounter("Memory", "Available MBytes");
         var ramAvail = ramCounter2.NextValue();
@@ -98,7 +99,7 @@ public partial class TrayWindow : Window
         var totalFreeSpace = driveInfos.Sum(d => d.TotalFreeSpace);
         var totalSize = driveInfos.Sum(d => d.TotalSize);
         var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
-        var storpstring = $"{storint }%";
+        var storpstring = $"{storint } %";
         var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
 
         cpuring.Progress = cpurint;
@@ -219,10 +220,30 @@ public partial class TrayWindow : Window
         date.Text = DMY;
     }
 
-    public TrayWindow()
+    public void ChangeTheme()
     {
+        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
+    }
+
+    private readonly IThemeService _themeService;
+
+    public TrayWindow(IThemeService themeService)
+    {
+        UT.Data UTdata = new UT.Data();
+
+        _themeService = themeService;
+
         InitializeComponent();
-        base.Deactivated += TrayWindow_Deactivated;
+        if (!UT.CheckAdmin())
+        {
+            UT.RunAdmin("-tray");
+        }
+
+        if (UTdata.RunTray)
+        {
+            base.Deactivated += TrayWindow_Deactivated;
+        }
+
         var trayIcon = new System.Windows.Forms.NotifyIcon();
         trayIcon.Icon = UT.GetIconFromRes("UT.png");
         trayIcon.Visible = true;
@@ -235,7 +256,11 @@ public partial class TrayWindow : Window
 
         CheckPriv();
         StartTimer();
-        ShowTray();
+
+        //ChangeTheme();
+        //ChangeTheme();
+
+        HideTray();
     }
 
     private async void TrayWindow_Deactivated(object sender, EventArgs e)
@@ -260,6 +285,9 @@ public partial class TrayWindow : Window
 
     public async Task ShowTray()
     {
+
+        base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+
         await StartTimer();
         Topmost = true;
         Activate();
