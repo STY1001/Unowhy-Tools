@@ -3,8 +3,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using Microsoft.Extensions.Hosting;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.Services.Contracts;
 using Unowhy_Tools_WPF.Views;
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Mvvm.Contracts;
 
 namespace Unowhy_Tools_WPF.Services;
@@ -19,10 +23,11 @@ public class ApplicationHostService : IHostedService
     private readonly IPageService _pageService;
     private readonly IThemeService _themeService;
     private readonly ITaskBarService _taskBarService;
+    private readonly ITestWindowService _testWindowService;
 
     private INavigationWindow _navigationWindow;
 
-    public ApplicationHostService(IServiceProvider serviceProvider, INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService)
+    public ApplicationHostService(IServiceProvider serviceProvider, INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ITestWindowService testWindowService)
     {
         // If you want, you can do something with these services at the beginning of loading the application.
         _serviceProvider = serviceProvider;
@@ -30,6 +35,7 @@ public class ApplicationHostService : IHostedService
         _pageService = pageService;
         _themeService = themeService;
         _taskBarService = taskBarService;
+        _testWindowService = testWindowService;
     }
 
     /// <summary>
@@ -57,12 +63,28 @@ public class ApplicationHostService : IHostedService
     /// </summary>
     private async Task HandleActivationAsync()
     {
-        await Task.CompletedTask;
+        UT.Data UTdata = new UT.Data();
 
         if (!Application.Current.Windows.OfType<MainWindow>().Any())
         {
-            _navigationWindow = _serviceProvider.GetService(typeof(INavigationWindow)) as INavigationWindow;
-            _navigationWindow!.ShowWindow();
+            if (UTdata.RunTray)
+            {
+                if(!await UT.CheckTray())
+                {
+                    _testWindowService.Show<Views.TrayWindow>();
+                }
+                else
+                {
+                    Application.Current.Shutdown();
+                }
+            }
+            else
+            {
+                _navigationWindow = _serviceProvider.GetService(typeof(INavigationWindow)) as INavigationWindow;
+                _navigationWindow!.ShowWindow();
+            }
+
+            _themeService.SetAccent(Color.FromRgb(255, 99, 91));
 
             // NOTICE: You can set this service directly in the window 
             // _navigationWindow.SetPageService(_pageService);
@@ -70,15 +92,6 @@ public class ApplicationHostService : IHostedService
             // NOTICE: In the case of this window, we navigate to the Dashboard after loading with Container.InitializeUi()
             // _navigationWindow.Navigate(typeof(Views.Pages.Dashboard));
         }
-        /*
-        var notifyIconManager = _serviceProvider.GetService(typeof(INotifyIconService)) as INotifyIconService;
-
-        if (!notifyIconManager!.IsRegistered)
-        {
-            notifyIconManager!.SetParentWindow(_navigationWindow as Window);
-            notifyIconManager.Register();
-        }
-        */
         await Task.CompletedTask;
     }
 
