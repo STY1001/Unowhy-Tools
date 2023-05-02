@@ -61,8 +61,8 @@ public partial class MainWindow : INavigationWindow
         _snackbarService = snackbarService;
         _dialogService = dialogService;
 
-        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
-        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
+        //ChangeTheme();
+        //ChangeTheme();
 
         applylang();
     }
@@ -476,7 +476,7 @@ public partial class MainWindow : INavigationWindow
         }
     }
 
-    private void NavigationButtonTheme_OnClick(object sender, RoutedEventArgs e)
+    public void ChangeTheme()
     {
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
     }
