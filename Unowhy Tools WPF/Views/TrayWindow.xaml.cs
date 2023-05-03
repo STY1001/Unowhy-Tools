@@ -74,43 +74,97 @@ public partial class TrayWindow : Window
 
     public async Task CheckStats()
     {
-        var cpuCounter1 = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
-        var cpucapp1 = new PerformanceCounter("Processor Information", "Processor Frequency", "_Total");
-        var cpucapp2 = new PerformanceCounter("Processor Information", "% Processor Performance", "_Total");
-        cpuCounter1.NextValue();
-        cpucapp1.NextValue();
-        cpucapp2.NextValue();
-        await Task.Delay(100);
-        var cpurint = Convert.ToInt32(cpuCounter1.NextValue());
-        if(cpurint > 100) cpurint = 100;
-        var cpupstring = $"{cpurint.ToString("0")} %";
-        var cpucstring = $"{((ulong)cpucapp1.NextValue() * (ulong)cpucapp2.NextValue() / 100000.0).ToString("0.00")} GHz / {(cpucapp1.NextValue() / 1000.0).ToString("0.00")} GHz";
+        try
+        {
+            var cpuCounter1 = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
+            var cpucapp1 = new PerformanceCounter("Processor Information", "Processor Frequency", "_Total");
+            var cpucapp2 = new PerformanceCounter("Processor Information", "% Processor Performance", "_Total");
+
+            cpuCounter1.NextValue();
+            cpucapp1.NextValue();
+            cpucapp2.NextValue();
+            await Task.Delay(100);
+            var cpurint = Convert.ToInt32(cpuCounter1.NextValue());
+            if (cpurint > 100) cpurint = 100;
+            var cpupstring = $"{cpurint.ToString("0")} %";
+            var cpucstring = $"{((ulong)cpucapp1.NextValue() * (ulong)cpucapp2.NextValue() / 100000.0).ToString("0.00")} GHz / {(cpucapp1.NextValue() / 1000.0).ToString("0.00")} GHz";
 
 
-        var ramCounter1 = new PerformanceCounter("Memory", "Available Bytes");
-        var ramCounter2 = new PerformanceCounter("Memory", "Available MBytes");
-        var ramAvail = ramCounter2.NextValue();
-        var ramAvail2 = ramCounter1.NextValue();
-        var ramint = (((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) - ramAvail2) / new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) * 100;
-        var rampstring = $"{ramint.ToString("0")} %";
-        var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} Go / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
-        
-        var driveInfos = DriveInfo.GetDrives();
-        var totalFreeSpace = driveInfos.Sum(d => d.TotalFreeSpace);
-        var totalSize = driveInfos.Sum(d => d.TotalSize);
-        var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
-        var storpstring = $"{storint } %";
-        var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+            var ramCounter1 = new PerformanceCounter("Memory", "Available Bytes");
+            var ramCounter2 = new PerformanceCounter("Memory", "Available MBytes");
 
-        cpuring.Progress = cpurint;
-        cpuper.Text = cpupstring;
-        cpucap.Text = cpucstring;
-        ramring.Progress = ramint;
-        ramper.Text = rampstring;
-        ramcap.Text = ramcstring;
-        storring.Progress = storint;
-        storper.Text = storpstring;
-        storcap.Text = storcstring;
+            var ramAvail = ramCounter2.NextValue();
+            var ramAvail2 = ramCounter1.NextValue();
+            var ramint = (((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) - ramAvail2) / new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) * 100;
+            var rampstring = $"{ramint.ToString("0")} %";
+            var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} Go / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+
+            var driveInfos = DriveInfo.GetDrives();
+            var totalFreeSpace = driveInfos.Sum(d => d.TotalFreeSpace);
+            var totalSize = driveInfos.Sum(d => d.TotalSize);
+            var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
+            var storpstring = $"{storint} %";
+            var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+
+            cpuring.Progress = cpurint;
+            cpuper.Text = cpupstring;
+            cpucap.Text = cpucstring;
+            ramring.Progress = ramint;
+            ramper.Text = rampstring;
+            ramcap.Text = ramcstring;
+            storring.Progress = storint;
+            storper.Text = storpstring;
+            storcap.Text = storcstring;
+        }
+        catch
+        {
+            try
+            {
+                var cpuCounter1 = new PerformanceCounter("Information sur le processeur", "Pourcentage de rendement du processeur", "_Total");
+                var cpucapp1 = new PerformanceCounter("Information sur le processeur", "Fréquence du processeur", "_Total");
+                var cpucapp2 = new PerformanceCounter("Information sur le processeur", "Pourcentage de performances du processeur", "_Total");
+
+                cpuCounter1.NextValue();
+                cpucapp1.NextValue();
+                cpucapp2.NextValue();
+                await Task.Delay(100);
+                var cpurint = Convert.ToInt32(cpuCounter1.NextValue());
+                if (cpurint > 100) cpurint = 100;
+                var cpupstring = $"{cpurint.ToString("0")} %";
+                var cpucstring = $"{((ulong)cpucapp1.NextValue() * (ulong)cpucapp2.NextValue() / 100000.0).ToString("0.00")} GHz / {(cpucapp1.NextValue() / 1000.0).ToString("0.00")} GHz";
+
+
+                var ramCounter1 = new PerformanceCounter("Mémoire", "Octets disponibles");
+                var ramCounter2 = new PerformanceCounter("Mémoire", "Mégaoctets disponible");
+
+                var ramAvail = ramCounter2.NextValue();
+                var ramAvail2 = ramCounter1.NextValue();
+                var ramint = (((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) - ramAvail2) / new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) * 100;
+                var rampstring = $"{ramint.ToString("0")} %";
+                var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} Go / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+
+                var driveInfos = DriveInfo.GetDrives();
+                var totalFreeSpace = driveInfos.Sum(d => d.TotalFreeSpace);
+                var totalSize = driveInfos.Sum(d => d.TotalSize);
+                var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
+                var storpstring = $"{storint} %";
+                var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+
+                cpuring.Progress = cpurint;
+                cpuper.Text = cpupstring;
+                cpucap.Text = cpucstring;
+                ramring.Progress = ramint;
+                ramper.Text = rampstring;
+                ramcap.Text = ramcstring;
+                storring.Progress = storint;
+                storper.Text = storpstring;
+                storcap.Text = storcstring;
+            }
+            catch 
+            { 
+
+            }
+        }
     }
 
     public async Task CheckPrivandNotif()
