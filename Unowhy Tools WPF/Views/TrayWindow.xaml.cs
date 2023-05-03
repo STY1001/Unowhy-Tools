@@ -99,9 +99,9 @@ public partial class TrayWindow : Window
             var rampstring = $"{ramint.ToString("0")} %";
             var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} Go / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
 
-            var driveInfos = DriveInfo.GetDrives();
-            var totalFreeSpace = driveInfos.Sum(d => d.TotalFreeSpace);
-            var totalSize = driveInfos.Sum(d => d.TotalSize);
+            var driveInfos = new DriveInfo("C");
+            var totalFreeSpace = driveInfos.TotalFreeSpace;
+            var totalSize = driveInfos.TotalSize;
             var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
             var storpstring = $"{storint} %";
             var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
@@ -143,9 +143,9 @@ public partial class TrayWindow : Window
                 var rampstring = $"{ramint.ToString("0")} %";
                 var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} Go / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
 
-                var driveInfos = DriveInfo.GetDrives();
-                var totalFreeSpace = driveInfos.Sum(d => d.TotalFreeSpace);
-                var totalSize = driveInfos.Sum(d => d.TotalSize);
+                var driveInfos = new DriveInfo("C");
+                var totalFreeSpace = driveInfos.TotalFreeSpace;
+                var totalSize = driveInfos.TotalSize;
                 var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
                 var storpstring = $"{storint} %";
                 var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
@@ -160,8 +160,8 @@ public partial class TrayWindow : Window
                 storper.Text = storpstring;
                 storcap.Text = storcstring;
             }
-            catch 
-            { 
+            catch
+            {
 
             }
         }
