@@ -79,14 +79,32 @@ public partial class About : INavigableView<DashboardViewModel>
         translogo.BeginAnimation(TranslateTransform.YProperty, animlogo);
         translogo.BeginAnimation(TranslateTransform.XProperty, animlogo2);
 
-        DoubleAnimation animis = new DoubleAnimation();
-        animis.From = 0;
-        animis.To = 500;
-        animis.Duration = TimeSpan.FromMilliseconds(500);
-        animis.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-        TranslateTransform transis = new TranslateTransform();
-        InfoStack.RenderTransform = transis;
-        transis.BeginAnimation(TranslateTransform.YProperty, animis);
+        foreach (UIElement element in InfoStack.Children)
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 150,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+            await Task.Delay(10);
+        }
 
         UT.anim.BackBtnAnim(BackBTN);
 
