@@ -120,9 +120,9 @@ public partial class TrayWindow : Window
         {
             try
             {
-                var cpuCounter1 = new PerformanceCounter("Information sur le processeur", "Pourcentage de rendement du processeur", "_Total");
-                var cpucapp1 = new PerformanceCounter("Information sur le processeur", "Fréquence du processeur", "_Total");
-                var cpucapp2 = new PerformanceCounter("Information sur le processeur", "Pourcentage de performances du processeur", "_Total");
+                var cpuCounter1 = new PerformanceCounter("Informations sur le processeur", "Pourcentage de rendement du processeur", "_Total");
+                var cpucapp1 = new PerformanceCounter("Informations sur le processeur", "Fréquence du processeur", "_Total");
+                var cpucapp2 = new PerformanceCounter("Informations sur le processeur", "Pourcentage de performances du processeur", "_Total");
 
                 cpuCounter1.NextValue();
                 cpucapp1.NextValue();
