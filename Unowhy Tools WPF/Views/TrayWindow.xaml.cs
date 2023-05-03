@@ -135,7 +135,7 @@ public partial class TrayWindow : Window
 
 
                 var ramCounter1 = new PerformanceCounter("Mémoire", "Octets disponibles");
-                var ramCounter2 = new PerformanceCounter("Mémoire", "Mégaoctets disponible");
+                var ramCounter2 = new PerformanceCounter("Mémoire", "Mégaoctets disponibles");
 
                 var ramAvail = ramCounter2.NextValue();
                 var ramAvail2 = ramCounter1.NextValue();
