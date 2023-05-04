@@ -25,11 +25,14 @@ using System.Xml;
 using System.Reflection.Metadata;
 using Microsoft.Toolkit.Uwp.Notifications;
 using Microsoft.Win32;
+using Wpf.Ui.Styles.Controls;
 
 namespace Unowhy_Tools_WPF.Views;
 
 public partial class TrayWindow : Window
 {
+    private System.Windows.Forms.NotifyIcon trayIcon = new System.Windows.Forms.NotifyIcon();
+
     private bool CamOn;
     private bool MicOn;
 
@@ -172,7 +175,7 @@ public partial class TrayWindow : Window
 
     }
 
-    private void switch_Changed(object sender, RoutedEventArgs e)
+    public void switch_Changed(object sender, RoutedEventArgs e)
     {
         if (camswitch.IsChecked == true)
         {
@@ -274,18 +277,11 @@ public partial class TrayWindow : Window
         date.Text = DMY;
     }
 
-    public void ChangeTheme()
-    {
-        _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
-    }
-
-    private readonly IThemeService _themeService;
-
     public TrayWindow(IThemeService themeService)
     {
-        UT.Data UTdata = new UT.Data();
+        base.Visibility = Visibility.Hidden;
 
-        _themeService = themeService;
+        UT.Data UTdata = new UT.Data();
 
         InitializeComponent();
         if (!UT.CheckAdmin())
@@ -298,10 +294,11 @@ public partial class TrayWindow : Window
             base.Deactivated += TrayWindow_Deactivated;
         }
 
-        var trayIcon = new System.Windows.Forms.NotifyIcon();
         trayIcon.Icon = UT.GetIconFromRes("UT.png");
+        trayIcon.Text = "Unowhy Tools";
         trayIcon.Visible = true;
-        trayIcon.Click += TrayIcon_Click;
+        trayIcon.MouseClick += TrayIcon_Click;
+        
         _camerakey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", true);
         _microkey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone", true);
 
@@ -311,18 +308,43 @@ public partial class TrayWindow : Window
         CheckPriv();
         StartTimer();
 
-        //ChangeTheme();
-        //ChangeTheme();
-
         HideTray();
     }
 
-    private async void TrayWindow_Deactivated(object sender, EventArgs e)
+    public async void TrayWindow_Deactivated(object sender, EventArgs e)
     {
         await HideTray();
     }
 
-    private async void TrayIcon_Click(object? sender, EventArgs e)
+    public async void TrayIcon_Click(object sender, MouseEventArgs e)
+    {
+        if (e.Button == MouseButtons.Left)
+        {
+            await ShowTray();
+        }
+        else if (e.Button == MouseButtons.Right)
+        {
+            var contextMenuStrip = new ContextMenuStrip();
+
+            var opentray = new ToolStripButton("Open Tray");
+            opentray.Click += TCM_Open;
+
+            var closetray = new ToolStripButton("Exit");
+            closetray.Click += TCM_Close;
+
+            contextMenuStrip.Items.Add(opentray);
+            contextMenuStrip.Items.Add(closetray);
+
+            trayIcon.ContextMenuStrip = contextMenuStrip;
+        }
+    }
+
+    public async void TCM_Close(object sender, EventArgs e)
+    {
+        base.Close();
+    }
+
+    public async void TCM_Open(object sender, EventArgs e)
     {
         await ShowTray();
     }
