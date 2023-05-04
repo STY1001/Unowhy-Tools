@@ -1115,12 +1115,12 @@ namespace Unowhy_Tools
             }
             if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
             {
-                UTdata.HSMExist = false;
+                UTdata.HSQFolderExist = false;
                 Write2Log("Hisqool: False");
             }
             else
             {
-                UTdata.HSMExist = true;
+                UTdata.HSQFolderExist = true;
                 Write2Log("Hisqool: True");
             }
             Write2Log("=== End ===" + Environment.NewLine);
