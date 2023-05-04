@@ -74,7 +74,7 @@
                                         VerticalAlignment="Bottom"
                                         Orientation="Horizontal">
                                 <TextBlock Text="17:20"
-                                           FontSize="27"
+                                           FontSize="26"
                                            FontFamily="Segoe UI Bold"
                                            Foreground="#ffffff"
                                            VerticalAlignment="Bottom"
