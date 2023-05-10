@@ -13,6 +13,7 @@ using System.Net.Http;
 using System.Net;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
+using Microsoft.Win32.TaskScheduler;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -37,22 +38,42 @@ public partial class Settings : INavigableView<DashboardViewModel>
         lablang.Text = UT.GetLang("lang");
         labus.Text = UT.GetLang("cuab");
         labsn.Text = UT.GetLang("pcserial");
+        labtray.Text = UT.GetLang("boottray");
     }
 
     public async void GoBack(object sender, RoutedEventArgs e)
     {
         UT.anim.BackBtnAnim(BackBTN);
-        await Task.Delay(150);
+        await System.Threading.Tasks.Task.Delay(150);
         UT.anim.TransitionBack(RootGrid);
-        await Task.Delay(200);
+        await System.Threading.Tasks.Task.Delay(200);
         UT.NavigateTo(typeof(Dashboard));
     }
 
-    public async Task CheckBTN()
+    public async System.Threading.Tasks.Task CheckBTN()
     {
         string serial = await UT.UTS.UTSmsg("UTSW", "GetSN");
         sn.Text = serial;
 
+        TaskService ts = new TaskService();
+        Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
+        if(uttltask != null)
+        {
+            if (uttltask.Enabled)
+            {
+                tray.IsChecked = true;
+            }
+            else
+            {
+                tray.IsChecked = false;
+            }
+        }
+        else
+        {
+            tray.IsChecked = false;
+            tray.IsEnabled = false;
+        }
+        
         RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
         string utlst = lcs.GetValue("Lang").ToString();
         if (utlst == "EN")
@@ -100,7 +121,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         else size = fi.Length.ToString() + " B";
         dl.Content = UT.GetLang("clean") + " (" + size + ")";
 
-        await Task.Delay(150);
+        await System.Threading.Tasks.Task.Delay(150);
 
         foreach (UIElement element in RootStack.Children)
         {
@@ -127,7 +148,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
             transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
 
-            await Task.Delay(50);
+            await System.Threading.Tasks.Task.Delay(50);
         }
     }
 
@@ -167,7 +188,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 await UT.UTS.UTSmsg("UTSW", $"SetSN:{ssn}");
-                await Task.Delay(1000);
+                await System.Threading.Tasks.Task.Delay(1000);
                 string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN"); 
                 if(!(nsn == ssn))
                 {
@@ -211,6 +232,21 @@ public partial class Settings : INavigableView<DashboardViewModel>
             else
             {
                 key.SetValue("UpdateStart", "0");
+            }
+
+            if(tray.IsEnabled == true)
+            {
+                TaskService ts = new TaskService();
+                Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
+                if (tray.IsChecked == true)
+                {
+                    uttltask.Enabled = true;
+                }
+                else
+                {
+                    uttltask.Enabled = false;
+                }
+                uttltask.RegisterChanges();
             }
 
             UT.RunAdmin($"-user {UTdata.UserID}");

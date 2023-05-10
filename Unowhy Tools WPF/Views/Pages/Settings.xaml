@@ -154,9 +154,34 @@
                                Text="Check for update at startup:"
                                Foreground="#ffffff" />
                     <ui:ToggleSwitch x:Name="us"
-                              Grid.Row="2"
-                              Grid.Column="2"
-                              IsChecked="True" />
+                                     Grid.Row="2"
+                                     Grid.Column="2"
+                                     IsChecked="True" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="32" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image Source="/Resources/trayicon.png"
+                           Grid.Row="2"
+                           Grid.Column="0" />
+                    <TextBlock x:Name="labtray"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"
+                               Text="Start Unowhy Tools Tray at boot:"
+                               Foreground="#ffffff" />
+                    <ui:ToggleSwitch x:Name="tray"
+                                     Grid.Row="2"
+                                     Grid.Column="2"
+                                     IsChecked="True" />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
