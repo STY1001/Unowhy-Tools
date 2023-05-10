@@ -313,6 +313,10 @@ public partial class MainWindow : INavigationWindow
             SplashBar.Value = 0;
             await Task.Delay(500);
             await UT.Cleanup();
+            SplashText.Text = "Loading... (Tray)";
+            SplashBar.Value = 30;
+            await Task.Delay(500);
+            await UT.TrayCheck();
             SplashText.Text = "Loading... (Checking Files)";
             SplashBar.Value = 65;
             await Task.Delay(500);
