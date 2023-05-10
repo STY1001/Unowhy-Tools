@@ -256,6 +256,10 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         lababout.Text = UT.GetLang("about");
         labinfo.Text = UT.GetLang("pcinfo");
         labset.Text = UT.GetLang("settings");
+        labtask.Text = UT.GetLang("opetaskmgr");
+        labcmd.Text = UT.GetLang("opencmd");
+        labreg.Text = UT.GetLang("openreg");
+        labgp.Text = UT.GetLang("opengp");
     }
 
     public async void About(object sender, RoutedEventArgs e)

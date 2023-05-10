@@ -207,7 +207,8 @@
                                 <TextBlock Margin="0"
                                            FontSize="13"
                                            FontWeight="Medium"
-                                           Text="Task Manager" />
+                                           Text="Task Manager"
+                                           x:Name="labtask"/>
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
                                            Text="taskmgr.exe" />
@@ -238,7 +239,8 @@
                                 <TextBlock Margin="0"
                                            FontSize="13"
                                            FontWeight="Medium"
-                                           Text="CMD Terminal" />
+                                           Text="CMD Terminal"
+                                           x:Name="labcmd"/>
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
                                            Text="cmd.exe" />
@@ -269,7 +271,8 @@
                                 <TextBlock Margin="0"
                                            FontSize="13"
                                            FontWeight="Medium"
-                                           Text="REG Editor" />
+                                           Text="REG Editor"
+                                           x:Name="labreg"/>
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
                                            Text="regedit.exe" />
@@ -300,7 +303,8 @@
                                 <TextBlock Margin="0"
                                            FontSize="13"
                                            FontWeight="Medium"
-                                           Text="GP Editor" />
+                                           Text="GP Editor"
+                                           x:Name="labgp"/>
                                 <TextBlock FontSize="12"
                                            Foreground="#bebebe"
                                            Text="gpedit.msc" />
