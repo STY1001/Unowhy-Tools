@@ -100,14 +100,14 @@ public partial class TrayWindow : Window
             var ramAvail2 = ramCounter1.NextValue();
             var ramint = (((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) - ramAvail2) / new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) * 100;
             var rampstring = $"{ramint.ToString("0")} %";
-            var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} Go / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+            var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} GB / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} GB";
 
             var driveInfos = new DriveInfo("C");
             var totalFreeSpace = driveInfos.TotalFreeSpace;
             var totalSize = driveInfos.TotalSize;
             var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
             var storpstring = $"{storint} %";
-            var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+            var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} GB / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} GB";
 
             cpuring.Progress = cpurint;
             cpuper.Text = cpupstring;
@@ -262,7 +262,10 @@ public partial class TrayWindow : Window
 
     public void applylang()
     {
-
+        cpulab.Text = UT.GetLang("usecpu");
+        ramlab.Text = UT.GetLang("useram");
+        storlab.Text = UT.GetLang("usestor");
+        labout.Text = UT.GetLang("openut");
     }
 
     public async Task UpdateTimeDate()
@@ -305,6 +308,7 @@ public partial class TrayWindow : Window
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         UTbtndesc.Text = utpath;
 
+        applylang();
         CheckPriv();
         StartTimer();
 
