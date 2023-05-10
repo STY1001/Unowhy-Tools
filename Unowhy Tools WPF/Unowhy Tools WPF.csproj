@@ -82,6 +82,7 @@
     <None Remove="Resources\microsoft-shell-monitor.ico" />
     <None Remove="Resources\microsoft-shell-settings.ico" />
     <None Remove="Resources\microsoft-shell-workspace.ico" />
+    <None Remove="Resources\next.png" />
     <None Remove="Resources\no.png" />
     <None Remove="Resources\noupdate.png" />
     <None Remove="Resources\nowifi.png" />
@@ -108,6 +109,7 @@
     <None Remove="Resources\sty1001.png" />
     <None Remove="Resources\taskmgr.png" />
     <None Remove="Resources\the_witcher_wallpaper.jpg" />
+    <None Remove="Resources\trayicon.png" />
     <None Remove="Resources\uninstall.png" />
     <None Remove="Resources\update.png" />
     <None Remove="Resources\upload.png" />
@@ -146,6 +148,7 @@
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1587.40" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.ServiceProcess.ServiceController" Version="7.0.0" />
+    <PackageReference Include="TaskScheduler" Version="2.10.1" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
@@ -214,6 +217,7 @@
     <Resource Include="Resources\microsoft-shell-monitor.ico" />
     <Resource Include="Resources\microsoft-shell-settings.ico" />
     <Resource Include="Resources\microsoft-shell-workspace.ico" />
+    <Resource Include="Resources\next.png" />
     <Resource Include="Resources\no.png" />
     <Resource Include="Resources\noupdate.png" />
     <Resource Include="Resources\nowifi.png" />
@@ -240,6 +244,7 @@
     <Resource Include="Resources\sty1001.png" />
     <Resource Include="Resources\taskmgr.png" />
     <Resource Include="Resources\the_witcher_wallpaper.jpg" />
+    <Resource Include="Resources\trayicon.png" />
     <Resource Include="Resources\uninstall.png" />
     <Resource Include="Resources\update.png" />
     <Resource Include="Resources\upload.png" />
