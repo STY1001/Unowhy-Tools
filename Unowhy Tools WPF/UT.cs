@@ -33,6 +33,7 @@ using System.IO.Pipes;
 using System.IO.Compression;
 using System.Threading;
 using System.Drawing;
+using TaskScheduler = Microsoft.Win32.TaskScheduler;
 
 namespace Unowhy_Tools
 {
@@ -41,13 +42,13 @@ namespace Unowhy_Tools
         #region DLL
         [DllImport("DwmApi")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
-        
+
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern bool Wow64DisableWow64FsRedirection(ref IntPtr ptr);
-        
+
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern bool Wow64RevertWow64FsRedirection(IntPtr ptr);
-        
+
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
@@ -137,7 +138,7 @@ namespace Unowhy_Tools
                 anim.To = -150;
                 anim.Duration = TimeSpan.FromMilliseconds(500);
                 anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-                
+
                 TranslateTransform trans = new TranslateTransform();
                 _button.RenderTransform = trans;
                 anim.Completed += setnormalBackBTN;
@@ -184,7 +185,7 @@ namespace Unowhy_Tools
                 anim.Completed += setnormalAnim;
                 trans.BeginAnimation(TranslateTransform.XProperty, anim);
             }
-            
+
             public static void setnormalForw(object sender, EventArgs e)
             {
                 DoubleAnimation anim = new DoubleAnimation();
@@ -198,7 +199,7 @@ namespace Unowhy_Tools
                 anim.Completed += setnormalAnim;
                 trans.BeginAnimation(TranslateTransform.XProperty, anim);
             }
-            
+
             public static void setnormalAnim(object sender, EventArgs e)
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
@@ -343,7 +344,7 @@ namespace Unowhy_Tools
                     ServiceController sc = new ServiceController();
                     sc.ServiceName = "UTS";
 
-                    if(sc.ServiceType.HasFlag(ServiceType.InteractiveProcess) && sc.ServiceType.HasFlag(ServiceType.Win32OwnProcess))
+                    if (sc.ServiceType.HasFlag(ServiceType.InteractiveProcess) && sc.ServiceType.HasFlag(ServiceType.Win32OwnProcess))
                     {
 
                     }
@@ -390,7 +391,7 @@ namespace Unowhy_Tools
             }
 
             public static async Task UTSupdate()
-            {   
+            {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
 
                 if (CheckInternet())
@@ -519,7 +520,7 @@ namespace Unowhy_Tools
                 }
             }
             */
-            mainWindow.SplashBar.Value = 15;
+            mainWindow.SplashBar.Value = 10;
             mainWindow.SplashText.Text = "Cleanup... (Checking)";
             if (Directory.Exists("temp"))
             {
@@ -527,7 +528,7 @@ namespace Unowhy_Tools
                 Directory.Delete("temp", true);
             }
             await Task.Delay(300);
-            mainWindow.SplashBar.Value = 30;
+            mainWindow.SplashBar.Value = 20;
             mainWindow.SplashText.Text = "Cleanup... (Checking)";
             if (Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
             {
@@ -535,8 +536,81 @@ namespace Unowhy_Tools
                 Directory.Delete(Path.GetTempPath() + "\\Unowhy Tools\\Temps", true);
             }
             await Task.Delay(300);
-            mainWindow.SplashBar.Value = 45;
+            mainWindow.SplashBar.Value = 30;
             await Task.Delay(300);
+        }
+
+        public static async Task TrayCheck()
+        {
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+            mainWindow.SplashText.Text = "Preparing Tray... (Checking)";
+            await Task.Delay(300);
+            if (await CheckTray())
+            {
+
+            }
+            else
+            {
+                TaskScheduler.TaskService taskService = new TaskScheduler.TaskService();
+
+                TaskScheduler.Task uttask = taskService.GetTask("Unowhy Tools Tray Launch");
+                if (uttask == null)
+                {
+                    mainWindow.SplashText.Text = "Preparing Tray... (Creating)";
+
+                    TaskScheduler.TaskDefinition taskDefinition = taskService.NewTask();
+                    taskDefinition.RegistrationInfo.Date = DateTime.Now;
+                    taskDefinition.RegistrationInfo.Author = "Unowhy Tools";
+                    taskDefinition.RegistrationInfo.Description = "Launch Unowhy Tools Tray at user logon. If your account isn't set as admin, tray startup can fail. Go to Unowhy Tools and set your account as admin.";
+                    taskDefinition.RegistrationInfo.URI = @"\STY1001\Unowhy Tools\Unowhy Tools Tray Launch";
+                    taskDefinition.Principal.GroupId = new SecurityIdentifier("S-1-5-32-544").ToString();
+                    taskDefinition.Principal.RunLevel = TaskScheduler.TaskRunLevel.Highest;
+                    taskDefinition.Settings.DisallowStartIfOnBatteries = false;
+                    taskDefinition.Settings.StopIfGoingOnBatteries = false;
+                    taskDefinition.Settings.AllowHardTerminate = true;
+                    taskDefinition.Settings.StartWhenAvailable = true;
+                    taskDefinition.Settings.RunOnlyIfNetworkAvailable = false;
+                    taskDefinition.Settings.IdleSettings.StopOnIdleEnd = true;
+                    taskDefinition.Settings.IdleSettings.RestartOnIdle = false;
+                    taskDefinition.Settings.Enabled = true;
+                    taskDefinition.Settings.Hidden = false;
+                    taskDefinition.Settings.RunOnlyIfIdle = false;
+                    taskDefinition.Settings.DisallowStartOnRemoteAppSession = false;
+                    taskDefinition.Settings.UseUnifiedSchedulingEngine = true;
+                    taskDefinition.Settings.WakeToRun = false;
+                    taskDefinition.Settings.ExecutionTimeLimit = TimeSpan.Zero;
+                    taskDefinition.Settings.Priority = System.Diagnostics.ProcessPriorityClass.Normal;
+                    taskDefinition.Triggers.Add(new TaskScheduler.LogonTrigger { Enabled = true });
+                    taskDefinition.Actions.Add(new TaskScheduler.ExecAction(Process.GetCurrentProcess().MainModule.FileName, "-tray", Directory.GetCurrentDirectory()));
+                    taskService.RootFolder.RegisterTaskDefinition(@"Unowhy Tools Tray Launch", taskDefinition);
+
+                    try
+                    {
+                        await Task.Delay(1000);
+                        mainWindow.SplashText.Text = "Preparing Tray... (Launching)";
+                        taskService = new TaskScheduler.TaskService();
+                        uttask = taskService.GetTask("Unowhy Tools Tray Launch");
+                        uttask.Run();
+                    }
+                    catch
+                    {
+                        mainWindow.SplashText.Text = "Preparing Tray... (Waiting)";
+                        await Task.Delay(5000);
+                        mainWindow.SplashText.Text = "Preparing Tray... (Launching)";
+                        taskService = new TaskScheduler.TaskService();
+                        uttask = taskService.GetTask("Unowhy Tools Tray Launch");
+                        uttask.Run();
+                    }
+                }
+                else
+                {
+                    if (uttask.Enabled == true)
+                    {
+                        mainWindow.SplashText.Text = "Preparing Tray... (Launching)";
+                        uttask.Run();
+                    }
+                }
+            }
         }
 
         public static async Task<bool> FirstStart()
@@ -581,12 +655,12 @@ namespace Unowhy_Tools
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers");
             }
-            
+
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2");
             }
-            
+
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Service"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Service");
@@ -598,7 +672,7 @@ namespace Unowhy_Tools
                 f.Close();
                 Write2Log("=== Unowhy Tools Logs ===");
             }
-            
+
             mainWindow.SplashBar.Value++;
             mainWindow.SplashText.Text = "Checking... (Registry)";
             await Task.Delay(100);
@@ -610,7 +684,7 @@ namespace Unowhy_Tools
             {
                 keysoft.CreateSubKey("STY1001");
             }
-            
+
             keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
 
             RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
@@ -636,16 +710,16 @@ namespace Unowhy_Tools
                 key.SetValue("Lang", "EN", RegistryValueKind.String);
             }
 
-            object i = key.GetValue("Init", null);
-            if(i == null)
+            object i = key.GetValue("Init2", null);
+            if (i == null)
             {
-                key.SetValue("Init", "0", RegistryValueKind.String);
+                key.SetValue("Init2", "0", RegistryValueKind.String);
             }
 
             mainWindow.SplashBar.Value++;
 
-            string i2 = key.GetValue("Init").ToString();
-            if(i2 == "1")
+            string i2 = key.GetValue("Init2").ToString();
+            if (i2 == "1")
             {
                 return false;
             }
@@ -773,7 +847,7 @@ namespace Unowhy_Tools
                 if (utl != null)
                 {
                     if (ut.GetValue("Lang").ToString() == "EN") resxFile = enresx;
-                    else if(ut.GetValue("Lang").ToString() == "FR") resxFile = frresx;
+                    else if (ut.GetValue("Lang").ToString() == "FR") resxFile = frresx;
                     ResXResourceSet resxSet1 = new ResXResourceSet(resxFile);
                     Write2Log("Get lang " + name + " => " + resxSet1.GetString(name));
                     return resxSet1.GetString(name);
@@ -783,7 +857,7 @@ namespace Unowhy_Tools
                 Write2Log("Get lang " + name + " => " + resxSet2.GetString(name));
                 return resxSet2.GetString(name);
             }
-            
+
             ResXResourceSet resxSet3 = new ResXResourceSet(resxFile);
             Write2Log("Get lang " + name + " => " + resxSet3.GetString(name));
             return resxSet3.GetString(name);
@@ -828,7 +902,7 @@ namespace Unowhy_Tools
 
         public static void Write2Log(string log)
         {
-            if(File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
+            if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
             {
                 File.AppendAllText(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt", DateTime.Now.ToString() + " : " + log + Environment.NewLine);
             }
@@ -836,7 +910,7 @@ namespace Unowhy_Tools
 
         public static void applylang_global()
         {
-            
+
         }
 
         public static bool CheckAdmin()
@@ -937,8 +1011,8 @@ namespace Unowhy_Tools
                 UTdata.AdminName = "Administrator";
             }
 
-            Write2Log("=> " +  UTdata.AdminName);
-            
+            Write2Log("=> " + UTdata.AdminName);
+
             Write2Log("Checking if is Administrators or Adminitrateurs");
 
             string adminsname = await RunReturn("net", "localgroup");
@@ -951,7 +1025,7 @@ namespace Unowhy_Tools
                 UTdata.AdminsName = "Administrators";
             }
 
-            Write2Log("=> " +  UTdata.AdminsName);
+            Write2Log("=> " + UTdata.AdminsName);
 
             mainWindow.SplashBar.Value++;
 
@@ -1287,7 +1361,7 @@ namespace Unowhy_Tools
 
             Write2Log("=== TaskMGR ===");
             RegistryKey tmgr = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
-            if(tmgr != null)
+            if (tmgr != null)
             {
                 object t = tmgr.GetValue("DisableTaskMGR", null);
                 if (t == null)
@@ -1437,7 +1511,7 @@ namespace Unowhy_Tools
         {
             Write2Log("DialogI: " + msg + " " + img);
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-            mainWindow.ShowDialogI(msg, GetImgSource(img)) ;
+            mainWindow.ShowDialogI(msg, GetImgSource(img));
         }
 
         public class Data : INotifyPropertyChanged
@@ -1487,7 +1561,7 @@ namespace Unowhy_Tools
             private static bool _trayrunok;
             private static bool _runtray;
 
-            public string HostName 
+            public string HostName
             {
                 get { return _hostname; }
                 set
