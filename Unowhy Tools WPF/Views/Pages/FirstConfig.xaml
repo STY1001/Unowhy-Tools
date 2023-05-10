@@ -10,192 +10,406 @@
            d:DataContext="{d:DesignInstance local:FirstConfig,
                                      IsDesignTimeCreatable=False}"
            d:DesignHeight="750"
-           d:DesignWidth="800"
+           d:DesignWidth="1000"
            Scrollable="True"
            mc:Ignorable="d">
 
     <Grid x:Name="RootGrid">
-        <Border Background="#0affffff"
-                ClipToBounds="True"
+        <Border ClipToBounds="True"
                 CornerRadius="8,8,8,8"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-            <Grid Margin="20,20,20,20"
-                  MinWidth="300">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+                Background="#0affffff"
+                Margin="30">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        ClipToBounds="True"
+                        CornerRadius="18"
+                        Background="#0affffff">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="256" />
+                            <RowDefinition Height="64" />
+                        </Grid.RowDefinitions>
+                        <Image Source="../../Resources/UT.png"
+                               Margin="10,10,10,10" />
+                        <Grid Grid.Row="1">
+                            <Grid VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Margin="0,0,0,10"
+                                  x:Name="RootStateGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="../../Resources/settings.png"
+                                       x:Name="fcimg" />
+                                <TextBlock Text="State of config"
+                                           FontSize="18"
+                                           Grid.Column="2"
+                                           Foreground="#ffffff"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI SemiBold"
+                                           x:Name="fctxt" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Background="#0affffff"
+                        Grid.Column="1"
+                        ClipToBounds="True"
+                        CornerRadius="8,8,8,8"
+                        Margin="10">
+                    <Grid Margin="10,10,10,10"
+                          x:Name="RootConfigGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                <Grid x:Name="StartHello"
-                      Visibility="Collapsed"
-                      Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="300" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <Image Source="../../Resources/hi.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock Text="Hi / Salut !"
-                               Foreground="#ffffff"
-                               FontSize="13"
-                               TextWrapping="Wrap"
-                               VerticalAlignment="Center"
-                               Grid.ColumnSpan="3"
-                               Grid.Column="0"
-                               Grid.Row="0" />
-                    <TextBlock Text="Welcome to Unowhy Tools&#x0a;We will take a few seconds to configure it&#x0a;&#x0a;Bienvenue sur Unowhy Tools&#x0a;Nous allons prendre quelques secondes pour le configurer"
-                               Foreground="#ffffff"
-                               TextWrapping="Wrap"
-                               VerticalAlignment="Center"
-                               FontSize="15"
-                               Grid.Column="2"
-                               Grid.Row="2" />
-                </Grid>
-                <Grid x:Name="StartLang"
-                      Visibility="Collapsed"
-                      Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="300" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <Image Source="../../Resources/language.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock Text="Select your language / Séléctionnez votre langue"
-                               Foreground="#ffffff"
-                               FontSize="13"
-                               TextWrapping="Wrap"
-                               VerticalAlignment="Center"
-                               Grid.ColumnSpan="3"
-                               Grid.Column="0"
-                               Grid.Row="0" />
-                    <ComboBox Grid.Row="2"
-                              Grid.Column="2"
-                              x:Name="lang_box">
-                        <ComboBoxItem x:Name="lang_en">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/resources/en.png"
-                                       Height="16" />
-                                <TextBlock Text=" English                                                     " />
-                            </StackPanel>
-                        </ComboBoxItem>
-                        <ComboBoxItem x:Name="lang_fr">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/resources/fr.png"
-                                       Height="16" />
-                                <TextBlock Text=" French                                                      " />
-                            </StackPanel>
-                        </ComboBoxItem>
-                    </ComboBox>
-                </Grid>
-                <Grid x:Name="StartSerial"
-                      Visibility="Collapsed"
-                      Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="300" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <Image Source="../../Resources/datamatrix.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock Text="Enter the serial number of your PC (for  Wifi sync and more) / Entrez le numéro de série de votre PC (pour la sync Wifi et plus)"
-                               Foreground="#ffffff"
-                               FontSize="13"
-                               TextWrapping="Wrap"
-                               VerticalAlignment="Center"
-                               Grid.ColumnSpan="3"
-                               Grid.Column="0"
-                               Grid.Row="0" />
-                    <ui:TextBox Grid.Row="2"
-                                Grid.Column="2"
-                                x:Name="snbox"/>
-                </Grid>
-                <Grid x:Name="StartUpdate"
-                      Visibility="Collapsed"
-                      Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="300" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <Image Source="../../Resources/update.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock Text="Check for updates at startup / Vérifier les mises à jour au démarrage"
-                               Foreground="#ffffff"
-                               FontSize="13"
-                               TextWrapping="Wrap"
-                               VerticalAlignment="Center"
-                               Grid.ColumnSpan="3"
-                               Grid.Column="0"
-                               Grid.Row="0" />
-                    <ui:ToggleSwitch Grid.Row="2"
-                              Grid.Column="2"
-                              x:Name="upcheck" />
-                </Grid>
-                <ui:Button Grid.Row="2"
-                           HorizontalAlignment="Right"
-                           x:Name="btn"
-                           Margin="0,0,0,0">
-                    <StackPanel>
-                        <Grid Grid.Row="1"
-                              Margin="0,0,0,0"
-                              RenderTransformOrigin="0.5,0.5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="32" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Image Source="../../Resources/yes.png"
-                                   Grid.Column="0"
-                                   Height="32"
-                                   VerticalAlignment="Top"
-                                   x:Name="btn_img"/>
-                            <StackPanel VerticalAlignment="Center"
-                                        Grid.Column="2">
-                                <TextBlock Margin="0"
-                                           FontSize="13"
-                                           FontWeight="Medium"
-                                           x:Name="btn_txt"
-                                           Text="OK" />
+                        <Grid x:Name="StartHello"
+                              Visibility="Collapsed"
+                              Grid.Row="0">
+                            <StackPanel VerticalAlignment="Top"
+                                        Margin="30">
+                                <TextBlock Text="Welcome to Unowhy Tools !"
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="15"
+                                           FontFamily="Segoe UI Bold" />
+                                <TextBlock Text="A software to manage your Y13"
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="15"
+                                           FontFamily="Segoe UI Bold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="5" />
+                                <TextBlock Text="Unowhy Tools is a fully free and open source project, you can find the source code on my Github"
+                                           Foreground="#b2b2b2"
+                                           TextWrapping="Wrap"
+                                           FontSize="15" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="10" />
+                                <TextBlock Text="We will take a few seconds to configure it"
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="15"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="15" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="15" />
+                                <TextBlock Text="Bienvenue sur Unowhy Tools !"
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="15"
+                                           FontFamily="Segoe UI Bold" />
+                                <TextBlock Text="Un logiciel pour gérer votre Y13"
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="15"
+                                           FontFamily="Segoe UI Bold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="5" />
+                                <TextBlock Text="Unowhy Tools est un projet entièrement gratuit et open source, vous pouvez trouver le code source sur mon Github"
+                                           Foreground="#b2b2b2"
+                                           TextWrapping="Wrap"
+                                           FontSize="15" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="10"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text="Nous allons prendre quelques secondes pour le configurer"
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="15"
+                                           FontFamily="Segoe UI SemiBold" />
                             </StackPanel>
                         </Grid>
-                    </StackPanel>
-                </ui:Button>
+                        <Grid x:Name="StartLang"
+                              Visibility="Collapsed"
+                              Grid.Row="0">
+                            <StackPanel VerticalAlignment="Top"
+                                        Margin="30">
+                                <TextBlock Text="Step 1: Select your language"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="15"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Etape 1: Séléectionnez votre langue"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="15"
+                                           TextWrapping="Wrap" />
+                                <ComboBox x:Name="lang_box">
+                                    <ComboBoxItem x:Name="lang_en">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="/resources/en.png"
+                                                   Height="16" />
+                                            <TextBlock Text=" English                                                                                                          " />
+                                        </StackPanel>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem x:Name="lang_fr">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="/resources/fr.png"
+                                                   Height="16" />
+                                            <TextBlock Text=" French                                                                                                            " />
+                                        </StackPanel>
+                                    </ComboBoxItem>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid x:Name="StartSerial"
+                              Visibility="Collapsed"
+                              Grid.Row="0">
+                            <StackPanel VerticalAlignment="Top"
+                                        Margin="30">
+                                <TextBlock Text="Step 2: Enter the real serial number of your Y13 (IFP... on the below the PC) (For Wifi sync and more)"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="5"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Unowhy Tools can automatically detect your serial number, if so, it will be entered automatically"
+                                           Foreground="#b2b2b2"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text="Warning ! Unowhy Tools will be check in the HiSqool database, if your serial number is correct"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="15"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Etape 2 : Entrez le vrai numéro de série de votre Y13 (IFP... sur le dessous du PC) (Pour la synchronisation Wifi et plus)"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="5"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Unowhy Tools peut détecter automatiquement le numéro de série de votre PC, si c'est le cas, il sera saisi automatiquement"
+                                           Foreground="#b2b2b2"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text="Attention ! Unowhy Tools sera vérifié dans la base de données HiSqool, si votre numéro de série est correct"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="20"
+                                           TextWrapping="Wrap" />
+                                <ui:TextBox x:Name="snbox" />
+                            </StackPanel>
+                        </Grid>
+                        <Grid x:Name="StartUpdate"
+                              Visibility="Collapsed"
+                              Grid.Row="0">
+                            <StackPanel VerticalAlignment="Top"
+                                        Margin="30">
+                                <TextBlock Text="Step 3: Do you want to check update at the start of Unowhy Tools ?"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI SemiBold"/>
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="15"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Etape 3 : Voulez-vous vérifier les mise à jour au démarrage d'Unowhy Tools ?"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="20"
+                                           TextWrapping="Wrap" />
+                                <ui:ToggleSwitch x:Name="upcheck" />
+                            </StackPanel>
+                        </Grid>
+                        <Grid x:Name="StartTray"
+                              Visibility="Collapsed"
+                              Grid.Row="0">
+                            <StackPanel VerticalAlignment="Top"
+                                        Margin="30">
+                                <TextBlock Text="Step 4: Do you want to launch Unowhy Tools tray at Windows startup"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="5"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="With Unowhy Tools tray, you can quickly view performance usage, open utility apps and manage your camera and microphone, and more"
+                                           Foreground="#b2b2b2"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="5" />
+                                <TextBlock Text="If your account isn't administrator, there may be some launch issues, please set your account as administrator (in Unowhy Tools: in Customize category)"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="15"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Etape 4 : Voulez-vous lancer l'icone Unowhy Tools au démarrage de Windows"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="5"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Avec l'icone Unowhy Tools, vous pouvez rapidement afficher l'utilisation des performances, ouvrir des applications utilitaires et gérer votre caméra et votre microphone, et plus encore"
+                                           Foreground="#b2b2b2"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           TextWrapping="Wrap"
+                                           FontSize="5" />
+                                <TextBlock Text="Si votre compte n'est pas administrateur, il peut y avoir des problèmes de lancement, veuillez définir votre compte en tant qu'administrateur (dans Unowhy Tools : dans la catégorie Personnaliser)"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="20"
+                                           TextWrapping="Wrap" />
+                                <ui:ToggleSwitch x:Name="traycheck" />
+                            </StackPanel>
+                        </Grid>
+                        <Grid x:Name="StartDone"
+                              Visibility="Collapsed"
+                              Grid.Row="0">
+                            <StackPanel VerticalAlignment="Top"
+                                        Margin="30">
+                                <TextBlock Text="Configuration done !"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="5"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Welcome to Unowhy Tools"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="15"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Configuration terminée !"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           FontFamily="Segoe UI SemiBold" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="5"
+                                           TextWrapping="Wrap" />
+                                <TextBlock Text="Bienvenue sur Unowhy Tools"
+                                           Foreground="#ffffff"
+                                           FontSize="13"
+                                           TextWrapping="Wrap"
+                                           FontFamily="Segoe UI" />
+                                <TextBlock Text=""
+                                           Foreground="#ffffff"
+                                           FontSize="20"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Grid>
+                        <ui:Button Grid.Row="2"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Bottom"
+                                   x:Name="btn"
+                                   Margin="0,0,0,0">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/next.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top"
+                                           x:Name="btn_img" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   x:Name="btn_txt"
+                                                   Text="Next" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                    </Grid>
+                </Border>
             </Grid>
         </Border>
     </Grid>

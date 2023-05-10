@@ -14,6 +14,7 @@ using System.Net.Http;
 using System.Net;
 using System.Windows.Input;
 using System.Xml.Linq;
+using TaskScheduler = Microsoft.Win32.TaskScheduler;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -33,6 +34,8 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
+        RootConfigGrid.Visibility = Visibility.Hidden;
+        RootStateGrid.Visibility = Visibility.Hidden;
 
         string sn = await UT.RunReturn("wmic", "bios get serialnumber");
         string pn = await UT.RunReturn("hostname", "");
@@ -77,17 +80,43 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             upcheck.IsChecked = false;
         }
 
+        TaskScheduler.TaskService ts = new TaskScheduler.TaskService();
+        TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
+        if (uttltask != null)
+        {
+            if (uttltask.Enabled)
+            {
+                traycheck.IsChecked = true;
+            }
+            else
+            {
+                traycheck.IsChecked = false;
+            }
+        }
+        else
+        {
+            traycheck.IsChecked = false;
+            traycheck.IsEnabled = false;
+        }
+
         StartHello.Visibility = Visibility.Visible;
+        RootConfigGrid.Visibility = Visibility.Visible;
+        RootStateGrid.Visibility = Visibility.Visible;
+        fcimg.Source = UT.GetImgSource("hi.png");
+        fctxt.Text = "Hi !";
         btn.Click += step1;
         DoubleAnimation anim = new DoubleAnimation();
         anim.From = 1000;
         anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(300);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        anim.Duration = TimeSpan.FromMilliseconds(1000);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
 
         TranslateTransform trans = new TranslateTransform();
-        StartHello.RenderTransform = trans;
+        RootConfigGrid.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        RootStateGrid.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
     }
 
     public async void step1(object sender, RoutedEventArgs e)
@@ -99,22 +128,28 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
         TranslateTransform trans = new TranslateTransform();
-        StartHello.RenderTransform = trans;
+        RootConfigGrid.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        RootStateGrid.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
         await Task.Delay(300);
         StartHello.Visibility = Visibility.Collapsed;
         StartLang.Visibility = Visibility.Visible;
+        fcimg.Source = UT.GetImgSource("language.png");
+        fctxt.Text = "Language";
         btn.Click -= step1;
         btn.Click += step2;
         
         anim = new DoubleAnimation();
         anim.From = 1000;
         anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(300);
+        anim.Duration = TimeSpan.FromMilliseconds(1000);
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
         trans = new TranslateTransform();
-        StartLang.RenderTransform = trans;
+        RootConfigGrid.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        RootStateGrid.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
     
@@ -141,22 +176,28 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             TranslateTransform trans = new TranslateTransform();
-            StartLang.RenderTransform = trans;
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
             await Task.Delay(300);
             StartLang.Visibility = Visibility.Collapsed;
             StartSerial.Visibility = Visibility.Visible;
+            fcimg.Source = UT.GetImgSource("datamatrix.png");
+            fctxt.Text = "Serial Number";
             btn.Click -= step2;
             btn.Click += step3;
 
             anim = new DoubleAnimation();
             anim.From = 1000;
             anim.To = 0;
-            anim.Duration = TimeSpan.FromMilliseconds(300);
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             trans = new TranslateTransform();
-            StartSerial.RenderTransform = trans;
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
         }
     }
@@ -211,22 +252,28 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             TranslateTransform trans = new TranslateTransform();
-            StartSerial.RenderTransform = trans;
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
             await Task.Delay(300);
             StartSerial.Visibility = Visibility.Collapsed;
             StartUpdate.Visibility = Visibility.Visible;
+            fcimg.Source = UT.GetImgSource("update.png");
+            fctxt.Text = "Update";
             btn.Click -= step3;
             btn.Click += step4;
 
             anim = new DoubleAnimation();
             anim.From = 1000;
             anim.To = 0;
-            anim.Duration = TimeSpan.FromMilliseconds(300);
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             trans = new TranslateTransform();
-            StartUpdate.RenderTransform = trans;
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
         }
     }
@@ -255,21 +302,108 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             TranslateTransform trans = new TranslateTransform();
-            StartUpdate.RenderTransform = trans;
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
             await Task.Delay(300);
             StartUpdate.Visibility = Visibility.Collapsed;
+            StartTray.Visibility = Visibility.Visible;
+            fcimg.Source = UT.GetImgSource("trayicon.png");
+            fctxt.Text = "Tray";
             btn.Click -= step4;
+            btn.Click += step5;
 
             anim = new DoubleAnimation();
-            anim.From = 0;
-            anim.To = -100;
-            anim.Duration = TimeSpan.FromMilliseconds(300);
+            anim.From = 1000;
+            anim.To = 0;
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             trans = new TranslateTransform();
-            RootGrid.RenderTransform = trans;
+            RootConfigGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        }
+    }
+
+    public async void step5(object sender, RoutedEventArgs e)
+    {
+        bool IsOK = true;
+
+        if (traycheck.IsEnabled == true)
+        {
+            TaskScheduler.TaskService ts = new TaskScheduler.TaskService();
+            TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
+            if (traycheck.IsChecked == true)
+            {
+                uttltask.Enabled = true;
+            }
+            else
+            {
+                uttltask.Enabled = false;
+            }
+            uttltask.RegisterChanges();
+        }
+
+        if (IsOK)
+        {
+            DoubleAnimation anim = new DoubleAnimation();
+            anim.From = 0;
+            anim.To = -1000;
+            anim.Duration = TimeSpan.FromMilliseconds(300);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+            TranslateTransform trans = new TranslateTransform();
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            await Task.Delay(300);
+            StartTray.Visibility = Visibility.Collapsed;
+            StartDone.Visibility = Visibility.Visible;
+            fcimg.Source = UT.GetImgSource("yes.png");
+            fctxt.Text = "Done !";
+            btn_img.Source = UT.GetImgSource("yes.png");
+            btn_txt.Text = "Done !";
+            btn.Click -= step5;
+            btn.Click += step6;
+
+            anim = new DoubleAnimation();
+            anim.From = 1000;
+            anim.To = 0;
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+            trans = new TranslateTransform();
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        }
+    }
+    
+    public async void step6(object sender, RoutedEventArgs e)
+    {
+        bool IsOK = true;
+
+        if (IsOK)
+        {
+            DoubleAnimation anim = new DoubleAnimation();
+            anim.From = 0;
+            anim.To = -1000;
+            anim.Duration = TimeSpan.FromMilliseconds(300);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+            TranslateTransform trans = new TranslateTransform();
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            await Task.Delay(300);
+            StartDone.Visibility = Visibility.Collapsed;
+            btn.Click -= step4;
 
             await Task.Delay(150);
 
