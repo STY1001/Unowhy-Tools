@@ -174,6 +174,9 @@
   <data name="bootim" xml:space="preserve">
     <value>Repair BootIM (Blue menu)</value>
   </data>
+  <data name="boottray" xml:space="preserve">
+    <value>Launch Unowhy Tools tray at startup</value>
+  </data>
   <data name="browse" xml:space="preserve">
     <value>Browse</value>
   </data>
@@ -445,16 +448,19 @@
     <value>Open</value>
   </data>
   <data name="opencmd" xml:space="preserve">
-    <value>Open CMD</value>
+    <value>Open CMD Terminal</value>
   </data>
   <data name="opengp" xml:space="preserve">
-    <value>Open GPedit</value>
+    <value>Open GP Editor</value>
   </data>
   <data name="openreg" xml:space="preserve">
-    <value>Open REGedit</value>
+    <value>Open REG Editor</value>
   </data>
   <data name="opentask" xml:space="preserve">
-    <value>Open TaskMgr</value>
+    <value>Open Task Manager</value>
+  </data>
+  <data name="openut" xml:space="preserve">
+    <value>Open Unowhy Tools</value>
   </data>
   <data name="os" xml:space="preserve">
     <value>OS Version</value>
@@ -638,6 +644,15 @@
   </data>
   <data name="update.updating" xml:space="preserve">
     <value>Updating Unowhy Tools...</value>
+  </data>
+  <data name="usecpu" xml:space="preserve">
+    <value>CPU Usage</value>
+  </data>
+  <data name="useram" xml:space="preserve">
+    <value>RAM Usage</value>
+  </data>
+  <data name="usestor" xml:space="preserve">
+    <value>Storage Usage</value>
   </data>
   <data name="wait" xml:space="preserve">
     <value>Please wait...</value>

@@ -174,6 +174,9 @@
   <data name="bootim" xml:space="preserve">
     <value>Réparer BootIM (menu bleu)</value>
   </data>
+  <data name="boottray" xml:space="preserve">
+    <value>Démarrer l'icone Unowhy Tools au démarrage</value>
+  </data>
   <data name="browse" xml:space="preserve">
     <value>Explorer</value>
   </data>
@@ -456,6 +459,9 @@
   <data name="opentask" xml:space="preserve">
     <value>Ouvrir TaskMgr</value>
   </data>
+  <data name="openut" xml:space="preserve">
+    <value>Ouvrir Unowhy Tools</value>
+  </data>
   <data name="os" xml:space="preserve">
     <value>Version du SE</value>
   </data>
@@ -638,6 +644,15 @@
   </data>
   <data name="update.updating" xml:space="preserve">
     <value>Mise à jour de Unowhy Tools...</value>
+  </data>
+  <data name="usecpu" xml:space="preserve">
+    <value>Utilisation du CPU</value>
+  </data>
+  <data name="useram" xml:space="preserve">
+    <value>Utilisation de la RAM</value>
+  </data>
+  <data name="usestor" xml:space="preserve">
+    <value>Utilisation du stockage</value>
   </data>
   <data name="wait" xml:space="preserve">
     <value>Veuillez patienter...</value>
