@@ -366,7 +366,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             fcimg.Source = UT.GetImgSource("yes.png");
             fctxt.Text = "Done !";
             btn_img.Source = UT.GetImgSource("yes.png");
-            btn_txt.Text = "Done !";
+            btn_txt.Text = "Ok";
             btn.Click -= step5;
             btn.Click += step6;
 
