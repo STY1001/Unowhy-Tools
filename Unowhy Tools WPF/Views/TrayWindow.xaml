@@ -319,7 +319,7 @@
                                                        FontSize="13"
                                                        FontWeight="Medium"
                                                        Text="Task Manager"
-                                                       x:Name="labtaskmgr"/>
+                                                       x:Name="labtask"/>
                                             <TextBlock FontSize="12"
                                                        Foreground="#bebebe"
                                                        Text="taskmgr.exe" />

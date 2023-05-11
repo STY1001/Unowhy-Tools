@@ -266,6 +266,10 @@ public partial class TrayWindow : Window
         ramlab.Text = UT.GetLang("useram");
         storlab.Text = UT.GetLang("usestor");
         labout.Text = UT.GetLang("openut");
+        labtask.Text = UT.GetLang("opentask");
+        labcmd.Text = UT.GetLang("opencmd");
+        labreg.Text = UT.GetLang("openreg");
+        labgp.Text = UT.GetLang("opengp");
     }
 
     public async Task UpdateTimeDate()
