@@ -84,7 +84,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
         if (uttltask != null)
         {
-            if (uttltask.Enabled)
+            if (uttltask.Definition.Settings.Enabled)
             {
                 traycheck.IsChecked = true;
             }
@@ -143,7 +143,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         anim = new DoubleAnimation();
         anim.From = 1000;
         anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(1000);
+        anim.Duration = TimeSpan.FromMilliseconds(600);
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
         trans = new TranslateTransform();
@@ -191,7 +191,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             anim = new DoubleAnimation();
             anim.From = 1000;
             anim.To = 0;
-            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.Duration = TimeSpan.FromMilliseconds(600);
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             trans = new TranslateTransform();
@@ -208,6 +208,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
         if (UT.CheckInternet())
         {
+            await UT.waitstatus.open();
             var web = new HttpClient();
             string ssn = snbox.Text;
             string configurl = $"https://idf.hisqool.com/conf/devices/{ssn}/configuration";
@@ -215,7 +216,6 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             HttpResponseMessage response = await web.GetAsync(configurl);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                await UT.waitstatus.open();
                 await UT.UTS.UTSmsg("UTSW", $"SetSN:{ssn}");
                 await Task.Delay(1000);
                 string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");
@@ -233,6 +233,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             }
             else
             {
+                await UT.waitstatus.close();
                 UT.DialogIShow(UT.GetLang("noid"), "no.png");
             }
         }
@@ -267,7 +268,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             anim = new DoubleAnimation();
             anim.From = 1000;
             anim.To = 0;
-            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.Duration = TimeSpan.FromMilliseconds(600);
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             trans = new TranslateTransform();
@@ -317,7 +318,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             anim = new DoubleAnimation();
             anim.From = 1000;
             anim.To = 0;
-            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.Duration = TimeSpan.FromMilliseconds(600);
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             trans = new TranslateTransform();
@@ -338,11 +339,11 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
             if (traycheck.IsChecked == true)
             {
-                uttltask.Enabled = true;
+                uttltask.Definition.Settings.Enabled = true;
             }
             else
             {
-                uttltask.Enabled = false;
+                uttltask.Definition.Settings.Enabled = false;
             }
             uttltask.RegisterChanges();
         }
@@ -373,7 +374,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             anim = new DoubleAnimation();
             anim.From = 1000;
             anim.To = 0;
-            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.Duration = TimeSpan.FromMilliseconds(600);
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
 
             trans = new TranslateTransform();

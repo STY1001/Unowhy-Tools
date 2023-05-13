@@ -59,7 +59,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
         if(uttltask != null)
         {
-            if (uttltask.Enabled)
+            if (uttltask.Definition.Settings.Enabled)
             {
                 tray.IsChecked = true;
             }
@@ -240,11 +240,11 @@ public partial class Settings : INavigableView<DashboardViewModel>
                 Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
                 if (tray.IsChecked == true)
                 {
-                    uttltask.Enabled = true;
+                    uttltask.Definition.Settings.Enabled = true;
                 }
                 else
                 {
-                    uttltask.Enabled = false;
+                    uttltask.Definition.Settings.Enabled = false;
                 }
                 uttltask.RegisterChanges();
             }
