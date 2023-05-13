@@ -121,46 +121,7 @@
   <data name="fluent-ui-microsoft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fluent-ui-microsoft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="geo_icons" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\geo_icons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="halo_infinite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\halo_infinite.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="master_chief" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\master_chief.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoft-icon-store" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\microsoft-icon-store.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoft-shell-accessibility" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\microsoft-shell-accessibility.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoft-shell-colors" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\microsoft-shell-colors.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoft-shell-desktop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\microsoft-shell-desktop.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoft-shell-gallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\microsoft-shell-gallery.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoft-shell-monitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\microsoft-shell-monitor.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoft-shell-settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\microsoft-shell-settings.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="microsoft-shell-workspace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\microsoft-shell-workspace.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="the_witcher_wallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\the_witcher_wallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="wpfui" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wpfui.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wpfui_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wpfui_full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
