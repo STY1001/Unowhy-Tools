@@ -39,23 +39,19 @@ public partial class TrayWindow : Window
     private RegistryKey _camerakey;
     private RegistryKey _microkey;
 
+    private bool IsPause = false;
+
     private DispatcherTimer _timerStats;
-    private DispatcherTimer _timerPrivNotif;
     private DispatcherTimer _timerPriv;
     private DispatcherTimer _timerTimeDate;
 
-    public async Task StartTimer()
+    public async Task InitTimer()
     {
         _timerStats = new DispatcherTimer();
         _timerStats.Interval = TimeSpan.FromSeconds(1);
         _timerStats.Tick += async (sender, e) => await CheckStats();
         _timerStats.Start();
-        
-        _timerPrivNotif = new DispatcherTimer();
-        _timerPrivNotif.Interval = TimeSpan.FromMinutes(1);
-        _timerPrivNotif.Tick += async (sender, e) => await CheckPrivandNotif();
-        _timerPrivNotif.Start();
-        
+
         _timerPriv = new DispatcherTimer();
         _timerPriv.Interval = TimeSpan.FromSeconds(5);
         _timerPriv.Tick += async (sender, e) => await CheckPriv();
@@ -66,67 +62,31 @@ public partial class TrayWindow : Window
         _timerTimeDate.Tick += async (sender, e) => await UpdateTimeDate();
         _timerTimeDate.Start();
     }
+    
+    public async Task StartTimer()
+    {
+        IsPause = false;
+    }
 
     public async Task StopTimer()
     {
-        _timerStats.Stop();
-        _timerPrivNotif.Stop();
-        _timerPriv.Stop();
-        _timerTimeDate.Stop();
+        IsPause = true;
     }
+
+    private PerformanceCounter cpuCounter1;
+    private PerformanceCounter cpucapp1;
+    private PerformanceCounter cpucapp2;
+    private PerformanceCounter ramCounter1;
+    private PerformanceCounter ramCounter2;
+    private ulong totalram = new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory;
+    private DriveInfo driveInfos = new DriveInfo("C");
 
     public async Task CheckStats()
     {
-        try
-        {
-            var cpuCounter1 = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
-            var cpucapp1 = new PerformanceCounter("Processor Information", "Processor Frequency", "_Total");
-            var cpucapp2 = new PerformanceCounter("Processor Information", "% Processor Performance", "_Total");
-
-            cpuCounter1.NextValue();
-            cpucapp1.NextValue();
-            cpucapp2.NextValue();
-            await Task.Delay(100);
-            var cpurint = Convert.ToInt32(cpuCounter1.NextValue());
-            if (cpurint > 100) cpurint = 100;
-            var cpupstring = $"{cpurint.ToString("0")} %";
-            var cpucstring = $"{((ulong)cpucapp1.NextValue() * (ulong)cpucapp2.NextValue() / 100000.0).ToString("0.00")} GHz / {(cpucapp1.NextValue() / 1000.0).ToString("0.00")} GHz";
-
-
-            var ramCounter1 = new PerformanceCounter("Memory", "Available Bytes");
-            var ramCounter2 = new PerformanceCounter("Memory", "Available MBytes");
-
-            var ramAvail = ramCounter2.NextValue();
-            var ramAvail2 = ramCounter1.NextValue();
-            var ramint = (((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) - ramAvail2) / new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) * 100;
-            var rampstring = $"{ramint.ToString("0")} %";
-            var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} GB / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} GB";
-
-            var driveInfos = new DriveInfo("C");
-            var totalFreeSpace = driveInfos.TotalFreeSpace;
-            var totalSize = driveInfos.TotalSize;
-            var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
-            var storpstring = $"{storint} %";
-            var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} GB / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} GB";
-
-            cpuring.Progress = cpurint;
-            cpuper.Text = cpupstring;
-            cpucap.Text = cpucstring;
-            ramring.Progress = ramint;
-            ramper.Text = rampstring;
-            ramcap.Text = ramcstring;
-            storring.Progress = storint;
-            storper.Text = storpstring;
-            storcap.Text = storcstring;
-        }
-        catch
+        if (!IsPause)
         {
             try
             {
-                var cpuCounter1 = new PerformanceCounter("Informations sur le processeur", "Pourcentage de rendement du processeur", "_Total");
-                var cpucapp1 = new PerformanceCounter("Informations sur le processeur", "Fréquence du processeur", "_Total");
-                var cpucapp2 = new PerformanceCounter("Informations sur le processeur", "Pourcentage de performances du processeur", "_Total");
-
                 cpuCounter1.NextValue();
                 cpucapp1.NextValue();
                 cpucapp2.NextValue();
@@ -136,22 +96,17 @@ public partial class TrayWindow : Window
                 var cpupstring = $"{cpurint.ToString("0")} %";
                 var cpucstring = $"{((ulong)cpucapp1.NextValue() * (ulong)cpucapp2.NextValue() / 100000.0).ToString("0.00")} GHz / {(cpucapp1.NextValue() / 1000.0).ToString("0.00")} GHz";
 
-
-                var ramCounter1 = new PerformanceCounter("Mémoire", "Octets disponibles");
-                var ramCounter2 = new PerformanceCounter("Mémoire", "Mégaoctets disponibles");
-
                 var ramAvail = ramCounter2.NextValue();
                 var ramAvail2 = ramCounter1.NextValue();
-                var ramint = (((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) - ramAvail2) / new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) * 100;
+                var ramint = ((totalram - ramAvail2) / totalram) * 100;
                 var rampstring = $"{ramint.ToString("0")} %";
-                var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} Go / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+                var ramcstring = $"{((totalram / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} GB / {(totalram / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} GB";
 
-                var driveInfos = new DriveInfo("C");
                 var totalFreeSpace = driveInfos.TotalFreeSpace;
                 var totalSize = driveInfos.TotalSize;
                 var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
                 var storpstring = $"{storint} %";
-                var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+                var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} GB / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} GB";
 
                 cpuring.Progress = cpurint;
                 cpuper.Text = cpupstring;
@@ -165,14 +120,50 @@ public partial class TrayWindow : Window
             }
             catch
             {
+                try
+                {
+                    
 
+                    cpuCounter1.NextValue();
+                    cpucapp1.NextValue();
+                    cpucapp2.NextValue();
+                    await Task.Delay(100);
+                    var cpurint = Convert.ToInt32(cpuCounter1.NextValue());
+                    if (cpurint > 100) cpurint = 100;
+                    var cpupstring = $"{cpurint.ToString("0")} %";
+                    var cpucstring = $"{((ulong)cpucapp1.NextValue() * (ulong)cpucapp2.NextValue() / 100000.0).ToString("0.00")} GHz / {(cpucapp1.NextValue() / 1000.0).ToString("0.00")} GHz";
+
+
+
+                    var ramAvail = ramCounter2.NextValue();
+                    var ramAvail2 = ramCounter1.NextValue();
+                    var ramint = (((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) - ramAvail2) / new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory) * 100;
+                    var rampstring = $"{ramint.ToString("0")} %";
+                    var ramcstring = $"{((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0) - (ramAvail / 1024.0)).ToString("0.00")} Go / {(new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+
+                    var driveInfos = new DriveInfo("C");
+                    var totalFreeSpace = driveInfos.TotalFreeSpace;
+                    var totalSize = driveInfos.TotalSize;
+                    var storint = (int)(((double)(totalSize - totalFreeSpace) / (double)totalSize) * 100);
+                    var storpstring = $"{storint} %";
+                    var storcstring = $"{((totalSize - totalFreeSpace) / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go / {(totalSize / 1024.0 / 1024.0 / 1024.0).ToString("0.00")} Go";
+
+                    cpuring.Progress = cpurint;
+                    cpuper.Text = cpupstring;
+                    cpucap.Text = cpucstring;
+                    ramring.Progress = ramint;
+                    ramper.Text = rampstring;
+                    ramcap.Text = ramcstring;
+                    storring.Progress = storint;
+                    storper.Text = storpstring;
+                    storcap.Text = storcstring;
+                }
+                catch
+                {
+
+                }
             }
         }
-    }
-
-    public async Task CheckPrivandNotif()
-    {
-
     }
 
     public void switch_Changed(object sender, RoutedEventArgs e)
@@ -220,43 +211,46 @@ public partial class TrayWindow : Window
 
     public async Task CheckPriv()
     {
-        string cam = _camerakey.GetValue("Value").ToString();
-        string mic = _microkey.GetValue("Value").ToString();
+        if (!IsPause)
+        {
+            string cam = _camerakey.GetValue("Value").ToString();
+            string mic = _microkey.GetValue("Value").ToString();
 
-        if(cam == "Allow")
-        {
-            CamOn = true;
-        }
-        else if (cam == "Deny")
-        {
-            CamOn = false;
-        }
-        
-        if(mic == "Allow")
-        {
-            MicOn = true;
-        }
-        else if (mic == "Deny")
-        {
-            MicOn = false;
-        }
+            if (cam == "Allow")
+            {
+                CamOn = true;
+            }
+            else if (cam == "Deny")
+            {
+                CamOn = false;
+            }
 
-        if (CamOn)
-        {
-            camswitch.IsChecked = true;
-        }
-        else
-        {
-            camswitch.IsChecked = false;
-        }
+            if (mic == "Allow")
+            {
+                MicOn = true;
+            }
+            else if (mic == "Deny")
+            {
+                MicOn = false;
+            }
 
-        if (MicOn)
-        {
-            micswitch.IsChecked = true;
-        }
-        else
-        {
-            micswitch.IsChecked = false;
+            if (CamOn)
+            {
+                camswitch.IsChecked = true;
+            }
+            else
+            {
+                camswitch.IsChecked = false;
+            }
+
+            if (MicOn)
+            {
+                micswitch.IsChecked = true;
+            }
+            else
+            {
+                micswitch.IsChecked = false;
+            }
         }
     }
 
@@ -274,14 +268,17 @@ public partial class TrayWindow : Window
 
     public async Task UpdateTimeDate()
     {
-        DateTime now = DateTime.Now;
-        string HM = now.ToString("HH:mm");
-        string S = now.ToString("ss");
-        string DMY = now.ToString("dd/MM/yyyy");
+        if (!IsPause)
+        {
+            DateTime now = DateTime.Now;
+            string HM = now.ToString("HH:mm");
+            string S = now.ToString("ss");
+            string DMY = now.ToString("dd/MM/yyyy");
 
-        time.Text = HM;
-        time2.Text = S;
-        date.Text = DMY;
+            time.Text = HM;
+            time2.Text = S;
+            date.Text = DMY;
+        }
     }
 
     public TrayWindow(IThemeService themeService)
@@ -305,7 +302,25 @@ public partial class TrayWindow : Window
         trayIcon.Text = "Unowhy Tools";
         trayIcon.Visible = true;
         trayIcon.MouseClick += TrayIcon_Click;
-        
+
+        var contextMenuStrip = new ContextMenuStrip();
+        var opentray = new ToolStripButton("Open Tray");
+        opentray.Click += TCM_Open;
+        var closetray = new ToolStripButton("Exit");
+        closetray.Click += TCM_Close;
+        contextMenuStrip.Items.Add(opentray);
+        contextMenuStrip.Items.Add(closetray);
+        trayIcon.ContextMenuStrip = contextMenuStrip;
+
+    }
+
+    private async void Window_Initialized(object sender, EventArgs e)
+    {
+        await Task.Delay(1000);
+        await ShowTray();
+        await WaitControl.Show();
+        await Task.Delay(500);
+
         _camerakey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", true);
         _microkey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone", true);
 
@@ -313,10 +328,29 @@ public partial class TrayWindow : Window
         UTbtndesc.Text = utpath;
 
         applylang();
-        CheckPriv();
-        StartTimer();
+        await CheckPriv();
 
-        HideTray();
+        try
+        {
+            cpuCounter1 = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
+            cpucapp1 = new PerformanceCounter("Processor Information", "Processor Frequency", "_Total");
+            cpucapp2 = new PerformanceCounter("Processor Information", "% Processor Performance", "_Total");
+            ramCounter1 = new PerformanceCounter("Memory", "Available Bytes");
+            ramCounter2 = new PerformanceCounter("Memory", "Available MBytes");
+        }
+        catch
+        {
+            cpuCounter1 = new PerformanceCounter("Informations sur le processeur", "Pourcentage de rendement du processeur", "_Total");
+            cpucapp1 = new PerformanceCounter("Informations sur le processeur", "Fréquence du processeur", "_Total");
+            cpucapp2 = new PerformanceCounter("Informations sur le processeur", "Pourcentage de performances du processeur", "_Total");
+            var ramCounter1 = new PerformanceCounter("Mémoire", "Octets disponibles");
+            var ramCounter2 = new PerformanceCounter("Mémoire", "Mégaoctets disponibles");
+        }
+
+        await InitTimer();
+        await Task.Delay(500);
+        await WaitControl.Hide();
+        await HideTray();
     }
 
     public async void TrayWindow_Deactivated(object sender, EventArgs e)
