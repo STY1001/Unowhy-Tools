@@ -438,7 +438,8 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="../../Resources/update.png"
+                            <Image Source="../../Resources/UTU.png"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
                                    Grid.Column="0" />
                             <StackPanel Grid.Column="2">
                                 <TextBlock Margin="0"
