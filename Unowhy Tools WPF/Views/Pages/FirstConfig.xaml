@@ -18,7 +18,7 @@
         <Border ClipToBounds="True"
                 CornerRadius="8,8,8,8"
                 Background="#0affffff"
-                Margin="30">
+                Margin="20">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -64,7 +64,7 @@
                         ClipToBounds="True"
                         CornerRadius="8,8,8,8"
                         Margin="10">
-                    <Grid Margin="10,10,10,10"
+                    <Grid Margin="0,20,20,20"
                           x:Name="RootConfigGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />

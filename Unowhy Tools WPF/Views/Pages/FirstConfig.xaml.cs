@@ -448,11 +448,11 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             RegistryKey keyf = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             if (InitOK)
             {
-                keyf.SetValue("Init", "1");
+                keyf.SetValue("Init2", "1");
             }
             else
             {
-                keyf.SetValue("Init", "0");
+                keyf.SetValue("Init2", "0");
             }
         }
     }
