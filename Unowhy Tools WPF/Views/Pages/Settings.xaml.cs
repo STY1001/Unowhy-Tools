@@ -182,7 +182,8 @@ public partial class Settings : INavigableView<DashboardViewModel>
         {
             var web = new HttpClient();
             string ssn = sn.Text;
-            string configurl = $"https://idf.hisqool.com/conf/devices/{ssn}/configuration";
+            string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
+            string configurl = $"{preurl}/devices/{ssn}/configuration";
 
             HttpResponseMessage response = await web.GetAsync(configurl);
             if (response.StatusCode == HttpStatusCode.OK)
