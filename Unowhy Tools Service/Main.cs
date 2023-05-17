@@ -18,6 +18,7 @@ using Newtonsoft.Json.Linq;
 using Microsoft.SqlServer.Server;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Threading;
 
 namespace Unowhy_Tools_Service
 {
@@ -27,7 +28,7 @@ namespace Unowhy_Tools_Service
         public string Serial;
         private NamedPipeServerStream _uts;
         private NamedPipeServerStream _utsw;
-
+        private DispatcherTimer _timer;
         public string Version = "1.3";
 
         [DllImport("wininet.dll")]
@@ -51,12 +52,18 @@ namespace Unowhy_Tools_Service
             Task.Run(() => WifiSync());
             Task.Run(() => UTSwait());
             Task.Run(() => UTSWwait());
+
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(60);
+            _timer.Tick += async (sender, e) => await WifiSync();
+            _timer.Start();
         }
 
         public async Task WifiSync()
         {
             Serial = "Null";
-            while (ActiveWifiSync == true)
+
+            if(ActiveWifiSync == true)
             {
                 if (CheckInternet())
                 {
@@ -74,7 +81,8 @@ namespace Unowhy_Tools_Service
                         {
                             var web = new HttpClient();
                             Serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
-                            string configurl = $"https://idf.hisqool.com/conf/devices/{Serial}/configuration";
+                            string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
+                            string configurl = $"{preurl}/devices/{Serial}/configuration";
 
                             HttpResponseMessage response = await web.GetAsync(configurl);
                             if (response.StatusCode == HttpStatusCode.OK)
@@ -176,8 +184,6 @@ namespace Unowhy_Tools_Service
                 {
                     return;
                 }
-
-                await Task.Delay(300000);
             }
         }
 
@@ -276,7 +282,7 @@ namespace Unowhy_Tools_Service
                             }
                             string ret = "null";
 
-                            if(clientData == "GetVer")
+                            if (clientData == "GetVer")
                             {
                                 ret = Version;
                             }
