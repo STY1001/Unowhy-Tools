@@ -364,8 +364,6 @@ public partial class MainWindow : INavigationWindow
             SplashText.Text = "Ready !";
             SplashBar.Value = 100;
 
-            string utsserial = await UT.UTS.UTSmsg("UTSW", "GetSN");
-
             RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
             foreach (UIElement elements in RootNavigation.Items)
             {
@@ -439,7 +437,7 @@ public partial class MainWindow : INavigationWindow
             RootTitleBar.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
-            if (fs || utsserial == "Null")
+            if (fs)
             {
                 RootNavigation.Visibility = Visibility.Collapsed;
                 Navigate(typeof(FirstConfig));
