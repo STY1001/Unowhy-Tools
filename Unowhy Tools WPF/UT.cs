@@ -670,7 +670,15 @@ namespace Unowhy_Tools
             {
                 var f = File.CreateText(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
                 f.Close();
-                Write2Log("=== Unowhy Tools Logs ===");
+                Write2Log("============");
+                Write2Log("Unowhy Tools");
+                Write2Log(" by STY1001 ");
+                Write2Log("============");
+                Write2Log("");
+                Write2Log("Start of logs, logs are saved locally and can help to fix issues");
+                Write2Log("If you have an issue, please, open an issue on Github and give me logs to help you");
+                Write2Log("You can cleanup logs on UT's settings");
+                Write2Log("Last logs are on bottom\n\n\n");
             }
 
             mainWindow.SplashBar.Value++;

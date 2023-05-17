@@ -156,6 +156,15 @@ public partial class Settings : INavigableView<DashboardViewModel>
     {
         string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         File.Create(fp).Close();
+        UT.Write2Log("============");
+        UT.Write2Log("Unowhy Tools");
+        UT.Write2Log(" by STY1001 ");
+        UT.Write2Log("============");
+        UT.Write2Log("");
+        UT.Write2Log("Start of logs, logs are saved locally and can help to fix issues");
+        UT.Write2Log("If you have an issue, please, open an issue on Github and give me logs to help you");
+        UT.Write2Log("You can cleanup logs on UT's settings");
+        UT.Write2Log("Last logs are on bottom\n\n\n");
         FileInfo fi = new FileInfo(fp);
         string size;
         if (fi.Length > 1024 * 1024) size = (fi.Length / 1024 * 1024).ToString() + " MB";

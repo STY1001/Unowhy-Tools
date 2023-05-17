@@ -112,14 +112,16 @@ public partial class App
         string userId = null;
         bool isHelp = false;
 
+        UT.Write2Log("\n\n\n\n\n\nUnowhy Tools launched\n");
+
         if(e.Args.Length > 0)
-        {
+        { 
             string args = string.Join(" ", e.Args);
-            UT.Write2Log("Unowhy Tools Args: " + args);
+            UT.Write2Log("Unowhy Tools Args: " + args + "\n\n\n");
         }
         else
         {
-            UT.Write2Log("Unowhy Tools Args: No arg");
+            UT.Write2Log("Unowhy Tools Args: No arg" + "\n\n\n");
         }
 
         if (e.Args.Length > 0)
@@ -168,7 +170,7 @@ public partial class App
             Console.WriteLine($"Unowhy Tools by STY1001\nVersion {UTsver}\n\n\nArgs for Unowhy Tools:\n");
             Console.WriteLine("-user [string]           Set a custom UserID");
             Console.WriteLine("-tray                    Launch UT in tray mode, can only open 1 tray simultaneously");
-            Console.WriteLine("-help                    Display help");
+            Console.WriteLine("-help | -?               Display help");
             Console.ReadKey();
             Application.Current.Shutdown();
         }
