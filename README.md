@@ -34,6 +34,9 @@ Currently, with this tool you can:
 - Enable TaskMGR
 - Enable account lockout
 - Get and sync Wifi settings with Serial Number
+- Control camera and micro
+- View performance usage
+- Enable camera privacy overlay
 
 More features coming soon
 
