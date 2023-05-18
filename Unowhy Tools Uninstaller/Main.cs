@@ -93,6 +93,14 @@ namespace Unowhy_Tools_Uninstaller
             p5.StartInfo.CreateNoWindow = true;
             p5.Start();
             p5.WaitForExit();
+            
+            Process p6 = new Process();
+            p6.StartInfo.FileName = "schtasks";
+            p6.StartInfo.Arguments = "/Delete /TN \"Unowhy Tools Tray Launch\" /F";
+            p6.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p6.StartInfo.CreateNoWindow = true;
+            p6.Start();
+            p6.WaitForExit();
 
             Process p1 = new Process();
             p1.StartInfo.FileName = "reg";
