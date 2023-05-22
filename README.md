@@ -47,7 +47,7 @@ More features coming soon
 3. When it's installed, launch "Unowhy Tools"
 4. Use "Unowhy Tools" as you want
 
-## "Presentation" Mode
+## "Presentation" Mode (Deprecated) (<19.0)
 This is a mode for me to make screenshots of UT.
 You can enable the "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
 
