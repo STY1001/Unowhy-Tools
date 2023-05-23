@@ -106,12 +106,12 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnimForw(BackBTN);
-
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
+
+        await UT.DeployBack(typeof(Dashboard), RootGrid);
 
         string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         FileInfo fi = new FileInfo(fp);
@@ -120,8 +120,6 @@ public partial class Settings : INavigableView<DashboardViewModel>
         else if (fi.Length > 1024) size = (fi.Length / 1024).ToString() + " KB";
         else size = fi.Length.ToString() + " B";
         dl.Content = UT.GetLang("clean") + " (" + size + ")";
-
-        await System.Threading.Tasks.Task.Delay(150);
 
         foreach (UIElement element in RootStack.Children)
         {

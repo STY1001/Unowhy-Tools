@@ -43,7 +43,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        UT.anim.BackBtnAnimForw(BackBTN);
+        await UT.DeployBack(typeof(Customize), RootGrid);
 
         await Task.Delay(150);
 

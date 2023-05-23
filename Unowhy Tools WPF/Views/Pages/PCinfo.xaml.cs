@@ -93,7 +93,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        UT.anim.BackBtnAnimForw(BackBTN);
+        await UT.DeployBack(typeof(Dashboard), RootGrid);
 
         DriveInfo drive = new DriveInfo("C");
         double totalSpace = drive.TotalSize / 1024.0 / 1024.0 / 1024.0;
@@ -102,8 +102,6 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         int percentFree = (int)((freeSpace / totalSpace) * 100);
 
         stor.Text = String.Format("{0:0.00} GB / {1:0.00} GB ({2}% {3})", usedSpace, totalSpace, percentFree, UT.GetLang("free")); 
-
-        await Task.Delay(150);
 
         foreach (UIElement element in RootStack.Children)
         {

@@ -99,6 +99,8 @@ public partial class Drivers : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
+        await UT.UnDeployBack();
+
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Visible;

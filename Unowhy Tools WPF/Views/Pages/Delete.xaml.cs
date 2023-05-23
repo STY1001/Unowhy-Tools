@@ -115,6 +115,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
+        await UT.UnDeployBack();
+
         await CheckBTN(false);
         
         foreach (UIElement element in RootStack.Children)

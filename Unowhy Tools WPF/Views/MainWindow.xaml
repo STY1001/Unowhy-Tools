@@ -57,6 +57,12 @@
                                        PageTag="dashboard"
                                        PageType="{x:Type pages:Dashboard}"
                                        Click="NavClick" />
+                    <ui:NavigationItem x:Name="back"
+                                       Content="Back"
+                                       ToolTip="Back"
+                                       Image="pack://application:,,,/Resources/back.png"
+                                       Click="GoBack"
+                                       Visibility="Collapsed"/>
                     <ui:NavigationSeparator />
                     <ui:NavigationItem x:Name="hsqm"
                                        Content="Hisqool Manager"

@@ -14,6 +14,8 @@ using System;
 using System.Xml.Linq;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -32,6 +34,89 @@ public partial class About : INavigableView<DashboardViewModel>
     public void GoForw(object sender, RoutedEventArgs e)
     {
         UT.anim.TransitionForw(RootGrid);
+    }
+
+    public async static Task DABack()
+    {
+        About_ElementData aed = new About_ElementData();
+
+        DoubleAnimation animsb = new DoubleAnimation();
+        animsb.From = 20;
+        animsb.To = 0;
+        animsb.Duration = TimeSpan.FromMilliseconds(500);
+        animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animsb2 = new DoubleAnimation();
+        animsb2.From = -20;
+        animsb2.To = 0;
+        animsb2.Duration = TimeSpan.FromMilliseconds(500);
+        animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transsb = new TranslateTransform();
+        TranslateTransform transsb2 = new TranslateTransform();
+        aed.SB1.RenderTransform = transsb;
+        aed.SB2.RenderTransform = transsb2;
+        transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
+        transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
+        transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
+
+        DoubleAnimation animqo = new DoubleAnimation();
+        animqo.From = 0;
+        animqo.To = 250;
+        animqo.Duration = TimeSpan.FromMilliseconds(500);
+        animqo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform transqo = new TranslateTransform();
+        aed.OP.RenderTransform = transqo;
+        transqo.BeginAnimation(TranslateTransform.YProperty, animqo);
+
+        DoubleAnimation animlogo = new DoubleAnimation();
+        animlogo.From = 0;
+        animlogo.To = -40;
+        animlogo.Duration = TimeSpan.FromMilliseconds(500);
+        animlogo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        DoubleAnimation animlogo2 = new DoubleAnimation();
+        animlogo2.From = 0;
+        animlogo2.To = 187;
+        animlogo2.Duration = TimeSpan.FromMilliseconds(500);
+        animlogo2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        TranslateTransform translogo = new TranslateTransform();
+        aed.Logo.RenderTransform = translogo;
+        translogo.BeginAnimation(TranslateTransform.YProperty, animlogo);
+        translogo.BeginAnimation(TranslateTransform.XProperty, animlogo2);
+
+        foreach (UIElement element in aed.Info.Children)
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 150,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+            await Task.Delay(10);
+        }
+
+        await Task.Delay(500);
+
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
+        UT.NavigateTo(typeof(Dashboard));
+        await Task.Delay(1000);
+        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
     }
 
     public async void GoBack(object sender, RoutedEventArgs e)
@@ -171,7 +256,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, System.Windows.RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnimForw(BackBTN);
+        await UT.DeployDABack();
 
         DoubleAnimation animis = new DoubleAnimation();
         animis.From = 0;
@@ -300,12 +385,21 @@ public partial class About : INavigableView<DashboardViewModel>
 
             await Task.Delay(100);
         }
+
+        
     }
 
     public About(DashboardViewModel viewModel, ISnackbarService snackbarService)
     {
         ViewModel = viewModel;
         InitializeComponent();
+
+        About_ElementData aed = new About_ElementData();
+        aed.OP = OpGrid;
+        aed.Logo = LogoGrid;
+        aed.SB1 = SB1;
+        aed.SB2 = SB2;
+        aed.Info = InfoStack;
     }
 
     public void Github_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -333,5 +427,66 @@ public partial class About : INavigableView<DashboardViewModel>
             FileName = "https://discord.com/invite/dw3ZJ9u7WS",
             UseShellExecute = true
         });
+    }
+}
+
+public class About_ElementData : INotifyPropertyChanged
+{
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    public static Grid _op;
+    public static Grid _logo;
+    public static Border _sb1;
+    public static Border _sb2;
+    public static StackPanel _info;
+
+    public Grid OP
+    {
+        get { return _op; }
+        set
+        {
+            _op = value;
+            OnPropertyChanged();
+        }
+    }
+    public Grid Logo
+    {
+        get { return _logo; }
+        set
+        {
+            _logo = value;
+            OnPropertyChanged();
+        }
+    }
+    public Border SB1
+    {
+        get { return _sb1; }
+        set
+        {
+            _sb1 = value;
+            OnPropertyChanged();
+        }
+    }
+    public Border SB2
+    {
+        get { return _sb2; }
+        set
+        {
+            _sb2 = value;
+            OnPropertyChanged();
+        }
+    }
+    public StackPanel Info
+    {
+        get { return _info; }
+        set
+        {
+            _info = value;
+            OnPropertyChanged();
+        }
     }
 }

@@ -78,9 +78,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        UT.anim.BackBtnAnimForw(BackBTN);
-
-        await Task.Delay(150);
+        await UT.DeployBack(typeof(Dashboard), RootGrid);
 
         foreach (UIElement element in RootGrid2.Children)
         {

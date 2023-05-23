@@ -70,7 +70,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnimForw(BackBTN);
+        await UT.DeployBack(typeof(About), RootGrid);
     }
 
     public Updater(DashboardViewModel viewModel)

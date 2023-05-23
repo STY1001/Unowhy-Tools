@@ -131,6 +131,8 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
+        await UT.UnDeployBack();
+
         DoubleAnimation animqo = new DoubleAnimation();
         animqo.From = 0;
         animqo.To = 0;
@@ -320,7 +322,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
     {
         System.Diagnostics.Process.Start("taskmgr.exe");
     }
-    
+
     public void CMD(object sender, RoutedEventArgs e)
     {
         //System.Diagnostics.Process.Start("cmd.exe");
@@ -329,7 +331,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         p.StartInfo.WorkingDirectory = "C:\\Windows\\System32\\";
         p.Start();
     }
-    
+
     public void Regedit(object sender, RoutedEventArgs e)
     {
         System.Diagnostics.Process.Start("regedit.exe");

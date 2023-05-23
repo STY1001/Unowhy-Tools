@@ -87,7 +87,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        UT.anim.BackBtnAnimForw(BackBTN);
+        UT.DeployBack(typeof(Repair), RootGrid);
         
         await Task.Delay(150);
 

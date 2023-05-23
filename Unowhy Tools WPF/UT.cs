@@ -53,9 +53,9 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static int verfull = 2400;
+        public static int verfull = 2401;
         public static string verbuild = "1034180523";
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -429,6 +429,23 @@ namespace Unowhy_Tools
                     }
                 }
             }
+        }
+        public static async Task DeployDABack()
+        {
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+            mainWindow.DeployDABack();
+        }
+
+        public static async Task DeployBack(Type type, Grid grid)
+        {
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+            mainWindow.DeployBack(type, grid);
+        }
+
+        public static async Task UnDeployBack()
+        {
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+            mainWindow.UnDeployBack();
         }
 
         public static async void NavigateTo(Type page)

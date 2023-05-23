@@ -46,9 +46,7 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        UT.anim.BackBtnAnimForw(BackBTN);
-
-        await Task.Delay(150);
+        await UT.DeployBack(typeof(Drivers), RootGrid);
 
         foreach (UIElement element in RootStack.Children)
         {

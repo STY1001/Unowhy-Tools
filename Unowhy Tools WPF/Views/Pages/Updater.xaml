@@ -18,7 +18,7 @@
 
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="0" />
             <RowDefinition Height="*" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
@@ -27,7 +27,8 @@
                    x:Name="BackBTN"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
-                   Margin="10,10,0,0">
+                   Margin="10,10,0,0"
+                   Visibility="Hidden">
             <Image Source="../../Resources/back.png"
                    Height="16" />
         </ui:Button>

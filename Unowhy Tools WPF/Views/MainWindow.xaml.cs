@@ -12,6 +12,8 @@ using Unowhy_Tools_WPF.Views.Pages;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
+using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -147,9 +149,254 @@ public partial class MainWindow : INavigationWindow
     {
         await Load();
     }
+
+    private bool backisdeployed = false;
+    private Type backtype = null;
+    private Grid backgrid = null;
     
+    public async Task DeployDABack()
+    {
+        back.Click -= GoBack;
+        back.Click += GoDABack;
+
+        if (!backisdeployed)
+        {
+            backisdeployed = true;
+
+            foreach (UIElement elements in RootNavigation.Items)
+            {
+                DoubleAnimation opacityAnim = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnim = new DoubleAnimation
+                {
+                    From = 0,
+                    To = -50,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform trans = new TranslateTransform();
+                elements.RenderTransform = trans;
+
+                elements.BeginAnimation(UIElement.OpacityProperty, opacityAnim);
+                trans.BeginAnimation(TranslateTransform.XProperty, translateAnim);
+
+                await Task.Delay(50);
+
+                elements.Visibility = Visibility.Hidden;
+                back.Visibility = Visibility.Collapsed;
+            }
+
+            foreach (UIElement elements in RootNavigation.Items)
+            {
+                elements.Visibility = Visibility.Collapsed;
+            }
+
+            back.Visibility = Visibility.Visible;
+
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            back.RenderTransform = transform;
+
+            back.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+    }
+
+    public async void GoDABack(object sender, RoutedEventArgs eventArgs)
+    {
+        await About.DABack();
+    }
+
+    public async Task DeployBack(Type type, Grid grid)
+    {
+        back.Click += GoBack;
+        back.Click -= GoDABack;
+
+        backtype = type;
+        backgrid = grid;
+
+        if(!backisdeployed)
+        {
+            backisdeployed = true;
+
+            foreach (UIElement elements in RootNavigation.Items)
+            {
+                DoubleAnimation opacityAnim = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnim = new DoubleAnimation
+                {
+                    From = 0,
+                    To = -50,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform trans = new TranslateTransform();
+                elements.RenderTransform = trans;
+
+                elements.BeginAnimation(UIElement.OpacityProperty, opacityAnim);
+                trans.BeginAnimation(TranslateTransform.XProperty, translateAnim);
+
+                await Task.Delay(50);
+
+                elements.Visibility = Visibility.Hidden;
+                back.Visibility = Visibility.Collapsed;
+            }
+
+            foreach (UIElement elements in RootNavigation.Items)
+            {
+                elements.Visibility = Visibility.Collapsed;
+            }
+
+            back.Visibility = Visibility.Visible;
+
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            back.RenderTransform = transform;
+
+            back.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+    }
+
+    public async Task UnDeployBack()
+    {
+        back.Click -= GoBack;
+        back.Click -= GoDABack;
+
+        if (backisdeployed)
+        {
+            backisdeployed = false;
+            
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -50,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            back.RenderTransform = transform;
+
+            back.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+            await Task.Delay(500);
+
+            foreach (UIElement elements in RootNavigation.Items)
+            {
+                elements.Visibility = Visibility.Visible;
+                back.Visibility = Visibility.Collapsed;
+
+                DoubleAnimation opacityAnim = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnim = new DoubleAnimation
+                {
+                    From = -50,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform trans = new TranslateTransform();
+                elements.RenderTransform = trans;
+
+                elements.BeginAnimation(UIElement.OpacityProperty, opacityAnim);
+                trans.BeginAnimation(TranslateTransform.XProperty, translateAnim);
+
+                await Task.Delay(50);
+            }
+        }
+    }
+
+    public async void GoBack(object sender, RoutedEventArgs e)
+    {
+        UT.anim.TransitionBack(backgrid);
+        DoubleAnimation translateAnim = new DoubleAnimation
+        {
+            From = 0,
+            To = -10,
+            Duration = TimeSpan.FromSeconds(0.2),
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+        };
+        TranslateTransform trans = new TranslateTransform();
+        back.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, translateAnim);
+        await System.Threading.Tasks.Task.Delay(200);
+        DoubleAnimation translateAnim2 = new DoubleAnimation
+        {
+            From = -10,
+            To = 0,
+            Duration = TimeSpan.FromSeconds(0.2),
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+        };
+        TranslateTransform trans2 = new TranslateTransform();
+        back.RenderTransform = trans2;
+        trans2.BeginAnimation(TranslateTransform.XProperty, translateAnim2);
+        UT.NavigateTo(backtype);
+    }
+
     private async void NavClick(object sender, RoutedEventArgs e)
     {
+        /*
         DoubleAnimation opacityAnimation = new DoubleAnimation
         {
             From = 0,
@@ -170,6 +417,7 @@ public partial class MainWindow : INavigationWindow
         RootFrame.RenderTransform = transform;
         RootFrame.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
         transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        */
     }
 
     private async Task Load()
@@ -448,6 +696,7 @@ public partial class MainWindow : INavigationWindow
                 foreach (UIElement elements in RootNavigation.Items)
                 {
                     elements.Visibility = Visibility.Visible;
+                    back.Visibility = Visibility.Collapsed;
                     DoubleAnimation opacityAnimation = new DoubleAnimation
                     {
                         From = 0,
@@ -485,24 +734,12 @@ public partial class MainWindow : INavigationWindow
 
     private void TrayMenuItem_OnClick(object sender, RoutedEventArgs e)
     {
-        if (sender is not MenuItem menuItem)
-            return;
-
-        System.Diagnostics.Debug.WriteLine($"DEBUG | WPF UI Tray clicked: {menuItem.Tag}", "Unowhy_Tools_WPF");
+        
     }
 
     private void RootNavigation_OnNavigated(INavigation sender, RoutedNavigationEventArgs e)
     {
-        System.Diagnostics.Debug.WriteLine($"DEBUG | WPF UI Navigated to: {sender?.Current ?? null}", "Unowhy_Tools_WPF");
-
-        // This funky solution allows us to impose a negative
-        // margin for Frame only for the Dashboard page, thanks
-        // to which the banner will cover the entire page nicely.
-        RootFrame.Margin = new Thickness(
-            left: 0,
-            top: sender?.Current?.PageTag == "" ? -69 : 0,
-            right: 0,
-            bottom: 0);
+        
     }
 }
 

@@ -418,6 +418,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             foreach (UIElement elements in mainWindow.RootNavigation.Items)
             {
                 elements.Visibility = Visibility.Visible;
+                mainWindow.back.Visibility = Visibility.Collapsed;
                 DoubleAnimation opacityAnimation = new DoubleAnimation
                 {
                     From = 0,

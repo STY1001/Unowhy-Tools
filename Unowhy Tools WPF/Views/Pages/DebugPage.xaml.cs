@@ -165,4 +165,9 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     {
         AllocConsole();
     }
+
+    private async void UiPage_Loaded(object sender, RoutedEventArgs e)
+    {
+        await UT.DeployBack(typeof(Dashboard), Grid1);
+    }
 }
