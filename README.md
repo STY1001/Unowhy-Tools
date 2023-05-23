@@ -34,6 +34,9 @@ Currently, with this tool you can:
 - Enable TaskMGR
 - Enable account lockout
 - Get and sync Wifi settings with Serial Number
+- Control camera and micro
+- View performance usage
+- Enable camera privacy overlay
 
 More features coming soon
 
@@ -44,11 +47,15 @@ More features coming soon
 3. When it's installed, launch "Unowhy Tools"
 4. Use "Unowhy Tools" as you want
 
-## "Presentation" Mode
+## "Presentation" Mode (Deprecated) (<19.0)
 This is a mode for me to make screenshots of UT.
 You can enable the "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
 
 ## Screenshots
+
+24.00
+
+![UT Screen](/README/UT24.00.png)
 
 23.02
 
