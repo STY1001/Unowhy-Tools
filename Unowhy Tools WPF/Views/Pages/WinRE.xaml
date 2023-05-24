@@ -20,7 +20,8 @@
                    Click="GoBack"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
-                   Margin="10,10,0,0">
+                   Margin="10,10,0,0"
+				   Visibility="Hidden">
             <Image Source="../../Resources/back.png"
                    Height="16" />
         </ui:Button>
