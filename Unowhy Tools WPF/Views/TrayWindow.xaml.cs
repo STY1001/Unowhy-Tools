@@ -282,6 +282,7 @@ public partial class TrayWindow : Window
             base.Deactivated += TrayWindow_Deactivated;
         }
 
+        base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
         trayIcon.Icon = UT.GetIconFromRes("UT.png");
         trayIcon.Text = "Unowhy Tools";
         trayIcon.Visible = true;
@@ -313,7 +314,6 @@ public partial class TrayWindow : Window
 
         applylang();
         await CheckPriv();
-
         try
         {
             cpuCounter1 = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
@@ -330,10 +330,10 @@ public partial class TrayWindow : Window
             ramCounter1 = new PerformanceCounter("Mémoire", "Octets disponibles");
             ramCounter2 = new PerformanceCounter("Mémoire", "Mégaoctets disponibles");
         }
-
         await InitTimer();
-        await Task.Delay(500);
+        await Task.Delay(1000);
         await WaitControl.Hide();
+        await Task.Delay(300);
         await HideTray();
     }
 
@@ -387,9 +387,6 @@ public partial class TrayWindow : Window
 
     public async Task ShowTray()
     {
-
-        base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-
         await StartTimer();
         Topmost = true;
         Activate();
