@@ -1,31 +1,15 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using Wpf.Ui.Appearance;
-using Wpf.Ui.Common;
-using Wpf.Ui.Controls.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
 using Wpf.Ui.Mvvm.Contracts;
 using Unowhy_Tools;
-using Unowhy_Tools_WPF.Views.Pages;
-using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
-using Wpf.Ui.Controls;
-using System.Management;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
-using System.Threading;
 using System.Windows.Threading;
-using System.Linq;
 using System.Windows.Forms;
-using System.Xml;
-using System.Reflection.Metadata;
-using Microsoft.Toolkit.Uwp.Notifications;
 using Microsoft.Win32;
-using Wpf.Ui.Styles.Controls;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -283,7 +267,7 @@ public partial class TrayWindow : Window
 
     public TrayWindow(IThemeService themeService)
     {
-        base.Visibility = Visibility.Hidden;
+        base.Visibility = Visibility.Visible;
 
         UT.Data UTdata = new UT.Data();
 
@@ -343,8 +327,8 @@ public partial class TrayWindow : Window
             cpuCounter1 = new PerformanceCounter("Informations sur le processeur", "Pourcentage de rendement du processeur", "_Total");
             cpucapp1 = new PerformanceCounter("Informations sur le processeur", "Fréquence du processeur", "_Total");
             cpucapp2 = new PerformanceCounter("Informations sur le processeur", "Pourcentage de performances du processeur", "_Total");
-            var ramCounter1 = new PerformanceCounter("Mémoire", "Octets disponibles");
-            var ramCounter2 = new PerformanceCounter("Mémoire", "Mégaoctets disponibles");
+            ramCounter1 = new PerformanceCounter("Mémoire", "Octets disponibles");
+            ramCounter2 = new PerformanceCounter("Mémoire", "Mégaoctets disponibles");
         }
 
         await InitTimer();
