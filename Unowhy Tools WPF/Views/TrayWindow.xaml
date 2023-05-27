@@ -77,14 +77,14 @@
                                             Orientation="Horizontal">
                                     <TextBlock Text="17:20"
                                                FontSize="26"
-                                               FontFamily="Segoe UI Bold"
+                                               FontFamily="Segoe UI Variable Display Bold"
                                                Foreground="#ffffff"
                                                VerticalAlignment="Bottom"
                                                x:Name="time" />
                                     <TextBlock Text="00"
                                                Margin="3,0,0,2"
                                                FontSize="20"
-                                               FontFamily="Segoe UI SemiBold"
+                                               FontFamily="Segoe UI Variable Display SemiBold"
                                                Foreground="#b2b2b2"
                                                VerticalAlignment="Bottom"
                                                x:Name="time2" />
