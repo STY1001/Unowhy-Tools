@@ -693,6 +693,7 @@ public partial class MainWindow : INavigationWindow
             else
             {
                 Navigate(typeof(Dashboard));
+                /*
                 foreach (UIElement elements in RootNavigation.Items)
                 {
                     elements.Visibility = Visibility.Visible;
@@ -721,6 +722,7 @@ public partial class MainWindow : INavigationWindow
 
                     await Task.Delay(50);
                 }
+                */
                 await Task.Delay(1000);
                 RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
             }

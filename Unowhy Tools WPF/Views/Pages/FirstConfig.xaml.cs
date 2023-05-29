@@ -414,7 +414,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             mainWindow.applylang();
             mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
             UT.NavigateTo(typeof(Dashboard));
-
+            /*
             foreach (UIElement elements in mainWindow.RootNavigation.Items)
             {
                 elements.Visibility = Visibility.Visible;
@@ -443,6 +443,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
                 await Task.Delay(50);
             }
+            */
 
             await Task.Delay(1000);
             mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
