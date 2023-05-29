@@ -1446,7 +1446,7 @@ namespace Unowhy_Tools
                 if (c == null)
                 {
                     UTdata.CamOver = false;
-                    Write2Log("CPO No val");
+                    Write2Log("Camera Privacy Overlay No val");
                 }
                 else
                 {
@@ -1454,19 +1454,55 @@ namespace Unowhy_Tools
                     if (lc2 == 1)
                     {
                         UTdata.CamOver = true;
-                        Write2Log("CPO OK");
+                        Write2Log("Camera Privacy Overlay OK");
                     }
                     else
                     {
                         UTdata.CamOver = false;
-                        Write2Log("CPO is 0");
+                        Write2Log("Camera Privacy Overlay is 0");
                     }
                 }
             }
             else
             {
                 UTdata.CamOver = false;
-                Write2Log("CPO No key");
+                Write2Log("Camera Privacy Overlay No key");
+            }
+            Write2Log("=== End ===" + Environment.NewLine);
+
+            #endregion
+
+            #region Windows verbose status
+
+            Write2Log("=== Windows verbose status ===");
+            RegistryKey vo = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
+            if (vo != null)
+            {
+                object v = vo.GetValue("VerboseStatus", null);
+                if (v == null)
+                {
+                    UTdata.VerbStat = false;
+                    Write2Log("Windows verbose status No val");
+                }
+                else
+                {
+                    int lv2 = (int)vo.GetValue("VerboseStatus", 0);
+                    if (lv2 == 1)
+                    {
+                        UTdata.VerbStat = true;
+                        Write2Log("Windows verbose status OK");
+                    }
+                    else
+                    {
+                        UTdata.VerbStat = false;
+                        Write2Log("Windows verbose status is 0");
+                    }
+                }
+            }
+            else
+            {
+                UTdata.VerbStat = false;
+                Write2Log("Windows verbose status No key");
             }
             Write2Log("=== End ===" + Environment.NewLine);
 
@@ -1582,6 +1618,7 @@ namespace Unowhy_Tools
             private static bool _hsqfolderexist;
             private static bool _winre;
             private static bool _camover;
+            private static bool _verbstat;
 
             private static bool _trayrunok;
             private static bool _runtray;
@@ -1898,6 +1935,15 @@ namespace Unowhy_Tools
                 set
                 {
                     _camover = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool VerbStat
+            {
+                get { return _verbstat; }
+                set
+                {
+                    _verbstat = value;
                     OnPropertyChanged();
                 }
             }

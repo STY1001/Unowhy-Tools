@@ -116,6 +116,9 @@ public partial class Customize : INavigableView<DashboardViewModel>
         camoverena_txt.Text = UT.GetLang("camoverena");
         camoverena_desc.Text = UT.GetLang("desccamoverena");
         camoverena_btn.Content = UT.GetLang("enable");
+        verbstatena_txt.Text = UT.GetLang("verbstatena");
+        verbstatena_desc.Text = UT.GetLang("descverbstatena");
+        verbstatena_btn.Content = UT.GetLang("enable");
     }
 
     public async Task CheckBTN(bool check)
@@ -128,6 +131,8 @@ public partial class Customize : INavigableView<DashboardViewModel>
         else adminset.IsEnabled = true;
         if(UTdata.CamOver == true) camoverena.IsEnabled = false;
         else camoverena.IsEnabled = true;
+        if(UTdata.VerbStat == true) verbstatena.IsEnabled = false;
+        else verbstatena.IsEnabled = true;
     }
 
     public async void Init(object sender, EventArgs e)
@@ -208,6 +213,25 @@ public partial class Customize : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open();
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\OEM\\Device\\Capture\" /v \"NoPhysicalCameraLED\" /t REG_DWORD /d \"1\" /f");
+            await CheckBTN(true);
+            await UT.waitstatus.close();
+            if (!camoverena.IsEnabled)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void verbstatena_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(UT.GetLang("verbstatena"), "verbose.png"))
+        {
+            await UT.waitstatus.open();
+            await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v \"VerboseStatus\" /t REG_DWORD /d \"1\" /f");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!camoverena.IsEnabled)

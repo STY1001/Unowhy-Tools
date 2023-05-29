@@ -108,6 +108,7 @@
     <None Remove="Resources\UTS.png" />
     <None Remove="Resources\UTU.png" />
     <None Remove="Resources\UTW.png" />
+    <None Remove="Resources\verbose.png" />
     <None Remove="Resources\vs.png" />
     <None Remove="Resources\wait.png" />
     <None Remove="Resources\win10.png" />
@@ -225,6 +226,7 @@
     <Resource Include="Resources\UTS.png" />
     <Resource Include="Resources\UTU.png" />
     <Resource Include="Resources\UTW.png" />
+    <Resource Include="Resources\verbose.png" />
     <Resource Include="Resources\vs.png" />
     <Resource Include="Resources\wait.png" />
     <Resource Include="Resources\win10.png" />

@@ -177,6 +177,37 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
+            <ui:CardControl x:Name="verbstatena"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/verbose.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel VerticalAlignment="Top"
+                                    Margin="50,2,0,0">
+                            <TextBlock x:Name="verbstatena_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Enable Windows verbose status" />
+                            <TextBlock x:Name="verbstatena_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Grid.Column="0"
+                           Click="verbstatena_Click"
+                           x:Name="verbstatena_btn"
+                           Content="Enable"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
         </StackPanel>
     </Grid>
 </ui:UiPage>

@@ -327,6 +327,9 @@
   <data name="desctidel" xml:space="preserve">
     <value>Delete school's texbooks installers folder (In : C:\Program Data\Unowhy)</value>
   </data>
+  <data name="descverbstatena" xml:space="preserve">
+    <value>Enable Windows verbose status to view details about the status of LogonUI (Logon, Startup, Shutdown, Logoff, and more...)</value>
+  </data>
   <data name="descwinre" xml:space="preserve">
     <value>Do this if you want to reset Windows. Unowhy has deployed a patch to disable Windows Recovery Environment (to disable reset). For some users, the activation will fail, in this case, you should be able to repair the problem by downloading a WinRE image</value>
   </data>
@@ -653,6 +656,9 @@
   </data>
   <data name="usestor" xml:space="preserve">
     <value>Storage Usage</value>
+  </data>
+  <data name="verbstatena" xml:space="preserve">
+    <value>Enable Windows verbose status</value>
   </data>
   <data name="wait" xml:space="preserve">
     <value>Please wait...</value>

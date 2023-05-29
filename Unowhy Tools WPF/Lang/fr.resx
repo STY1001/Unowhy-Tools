@@ -327,6 +327,9 @@
   <data name="desctidel" xml:space="preserve">
     <value>Supprimer les installateurs des manuels scolaires de votre école (Dans : C:\Program Files\Unowhy)</value>
   </data>
+  <data name="descverbstatena" xml:space="preserve">
+    <value>Activez l'état détaillé de Windows pour afficher des détails sur l'état de LogonUI (Connexion, Démarrage, Arrêt, Déconnexion, etc.)</value>
+  </data>
   <data name="descwinre" xml:space="preserve">
     <value>Faites ceci, si vous voulez réinitialiser Windows. Unowhy a déployé un patch qui désactive l'environnement de restauration Windows (qui désactive la réinitialisation). Pour certaines personnes, l'activation peut échouer. Dans ce cas là, Unowhy Tools vous proposera de réparer le problème en re-téléchargeant l'image WinRE.</value>
   </data>
@@ -653,6 +656,9 @@
   </data>
   <data name="usestor" xml:space="preserve">
     <value>Utilisation du stockage</value>
+  </data>
+  <data name="verbstatena" xml:space="preserve">
+    <value>Activer le statut détaillé de Windows</value>
   </data>
   <data name="wait" xml:space="preserve">
     <value>Veuillez patienter...</value>
