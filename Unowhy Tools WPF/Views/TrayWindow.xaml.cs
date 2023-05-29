@@ -269,18 +269,13 @@ public partial class TrayWindow : Window
     {
         base.Visibility = Visibility.Visible;
 
-        UT.Data UTdata = new UT.Data();
-
         InitializeComponent();
         if (!UT.CheckAdmin())
         {
             UT.RunAdmin("-tray");
         }
 
-        if (UTdata.RunTray)
-        {
-            base.Deactivated += TrayWindow_Deactivated;
-        }
+        base.Deactivated += TrayWindow_Deactivated;
 
         base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
         trayIcon.Icon = UT.GetIconFromRes("UT.png");
