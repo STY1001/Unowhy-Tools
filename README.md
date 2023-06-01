@@ -37,6 +37,7 @@ Currently, with this tool you can:
 - Control camera and micro
 - View performance usage
 - Enable camera privacy overlay
+- Enable Windows verbose status
 
 More features coming soon
 
@@ -52,6 +53,10 @@ This is a mode for me to make screenshots of UT.
 You can enable the "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
 
 ## Screenshots
+
+24.01
+
+![UT Screen](/README/UT24.01.png)
 
 24.00
 
