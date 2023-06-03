@@ -67,6 +67,59 @@ public partial class App
             services.AddScoped<Views.Pages.FirstConfig>();
             services.AddScoped<TrayWindow>();
             services.AddScoped<UT>();
+
+            /*
+            UT.Data UTdata = new UT.Data();
+            if(UTdata.RunTray == true)
+            {
+                services.AddHostedService<ApplicationHostService>();
+                services.AddSingleton<IThemeService, ThemeService>();
+                services.AddSingleton<ITaskBarService, TaskBarService>();
+                services.AddSingleton<ISnackbarService, SnackbarService>();
+                services.AddSingleton<IDialogService, DialogService>();
+                services.AddSingleton<IPageService, PageService>();
+                services.AddSingleton<ITestWindowService, TestWindowService>();
+                services.AddSingleton<INavigationService, NavigationService>();
+                services.AddScoped<DashboardViewModel>();
+                services.AddScoped<TrayWindow>();
+                services.AddScoped<UT>();
+            }
+            else
+            {
+                services.AddHostedService<ApplicationHostService>();
+                services.AddSingleton<IThemeService, ThemeService>();
+                services.AddSingleton<ITaskBarService, TaskBarService>();
+                services.AddSingleton<ISnackbarService, SnackbarService>();
+                services.AddSingleton<IDialogService, DialogService>();
+                services.AddSingleton<IPageService, PageService>();
+                services.AddSingleton<ITestWindowService, TestWindowService>();
+                services.AddSingleton<INavigationService, NavigationService>();
+                services.AddScoped<INavigationWindow, MainWindow>();
+                services.AddScoped<Views.Pages.Dashboard>();
+                services.AddScoped<DashboardViewModel>();
+                services.AddScoped<Views.Pages.About>();
+                services.AddScoped<Views.Pages.HisqoolManager>();
+                services.AddScoped<Views.Pages.Repair>();
+                services.AddScoped<Views.Pages.Delete>();
+                services.AddScoped<Views.Pages.Customize>();
+                services.AddScoped<Views.Pages.Drivers>();
+                services.AddScoped<Views.Pages.WinRE>();
+                services.AddScoped<Views.Pages.PCname>();
+                services.AddScoped<Views.Pages.AddUser>();
+                services.AddScoped<Views.Pages.AdminUser>();
+                services.AddScoped<Views.Pages.DrvBack>();
+                services.AddScoped<Views.Pages.DrvRest>();
+                services.AddScoped<Views.Pages.DrvConv>();
+                services.AddScoped<Views.Pages.PCinfo>();
+                services.AddScoped<Views.Pages.DebugPage>();
+                services.AddScoped<Views.Pages.Settings>();
+                services.AddScoped<Views.Pages.Updater>();
+                services.AddScoped<Views.Pages.Wifi>();
+                services.AddScoped<Views.Pages.FirstConfig>();
+                services.AddScoped<TrayWindow>();
+                services.AddScoped<UT>();
+            }
+            */
         }).Build();
 
     /// <summary>

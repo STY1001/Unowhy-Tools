@@ -390,6 +390,7 @@ public partial class TrayWindow : Window
         Left = desktopWorkingArea.Right - Width;
         Top = desktopWorkingArea.Bottom - Height;
 
+        base.IsEnabled = true;
         base.Visibility = Visibility.Visible;
 
         DoubleAnimation animg = new DoubleAnimation();
@@ -459,7 +460,8 @@ public partial class TrayWindow : Window
 
         await Task.Delay(300);
 
-        base.Visibility = Visibility.Hidden;
+        base.Visibility = Visibility.Collapsed;
+        base.IsEnabled = false;
         await StopTimer();
     }
 
