@@ -234,7 +234,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v \"VerboseStatus\" /t REG_DWORD /d \"1\" /f");
             await CheckBTN(true);
             await UT.waitstatus.close();
-            if (!camoverena.IsEnabled)
+            if (!verbstatena.IsEnabled)
             {
                 UT.DialogIShow(UT.GetLang("done"), "yes.png");
             }

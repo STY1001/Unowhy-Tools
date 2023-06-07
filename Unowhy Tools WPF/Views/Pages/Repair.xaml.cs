@@ -287,7 +287,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableLockWorkstation /f");
             await CheckBTN(true);
             await UT.waitstatus.close();
-            if (!tmgr.IsEnabled)
+            if (!locka.IsEnabled)
             {
                 UT.DialogIShow(UT.GetLang("done"), "yes.png");
             }
