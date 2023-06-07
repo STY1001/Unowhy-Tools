@@ -437,7 +437,7 @@ public partial class MainWindow : INavigationWindow
         {
             RootMainGrid.Visibility = Visibility.Collapsed;
             RootTitleBar.Visibility = Visibility.Collapsed;
-            await Task.Delay(1500);
+            await Task.Delay(1000);
         }
 
         RootWelcomeGrid.Visibility = Visibility.Visible;
@@ -519,7 +519,7 @@ public partial class MainWindow : INavigationWindow
         if (!UT.CheckAdmin())
         {
             SplashText.Text = "Hi !";
-            await Task.Delay(1000);
+            await Task.Delay(500);
             SplashText.Text = "Restarting as admin...";
             SplashBar.Value = 100;
             await Task.Delay(500);
