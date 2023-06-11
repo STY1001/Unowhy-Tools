@@ -166,6 +166,8 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                 }
                 else
                 {
+
+                    await UT.waitstatus.close();
                     UT.DialogIShow(UT.GetLang("conv.nout"), "no.png");
                 }
                 Directory.Delete(rttemps, true);
