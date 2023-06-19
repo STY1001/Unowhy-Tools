@@ -20,4 +20,4 @@ namespace Unowhy_Tools_Installer
             Application.Run(new Main(argsfinal));
         }
     }
-}
+} 

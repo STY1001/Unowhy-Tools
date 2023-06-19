@@ -37,6 +37,8 @@ namespace Unowhy_Tools_Installer
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int state, int value);
 
+        public bool silent;
+
         public Main(string args)
         {
             InitializeComponent();
@@ -54,6 +56,7 @@ namespace Unowhy_Tools_Installer
 
             if (args.Contains("-s"))
             {
+                silent = true;
                 install_silent();
             }
         }
@@ -315,6 +318,10 @@ namespace Unowhy_Tools_Installer
             ok.Visible = true;
             pictureBox6.Visible = true;
             
+            if(silent)
+            {
+                close_silent();
+            }
         }
 
         public void cancel_Click(object sender, EventArgs e)
@@ -329,7 +336,14 @@ namespace Unowhy_Tools_Installer
 
         public async void install_silent()
         {
+            await Task.Delay(1000);
             await install_check();
+        }
+
+        public async void close_silent()
+        {
+            await Task.Delay(1000);
+            this.Close();
         }
 
         public void button1_Click(object sender, EventArgs e)
