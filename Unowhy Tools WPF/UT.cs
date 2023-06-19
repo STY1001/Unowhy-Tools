@@ -591,14 +591,32 @@ namespace Unowhy_Tools
                 }
             }
 
-            using (HttpClient client = new HttpClient())
+            if(UT.CheckInternet())
             {
-                string url = "https://api.sty1001.fr/ut-stats";
-                string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"normal\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + " }";
-                Write2Log("Sending Stats to \"" + url + "\" with \"" + jsonData + "\"");
-                StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = await client.PostAsync(url, content);
+                using (HttpClient client = new HttpClient())
+                {
+                    try
+                    {
+                        string url = "https://api.sty1001.fr/ut-stats";
+                        string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"" + launchmode + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + " }";
+                        Write2Log("Sending Stats to \"" + url + "\" with \"" + jsonData + "\"");
+                        StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = await client.PostAsync(url, content);
+                        if(response.StatusCode == HttpStatusCode.OK) 
+                        {
+                            Write2Log("Sent! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+                        else
+                        {
+                            Write2Log("Error! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Write2Log("Failed: " + e);
+                    }
+                    
+                }
             }
         }
 

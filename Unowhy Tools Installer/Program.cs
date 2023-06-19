@@ -12,7 +12,7 @@ namespace Unowhy_Tools_Installer
         /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] arg)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

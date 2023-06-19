@@ -70,7 +70,7 @@ namespace Unowhy_Tools_Installer
             }
         }
 
-        private static void delay(int Time_delay)
+        public static void delay(int Time_delay)
         {
             int i = 0;
             System.Timers.Timer _delayTimer = new System.Timers.Timer();
@@ -92,7 +92,42 @@ namespace Unowhy_Tools_Installer
             p.WaitForExit();
         }
 
-        private async Task install_pre()
+        public async Task install_check()
+        {
+            DriveInfo c = new DriveInfo("C");
+            if (c.AvailableFreeSpace < 100000000)
+            {
+                var i = new info("100 MB free space required");
+                i.ShowDialog();
+            }
+            else
+            {
+                string noco = "0";
+
+                if (noco == "1")
+                {
+                    var co = new noco();
+                    TaskbarManager.Instance.SetProgressValue(100, 100);
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Error);
+                    co.ShowDialog();
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
+                }
+                else
+                {
+                    install.Visible = false;
+                    desktop.Visible = false;
+                    pictureBox2.Visible = false;
+                    cancel.Visible = false;
+                    pictureBox4.Visible = false;
+                    pictureBox5.Visible = false;
+
+                    status.Text = "";
+                    await install_pre();
+                }
+            }
+        }
+
+        public async Task install_pre()
         {
             statusbar.Value = 0;
             TaskbarManager.Instance.SetProgressValue(0, 100);
@@ -138,7 +173,7 @@ namespace Unowhy_Tools_Installer
             await install_dl();
         }
 
-        private async Task install_dl()
+        public async Task install_dl()
         {
             status.Text = "Extracting...";
             delay(1000);
@@ -167,7 +202,7 @@ namespace Unowhy_Tools_Installer
             await install_inst();
         }
 
-        private async Task install_inst()
+        public async Task install_inst()
         {
             Process p12 = new Process();
             p12.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\dotnetwdrt6.0.16.exe";
@@ -209,7 +244,7 @@ namespace Unowhy_Tools_Installer
             await install_post();
         }
 
-        private async Task install_post()
+        public async Task install_post()
         {
             status.Text = "Finalizing...";
 
@@ -228,8 +263,8 @@ namespace Unowhy_Tools_Installer
 
             await install_clean();
         }
-        
-        private async Task install_clean()
+
+        public async Task install_clean()
         {
             status.Text = "Cleaning...";
 
@@ -265,7 +300,7 @@ namespace Unowhy_Tools_Installer
             await install_finish();
         }
 
-        private async Task install_finish()
+        public async Task install_finish()
         {
             statusbar.Value = 100;
             TaskbarManager.Instance.SetProgressValue(100, 100);
@@ -277,47 +312,22 @@ namespace Unowhy_Tools_Installer
             
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        public void cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private async void install_Click(object sender, EventArgs e)
+        public async void install_Click(object sender, EventArgs e)
         {
-            DriveInfo c = new DriveInfo("C");
-            if (c.AvailableFreeSpace < 100000000)
-            {
-                var i = new info("100 MB free space required");
-                i.ShowDialog();
-            }
-            else
-            {
-                string noco = "0";
-
-                if (noco == "1")
-                {
-                    var co = new noco();
-                    TaskbarManager.Instance.SetProgressValue(100, 100);
-                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Error);
-                    co.ShowDialog();
-                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress);
-                }
-                else
-                {
-                    install.Visible = false;
-                    desktop.Visible = false;
-                    pictureBox2.Visible = false;
-                    cancel.Visible = false;
-                    pictureBox4.Visible = false;
-                    pictureBox5.Visible = false;
-
-                    status.Text = "";
-                    await install_pre();
-                }
-            }
+            await install_check();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public async void install_silent()
+        {
+            await install_check();
+        }
+
+        public void button1_Click(object sender, EventArgs e)
         {
             /*if (run.Checked == true)
             {
@@ -332,7 +342,7 @@ namespace Unowhy_Tools_Installer
             this.Close();
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        public void Main_Load(object sender, EventArgs e)
         {
 
         }
