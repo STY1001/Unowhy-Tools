@@ -10,6 +10,7 @@ using System.IO;
 using System.Windows.Threading;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.Net.Http;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -292,6 +293,8 @@ public partial class TrayWindow : Window
         contextMenuStrip.Items.Add(closetray);
         trayIcon.ContextMenuStrip = contextMenuStrip;
 
+        
+
     }
 
     private async void Window_Initialized(object sender, EventArgs e)
@@ -330,6 +333,21 @@ public partial class TrayWindow : Window
         await WaitControl.Hide();
         await Task.Delay(300);
         await HideTray();
+        await Task.Delay(1000);
+        if (UT.CheckInternet())
+        {
+            await UT.SendStats("tray");
+
+            if (!await UT.version.newver())
+            {
+                var web = new HttpClient();
+                string newver = await web.GetStringAsync("https://bit.ly/UTnvTXT");
+                newver = newver.Insert(2, ".");
+                newver = newver.Replace("\n", "");
+                string newverfull = UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
+                trayIcon.ShowBalloonTip(3000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
+            }
+        }
     }
 
     public async void TrayWindow_Deactivated(object sender, EventArgs e)
