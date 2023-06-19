@@ -338,7 +338,7 @@ public partial class TrayWindow : Window
         {
             await UT.SendStats("tray");
 
-            if (!await UT.version.newver())
+            if (await UT.version.newver())
             {
                 var web = new HttpClient();
                 string newver = await web.GetStringAsync("https://bit.ly/UTnvTXT");
