@@ -37,7 +37,7 @@ namespace Unowhy_Tools_Installer
         [DllImport("wininet.dll")]
         private extern static bool InternetGetConnectedState(out int state, int value);
 
-        public Main()
+        public Main(string args)
         {
             InitializeComponent();
 
@@ -51,6 +51,11 @@ namespace Unowhy_Tools_Installer
             run.Visible = false;
             ok.Visible = false;
             pictureBox6.Visible = false;
+
+            if (args.Contains("-s"))
+            {
+                install_silent();
+            }
         }
 
         public static void Extract(string nameSpace, string outFile, string internalFilePath, string resourceName)

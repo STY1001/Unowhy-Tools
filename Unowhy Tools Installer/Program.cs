@@ -12,11 +12,12 @@ namespace Unowhy_Tools_Installer
         /// Point d'entrée principal de l'application.
         /// </summary>
         [STAThread]
-        static void Main(string[] arg)
+        static void Main(string[] args)
         {
+            string argsfinal = args.ToString();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new Main(argsfinal));
         }
     }
 }
