@@ -557,6 +557,51 @@ namespace Unowhy_Tools
             await Task.Delay(300);
         }
 
+        public static async Task SendStats(string launchmode)
+        {
+            Guid uuid = Guid.NewGuid();
+            string uuidString = uuid.ToString();
+
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
+            object id = key.GetValue("ID", null);
+            if (id == null)
+            {
+                key.SetValue("ID", uuidString, RegistryValueKind.String);
+            }
+
+            string idString = key.GetValue("ID", null).ToString();
+            string langString = key.GetValue("Lang", null).ToString();
+
+            bool tray;
+            TaskScheduler.TaskService taskService = new TaskScheduler.TaskService();
+            TaskScheduler.Task uttask = taskService.GetTask("Unowhy Tools Tray Launch");
+            if(uttask != null)
+            {
+                tray = false;
+            }
+            else
+            {
+                if (uttask.Enabled == true)
+                {
+                    tray = true;
+                }
+                else
+                {
+                    tray = false;
+                }
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                string url = "https://api.sty1001.fr/ut-stats";
+                string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"normal\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + " }";
+                Write2Log("Sending Stats to \"" + url + "\" with \"" + jsonData + "\"");
+                StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await client.PostAsync(url, content);
+            }
+        }
+
         public static async Task TrayCheck()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;

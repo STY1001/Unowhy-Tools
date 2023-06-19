@@ -726,6 +726,9 @@ public partial class MainWindow : INavigationWindow
                 await Task.Delay(1000);
                 RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
             }
+
+            UT.Write2Log("\n\n\nReady !\n");
+            await UT.SendStats("normal");
         }
     }
 
