@@ -729,6 +729,7 @@ public partial class MainWindow : INavigationWindow
 
             UT.Write2Log("\n\n\nReady !\n");
             await UT.SendStats("normal");
+            UT.Write2Log("\n\n\n");
         }
     }
 
