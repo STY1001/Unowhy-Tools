@@ -14,7 +14,11 @@ namespace Unowhy_Tools_Installer
         [STAThread]
         static void Main(string[] args)
         {
-            string argsfinal = args[0];
+            string argsfinal = "null";
+            if (args.Length != 0)
+            {
+                argsfinal = args[0];
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main(argsfinal));
