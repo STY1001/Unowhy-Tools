@@ -577,10 +577,6 @@ namespace Unowhy_Tools
             TaskScheduler.Task uttask = taskService.GetTask("Unowhy Tools Tray Launch");
             if(uttask != null)
             {
-                tray = false;
-            }
-            else
-            {
                 if (uttask.Definition.Settings.Enabled)
                 {
                     tray = true;
@@ -589,6 +585,10 @@ namespace Unowhy_Tools
                 {
                     tray = false;
                 }
+            }
+            else
+            {
+                tray = false;
             }
 
             if(UT.CheckInternet())
