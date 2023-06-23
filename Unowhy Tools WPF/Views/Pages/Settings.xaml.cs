@@ -110,6 +110,10 @@ public partial class Settings : INavigableView<DashboardViewModel>
         {
             element.Visibility = Visibility.Hidden;
         }
+        foreach (UIElement element in RootStack2.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
 
         await UT.DeployBack(typeof(Dashboard), RootGrid);
 
@@ -122,6 +126,33 @@ public partial class Settings : INavigableView<DashboardViewModel>
         dl.Content = UT.GetLang("clean") + " (" + size + ")";
 
         foreach (UIElement element in RootStack.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await System.Threading.Tasks.Task.Delay(50);
+        }
+        foreach (UIElement element in RootStack2.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
