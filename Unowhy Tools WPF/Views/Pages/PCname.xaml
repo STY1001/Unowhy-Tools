@@ -28,49 +28,52 @@
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <Grid VerticalAlignment="Center"
-                  HorizontalAlignment="Center"
-                  Margin="20,20,20,20"
-                  x:Name="RootGrid2">
+            <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="0" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="3" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="labold"
-                           Grid.Row="0"
-                           Text="Actual name:"
-                           Foreground="#ffffff" />
-                <TextBlock x:Name="old"
-                           Grid.Row="2"
-                           Text="[NAME]"
-                           FontFamily="Lucida Console"
-                           Foreground="#bebebe" />
-                <TextBlock x:Name="labnew"
-                           Grid.Row="4"
-                           Text="New name:"
-                           Foreground="#ffffff" />
-                <ui:TextBox x:Name="newbox"
-                            MaxLength="15"
-                            Grid.Row="6"
-                            Foreground="#ffffff"
-                            Width="200" />
-                <Grid Grid.Row="8">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="85" />
-                        <ColumnDefinition Width="115" />
-                    </Grid.ColumnDefinitions>
-
+                <Grid VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      Margin="20,20,20,20"
+                      x:Name="RootGrid2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="3" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="labold"
+                               Grid.Row="0"
+                               Text="Actual name:"
+                               Foreground="#ffffff" />
+                    <TextBlock x:Name="old"
+                               Grid.Row="2"
+                               Text="[NAME]"
+                               FontFamily="Lucida Console"
+                               Foreground="#bebebe" />
+                    <TextBlock x:Name="labnew"
+                               Grid.Row="4"
+                               Text="New name:"
+                               Foreground="#ffffff" />
+                    <ui:TextBox x:Name="newbox"
+                                MaxLength="15"
+                                Grid.Row="6"
+                                Foreground="#ffffff"
+                                Width="200" />
+                </Grid>
+                <Border Grid.Row="8"
+                        CornerRadius="0,0,8,8"
+                        Background="#50000000">
                     <ui:Button Click="Change_Click"
                                Grid.Column="1"
-                               HorizontalAlignment="Stretch"
-                               Margin="0,0,0,0">
+                               HorizontalAlignment="Right"
+                               Margin="0,20,20,20">
                         <StackPanel>
                             <Grid Grid.Row="1"
                                   Margin="0,0,0,0"
@@ -99,7 +102,7 @@
                             </Grid>
                         </StackPanel>
                     </ui:Button>
-                </Grid>
+                </Border>
             </Grid>
         </Border>
     </Grid>

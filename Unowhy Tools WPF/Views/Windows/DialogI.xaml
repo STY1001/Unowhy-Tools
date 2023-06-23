@@ -84,7 +84,9 @@
                                    VerticalAlignment="Center"
                                    x:Name="text" />
                     </Grid>
-
+                    <Border Background="#50000000"
+                            CornerRadius="0,0,8,8"
+                            Grid.Row="2">
                     <Grid Grid.Row="2"
                           HorizontalAlignment="Right">
                         <Grid.ColumnDefinitions>
@@ -130,6 +132,7 @@
                             </Grid>
                         </ui:Button>
                     </Grid>
+                    </Border>
                 </Grid>
             </Border>
         </Grid>

@@ -28,98 +28,108 @@
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <StackPanel Width="400"
-                        Margin="20,20,20,20"
-                        x:Name="RootStack">
-                <StackPanel.Resources>
-                    <Style TargetType="Grid">
-                        <Setter Property="Margin"
-                                Value="0,0,0,15" />
-                    </Style>
-                </StackPanel.Resources>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Source="../../Resources/download.png"
-                           Grid.Row="2"
-                           Grid.Column="0"/>
-                    <TextBlock x:Name="labold"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               Text="Old:"
-                               Foreground="#ffffff" />
-                    <Grid Grid.Row="2"
-                          Grid.Column="2"
-                          Margin="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Border Background="#50000000"
+                        CornerRadius="0,0,8,8"
+                        Grid.Row="1" />
 
-                        <ui:TextBox x:Name="oldpath"
-                                    Grid.Column="0"
-                                    IsReadOnly="True"
-                                    Foreground="#ffffff"
-                                    Margin="0,0,10,0"/>
-                        <ui:Button Click="oldpath_Click"
-                                   Grid.Column="2"
-                                   Content="..."
-                                   Foreground="#ffffff" 
-                                   VerticalAlignment="Stretch"/>
-                    </Grid>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Source="/Resources/upload.png"
-                           Grid.Row="2"
-                           Grid.Column="0"/>
-                    <TextBlock x:Name="labnew"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               Text="New:"
-                               Foreground="#ffffff" />
-                    <Grid Grid.Row="2"
-                          Grid.Column="2"
-                          Margin="0">
+                <StackPanel Width="400"
+                            Margin="20,20,20,20"
+                            x:Name="RootStack">
+                    <StackPanel.Resources>
+                        <Style TargetType="Grid">
+                            <Setter Property="Margin"
+                                    Value="0,0,0,15" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Grid>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
-                        <ui:TextBox x:Name="newpath"
-                                    Grid.Column="0"
-                                    IsReadOnly="True"
-                                    Foreground="#ffffff"
-                                    Margin="0,0,10,0"/>
-                        <ui:Button Click="newpath_Click"
-                                   Grid.Column="2"
-                                   Content="..."
-                                   Foreground="#ffffff" 
-                                   VerticalAlignment="Stretch"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Source="../../Resources/download.png"
+                               Grid.Row="2"
+                               Grid.Column="0" />
+                        <TextBlock x:Name="labold"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   Text="Old:"
+                                   Foreground="#ffffff" />
+                        <Grid Grid.Row="2"
+                              Grid.Column="2"
+                              Margin="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <ui:TextBox x:Name="oldpath"
+                                        Grid.Column="0"
+                                        IsReadOnly="True"
+                                        Foreground="#ffffff"
+                                        Margin="0,0,10,0" />
+                            <ui:Button Click="oldpath_Click"
+                                       Grid.Column="2"
+                                       Content="..."
+                                       Foreground="#ffffff"
+                                       VerticalAlignment="Stretch" />
+                        </Grid>
                     </Grid>
-                </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Source="/Resources/upload.png"
+                               Grid.Row="2"
+                               Grid.Column="0" />
+                        <TextBlock x:Name="labnew"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   Text="New:"
+                                   Foreground="#ffffff" />
+                        <Grid Grid.Row="2"
+                              Grid.Column="2"
+                              Margin="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <ui:TextBox x:Name="newpath"
+                                        Grid.Column="0"
+                                        IsReadOnly="True"
+                                        Foreground="#ffffff"
+                                        Margin="0,0,10,0" />
+                            <ui:Button Click="newpath_Click"
+                                       Grid.Column="2"
+                                       Content="..."
+                                       Foreground="#ffffff"
+                                       VerticalAlignment="Stretch" />
+                        </Grid>
+                    </Grid>
+                </StackPanel>
                 <ui:Button Click="Conv_Click"
-                           Grid.Column="1"
+                           Grid.Row="1"
                            HorizontalAlignment="Right"
-                           Margin="0,0,0,0">
+                           Margin="0,20,20,20">
                     <StackPanel>
                         <Grid Grid.Row="1"
                               Margin="0,0,0,0"
@@ -148,7 +158,7 @@
                         </Grid>
                     </StackPanel>
                 </ui:Button>
-            </StackPanel>
+            </Grid>
         </Border>
     </Grid>
 </ui:UiPage>

@@ -11,7 +11,7 @@
            d:DataContext="{d:DesignInstance local:Settings,
                                      IsDesignTimeCreatable=False}"
            d:DesignHeight="750"
-           d:DesignWidth="800"
+           d:DesignWidth="1000"
            Scrollable="True"
            mc:Ignorable="d">
 
@@ -30,189 +30,221 @@
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <StackPanel VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Margin="20,20,20,20"
-                        Width="230"
-                        x:Name="RootStack">
-                <StackPanel.Resources>
-                    <Style TargetType="Grid">
-                        <Setter Property="Margin"
-                                Value="0,0,0,15" />
-                    </Style>
-                </StackPanel.Resources>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Source="../../Resources/language.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock x:Name="lablang"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               Text="Language:"
-                               Foreground="#ffffff" />
-                    <ComboBox Grid.Row="2"
-                              Grid.Column="2"
-                              x:Name="lang_box">
-                        <ComboBoxItem x:Name="lang_en">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/resources/en.png"
-                                       Height="16" />
-                                <TextBlock Text=" English                             " />
-                            </StackPanel>
-                        </ComboBoxItem>
-                        <ComboBoxItem x:Name="lang_fr">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/resources/fr.png"
-                                       Height="16" />
-                                <TextBlock Text=" French                              " />
-                            </StackPanel>
-                        </ComboBoxItem>
-                    </ComboBox>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Source="/Resources/script.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock x:Name="labol"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               Text="Open logs:"
-                               Foreground="#ffffff" />
-                    <ui:Button x:Name="ol"
-                               Click="Logs_Open"
-                               Content="Open"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Margin="20,20,20,20"
+                            Width="230"
+                            x:Name="RootStack">
+                    <StackPanel.Resources>
+                        <Style TargetType="Grid">
+                            <Setter Property="Margin"
+                                    Value="0,0,0,15" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Source="../../Resources/language.png"
                                Grid.Row="2"
-                               Grid.Column="2"
-                               Foreground="#ffffff" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Source="/Resources/delete.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock x:Name="labdl"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               Text="Delete logs:"
-                               Foreground="#ffffff" />
-                    <ui:Button x:Name="dl"
-                               Click="Logs_Clear"
-                               Content="Delete"
+                               Grid.Column="0" />
+                        <TextBlock x:Name="lablang"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   Text="Language:"
+                                   Foreground="#ffffff" />
+                        <ComboBox Grid.Row="2"
+                                  Grid.Column="2"
+                                  x:Name="lang_box">
+                            <ComboBoxItem x:Name="lang_en">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/resources/en.png"
+                                           Height="16" />
+                                    <TextBlock Text=" English                             " />
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem x:Name="lang_fr">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/resources/fr.png"
+                                           Height="16" />
+                                    <TextBlock Text=" French                              " />
+                                </StackPanel>
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Source="/Resources/script.png"
                                Grid.Row="2"
-                               Grid.Column="2"
-                               Foreground="#ffffff" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Source="/Resources/update.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock x:Name="labus"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               Text="Check for update at startup:"
-                               Foreground="#ffffff" />
-                    <ui:ToggleSwitch x:Name="us"
-                                     Grid.Row="2"
-                                     Grid.Column="2"
-                                     IsChecked="True" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Source="/Resources/trayicon.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock x:Name="labtray"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               Text="Start Unowhy Tools Tray at boot:"
-                               Foreground="#ffffff" />
-                    <ui:ToggleSwitch x:Name="tray"
-                                     Grid.Row="2"
-                                     Grid.Column="2"
-                                     IsChecked="True" />
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Source="/Resources/datamatrix.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock x:Name="labsn"
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="3"
-                               Text="Serial Number of this PC:"
-                               Foreground="#ffffff" />
-                    <ui:TextBox x:Name="sn"
-                                Grid.Row="2"
-                                Grid.Column="2"
-                                Text="[SN]null" />
-                </Grid>
+                               Grid.Column="0" />
+                        <TextBlock x:Name="labol"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   Text="Open logs:"
+                                   Foreground="#ffffff" />
+                        <ui:Button x:Name="ol"
+                                   Click="Logs_Open"
+                                   Content="Open"
+                                   Grid.Row="2"
+                                   Grid.Column="2"
+                                   Foreground="#ffffff" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Source="/Resources/delete.png"
+                               Grid.Row="2"
+                               Grid.Column="0" />
+                        <TextBlock x:Name="labdl"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   Text="Delete logs:"
+                                   Foreground="#ffffff" />
+                        <ui:Button x:Name="dl"
+                                   Click="Logs_Clear"
+                                   Content="Delete"
+                                   Grid.Row="2"
+                                   Grid.Column="2"
+                                   Foreground="#ffffff" />
+                    </Grid>
+                </StackPanel>
+                <ui:NavigationSeparator Grid.Column="1"
+                                        Margin="0,10,0,10" />
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Margin="20,20,20,20"
+                            Width="230"
+                            x:Name="RootStack2"
+                            Grid.Column="2">
+                    <StackPanel.Resources>
+                        <Style TargetType="Grid">
+                            <Setter Property="Margin"
+                                    Value="0,0,0,15" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Source="/Resources/update.png"
+                               Grid.Row="2"
+                               Grid.Column="0" />
+                        <TextBlock x:Name="labus"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   Text="Check for update at startup:"
+                                   Foreground="#ffffff" />
+                        <ui:ToggleSwitch x:Name="us"
+                                         Grid.Row="2"
+                                         Grid.Column="2"
+                                         IsChecked="True" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Source="/Resources/trayicon.png"
+                               Grid.Row="2"
+                               Grid.Column="0" />
+                        <TextBlock x:Name="labtray"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   Text="Start Unowhy Tools Tray at boot:"
+                                   Foreground="#ffffff" />
+                        <ui:ToggleSwitch x:Name="tray"
+                                         Grid.Row="2"
+                                         Grid.Column="2"
+                                         IsChecked="True" />
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Source="/Resources/datamatrix.png"
+                               Grid.Row="2"
+                               Grid.Column="0" />
+                        <TextBlock x:Name="labsn"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="3"
+                                   Text="Serial Number of this PC:"
+                                   Foreground="#ffffff" />
+                        <ui:TextBox x:Name="sn"
+                                    Grid.Row="2"
+                                    Grid.Column="2"
+                                    Text="[SN]null" />
+                    </Grid>
+                </StackPanel>
+                <Border Background="#50000000"
+                        CornerRadius="0,0,8,8"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Grid.Row="1" />
                 <ui:Button Click="Apply_Settings"
-                           Grid.Column="1"
+                           Grid.Column="2"
+                           Grid.Row="1"
                            HorizontalAlignment="Right"
-                           Margin="0,0,0,0">
+                           Margin="0,20,20,20">
                     <StackPanel>
                         <Grid Grid.Row="1"
                               Margin="0,0,0,0"
@@ -241,7 +273,7 @@
                         </Grid>
                     </StackPanel>
                 </ui:Button>
-            </StackPanel>
+            </Grid>
         </Border>
     </Grid>
 </ui:UiPage>
