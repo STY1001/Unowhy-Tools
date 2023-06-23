@@ -581,7 +581,7 @@ namespace Unowhy_Tools
             }
             else
             {
-                if (uttask.Enabled == true)
+                if (uttask.Definition.Settings.Enabled)
                 {
                     tray = true;
                 }
@@ -684,7 +684,7 @@ namespace Unowhy_Tools
                 }
                 else
                 {
-                    if (uttask.Enabled == true)
+                    if (uttask.Definition.Settings.Enabled)
                     {
                         mainWindow.SplashText.Text = "Preparing Tray... (Launching)";
                         uttask.Run();
