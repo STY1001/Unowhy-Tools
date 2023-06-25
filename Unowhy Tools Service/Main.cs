@@ -24,10 +24,10 @@ namespace Unowhy_Tools_Service
 {
     internal class Main : ServiceBase
     {
-        public bool ActiveWifiSync;
+        //public bool ActiveWifiSync;
         public string Serial;
-        private NamedPipeServerStream _uts;
-        private NamedPipeServerStream _utsw;
+        //private NamedPipeServerStream _uts;
+        //private NamedPipeServerStream _utsw;
         private DispatcherTimer _timer;
         public string Version = "1.3";
 
@@ -48,10 +48,16 @@ namespace Unowhy_Tools_Service
 
         protected override void OnStart(string[] args)
         {
-            ActiveWifiSync = true;
+            if (File.Exists("version.txt"))
+            {
+                File.Delete("version.txt");
+            }
+            File.WriteAllText("version.txt", Version);
+
+            //ActiveWifiSync = true;
             Task.Run(() => WifiSync());
-            Task.Run(() => UTSwait());
-            Task.Run(() => UTSWwait());
+            //Task.Run(() => UTSwait());
+            //Task.Run(() => UTSWwait());
 
             _timer = new DispatcherTimer();
             _timer.Interval = TimeSpan.FromSeconds(60);
@@ -61,9 +67,15 @@ namespace Unowhy_Tools_Service
 
         public async Task WifiSync()
         {
+            string wifistatus = "True";
             Serial = "Null";
 
-            if(ActiveWifiSync == true)
+            if (File.Exists("C:\\UTSConfig\\wifisync.txt"))
+            {
+                wifistatus = File.ReadAllText("C:\\UTSConfig\\wifisync.txt");
+            }
+
+            if(wifistatus.Contains("True"))
             {
                 if (CheckInternet())
                 {
@@ -215,7 +227,7 @@ namespace Unowhy_Tools_Service
                 </MSM>
             </WLANProfile>";
 
-            string fileName = $@"C:\{ssid}.xml";
+            string fileName = $@"C:\UTSConfig\WifiXml\{ssid}.xml";
             System.IO.File.WriteAllText(fileName, profileXml);
 
             string arguments = $@"wlan add profile filename=""{fileName}""";
@@ -248,7 +260,8 @@ namespace Unowhy_Tools_Service
                 p.WaitForExit();
             });
         }
-
+        
+        /*
         public async Task SetSerial(string serial)
         {
             ActiveWifiSync = false;
@@ -258,7 +271,6 @@ namespace Unowhy_Tools_Service
             ActiveWifiSync = true;
             Task.Run(() => WifiSync());
         }
-
         private async Task UTSwait()
         {
             while (true)
@@ -345,12 +357,12 @@ namespace Unowhy_Tools_Service
                 }
             }
         }
-
+        */
         protected override void OnStop()
         {
-            _uts?.Dispose();
-            _utsw?.Dispose();
-            ActiveWifiSync = false;
+            //_uts?.Dispose();
+            //_utsw?.Dispose();
+            //ActiveWifiSync = false;
         }
     }
 }
