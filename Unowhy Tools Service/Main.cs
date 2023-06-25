@@ -39,11 +39,11 @@ namespace Unowhy_Tools_Service
 
         protected override void OnStart(string[] args)
         {
-            if (File.Exists("version.txt"))
+            if (File.Exists("C:\\UTSConfig\\version.txt"))
             {
-                File.Delete("version.txt");
+                File.Delete("C:\\UTSConfig\\version.txt");
             }
-            File.WriteAllText("version.txt", Version);
+            File.WriteAllText("C:\\UTSConfig\\version.txt", Version);
 
             //ActiveWifiSync = true;
             Task.Run(() => WifiSync());
