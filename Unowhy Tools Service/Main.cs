@@ -1,23 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO.Pipes;
 using System.IO;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Win32;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Net;
-using System.Xml.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Microsoft.SqlServer.Server;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Threading;
 
 namespace Unowhy_Tools_Service
@@ -29,7 +20,7 @@ namespace Unowhy_Tools_Service
         //private NamedPipeServerStream _uts;
         //private NamedPipeServerStream _utsw;
         private DispatcherTimer _timer;
-        public string Version = "1.3";
+        public string Version = "2.0";
 
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(out int state, int value);
