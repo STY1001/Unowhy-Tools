@@ -704,9 +704,19 @@ namespace Unowhy_Tools
                 Directory.CreateDirectory("C:\\UTSConfig");
             }
 
+            if (!Directory.Exists("C:\\UTSConfig\\WifiXml"))
+            {
+                Directory.CreateDirectory("C:\\UTSConfig\\WifiXml");
+            }
+
             if (!File.Exists("C:\\UTSConfig\\serial.txt"))
             {
                 File.WriteAllText("C:\\UTSConfig\\serial.txt", "Null");
+            }
+
+            if (!File.Exists("C:\\UTSConfig\\wifisync.txt"))
+            {
+                File.WriteAllText("C:\\UTSConfig\\wifisync.txt", "True");
             }
 
             mainWindow.SplashBar.Value++;
