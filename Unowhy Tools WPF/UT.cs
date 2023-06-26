@@ -53,9 +53,9 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static int verfull = 2404;
+        public static int verfull = 2405;
         public static string verbuild = "2242230623";
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -402,7 +402,7 @@ namespace Unowhy_Tools
 
                     if (!verisdeb)
                     {
-                        string ver = await UT.UTS.UTSmsg("UTS", "GetVer");
+                        string ver = File.ReadAllText("C:\\UTSConfig\\version.txt");
 
                         if (!(newver == ver))
                         {
@@ -717,6 +717,11 @@ namespace Unowhy_Tools
             if (!File.Exists("C:\\UTSConfig\\wifisync.txt"))
             {
                 File.WriteAllText("C:\\UTSConfig\\wifisync.txt", "True");
+            }
+
+            if (!File.Exists("C:\\UTSConfig\\version.txt"))
+            {
+                File.WriteAllText("C:\\UTSConfig\\version.txt", "Null");
             }
 
             mainWindow.SplashBar.Value++;

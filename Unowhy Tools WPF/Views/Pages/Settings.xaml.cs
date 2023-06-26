@@ -52,7 +52,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async System.Threading.Tasks.Task CheckBTN()
     {
-        string serial = await UT.UTS.UTSmsg("UTSW", "GetSN");
+        string serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
         sn.Text = serial;
 
         TaskService ts = new TaskService();
@@ -114,6 +114,10 @@ public partial class Settings : INavigableView<DashboardViewModel>
         {
             element.Visibility = Visibility.Hidden;
         }
+        foreach (UIElement element in RootStack3.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
 
         await UT.DeployBack(typeof(Dashboard), RootGrid);
 
@@ -153,6 +157,33 @@ public partial class Settings : INavigableView<DashboardViewModel>
             await System.Threading.Tasks.Task.Delay(50);
         }
         foreach (UIElement element in RootStack2.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await System.Threading.Tasks.Task.Delay(50);
+        }
+        foreach (UIElement element in RootStack3.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -226,10 +257,11 @@ public partial class Settings : INavigableView<DashboardViewModel>
             HttpResponseMessage response = await web.GetAsync(configurl);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                await UT.UTS.UTSmsg("UTSW", $"SetSN:{ssn}");
+                File.Delete("C:\\UTSConfig\\serial.txt");
+                File.WriteAllText("C:\\UTSConfig\\serial.txt", ssn);
                 await System.Threading.Tasks.Task.Delay(1000);
-                string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN"); 
-                if(!(nsn == ssn))
+                string nsn = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+                if (!(nsn == ssn))
                 {
                     await UT.waitstatus.close();
                     UT.DialogIShow(UT.GetLang("failed"), "no.png");

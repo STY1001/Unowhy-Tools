@@ -51,7 +51,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
     public async void Init(object sender, EventArgs e)
     {
         applylang();
-        string sn = await UT.UTS.UTSmsg("UTSW", "GetSN");
+        string sn = File.ReadAllText("C:\\UTSConfig\\serial.txt");
         if (!(sn == "Null") && sn.Contains("IFP"))
         {
             serial.Text = sn;

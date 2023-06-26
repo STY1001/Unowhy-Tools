@@ -15,6 +15,8 @@ using System.Net;
 using System.Windows.Input;
 using System.Xml.Linq;
 using TaskScheduler = Microsoft.Win32.TaskScheduler;
+using System.Runtime.Intrinsics.X86;
+using System.IO;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -39,7 +41,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
         string sn = await UT.RunReturn("wmic", "bios get serialnumber");
         string pn = await UT.RunReturn("hostname", "");
-        string un = await UT.UTS.UTSmsg("UTSW", "GetSN");
+        string un = File.ReadAllText("C:\\UTSConfig\\serial.txt");
 
         pn = pn.Replace("\n", "").Replace("\r", "");
         sn = UT.GetLine(sn, 2);
@@ -217,9 +219,10 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             HttpResponseMessage response = await web.GetAsync(configurl);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                await UT.UTS.UTSmsg("UTSW", $"SetSN:{ssn}");
-                await Task.Delay(1000);
-                string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");
+                File.Delete("C:\\UTSConfig\\serial.txt");
+                File.WriteAllText("C:\\UTSConfig\\serial.txt", ssn);
+                await System.Threading.Tasks.Task.Delay(1000);
+                string nsn = File.ReadAllText("C:\\UTSConfig\\serial.txt");
                 await UT.waitstatus.close();
                 if (!(nsn == ssn))
                 {

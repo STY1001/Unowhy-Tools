@@ -16,6 +16,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.IO;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -215,7 +216,7 @@ public partial class About : INavigableView<DashboardViewModel>
         if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
         else UTsver = UTsver + "(Release)";
 
-        string UTSsver = "Unowhy Tools Service version " + await UT.UTS.UTSmsg("UTS", "GetVer");
+        string UTSsver = "Unowhy Tools Service version " + File.ReadAllText("C:\\UTSConfig\\version.txt");
 
         LogoVer.Text = UTsver;
         UTverlab.Text = UTsver;
