@@ -111,6 +111,7 @@
     <None Remove="Resources\verbose.png" />
     <None Remove="Resources\vs.png" />
     <None Remove="Resources\wait.png" />
+    <None Remove="Resources\wifi.png" />
     <None Remove="Resources\win10.png" />
     <None Remove="Resources\win11.png" />
     <None Remove="Resources\wpfui.png" />
@@ -229,6 +230,7 @@
     <Resource Include="Resources\verbose.png" />
     <Resource Include="Resources\vs.png" />
     <Resource Include="Resources\wait.png" />
+    <Resource Include="Resources\wifi.png" />
     <Resource Include="Resources\win10.png" />
     <Resource Include="Resources\win11.png" />
     <Resource Include="Resources\wpfui.png" />
