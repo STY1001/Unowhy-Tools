@@ -22,7 +22,7 @@ namespace Unowhy_Tools_Service
         private NamedPipeServerStream _uts;
         private NamedPipeServerStream _utsw;
         private DispatcherTimer _timer;
-        public string Version = "2.0";
+        public string Version = "2.1";
 
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(out int state, int value);
