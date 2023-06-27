@@ -10,6 +10,7 @@ using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Windows.Threading;
+using System.IO.Pipes;
 
 namespace Unowhy_Tools_Service
 {
@@ -17,8 +18,9 @@ namespace Unowhy_Tools_Service
     {
         //public bool ActiveWifiSync;
         public string Serial;
-        //private NamedPipeServerStream _uts;
-        //private NamedPipeServerStream _utsw;
+        public string WifiStatus;
+        private NamedPipeServerStream _uts;
+        private NamedPipeServerStream _utsw;
         private DispatcherTimer _timer;
         public string Version = "2.0";
 
@@ -39,34 +41,27 @@ namespace Unowhy_Tools_Service
 
         protected override void OnStart(string[] args)
         {
-            if (File.Exists("C:\\UTSConfig\\version.txt"))
-            {
-                File.Delete("C:\\UTSConfig\\version.txt");
-            }
-            File.WriteAllText("C:\\UTSConfig\\version.txt", Version);
-
-            //ActiveWifiSync = true;
-            Task.Run(() => WifiSync());
-            //Task.Run(() => UTSwait());
-            //Task.Run(() => UTSWwait());
-
             _timer = new DispatcherTimer();
             _timer.Interval = TimeSpan.FromSeconds(60);
             _timer.Tick += async (sender, e) => await WifiSync();
             _timer.Start();
+
+            Task.Run(() => WifiSync());
+            Task.Run(() => UTSwait());
+            Task.Run(() => UTSWwait());
         }
 
         public async Task WifiSync()
         {
-            string wifistatus = "True";
+            WifiStatus = "True";
             Serial = "Null";
 
             if (File.Exists("C:\\UTSConfig\\wifisync.txt"))
             {
-                wifistatus = File.ReadAllText("C:\\UTSConfig\\wifisync.txt");
+                WifiStatus = File.ReadAllText("C:\\UTSConfig\\wifisync.txt");
             }
 
-            if(wifistatus.Contains("True"))
+            if(WifiStatus.Contains("True"))
             {
                 if (CheckInternet())
                 {
@@ -252,16 +247,22 @@ namespace Unowhy_Tools_Service
             });
         }
         
-        /*
+        public async Task SetWS(string status)
+        {
+            File.Delete("C:\\UTSConfig\\wifisync.txt");
+            File.WriteAllText("C:\\UTSConfig\\wifisync.txt", status);
+            WifiStatus = File.ReadAllText("C:\\UTSConfig\\wifisync.txt");
+            Task.Run(() => WifiSync());
+        }
+
         public async Task SetSerial(string serial)
         {
-            ActiveWifiSync = false;
             File.Delete("C:\\UTSConfig\\serial.txt");
             File.WriteAllText("C:\\UTSConfig\\serial.txt", serial);
             serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
-            ActiveWifiSync = true;
             Task.Run(() => WifiSync());
         }
+
         private async Task UTSwait()
         {
             while (true)
@@ -337,6 +338,13 @@ namespace Unowhy_Tools_Service
                                 ret = Serial;
                             }
 
+                            if (clientData.Contains("SetWS:"))
+                            {
+                                string newws = clientData.Replace("SetWS:", "");
+                                await SetWS(newws);
+                                ret = WifiStatus;
+                            }
+
                             await writer.WriteLineAsync(ret);
                             await writer.FlushAsync();
                         }
@@ -348,12 +356,11 @@ namespace Unowhy_Tools_Service
                 }
             }
         }
-        */
+
         protected override void OnStop()
         {
-            //_uts?.Dispose();
-            //_utsw?.Dispose();
-            //ActiveWifiSync = false;
+            _uts?.Dispose();
+            _utsw?.Dispose();
         }
     }
 }
