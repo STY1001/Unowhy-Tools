@@ -663,6 +663,9 @@
   <data name="wait" xml:space="preserve">
     <value>Please wait...</value>
   </data>
+  <data name="wifisync" xml:space="preserve">
+    <value>School Wifi settings sync.</value>
+  </data>
   <data name="winre" xml:space="preserve">
     <value>WinRE (reagentc) settings</value>
   </data>

@@ -40,6 +40,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         labus.Text = UT.GetLang("cuab");
         labsn.Text = UT.GetLang("pcserial");
         labtray.Text = UT.GetLang("boottray");
+        labws.Text = UT.GetLang("wifisync");
     }
 
     public async void GoBack(object sender, RoutedEventArgs e)
