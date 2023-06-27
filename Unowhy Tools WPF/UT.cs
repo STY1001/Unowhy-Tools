@@ -719,11 +719,6 @@ namespace Unowhy_Tools
                 File.WriteAllText("C:\\UTSConfig\\wifisync.txt", "True");
             }
 
-            if (!File.Exists("C:\\UTSConfig\\version.txt"))
-            {
-                File.WriteAllText("C:\\UTSConfig\\version.txt", "Null");
-            }
-
             mainWindow.SplashBar.Value++;
 
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools"))

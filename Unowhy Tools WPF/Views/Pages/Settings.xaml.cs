@@ -52,7 +52,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async System.Threading.Tasks.Task CheckBTN()
     {
-        string serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+        string serial = await UT.UTS.UTSmsg("UTSW", "GetSN");
         sn.Text = serial;
 
         TaskService ts = new TaskService();
@@ -257,10 +257,9 @@ public partial class Settings : INavigableView<DashboardViewModel>
             HttpResponseMessage response = await web.GetAsync(configurl);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                File.Delete("C:\\UTSConfig\\serial.txt");
-                File.WriteAllText("C:\\UTSConfig\\serial.txt", ssn);
+                await UT.UTS.UTSmsg("UTSW", "SetSN:" +  ssn);
                 await System.Threading.Tasks.Task.Delay(1000);
-                string nsn = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+                string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");
                 if (!(nsn == ssn))
                 {
                     await UT.waitstatus.close();

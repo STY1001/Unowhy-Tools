@@ -41,7 +41,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
         string sn = await UT.RunReturn("wmic", "bios get serialnumber");
         string pn = await UT.RunReturn("hostname", "");
-        string un = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+        string un = await UT.UTS.UTSmsg("UTSW", "GetSN");
 
         pn = pn.Replace("\n", "").Replace("\r", "");
         sn = UT.GetLine(sn, 2);
@@ -219,10 +219,9 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             HttpResponseMessage response = await web.GetAsync(configurl);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                File.Delete("C:\\UTSConfig\\serial.txt");
-                File.WriteAllText("C:\\UTSConfig\\serial.txt", ssn);
+                await UT.UTS.UTSmsg("UTSW", "SetSN:" +  ssn);
                 await System.Threading.Tasks.Task.Delay(1000);
-                string nsn = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+                string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");
                 await UT.waitstatus.close();
                 if (!(nsn == ssn))
                 {

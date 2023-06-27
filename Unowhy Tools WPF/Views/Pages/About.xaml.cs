@@ -216,7 +216,7 @@ public partial class About : INavigableView<DashboardViewModel>
         if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
         else UTsver = UTsver + "(Release)";
 
-        string UTSsver = "Unowhy Tools Service version " + File.ReadAllText("C:\\UTSConfig\\version.txt");
+        string UTSsver = "Unowhy Tools Service version " + await UT.UTS.UTSmsg("UTS", "GetVer");
 
         LogoVer.Text = UTsver;
         UTverlab.Text = UTsver;
