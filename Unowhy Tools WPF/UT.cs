@@ -402,7 +402,7 @@ namespace Unowhy_Tools
 
                     if (!verisdeb)
                     {
-                        string ver = File.ReadAllText("C:\\UTSConfig\\version.txt");
+                        string ver = await UT.UTS.UTSmsg("UTS", "GetVer");
 
                         if (!(newver == ver))
                         {
