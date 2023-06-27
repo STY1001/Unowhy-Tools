@@ -331,6 +331,11 @@ namespace Unowhy_Tools_Service
                                 ret = Serial;
                             }
 
+                            if (clientData.Contains("GetWS"))
+                            {
+                                ret = WifiStatus;
+                            }
+
                             if (clientData.Contains("SetSN:"))
                             {
                                 string newsn = clientData.Replace("SetSN:", "");
