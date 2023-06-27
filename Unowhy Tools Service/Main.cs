@@ -61,24 +61,25 @@ namespace Unowhy_Tools_Service
                 WifiStatus = File.ReadAllText("C:\\UTSConfig\\wifisync.txt");
             }
 
-            if(WifiStatus.Contains("True"))
+            if (!File.Exists("C:\\UTSConfig\\serial.txt"))
             {
-                if (CheckInternet())
+                return;
+            }
+            else
+            {
+                if (File.ReadAllText("C:\\UTSConfig\\serial.txt") == "Null")
                 {
-                    if (!File.Exists("C:\\UTSConfig\\serial.txt"))
+                    return;
+                }
+                else
+                {
+                    Serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+
+                    if (WifiStatus.Contains("True"))
                     {
-                        return;
-                    }
-                    else
-                    {
-                        if (File.ReadAllText("C:\\UTSConfig\\serial.txt") == "Null")
-                        {
-                            return;
-                        }
-                        else
+                        if (CheckInternet())
                         {
                             var web = new HttpClient();
-                            Serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
                             string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
                             string configurl = $"{preurl}/devices/{Serial}/configuration";
 
@@ -176,11 +177,11 @@ namespace Unowhy_Tools_Service
                                 }
                             }
                         }
+                        else
+                        {
+                            return;
+                        }
                     }
-                }
-                else
-                {
-                    return;
                 }
             }
         }
@@ -246,7 +247,7 @@ namespace Unowhy_Tools_Service
                 p.WaitForExit();
             });
         }
-        
+
         public async Task SetWS(string status)
         {
             File.Delete("C:\\UTSConfig\\wifisync.txt");
