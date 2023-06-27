@@ -14,6 +14,7 @@ using System.Net;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
 using Microsoft.Win32.TaskScheduler;
+using System.Runtime.Intrinsics.X86;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -54,6 +55,15 @@ public partial class Settings : INavigableView<DashboardViewModel>
     {
         string serial = await UT.UTS.UTSmsg("UTSW", "GetSN");
         sn.Text = serial;
+
+        if((await UT.UTS.UTSmsg("UTSW", "GetWS")).Contains("True"))
+        {
+            ws.IsChecked = true;
+        }
+        else
+        {
+            ws.IsChecked = false;
+        }
 
         TaskService ts = new TaskService();
         Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
@@ -284,6 +294,29 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
         if (ok)
         {
+            if(ws.IsChecked == true)
+            {
+                await UT.UTS.UTSmsg("UTSW", "SetWS:" + "True");
+                await System.Threading.Tasks.Task.Delay(1000);
+                if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "True"))
+                {
+                    await UT.waitstatus.close();
+                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    await UT.waitstatus.open();
+                }
+            }
+            else
+            {
+                await UT.UTS.UTSmsg("UTSW", "SetWS:" + "False");
+                await System.Threading.Tasks.Task.Delay(1000);
+                if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "False"))
+                {
+                    await UT.waitstatus.close();
+                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    await UT.waitstatus.open();
+                }
+            }
+
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             if (lang_en.IsSelected)
             {
