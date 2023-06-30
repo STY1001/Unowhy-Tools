@@ -7,7 +7,7 @@
 #### _**This in French : https://sty1001.fr/unowhy-tools/**_
 
 ## Features
-Currently, with this tool you can:
+Currently, with this tool, you can:
 - Enable/Disable/Stop/Start the "HiSqool Manager" service
 - Delete the local "ENT" account
 - Restore the "Shell" value to "explorer.exe" in the registery
@@ -29,7 +29,7 @@ Currently, with this tool you can:
 - Enable Windows Hello Enterprise
 - Repair BootIM (Blue Menu)
 - Quickly launch CMD, TaskMgr, REGedit, GPedit
-- Download an UT driver backup from cloud
+- Download a UT driver backup from cloud
 - Del "IgnoreAllFailures" (Boot Status Policy) in BCD
 - Enable TaskMGR
 - Enable account lockout
