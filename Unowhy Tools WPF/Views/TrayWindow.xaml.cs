@@ -336,17 +336,22 @@ public partial class TrayWindow : Window
         await Task.Delay(1000);
         if (UT.CheckInternet())
         {
-            await UT.SendStats("tray");
-
-            if (await UT.version.newver())
+            RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
+            string utcuab = lcs.GetValue("UpdateStart").ToString();
+            if (utcuab == "1")
             {
-                var web = new HttpClient();
-                string newver = await web.GetStringAsync("https://bit.ly/UTnvTXT");
-                newver = newver.Insert(2, ".");
-                newver = newver.Replace("\n", "");
-                string newverfull = UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
-                trayIcon.ShowBalloonTip(3000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
+                if (await UT.version.newver())
+                {
+                    var web = new HttpClient();
+                    string newver = await web.GetStringAsync("https://bit.ly/UTnvTXT");
+                    newver = newver.Insert(2, ".");
+                    newver = newver.Replace("\n", "");
+                    string newverfull = UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
+                    trayIcon.ShowBalloonTip(3000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
+                }
             }
+
+            await UT.SendStats("tray");
         }
     }
 
