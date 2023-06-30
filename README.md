@@ -6,8 +6,8 @@
 *Unowhy Tools and STY1001 are __NOT__ affiliated with Unowhy SAS !*
 #### _**This in French : https://sty1001.fr/unowhy-tools/**_
 
-## Features
-Currently, with this tool you can:
+## ⚙️ Features
+Currently, with this tool, you can:
 - Enable/Disable/Stop/Start the "HiSqool Manager" service
 - Delete the local "ENT" account
 - Restore the "Shell" value to "explorer.exe" in the registery
@@ -29,7 +29,7 @@ Currently, with this tool you can:
 - Enable Windows Hello Enterprise
 - Repair BootIM (Blue Menu)
 - Quickly launch CMD, TaskMgr, REGedit, GPedit
-- Download an UT driver backup from cloud
+- Download a UT driver backup from cloud
 - Del "IgnoreAllFailures" (Boot Status Policy) in BCD
 - Enable TaskMGR
 - Enable account lockout
@@ -41,18 +41,14 @@ Currently, with this tool you can:
 
 More features coming soon
 
-## How to use
+## ✅ How to use
 ### You need admin privileges
 1. Go to [releases](https://github.com/STY1001/Unowhy-Tools/releases/latest) and download "Unowhy Tools xx.xx Setup.exe"
 2. Launch and install "Unowhy Tools Setup"
 3. When it's installed, launch "Unowhy Tools"
 4. Use "Unowhy Tools" as you want
 
-## "Presentation" Mode (Deprecated) (<19.0)
-This is a mode for me to make screenshots of UT.
-You can enable the "Presentation" Mode by clicking on Unowhy Tools logo in Main Form
-
-## Screenshots
+## 📷 Screenshots
 
 24.04
 
