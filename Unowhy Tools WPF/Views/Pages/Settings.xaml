@@ -112,12 +112,20 @@
                                    Grid.ColumnSpan="3"
                                    Text="Open logs:"
                                    Foreground="#ffffff" />
-                        <ui:Button x:Name="ol"
-                                   Click="Logs_Open"
-                                   Content="Open"
-                                   Grid.Row="2"
-                                   Grid.Column="2"
-                                   Foreground="#ffffff" />
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Row="2"
+                                    Grid.Column="2">
+                            <ui:Button x:Name="ol"
+                                       Click="Logs_Open"
+                                       Content="Open"
+                                       Foreground="#ffffff" />
+                            <ui:Button x:Name="ll"
+                                       Click="Live_Logs"
+                                       Content="Live View"
+                                       Foreground="#ffffff" 
+                                       Margin="5,0,0,0"/>
+                        </StackPanel>
+                        
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>

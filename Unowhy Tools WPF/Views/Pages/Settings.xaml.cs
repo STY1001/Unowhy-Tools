@@ -253,6 +253,18 @@ public partial class Settings : INavigableView<DashboardViewModel>
         });
     }
 
+    public void Live_Logs(object sender, RoutedEventArgs e)
+    {
+        string logspath = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
+        string args = "\"type '" + logspath + "' -wait\"";
+        System.Diagnostics.Process.Start(new ProcessStartInfo
+        {
+            FileName = "powershell",
+            Arguments = args,
+            UseShellExecute = true
+        });
+    }
+
     public async void Apply_Settings(object sender, RoutedEventArgs e)
     {
         await UT.waitstatus.open();
