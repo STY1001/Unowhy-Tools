@@ -30,7 +30,8 @@
     <None Remove="Resources\adduser.png" />
     <None Remove="Resources\admin.png" />
     <None Remove="Resources\adminuser.png" />
-    <None Remove="Resources\azgard.gif" />
+    <None Remove="Resources\ahhj93.jpg" />
+    <None Remove="Resources\azgard.jpg" />
     <None Remove="Resources\azure.png" />
     <None Remove="Resources\back.png" />
     <None Remove="Resources\boot.png" />
@@ -58,7 +59,7 @@
     <None Remove="Resources\folder.png" />
     <None Remove="Resources\fp.png" />
     <None Remove="Resources\fr.png" />
-    <None Remove="Resources\g9.png" />
+    <None Remove="Resources\g9.jpg" />
     <None Remove="Resources\github.png" />
     <None Remove="Resources\guide.png" />
     <None Remove="Resources\hi.png" />
@@ -147,7 +148,8 @@
     <Resource Include="Resources\adduser.png" />
     <Resource Include="Resources\admin.png" />
     <Resource Include="Resources\adminuser.png" />
-    <Resource Include="Resources\azgard.gif" />
+    <Resource Include="Resources\ahhj93.jpg" />
+    <Resource Include="Resources\azgard.jpg" />
     <Resource Include="Resources\azure.png" />
     <Resource Include="Resources\back.png" />
     <Resource Include="Resources\boot.png" />
@@ -175,7 +177,7 @@
     <Resource Include="Resources\folder.png" />
     <Resource Include="Resources\fp.png" />
     <Resource Include="Resources\fr.png" />
-    <Resource Include="Resources\g9.png" />
+    <Resource Include="Resources\g9.jpg" />
     <Resource Include="Resources\github.png" />
     <Resource Include="Resources\guide.png" />
     <Resource Include="Resources\hi.png" />

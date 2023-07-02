@@ -283,7 +283,7 @@
                                 <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Image Source="../../Resources/azgard.gif"
+                            <Image Source="../../Resources/azgard.jpg"
                                    Grid.Column="0" />
                             <TextBlock Text="Azgar"
                                        Foreground="#ffffff"
@@ -296,9 +296,22 @@
                                 <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Image Source="../../Resources/g9.png"
+                            <Image Source="../../Resources/g9.jpg"
                                    Grid.Column="0" />
                             <TextBlock Text="G9-Dev"
+                                       Foreground="#ffffff"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                        <Grid Margin="10,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="32" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="../../Resources/ahhj93.jpg"
+                                   Grid.Column="0" />
+                            <TextBlock Text="Ahhj93"
                                        Foreground="#ffffff"
                                        Grid.Column="2"
                                        VerticalAlignment="Center" />
