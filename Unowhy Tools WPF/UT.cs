@@ -54,7 +54,7 @@ namespace Unowhy_Tools
         #endregion
 
         public static int verfull = 2406;
-        public static string verbuild = "1434300623";
+        public static string verbuild = "2140020723";
         public static bool verisdeb = true;
 
         public class version
@@ -277,6 +277,7 @@ namespace Unowhy_Tools
         {
             public static async Task<string> UTSmsg(string pipe, string msg)
             {
+                Write2Log($"Message to UTS: Pipe:\"{pipe}\" Message:\"{msg}\"");
                 string ret = null;
 
                 try
@@ -305,6 +306,7 @@ namespace Unowhy_Tools
 
                 }
 
+                Write2Log($"Return: \"{ret}\"");
                 return ret;
             }
 
