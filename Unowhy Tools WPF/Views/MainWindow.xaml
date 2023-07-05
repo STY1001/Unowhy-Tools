@@ -33,7 +33,12 @@
         </Grid.RowDefinitions>
         <Grid x:Name="RootMainGrid"
               Grid.Row="1"
-              Margin="0">
+              Margin="0"
+              RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <ScaleTransform ScaleX="1"
+                                ScaleY="1" />
+            </Grid.RenderTransform>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -218,7 +223,13 @@
 
         <Grid x:Name="RootWelcomeGrid"
               Grid.Row="1"
-              Visibility="Collapsed">
+              Visibility="Collapsed"
+              Background="#88000000"
+              RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <ScaleTransform ScaleX="1"
+                                ScaleY="1" />
+            </Grid.RenderTransform>
             <Border Background="Transparent"
                     BorderThickness="3"
                     BorderBrush="#353535"
@@ -293,13 +304,21 @@
                                 Grid.Row="5"
                                 VerticalAlignment="Center">
                         <ProgressBar x:Name="SplashBar"
-                                     Height="25" />
+                                     Height="25"
+                                     Maximum="100"/>
                         <TextBlock x:Name="SplashText"
-                                   Margin="0,-25,0,0"
-                                   FontSize="16"
+                                   Margin="5,-22,0,0"
+                                   FontSize="13"
                                    FontWeight="Medium"
                                    Text="Loading..."
-                                   TextAlignment="Center"
+                                   TextAlignment="Left"
+                                   TextWrapping="Wrap" />
+                        <TextBlock x:Name="SplashPercent"
+                                   Margin="0,-25,5,0"
+                                   FontSize="16"
+                                   FontWeight="Medium"
+                                   Text="---%"
+                                   TextAlignment="Right"
                                    TextWrapping="Wrap" />
                     </StackPanel>
                 </Grid>

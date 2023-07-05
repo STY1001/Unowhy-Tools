@@ -313,32 +313,28 @@ namespace Unowhy_Tools
             public static async Task UTScheck()
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                mainWindow.SplashText.Text = "Preparing UTS... (Checking)";
+                await MainWindow.USS("Preparing UTS... (Checking)");
                 string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
 
                 if (!Directory.Exists(instdir))
                 {
                     Directory.CreateDirectory(instdir);
                 }
-                mainWindow.SplashBar.Value++;
-                mainWindow.SplashBar.Value++;
                 if (!File.Exists(instdir + "\\Unowhy Tools Service.exe"))
                 {
                     if (CheckInternet())
                     {
-                        mainWindow.SplashText.Text = "Preparing UTS... (Downloading)";
+                        await MainWindow.USSwB("Preparing UTS... (Downloading)");
                         var web = new HttpClient();
                         var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
                         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
                         File.WriteAllBytes(utemp + "\\service.zip", filebyte);
-                        mainWindow.SplashText.Text = "Preparing UTS... (Extracting)";
+                        await MainWindow.USSwB("Preparing UTS... (Extracting)");
                         await Task.Delay(100);
                         ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
                         await Task.Delay(100);
                     }
                 }
-                mainWindow.SplashBar.Value++;
-                mainWindow.SplashBar.Value++;
                 string utspath = instdir + "\\Unowhy Tools Service.exe";
 
                 if (await UT.serv.exist("UTS"))
@@ -353,7 +349,7 @@ namespace Unowhy_Tools
                     else
                     {
                         await UT.RunMin("sc", "config UTS type=own type=interact");
-                        mainWindow.SplashText.Text = "Preparing UTS... (Restarting)";
+                        await MainWindow.USSwB("Preparing UTS... (Restarting)");
                         await UT.serv.stop("UTS");
                         await UT.serv.start("UTS");
                     }
@@ -362,34 +358,30 @@ namespace Unowhy_Tools
                     {
                         if (sc.Status == ServiceControllerStatus.Running)
                         {
-                            mainWindow.SplashText.Text = "Preparing UTS... (Running)";
+                            await MainWindow.USSwB("Preparing UTS... (Running)");
+                            
                         }
                         else
                         {
                             await UT.serv.start("UTS");
-                            mainWindow.SplashText.Text = "Preparing UTS... (Starting)";
+                            await MainWindow.USSwB("Preparing UTS... (Starting)");
                         }
                     }
                     else
                     {
                         await UT.serv.auto("UTS");
                         await UT.serv.start("UTS");
-                        mainWindow.SplashText.Text = "Preparing UTS... (Starting)";
+                        await MainWindow.USSwB("Preparing UTS... (Starting)");
                     }
                 }
                 else
                 {
-                    mainWindow.SplashText.Text = "Preparing UTS... (Installing)";
+                    await MainWindow.USSwB("Preparing UTS... (Installing)");
                     await UT.RunMin("sc", $"create UTS binpath=\"\\\"{utspath}\\\"\" displayname=\"Unowhy Tools Service\" start=auto type=own type=interact");
                     await UT.serv.start("UTS");
                 }
-                mainWindow.SplashBar.Value++;
-                mainWindow.SplashBar.Value++;
-                mainWindow.SplashText.Text = "Preparing UTS... (Checking Update)";
-                await Task.Delay(100);
+                await MainWindow.USS("Preparing UTS... (Checking Update)");
                 await UT.UTS.UTSupdate();
-                mainWindow.SplashBar.Value++;
-                mainWindow.SplashBar.Value++;
             }
 
             public static async Task UTSupdate()
@@ -408,11 +400,11 @@ namespace Unowhy_Tools
 
                         if (!(newver == ver))
                         {
-                            mainWindow.SplashText.Text = "Preparing UTS... (" + ver + " => " + newver + ")";
-                            await Task.Delay(300);
-                            mainWindow.SplashText.Text = "Preparing UTS... (Shutting down)";
+                            await MainWindow.USSwB("Preparing UTS... (" + ver + " => " + newver + ")");
+                            await Task.Delay(1000);
+                            await MainWindow.USSwB("Preparing UTS... (Shutting down)");
                             await UT.serv.stop("UTS");
-                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading)";
+                            await MainWindow.USSwB("Preparing UTS... (Downloading)");
                             string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
                             Directory.Delete(instdir, true);
                             await Task.Delay(100);
@@ -421,11 +413,11 @@ namespace Unowhy_Tools
                             var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
                             string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
                             File.WriteAllBytes(utemp + "\\service.zip", filebyte);
-                            mainWindow.SplashText.Text = "Preparing UTS... (Extracting)";
+                            await MainWindow.USSwB("Preparing UTS... (Extracting)");
                             await Task.Delay(100);
                             ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
                             await Task.Delay(100);
-                            mainWindow.SplashText.Text = "Preparing UTS... (Starting up)";
+                            await MainWindow.USSwB("Preparing UTS... (Starting up)");
                             await UT.serv.start("UTS");
                         }
                     }
@@ -458,7 +450,6 @@ namespace Unowhy_Tools
 
         public static async Task Cleanup()
         {
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             /*
             List<string> oldfiles = new List<string>()
             {
@@ -539,24 +530,18 @@ namespace Unowhy_Tools
                 }
             }
             */
-            mainWindow.SplashBar.Value = 10;
-            mainWindow.SplashText.Text = "Cleanup... (Checking)";
+            await MainWindow.USS("Cleanup... (Checking)");
             if (Directory.Exists("temp"))
             {
-                mainWindow.SplashText.Text = "Cleanup... (\\temp)";
+                await MainWindow.USSwB("Cleanup... (\\temp)");
                 Directory.Delete("temp", true);
             }
-            await Task.Delay(300);
-            mainWindow.SplashBar.Value = 20;
-            mainWindow.SplashText.Text = "Cleanup... (Checking)";
+            await MainWindow.USS("Cleanup... (Checking)");
             if (Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
             {
-                mainWindow.SplashText.Text = "Cleanup... (%temp%\\Unowhy Tools\\Temps)";
+                await MainWindow.USSwB("Cleanup... (%temp%\\Unowhy Tools\\Temps)");
                 Directory.Delete(Path.GetTempPath() + "\\Unowhy Tools\\Temps", true);
             }
-            await Task.Delay(300);
-            mainWindow.SplashBar.Value = 30;
-            await Task.Delay(300);
         }
 
         public static async Task SendStats(string launchmode)
@@ -625,8 +610,7 @@ namespace Unowhy_Tools
         public static async Task TrayCheck()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-            mainWindow.SplashText.Text = "Preparing Tray... (Checking)";
-            await Task.Delay(300);
+            await MainWindow.USS("Preparing Tray... (Checking)");
             if (await CheckTray())
             {
 
@@ -638,7 +622,7 @@ namespace Unowhy_Tools
                 TaskScheduler.Task uttask = taskService.GetTask("Unowhy Tools Tray Launch");
                 if (uttask == null)
                 {
-                    mainWindow.SplashText.Text = "Preparing Tray... (Creating)";
+                    await MainWindow.USSwB("Preparing Tray... (Creating)");
 
                     TaskScheduler.TaskDefinition taskDefinition = taskService.NewTask();
                     taskDefinition.RegistrationInfo.Date = DateTime.Now;
@@ -669,16 +653,16 @@ namespace Unowhy_Tools
                     try
                     {
                         await Task.Delay(1000);
-                        mainWindow.SplashText.Text = "Preparing Tray... (Launching)";
+                        await MainWindow.USSwB("Preparing Tray... (Launching)");
                         taskService = new TaskScheduler.TaskService();
                         uttask = taskService.GetTask("Unowhy Tools Tray Launch");
                         uttask.Run();
                     }
                     catch
                     {
-                        mainWindow.SplashText.Text = "Preparing Tray... (Waiting)";
+                        await MainWindow.USSwB("Preparing Tray... (Waiting)");
                         await Task.Delay(5000);
-                        mainWindow.SplashText.Text = "Preparing Tray... (Launching)";
+                        await MainWindow.USSwB("Preparing Tray... (Launching)");
                         taskService = new TaskScheduler.TaskService();
                         uttask = taskService.GetTask("Unowhy Tools Tray Launch");
                         uttask.Run();
@@ -688,7 +672,7 @@ namespace Unowhy_Tools
                 {
                     if (uttask.Definition.Settings.Enabled)
                     {
-                        mainWindow.SplashText.Text = "Preparing Tray... (Launching)";
+                        await MainWindow.USSwB("Preparing Tray... (Launching)");
                         uttask.Run();
                     }
                 }
@@ -698,66 +682,75 @@ namespace Unowhy_Tools
         public static async Task<bool> FirstStart()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-            mainWindow.SplashText.Text = "Checking... (Folder)";
-            await Task.Delay(100);
+            await MainWindow.USS("Checking... (Folder)");
 
+            await MainWindow.USS("Folder... (C:\\UTSConfig)");
             if (!Directory.Exists("C:\\UTSConfig"))
             {
                 Directory.CreateDirectory("C:\\UTSConfig");
             }
 
+            await MainWindow.USS("Folder... (C:\\UTSConfig\\WifiXml)");
             if (!Directory.Exists("C:\\UTSConfig\\WifiXml"))
             {
                 Directory.CreateDirectory("C:\\UTSConfig\\WifiXml");
             }
 
+            await MainWindow.USS("Folder... (C:\\UTSConfig\\serial.txt)");
             if (!File.Exists("C:\\UTSConfig\\serial.txt"))
             {
                 File.WriteAllText("C:\\UTSConfig\\serial.txt", "Null");
             }
 
+            await MainWindow.USS("Folder... (C:\\UTSConfig\\wifisync.txt)");
             if (!File.Exists("C:\\UTSConfig\\wifisync.txt"))
             {
                 File.WriteAllText("C:\\UTSConfig\\wifisync.txt", "True");
             }
 
-            mainWindow.SplashBar.Value++;
-
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools)");
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools");
             }
 
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Logs)");
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Logs");
             }
 
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps)");
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps");
             }
 
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\Update)");
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Update"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Update");
             }
 
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\Drivers)");
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers");
             }
 
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\WebView2)");
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2");
             }
 
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\Service)");
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Service"))
             {
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Service");
             }
 
+            await MainWindow.USS("Checking... (%temp%\\Unowhy Tools\\Logs\\UT_Logs.txt)");
             if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
             {
                 var f = File.CreateText(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
@@ -773,12 +766,9 @@ namespace Unowhy_Tools
                 Write2Log("Last logs are on bottom\n\n\n");
             }
 
-            mainWindow.SplashBar.Value++;
-            mainWindow.SplashText.Text = "Checking... (Registry)";
-            await Task.Delay(100);
+            await MainWindow.USS("Checking... (Registry)");
 
             RegistryKey keysoft = Registry.CurrentUser.OpenSubKey(@"Software", true);
-
             RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
             if (keysty == null)
             {
@@ -786,27 +776,22 @@ namespace Unowhy_Tools
             }
 
             keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
-
             RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
             if (keyut == null)
             {
                 keysty.CreateSubKey("Unowhy Tools");
             }
 
-            mainWindow.SplashBar.Value++;
-
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             object us = key.GetValue("UpdateStart", null);
             if (us == null)
             {
-                //await RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v UpdateStart /d 1 /t REG_SZ /f");
                 key.SetValue("UpdateStart", "1", RegistryValueKind.String);
             }
 
             object o = key.GetValue("Lang", null);
             if (o == null)
             {
-                //await RunMin("reg", "add \"HKCU\\Software\\STY1001\\Unowhy Tools\" /v Lang /d EN /t REG_SZ /f");
                 key.SetValue("Lang", "EN", RegistryValueKind.String);
             }
 
@@ -815,8 +800,6 @@ namespace Unowhy_Tools
             {
                 key.SetValue("Init2", "0", RegistryValueKind.String);
             }
-
-            mainWindow.SplashBar.Value++;
 
             string i2 = key.GetValue("Init2").ToString();
             if (i2 == "1")
@@ -1046,20 +1029,26 @@ namespace Unowhy_Tools
 
             Data UTdata = new Data();
 
-            mainWindow.SplashText.Text = "Checking... (Getting Hardware Info)";
-            await Task.Delay(100);
+            await MainWindow.USS("Checking... (Getting Hardware Info)");
             Write2Log("Getting PC Infos");
 
+            await MainWindow.USS("Hardware Info... (Name)");
             string hn = await RunReturn("hostname", "");
+            await MainWindow.USS("Hardware Info... (Manufacturer)");
             string mf = await RunReturn("wmic", "computersystem get manufacturer");
+            await MainWindow.USS("Hardware Info... (Model)");
             string md = await RunReturn("wmic", "computersystem get model");
+            await MainWindow.USS("Hardware Info... (OS)");
             string os = await RunReturn("wmic", "os get caption");
+            await MainWindow.USS("Hardware Info... (BIOS Version)");
             string bios = await RunReturn("wmic", "bios get smbiosbiosversion");
+            await MainWindow.USS("Hardware Info... (Serial Number)");
             string sn = await RunReturn("wmic", "bios get serialnumber");
+            await MainWindow.USS("Hardware Info... (CPU)");
             string cpu = await RunReturn("wmic", "cpu get name");
+            await MainWindow.USS("Hardware Info... (RAM)");
             string ram = await RunReturn("wmic", "computersystem get totalphysicalmemory");
-
-            mainWindow.SplashBar.Value++;
+            await MainWindow.USS("Hardware Info... (Done)");
 
             UTdata.HostName = hn.Replace("\n", "").Replace("\r", "").Replace(" ", "");
             UTdata.mf = GetLine(mf, 2);
@@ -1080,8 +1069,6 @@ namespace Unowhy_Tools
                 UTdata.AADUser = true;
             }
 
-            mainWindow.SplashBar.Value++;
-
             Write2Log(UTdata.HostName);
             Write2Log(UTdata.User);
             Write2Log(UTdata.UserID);
@@ -1095,10 +1082,9 @@ namespace Unowhy_Tools
 
             Write2Log("Done");
 
-            mainWindow.SplashBar.Value++;
-            mainWindow.SplashText.Text = "Checking... (Getting Software Info)";
-            await Task.Delay(100);
+            await MainWindow.USS("Checking... (Getting Software Info)");
 
+            await MainWindow.USS("Software Info... (Users and Groups lang)");
             Write2Log("Checking if is Administrator or Adminitrateur");
 
             string adminname = await RunReturn("net", "user");
@@ -1127,21 +1113,9 @@ namespace Unowhy_Tools
 
             Write2Log("=> " + UTdata.AdminsName);
 
-            mainWindow.SplashBar.Value++;
-
             Write2Log("====== Dynamic Buttons ======");
 
-            string preazure = await RunReturn("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow");
-            string preadmins = await RunReturn("net", $"localgroup {UTdata.AdminsName}");
-            string users = await RunReturn("net", "user");
-            string bcd = await RunReturn("bcdedit", "");
-
-            string admins = preadmins.ToLower();
-            string azure = GetLine(preazure, 6);
-
-            mainWindow.SplashBar.Value++;
-            mainWindow.SplashText.Text = "Checking... (Analysing PC Info)";
-            await Task.Delay(300);
+            await MainWindow.USS("Software Info... (HSQM)");
 
             #region Hisqool Manager
 
@@ -1200,7 +1174,12 @@ namespace Unowhy_Tools
 
             #endregion
 
+            await MainWindow.USS("Software Info... (Azure)");
+
             #region Azure
+
+            string preazure = await RunReturn("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow");
+            string azure = GetLine(preazure, 6);
 
             Write2Log("=== Azure AD ===");
             if (azure.Contains("NO"))
@@ -1217,7 +1196,12 @@ namespace Unowhy_Tools
 
             #endregion
 
+            await MainWindow.USS("Software Info... (Admins)");
+
             #region Admins
+
+            string preadmins = await RunReturn("net", $"localgroup {UTdata.AdminsName}");
+            string admins = preadmins.ToLower();
 
             Write2Log("=== Admins ===");
             if (admins.Contains(UTdata.User))
@@ -1233,6 +1217,8 @@ namespace Unowhy_Tools
             Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
+
+            await MainWindow.USS("Software Info... (Folders)");
 
             #region Folders
 
@@ -1301,7 +1287,11 @@ namespace Unowhy_Tools
 
             #endregion
 
+            await MainWindow.USS("Software Info... (ENT User)");
+
             #region ENT user
+
+            string users = await RunReturn("net", "user");
 
             Write2Log("=== ./ENT ===");
             if (users.Contains("ENT"))
@@ -1317,6 +1307,8 @@ namespace Unowhy_Tools
             Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
+
+            await MainWindow.USS("Software Info... (WHE)");
 
             #region Windows Hello Enterprise
 
@@ -1381,24 +1373,36 @@ namespace Unowhy_Tools
 
             #endregion
 
+            await MainWindow.USS("Software Info... (TI Start)");
+
             #region TI Start
 
             Write2Log("=== Auto script of TI ===");
             DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
-            FileInfo[] files = dir.GetFiles("silent_" + "*.*");
-            if (files.Length > 0)
+            if (dir.Exists)
             {
-                UTdata.TIStartup = true;
-                Write2Log("Present");
+                FileInfo[] files = dir.GetFiles("silent_" + "*.*");
+                if (files.Length > 0)
+                {
+                    UTdata.TIStartup = true;
+                    Write2Log("Present");
+                }
+                else
+                {
+                    UTdata.TIStartup = false;
+                    Write2Log("Not present");
+                }
             }
             else
             {
                 UTdata.TIStartup = false;
-                Write2Log("Not present");
+                Write2Log("Common startup not present");
             }
             Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
+
+            await MainWindow.USS("Software Info... (BootIM)");
 
             #region BootIM
 
@@ -1422,7 +1426,11 @@ namespace Unowhy_Tools
 
             #endregion
 
+            await MainWindow.USS("Software Info... (BCDedit)");
+
             #region BCDedit
+
+            string bcd = await RunReturn("bcdedit", "");
 
             Write2Log("=== BCD ===");
             if (bcd.Contains("IgnoreAllFailures"))
@@ -1438,6 +1446,8 @@ namespace Unowhy_Tools
             Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
+
+            await MainWindow.USS("Software Info... (Shell)");
 
             #region Shell
 
@@ -1456,6 +1466,8 @@ namespace Unowhy_Tools
             Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
+
+            await MainWindow.USS("Software Info... (TaskMGR)");
 
             #region TaskMGR
 
@@ -1484,6 +1496,8 @@ namespace Unowhy_Tools
 
             #endregion
 
+            await MainWindow.USS("Software Info... (Lockout)");
+
             #region Account Lockout
 
             Write2Log("=== Account Lockout ===");
@@ -1510,6 +1524,8 @@ namespace Unowhy_Tools
             Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
+
+            await MainWindow.USS("Software Info... (CPO)");
 
             #region Camera Privacy Overlay
 
@@ -1546,6 +1562,8 @@ namespace Unowhy_Tools
             Write2Log("=== End ===" + Environment.NewLine);
 
             #endregion
+
+            await MainWindow.USS("Software Info... (Verbose)");
 
             #region Windows verbose status
 
@@ -1584,8 +1602,6 @@ namespace Unowhy_Tools
             #endregion
 
             Write2Log("====== End ======");
-
-            mainWindow.SplashBar.Value++;
         }
 
         public static async Task Extract(string file, string outPath)

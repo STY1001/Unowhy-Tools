@@ -14,6 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media;
 using System.Xml.Linq;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -420,6 +421,59 @@ public partial class MainWindow : INavigationWindow
         */
     }
 
+    public static async Task USSwB(string status)
+    {
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+        await mainWindow.updatesplashstatus(status, false);
+    }
+
+    public static async Task USS(string status)
+    {
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+        await mainWindow.updatesplashstatus(status, true);
+    }
+
+    public int totalstep = 61;
+    public int actualstep = 0;
+
+    public async Task updatesplashstatus(string status, bool bar)
+    {
+        DoubleAnimation animopac = new DoubleAnimation();
+        animopac.From = 1;
+        animopac.To = 0.5;
+        animopac.Duration = TimeSpan.FromMilliseconds(100);
+        animopac.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        SplashText.BeginAnimation(UIElement.OpacityProperty, animopac);
+        SplashPercent.BeginAnimation(UIElement.OpacityProperty, animopac);
+
+        await Task.Delay(50);
+        SplashText.Text = status;
+
+        animopac = new DoubleAnimation();
+        animopac.From = 0.5;
+        animopac.To = 1;
+        animopac.Duration = TimeSpan.FromMilliseconds(100);
+        animopac.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+        SplashText.BeginAnimation(UIElement.OpacityProperty, animopac);
+        SplashPercent.BeginAnimation(UIElement.OpacityProperty, animopac);
+
+        if (bar)
+        {
+            SplashBar.IsIndeterminate = false;
+            SplashPercent.Visibility = Visibility.Visible;
+            actualstep++;
+            SplashBar.Value = (100 * actualstep) / totalstep;
+            SplashPercent.Text = ((100 * actualstep) / totalstep).ToString() + "%";
+        }
+        else
+        {
+            SplashBar.IsIndeterminate = true;
+            SplashPercent.Visibility = Visibility.Hidden;
+        }
+
+        await Task.Delay(50);
+    }
+
     private async Task Load()
     {
         if (UT.version.isdeb())
@@ -440,8 +494,7 @@ public partial class MainWindow : INavigationWindow
             await Task.Delay(1000);
         }
 
-        RootWelcomeGrid.Visibility = Visibility.Visible;
-
+        
         DoubleAnimation anim = new DoubleAnimation();
         anim.From = 1000;
         anim.To = 0;
@@ -453,16 +506,48 @@ public partial class MainWindow : INavigationWindow
         animopac.Duration = TimeSpan.FromMilliseconds(500);
         animopac.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
         TranslateTransform trans = new TranslateTransform();
-        RootWelcomeGrid.RenderTransform = trans;
-        RootWelcomeGrid.BeginAnimation(UIElement.OpacityProperty, animopac);
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        //RootWelcomeGrid.RenderTransform = trans;
+        //RootWelcomeGrid.BeginAnimation(UIElement.OpacityProperty, animopac);
+        //trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        
+        RootWelcomeGrid.Visibility = Visibility.Visible;
 
-        anim = new DoubleAnimation();
-        anim.From = 0;
-        anim.To = 1;
-        anim.Duration = TimeSpan.FromMilliseconds(1000);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-        SplashBorder.BeginAnimation(ScaleTransform.ScaleYProperty, anim);
+        Visibility = Visibility.Visible;
+        var fadeInAnimation = new DoubleAnimation
+        {
+            From = 0,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.30),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var zoomAnimation1 = new DoubleAnimation
+        {
+            From = 1.1,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var zoomAnimation2 = new DoubleAnimation
+        {
+            From = 1.1,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        Storyboard.SetTarget(fadeInAnimation, RootWelcomeGrid);
+        Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(OpacityProperty));
+        Storyboard.SetTarget(zoomAnimation1, RootWelcomeGrid);
+        Storyboard.SetTarget(zoomAnimation2, RootWelcomeGrid);
+        Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+        Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+        var storyboard = new Storyboard();
+        storyboard.Children.Add(fadeInAnimation);
+        storyboard.Children.Add(zoomAnimation1);
+        storyboard.Children.Add(zoomAnimation2);
+        storyboard.Begin();
 
         anim = new DoubleAnimation();
         anim.From = -1000;
@@ -499,6 +584,7 @@ public partial class MainWindow : INavigationWindow
         trans = new TranslateTransform();
         SplashBar.RenderTransform = trans;
         SplashText.RenderTransform = trans;
+        SplashPercent.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
         string ver = "Version " + UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
@@ -557,39 +643,43 @@ public partial class MainWindow : INavigationWindow
             transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
             transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
 
-            SplashText.Text = "Loading... (Cleaning)";
-            SplashBar.Value = 0;
+            await USS("Loading... (Cleaning)");
             await Task.Delay(500);
             await UT.Cleanup();
-            SplashText.Text = "Loading... (Tray)";
-            SplashBar.Value = 30;
+            await USS("Loading... (Tray)");
             await Task.Delay(500);
             await UT.TrayCheck();
-            SplashText.Text = "Loading... (Checking Files)";
-            SplashBar.Value = 65;
+            await USS("Loading... (Checking Files)");
             await Task.Delay(500);
             bool fs = await UT.FirstStart();
-            SplashText.Text = "Loading... (Checking System)";
-            SplashBar.Value = 70;
+            await USS("Loading... (Checking System)");
             await Task.Delay(500);
             await UT.Check();
-            SplashText.Text = "Loading... (Checking Unowhy Tools Service)";
-            SplashBar.Value = 80;
+            await USS("Loading... (Checking Unowhy Tools Service)");
             await Task.Delay(500);
             await UT.UTS.UTScheck();
-            SplashText.Text = "Loading... (Preloading pages)";
-            Navigate(typeof(Dashboard));
-            Navigate(typeof(HisqoolManager));
-            Navigate(typeof(Repair));
-            Navigate(typeof(Delete));
-            Navigate(typeof(Customize));
-            Navigate(typeof(Drivers));
-            Navigate(typeof(Settings));
-            Navigate(typeof(About));
-            Navigate(typeof(Updater));
-            SplashBar.Value = 90;
+            await USS("Loading... (Preloading pages)");
             await Task.Delay(500);
-
+            await USS("Preloading pages... (Dashboard)");
+            Navigate(typeof(Dashboard));
+            await USS("Preloading pages... (Settings)");
+            Navigate(typeof(Settings));
+            await USS("Preloading pages... (About)");
+            Navigate(typeof(About));
+            await USS("Preloading pages... (Updater)");
+            Navigate(typeof(Updater));
+            await USS("Preloading pages... (HisqoolManager)");
+            Navigate(typeof(HisqoolManager));
+            await USS("Preloading pages... (Repair)");
+            Navigate(typeof(Repair));
+            await USS("Preloading pages... (Delete)");
+            Navigate(typeof(Delete));
+            await USS("Preloading pages... (Customize)");
+            Navigate(typeof(Customize));
+            await USS("Preloading pages... (Drivers)");
+            Navigate(typeof(Drivers));
+            await Task.Delay(100);
+            
             animsb = new DoubleAnimation();
             animsb.From = 20;
             animsb.To = 0;
@@ -611,8 +701,10 @@ public partial class MainWindow : INavigationWindow
 
             SplashText.Text = "Ready !";
             SplashBar.Value = 100;
+            SplashPercent.Text = "100%";
+            await Task.Delay(500);
 
-            RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
+            RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
             foreach (UIElement elements in RootNavigation.Items)
             {
                 elements.Visibility = Visibility.Hidden;
@@ -655,6 +747,7 @@ public partial class MainWindow : INavigationWindow
             trans = new TranslateTransform();
             SplashBar.RenderTransform = trans;
             SplashText.RenderTransform = trans;
+            SplashPercent.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
             anim = new DoubleAnimation();
@@ -666,11 +759,45 @@ public partial class MainWindow : INavigationWindow
             SplashVer.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.YProperty, anim);
 
+            await Task.Delay(250);
+
+            fadeInAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.50),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            zoomAnimation1 = new DoubleAnimation
+            {
+                From = 1,
+                To = 1.1,
+                Duration = TimeSpan.FromSeconds(0.30),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            zoomAnimation2 = new DoubleAnimation
+            {
+                From = 1,
+                To = 1.1,
+                Duration = TimeSpan.FromSeconds(0.30),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            Storyboard.SetTarget(fadeInAnimation, RootWelcomeGrid);
+            Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(OpacityProperty));
+            Storyboard.SetTarget(zoomAnimation1, RootWelcomeGrid);
+            Storyboard.SetTarget(zoomAnimation2, RootWelcomeGrid);
+            Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+            Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+            storyboard = new Storyboard();
+            storyboard.Children.Add(fadeInAnimation);
+            storyboard.Children.Add(zoomAnimation1);
+            storyboard.Children.Add(zoomAnimation2);
+            storyboard.Begin();
+
             await Task.Delay(500);
-
-            UT.anim.TransitionForw(RootWelcomeGrid);
-
-            await Task.Delay(150);
 
             RootWelcomeGrid.Visibility = Visibility.Hidden;
             RootTitleBar.Visibility = Visibility.Visible;
@@ -684,6 +811,42 @@ public partial class MainWindow : INavigationWindow
             trans = new TranslateTransform();
             RootTitleBar.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.YProperty, anim);
+
+            fadeInAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.30),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            zoomAnimation1 = new DoubleAnimation
+            {
+                From = 0.9,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.50),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            zoomAnimation2 = new DoubleAnimation
+            {
+                From = 0.9,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.50),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            Storyboard.SetTarget(fadeInAnimation, RootMainGrid);
+            Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(OpacityProperty));
+            Storyboard.SetTarget(zoomAnimation1, RootMainGrid);
+            Storyboard.SetTarget(zoomAnimation2, RootMainGrid);
+            Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+            Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+            storyboard = new Storyboard();
+            storyboard.Children.Add(fadeInAnimation);
+            storyboard.Children.Add(zoomAnimation1);
+            storyboard.Children.Add(zoomAnimation2);
+            storyboard.Begin();
 
             if (fs)
             {
