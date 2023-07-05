@@ -317,7 +317,7 @@
                                    Margin="0,-25,5,0"
                                    FontSize="16"
                                    FontWeight="Medium"
-                                   Text="---%"
+                                   Text=""
                                    TextAlignment="Right"
                                    TextWrapping="Wrap" />
                     </StackPanel>
