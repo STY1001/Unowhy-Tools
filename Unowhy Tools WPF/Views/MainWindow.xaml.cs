@@ -438,24 +438,7 @@ public partial class MainWindow : INavigationWindow
 
     public async Task updatesplashstatus(string status, bool bar)
     {
-        DoubleAnimation animopac = new DoubleAnimation();
-        animopac.From = 1;
-        animopac.To = 0.5;
-        animopac.Duration = TimeSpan.FromMilliseconds(100);
-        animopac.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-        SplashText.BeginAnimation(UIElement.OpacityProperty, animopac);
-        SplashPercent.BeginAnimation(UIElement.OpacityProperty, animopac);
-
-        await Task.Delay(50);
         SplashText.Text = status;
-
-        animopac = new DoubleAnimation();
-        animopac.From = 0.5;
-        animopac.To = 1;
-        animopac.Duration = TimeSpan.FromMilliseconds(100);
-        animopac.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-        SplashText.BeginAnimation(UIElement.OpacityProperty, animopac);
-        SplashPercent.BeginAnimation(UIElement.OpacityProperty, animopac);
 
         if (bar)
         {

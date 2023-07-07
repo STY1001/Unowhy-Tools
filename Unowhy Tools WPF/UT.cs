@@ -316,7 +316,7 @@ namespace Unowhy_Tools
                         var web = new HttpClient();
                         var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
                         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
-                        File.WriteAllBytes(utemp + "\\service.zip", filebyte);
+                        await File.WriteAllBytesAsync(utemp + "\\service.zip", filebyte);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
                         await Task.Delay(100);
                         ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
@@ -400,7 +400,7 @@ namespace Unowhy_Tools
                             web = new HttpClient();
                             var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
                             string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
-                            File.WriteAllBytes(utemp + "\\service.zip", filebyte);
+                            await File.WriteAllBytesAsync(utemp + "\\service.zip", filebyte);
                             await MainWindow.USSwB("Preparing UTS... (Extracting)");
                             await Task.Delay(100);
                             ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
@@ -954,7 +954,6 @@ namespace Unowhy_Tools
         {
             IntPtr wow64Value = IntPtr.Zero;
             Wow64DisableWow64FsRedirection(ref wow64Value);
-
             Write2Log("RunMin " + file + " " + args);
 
             await Task.Run(() =>

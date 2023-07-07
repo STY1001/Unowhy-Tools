@@ -168,7 +168,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             using (var web = new HttpClient())
             {
                 var filebyte = await web.GetByteArrayAsync("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim");
-                File.WriteAllBytes("C:\\Windows\\System32\\Recovery\\WinRE.wim", filebyte);
+                await File.WriteAllBytesAsync("C:\\Windows\\System32\\Recovery\\WinRE.wim", filebyte);
             }
 
             await UT.RunMin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");

@@ -200,8 +200,8 @@ public partial class Updater : INavigableView<DashboardViewModel>
         var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTupdateZIP");
         var filebyte2 = await web.GetByteArrayAsync("https://bit.ly/UTuninstaller");
         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
-        File.WriteAllBytes(utemp + "\\update.zip", filebyte);
-        File.WriteAllBytes(utemp + "\\Update\\uninstall.exe", filebyte2);
+        await File.WriteAllBytesAsync(utemp + "\\update.zip", filebyte);
+        await File.WriteAllBytesAsync(utemp + "\\Update\\uninstall.exe", filebyte2);
         labtext.Text = UT.GetLang("update.ext");
         labimg.Source = UT.GetImgSource("zip.png");
         await Task.Delay(1000);
