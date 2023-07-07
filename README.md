@@ -38,6 +38,8 @@ Currently, with this tool, you can:
 - View performance usage
 - Enable camera privacy overlay
 - Enable Windows verbose status
+- Uninstall Edge
+- Block Edge auto reinstall
 
 More features coming soon
 
