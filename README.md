@@ -52,6 +52,10 @@ More features coming soon
 
 ## 📷 Screenshots
 
+24.07
+
+![UT Screen](/README/UT24.07.png)
+
 24.06
 
 ![UT Screen](/README/UT24.06.png)
