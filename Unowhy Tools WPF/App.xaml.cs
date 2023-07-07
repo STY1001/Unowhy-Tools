@@ -65,6 +65,7 @@ public partial class App
             services.AddScoped<Views.Pages.Updater>();
             services.AddScoped<Views.Pages.Wifi>();
             services.AddScoped<Views.Pages.FirstConfig>();
+            services.AddScoped<Views.Pages.Edge>();
             services.AddScoped<TrayWindow>();
             services.AddScoped<UT>();
 

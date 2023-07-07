@@ -288,6 +288,9 @@
   <data name="descdismbr" xml:space="preserve">
     <value>L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec DISM. Sauvegardez toujours votre pilote pour résoudre les éventuels problèmes de pilote. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes DISM avec une interface graphique plus conviviale</value>
   </data>
+  <data name="descedgeset" xml:space="preserve">
+    <value>Paramètres Microsoft Edge. Désinstallez le navigateur Edge basé sur Chromium et bloquez la réinstallation automatique. Avertissement : La désinstallation de Edge peut casser certaines fonctionnalités de Windows, telles que les résultats Web dans Windows Search ou Windows Copilot. 2ème Avertissement : Cet outil ne désinstalle pas Edge WebView2, je ne vous recommande pas de désinstaller WebView2 car de nombreuses applications fonctionnent avec WebView2 comme Unowhy Tools (pour le journal des modifications), Visual Studio et plus encore...</value>
+  </data>
   <data name="descent" xml:space="preserve">
     <value>Supprimer le compte local "ENT".  Ceci est le compte pour configurer votre compte ENT</value>
   </data>
@@ -368,6 +371,15 @@
   </data>
   <data name="drvgui" xml:space="preserve">
     <value>Drv GUI pour Unowhy Tools</value>
+  </data>
+  <data name="edgeblock" xml:space="preserve">
+    <value>Bloquer la réinstall. auto de Edge</value>
+  </data>
+  <data name="edgeset" xml:space="preserve">
+    <value>Paramètres de Microsoft Edge</value>
+  </data>
+  <data name="edgeun" xml:space="preserve">
+    <value>Désinstaller Edge</value>
   </data>
   <data name="enable" xml:space="preserve">
     <value>Activer</value>

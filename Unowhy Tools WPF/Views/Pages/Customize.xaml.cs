@@ -99,6 +99,30 @@ public partial class Customize : INavigableView<DashboardViewModel>
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
 
+    public async void EdgeSet_Click(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        edgeset_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        await Task.Delay(200);
+        UT.anim.TransitionForw(RootGrid);
+        await Task.Delay(200);
+        UT.NavigateTo(typeof(Edge));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        edgeset_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+    }
+
     public void applylang()
     {
         pcname_txt.Text = UT.GetLang("pcname");

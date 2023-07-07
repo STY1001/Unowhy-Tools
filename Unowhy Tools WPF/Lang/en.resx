@@ -288,6 +288,9 @@
   <data name="descdismbr" xml:space="preserve">
     <value>This tools is currently in test (in beta) but probably work. Backup and Restore drivers with DISM. Always make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers with DISM commands from a user friendly GUI</value>
   </data>
+  <data name="descedgeset" xml:space="preserve">
+    <value>Microsoft Edge settings. Uninstall the Chromium based Edge browser and block the auto reinstall. Warning: Uninstalling edge can break some features of Windows like web result in Windows Search or Windows Copilot. 2nd Warning: This tool doesn't uninstall Edge WebView2, I don't recommand you to uninstall WebView2 because a lots of apps work with WebView2 like Unowhy Tools (for change log), Visual Studio and more...</value>
+  </data>
   <data name="descent" xml:space="preserve">
     <value>Delete "ENT" local account. This the account to configure your "ENT" account</value>
   </data>
@@ -368,6 +371,15 @@
   </data>
   <data name="drvgui" xml:space="preserve">
     <value>Drv GUI for Unowhy Tools</value>
+  </data>
+  <data name="edgeblock" xml:space="preserve">
+    <value>Block Edge auto reinstall</value>
+  </data>
+  <data name="edgeset" xml:space="preserve">
+    <value>Microsoft Edge settings</value>
+  </data>
+  <data name="edgeun" xml:space="preserve">
+    <value>Uninstall Edge</value>
   </data>
   <data name="enable" xml:space="preserve">
     <value>Enable</value>

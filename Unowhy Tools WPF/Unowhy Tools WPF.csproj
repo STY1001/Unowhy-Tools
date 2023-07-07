@@ -34,6 +34,7 @@
     <None Remove="Resources\azgard.jpg" />
     <None Remove="Resources\azure.png" />
     <None Remove="Resources\back.png" />
+    <None Remove="Resources\block.png" />
     <None Remove="Resources\boot.png" />
     <None Remove="Resources\camera.png" />
     <None Remove="Resources\clouddl.png" />
@@ -52,6 +53,7 @@
     <None Remove="Resources\dism.png" />
     <None Remove="Resources\download.png" />
     <None Remove="Resources\drivers.png" />
+    <None Remove="Resources\edge.png" />
     <None Remove="Resources\en.png" />
     <None Remove="Resources\enable.png" />
     <None Remove="Resources\explorer.png" />
@@ -152,6 +154,7 @@
     <Resource Include="Resources\azgard.jpg" />
     <Resource Include="Resources\azure.png" />
     <Resource Include="Resources\back.png" />
+    <Resource Include="Resources\block.png" />
     <Resource Include="Resources\boot.png" />
     <Resource Include="Resources\camera.png" />
     <Resource Include="Resources\clouddl.png" />
@@ -170,6 +173,7 @@
     <Resource Include="Resources\dism.png" />
     <Resource Include="Resources\download.png" />
     <Resource Include="Resources\drivers.png" />
+    <Resource Include="Resources\edge.png" />
     <Resource Include="Resources\en.png" />
     <Resource Include="Resources\enable.png" />
     <Resource Include="Resources\explorer.png" />
