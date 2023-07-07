@@ -143,6 +143,9 @@ public partial class Customize : INavigableView<DashboardViewModel>
         verbstatena_txt.Text = UT.GetLang("verbstatena");
         verbstatena_desc.Text = UT.GetLang("descverbstatena");
         verbstatena_btn.Content = UT.GetLang("enable");
+        edgeset_txt.Text = UT.GetLang("edgeset");
+        edgeset_desc.Text = UT.GetLang("descedgeset");
+        edgeset_btn.Content = UT.GetLang("open");
     }
 
     public async Task CheckBTN(bool check)
