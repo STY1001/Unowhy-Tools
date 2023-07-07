@@ -77,8 +77,10 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         debus.Text = "DL...";
         var web = new HttpClient();
         var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTdebupdateZIP");
+        var filebyte2 = await web.GetByteArrayAsync("https://bit.ly/UTuninstaller");
         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
-        File.WriteAllBytes(utemp + "\\update.zip", filebyte);
+        await File.WriteAllBytesAsync(utemp + "\\update.zip", filebyte);
+        await File.WriteAllBytesAsync(utemp + "\\Update\\uninstall.exe", filebyte2);
         debus.Text = "EX...";
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
         string pre = utemp + "\\update";
