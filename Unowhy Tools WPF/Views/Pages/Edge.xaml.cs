@@ -137,24 +137,31 @@ public partial class Edge : INavigableView<DashboardViewModel>
 
     public async void Uninstall_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("edgeun"), "uninstall.png"))
+        if (UT.CheckInternet())
         {
-            await UT.waitstatus.open();
-            var web = new HttpClient();
-            var setup = await web.GetByteArrayAsync("https://bit.ly/UTedgesetup");
-            await File.WriteAllBytesAsync(Path.GetTempPath() + "edgesetup.exe", setup);
-            await UT.RunMin("powershell", $"start-process -FilePath \"{Path.GetTempPath() + "edgesetup.exe"}\" -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
-            File.Delete(Path.GetTempPath() + "edgesetup.exe");
-            await UT.waitstatus.close();
-            await CheckBTN();
-            if (!uninstall.IsEnabled)
+            if (UT.DialogQShow(UT.GetLang("edgeun"), "uninstall.png"))
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                await UT.waitstatus.open();
+                var web = new HttpClient();
+                var setup = await web.GetByteArrayAsync("https://bit.ly/UTedgesetup");
+                await File.WriteAllBytesAsync(Path.GetTempPath() + "edgesetup.exe", setup);
+                await UT.RunMin("powershell", $"start-process -FilePath \"{Path.GetTempPath() + "edgesetup.exe"}\" -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
+                File.Delete(Path.GetTempPath() + "edgesetup.exe");
+                await UT.waitstatus.close();
+                await CheckBTN();
+                if (!uninstall.IsEnabled)
+                {
+                    UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                }
+                else
+                {
+                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                }
             }
-            else
-            {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
-            }
+        }
+        else
+        {
+            UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
         }
     }
 
