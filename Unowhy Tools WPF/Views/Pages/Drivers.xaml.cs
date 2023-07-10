@@ -23,7 +23,7 @@ public partial class Drivers : INavigableView<DashboardViewModel>
 
     public void GoForw(object sender, RoutedEventArgs e)
     {
-        UT.anim.TransitionForw(RootGrid);
+        //UT.anim.TransitionForw(RootGrid);
     }
 
     public async void bk_Click(object sender, RoutedEventArgs e)
@@ -37,9 +37,9 @@ public partial class Drivers : INavigableView<DashboardViewModel>
         bk_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
-        await Task.Delay(200);
-        UT.anim.TransitionForw(RootGrid);
-        await Task.Delay(200);
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
         UT.NavigateTo(typeof(DrvBack));
 
         anim.From = 0;
@@ -61,9 +61,9 @@ public partial class Drivers : INavigableView<DashboardViewModel>
         rt_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
-        await Task.Delay(200);
-        UT.anim.TransitionForw(RootGrid);
-        await Task.Delay(200);
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
         UT.NavigateTo(typeof(DrvRest));
 
         anim.From = 0;

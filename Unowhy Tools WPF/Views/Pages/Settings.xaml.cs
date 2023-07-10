@@ -15,6 +15,8 @@ using System.Windows.Media.Animation;
 using System.Windows.Media;
 using Microsoft.Win32.TaskScheduler;
 using System.Runtime.Intrinsics.X86;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -45,9 +47,9 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async void GoBack(object sender, RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnim(BackBTN);
+        //UT.anim.BackBtnAnim(BackBTN);
         await System.Threading.Tasks.Task.Delay(150);
-        UT.anim.TransitionBack(RootGrid);
+        //UT.anim.TransitionBack(RootGrid);
         await System.Threading.Tasks.Task.Delay(200);
         UT.NavigateTo(typeof(Dashboard));
     }
@@ -130,7 +132,9 @@ public partial class Settings : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        await UT.DeployBack(typeof(Dashboard), RootGrid);
+        await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
+        UT.anim.BorderZoomOut(RootBorder);
+
 
         string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         FileInfo fi = new FileInfo(fp);

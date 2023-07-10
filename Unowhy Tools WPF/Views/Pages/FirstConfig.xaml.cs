@@ -414,7 +414,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             mainWindow.RootNavigation.Visibility = Visibility.Visible;
             mainWindow.applylang();
-            mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
+            mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
             UT.NavigateTo(typeof(Dashboard));
             /*
             foreach (UIElement elements in mainWindow.RootNavigation.Items)
@@ -448,7 +448,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             */
 
             await Task.Delay(1000);
-            mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
+            mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
 
             RegistryKey keyf = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             if (InitOK)

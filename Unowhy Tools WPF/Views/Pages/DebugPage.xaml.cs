@@ -115,9 +115,9 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     private async void Button_Click(object sender, RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnim(backbtn);
+        //UT.anim.BackBtnAnim(backbtn);
         await Task.Delay(150);
-        UT.anim.TransitionBack(Grid1);
+        //UT.anim.TransitionBack(Grid1);
         await Task.Delay(200);
         UT.NavigateTo(typeof(Dashboard));
     }
@@ -154,7 +154,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     private async void UiPage_Unloaded(object sender, RoutedEventArgs e)
     {
-        UT.anim.TransitionBack(Grid1);
+        //UT.anim.TransitionBack(Grid1);
     }
 
     private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -170,6 +170,6 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     private async void UiPage_Loaded(object sender, RoutedEventArgs e)
     {
-        await UT.DeployBack(typeof(Dashboard), Grid1);
+        await UT.DeployBack(typeof(Dashboard), Grid1, RootBorder);
     }
 }

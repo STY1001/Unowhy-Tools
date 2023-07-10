@@ -29,9 +29,9 @@ public partial class AddUser : INavigableView<DashboardViewModel>
 
     public async void GoBack(object sender, RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnim(BackBTN);
+        //UT.anim.BackBtnAnim(BackBTN);
         await Task.Delay(150);
-        UT.anim.TransitionBack(RootGrid);
+        //UT.anim.TransitionBack(RootGrid);
         await Task.Delay(200);
         UT.NavigateTo(typeof(Customize));
     }
@@ -43,9 +43,8 @@ public partial class AddUser : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        await UT.DeployBack(typeof(Customize), RootGrid);
-
-        await Task.Delay(150);
+        await UT.DeployBack(typeof(Customize), RootGrid, RootBorder);
+        UT.anim.BorderZoomOut(RootBorder);
 
         foreach (UIElement element in RootStack.Children)
         {

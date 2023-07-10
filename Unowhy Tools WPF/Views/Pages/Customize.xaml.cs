@@ -24,7 +24,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
 
     public void GoForw(object sender, RoutedEventArgs e)
     {
-        UT.anim.TransitionForw(RootGrid);
+        
     }
     
     public async void AdminSet_Click(object sender, RoutedEventArgs e)
@@ -38,9 +38,9 @@ public partial class Customize : INavigableView<DashboardViewModel>
         auset_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
-        await Task.Delay(200);
-        UT.anim.TransitionForw(RootGrid);
-        await Task.Delay(200);
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
         UT.NavigateTo(typeof(AdminUser));
 
         anim.From = 0;
@@ -62,9 +62,9 @@ public partial class Customize : INavigableView<DashboardViewModel>
         adduser_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
-        await Task.Delay(200);
-        UT.anim.TransitionForw(RootGrid);
-        await Task.Delay(200);
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
         UT.NavigateTo(typeof(AddUser));
 
         anim.From = 0;
@@ -86,9 +86,9 @@ public partial class Customize : INavigableView<DashboardViewModel>
         pcname_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
-        await Task.Delay(200);
-        UT.anim.TransitionForw(RootGrid);
-        await Task.Delay(200);
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
         UT.NavigateTo(typeof(PCname));
 
         anim.From = 0;
@@ -110,9 +110,9 @@ public partial class Customize : INavigableView<DashboardViewModel>
         edgeset_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
-        await Task.Delay(200);
-        UT.anim.TransitionForw(RootGrid);
-        await Task.Delay(200);
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
         UT.NavigateTo(typeof(Edge));
 
         anim.From = 0;

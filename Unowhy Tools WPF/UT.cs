@@ -22,6 +22,7 @@ using System.IO.Compression;
 using System.Threading;
 using System.Drawing;
 using TaskScheduler = Microsoft.Win32.TaskScheduler;
+using System.Windows;
 
 namespace Unowhy_Tools
 {
@@ -82,26 +83,242 @@ namespace Unowhy_Tools
         public class anim
         {
             public static Grid _grid;
-            public static Wpf.Ui.Controls.Button _button;
+            public static Border _border;
+            public static Grid _parentgrid;
+            public static Border _parentborder;
+            //public static Wpf.Ui.Controls.Button _button;
 
-            public static void TransitionForw(Grid grid)
+            public static async Task RegisterParent(Grid grid, Border border)
             {
-                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                mainWindow.NavAnimRight();
-                _grid = grid;
-                DoubleAnimation anim = new DoubleAnimation();
-                anim.From = 0;
-                anim.To = -100;
-                anim.Duration = TimeSpan.FromMilliseconds(300);
-                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-
-                TranslateTransform trans = new TranslateTransform();
-                _grid.RenderTransform = trans;
-                anim.Completed += setnormalForw;
-                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                _parentborder = border;
+                _parentgrid = grid;
             }
 
-            public static void TransitionBack(Grid grid)
+            public static async Task AnimParent(string animtype)
+            {
+                switch(animtype)
+                {
+                    case "zoomin":
+                        await BorderZoomIn(_parentborder);
+                        return;
+                    case "zoomout":
+                        await BorderZoomOut(_parentborder);
+                        return;
+                    case "zoomin2":
+                        await BorderZoomIn2(_parentborder);
+                        return;
+                    case "zoomout2":
+                        await BorderZoomOut2(_parentborder);
+                        return;
+                }
+            }
+
+            public static async Task BorderZoomIn(Border border)
+            {
+                var fadeInAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.30),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                var zoomAnimation1 = new DoubleAnimation
+                {
+                    From = 0.9,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.50),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                var zoomAnimation2 = new DoubleAnimation
+                {
+                    From = 0.9,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.50),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                Storyboard.SetTarget(fadeInAnimation, border);
+                Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+                Storyboard.SetTarget(zoomAnimation1, border);
+                Storyboard.SetTarget(zoomAnimation2, border);
+                Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+                Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+                var storyboard = new Storyboard();
+                storyboard.Children.Add(fadeInAnimation);
+                storyboard.Children.Add(zoomAnimation1);
+                storyboard.Children.Add(zoomAnimation2);
+                storyboard.Begin();
+
+                await Task.Delay(1000);
+
+                await ResetZoom(border);
+            }
+
+            public static async Task BorderZoomOut(Border border)
+            {
+                var fadeInAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.30),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                var zoomAnimation1 = new DoubleAnimation
+                {
+                    From = 1.1,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.50),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                var zoomAnimation2 = new DoubleAnimation
+                {
+                    From = 1.1,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.50),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                Storyboard.SetTarget(fadeInAnimation, border);
+                Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+                Storyboard.SetTarget(zoomAnimation1, border);
+                Storyboard.SetTarget(zoomAnimation2, border);
+                Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+                Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+                var storyboard = new Storyboard();
+                storyboard.Children.Add(fadeInAnimation);
+                storyboard.Children.Add(zoomAnimation1);
+                storyboard.Children.Add(zoomAnimation2);
+                storyboard.Begin();
+
+                await Task.Delay(1000);
+
+                await ResetZoom(border);
+            }
+
+            public static async Task BorderZoomIn2(Border border)
+            {
+                var fadeInAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.30),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                var zoomAnimation1 = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 1.1,
+                    Duration = TimeSpan.FromSeconds(0.50),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                var zoomAnimation2 = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 1.1,
+                    Duration = TimeSpan.FromSeconds(0.50),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                Storyboard.SetTarget(fadeInAnimation, border);
+                Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+                Storyboard.SetTarget(zoomAnimation1, border);
+                Storyboard.SetTarget(zoomAnimation2, border);
+                Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+                Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+                var storyboard = new Storyboard();
+                storyboard.Children.Add(fadeInAnimation);
+                storyboard.Children.Add(zoomAnimation1);
+                storyboard.Children.Add(zoomAnimation2);
+                storyboard.Begin();
+
+                await Task.Delay(1000);
+
+                await ResetZoom(border);
+            }
+
+            public static async Task BorderZoomOut2(Border border)
+            {
+                var fadeInAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.30),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                var zoomAnimation1 = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0.9,
+                    Duration = TimeSpan.FromSeconds(0.50),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                var zoomAnimation2 = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0.9,
+                    Duration = TimeSpan.FromSeconds(0.50),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                Storyboard.SetTarget(fadeInAnimation, border);
+                Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+                Storyboard.SetTarget(zoomAnimation1, border);
+                Storyboard.SetTarget(zoomAnimation2, border);
+                Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+                Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+                var storyboard = new Storyboard();
+                storyboard.Children.Add(fadeInAnimation);
+                storyboard.Children.Add(zoomAnimation1);
+                storyboard.Children.Add(zoomAnimation2);
+                storyboard.Begin();
+
+                await Task.Delay(1000);
+
+                await ResetZoom(border);
+            }
+
+            public static async Task ResetZoom(Border border)
+            {
+                var reset = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5)
+                };
+                var reset2 = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5)
+                };
+                var reset3 = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5)
+                };
+                Storyboard.SetTarget(reset, border);
+                Storyboard.SetTargetProperty(reset, new PropertyPath(UIElement.OpacityProperty));
+                Storyboard.SetTarget(reset2, border);
+                Storyboard.SetTarget(reset3, border);
+                Storyboard.SetTargetProperty(reset2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+                Storyboard.SetTargetProperty(reset3, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+                var storyboard = new Storyboard();
+                storyboard.Children.Add(reset);
+                storyboard.Children.Add(reset2);
+                storyboard.Children.Add(reset3);
+                storyboard.Begin();
+            }
+
+            /*public static void TransitionBack(Grid grid)
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                 mainWindow.NavAnimLeft();
@@ -132,7 +349,7 @@ namespace Unowhy_Tools
                 anim.Completed += setnormalBackBTN;
                 trans.BeginAnimation(TranslateTransform.XProperty, anim);
             }
-
+            
             public static void BackBtnAnimForw(Wpf.Ui.Controls.Button btn)
             {
                 _button = btn;
@@ -192,7 +409,7 @@ namespace Unowhy_Tools
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                 mainWindow.NavAnimNormal();
-            }
+            }*/
         }
 
         public class serv
@@ -418,10 +635,10 @@ namespace Unowhy_Tools
             mainWindow.DeployDABack();
         }
 
-        public static async Task DeployBack(Type type, Grid grid)
+        public static async Task DeployBack(Type type, Grid grid, Border border)
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-            mainWindow.DeployBack(type, grid);
+            mainWindow.DeployBack(type, grid, border);
         }
 
         public static async Task UnDeployBack()

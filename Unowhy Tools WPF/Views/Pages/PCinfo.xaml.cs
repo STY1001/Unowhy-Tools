@@ -26,9 +26,9 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
 
     public async void GoBack(object sender, RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnim(BackBTN);
+        //UT.anim.BackBtnAnim(BackBTN);
         await Task.Delay(150);
-        UT.anim.TransitionBack(RootGrid);
+        //UT.anim.TransitionBack(RootGrid);
         await Task.Delay(200);
         UT.NavigateTo(typeof(Dashboard));
     }
@@ -93,7 +93,8 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        await UT.DeployBack(typeof(Dashboard), RootGrid);
+        await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
+        UT.anim.BorderZoomOut(RootBorder);
 
         DriveInfo drive = new DriveInfo("C");
         double totalSpace = drive.TotalSize / 1024.0 / 1024.0 / 1024.0;

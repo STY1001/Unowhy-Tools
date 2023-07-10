@@ -18,7 +18,13 @@
         <Border ClipToBounds="True"
                 CornerRadius="8,8,8,8"
                 Background="#0affffff"
-                Margin="20">
+                Margin="20"
+                x:Name="RootBorder"
+                RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <ScaleTransform ScaleX="1"
+                                ScaleY="1" />
+            </Border.RenderTransform>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

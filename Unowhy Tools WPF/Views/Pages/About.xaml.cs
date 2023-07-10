@@ -32,9 +32,12 @@ public partial class About : INavigableView<DashboardViewModel>
         get;
     }
 
-    public void GoForw(object sender, RoutedEventArgs e)
+    public async void GoUpdater(object sender, RoutedEventArgs e)
     {
-        UT.anim.TransitionForw(RootGrid);
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
+        UT.NavigateTo(typeof(Updater));
     }
 
     public async static Task DABack()
@@ -117,7 +120,7 @@ public partial class About : INavigableView<DashboardViewModel>
         mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
         UT.NavigateTo(typeof(Dashboard));
         await Task.Delay(1000);
-        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
+        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
     }
 
     public async void GoBack(object sender, RoutedEventArgs e)
@@ -192,7 +195,7 @@ public partial class About : INavigableView<DashboardViewModel>
             await Task.Delay(10);
         }
 
-        UT.anim.BackBtnAnim(BackBTN);
+        //UT.anim.BackBtnAnim(BackBTN);
 
         await Task.Delay(500);
 

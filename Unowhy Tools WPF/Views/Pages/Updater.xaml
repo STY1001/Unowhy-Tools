@@ -20,7 +20,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="60" />
         </Grid.RowDefinitions>
 
         <ui:Button Click="GoBack"
@@ -32,104 +31,118 @@
             <Image Source="../../Resources/back.png"
                    Height="16" />
         </ui:Button>
-        <Border HorizontalAlignment="Stretch"
-                Grid.Row="1"
-                Background="#272727"
-                CornerRadius="8,8,8,8"
-                Margin="10,0,10,0">
-            <wv:WebView2 x:Name="browser"
-                         Margin="8,8,8,8"/>
+        <Border Grid.Row="1"
+                x:Name="RootBorder"
+                RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <ScaleTransform ScaleX="1"
+                                ScaleY="1" />
+            </Border.RenderTransform>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Border HorizontalAlignment="Stretch"
+                        Grid.Row="0"
+                        Background="#272727"
+                        CornerRadius="8,8,8,8"
+                        Margin="10,0,10,0">
+                    <wv:WebView2 x:Name="browser"
+                                 Margin="8,8,8,8" />
+                </Border>
+                <Grid x:Name="noco"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Grid.Row="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="64"
+                               Source="/Resources/nowifi.png" />
+                        <TextBlock Text="No Internet Connection"
+                                   FontFamily="Segoe UI SemiBold"
+                                   Foreground="#ffffff"
+                                   FontSize="18"
+                                   VerticalAlignment="Center"
+                                   Margin="30,0,0,0" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+
+                    <ui:Button x:Name="gitbtn"
+                               Click="GithubButton_Click"
+                               Margin="10">
+                        <Grid Grid.Row="0"
+                              Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="5" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="../../Resources/github.png"
+                                   x:Name="gitimg"
+                                   Grid.Column="0"
+                                   Margin="0,0,0,0" />
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Margin="0"
+                                           x:Name="gittxt"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           Text="Github" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:Button>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <Image x:Name="labimg"
+                               Source="../../Resources/update.png"
+                               Height="24" />
+                        <TextBlock x:Name="labtext"
+                                   Text="Status"
+                                   FontFamily="Segoe UI SemiNormal"
+                                   FontSize="13"
+                                   Foreground="#ffffff"
+                                   VerticalAlignment="Center"
+                                   Margin="10" />
+                    </StackPanel>
+
+                    <ui:Button Click="CheckButton_Click"
+                               Margin="0,0,10,0"
+                               HorizontalAlignment="Right"
+                               x:Name="UpdateBTN">
+                        <Grid Grid.Row="0"
+                              Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="5" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="../../Resources/update.png"
+                                   Grid.Column="0"
+                                   Margin="0,0,0,0"
+                                   x:Name="updatebtnimg" />
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Margin="0"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           Text="Check for update"
+                                           x:Name="updatebtntext" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:Button>
+                </Grid>
+            </Grid>
         </Border>
-        <Grid x:Name="noco"
-              HorizontalAlignment="Center"
-              VerticalAlignment="Center"
-              Grid.Row="1">
-            <StackPanel Orientation="Horizontal">
-                <Image Height="64"
-                       Source="/Resources/nowifi.png" />
-                <TextBlock Text="No Internet Connection"
-                           FontFamily="Segoe UI SemiBold"
-                           Foreground="#ffffff"
-                           FontSize="18"
-                           VerticalAlignment="Center"
-                           Margin="30,0,0,0" />
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="2">
-
-            <ui:Button x:Name="gitbtn"
-                       Click="GithubButton_Click"
-                       Margin="10">
-                <Grid Grid.Row="0"
-                      Margin="0,0,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Image Source="../../Resources/github.png"
-                           x:Name="gitimg"
-                           Grid.Column="0"
-                           Margin="0,0,0,0" />
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Margin="0"
-                                   x:Name="gittxt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Github" />
-                    </StackPanel>
-                </Grid>
-            </ui:Button>
-
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-                <Image x:Name="labimg"
-                       Source="../../Resources/update.png"
-                       Height="24" />
-                <TextBlock x:Name="labtext"
-                           Text="Status"
-                           FontFamily="Segoe UI SemiNormal"
-                           FontSize="13"
-                           Foreground="#ffffff"
-                           VerticalAlignment="Center"
-                           Margin="10" />
-            </StackPanel>
-
-            <ui:Button Click="CheckButton_Click"
-                       Margin="0,0,10,0"
-                       HorizontalAlignment="Right"
-                       x:Name="UpdateBTN">
-                <Grid Grid.Row="0"
-                      Margin="0,0,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Image Source="../../Resources/update.png"
-                           Grid.Column="0"
-                           Margin="0,0,0,0"
-                           x:Name="updatebtnimg" />
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Margin="0"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Check for update"
-                                   x:Name="updatebtntext" />
-                    </StackPanel>
-                </Grid>
-            </ui:Button>
-        </Grid>
     </Grid>
 </ui:UiPage>

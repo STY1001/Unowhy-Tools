@@ -41,9 +41,9 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
     public async void GoForw(object sender, RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnim(BackBTN);
+        //UT.anim.BackBtnAnim(BackBTN);
         await Task.Delay(150);
-        UT.anim.TransitionBack(RootGrid);
+        //UT.anim.TransitionBack(RootGrid);
         await Task.Delay(200);
         UT.NavigateTo(typeof(Dashboard));
     }
@@ -78,7 +78,8 @@ public partial class Wifi : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        await UT.DeployBack(typeof(Dashboard), RootGrid);
+        await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
+        UT.anim.BorderZoomOut(RootBorder);
 
         foreach (UIElement element in RootGrid2.Children)
         {

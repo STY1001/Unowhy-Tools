@@ -29,7 +29,13 @@
                 CornerRadius="8,8,8,8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                ClipToBounds="True">
+                ClipToBounds="True"
+                x:Name="RootBorder"
+                RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <ScaleTransform ScaleX="1"
+                                ScaleY="1" />
+            </Border.RenderTransform>
             <Grid Grid.Column="1"
                   Margin="20,20,20,20"
                   x:Name="btngrid">

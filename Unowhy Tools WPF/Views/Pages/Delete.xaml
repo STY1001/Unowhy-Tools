@@ -15,294 +15,301 @@
            Scrollable="True"
            mc:Ignorable="d">
 
-    <StackPanel x:Name="RootStack">
-        <ui:CardControl x:Name="instprog"
-                        Margin="10,0,10,10">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/instprog.png"
+    <Border x:Name="RootBorder"
+            RenderTransformOrigin="0.5,0.5">
+        <Border.RenderTransform>
+            <ScaleTransform ScaleX="1"
+                            ScaleY="1" />
+        </Border.RenderTransform>
+        <StackPanel x:Name="RootStack">
+            <ui:CardControl x:Name="instprog"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/instprog.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="instprog_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Installed applications (Winodows Settings)" />
+                            <TextBlock x:Name="instprog_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="instprog_Click"
+                           x:Name="instprog_btn"
+                           Content="Open"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="instprog_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Installed applications (Winodows Settings)" />
-                        <TextBlock x:Name="instprog_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="instprog_Click"
-                       x:Name="instprog_btn"
-                       Content="Open"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl x:Name="entu"
-                        Margin="10,0,10,10">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/deluser.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="entu"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/deluser.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="entu_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Delete &quot;.\ENT&quot; account" />
+                            <TextBlock x:Name="entu_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="entu_Click"
+                           x:Name="entu_btn"
+                           Content="Delete"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="entu_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Delete &quot;.\ENT&quot; account" />
-                        <TextBlock x:Name="entu_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="entu_Click"
-                       x:Name="entu_btn"
-                       Content="Delete"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl x:Name="hsq"
-                        Margin="10,0,10,10">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/uninstall.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="hsq"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/uninstall.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="hsq_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Uninstall &quot;HiSqool&quot;" />
+                            <TextBlock x:Name="hsq_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="hsq_Click"
+                           x:Name="hsq_btn"
+                           Content="Uninstall"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="hsq_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Uninstall &quot;HiSqool&quot;" />
-                        <TextBlock x:Name="hsq_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="hsq_Click"
-                       x:Name="hsq_btn"
-                       Content="Uninstall"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl x:Name="aad"
-                        Margin="10,0,10,10">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/azure.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="aad"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/azure.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="aad_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Disconnect this PC from AzureAD" />
+                            <TextBlock x:Name="aad_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="aad_Click"
+                           x:Name="aad_btn"
+                           Content="Disconnect"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="aad_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Disconnect this PC from AzureAD" />
-                        <TextBlock x:Name="aad_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="aad_Click"
-                       x:Name="aad_btn"
-                       Content="Disconnect"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl x:Name="hsmqf"
-                        Margin="10,0,10,10">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/service.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="hsmqf"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/service.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="hsmqf_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Delete &quot;HiSqoolManager&quot; service and folder" />
+                            <TextBlock  x:Name="hsmqf_desc"
+                                        FontSize="12"
+                                        Foreground="#bebebe"
+                                        Text="Description"
+                                        TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="hsmqf_Click"
+                           x:Name="hsmqf_btn"
+                           Content="Delete"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="hsmqf_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Delete &quot;HiSqoolManager&quot; service and folder" />
-                        <TextBlock  x:Name="hsmqf_desc"
-                                    FontSize="12"
-                                    Foreground="#bebebe"
-                                    Text="Description"
-                                    TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="hsmqf_Click"
-                       x:Name="hsmqf_btn"
-                       Content="Delete"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl x:Name="tif"
-                        Margin="10,0,10,10">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/folder.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="tif"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/folder.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="tif_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Delete &quot;TO_INSTALL&quot; folder" />
+                            <TextBlock x:Name="tif_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="tif_Click"
+                           x:Name="tif_btn"
+                           Content="Delete"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="tif_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Delete &quot;TO_INSTALL&quot; folder" />
-                        <TextBlock x:Name="tif_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="tif_Click"
-                       x:Name="tif_btn"
-                       Content="Delete"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl x:Name="ridff"
-                        Margin="10,0,10,10">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/folder.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="ridff"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/folder.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock  x:Name="ridff_txt"
+                                        FontSize="13"
+                                        FontWeight="Medium"
+                                        Text="Delete &quot;RIDF&quot; folder" />
+                            <TextBlock x:Name="ridff_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="ridff_Click"
+                           x:Name="ridff_btn"
+                           Content="Delete"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock  x:Name="ridff_txt"
-                                    FontSize="13"
-                                    FontWeight="Medium"
-                                    Text="Delete &quot;RIDF&quot; folder" />
-                        <TextBlock x:Name="ridff_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="ridff_Click"
-                       x:Name="ridff_btn"
-                       Content="Delete"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl x:Name="oemf"
-                        Margin="10,0,10,10">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/folder.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="oemf"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/folder.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="oemf_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Delete &quot;OEM&quot; folder" />
+                            <TextBlock x:Name="oemf_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="oemf_Click"
+                           x:Name="oemf_btn"
+                           Content="Delete"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="oemf_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Delete &quot;OEM&quot; folder" />
-                        <TextBlock x:Name="oemf_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="oemf_Click"
-                       x:Name="oemf_btn"
-                       Content="Delete"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-        <ui:CardControl x:Name="entf"
-                        Margin="10,0,10,10">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/folder.png"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="entf"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/folder.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="entf_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Delete &quot;ENT&quot; folder" />
+                            <TextBlock x:Name="entf_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="entf_Click"
+                           x:Name="entf_btn"
+                           Content="Delete"
                            Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="entf_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Delete &quot;ENT&quot; folder" />
-                        <TextBlock x:Name="entf_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <ui:Button Click="entf_Click"
-                       x:Name="entf_btn"
-                       Content="Delete"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="4"
-                       HorizontalAlignment="Stretch"
-                       Margin="0,0,0,0" />
-        </ui:CardControl>
-    </StackPanel>
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+        </StackPanel>
+    </Border>
 </ui:UiPage>

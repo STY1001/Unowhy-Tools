@@ -69,7 +69,7 @@ public partial class MainWindow : INavigationWindow
 
         applylang();
     }
-
+    /*
     public void NavAnimLeft()
     {
         RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideLeft;
@@ -77,13 +77,13 @@ public partial class MainWindow : INavigationWindow
 
     public void NavAnimRight()
     {
-        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideRight;
+        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
     }
     
     public void NavAnimNormal()
     {
         RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
-    }
+    }*/
 
     public bool ShowDialogQ(string msg, BitmapImage img)
     {
@@ -154,6 +154,7 @@ public partial class MainWindow : INavigationWindow
     private bool backisdeployed = false;
     private Type backtype = null;
     private Grid backgrid = null;
+    private Border backborder = null;
     
     public async Task DeployDABack()
     {
@@ -230,13 +231,14 @@ public partial class MainWindow : INavigationWindow
         await About.DABack();
     }
 
-    public async Task DeployBack(Type type, Grid grid)
+    public async Task DeployBack(Type type, Grid grid, Border border)
     {
         back.Click += GoBack;
         back.Click -= GoDABack;
 
         backtype = type;
         backgrid = grid;
+        backborder = border;
 
         if(!backisdeployed)
         {
@@ -370,7 +372,7 @@ public partial class MainWindow : INavigationWindow
 
     public async void GoBack(object sender, RoutedEventArgs e)
     {
-        UT.anim.TransitionBack(backgrid);
+        UT.anim.BorderZoomIn2(backborder);
         DoubleAnimation translateAnim = new DoubleAnimation
         {
             From = 0,
@@ -392,7 +394,9 @@ public partial class MainWindow : INavigationWindow
         TranslateTransform trans2 = new TranslateTransform();
         back.RenderTransform = trans2;
         trans2.BeginAnimation(TranslateTransform.XProperty, translateAnim2);
+        await System.Threading.Tasks.Task.Delay(200);
         UT.NavigateTo(backtype);
+        await UT.anim.AnimParent("zoomin");
     }
 
     private async void NavClick(object sender, RoutedEventArgs e)
@@ -870,7 +874,7 @@ public partial class MainWindow : INavigationWindow
                 }
                 */
                 await Task.Delay(1000);
-                RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
+                RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
             }
 
             UT.Write2Log("\n\n\nReady !\n");

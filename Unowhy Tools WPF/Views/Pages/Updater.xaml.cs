@@ -32,9 +32,9 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void GoBack(object sender, RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnim(BackBTN);
+        //UT.anim.BackBtnAnim(BackBTN);
         await Task.Delay(150);
-        UT.anim.TransitionBack(RootGrid);
+        //UT.anim.TransitionBack(RootGrid);
         await Task.Delay(200);
         UT.NavigateTo(typeof(About));
     }
@@ -70,7 +70,8 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
-        await UT.DeployBack(typeof(About), RootGrid);
+        await UT.DeployBack(typeof(About), RootGrid, RootBorder);
+        UT.anim.BorderZoomOut(RootBorder);
     }
 
     public Updater(DashboardViewModel viewModel)

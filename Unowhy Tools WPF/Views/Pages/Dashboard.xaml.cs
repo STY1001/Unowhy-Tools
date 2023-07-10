@@ -30,7 +30,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
     public void GoForw(object sender, RoutedEventArgs e)
     {
-        UT.anim.TransitionForw(RootGrid);
+        //UT.anim.TransitionForw(RootGrid);
     }
 
     public async void Init(object sender, EventArgs e)
@@ -315,7 +315,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
         UT.NavigateTo(typeof(About));
         await Task.Delay(1000);
-        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
+        mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
     }
 
     public void Taskmgr(object sender, RoutedEventArgs e)
@@ -342,10 +342,26 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         System.Diagnostics.Process.Start("mmc.exe", "gpedit.msc");
     }
 
-    public async void Guide(object sender, RoutedEventArgs e)
+    public async void UTW(object sender, RoutedEventArgs e)
     {
-        UT.anim.TransitionForw(RootGrid);
-        await Task.Delay(150);
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
         UT.NavigateTo(typeof(Wifi));
+    }
+    
+    public async void SysInfo(object sender, RoutedEventArgs e)
+    {
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
+        UT.NavigateTo(typeof(PCinfo));
+    }
+    public async void GoSettings(object sender, RoutedEventArgs e)
+    {
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
+        UT.NavigateTo(typeof(Settings));
     }
 }

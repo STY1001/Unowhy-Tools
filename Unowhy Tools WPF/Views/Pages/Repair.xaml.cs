@@ -24,7 +24,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
 
     public void GoForw(object sender, RoutedEventArgs e)
     {
-        UT.anim.TransitionForw(RootGrid);
+        //UT.anim.TransitionForw(RootGrid);
     }
 
     public async void winre_Click(object sender, RoutedEventArgs e)
@@ -38,9 +38,9 @@ public partial class Repair : INavigableView<DashboardViewModel>
         wre_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
-        await Task.Delay(200);
-        UT.anim.TransitionForw(RootGrid);
-        await Task.Delay(200);
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
         UT.NavigateTo(typeof(WinRE));
 
         anim.From = 0;

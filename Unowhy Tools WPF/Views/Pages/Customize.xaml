@@ -16,6 +16,12 @@
            mc:Ignorable="d">
 
     <Grid x:Name="RootGrid">
+        <Border x:Name="RootBorder"
+                RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <ScaleTransform ScaleX="1"
+                                ScaleY="1" />
+            </Border.RenderTransform>
         <StackPanel x:Name="RootStack">
             <ui:CardControl x:Name="pcname"
                             Margin="10,0,10,10">
@@ -240,5 +246,6 @@
                            Margin="0,0,0,0" />
             </ui:CardControl>
         </StackPanel>
+        </Border>
     </Grid>
 </ui:UiPage>

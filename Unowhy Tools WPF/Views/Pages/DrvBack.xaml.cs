@@ -25,9 +25,9 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
 
     public async void GoBack(object sender, RoutedEventArgs e)
     {
-        UT.anim.BackBtnAnim(BackBTN);
+        //UT.anim.BackBtnAnim(BackBTN);
         await Task.Delay(150);
-        UT.anim.TransitionBack(RootGrid);
+        //UT.anim.TransitionBack(RootGrid);
         await Task.Delay(200);
         UT.NavigateTo(typeof(Drivers));
     }
@@ -46,7 +46,8 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        await UT.DeployBack(typeof(Drivers), RootGrid);
+        await UT.DeployBack(typeof(Drivers), RootGrid, RootBorder);
+        UT.anim.BorderZoomOut(RootBorder);
 
         foreach (UIElement element in RootStack.Children)
         {

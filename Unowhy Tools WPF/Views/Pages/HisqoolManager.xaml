@@ -15,205 +15,212 @@
            Scrollable="True"
            mc:Ignorable="d">
 
-    <StackPanel x:Name="RootStack">
-        <ui:CardControl Margin="10,0,10,10"
-                        x:Name="hsqm">
-            <ui:CardControl.Header>
-                <Grid>
-                    <Image Source="pack://application:,,,/Resources/service.png"
-                           Grid.Column="0"
-                           HorizontalAlignment="Left"
-                           MaxHeight="32"
-                           MaxWidth="32" />
-                    <StackPanel Grid.Column="1"
-                                VerticalAlignment="Center"
-                                Margin="50,0,0,0">
-                        <TextBlock x:Name="hsqm_txt"
-                                   FontSize="13"
-                                   FontWeight="Medium"
-                                   Text="Modify Hisqool Manager service" />
-                        <TextBlock x:Name="hsqm_desc"
-                                   FontSize="12"
-                                   Foreground="#bebebe"
-                                   Text="Description"
-                                   TextWrapping="Wrap" />
-                    </StackPanel>
-                </Grid>
-            </ui:CardControl.Header>
-            <StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+    <Border x:Name="RootBorder"
+            RenderTransformOrigin="0.5,0.5">
+        <Border.RenderTransform>
+            <ScaleTransform ScaleX="1"
+                            ScaleY="1" />
+        </Border.RenderTransform>
+        <StackPanel x:Name="RootStack">
+            <ui:CardControl Margin="10,0,10,10"
+                            x:Name="hsqm">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/service.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="hsqm_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Modify Hisqool Manager service" />
+                            <TextBlock x:Name="hsqm_desc"
+                                       FontSize="12"
+                                       Foreground="#bebebe"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0">
-                        <ui:Button x:Name="hsqm_start"
-                                   Click="start_Click"
-                                   Grid.Column="0"
-                                   Grid.ColumnSpan="4"
-                                   HorizontalAlignment="Stretch"
-                                   Margin="0,0,0,0">
-                            <StackPanel>
-                                <Grid Grid.Row="1"
-                                      Margin="0,0,0,0"
-                                      RenderTransformOrigin="0.5,0.5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <ui:Button x:Name="hsqm_start"
+                                       Click="start_Click"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="4"
+                                       HorizontalAlignment="Stretch"
+                                       Margin="0,0,0,0">
+                                <StackPanel>
+                                    <Grid Grid.Row="1"
+                                          Margin="0,0,0,0"
+                                          RenderTransformOrigin="0.5,0.5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="32" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
 
-                                    <Image Source="../../Resources/start.png"
-                                           Grid.Column="0" />
-                                    <StackPanel VerticalAlignment="Center"
-                                                Grid.Column="2">
-                                        <TextBlock x:Name="hsqm_start_txt"
-                                                   Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="Start" />
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </ui:Button>
-                        <ui:Button x:Name="hsqm_enable"
-                                   Click="enable_Click"
-                                   Grid.Column="0"
-                                   Grid.ColumnSpan="4"
-                                   HorizontalAlignment="Stretch"
-                                   Margin="0,10,0,0">
-                            <StackPanel>
-                                <Grid Grid.Row="1"
-                                      Margin="0,0,0,0"
-                                      RenderTransformOrigin="0.5,0.5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
+                                        <Image Source="../../Resources/start.png"
+                                               Grid.Column="0" />
+                                        <StackPanel VerticalAlignment="Center"
+                                                    Grid.Column="2">
+                                            <TextBlock x:Name="hsqm_start_txt"
+                                                       Margin="0"
+                                                       FontSize="13"
+                                                       FontWeight="Medium"
+                                                       Text="Start" />
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+                            </ui:Button>
+                            <ui:Button x:Name="hsqm_enable"
+                                       Click="enable_Click"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="4"
+                                       HorizontalAlignment="Stretch"
+                                       Margin="0,10,0,0">
+                                <StackPanel>
+                                    <Grid Grid.Row="1"
+                                          Margin="0,0,0,0"
+                                          RenderTransformOrigin="0.5,0.5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="32" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
 
-                                    <Image Source="../../Resources/enable.png"
-                                           Grid.Column="0" />
-                                    <StackPanel VerticalAlignment="Center"
-                                                Grid.Column="2">
-                                        <TextBlock x:Name="hsqm_enable_txt"
-                                                   Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="Enable" />
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </ui:Button>
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <ui:Button x:Name="hsqm_stop"
-                                   Click="stop_Click"
-                                   Grid.Column="0"
-                                   Grid.ColumnSpan="4"
-                                   HorizontalAlignment="Stretch"
-                                   Margin="0,0,0,0">
-                            <StackPanel>
-                                <Grid Grid.Row="1"
-                                      Margin="0,0,0,0"
-                                      RenderTransformOrigin="0.5,0.5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
+                                        <Image Source="../../Resources/enable.png"
+                                               Grid.Column="0" />
+                                        <StackPanel VerticalAlignment="Center"
+                                                    Grid.Column="2">
+                                            <TextBlock x:Name="hsqm_enable_txt"
+                                                       Margin="0"
+                                                       FontSize="13"
+                                                       FontWeight="Medium"
+                                                       Text="Enable" />
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+                            </ui:Button>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <ui:Button x:Name="hsqm_stop"
+                                       Click="stop_Click"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="4"
+                                       HorizontalAlignment="Stretch"
+                                       Margin="0,0,0,0">
+                                <StackPanel>
+                                    <Grid Grid.Row="1"
+                                          Margin="0,0,0,0"
+                                          RenderTransformOrigin="0.5,0.5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="32" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
 
-                                    <Image Source="../../Resources/stop.png"
-                                           Grid.Column="0" />
-                                    <StackPanel VerticalAlignment="Center"
-                                                Grid.Column="2">
-                                        <TextBlock x:Name="hsqm_stop_txt"
-                                                   Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="Stop" />
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </ui:Button>
-                        <ui:Button x:Name="hsqm_disable"
-                                   Click="disable_Click"
-                                   Grid.Column="0"
-                                   Grid.ColumnSpan="4"
-                                   HorizontalAlignment="Stretch"
-                                   Margin="0,10,0,0">
-                            <StackPanel>
-                                <Grid Grid.Row="1"
-                                      Margin="0,0,0,0"
-                                      RenderTransformOrigin="0.5,0.5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
+                                        <Image Source="../../Resources/stop.png"
+                                               Grid.Column="0" />
+                                        <StackPanel VerticalAlignment="Center"
+                                                    Grid.Column="2">
+                                            <TextBlock x:Name="hsqm_stop_txt"
+                                                       Margin="0"
+                                                       FontSize="13"
+                                                       FontWeight="Medium"
+                                                       Text="Stop" />
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+                            </ui:Button>
+                            <ui:Button x:Name="hsqm_disable"
+                                       Click="disable_Click"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="4"
+                                       HorizontalAlignment="Stretch"
+                                       Margin="0,10,0,0">
+                                <StackPanel>
+                                    <Grid Grid.Row="1"
+                                          Margin="0,0,0,0"
+                                          RenderTransformOrigin="0.5,0.5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="32" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
 
-                                    <Image Source="../../Resources/disable.png"
-                                           Grid.Column="0" />
-                                    <StackPanel VerticalAlignment="Center"
-                                                Grid.Column="2">
-                                        <TextBlock x:Name="hsqm_disable_txt"
-                                                   Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="Disable" />
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </ui:Button>
-                    </StackPanel>
-                </Grid>
-                <ui:Button x:Name="hsqm_delete"
-                           Click="del_Click"
-                           Grid.Column="0"
-                           Grid.ColumnSpan="4"
-                           HorizontalAlignment="Stretch"
-                           Margin="0,10,0,0">
-                    <StackPanel>
-                        <Grid Grid.Row="1"
-                              Margin="0,0,0,0"
-                              RenderTransformOrigin="0.5,0.5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="32" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
+                                        <Image Source="../../Resources/disable.png"
+                                               Grid.Column="0" />
+                                        <StackPanel VerticalAlignment="Center"
+                                                    Grid.Column="2">
+                                            <TextBlock x:Name="hsqm_disable_txt"
+                                                       Margin="0"
+                                                       FontSize="13"
+                                                       FontWeight="Medium"
+                                                       Text="Disable" />
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+                            </ui:Button>
+                        </StackPanel>
+                    </Grid>
+                    <ui:Button x:Name="hsqm_delete"
+                               Click="del_Click"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="4"
+                               HorizontalAlignment="Stretch"
+                               Margin="0,10,0,0">
+                        <StackPanel>
+                            <Grid Grid.Row="1"
+                                  Margin="0,0,0,0"
+                                  RenderTransformOrigin="0.5,0.5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
 
-                            <Image Source="../../Resources/delete.png"
-                                   Grid.Column="0" />
-                            <StackPanel VerticalAlignment="Center"
-                                        Grid.Column="2">
-                                <TextBlock x:Name="hsqm_delete_txt"
-                                           Margin="0"
-                                           FontSize="13"
-                                           FontWeight="Medium"
-                                           Text="Delete service only" />
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
-                </ui:Button>
-            </StackPanel>
-        </ui:CardControl>
-    </StackPanel>
+                                <Image Source="../../Resources/delete.png"
+                                       Grid.Column="0" />
+                                <StackPanel VerticalAlignment="Center"
+                                            Grid.Column="2">
+                                    <TextBlock x:Name="hsqm_delete_txt"
+                                               Margin="0"
+                                               FontSize="13"
+                                               FontWeight="Medium"
+                                               Text="Delete service only" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </ui:Button>
+                </StackPanel>
+            </ui:CardControl>
+        </StackPanel>
+    </Border>
 </ui:UiPage>
