@@ -245,7 +245,38 @@
                            HorizontalAlignment="Stretch"
                            Margin="0,0,0,0" />
             </ui:CardControl>
-        </StackPanel>
+                <ui:CardControl x:Name="windefset"
+                                Margin="10,0,10,10">
+                    <ui:CardControl.Header>
+                        <Grid>
+                            <Image Source="pack://application:,,,/Resources/windef.png"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                   MaxHeight="32"
+                                   MaxWidth="32" />
+                            <StackPanel VerticalAlignment="Top"
+                                        Margin="50,2,0,0">
+                                <TextBlock x:Name="windefset_txt"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           Text="Windows Defender settings" />
+                                <TextBlock x:Name="windefset_desc"
+                                           FontSize="12"
+                                           Foreground="#bebebe"
+                                           Text="Description"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardControl.Header>
+                    <ui:Button Grid.Column="0"
+                               Click="WinDefSet_Click"
+                               x:Name="windefset_btn"
+                               Content="Open"
+                               Grid.ColumnSpan="4"
+                               HorizontalAlignment="Stretch"
+                               Margin="0,0,0,0" />
+                </ui:CardControl>
+            </StackPanel>
         </Border>
     </Grid>
 </ui:UiPage>

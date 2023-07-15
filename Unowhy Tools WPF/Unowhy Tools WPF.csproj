@@ -117,6 +117,7 @@
     <None Remove="Resources\wifi.png" />
     <None Remove="Resources\win10.png" />
     <None Remove="Resources\win11.png" />
+    <None Remove="Resources\windef.png" />
     <None Remove="Resources\wpfui.png" />
     <None Remove="Resources\yes.png" />
     <None Remove="Resources\yesupdate.png" />
@@ -239,6 +240,7 @@
     <Resource Include="Resources\wifi.png" />
     <Resource Include="Resources\win10.png" />
     <Resource Include="Resources\win11.png" />
+    <Resource Include="Resources\windef.png" />
     <Resource Include="Resources\wpfui.png" />
     <Resource Include="Resources\yes.png" />
     <Resource Include="Resources\yesupdate.png" />
@@ -267,6 +269,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\Pages\WinDef.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>
