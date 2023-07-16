@@ -50,8 +50,8 @@ public partial class WinDef : INavigableView<DashboardViewModel>
     public async Task CheckBTN()
     {
         enable.IsEnabled = true;
-        disable_txt.Foreground = new SolidColorBrush(enabled);
-        enable.IsEnabled = true;
+        enable_txt.Foreground = new SolidColorBrush(enabled);
+        disable.IsEnabled = true;
         disable_txt.Foreground = new SolidColorBrush(enabled);
 
         RegistryKey wd = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender");
