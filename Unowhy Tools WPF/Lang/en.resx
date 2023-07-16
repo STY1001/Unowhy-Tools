@@ -684,7 +684,7 @@
   <data name="windefset" xml:space="preserve">
     <value>Windows Defender settings</value>
   </data>
-  <data name="windefsettemper" xml:space="preserve">
+  <data name="windefsettamper" xml:space="preserve">
     <value>To disable Windows Defender, you need to disable tamper protection. Unowhy Tools will open Windows Defender settings for you, temper protection is the last switch. Click "Ok" to continue</value>
   </data>
   <data name="winre" xml:space="preserve">
