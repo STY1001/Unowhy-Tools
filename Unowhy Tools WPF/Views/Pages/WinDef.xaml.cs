@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Microsoft.Win32;
 using System.Windows.Input;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -140,8 +141,8 @@ public partial class WinDef : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $false");
-            await UT.waitstatus.close();
             await CheckBTN();
+            await UT.waitstatus.close();
             if (!enable.IsEnabled)
             {
                 UT.DialogIShow(UT.GetLang("done"), "yes.png");
@@ -163,6 +164,12 @@ public partial class WinDef : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"1\" /f");
             await CheckBTN();
             await UT.waitstatus.close();
+            UT.DialogIShow(UT.GetLang("windefsettamper"), "windef.png");
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = "windowsdefender://threatsettings",
+                UseShellExecute = true
+            });
             if (!disable.IsEnabled)
             {
                 UT.DialogIShow(UT.GetLang("done"), "yes.png");
