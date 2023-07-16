@@ -131,7 +131,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
         anim.Duration = TimeSpan.FromMilliseconds(500);
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
         TranslateTransform trans = new TranslateTransform();
-        edgeset_btn.RenderTransform = trans;
+        windefset_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
         UT.anim.RegisterParent(RootGrid, RootBorder);
@@ -170,6 +170,9 @@ public partial class Customize : INavigableView<DashboardViewModel>
         edgeset_txt.Text = UT.GetLang("edgeset");
         edgeset_desc.Text = UT.GetLang("descedgeset");
         edgeset_btn.Content = UT.GetLang("open");
+        windefset_txt.Text = UT.GetLang("windefset");
+        windefset_desc.Text = UT.GetLang("descwindefset");
+        windefset_btn.Content = UT.GetLang("open");
     }
 
     public async Task CheckBTN(bool check)
