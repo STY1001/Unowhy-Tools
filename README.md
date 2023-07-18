@@ -40,6 +40,7 @@ Currently, with this tool, you can:
 - Enable Windows verbose status
 - Uninstall Edge
 - Block Edge auto reinstall
+- Enable and disable Windows Defender
 
 More features coming soon
 
