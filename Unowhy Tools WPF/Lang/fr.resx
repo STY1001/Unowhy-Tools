@@ -603,6 +603,9 @@
   <data name="titledrvrt" xml:space="preserve">
     <value>Restaurer les pilotes</value>
   </data>
+  <data name="titleedge" xml:space="preserve">
+    <value>Paramètres Microsoft Edge</value>
+  </data>
   <data name="titlehome" xml:space="preserve">
     <value>Accueil</value>
   </data>
@@ -620,6 +623,9 @@
   </data>
   <data name="titlesettings" xml:space="preserve">
     <value>Paramètres</value>
+  </data>
+  <data name="titlewindef" xml:space="preserve">
+    <value>Paramètres Windows Defender</value>
   </data>
   <data name="titlewre" xml:space="preserve">
     <value>Paramètre WinRE (reagentc)</value>

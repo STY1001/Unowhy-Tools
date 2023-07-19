@@ -169,6 +169,16 @@
                                        Height="0"
                                        Content="Unowhy Tools First Config"
                                        PageType="{x:Type pages:FirstConfig}" />
+                    <ui:NavigationItem x:Name="mes"
+                                       Visibility="Collapsed"
+                                       Height="0"
+                                       Content="Microsoft Edge Settings"
+                                       PageType="{x:Type pages:Edge}" />
+                    <ui:NavigationItem x:Name="wds"
+                                       Visibility="Collapsed"
+                                       Height="0"
+                                       Content="Windows Defender Settings"
+                                       PageType="{x:Type pages:WinDef}" />
                     <ui:NavigationSeparator Visibility="Collapsed"/>
                     <ui:NavigationItem x:Name="settings"
                                        Content="Settings"

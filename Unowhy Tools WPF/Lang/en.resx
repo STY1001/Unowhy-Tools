@@ -603,6 +603,9 @@
   <data name="titledrvrt" xml:space="preserve">
     <value>Restore drivers</value>
   </data>
+  <data name="titleedge" xml:space="preserve">
+    <value>Microsoft Edge settings</value>
+  </data>
   <data name="titlehome" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -620,6 +623,9 @@
   </data>
   <data name="titlesettings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="titlewindef" xml:space="preserve">
+    <value>Windows Defender settings</value>
   </data>
   <data name="titlewre" xml:space="preserve">
     <value>WinRE (reagentc) settings</value>

@@ -48,6 +48,8 @@ public partial class MainWindow : INavigationWindow
         drvconv.Content = UT.GetLang("titleconv");
         settings.Content = UT.GetLang("titlesettings");
         pcinfo.Content = UT.GetLang("titlepci");
+        mes.Content = UT.GetLang("titleedge");
+        wds.Content = UT.GetLang("titlewindef");
     }
 
     public MainWindow(INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)
