@@ -68,7 +68,14 @@ public partial class Settings : INavigableView<DashboardViewModel>
             ws.IsChecked = false;
         }
 
-        TaskService ts = new TaskService();
+        if ((await UT.UTS.UTSmsg("UTSW", "GetSN")).Contains("Null"))
+        {
+            ws.IsChecked = false;
+            ws.IsEnabled = false;
+            sn.Text = "";
+        }
+
+            TaskService ts = new TaskService();
         Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
         if(uttltask != null)
         {
@@ -274,63 +281,72 @@ public partial class Settings : INavigableView<DashboardViewModel>
         await UT.waitstatus.open();
         bool ok = true;
 
-        if (UT.CheckInternet())
+        if(sn.Text == "")
         {
-            var web = new HttpClient();
-            string ssn = sn.Text;
-            string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
-            string configurl = $"{preurl}/devices/{ssn}/configuration";
 
-            HttpResponseMessage response = await web.GetAsync(configurl);
-            if (response.StatusCode == HttpStatusCode.OK)
+        }
+        else
+        {
+            if (UT.CheckInternet())
             {
-                await UT.UTS.UTSmsg("UTSW", "SetSN:" +  ssn);
-                await System.Threading.Tasks.Task.Delay(1000);
-                string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");
-                if (!(nsn == ssn))
+                var web = new HttpClient();
+                string ssn = sn.Text;
+                string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
+                string configurl = $"{preurl}/devices/{ssn}/configuration";
+
+                HttpResponseMessage response = await web.GetAsync(configurl);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    await UT.UTS.UTSmsg("UTSW", "SetSN:" + ssn);
+                    await System.Threading.Tasks.Task.Delay(1000);
+                    string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");
+                    if (!(nsn == ssn))
+                    {
+                        await UT.waitstatus.close();
+                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                        await UT.waitstatus.open();
+                    }
+                }
+                else
                 {
                     await UT.waitstatus.close();
-                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                    await UT.waitstatus.open();
+                    ok = false;
+                    UT.DialogIShow(UT.GetLang("noid"), "no.png");
                 }
             }
             else
             {
                 await UT.waitstatus.close();
-                ok = false;
-                UT.DialogIShow(UT.GetLang("noid"), "no.png");
+                UT.DialogIShow(UT.GetLang("noco"), "nowifi.png");
                 await UT.waitstatus.open();
             }
-        }
-        else
-        {
-            await UT.waitstatus.close();
-            UT.DialogIShow(UT.GetLang("noco"), "nowifi.png");
-            await UT.waitstatus.open();
         }
 
         if (ok)
         {
-            if(ws.IsChecked == true)
+            if (ws.IsEnabled)
             {
-                await UT.UTS.UTSmsg("UTSW", "SetWS:" + "True");
-                await System.Threading.Tasks.Task.Delay(1000);
-                if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "True"))
+                if (ws.IsChecked == true)
                 {
-                    await UT.waitstatus.close();
-                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                    await UT.waitstatus.open();
+                    await UT.UTS.UTSmsg("UTSW", "SetWS:" + "True");
+                    await System.Threading.Tasks.Task.Delay(1000);
+                    if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "True"))
+                    {
+                        await UT.waitstatus.close();
+                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                        await UT.waitstatus.open();
+                    }
                 }
-            }
-            else
-            {
-                await UT.UTS.UTSmsg("UTSW", "SetWS:" + "False");
-                await System.Threading.Tasks.Task.Delay(1000);
-                if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "False"))
+                else
                 {
-                    await UT.waitstatus.close();
-                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                    await UT.waitstatus.open();
+                    await UT.UTS.UTSmsg("UTSW", "SetWS:" + "False");
+                    await System.Threading.Tasks.Task.Delay(1000);
+                    if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "False"))
+                    {
+                        await UT.waitstatus.close();
+                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                        await UT.waitstatus.open();
+                    }
                 }
             }
 

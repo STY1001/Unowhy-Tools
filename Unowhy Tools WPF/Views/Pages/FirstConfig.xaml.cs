@@ -57,7 +57,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             snbox.Text = sn;
         }
 
-        if(!un.Contains("Null") && un.Contains("IFP"))
+        if (!un.Contains("Null") && un.Contains("IFP"))
         {
             snbox.Text = un;
         }
@@ -141,7 +141,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         fctxt.Text = "Language";
         btn.Click -= step1;
         btn.Click += step2;
-        
+
         anim = new DoubleAnimation();
         anim.From = 1000;
         anim.To = 0;
@@ -154,7 +154,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         RootStateGrid.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
-    
+
     public async void step2(object sender, RoutedEventArgs e)
     {
         bool IsOK = true;
@@ -207,44 +207,64 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
     public async void step3(object sender, RoutedEventArgs e)
     {
         bool IsOK = false;
-
-        if (UT.CheckInternet())
+        if (snbox.Text == "")
         {
-            await UT.waitstatus.open();
-            var web = new HttpClient();
-            string ssn = snbox.Text;
-            string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
-            string configurl = $"{preurl}/devices/{ssn}/configuration";
-
-            HttpResponseMessage response = await web.GetAsync(configurl);
-            if (response.StatusCode == HttpStatusCode.OK)
+            if (UT.DialogQShow("Skip", "question.png"))
             {
-                await UT.UTS.UTSmsg("UTSW", "SetSN:" +  ssn);
-                await System.Threading.Tasks.Task.Delay(1000);
-                string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");
-                await UT.waitstatus.close();
-                if (!(nsn == ssn))
-                {
-                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                    IsOK = true;
-                    InitOK = false;
-                }
-                else
-                {
-                    IsOK = true;
-                }
+                IsOK = true;
+                InitOK = true;
             }
             else
             {
-                await UT.waitstatus.close();
-                UT.DialogIShow(UT.GetLang("noid"), "no.png");
+                IsOK = false;
             }
         }
         else
         {
-            UT.DialogIShow(UT.GetLang("noco"), "nowifi.png");
-            IsOK = true;
-            InitOK = false;
+            if (UT.CheckInternet())
+            {
+                await UT.waitstatus.open();
+                var web = new HttpClient();
+                string ssn = snbox.Text;
+                string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
+                string configurl = $"{preurl}/devices/{ssn}/configuration";
+
+                HttpResponseMessage response = await web.GetAsync(configurl);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    await UT.UTS.UTSmsg("UTSW", "SetSN:" + ssn);
+                    await System.Threading.Tasks.Task.Delay(1000);
+                    string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");
+                    await UT.waitstatus.close();
+                    if (!(nsn == ssn))
+                    {
+                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                        IsOK = true;
+                        InitOK = true;
+                    }
+                    else
+                    {
+                        IsOK = true;
+                    }
+                }
+                else
+                {
+                    await UT.waitstatus.close();
+                    UT.DialogIShow(UT.GetLang("noid"), "no.png");
+                }
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("noco"), "nowifi.png");
+                IsOK = true;
+                InitOK = true;
+            }
+        }
+
+        if ((await UT.UTS.UTSmsg("UTSW", "GetSN")).Contains("Null"))
+        {
+            wifisync.IsChecked = false;
+            wifisync.IsEnabled = false;
         }
 
         if (IsOK)
@@ -366,11 +386,9 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
             await Task.Delay(300);
             StartTray.Visibility = Visibility.Collapsed;
-            StartDone.Visibility = Visibility.Visible;
-            fcimg.Source = UT.GetImgSource("yes.png");
-            fctxt.Text = "Done !";
-            btn_img.Source = UT.GetImgSource("yes.png");
-            btn_txt.Text = "Ok";
+            StartWifi.Visibility = Visibility.Visible;
+            fcimg.Source = UT.GetImgSource("wifi.png");
+            fctxt.Text = "Wifi";
             btn.Click -= step5;
             btn.Click += step6;
 
@@ -387,8 +405,77 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
         }
     }
-    
+
     public async void step6(object sender, RoutedEventArgs e)
+    {
+        bool IsOK = true;
+
+        if (wifisync.IsEnabled)
+        {
+            await UT.waitstatus.open();
+            if (wifisync.IsChecked == true)
+            {
+                await UT.UTS.UTSmsg("UTSW", "SetWS:" + "True");
+                await System.Threading.Tasks.Task.Delay(1000);
+                if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "True"))
+                {
+                    await UT.waitstatus.close();
+                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    await UT.waitstatus.open();
+                }
+            }
+            else
+            {
+                await UT.UTS.UTSmsg("UTSW", "SetWS:" + "False");
+                await System.Threading.Tasks.Task.Delay(1000);
+                if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "False"))
+                {
+                    await UT.waitstatus.close();
+                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    await UT.waitstatus.open();
+                }
+            }
+            await UT.waitstatus.close();
+        }
+
+        if (IsOK)
+        {
+            DoubleAnimation anim = new DoubleAnimation();
+            anim.From = 0;
+            anim.To = -1000;
+            anim.Duration = TimeSpan.FromMilliseconds(300);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+            TranslateTransform trans = new TranslateTransform();
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            await Task.Delay(300);
+            StartWifi.Visibility = Visibility.Collapsed;
+            StartDone.Visibility = Visibility.Visible;
+            fcimg.Source = UT.GetImgSource("yes.png");
+            fctxt.Text = "Done !";
+            btn_img.Source = UT.GetImgSource("yes.png");
+            btn_txt.Text = "Ok";
+            btn.Click -= step6;
+            btn.Click += step7;
+
+            anim = new DoubleAnimation();
+            anim.From = 1000;
+            anim.To = 0;
+            anim.Duration = TimeSpan.FromMilliseconds(600);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+
+            trans = new TranslateTransform();
+            RootConfigGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            RootStateGrid.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        }
+    }
+
+    public async void step7(object sender, RoutedEventArgs e)
     {
         bool IsOK = true;
 
@@ -407,16 +494,17 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
             await Task.Delay(300);
             StartDone.Visibility = Visibility.Collapsed;
-            btn.Click -= step4;
 
             await Task.Delay(150);
 
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+            await UT.waitstatus.open();
+
+            /*var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             mainWindow.RootNavigation.Visibility = Visibility.Visible;
             mainWindow.applylang();
             mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
             UT.NavigateTo(typeof(Dashboard));
-            /*
+            
             foreach (UIElement elements in mainWindow.RootNavigation.Items)
             {
                 elements.Visibility = Visibility.Visible;
@@ -445,10 +533,10 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
                 await Task.Delay(50);
             }
-            */
+            
 
             await Task.Delay(1000);
-            mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
+            mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;*/
 
             RegistryKey keyf = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             if (InitOK)
@@ -459,6 +547,8 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             {
                 keyf.SetValue("Init2", "0");
             }
+
+            UT.RunAdmin($"-user {UTdata.UserID}");
         }
     }
 
