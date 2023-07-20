@@ -45,8 +45,6 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
         InitializeComponent();
 
-        verlab.Text = "Debug Page";
-
         _testWindowService = testWindowService;
         _snackbarService = snackbarService;
     }
@@ -74,14 +72,14 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        debus.Text = "DL...";
+        debus.Text = "Downloading...";
         var web = new HttpClient();
         var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTdebupdateZIP");
         var filebyte2 = await web.GetByteArrayAsync("https://bit.ly/UTuninstaller");
         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
         await File.WriteAllBytesAsync(utemp + "\\update.zip", filebyte);
         await File.WriteAllBytesAsync(utemp + "\\Update\\uninstall.exe", filebyte2);
-        debus.Text = "EX...";
+        debus.Text = "Extracting...";
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
         string pre = utemp + "\\update";
         string post = Directory.GetCurrentDirectory();
@@ -93,7 +91,6 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     public void al_click(object sender, System.Windows.RoutedEventArgs e)
     {
         UT.applylang_global();
-        instprog_txt.Text = "Hello";
     }
 
     public void DialoQ_Test(object sender, System.Windows.RoutedEventArgs e)
@@ -170,6 +167,13 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     private async void UiPage_Loaded(object sender, RoutedEventArgs e)
     {
-        await UT.DeployBack(typeof(Dashboard), Grid1, RootBorder);
+        await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
+        await UT.anim.BorderZoomOut(RootBorder);
+    }
+
+    private async void Button_Click_5(object sender, RoutedEventArgs e)
+    {
+        await UT.anim.BorderZoomIn2(RootBorder);
+        UT.NavigateTo(typeof(Dashboard));
     }
 }

@@ -5,7 +5,8 @@
            xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-           Title="Debug" Unloaded="UiPage_Unloaded"
+           Title="Debug"
+           Unloaded="UiPage_Unloaded"
            Loaded="UiPage_Loaded"
            d:DataContext="{d:DesignInstance local:DebugPage,
                                      IsDesignTimeCreatable=False}"
@@ -13,275 +14,21 @@
            d:DesignWidth="800"
            Scrollable="True"
            mc:Ignorable="d">
-
-
-    <Grid x:Name="Grid1">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <ui:Button Grid.Row="2"
-                   x:Name="backbtn"
-                   Click="Button_Click"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Left"
-                   Margin="10,10,0,0">
-            <Image Source="../../Resources/back.png"
-                   Height="16" />
-        </ui:Button>
-        <Border Grid.Row="0"
-                Height="250"
-                CornerRadius="8,0,0,0"
-                x:Name="RootBorder"
-                RenderTransformOrigin="0.5,0.5">
-            <Border.RenderTransform>
-                <ScaleTransform ScaleX="1"
-                                ScaleY="1" />
-            </Border.RenderTransform>
-            <Border.Background>
-                <ImageBrush ImageSource="../../Resources/fluent-ui-microsoft.png"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Stretch="UniformToFill" />
-            </Border.Background>
-            <Border CornerRadius="8,8,8,8">
-                <Border.Background>
-                    <RadialGradientBrush>
-                        <GradientStop Offset="0"
-                                      Color="#1F000000" />
-                        <GradientStop Offset="1"
-                                      Color="#4F000000" />
-                    </RadialGradientBrush>
-                </Border.Background>
-                <Grid>
-                    <StackPanel Margin="64"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                Background="Transparent">
-                        <TextBlock x:Name="Title"
-                                   FontSize="28"
-                                   FontWeight="Bold"
-                                   Foreground="#FFFFFF"
-                                   Text="Unowhy Tools" />
-                        <TextBlock FontSize="18"
-                                   Foreground="#B7FFFFFF"
-                                   Text="Test Page for dev, not user friendly" />
-                        <TextBlock FontSize="11"
-                                   Foreground="#B7FFFFFF"
-                                   Text="by STY1001" />
-                    </StackPanel>
-                    <TextBlock Margin="12"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Bottom"
-                               FontSize="10"
-                               Foreground="#57FFFFFF"
-                               x:Name="verlab"
-                               Text="Version 20.0 (WPF 1.0) (Debug)" />
-                </Grid>
-            </Border>
-        </Border>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="1">
-                <TextBlock Text="More info:"
-                           Margin="12,15,12,0"
-                           HorizontalAlignment="Left"
-                           Foreground="#ffffff" />
-                <Grid Grid.Row="1"
-                      Margin="12,36,12,0"
-                      HorizontalAlignment="Left">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Image Source="/resources/vs.png"
-                           Grid.Column="0"
-                           Grid.Row="0" />
-                    <TextBlock Text="Dev on Visual Studio 2022 Enterprise"
-                               Grid.Column="2"
-                               Grid.Row="0"
-                               Foreground="#ffffff"
-                               VerticalAlignment="Center" />
-                    <Image Source="/resources/cs.png"
-                           Grid.Column="0"
-                           Grid.Row="2" />
-                    <TextBlock Text="Dev in C# (C Sharp)"
-                               Grid.Column="2"
-                               Grid.Row="2"
-                               Foreground="#ffffff"
-                               VerticalAlignment="Center" />
-                    <Image Source="/resources/wpfui.png"
-                           Grid.Column="0"
-                           Grid.Row="4" />
-                    <TextBlock Text="Using WPF UI by Lepoco"
-                               Grid.Column="2"
-                               Grid.Row="4"
-                               Foreground="#ffffff"
-                               VerticalAlignment="Center" />
-                </Grid>
-            </Grid>
-            <Grid>
-                <TextBlock Text="Contributors (Thanks to):"
-                           Margin="12,15,12,0"
-                           HorizontalAlignment="Left"
-                           Foreground="#ffffff" />
-                <Grid Grid.Row="1"
-                      Margin="12,36,12,0"
-                      HorizontalAlignment="Left">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Image Source="/resources/sty1001.png"
-                           Grid.Column="0"
-                           Grid.Row="0" />
-                    <TextBlock Text="STY1001"
-                               Grid.Column="2"
-                               Grid.Row="0"
-                               Foreground="#ffffff"
-                               VerticalAlignment="Center" />
-                    <Image Source="/resources/azgard.gif"
-                           Grid.Column="0"
-                           Grid.Row="2" />
-                    <TextBlock Text="Azguard"
-                               Grid.Column="2"
-                               Grid.Row="2"
-                               Foreground="#ffffff"
-                               VerticalAlignment="Center" />
-                    <Image Source="/resources/g9.png"
-                           Grid.Column="0"
-                           Grid.Row="4" />
-                    <TextBlock Text="G9-Dev"
-                               Grid.Column="2"
-                               Grid.Row="4"
-                               Foreground="#ffffff"
-                               VerticalAlignment="Center" />
-                </Grid>
-            </Grid>
-            <Grid Grid.Column="3"
-                  Margin="12,18,12,0"
-                  HorizontalAlignment="Right">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200" />
-                </Grid.ColumnDefinitions>
-
-                <ui:Button Click="Github_Click"
-                           Grid.ColumnSpan="4"
-                           HorizontalAlignment="Stretch">
-                    <Grid Grid.Row="0"
-                          Grid.Column="0"
-                          Margin="0,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="32" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="../../Resources/github.png"
-                               Grid.Column="0"
-                               Margin="0,0,0,0" />
-                        <StackPanel Grid.Column="2">
-                            <TextBlock Margin="0"
-                                       FontSize="13"
-                                       FontWeight="Medium"
-                                       Text="Unowhy Tools's Github" />
-                            <TextBlock FontSize="12"
-                                       Foreground="#bebebe"
-                                       Text="STY1001/Unowhy-Tools" />
-                        </StackPanel>
-                    </Grid>
-                </ui:Button>
-                <ui:Button Grid.Row="1"
-                           Grid.Column="0"
-                           Click="STY1001_Click"
-                           HorizontalAlignment="Stretch"
-                           Margin="0,10,0,0">
-                    <Grid Grid.Row="0"
-                          Margin="0,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="32" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="../../Resources/laptop.png"
-                               Grid.Column="0"
-                               Margin="0,0,0,0" />
-                        <StackPanel Grid.Column="2">
-                            <TextBlock Margin="0"
-                                       FontSize="13"
-                                       FontWeight="Medium"
-                                       Text="STY1001's WebSite" />
-                            <TextBlock FontSize="12"
-                                       Foreground="#bebebe"
-                                       Text="sty1001.cf" />
-                        </StackPanel>
-                    </Grid>
-                </ui:Button>
-                <ui:Button Grid.Row="2"
-                           Grid.Column="0"
-                           Click="Discord_Click"
-                           HorizontalAlignment="Stretch"
-                           Margin="0,10,0,0">
-                    <Grid Grid.Row="1"
-                          Margin="0,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="32" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="../../Resources/wait.png"
-                               Grid.Column="0" />
-                        <StackPanel Grid.Column="2">
-                            <TextBlock Margin="0"
-                                       FontSize="13"
-                                       FontWeight="Medium"
-                                       Text="Wait test" />
-                            <TextBlock FontSize="12"
-                                       Foreground="#bebebe"
-                                       Text="{}Not the btn of {unohelp}" />
-                        </StackPanel>
-                    </Grid>
-                </ui:Button>
+    <Border HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="#0affffff"
+            CornerRadius="8"
+            x:Name="RootBorder"
+            RenderTransformOrigin="0.5,0.5">
+        <Border.RenderTransform>
+            <ScaleTransform ScaleX="1"
+                            ScaleY="1" />
+        </Border.RenderTransform>
+        <Grid x:Name="RootGrid"
+              Margin="20">
+            <StackPanel>
+                <ui:Button Content="←"
+                           Click="Button_Click_5" />
                 <ui:Button Grid.Row="3"
                            Grid.Column="0"
                            Click="Update_Click"
@@ -315,80 +62,34 @@
                         </StackPanel>
                     </Grid>
                 </ui:Button>
-            </Grid>
-        </Grid>
-        <Grid Grid.Row="2">
-            <ui:CardControl Margin="10,10,10,0"
-                            x:Name="instprog">
-                <ui:CardControl.Header>
-                    <Grid>
-                        <Image Source="pack://application:,,,/Resources/instprog.png"
-                               Grid.Column="0"
-                               HorizontalAlignment="Left"
-                               MaxHeight="32"
-                               MaxWidth="32" />
-                        <StackPanel Grid.Column="1"
-                                    VerticalAlignment="Center"
-                                    Margin="50,0,0,0">
-                            <TextBlock x:Name="instprog_txt"
-                                       FontSize="13"
-                                       FontWeight="Medium"
-                                       Text="Installed applications (Winodows Settings)" />
-                            <TextBlock x:Name="instprog_desc"
-                                       TextWrapping="Wrap"
-                                       FontSize="12"
-                                       Foreground="#bebebe"
-                                       Text="Description Wrap Test with a long text Description Wrap Test with a long text Description Wrap Test with a long text Description Wrap Test with a long text Description Wrap Test with a long text Description Wrap Test with a long text Description Wrap Test with a long text " />
-                        </StackPanel>
-                    </Grid>
-                </ui:CardControl.Header>
-                <ui:Button Grid.Column="0"
-                           Grid.ColumnSpan="4"
-                           HorizontalAlignment="Stretch"
-                           Margin="0,0,0,0">
-                    <StackPanel>
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock x:Name="instprog_btn"
-                                       Margin="0"
-                                       FontSize="13"
-                                       FontWeight="Regular"
-                                       Text="Open" />
-                        </StackPanel>
+                <ui:NavigationSeparator />
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <ui:TextBox Text="Dialog Text Test"
+                                    x:Name="dialogtxt"
+                                    Width="250" />
+                        <ui:Button Content="Test DialogQ"
+                                   Click="DialoQ_Test"
+                                   x:Name="dqtest" />
+                        <ui:Button Content="Test DialogI"
+                                   Click="DialogI_Test" />
                     </StackPanel>
-                </ui:Button>
-            </ui:CardControl>
+                    <StackPanel Orientation="Horizontal">
+                        <ui:TextBox x:Name="pipe"
+                                    Width="250" />
+                        <ui:TextBox x:Name="msg"
+                                    Width="250" />
+                        <ui:Button Content="Connect"
+                                   Click="Button_Click_1" />
+                    </StackPanel>
+                    <ui:Button Content="Launch Tray"
+                               Click="Button_Click_2" />
+                    <ui:Button Content="Change Theme"
+                               Click="Button_Click_3" />
+                    <ui:Button Content="Launch Console"
+                               Click="Button_Click_4" />
+                </StackPanel>
+            </StackPanel>
         </Grid>
-        <StackPanel Margin="0,200,0,0"
-                    Grid.Row="3">
-            <StackPanel Orientation="Horizontal">
-                <ui:Button Content="Apply lang"
-                           Click="al_click"
-                           IsEnabled="False" />
-                <ui:TextBox Text="Dialog Text Test"
-                            x:Name="dialogtxt"
-                            Width="250" />
-                <ui:Button Content="Test DialogQ"
-                           Click="DialoQ_Test"
-                           x:Name="dqtest" />
-                <ui:Button Content="Test DialogI"
-                           Click="DialogI_Test" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ui:TextBox x:Name="pipe"
-                            Width="250" />
-                <ui:TextBox x:Name="msg"
-                            Width="250" />
-                <ui:Button Content="Connect"
-                           Click="Button_Click_1" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ui:Button Content="Launch Tray"
-                           Click="Button_Click_2" />
-                <ui:Button Content="Change Theme"
-                           Click="Button_Click_3" />
-                <ui:Button Content="Launch Console"
-                           Click="Button_Click_4" />
-            </StackPanel>
-        </StackPanel>
-    </Grid>
+    </Border>
 </ui:UiPage>
