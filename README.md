@@ -51,6 +51,13 @@ More features coming soon
 3. When it's installed, launch "Unowhy Tools"
 4. Use "Unowhy Tools" as you want
 
+## 🔧 Debug version (Beta)
+### Warning: Debug version (or beta) is for testing new features before release, it can be unstable
+You can update Unowhy Tools to the Debug version (or Beta) to early test feature before the release
+To update to the Debug version, go to the debug menu (hidden small button in bottom left) and click on "Update Debug Version"
+
+![Debug](/README/DebugUpdate.png)
+
 ## 📷 Screenshots
 
 24.08
