@@ -783,14 +783,24 @@ namespace Unowhy_Tools
                 tray = false;
             }
 
-            if(UT.CheckInternet())
+            bool wifi;
+            if ((await UT.UTS.UTSmsg("UTSW", "GetWS")).Contains("True"))
+            {
+                wifi = true;
+            }
+            else
+            {
+                wifi = false;
+            }
+
+            if (UT.CheckInternet())
             {
                 using (HttpClient client = new HttpClient())
                 {
                     try
                     {
                         string url = "https://api.sty1001.fr/ut-stats";
-                        string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"" + launchmode + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + " }";
+                        string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"" + launchmode + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"wifiena\" : " + wifi.ToString().ToLower() + " }";
                         Write2Log("Sending Stats to \"" + url + "\" with \"" + jsonData + "\"");
                         StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(url, content);
