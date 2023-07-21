@@ -183,146 +183,171 @@
                               Grid.Column="2"
                               Margin="20">
                             <StackPanel Orientation="Vertical"
-                                        HorizontalAlignment="Center"
+                                        HorizontalAlignment="Stretch"
                                         VerticalAlignment="Center"
                                         x:Name="InfoStack">
-                                <TextBlock Margin="0,0,0,5"
-                                           Text="Info:"
-                                           HorizontalAlignment="Left"
-                                           Foreground="#ffffff" />
-                                <Grid Margin="10,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/UT.png"
-                                           Grid.Column="0"
-                                           RenderOptions.BitmapScalingMode="HighQuality" />
-                                    <TextBlock Text="Unowhy Tools version --.-- (Build ----------)"
-                                               TextWrapping="Wrap"
-                                               Foreground="#ffffff"
-                                               Grid.Column="2"
-                                               VerticalAlignment="Center"
-                                               x:Name="UTverlab" />
-                                </Grid>
-                                <Grid Margin="10,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/UTS.png"
-                                           Grid.Column="0"
-                                           RenderOptions.BitmapScalingMode="HighQuality" />
-                                    <TextBlock Text="Unowhy Tools Service version --.--"
-                                               TextWrapping="Wrap"
-                                               Foreground="#ffffff"
-                                               Grid.Column="2"
-                                               VerticalAlignment="Center"
-                                               x:Name="UTSverlab" />
-                                </Grid>
+                                <Expander HorizontalAlignment="Stretch"
+                                          Header="Info"
+                                          x:Name="ExpInfo"
+                                          Expanded="ExpInfo_Expanded">
+                                    <StackPanel x:Name="ExpStackInfo">
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/UT.png"
+                                                   Grid.Column="0"
+                                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                                            <TextBlock Text="Unowhy Tools version --.-- (Build ----------)"
+                                                       TextWrapping="Wrap"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center"
+                                                       x:Name="UTverlab" />
+                                        </Grid>
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/yesupdate.png"
+                                                   Grid.Column="0"
+                                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                                            <TextBlock Text="Installation ID: "
+                                                       TextWrapping="Wrap"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center"
+                                                       x:Name="UTidlab" />
+                                        </Grid>
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/UTS.png"
+                                                   Grid.Column="0"
+                                                   RenderOptions.BitmapScalingMode="HighQuality" />
+                                            <TextBlock Text="Unowhy Tools Service version --.--"
+                                                       TextWrapping="Wrap"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center"
+                                                       x:Name="UTSverlab" />
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander>
                                 <ui:NavigationSeparator />
-                                <TextBlock Margin="0,0,0,5"
-                                           Text="More info:"
-                                           HorizontalAlignment="Left"
-                                           Foreground="#ffffff" />
-                                <Grid Margin="10,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/vs.png"
-                                           Grid.Column="0" />
-                                    <TextBlock Text="Dev on Visual Studio 2022 Enterprise"
-                                               Foreground="#ffffff"
-                                               Grid.Column="2"
-                                               VerticalAlignment="Center" />
-                                </Grid>
-                                <Grid Margin="10,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/cs.png"
-                                           Grid.Column="0" />
-                                    <TextBlock Text="Dev in C# (C Sharp)"
-                                               Foreground="#ffffff"
-                                               Grid.Column="2"
-                                               VerticalAlignment="Center" />
-                                </Grid>
-                                <Grid Margin="10,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/wpfui.png"
-                                           Grid.Column="0" />
-                                    <TextBlock Text="UI powered by WPF UI by Lepoco"
-                                               Foreground="#ffffff"
-                                               Grid.Column="2"
-                                               VerticalAlignment="Center" />
-                                </Grid>
+                                <Expander HorizontalAlignment="Stretch"
+                                          Header="More info"
+                                          x:Name="ExpMoreInfo"
+                                          Expanded="ExpMoreInfo_Expanded">
+                                    <StackPanel x:Name="ExpStackMoreInfo">
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/vs.png"
+                                                   Grid.Column="0" />
+                                            <TextBlock Text="Dev on Visual Studio 2022 Enterprise"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center" />
+                                        </Grid>
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/cs.png"
+                                                   Grid.Column="0" />
+                                            <TextBlock Text="Dev in C# (C Sharp)"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center" />
+                                        </Grid>
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/wpfui.png"
+                                                   Grid.Column="0" />
+                                            <TextBlock Text="UI powered by WPF UI by Lepoco"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center" />
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander>
                                 <ui:NavigationSeparator />
-                                <TextBlock Margin="0,0,0,5"
-                                           Text="Contributors:"
-                                           HorizontalAlignment="Left"
-                                           Foreground="#ffffff" />
-                                <Grid Margin="10,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/sty1001.png"
-                                           Grid.Column="0" />
-                                    <TextBlock Text="STY1001"
-                                               Foreground="#ffffff"
-                                               Grid.Column="2"
-                                               VerticalAlignment="Center" />
-                                </Grid>
-                                <Grid Margin="10,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/azgard.jpg"
-                                           Grid.Column="0" />
-                                    <TextBlock Text="Azgar"
-                                               Foreground="#ffffff"
-                                               Grid.Column="2"
-                                               VerticalAlignment="Center" />
-                                </Grid>
-                                <Grid Margin="10,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/g9.jpg"
-                                           Grid.Column="0" />
-                                    <TextBlock Text="G9-Dev"
-                                               Foreground="#ffffff"
-                                               Grid.Column="2"
-                                               VerticalAlignment="Center" />
-                                </Grid>
-                                <Grid Margin="10,0,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/ahhj93.jpg"
-                                           Grid.Column="0" />
-                                    <TextBlock Text="Ahhj93"
-                                               Foreground="#ffffff"
-                                               Grid.Column="2"
-                                               VerticalAlignment="Center" />
-                                </Grid>
+                                <Expander HorizontalAlignment="Stretch"
+                                          Header="Contributors"
+                                          x:Name="ExpContrib"
+                                          Expanded="ExpContrib_Expanded">
+                                    <StackPanel x:Name="ExpStackContrib">
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/sty1001.png"
+                                                   Grid.Column="0" />
+                                            <TextBlock Text="STY1001"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center" />
+                                        </Grid>
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/azgard.jpg"
+                                                   Grid.Column="0" />
+                                            <TextBlock Text="Azgar"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center" />
+                                        </Grid>
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/g9.jpg"
+                                                   Grid.Column="0" />
+                                            <TextBlock Text="G9-Dev"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center" />
+                                        </Grid>
+                                        <Grid Margin="10,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="../../Resources/ahhj93.jpg"
+                                                   Grid.Column="0" />
+                                            <TextBlock Text="Ahhj93"
+                                                       Foreground="#ffffff"
+                                                       Grid.Column="2"
+                                                       VerticalAlignment="Center" />
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander>
                             </StackPanel>
                         </Grid>
                     </Grid>

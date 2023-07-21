@@ -262,6 +262,10 @@ public partial class About : INavigableView<DashboardViewModel>
     {
         await UT.DeployDABack();
 
+        ExpInfo.IsExpanded = false;
+        ExpMoreInfo.IsExpanded = false;
+        ExpContrib.IsExpanded = false;
+
         DoubleAnimation animis = new DoubleAnimation();
         animis.From = 0;
         animis.To = 0;
@@ -389,8 +393,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
             await Task.Delay(100);
         }
-
-        
+        ExpInfo.IsExpanded = true;
     }
 
     public About(DashboardViewModel viewModel, ISnackbarService snackbarService)
@@ -431,6 +434,123 @@ public partial class About : INavigableView<DashboardViewModel>
             FileName = "https://discord.com/invite/dw3ZJ9u7WS",
             UseShellExecute = true
         });
+    }
+
+    private async void ExpContrib_Expanded(object sender, RoutedEventArgs e)
+    {
+        foreach (UIElement element in ExpStackContrib.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        ExpMoreInfo.IsExpanded = false;
+        ExpInfo.IsExpanded = false;
+
+        foreach (UIElement element in ExpStackContrib.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 150,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+    }
+
+    private async void ExpMoreInfo_Expanded(object sender, RoutedEventArgs e)
+    {
+        foreach (UIElement element in ExpStackMoreInfo.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        ExpContrib.IsExpanded = false;
+        ExpInfo.IsExpanded = false;
+
+        foreach (UIElement element in ExpStackMoreInfo.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 150,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+    }
+
+    private async void ExpInfo_Expanded(object sender, RoutedEventArgs e)
+    {
+        foreach (UIElement element in ExpStackInfo.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        ExpMoreInfo.IsExpanded = false;
+        ExpContrib.IsExpanded = false;
+
+        foreach (UIElement element in ExpStackInfo.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 150,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
     }
 }
 
