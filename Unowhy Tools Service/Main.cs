@@ -19,9 +19,12 @@ namespace Unowhy_Tools_Service
         //public bool ActiveWifiSync;
         public string Serial;
         public string WifiStatus;
+        public string WDStatus;
         private NamedPipeServerStream _uts;
         private NamedPipeServerStream _utsw;
-        private DispatcherTimer _timer;
+        private NamedPipeServerStream _utswd;
+        private DispatcherTimer _wifitimer;
+        private DispatcherTimer _wdtimer;
         public string Version = "2.1";
 
         [DllImport("wininet.dll")]
@@ -41,14 +44,40 @@ namespace Unowhy_Tools_Service
 
         protected override void OnStart(string[] args)
         {
-            _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromSeconds(60);
-            _timer.Tick += async (sender, e) => await WifiSync();
-            _timer.Start();
+            _wifitimer = new DispatcherTimer();
+            _wifitimer.Interval = TimeSpan.FromSeconds(60);
+            _wifitimer.Tick += async (sender, e) => await WifiSync();
+            _wifitimer.Start();
+
+            _wdtimer = new DispatcherTimer();
+            _wdtimer.Interval = TimeSpan.FromSeconds(60);
+            _wdtimer.Tick += async (sender, e) => await WifiSync();
+            _wdtimer.Start();
 
             Task.Run(() => WifiSync());
             Task.Run(() => UTSwait());
             Task.Run(() => UTSWwait());
+            Task.Run(() => UTSWDwait());
+        }
+
+        public async Task WDDisable()
+        {
+            WDStatus = "False";
+
+            if (File.Exists("C:\\UTSConfig\\disablewd.txt"))
+            {
+                WDStatus = File.ReadAllText("C:\\UTSConfig\\disablewd.txt");
+            }
+
+            if (WDStatus.Contains("True"))
+            {
+                Process reg = new Process();
+                reg.StartInfo.FileName = "reg";
+                reg.StartInfo.Arguments = "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f";
+                reg.StartInfo.CreateNoWindow = true;
+                reg.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                reg.Start();
+            }
         }
 
         public async Task WifiSync()
@@ -256,6 +285,14 @@ namespace Unowhy_Tools_Service
             Task.Run(() => WifiSync());
         }
 
+        public async Task SetWDS(string status)
+        {
+            File.Delete("C:\\UTSConfig\\disablewd.txt");
+            File.WriteAllText("C:\\UTSConfig\\disablewd.txt", status);
+            WDStatus = File.ReadAllText("C:\\UTSConfig\\disablewd.txt");
+            Task.Run(() => WDDisable());
+        }
+
         public async Task SetSerial(string serial)
         {
             File.Delete("C:\\UTSConfig\\serial.txt");
@@ -363,10 +400,58 @@ namespace Unowhy_Tools_Service
             }
         }
 
+        private async Task UTSWDwait()
+        {
+            while (true)
+            {
+                _utswd = new NamedPipeServerStream("UTSWD", PipeDirection.InOut);
+
+                try
+                {
+                    await _utswd.WaitForConnectionAsync();
+
+                    using (StreamReader reader = new StreamReader(_utswd))
+                    using (StreamWriter writer = new StreamWriter(_utswd))
+                    {
+                        while (true)
+                        {
+                            string ret = "null";
+                            string clientData = await reader.ReadLineAsync();
+
+                            if (string.IsNullOrEmpty(clientData))
+                            {
+                                break;
+                            }
+
+                            if (clientData.Contains("GetWDS"))
+                            {
+                                ret = WDStatus;
+                            }
+
+                            if (clientData.Contains("SetWDS:"))
+                            {
+                                string newws = clientData.Replace("SetWDS:", "");
+                                await SetWDS(newws);
+                                ret = WDStatus;
+                            }
+
+                            await writer.WriteLineAsync(ret);
+                            await writer.FlushAsync();
+                        }
+                    }
+                }
+                catch (IOException)
+                {
+
+                }
+            }
+        }
+
         protected override void OnStop()
         {
             _uts?.Dispose();
             _utsw?.Dispose();
+            _utswd?.Dispose();
         }
     }
 }
