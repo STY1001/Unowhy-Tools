@@ -214,6 +214,15 @@ public partial class About : INavigableView<DashboardViewModel>
     public async void Init(object sender, EventArgs e)
     {
         applylang();
+
+        string idString = "Installation ID: Null";
+        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
+        object id = key.GetValue("ID", null);
+        if (id != null)
+        {
+            idString = "Installation ID: " + key.GetValue("ID", null).ToString();
+        }
+
         string UTsver = "Unowhy Tools version " + UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
 
         if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
@@ -224,6 +233,7 @@ public partial class About : INavigableView<DashboardViewModel>
         LogoVer.Text = UTsver;
         UTverlab.Text = UTsver;
         UTSverlab.Text = UTSsver;
+        UTidlab.Text = idString;
 
         if (UT.CheckInternet())
         {
