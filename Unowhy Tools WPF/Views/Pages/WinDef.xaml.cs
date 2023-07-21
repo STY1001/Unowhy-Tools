@@ -65,7 +65,7 @@ public partial class WinDef : INavigableView<DashboardViewModel>
             {
                 int das2 = (int)wd.GetValue("DisableAntiSpyware", 0);
                 int drm2 = (int)rtp.GetValue("DisableRealtimeMonitoring", 0);
-                if (das2 == 1 && drm2 == 1 && (await UT.UTS.UTSmsg("UTSWDS", "GetWDS")).Contains("True"))
+                if (das2 == 1 && drm2 == 1 && (await UT.UTS.UTSmsg("UTSWD", "GetWDS")).Contains("True"))
                 {
                     disable.IsEnabled = false;
                     disable_txt.Foreground = new SolidColorBrush(disabled);
