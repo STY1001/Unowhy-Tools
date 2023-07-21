@@ -25,7 +25,7 @@ namespace Unowhy_Tools_Service
         private NamedPipeServerStream _utswd;
         private DispatcherTimer _wifitimer;
         private DispatcherTimer _wdtimer;
-        public string Version = "3.0";
+        public string Version = "3.1";
 
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(out int state, int value);
@@ -51,7 +51,7 @@ namespace Unowhy_Tools_Service
 
             _wdtimer = new DispatcherTimer();
             _wdtimer.Interval = TimeSpan.FromSeconds(60);
-            _wdtimer.Tick += async (sender, e) => await WifiSync();
+            _wdtimer.Tick += async (sender, e) => await WDDisable();
             _wdtimer.Start();
 
             Task.Run(() => WifiSync());
