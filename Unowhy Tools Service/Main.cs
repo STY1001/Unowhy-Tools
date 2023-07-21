@@ -25,7 +25,7 @@ namespace Unowhy_Tools_Service
         private NamedPipeServerStream _utswd;
         private DispatcherTimer _wifitimer;
         private DispatcherTimer _wdtimer;
-        public string Version = "2.1";
+        public string Version = "3.0";
 
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(out int state, int value);
