@@ -65,7 +65,7 @@ public partial class WinDef : INavigableView<DashboardViewModel>
             {
                 int das2 = (int)wd.GetValue("DisableAntiSpyware", 0);
                 int drm2 = (int)rtp.GetValue("DisableRealtimeMonitoring", 0);
-                if (das2 == 1 && drm2 == 1)
+                if (das2 == 1 && drm2 == 1 && (await UT.UTS.UTSmsg("UTSWDS", "GetWDS")).Contains("True"))
                 {
                     disable.IsEnabled = false;
                     disable_txt.Foreground = new SolidColorBrush(disabled);
@@ -141,6 +141,7 @@ public partial class WinDef : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $false");
+            await UT.UTS.UTSmsg("UTSWD", "SetWDS:False");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!enable.IsEnabled)
@@ -162,6 +163,7 @@ public partial class WinDef : INavigableView<DashboardViewModel>
             await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $true");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"1\" /f");
+            await UT.UTS.UTSmsg("UTSWD", "SetWDS:True");
             await CheckBTN();
             await UT.waitstatus.close();
             UT.DialogIShow(UT.GetLang("windefsettamper"), "windef.png");

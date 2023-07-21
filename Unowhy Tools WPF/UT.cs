@@ -923,6 +923,12 @@ namespace Unowhy_Tools
                 File.WriteAllText("C:\\UTSConfig\\wifisync.txt", "True");
             }
 
+            await MainWindow.USS("Folder... (C:\\UTSConfig\\disablewd.txt)");
+            if (!File.Exists("C:\\UTSConfig\\disablewd.txt"))
+            {
+                File.WriteAllText("C:\\UTSConfig\\disablewd.txt", "False");
+            }
+
             await MainWindow.USS("Folder... (%temp%\\Unowhy Tools)");
             if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools"))
             {
