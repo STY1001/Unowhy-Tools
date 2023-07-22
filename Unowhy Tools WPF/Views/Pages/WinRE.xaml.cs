@@ -10,6 +10,9 @@ using System.Net.Http;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Security.Policy;
+using System.Threading;
+using System.Windows.Shapes;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -164,11 +167,15 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         if (UT.CheckInternet())
         {
             await UT.waitstatus.open();
-            using (var web = new HttpClient())
+
+            var progress = new System.Progress<double>();
+            progress.ProgressChanged += (sender, value) =>
             {
-                var filebyte = await web.GetByteArrayAsync("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim");
-                await File.WriteAllBytesAsync("C:\\Windows\\System32\\Recovery\\WinRE.wim", filebyte);
-            }
+                dllab.Text = "Downloading... " + value.ToString("###.#") + "%";
+            };
+            var cancellationToken = new CancellationTokenSource();
+
+            await UT.DlFilewithProgress("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim", "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
 
             await UT.RunMin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
             await UT.RunMin("reagentc.exe", "/enable");

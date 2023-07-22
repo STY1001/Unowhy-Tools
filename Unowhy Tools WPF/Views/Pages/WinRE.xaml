@@ -46,6 +46,10 @@
                     <ColumnDefinition Width="10" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
                 <ui:Button x:Name="en"
                            Click="Enable_Click"
                            Grid.Column="0"
@@ -133,6 +137,11 @@
                         </Grid>
                     </StackPanel>
                 </ui:Button>
+                <TextBlock Text="Download State"
+                           Grid.Column="4"
+                           Grid.Row="2"
+                           Visibility="Collapsed"
+                           x:Name="dllab"/>
             </Grid>
         </Border>
     </Grid>
