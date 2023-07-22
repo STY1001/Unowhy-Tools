@@ -44,6 +44,10 @@
                     <ColumnDefinition Width="10" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
                 <ui:Button x:Name="uninstall"
                            Click="Uninstall_Click"
                            Grid.Column="0"
@@ -102,6 +106,11 @@
                         </Grid>
                     </StackPanel>
                 </ui:Button>
+                <TextBlock x:Name="dlstate"
+                           Text="Download State"
+                           Grid.Row="1"
+                           VerticalAlignment="Bottom"
+                           Visibility="Collapsed" />
             </Grid>
         </Border>
     </Grid>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Microsoft.Win32;
 using System.Windows.Input;
+using System.Threading;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -141,9 +142,15 @@ public partial class Edge : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(UT.GetLang("edgeun"), "uninstall.png"))
             {
                 await UT.waitstatus.open();
-                var web = new HttpClient();
-                var setup = await web.GetByteArrayAsync("https://bit.ly/UTedgesetup");
-                await File.WriteAllBytesAsync(Path.GetTempPath() + "edgesetup.exe", setup);
+                dlstate.Visibility = Visibility.Visible;
+                var progress = new System.Progress<double>();
+                var cancellationToken = new CancellationTokenSource();
+                progress.ProgressChanged += (sender, value) =>
+                {
+                    dlstate.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+                };
+                await UT.DlFilewithProgress("https://bit.ly/UTedgesetup", Path.GetTempPath() + "edgesetup.exe", progress, cancellationToken.Token);
+                dlstate.Visibility = Visibility.Collapsed;
                 await UT.RunMin("powershell", $"start-process -FilePath \"{Path.GetTempPath() + "edgesetup.exe"}\" -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
                 File.Delete(Path.GetTempPath() + "edgesetup.exe");
                 await UT.waitstatus.close();
