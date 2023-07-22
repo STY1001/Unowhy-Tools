@@ -96,6 +96,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         foreach (UIElement element in btngrid.Children)
         {
             element.Visibility = Visibility.Visible;
+            dllab.Visibility = Visibility.Collapsed;
             DoubleAnimation opacityAnimation = new DoubleAnimation
             {
                 From = 0,

@@ -109,6 +109,7 @@ public partial class Edge : INavigableView<DashboardViewModel>
         foreach (UIElement element in btngrid.Children)
         {
             element.Visibility = Visibility.Visible;
+            dlstate.Visibility = Visibility.Collapsed;
             DoubleAnimation opacityAnimation = new DoubleAnimation
             {
                 From = 0,
