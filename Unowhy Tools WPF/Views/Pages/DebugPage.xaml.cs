@@ -76,12 +76,21 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
         debus.Text = "Downloading...";
-        var web = new HttpClient();
-        var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTdebupdateZIP");
-        var filebyte2 = await web.GetByteArrayAsync("https://bit.ly/UTuninstaller");
         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
-        await File.WriteAllBytesAsync(utemp + "\\update.zip", filebyte);
-        await File.WriteAllBytesAsync(utemp + "\\Update\\uninstall.exe", filebyte2);
+        var progress = new System.Progress<double>();
+        var cancellationToken = new CancellationTokenSource();
+        progress.ProgressChanged += (sender, value) =>
+        {
+            debus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+        };
+        await UT.DlFilewithProgress("https://bit.ly/UTdebupdateZIP", utemp + "\\update.zip", progress, cancellationToken.Token);
+        progress = new System.Progress<double>();
+        cancellationToken = new CancellationTokenSource();
+        progress.ProgressChanged += (sender, value) =>
+        {
+            debus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+        };
+        await UT.DlFilewithProgress("https://bit.ly/UTuninstaller", utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
         debus.Text = "Extracting...";
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
         string pre = utemp + "\\update";
@@ -191,6 +200,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         var cancellationToken = new CancellationTokenSource();
 
         await UT.DlFilewithProgress(url.Text, path.Text, progress, cancellationToken.Token);
+        download.Content = "Download";
     }
 
 }

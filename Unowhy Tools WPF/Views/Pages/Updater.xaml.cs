@@ -15,6 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System;
 using static Unowhy_Tools.UT;
+using System.Net;
+using System.Reflection.Metadata;
+using System.Threading;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -168,7 +171,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
         await Task.Delay(600);
         
-        if (await UT.version.newver())
+        if (await UT.version.newver() || UT.version.isdeb())
         {
             labimg.Source = UT.GetImgSource("yes.png");
             var web = new HttpClient();
@@ -191,22 +194,36 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void InstallButton_Click(object sender, RoutedEventArgs e)
     {
+        string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
         Color disabled = (Color)ColorConverter.ConvertFromString("#888888");
         updatebtntext.Foreground = new SolidColorBrush(disabled);
         UpdateBTN.IsEnabled = false;
         labimg.Source = UT.GetImgSource("download.png");
         labtext.Text = UT.GetLang("update.dl");
         await Task.Delay(1000);
-        var web = new HttpClient();
-        var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTupdateZIP");
-        var filebyte2 = await web.GetByteArrayAsync("https://bit.ly/UTuninstaller");
-        string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
-        await File.WriteAllBytesAsync(utemp + "\\update.zip", filebyte);
-        await File.WriteAllBytesAsync(utemp + "\\Update\\uninstall.exe", filebyte2);
+
+        string uddl = UT.GetLang("update.dl");
+        var progress = new System.Progress<double>();
+        var cancellationToken = new CancellationTokenSource();
+        progress.ProgressChanged += (sender, value) =>
+        {
+            labtext.Text = uddl + " 1/2 (" + value.ToString("###.#") + "%)";
+        };
+        await UT.DlFilewithProgress("https://bit.ly/UTupdateZIP", utemp + "\\update.zip", progress, cancellationToken.Token);
+
+        progress = new System.Progress<double>();
+        cancellationToken = new CancellationTokenSource();
+        progress.ProgressChanged += (sender, value) =>
+        {
+            labtext.Text = uddl + " 2/2 (" + value.ToString("###.#") + "%)";
+        };
+        await UT.DlFilewithProgress("https://bit.ly/UTuninstaller", utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+
         labtext.Text = UT.GetLang("update.ext");
         labimg.Source = UT.GetImgSource("zip.png");
         await Task.Delay(1000);
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
+
         labtext.Text = UT.GetLang("update.updating");
         labimg.Source = UT.GetImgSource("update.png");
         await Task.Delay(1000);
@@ -217,3 +234,4 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     }
 }
+
