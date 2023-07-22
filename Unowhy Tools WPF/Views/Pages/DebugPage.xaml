@@ -88,6 +88,15 @@
                                Click="Button_Click_3" />
                     <ui:Button Content="Launch Console"
                                Click="Button_Click_4" />
+                    <StackPanel Orientation="Horizontal">
+                        <ui:TextBox x:Name="url"
+                                    Width="250" />
+                        <ui:TextBox x:Name="path" 
+                                    Width="250"/>
+                        <ui:Button x:Name="download"
+                                   Content="Download"
+                                   Click="download_Click"/>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>

@@ -18,6 +18,9 @@ using System.Windows.Media;
 using System.IO.Pipes;
 using Wpf.Ui.Interop.WinDef;
 using Unowhy_Tools_WPF.Services.Contracts;
+using System.Net;
+using System.Reflection.Metadata;
+using System.Linq;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -176,4 +179,19 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         await UT.anim.BorderZoomIn2(RootBorder);
         UT.NavigateTo(typeof(Dashboard));
     }
+
+    private async void download_Click(object sender, RoutedEventArgs e)
+    {
+        var progress = new System.Progress<double>();
+        progress.ProgressChanged += (sender, value) =>
+        {
+            download.Content = "Download " + value.ToString("###.#") + "%";
+        };
+
+        var cancellationToken = new CancellationTokenSource();
+
+        await UT.DlFilewithProgress(url.Text, path.Text, progress, cancellationToken.Token);
+    }
+
 }
+
