@@ -530,10 +530,14 @@ namespace Unowhy_Tools
                     if (CheckInternet())
                     {
                         await MainWindow.USSwB("Preparing UTS... (Downloading)");
-                        var web = new HttpClient();
-                        var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
                         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
-                        await File.WriteAllBytesAsync(utemp + "\\service.zip", filebyte);
+                        var progress = new System.Progress<double>();
+                        var cancellationToken = new CancellationTokenSource();
+                        progress.ProgressChanged += (sender, value) =>
+                        {
+                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("###.#") + "%)";
+                        };
+                        await UT.DlFilewithProgress("https://bit.ly/UTSzip", utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
                         await Task.Delay(100);
                         ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
@@ -605,22 +609,26 @@ namespace Unowhy_Tools
                     {
                         await MainWindow.USSwB("Preparing UTS... (" + ver + " => " + newver + ")");
                         await Task.Delay(1000);
-                        await MainWindow.USSwB("Preparing UTS... (Shutting down)");
+                        await MainWindow.USSwB("Preparing UTS... (Stopping)");
                         await UT.serv.stop("UTS");
                         await MainWindow.USSwB("Preparing UTS... (Downloading)");
                         string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
                         Directory.Delete(instdir, true);
                         await Task.Delay(100);
                         Directory.CreateDirectory(instdir);
-                        web = new HttpClient();
-                        var filebyte = await web.GetByteArrayAsync("https://bit.ly/UTSzip");
                         string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
-                        await File.WriteAllBytesAsync(utemp + "\\service.zip", filebyte);
+                        var progress = new System.Progress<double>();
+                        var cancellationToken = new CancellationTokenSource();
+                        progress.ProgressChanged += (sender, value) =>
+                        {
+                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("###.#") + "%)";
+                        };
+                        await UT.DlFilewithProgress("https://bit.ly/UTSzip", utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
                         await Task.Delay(100);
                         ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
                         await Task.Delay(100);
-                        await MainWindow.USSwB("Preparing UTS... (Starting up)");
+                        await MainWindow.USSwB("Preparing UTS... (Starting)");
                         await UT.serv.start("UTS");
                     }
                 }
