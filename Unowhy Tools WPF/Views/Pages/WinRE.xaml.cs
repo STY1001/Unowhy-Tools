@@ -167,6 +167,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         if (UT.CheckInternet())
         {
             await UT.waitstatus.open();
+            dllab.Visibility = Visibility.Visible;
 
             var progress = new System.Progress<double>();
             progress.ProgressChanged += (sender, value) =>
@@ -176,6 +177,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             var cancellationToken = new CancellationTokenSource();
 
             await UT.DlFilewithProgress("https://dl.dropbox.com/s/lahofrvpejlclkx/Winre.wim", "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
+            dllab.Visibility = Visibility.Collapsed;
 
             await UT.RunMin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
             await UT.RunMin("reagentc.exe", "/enable");
