@@ -21,7 +21,6 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
-using static CommunityToolkit.Mvvm.ComponentModel.__Internals.__TaskExtensions.TaskAwaitableWithoutEndValidation;
 using System.Net.Http;
 using System.Security.Policy;
 
