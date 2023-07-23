@@ -60,6 +60,10 @@ To update to the Debug version, go to the debug menu (hidden small button in bot
 
 ## 📷 Screenshots
 
+24.10
+
+![UT Screen](/README/UT24.10.png)
+
 24.09
 
 ![UT Screen](/README/UT24.09.png)
