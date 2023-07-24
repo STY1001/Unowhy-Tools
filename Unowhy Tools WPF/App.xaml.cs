@@ -67,6 +67,7 @@ public partial class App
             services.AddScoped<Views.Pages.FirstConfig>();
             services.AddScoped<Views.Pages.Edge>();
             services.AddScoped<Views.Pages.WinDef>();
+            services.AddScoped<Views.Pages.Bios>();
             services.AddScoped<TrayWindow>();
             services.AddScoped<UT>();
 
