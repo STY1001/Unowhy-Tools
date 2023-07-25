@@ -54,12 +54,161 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
-        
+        foreach (UIElement element in GridDump.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in GridFlash.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in StackSMBIOS1.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in StackSMBIOS2.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        {
+            ButtonApply.Visibility = Visibility.Hidden;
+        }
 
         await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
         UT.anim.BorderZoomOut(RootBorder);
 
-        
+        foreach (UIElement element in GridDump.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in GridFlash.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in StackSMBIOS1.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in StackSMBIOS2.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        {
+            ButtonApply.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            ButtonApply.RenderTransform = transform;
+
+            ButtonApply.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
     }
 
     public void applylang()
