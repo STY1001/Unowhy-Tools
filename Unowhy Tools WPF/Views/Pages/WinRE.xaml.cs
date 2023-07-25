@@ -177,7 +177,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             };
             var cancellationToken = new CancellationTokenSource();
 
-            await UT.DlFilewithProgress("https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EQC1TXSnpK5DsHsG_KPrd88BfC7h9MwJYT3LX-6Vt4wP3Q?e=mKEdCu&download=1", "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress("https://bit.ly/UTWinRE", "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
             dllab.Visibility = Visibility.Collapsed;
 
             await UT.RunMin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
