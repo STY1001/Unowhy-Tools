@@ -107,6 +107,7 @@
     <None Remove="Resources\userinfo.png" />
     <None Remove="Resources\UT-Restore.exe" />
     <None Remove="Resources\UT.png" />
+    <None Remove="Resources\UTB.png" />
     <None Remove="Resources\UTLogoWhite3.0.png" />
     <None Remove="Resources\UTS.png" />
     <None Remove="Resources\UTU.png" />
@@ -230,6 +231,7 @@
       <CustomToolNamespace></CustomToolNamespace>
     </Resource>
     <Resource Include="Resources\UT.png" />
+    <Resource Include="Resources\UTB.png" />
     <Resource Include="Resources\UTLogoWhite3.0.png" />
     <Resource Include="Resources\UTS.png" />
     <Resource Include="Resources\UTU.png" />
