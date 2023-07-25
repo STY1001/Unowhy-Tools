@@ -23,6 +23,7 @@ namespace Unowhy_Tools_WPF.Views.Pages;
 public partial class Dashboard : INavigableView<DashboardViewModel>
 {
     UT.Data UTdata = new UT.Data();
+    public bool utadeployed = false;
 
     public DashboardViewModel ViewModel
     {
@@ -247,6 +248,73 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
     }
 
+    public async void UnInitAnim(object sender, RoutedEventArgs e)
+    {
+        if (utadeployed)
+        {
+            utadeployed = false;
+            uta.Click -= Switch_UT2QO;
+            uta.Click += Switch_QO2UT;
+
+            utaimg.Source = UT.GetImgSource("UT.png");
+            utalab.Text = "Unowhy Tools Apps";
+            utalab2.Text = "Wifi, BIOS";
+            uta.IsChevronVisible = true;
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 80,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                utagrid.RenderTransform = transform;
+
+                utagrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+            }
+
+            //await Task.Delay(500);
+
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = -80,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                qogrid.RenderTransform = transform;
+
+                qogrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+            }
+
+            await Task.Delay(500);
+            utagrid.Visibility = Visibility.Collapsed;
+        }
+    }
+
     public Dashboard(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
@@ -376,6 +444,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
     public async void Switch_QO2UT(object sender, RoutedEventArgs e)
     {
+        utadeployed = true;
         uta.Click += Switch_UT2QO;
         uta.Click -= Switch_QO2UT;
 
@@ -437,6 +506,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
     public async void Switch_UT2QO(object sender, RoutedEventArgs e)
     {
+        utadeployed = false;
         uta.Click -= Switch_UT2QO;
         uta.Click += Switch_QO2UT;
 

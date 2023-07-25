@@ -8,6 +8,7 @@
            Title="Dashboard"
            Initialized="Init"
            Loaded="InitAnim"
+           Unloaded="UnInitAnim"
            d:DataContext="{d:DesignInstance local:About,
                                      IsDesignTimeCreatable=False}"
            d:DesignHeight="601"

@@ -406,6 +406,13 @@ public partial class About : INavigableView<DashboardViewModel>
         ExpInfo.IsExpanded = true;
     }
 
+    public async void UnInitAnim(object sender, System.Windows.RoutedEventArgs e)
+    {
+        ExpContrib.IsExpanded = false;
+        ExpInfo.IsExpanded = false;
+        ExpMoreInfo.IsExpanded = false;
+    }
+
     public About(DashboardViewModel viewModel, ISnackbarService snackbarService)
     {
         ViewModel = viewModel;
