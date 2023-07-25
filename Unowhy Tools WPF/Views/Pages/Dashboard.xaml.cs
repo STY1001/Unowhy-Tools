@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Http;
 using static Unowhy_Tools.UT;
+using System.Xml.Linq;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -349,7 +350,15 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         await Task.Delay(500);
         UT.NavigateTo(typeof(Wifi));
     }
-    
+
+    public async void UTB(object sender, RoutedEventArgs e)
+    {
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
+        UT.NavigateTo(typeof(Bios));
+    }
+
     public async void SysInfo(object sender, RoutedEventArgs e)
     {
         UT.anim.RegisterParent(RootGrid, RootBorder);
@@ -363,5 +372,129 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         UT.anim.AnimParent("zoomout2");
         await Task.Delay(500);
         UT.NavigateTo(typeof(Settings));
+    }
+
+    public async void Switch_QO2UT(object sender, RoutedEventArgs e)
+    {
+        uta.Click += Switch_UT2QO;
+        uta.Click -= Switch_QO2UT;
+
+        utaimg.Source = UT.GetImgSource("back.png");
+        utalab.Text = "Quick Launch";
+        utalab2.Text = "Go Back";
+        uta.IsChevronVisible = false;
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -80,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            qogrid.RenderTransform = transform;
+
+            qogrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        //await Task.Delay(500);
+
+        {
+            utagrid.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 77,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            utagrid.RenderTransform = transform;
+
+            utagrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+    }
+
+    public async void Switch_UT2QO(object sender, RoutedEventArgs e)
+    {
+        uta.Click -= Switch_UT2QO;
+        uta.Click += Switch_QO2UT;
+
+        utaimg.Source = UT.GetImgSource("UT.png");
+        utalab.Text = "Unowhy Tools Apps";
+        utalab2.Text = "Wifi, BIOS";
+        uta.IsChevronVisible = true;
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 80,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            utagrid.RenderTransform = transform;
+
+            utagrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        //await Task.Delay(500);
+
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -80,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            qogrid.RenderTransform = transform;
+
+            qogrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+        
+        await Task.Delay(500);
+        utagrid.Visibility = Visibility.Collapsed;
     }
 }
