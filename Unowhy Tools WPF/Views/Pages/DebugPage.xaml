@@ -97,6 +97,14 @@
                                    Content="Download"
                                    Click="download_Click"/>
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <DatePicker x:Name="datepick"
+                                    SelectedDateFormat="Short"/>
+                        <Button x:Name="getdate"
+                                Content="Get"
+                                Click="getdate_Click" />
+                        <TextBlock x:Name="dateview" />
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>

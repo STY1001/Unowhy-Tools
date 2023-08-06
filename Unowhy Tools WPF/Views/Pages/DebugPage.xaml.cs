@@ -203,5 +203,9 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         download.Content = "Download";
     }
 
+    private void getdate_Click(object sender, RoutedEventArgs e)
+    {
+        dateview.Text = datepick.SelectedDate.Value.ToString("MM/dd/yyyy");
+    }
 }
 
