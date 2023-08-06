@@ -23,6 +23,7 @@ using System.Threading;
 using System.Drawing;
 using TaskScheduler = Microsoft.Win32.TaskScheduler;
 using System.Windows;
+using System.Linq;
 
 namespace Unowhy_Tools
 {
@@ -976,6 +977,30 @@ namespace Unowhy_Tools
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Service");
             }
 
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\Edge)");
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge");
+            }
+
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\AMI)");
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI");
+            }
+
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\AMI\\AFU)");
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU");
+            }
+
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\AMI\\AMIDE)");
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
+            }
+
             await MainWindow.USS("Checking... (%temp%\\Unowhy Tools\\Logs\\UT_Logs.txt)");
             if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
             {
@@ -1259,30 +1284,52 @@ namespace Unowhy_Tools
 
             await MainWindow.USS("Hardware Info... (Name)");
             string hn = await RunReturn("hostname", "");
+            UTdata.HostName = hn.Replace("\n", "").Replace("\r", "").Replace(" ", "");
             await MainWindow.USS("Hardware Info... (Manufacturer)");
             string mf = await RunReturn("wmic", "computersystem get manufacturer");
+            UTdata.mf = GetLine(mf, 2).TrimEnd();
             await MainWindow.USS("Hardware Info... (Model)");
             string md = await RunReturn("wmic", "computersystem get model");
+            UTdata.md = GetLine(md, 2).TrimEnd();
+            await MainWindow.USS("Hardware Info... (SKU)");
+            string sku = await RunReturn("wmic", "computersystem get systemskunumber");
+            UTdata.sku = GetLine(sku, 2).TrimEnd();
+            await MainWindow.USS("Hardware Info... (Motherboard Manufacturer)");
+            string mbmf = await RunReturn("wmic", "baseboard get manufacturer");
+            UTdata.mbmf = GetLine(mbmf, 2).TrimEnd();
+            await MainWindow.USS("Hardware Info... (Motherboard Model)");
+            string mbmd = await RunReturn("wmic", "baseboard get product");
+            UTdata.mbmd = GetLine(mbmd, 2).TrimEnd();
+            await MainWindow.USS("Hardware Info... (Motherboard Version)");
+            string mbv = await RunReturn("wmic", "baseboard get version");
+            UTdata.mbv = GetLine(mbv, 2).TrimEnd();
             await MainWindow.USS("Hardware Info... (OS)");
             string os = await RunReturn("wmic", "os get caption");
-            await MainWindow.USS("Hardware Info... (BIOS Version)");
+            UTdata.os = GetLine(os, 2).TrimEnd();
+            await MainWindow.USS("Hardware Info... (BIOS Manufacturer)");
+            string biosmf = await RunReturn("wmic", "bios get manufacturer");
+            UTdata.biosmf = GetLine(biosmf, 2).TrimEnd();
+            await MainWindow.USS("Hardware Info... (BIOS Variant)");
             string bios = await RunReturn("wmic", "bios get smbiosbiosversion");
+            UTdata.bios = GetLine(bios, 2).TrimEnd();
+            await MainWindow.USS("Hardware Info... (BIOS Version)");
+            string biosv = await RunReturn("wmic", "bios get smbiosbiosversion");
+            UTdata.biosv = GetLine(biosv, 2).TrimEnd();
+            await MainWindow.USS("Hardware Info... (BIOS Date)");
+            string biosd = await RunReturn("wmic", "bios get releasedate");
+            biosd = GetLine(biosd, 2).TrimEnd();
+            UTdata.biosd = DateTime.ParseExact(biosd.Substring(0, 14), "yyyyMMddHHmmss", null).ToString("MM/dd/yyyy");
             await MainWindow.USS("Hardware Info... (Serial Number)");
             string sn = await RunReturn("wmic", "bios get serialnumber");
+            UTdata.sn = GetLine(sn, 2).TrimEnd();
             await MainWindow.USS("Hardware Info... (CPU)");
             string cpu = await RunReturn("wmic", "cpu get name");
+            UTdata.cpu = GetLine(cpu, 2).TrimEnd();
             await MainWindow.USS("Hardware Info... (RAM)");
             string ram = await RunReturn("wmic", "computersystem get totalphysicalmemory");
+            UTdata.ram = GetLine(ram, 2).TrimEnd();
             await MainWindow.USS("Hardware Info... (Done)");
 
-            UTdata.HostName = hn.Replace("\n", "").Replace("\r", "").Replace(" ", "");
-            UTdata.mf = GetLine(mf, 2);
-            UTdata.md = GetLine(md, 2);
-            UTdata.os = GetLine(os, 2);
-            UTdata.bios = GetLine(bios, 2);
-            UTdata.sn = GetLine(sn, 2);
-            UTdata.cpu = GetLine(cpu, 2);
-            UTdata.ram = GetLine(ram, 2);
 
             if (UTdata.UserID.Contains(UTdata.HostName.ToLower()))
             {
@@ -1299,8 +1346,15 @@ namespace Unowhy_Tools
             Write2Log(UTdata.UserID);
             Write2Log(UTdata.mf);
             Write2Log(UTdata.md);
+            Write2Log(UTdata.sku);
+            Write2Log(UTdata.mbmf);
+            Write2Log(UTdata.mbmd);
+            Write2Log(UTdata.mbv);
             Write2Log(UTdata.os);
+            Write2Log(UTdata.biosmf);
             Write2Log(UTdata.bios);
+            Write2Log(UTdata.biosv);
+            Write2Log(UTdata.biosd);
             Write2Log(UTdata.sn);
             Write2Log(UTdata.cpu);
             Write2Log(UTdata.ram);
@@ -1958,8 +2012,15 @@ namespace Unowhy_Tools
             private static string _md;
             private static string _os;
             private static string _bios;
+            private static string _biosv;
+            private static string _biosmf;
+            private static string _biosd;
             private static string _cpu;
             private static string _ram;
+            private static string _sku;
+            private static string _mbmf;
+            private static string _mbmd;
+            private static string _mbv;
             private static string _adminsname;
             private static string _adminname;
             private static bool _taskmgr;
@@ -2062,6 +2123,33 @@ namespace Unowhy_Tools
                     OnPropertyChanged();
                 }
             }
+            public string biosv
+            {
+                get { return _biosv; }
+                set
+                {
+                    _biosv = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string biosmf
+            {
+                get { return _biosmf; }
+                set
+                {
+                    _biosmf = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string biosd
+            {
+                get { return _biosd; }
+                set
+                {
+                    _biosd = value;
+                    OnPropertyChanged();
+                }
+            }
             public string cpu
             {
                 get { return _cpu; }
@@ -2077,6 +2165,42 @@ namespace Unowhy_Tools
                 set
                 {
                     _ram = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string sku
+            {
+                get { return _sku; }
+                set
+                {
+                    _sku = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string mbmf
+            {
+                get { return _mbmf; }
+                set
+                {
+                    _mbmf = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string mbmd
+            {
+                get { return _mbmd; }
+                set
+                {
+                    _mbmd = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string mbv
+            {
+                get { return _mbv; }
+                set
+                {
+                    _mbv= value;
                     OnPropertyChanged();
                 }
             }
