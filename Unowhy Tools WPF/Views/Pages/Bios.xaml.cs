@@ -251,7 +251,6 @@ public partial class Bios : INavigableView<DashboardViewModel>
         mbvbox.PlaceholderText = UTdata.mbv;
         biosmfbox.PlaceholderText = UTdata.biosmf;
         biosdbox.Text = UTdata.biosd; 
-        //biosdbox.PlaceholderText = UTdata.biosd;
     }
 
     public void applylang()
