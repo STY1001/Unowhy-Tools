@@ -438,6 +438,9 @@
   <data name="name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="needres" xml:space="preserve">
+    <value>Unowhy Tools need some resources from internet. Press "OK" to continue</value>
+  </data>
   <data name="new" xml:space="preserve">
     <value>New</value>
   </data>

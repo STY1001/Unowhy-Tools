@@ -65,13 +65,13 @@ public partial class Edge : INavigableView<DashboardViewModel>
         }
 
         RegistryKey eu = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\EdgeUpdate");
-        if(eu != null)
+        if (eu != null)
         {
             object dnu = eu.GetValue("DoNotUpdateToEdgeWithChromium", null);
-            if(dnu != null)
+            if (dnu != null)
             {
                 int dnu2 = (int)eu.GetValue("DoNotUpdateToEdgeWithChromium", 0);
-                if(dnu2 == 1)
+                if (dnu2 == 1)
                 {
                     block.IsEnabled = false;
                     block_txt.Foreground = new SolidColorBrush(disabled);
@@ -138,22 +138,32 @@ public partial class Edge : INavigableView<DashboardViewModel>
 
     public async void Uninstall_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.CheckInternet())
+        if (!File.Exists(Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+        {
+            UT.DialogIShow(UT.GetLang("needres"), "download.png");
+        }
+
+        if (UT.CheckInternet() || File.Exists(Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
         {
             if (UT.DialogQShow(UT.GetLang("edgeun"), "uninstall.png"))
             {
                 await UT.waitstatus.open();
-                dlstate.Visibility = Visibility.Visible;
-                var progress = new System.Progress<double>();
-                var cancellationToken = new CancellationTokenSource();
-                progress.ProgressChanged += (sender, value) =>
+                if (!File.Exists(Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
-                    dlstate.Text = "Downloading... (" + value.ToString("###.#") + "%)";
-                };
-                await UT.DlFilewithProgress("https://bit.ly/UTedgesetup", Path.GetTempPath() + "edgesetup.exe", progress, cancellationToken.Token);
-                dlstate.Visibility = Visibility.Collapsed;
-                await UT.RunMin("powershell", $"start-process -FilePath \"{Path.GetTempPath() + "edgesetup.exe"}\" -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
-                File.Delete(Path.GetTempPath() + "edgesetup.exe");
+                    dlstate.Visibility = Visibility.Visible;
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    progress.ProgressChanged += (sender, value) =>
+                    {
+                        dlstate.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+                    };
+                    await UT.DlFilewithProgress("https://bit.ly/UTedgesetup", Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe", progress, cancellationToken.Token);
+                    dlstate.Visibility = Visibility.Collapsed;
+                }
+                if (File.Exists(Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+                {
+                    await UT.RunMin("powershell", $"start-process -FilePath '{Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe"}' -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
+                }
                 await UT.waitstatus.close();
                 await CheckBTN();
                 if (!uninstall.IsEnabled)
@@ -174,7 +184,7 @@ public partial class Edge : INavigableView<DashboardViewModel>
 
     public async void Block_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(UT.GetLang("edgeblock"), "block.png"))
+        if (UT.DialogQShow(UT.GetLang("edgeblock"), "block.png"))
         {
             await UT.waitstatus.open();
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\EdgeUpdate\" /v \"DoNotUpdateToEdgeWithChromium\" /t REG_DWORD /d \"1\" /f");
