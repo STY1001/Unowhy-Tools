@@ -44,8 +44,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         string un = await UT.UTS.UTSmsg("UTSW", "GetSN");
 
         pn = pn.Replace("\n", "").Replace("\r", "");
-        sn = UT.GetLine(sn, 2);
-        sn = sn.Replace(" ", "");
+        sn = UT.GetLine(sn, 2).TrimEnd();
 
         if (pn.Contains("IFP"))
         {
