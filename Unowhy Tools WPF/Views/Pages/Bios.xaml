@@ -36,293 +36,410 @@
                 <ScaleTransform ScaleX="1"
                                 ScaleY="1" />
             </Border.RenderTransform>
-            <Grid Margin="20,20,20,20"
-                  x:Name="RootGrid2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="40" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
-                <Grid x:Name="GridDump">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
-
-                    <Image Source="../../Resources/upload.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock x:Name="dumplab"
-                               Text="Dump to a file: "
-                               Grid.Column="0"
-                               Grid.Row="0"
-                               Grid.ColumnSpan="3"
-                               FontSize="13"
-                               Foreground="#ffffff" />
-                    <ui:TextBox x:Name="dumppath"
-                                Width="180"
-                                Grid.Column="2"
-                                Grid.Row="2" />
-                    <ui:Button x:Name="dumpexp"
-                               Grid.Column="4"
-                               Grid.Row="2"
-                               HorizontalAlignment="Stretch"
-                               VerticalAlignment="Stretch"
-                               Content="..."
-                               FontSize="16" />
-                    <ui:Button x:Name="dumpbtn"
-                               Grid.Column="6"
-                               Grid.Row="2"
-                               HorizontalAlignment="Stretch"
-                               VerticalAlignment="Stretch"
-                               Content="Dump"
-                               FontSize="16" />
-                </Grid>
-                <ui:NavigationSeparator Grid.Column="1"
-                                        HorizontalAlignment="Center"/>
-                <Grid Grid.Column="2"
-                      x:Name="GridFlash">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="5" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="5" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
-
-                    <Image Source="../../Resources/download.png"
-                           Grid.Row="2"
-                           Grid.Column="0" />
-                    <TextBlock x:Name="flashlab"
-                               Text="Flash from a file: "
-                               Grid.Column="0"
-                               Grid.Row="0"
-                               Grid.ColumnSpan="3"
-                               FontSize="13"
-                               Foreground="#ffffff" />
-                    <ui:TextBox x:Name="flashpath"
-                                Width="180"
-                                Grid.Column="2"
-                                Grid.Row="2" />
-                    <ui:Button x:Name="flashexp"
-                               Grid.Column="4"
-                               Grid.Row="2"
-                               HorizontalAlignment="Stretch"
-                               VerticalAlignment="Stretch"
-                               Content="..."
-                               FontSize="16" />
-                    <ui:Button x:Name="flashbtn"
-                               Grid.Column="6"
-                               Grid.Row="2"
-                               HorizontalAlignment="Stretch"
-                               VerticalAlignment="Stretch"
-                               Content="Flash"
-                               FontSize="16" />
-                </Grid>
-                <ui:NavigationSeparator Grid.Row="1"
-                           Grid.ColumnSpan="3"
-                           VerticalAlignment="Center" />
-                <Grid Grid.Row="2"
-                      Grid.ColumnSpan="3">
+            <Grid>
+                <Grid Margin="20,20,20,20"
+                      x:Name="RootGrid2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="40" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel x:Name="StackSMBIOS1">
-                        <StackPanel.Resources>
-                            <Style TargetType="Grid">
-                                <Setter Property="Margin"
-                                        Value="0,0,0,15" />
-                            </Style>
-                        </StackPanel.Resources>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Manufacturer:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF"/>
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[Manufacturer]"/>
-                        </Grid>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Model:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF"/>
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[Model]"/>
-                        </Grid>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="SKU:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF"/>
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[SKU]"/>
-                        </Grid>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Serial Number:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF"/>
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[Serial Number]"/>
-                        </Grid>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="BIOS Version:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF"/>
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[BIOS Version]"/>
-                        </Grid>
-                    </StackPanel>
-                    <StackPanel Grid.Column="2"
-                                x:Name="StackSMBIOS2">
-                        <StackPanel.Resources>
-                            <Style TargetType="Grid">
-                                <Setter Property="Margin"
-                                        Value="0,0,0,15" />
-                            </Style>
-                        </StackPanel.Resources>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Motherboard Manufacturer:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF" />
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[Motherboard Manufacturer]" />
-                        </Grid>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Motherboard Model:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF" />
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[Motherboard Model]" />
-                        </Grid>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Motherboard Version:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF" />
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[Motherboard Version]" />
-                        </Grid>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="BIOS Manufacturer:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF" />
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[BIOS Manufacturer]" />
-                        </Grid>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="5" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="BIOS Date:"
-                                       Grid.Row="0"
-                                       Foreground="#FFFFFF" />
-                            <ui:TextBox Grid.Row="2"
-                                        PlaceholderText="[BIOS Date]" />
-                        </Grid>
-                    </StackPanel>
-                </Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="GridDump">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
 
-                <ui:Button Grid.Column="2"
-                           Grid.Row="3"
-                           HorizontalAlignment="Right"
-                           Margin="0,0,0,0"
-                           x:Name="ButtonApply">
-                    <StackPanel>
-                        <Grid Grid.Row="1"
-                              Margin="0,0,0,0"
-                              RenderTransformOrigin="0.5,0.5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="32" />
-                                <ColumnDefinition Width="10" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Image Source="../../Resources/customize.png"
+                        <Image Source="../../Resources/upload.png"
+                               Grid.Row="2"
+                               Grid.Column="0" />
+                        <TextBlock x:Name="dumplab"
+                                   Text="Dump to a file: "
                                    Grid.Column="0"
-                                   Height="32"
-                                   VerticalAlignment="Top" />
-                            <StackPanel VerticalAlignment="Center"
-                                        Grid.Column="2">
-                                <TextBlock Margin="0"
-                                           FontSize="13"
-                                           FontWeight="Medium"
-                                           Text="Apply" />
+                                   Grid.Row="0"
+                                   Grid.ColumnSpan="3"
+                                   FontSize="13"
+                                   Foreground="#ffffff" />
+                        <ui:TextBox x:Name="dumppath"
+                                    Width="180"
+                                    Grid.Column="2"
+                                    Grid.Row="2"
+                                    IsReadOnly="True" />
+                        <ui:Button x:Name="dumpexp"
+                                   Grid.Column="4"
+                                   Grid.Row="2"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   Content="..."
+                                   FontSize="16"
+                                   Click="dumpexp_Click" />
+                        <ui:Button x:Name="dumpbtn"
+                                   Grid.Column="6"
+                                   Grid.Row="2"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   Content="Dump"
+                                   FontSize="16"
+                                   Click="dumpbtn_Click" />
+                    </Grid>
+                    <ui:NavigationSeparator Grid.Column="1"
+                                            HorizontalAlignment="Center" />
+                    <Grid Grid.Column="2"
+                          x:Name="GridFlash">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="../../Resources/download.png"
+                               Grid.Row="2"
+                               Grid.Column="0" />
+                        <TextBlock x:Name="flashlab"
+                                   Text="Flash from a file: "
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   Grid.ColumnSpan="3"
+                                   FontSize="13"
+                                   Foreground="#ffffff" />
+                        <ui:TextBox x:Name="flashpath"
+                                    Width="180"
+                                    Grid.Column="2"
+                                    Grid.Row="2"
+                                    IsReadOnly="True" />
+                        <ui:Button x:Name="flashexp"
+                                   Grid.Column="4"
+                                   Grid.Row="2"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   Content="..."
+                                   FontSize="16"
+                                   Click="flashexp_Click" />
+                        <ui:Button x:Name="flashbtn"
+                                   Grid.Column="6"
+                                   Grid.Row="2"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   Content="Flash"
+                                   FontSize="16"
+                                   Click="flashbtn_Click" />
+                    </Grid>
+                    <Grid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Grid.Row="1"
+                          Grid.ColumnSpan="3"
+                          x:Name="GridSeparator">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:NavigationSeparator VerticalAlignment="Center" />
+                        <TextBlock Text="↑ Dump and Flash ↑ | ↓ Customize ↓"
+                                   Foreground="#c0c0c0"
+                                   Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Margin="10" />
+                        <ui:NavigationSeparator Grid.Column="2"
+                                                VerticalAlignment="Center" />
+                    </Grid>
+                    <Grid Grid.Row="2"
+                          Grid.ColumnSpan="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel x:Name="StackSMBIOS1"
+                                    HorizontalAlignment="Stretch"
+                                    MaxWidth="333">
+                            <StackPanel.Resources>
+                                <Style TargetType="Grid">
+                                    <Setter Property="Margin"
+                                            Value="0,0,0,10" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Manufacturer:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <ui:TextBox Grid.Row="2"
+                                            PlaceholderText="[Manufacturer]"
+                                            x:Name="mfbox" />
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Model:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <ui:TextBox Grid.Row="2"
+                                            PlaceholderText="[Model]"
+                                            x:Name="mdbox" />
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="SKU:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <ui:TextBox Grid.Row="2"
+                                            PlaceholderText="[SKU]"
+                                            x:Name="skubox" />
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Serial Number:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <ui:TextBox Grid.Row="2"
+                                            PlaceholderText="[Serial Number]"
+                                            x:Name="snbox" />
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="BIOS Version:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <ui:TextBox Grid.Row="2"
+                                            PlaceholderText="[BIOS Version]"
+                                            x:Name="biosvbox" />
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2"
+                                    x:Name="StackSMBIOS2"
+                                    HorizontalAlignment="Stretch"
+                                    MaxWidth="333">
+                            <StackPanel.Resources>
+                                <Style TargetType="Grid">
+                                    <Setter Property="Margin"
+                                            Value="0,0,0,10" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Motherboard Manufacturer:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <ui:TextBox Grid.Row="2"
+                                            PlaceholderText="[Motherboard Manufacturer]"
+                                            x:Name="mbmfbox" />
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Motherboard Model:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <ui:TextBox Grid.Row="2"
+                                            PlaceholderText="[Motherboard Model]"
+                                            x:Name="mbmdbox" />
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Motherboard Version:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <ui:TextBox Grid.Row="2"
+                                            PlaceholderText="[Motherboard Version]"
+                                            x:Name="mbvbox" />
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="BIOS Manufacturer:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <ui:TextBox Grid.Row="2"
+                                            PlaceholderText="[BIOS Manufacturer]"
+                                            x:Name="biosmfbox" />
+                            </Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="BIOS Date:"
+                                           Grid.Row="0"
+                                           Foreground="#FFFFFF" />
+                                <DatePicker Grid.Row="2"
+                                            x:Name="biosdbox"
+                                            SelectedDateFormat="Short"/>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="2"
+                                Grid.Row="3"
+                                HorizontalAlignment="Right"
+                                x:Name="StackButton">
+                        <ui:Button Grid.Column="2"
+                                   Grid.Row="3"
+                                   HorizontalAlignment="Right"
+                                   Margin="0,0,0,0"
+                                   x:Name="ButtonExport"
+                                   Click="ButtonExport_Click">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/upload.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Export" />
+                                    </StackPanel>
+                                </Grid>
                             </StackPanel>
-                        </Grid>
+                        </ui:Button>
+                        <ui:Button Grid.Column="2"
+                                   Grid.Row="3"
+                                   HorizontalAlignment="Right"
+                                   Margin="10,0,0,0"
+                                   x:Name="ButtonImport">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/download.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Import" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                        <ui:Button Grid.Column="2"
+                                   Grid.Row="3"
+                                   HorizontalAlignment="Right"
+                                   Margin="10,0,0,0"
+                                   x:Name="ButtonApply">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/customize.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Apply" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
                     </StackPanel>
-                </ui:Button>
+
+                    <TextBlock Grid.Column="1"
+                               Grid.Row="3"
+                               Text="Donwload Status"
+                               x:Name="dlstatus"
+                               Foreground="#ffffff"
+                               Visibility="Hidden"
+                               VerticalAlignment="Center" />
+                </Grid>
             </Grid>
         </Border>
     </Grid>
