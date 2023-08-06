@@ -118,7 +118,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         using (var fb = new OpenFileDialog())
         {
             fb.DefaultExt = "zip";
-            fb.Filter = "zip (*.zip)|*.zip";
+            fb.Filter = "Unowhy Tools Driver file (*.zip)|*.zip";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
             DialogResult result = fb.ShowDialog();

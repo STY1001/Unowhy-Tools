@@ -93,7 +93,7 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
         {
             fb.FileName = "UT-Drv_" + DateTime.Now.ToString("HH-mm_dd-MM-yy");
             fb.DefaultExt = "zip";
-            fb.Filter = "zip (*.zip)|*.zip";
+            fb.Filter = "Unowhy Tools Driver file (*.zip)|*.zip";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
             DialogResult result = fb.ShowDialog();

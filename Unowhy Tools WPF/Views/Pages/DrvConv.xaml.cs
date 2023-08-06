@@ -111,7 +111,7 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
         {
             sfd.FileName = "UT-Drv_" + DateTime.Now.ToString("HH-mm_dd-MM-yy");
             sfd.DefaultExt = "zip";
-            sfd.Filter = "zip (*.zip)|*.zip";
+            sfd.Filter = "Unowhy Tools Driver file (*.zip)|*.zip";
             sfd.FilterIndex = 1;
             sfd.Title = "Unowhy Tools";
             DialogResult result = sfd.ShowDialog();
