@@ -2,7 +2,9 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Threading;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -142,6 +144,7 @@ public partial class App
     private async void OnStartup(object sender, StartupEventArgs e)
     {
         UT.Data UTdata = new UT.Data();
+        AppDomain.CurrentDomain.UnhandledException += HandleCrash;
         /*
         if (e.Args.Length > 0)
         {
@@ -170,8 +173,8 @@ public partial class App
 
         UT.Write2Log("\n\n\n\n\n\nUnowhy Tools launched\n");
 
-        if(e.Args.Length > 0)
-        { 
+        if (e.Args.Length > 0)
+        {
             string args = string.Join(" ", e.Args);
             UT.Write2Log("Unowhy Tools Args: " + args + "\n\n\n");
         }
@@ -211,7 +214,7 @@ public partial class App
 
         UTdata.UserID = userId;
 
-        if(useTray)
+        if (useTray)
         {
             UTdata.RunTray = true;
         }
@@ -228,12 +231,12 @@ public partial class App
             Console.WriteLine("-tray                    Launch UT in tray mode, can only open 1 tray simultaneously");
             Console.WriteLine("-help | -?               Display help");
             Console.ReadKey();
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
         else
         {
             await _host.StartAsync();
-        }   
+        }
     }
 
     /// <summary>
@@ -244,6 +247,27 @@ public partial class App
         await _host.StopAsync();
 
         _host.Dispose();
+    }
+
+    private async void HandleCrash(object sender, UnhandledExceptionEventArgs e)
+    {
+        UT.Data UTdata = new UT.Data();
+        Exception exp = (Exception)e.ExceptionObject;
+        UT.Write2Log("=== Unowhy Tools Crash Log ===");
+        UT.Write2Log($"Message: {exp.Message}");
+        UT.Write2Log($"ToString: {exp.ToString()}");
+        MessageBoxResult result = System.Windows.MessageBox.Show($"Unowhy Tools has crashed. Do you want to restart Unowhy Tools ?\n\n\nCrash Log:\n\nMessage:\n{exp.Message}\n\nToString:\n{exp.ToString()}", "Unowhy Tools crash handler", MessageBoxButton.YesNo, MessageBoxImage.Error);
+        if (result == MessageBoxResult.Yes)
+        {
+            var exeName = Process.GetCurrentProcess().MainModule.FileName;
+            ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+            startInfo.UseShellExecute = true;
+            startInfo.WorkingDirectory = Directory.GetCurrentDirectory();
+            startInfo.Arguments = $"-user {UTdata.UserID}";
+            Process.Start(startInfo);
+        }
+        await Task.Delay(1000);
+        System.Windows.Application.Current.Shutdown();
     }
 
     /// <summary>
