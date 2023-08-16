@@ -12,6 +12,12 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using System.Threading;
+using System.Text.Json.Nodes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Windows.Documents;
+using System.IO.Compression;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -250,7 +256,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         mbmdbox.PlaceholderText = UTdata.mbmd;
         mbvbox.PlaceholderText = UTdata.mbv;
         biosmfbox.PlaceholderText = UTdata.biosmf;
-        biosdbox.Text = UTdata.biosd; 
+        biosdbox.Text = UTdata.biosd;
     }
 
     public void applylang()
@@ -266,47 +272,37 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     List<string> amidefiles = new List<string>
     {
-        Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE" + "AMIDEWINx64.exe",
-        Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE" + "AMIFLDRV64.sys"
+        Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe",
+        Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIFLDRV64.sys"
     };
 
     public async Task DlRes(string resname)
     {
         if (resname == "AFU")
         {
-            if (afufiles.Any(file => !File.Exists(file)))
+            dlstatus.Visibility = Visibility.Visible;
+            var progress = new System.Progress<double>();
+            var cancellationToken = new CancellationTokenSource();
+            progress.ProgressChanged += (sender, value) =>
             {
-                if (UT.CheckInternet())
-                {
-                    dlstatus.Visibility = Visibility.Visible;
-                    var progress = new System.Progress<double>();
-                    var cancellationToken = new CancellationTokenSource();
-                    progress.ProgressChanged += (sender, value) =>
-                    {
-                        dlstatus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
-                    };
-                    await UT.DlFilewithProgress("https://bit.ly/UTAFUWin", Path.GetTempPath() + "Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
-                    dlstatus.Visibility = Visibility.Collapsed;
-                }
-            }
+                dlstatus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+            };
+            await UT.DlFilewithProgress("https://bit.ly/UTAFUWin", Path.GetTempPath() + "Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
+            dlstatus.Visibility = Visibility.Collapsed;
+            ZipFile.ExtractToDirectory(Path.GetTempPath() + "Unowhy Tools\\Temps\\AFUWin.zip", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU");
         }
         if (resname == "AMIDE")
         {
-            if (amidefiles.Any(file => !File.Exists(file)))
+            dlstatus.Visibility = Visibility.Visible;
+            var progress = new System.Progress<double>();
+            var cancellationToken = new CancellationTokenSource();
+            progress.ProgressChanged += (sender, value) =>
             {
-                if (UT.CheckInternet())
-                {
-                    dlstatus.Visibility = Visibility.Visible;
-                    var progress = new System.Progress<double>();
-                    var cancellationToken = new CancellationTokenSource();
-                    progress.ProgressChanged += (sender, value) =>
-                    {
-                        dlstatus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
-                    };
-                    await UT.DlFilewithProgress("https://bit.ly/UTAMIDEWin", Path.GetTempPath() + "Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
-                    dlstatus.Visibility = Visibility.Collapsed;
-                }
-            }
+                dlstatus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+            };
+            await UT.DlFilewithProgress("https://bit.ly/UTAMIDEWin", Path.GetTempPath() + "Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
+            dlstatus.Visibility = Visibility.Collapsed;
+            ZipFile.ExtractToDirectory(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMIDEWin.zip", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
         }
     }
 
@@ -321,7 +317,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
     {
         using (var fb = new System.Windows.Forms.SaveFileDialog())
         {
-            fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ","");
+            fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "");
             fb.DefaultExt = "rom";
             fb.Filter = "Unowhy Tools BIOS file (*.rom)|*.rom";
             fb.FilterIndex = 1;
@@ -350,18 +346,136 @@ public partial class Bios : INavigableView<DashboardViewModel>
         }
     }
 
-    private void dumpbtn_Click(object sender, RoutedEventArgs e)
+    private async void dumpbtn_Click(object sender, RoutedEventArgs e)
     {
-
+        if (UT.DialogQShow(UT.GetLang("utbdumpwarn"), "upload.png"))
+        {
+            if (afufiles.Any(file => !File.Exists(file)))
+            {
+                UT.DialogIShow(UT.GetLang("needres"), "download.png");
+                if (UT.CheckInternet())
+                {
+                    await UT.waitstatus.open();
+                    await DlRes("AFU");
+                    await UT.waitstatus.close();
+                }
+                else
+                {
+                    UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                }
+            }
+            if (afufiles.Any(file => File.Exists(file)))
+            {
+                await UT.waitstatus.open();
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe", $"\"{flashpath.Text}\" /O");
+                await UT.waitstatus.close();
+            }
+        }
     }
 
-    private void flashbtn_Click(object sender, RoutedEventArgs e)
+    private async void flashbtn_Click(object sender, RoutedEventArgs e)
     {
-
+        if (UT.DialogQShow(UT.GetLang("utbflashwarn"), "download.png"))
+        {
+            if (afufiles.Any(file => !File.Exists(file)))
+            {
+                UT.DialogIShow(UT.GetLang("needres"), "download.png");
+                if (UT.CheckInternet())
+                {
+                    await UT.waitstatus.open();
+                    await DlRes("AFU");
+                    await UT.waitstatus.close();
+                }
+                else
+                {
+                    UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                }
+            }
+            if (afufiles.Any(file => File.Exists(file)))
+            {
+                await UT.waitstatus.open();
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe", $"\"{flashpath.Text}\" /P /N /REBOOT");
+                await UT.waitstatus.close();
+            }
+        }
     }
 
     private void ButtonExport_Click(object sender, RoutedEventArgs e)
     {
+        using (var fb = new System.Windows.Forms.SaveFileDialog())
+        {
+            fb.FileName = "UT-SMBIOS_" + UTdata.sn.Replace(" ", "");
+            fb.DefaultExt = "json";
+            fb.Filter = "Unowhy Tools SMBIOS file (*.json)|*.json";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var jsonData = new
+                {
+                    mf = mfbox.PlaceholderText,
+                    md = mdbox.PlaceholderText,
+                    sku = skubox.PlaceholderText,
+                    sn = snbox.PlaceholderText,
+                    biosv = biosvbox.PlaceholderText,
+                    mbmf = mbmfbox.PlaceholderText,
+                    mbmd = mbmdbox.PlaceholderText,
+                    mbv = mbvbox.PlaceholderText,
+                    biosmf = biosmfbox.PlaceholderText,
+                    biosd = biosdbox.SelectedDate.Value.ToString("MM/dd/yyyy")
+                };
 
+                File.WriteAllText(fb.FileName, JsonConvert.SerializeObject(jsonData, Formatting.Indented));
+
+                if (JsonConvert.SerializeObject(jsonData, Formatting.Indented) == File.ReadAllText(fb.FileName))
+                {
+                    UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                }
+                else
+                {
+                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                }
+            }
+        }
+    }
+
+    private void ButtonImport_Click(object sender, RoutedEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "json";
+            fb.Filter = "Unowhy Tools SMBIOS file (*.json)|*.json";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                JObject json = JObject.Parse(File.ReadAllText(fb.FileName));
+
+
+                string mf = (string)json["mf"];
+                string md = (string)json["md"];
+                string sku = (string)json["sku"];
+                string sn = (string)json["sn"];
+                string biosv = (string)json["biosv"];
+                string mbmf = (string)json["mbmf"];
+                string mbmd = (string)json["mbmd"];
+                string mbv = (string)json["mbv"];
+                string biosmf = (string)json["biosmf"];
+                string biosd = (string)json["biosd"];
+
+                mfbox.Text = mf;
+                mdbox.Text = md;
+                skubox.Text = sku;
+                snbox.Text = sn;
+                biosvbox.Text = biosv;
+                mbmfbox.Text = mbmf;
+                mbmdbox.Text = mbmd;
+                mbvbox.Text = mbv;
+                biosmfbox.Text = biosmf;
+                biosdbox.Text = biosd;
+            }
+        }
     }
 }
