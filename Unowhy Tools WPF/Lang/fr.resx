@@ -681,6 +681,12 @@
   <data name="usestor" xml:space="preserve">
     <value>Utilisation du stockage</value>
   </data>
+  <data name="utbdumpwarn" xml:space="preserve">
+    <value>Voulez-vous dump le BIOS de ce PC dans un fichier</value>
+  </data>
+  <data name="utbflashwarn" xml:space="preserve">
+    <value>Veuillez connecter un chargeur au PC pour éviter toute panne. Ne fermez pas Unowhy Tools pendant le processus. Si le flash échoue, votre PC ne peut pas démarrer. Une fois le flash terminé, votre PC redémarrera. Voulez-vous flasher ce fichier BIOS sur ce PC</value>
+  </data>
   <data name="verbstatena" xml:space="preserve">
     <value>Activer le statut détaillé de Windows</value>
   </data>
