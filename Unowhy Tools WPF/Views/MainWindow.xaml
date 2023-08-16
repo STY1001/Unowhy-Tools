@@ -374,6 +374,10 @@
             Foreground="Red"
         -->
 
+        <controls:Wait Visibility="Collapsed"
+                       x:Name="WaitRoot"
+                       Grid.Row="0"
+                       Grid.RowSpan="2" />
         <controls:DialogQ Visibility="Collapsed"
                           x:Name="DialogQRoot"
                           Grid.Row="0"
@@ -382,10 +386,6 @@
                           x:Name="DialogIRoot"
                           Grid.Row="0"
                           Grid.RowSpan="2" />
-        <controls:Wait Visibility="Collapsed"
-                       x:Name="WaitRoot"
-                       Grid.Row="0"
-                       Grid.RowSpan="2" />
 
         <ui:TitleBar Title="Unowhy Tools"
                      x:Name="RootTitleBar"
