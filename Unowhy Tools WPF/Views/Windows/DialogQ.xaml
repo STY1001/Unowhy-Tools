@@ -75,6 +75,7 @@
                                Source="../../Resources/question.png"
                                x:Name="icon" />
                         <TextBlock Grid.Column="3"
+                                   Margin="20,20,20,20"
                                    Text="Dialog Box (Question)"
                                    TextWrapping="Wrap"
                                    MaxWidth="300"
@@ -87,80 +88,78 @@
                     <Border Background="#50000000"
                             CornerRadius="0,0,8,8"
                             Grid.Row="2">
-                    <Grid Grid.Row="2"
-                          HorizontalAlignment="Right">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="120" />
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="120" />
-                            <ColumnDefinition Width="10" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="10" />
-                            <RowDefinition Height="40" />
-                            <RowDefinition Height="10" />
-                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="2"
+                              HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="10" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="10" />
+                            </Grid.RowDefinitions>
 
-                        <ui:Button Click="NoButton_Click"
-                                   VerticalAlignment="Bottom"
-                                   Grid.Row="1"
-                                   HorizontalAlignment="Stretch"
-                                   Grid.Column="1">
-                            <Grid Grid.Row="0"
-                                  Margin="0,0,0,0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="20" />
-                                    <ColumnDefinition Width="5" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                            <ui:Button Click="NoButton_Click"
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Stretch"
+                                       Grid.Column="1">
+                                <Grid Grid.Row="0"
+                                      Margin="0,0,0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="5" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-                                <Image Source="../../Resources/no.png"
-                                       Grid.Column="0"
-                                       Margin="0,0,0,0" />
-                                <StackPanel Grid.Column="2">
-                                    <TextBlock Margin="0"
-                                               FontSize="13"
-                                               FontWeight="Medium"
-                                               x:Name="btn_no"
-                                               Text="No" />
-                                </StackPanel>
-                            </Grid>
-                        </ui:Button>
+                                    <Image Source="../../Resources/no.png"
+                                           Grid.Column="0"
+                                           Margin="0,0,0,0" />
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   x:Name="btn_no"
+                                                   Text="No" />
+                                    </StackPanel>
+                                </Grid>
+                            </ui:Button>
 
-                        <ui:Button Click="YesButton_Click"
-                                   HorizontalAlignment="Stretch"
-                                   VerticalAlignment="Bottom"
-                                   Grid.Row="1"
-                                   Grid.Column="3">
-                            <Grid Grid.Row="0"
-                                  Margin="0,0,0,0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="20" />
-                                    <ColumnDefinition Width="5" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                            <ui:Button Click="YesButton_Click"
+                                       HorizontalAlignment="Stretch"
+                                       Grid.Row="1"
+                                       Grid.Column="3">
+                                <Grid Grid.Row="0"
+                                      Margin="0,0,0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="5" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-                                <Image Source="../../Resources/yes.png"
-                                       Grid.Column="0"
-                                       Margin="0,0,0,0" />
-                                <StackPanel Grid.Column="2">
-                                    <TextBlock Margin="0"
-                                               FontSize="13"
-                                               FontWeight="Medium"
-                                               x:Name="btn_yes"
-                                               Text="Yes" />
-                                </StackPanel>
-                            </Grid>
-                        </ui:Button>
-                    </Grid>
+                                    <Image Source="../../Resources/yes.png"
+                                           Grid.Column="0"
+                                           Margin="0,0,0,0" />
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   x:Name="btn_yes"
+                                                   Text="Yes" />
+                                    </StackPanel>
+                                </Grid>
+                            </ui:Button>
+                        </Grid>
                     </Border>
                 </Grid>
             </Border>
