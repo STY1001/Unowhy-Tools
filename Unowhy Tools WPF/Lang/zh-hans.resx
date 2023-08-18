@@ -1,0 +1,664 @@
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aadleave" xml:space="preserve">
+    <value>从AzureAD断开连接此PC</value>
+  </data>
+  <data name="about" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="adduser" xml:space="preserve">
+    <value>创建新的本地用户账户</value>
+  </data>
+  <data name="adduser.id" xml:space="preserve">
+    <value>新账户的ID</value>
+  </data>
+  <data name="admin" xml:space="preserve">
+    <value>将此账户设置为管理员</value>
+  </data>
+  <data name="adminset" xml:space="preserve">
+    <value>内置"管理员"本地账户设置</value>
+  </data>
+  <data name="an" xml:space="preserve">
+    <value>名称必须是字母数字</value>
+  </data>
+  <data name="ancat" xml:space="preserve">
+    <value>实际名称</value>
+  </data>
+  <data name="avert" xml:space="preserve">
+    <value>名称必须由2至15个字符(允许破折号)的字母数字组成,但不含特殊字符和空格</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>备份驱动</value>
+  </data>
+  <data name="backup" xml:space="preserve">
+    <value>备份</value>
+  </data>
+  <data name="backup.short" xml:space="preserve">
+    <value>备份</value>
+  </data>
+  <data name="bcdfail" xml:space="preserve">
+    <value>在BCD中删除“忽略所有故障”</value>
+  </data>
+  <data name="biosversion" xml:space="preserve">
+    <value>BIOS版本</value>
+  </data>
+  <data name="bkapp" xml:space="preserve">
+    <value>备份应用</value>
+  </data>
+  <data name="bkcloud" xml:space="preserve">
+    <value>从云端下载驱动备份</value>
+  </data>
+  <data name="bkfail" xml:space="preserve">
+    <value>备份失败,使用DISM</value>
+  </data>
+  <data name="bkpath" xml:space="preserve">
+    <value>备份路径</value>
+  </data>
+  <data name="bootim" xml:space="preserve">
+    <value>修复BootIM(蓝色菜单)</value>
+  </data>
+  <data name="boottray" xml:space="preserve">
+    <value>启动时启动 Unowhy工具托盘</value>
+  </data>
+  <data name="browse" xml:space="preserve">
+    <value>浏览</value>
+  </data>
+  <data name="camoverena" xml:space="preserve">
+    <value>启用相机隐私指示灯(虚拟摄像头LED)</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>更改</value>
+  </data>
+  <data name="clean" xml:space="preserve">
+    <value>清理</value>
+  </data>
+  <data name="cncat" xml:space="preserve">
+    <value>更改名称</value>
+  </data>
+  <data name="confpw" xml:space="preserve">
+    <value>确认密码</value>
+  </data>
+  <data name="conv" xml:space="preserve">
+    <value>转换</value>
+  </data>
+  <data name="conv.form" xml:space="preserve">
+    <value>转换备份</value>
+  </data>
+  <data name="conv.nout" xml:space="preserve">
+    <value>这不是UT驱动备份</value>
+  </data>
+  <data name="convdesc" xml:space="preserve">
+    <value>将旧备份(&lt;18.0)转换为新格式</value>
+  </data>
+  <data name="cpuinfo" xml:space="preserve">
+    <value>CPU信息</value>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="cuab" xml:space="preserve">
+    <value>启动时检查更新</value>
+  </data>
+  <data name="cuscat" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="del" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="delcat" xml:space="preserve">
+    <value>删除/卸载</value>
+  </data>
+  <data name="delentf" xml:space="preserve">
+    <value>删除“ENT”文件夹</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="delhis" xml:space="preserve">
+    <value>卸载“HiSqool”</value>
+  </data>
+  <data name="delhism" xml:space="preserve">
+    <value>删除“HiSqoolManager”文件夹和服务</value>
+  </data>
+  <data name="delhismserv" xml:space="preserve">
+    <value>仅删除“HiSqoolManager”</value>
+  </data>
+  <data name="deloem" xml:space="preserve">
+    <value>删除“OEM”文件夹</value>
+  </data>
+  <data name="delridf" xml:space="preserve">
+    <value>删除“RIDF”文件夹</value>
+  </data>
+  <data name="delserv" xml:space="preserve">
+    <value>仅删除服务</value>
+  </data>
+  <data name="delti" xml:space="preserve">
+    <value>删除“TO_INSTALL”文件夹</value>
+  </data>
+  <data name="descaadleave" xml:space="preserve">
+    <value>从Azure AD断开连接此PC,以禁用此PC的管理(Intune/终结点)并禁用“其他用户”选项。警告:如果您在此PC上使用Azure AD帐户([ID]@[DOMAIN]),则您将无法再连接到您的帐户,并且将失去您的帐户数据(如果尝试重新连接到您的帐户,您将收到“密码错误”错误消息)!在此之前,您需要备份数据,删除本地".\ENT"帐户,禁用本地".\管理员"帐户,并创建本地管理员帐户!!!</value>
+  </data>
+  <data name="descadduser" xml:space="preserve">
+    <value>在此PC上创建新的本地用户(帐户)。这使您不再依赖AzureAD。我建议您切换到本地帐户(进入PC),不再通过Azure AD帐户([ID]@[DOMAIN])</value>
+  </data>
+  <data name="descadmin" xml:space="preserve">
+    <value>将此帐户设置为本地管理员。这样,您可以通过单击“是”而无需输入".\管理员"来接受管理权限</value>
+  </data>
+  <data name="descadminset" xml:space="preserve">
+    <value>管理内置的".\管理员"帐户。如果您没有其他管理员帐户,请勿禁用管理员帐户!所以,在此之前,创建本地管理员帐户或将此帐户设置为管理员</value>
+  </data>
+  <data name="descbcdfail" xml:space="preserve">
+    <value>从BCD中删除“忽略所有故障”(BootStatusPolicy),以重新启用蓝屏“恢复”(非WinRE/BootIM)和诊断(“请稍候”),以防引导问题,还允许以不同行为启动(安全模式、低分辨率等)</value>
+  </data>
+  <data name="descbkcloud" xml:space="preserve">
+    <value>从另一个用户制作的云端下载Unowhy Tools驱动程序备份。 如果您有驱动问题,并且尚未备份驱动程序,可以尝试恢复云备份,请使用指南了解有关此方法的更多信息</value>
+  </data>
+  <data name="descbootim" xml:space="preserve">
+    <value>修复BootIM(启动沉浸式菜单)(蓝色菜单)。 Unowhy通过bootim.exe重定向部署了一个补丁来禁用bootim.exe。 如果您要使用2022 Y13从USB设备启动,请执行此操作</value>
+  </data>
+  <data name="desccamoverena" xml:space="preserve">
+    <value>启用相机隐私指示器(虚拟相机LED)。 Windows 10/11包含一个功能,如果使用相机,会用弹出式覆盖显示来指示您,当相机打开/关闭时。默认情况下,此功能被禁用,因为大多数笔记本电脑/网络摄像头都有物理LED指示灯。我不知道为什么OEM(例如UNOWHY)不启用此功能(Windows无法检测是否存在LED,也无法自动启用它)</value>
+  </data>
+  <data name="descdelentf" xml:space="preserve">
+    <value>删除额外软件安装程序文件夹(在:C:\ProgramData)</value>
+  </data>
+  <data name="descdeloem" xml:space="preserve">
+    <value>删除第一个登录脚本,“开始”菜单图标和壁纸(在:C:\Windows\System32)</value>
+  </data>
+  <data name="descdismbr" xml:space="preserve">
+    <value>此工具当前正在测试(beta版本),但可能有效。 使用DISM备份和恢复驱动程序。 始终备份驱动程序,以修复可能的驱动程序问题。 这将使用DISM命令从用户友好的GUI备份或恢复所有系统驱动程序</value>
+  </data>
+  <data name="descedgeset" xml:space="preserve">
+    <value>Microsoft Edge设置。 卸载基于Chromium的Edge浏览器并阻止自动重新安装。 警告:卸载edge可能会中断Windows的某些功能,如Windows搜索中的Web结果或Windows Copilot。 第二个警告:此工具不会卸载Edge WebView2,我不建议您卸载WebView2,因为许多应用程序(如Unowhy Tools(用于更改日志)、Visual Studio等)使用WebView2工作...</value>
+  </data>
+  <data name="descent" xml:space="preserve">
+    <value>删除".\ENT"本地帐户。 这是用于配置“ENT”帐户的帐户</value>
+  </data>
+  <data name="descenwhe" xml:space="preserve">
+    <value>启用面向企业的Windows Hello。 如果您想要使用指纹读取器解锁PC,并且它被管理员禁用,请执行此操作。</value>
+  </data>
+  <data name="deschisdel" xml:space="preserve">
+    <value>卸载无用的“HiSqool”软件(在:C:\Program Files\Unowhy)</value>
+  </data>
+  <data name="deschism" xml:space="preserve">
+    <value>HiSqool Manager是一个嵌入式软件,用于管理此PC。我建议您禁用此软件,因为它类似于恶意软件/间谍软件</value>
+  </data>
+  <data name="deschismdel" xml:space="preserve">
+    <value>删除笨重的“HiSqool Manager”文件夹和服务(包含用于管理此PC的软件(间谍软件/恶意软件))(在:C:\Program Files\Unowhy)</value>
+  </data>
+  <data name="desclocka" xml:space="preserve">
+    <value>启用锁定用户帐户的功能。由于未知原因,Unowhy部署了HiSqoolManager的新版本,该版本禁用了锁定用户帐户的功能(例如,通过按Win+L)。执行此操作以启用它</value>
+  </data>
+  <data name="descpcname" xml:space="preserve">
+    <value>更改此PC的名称(NETBIOS)。默认情况下,Y13的Windows PC名称是序列号(IFP...)</value>
+  </data>
+  <data name="descpsbr" xml:space="preserve">
+    <value>!!! 警告:对于某些PC,Powershell备份无效,请改用DISM备份!!! 此工具目前处于测试阶段(beta版本),但可能有效。 使用PowerShell备份和恢复驱动程序。 始终备份驱动程序,以修复可能的驱动程序问题。 这将通过用户友好的GUI的Power Shell命令来备份或恢复所有系统驱动程序</value>
+  </data>
+  <data name="descridf" xml:space="preserve">
+    <value>删除第一个登录脚本和视频文件夹(在:C:\ProgramData)</value>
+  </data>
+  <data name="descshell" xml:space="preserve">
+    <value>在修改其他内容之前执行此操作!如果您遇到启动问题(仅显示光标的黑屏)或者想绕过GRDP协议,请执行此操作</value>
+  </data>
+  <data name="descstart" xml:space="preserve">
+    <value>在删除“TO_INSTALL”之前执行此操作。 如果您在启动时出现错误(未找到文件“silent_*.vbs.lnk”),请执行此操作。 这些文件用于自动安装学校教科书(在:C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup)</value>
+  </data>
+  <data name="desctaskmgr" xml:space="preserve">
+    <value>启用任务管理器。由于未知原因,Unowhy部署了HiSqoolManager的新版本,该版本禁用了任务管理器。执行此操作以启用它</value>
+  </data>
+  <data name="desctidel" xml:space="preserve">
+    <value>删除学校教科书安装程序文件夹(在:C:\Program Data\Unowhy)</value>
+  </data>
+  <data name="descverbstatena" xml:space="preserve">
+    <value>启用Windows详细状态以查看有关LogonUI状态的详细信息(登录、启动、关闭、注销等)</value>
+  </data>
+  <data name="descwindefset" xml:space="preserve">
+    <value>Windows Defender设置。启用和禁用内置Windows防病毒程序。在某些情况下(如果您是开发人员、破解软件、操作未签名软件,或者存在误报),Windows Defender可能会通过删除文件、终止进程等方式打扰您,因此正确的解决方案是禁用它,但本机无法停用它,停用实时保护也是无用的,因为它会一直重新激活。但是,您可以通过隐藏的方式永久禁用实时保护。警告:您可以禁用实时保护,但不能永久禁用Windows Defender本身,因为它是Windows服务器(和可能的企业版)功能。禁用实时保护就足够了。</value>
+  </data>
+  <data name="descwinre" xml:space="preserve">
+    <value>做此操作如果您想重置Windows。 Unowhy已经部署了一个补丁来禁用Windows恢复环境(禁用重置)。 对于某些用户,激活将失败,在这种情况下,您应该能够通过下载WinRE镜像来修复问题</value>
+  </data>
+  <data name="disable" xml:space="preserve">
+    <value>禁用</value>
+  </data>
+  <data name="disablea" xml:space="preserve">
+    <value>禁用帐户</value>
+  </data>
+  <data name="disconnect" xml:space="preserve">
+    <value>断开</value>
+  </data>
+  <data name="dishis" xml:space="preserve">
+    <value>禁用“HiSqoolManager”服务</value>
+  </data>
+  <data name="dismdrv" xml:space="preserve">
+    <value>使用DISM备份和还原驱动程序</value>
+  </data>
+  <data name="dismdrv.title" xml:space="preserve">
+    <value>DISM驱动程序GUI用于Unowhy工具</value>
+  </data>
+  <data name="dl" xml:space="preserve">
+    <value>下载</value>
+  </data>
+  <data name="domuser" xml:space="preserve">
+    <value>当前用户ID([DOMAIN]\[USER])</value>
+  </data>
+  <data name="done" xml:space="preserve">
+    <value>完成!</value>
+  </data>
+  <data name="drvbr" xml:space="preserve">
+    <value>备份和恢复您的PC驱动程序。 为了避免将来的任何驱动程序问题,请备份您的PC驱动程序,如有问题请恢复它们。 但是,您可以从云备份中恢复</value>
+  </data>
+  <data name="drvcat" xml:space="preserve">
+    <value>驱动程序</value>
+  </data>
+  <data name="drvgui" xml:space="preserve">
+    <value>Unowhy工具的驱动程序GUI</value>
+  </data>
+  <data name="edgeblock" xml:space="preserve">
+    <value>阻止Edge自动重新安装</value>
+  </data>
+  <data name="edgeset" xml:space="preserve">
+    <value>Microsoft Edge设置</value>
+  </data>
+  <data name="edgeun" xml:space="preserve">
+    <value>卸载Edge</value>
+  </data>
+  <data name="enable" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="enablea" xml:space="preserve">
+    <value>启用帐户</value>
+  </data>
+  <data name="enhis" xml:space="preserve">
+    <value>启用“HiSqoolManager”服务</value>
+  </data>
+  <data name="ent" xml:space="preserve">
+    <value>删除".\ENT"帐户</value>
+  </data>
+  <data name="enwhe" xml:space="preserve">
+    <value>启用企业版Windows Hello</value>
+  </data>
+  <data name="failed" xml:space="preserve">
+    <value>失败!</value>
+  </data>
+  <data name="fixboot" xml:space="preserve">
+    <value>在“启动”文件夹中删除“silent_*.vbs”</value>
+  </data>
+  <data name="free" xml:space="preserve">
+    <value>空闲</value>
+  </data>
+  <data name="guide" xml:space="preserve">
+    <value>指南</value>
+  </data>
+  <data name="la" xml:space="preserve">
+    <value>本地管理员</value>
+  </data>
+  <data name="labhsmq" xml:space="preserve">
+    <value>HiSqool Manager服务</value>
+  </data>
+  <data name="lang" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="locka" xml:space="preserve">
+    <value>启用锁定用户账户的功能</value>
+  </data>
+  <data name="logsclean" xml:space="preserve">
+    <value>清理日志</value>
+  </data>
+  <data name="logsdel" xml:space="preserve">
+    <value>删除日志</value>
+  </data>
+  <data name="logsopen" xml:space="preserve">
+    <value>打开日志</value>
+  </data>
+  <data name="mfm" xml:space="preserve">
+    <value>制造商/型号</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="needres" xml:space="preserve">
+    <value>Unowhy工具需要来自互联网的一些资源。 按“确定”继续</value>
+  </data>
+  <data name="new" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="newuserid" xml:space="preserve">
+    <value>新帐户ID为</value>
+  </data>
+  <data name="newver" xml:space="preserve">
+    <value>可用新版本</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="noid" xml:space="preserve">
+    <value>您的PC序列号未找到,请确保您正确输入了序列号</value>
+  </data>
+  <data name="nonet" xml:space="preserve">
+    <value>无互联网连接</value>
+  </data>
+  <data name="nover" xml:space="preserve">
+    <value>无新版本可用</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>旧</value>
+  </data>
+  <data name="open" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="opencmd" xml:space="preserve">
+    <value>打开CMD终端</value>
+  </data>
+  <data name="opengp" xml:space="preserve">
+    <value>打开GP编辑器</value>
+  </data>
+  <data name="openreg" xml:space="preserve">
+    <value>打开注册表编辑器</value>
+  </data>
+  <data name="opentask" xml:space="preserve">
+    <value>打开任务管理器</value>
+  </data>
+  <data name="openut" xml:space="preserve">
+    <value>打开Unowhy工具</value>
+  </data>
+  <data name="os" xml:space="preserve">
+    <value>操作系统版本</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="pcinfo" xml:space="preserve">
+    <value>系统信息</value>
+  </data>
+  <data name="pcn" xml:space="preserve">
+    <value>Windows PC名称</value>
+  </data>
+  <data name="pcname" xml:space="preserve">
+    <value>更改Windows PC名称</value>
+  </data>
+  <data name="pcserial" xml:space="preserve">
+    <value>此PC的序列号</value>
+  </data>
+  <data name="psdrv" xml:space="preserve">
+    <value>使用PS备份和还原驱动程序</value>
+  </data>
+  <data name="psdrv.title" xml:space="preserve">
+    <value>PS驱动程序GUI用于Unowhy工具</value>
+  </data>
+  <data name="pwmis" xml:space="preserve">
+    <value>密码不匹配</value>
+  </data>
+  <data name="raminfo" xml:space="preserve">
+    <value>内存信息</value>
+  </data>
+  <data name="reboot" xml:space="preserve">
+    <value>需要重启</value>
+  </data>
+  <data name="rebootmsg" xml:space="preserve">
+    <value>要完成操作,您的电脑需要重启。 保存您的工作,然后单击“确定”</value>
+  </data>
+  <data name="repair" xml:space="preserve">
+    <value>修复</value>
+  </data>
+  <data name="repaircat" xml:space="preserve">
+    <value>修复</value>
+  </data>
+  <data name="rest" xml:space="preserve">
+    <value>恢复驱动程序</value>
+  </data>
+  <data name="restart" xml:space="preserve">
+    <value>立即重启</value>
+  </data>
+  <data name="restore" xml:space="preserve">
+    <value>恢复</value>
+  </data>
+  <data name="restore.short" xml:space="preserve">
+    <value>恢复</value>
+  </data>
+  <data name="serial" xml:space="preserve">
+    <value>序列号</value>
+  </data>
+  <data name="servicecat" xml:space="preserve">
+    <value>HiSqoolManager服务</value>
+  </data>
+  <data name="set" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="shell" xml:space="preserve">
+    <value>将“Shell”值更改为“explorer.exe”</value>
+  </data>
+  <data name="snpw" xml:space="preserve">
+    <value>设置新密码</value>
+  </data>
+  <data name="space6gpc" xml:space="preserve">
+    <value>您的PC需要更多可用空间(6GB)</value>
+  </data>
+  <data name="space6gusb" xml:space="preserve">
+    <value>您的PC/设备需要更多可用空间(6GB)</value>
+  </data>
+  <data name="start" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="starthis" xml:space="preserve">
+    <value>启动“HiSqoolManager”服务</value>
+  </data>
+  <data name="stop" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="stophis" xml:space="preserve">
+    <value>停止“HiSqoolManager”服务</value>
+  </data>
+  <data name="storageinfo" xml:space="preserve">
+    <value>存储信息(已用/总计)</value>
+  </data>
+  <data name="taskmgr" xml:space="preserve">
+    <value>启用任务管理器</value>
+  </data>
+  <data name="titleabout" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="titleadduser" xml:space="preserve">
+    <value>添加本地帐户</value>
+  </data>
+  <data name="titleadminset" xml:space="preserve">
+    <value>内置“管理员”本地帐户设置</value>
+  </data>
+  <data name="titleconv" xml:space="preserve">
+    <value>转换驱动程序备份</value>
+  </data>
+  <data name="titlecust" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="titledelete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="titledrv" xml:space="preserve">
+    <value>驱动程序</value>
+  </data>
+  <data name="titledrvbk" xml:space="preserve">
+    <value>备份驱动程序</value>
+  </data>
+  <data name="titledrvrt" xml:space="preserve">
+    <value>恢复驱动程序</value>
+  </data>
+  <data name="titleedge" xml:space="preserve">
+    <value>Microsoft Edge设置</value>
+  </data>
+  <data name="titlehome" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="titlehsqm" xml:space="preserve">
+    <value>HiSqool Manager</value>
+  </data>
+  <data name="titlepci" xml:space="preserve">
+    <value>系统信息</value>
+  </data>
+  <data name="titlepcn" xml:space="preserve">
+    <value>更改PC名称</value>
+  </data>
+  <data name="titlerepair" xml:space="preserve">
+    <value>修复</value>
+  </data>
+  <data name="titlesettings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="titlewindef" xml:space="preserve">
+    <value>Windows Defender设置</value>
+  </data>
+  <data name="titlewre" xml:space="preserve">
+    <value>WinRE(reagentc)设置</value>
+  </data>
+  <data name="udcheck" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>卸载</value>
+  </data>
+  <data name="unow" xml:space="preserve">
+    <value>立即更新</value>
+  </data>
+  <data name="unprog" xml:space="preserve">
+    <value>已安装的程序(Windows设置)</value>
+  </data>
+  <data name="update.check" xml:space="preserve">
+    <value>检查更新中...</value>
+  </data>
+  <data name="update.del" xml:space="preserve">
+    <value>删除“update.zip”</value>
+  </data>
+  <data name="update.dl" xml:space="preserve">
+    <value>下载“update.zip”...</value>
+  </data>
+  <data name="update.ext" xml:space="preserve">
+    <value>提取“update.zip”</value>
+  </data>
+  <data name="update.kill" xml:space="preserve">
+    <value>终止“Unowhy Tools.exe”</value>
+  </data>
+  <data name="update.sdl" xml:space="preserve">
+    <value>下载“script.exe”</value>
+  </data>
+  <data name="update.se" xml:space="preserve">
+    <value>运行“script.exe”</value>
+  </data>
+  <data name="update.start" xml:space="preserve">
+    <value>启动“Unowhy Tools.exe”</value>
+  </data>
+  <data name="update.updating" xml:space="preserve">
+    <value>更新Unowhy Tools...</value>
+  </data>
+  <data name="usecpu" xml:space="preserve">
+    <value>CPU利用率</value>
+  </data>
+  <data name="useram" xml:space="preserve">
+    <value>内存利用率</value>
+  </data>
+  <data name="usestor" xml:space="preserve">
+    <value>存储利用率</value>
+  </data>
+  <data name="utbdumpwarn" xml:space="preserve">
+    <value>您要将此PC的BIOS转储到文件吗?</value>
+  </data>
+  <data name="utbflashwarn" xml:space="preserve">
+    <value>请连接PC的充电器以防止任何故障。 在过程中不要关闭Unowhy工具。 如果闪存失败,您的PC可能无法启动。 闪存完成后,您的PC将重启。 您要将此BIOS文件刷新到此PC吗?</value>
+  </data>
+  <data name="verbstatena" xml:space="preserve">
+    <value>启用详细的Windows状态</value>
+  </data>
+  <data name="wait" xml:space="preserve">
+    <value>请稍候...</value>
+  </data>
+  <data name="wifisync" xml:space="preserve">
+    <value>学校Wifi设置同步。</value>
+  </data>
+  <data name="windefset" xml:space="preserve">
+    <value>Windows Defender设置</value>
+  </data>
+  <data name="windefsettamper" xml:space="preserve">
+    <value>要禁用Windows Defender,您需要禁用防篡改保护。 Unowhy工具将为您打开Windows Defender设置,防篡改保护是最后一个开关。 单击“确定”继续</value>
+  </data>
+  <data name="winre" xml:space="preserve">
+    <value>WinRE(reagentc)设置</value>
+  </data>
+  <data name="winre.dis" xml:space="preserve">
+    <value>禁用WinRE</value>
+  </data>
+  <data name="winre.ena" xml:space="preserve">
+    <value>启用WinRE</value>
+  </data>
+  <data name="winre.title" xml:space="preserve">
+    <value>Unowhy工具的WinRE设置GUI</value>
+  </data>
+  <data name="winremsg" xml:space="preserve">
+    <value>没有找到WinRE映像,点击“修复”以修复问题(需要600 MB)</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+</root>
