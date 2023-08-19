@@ -75,7 +75,7 @@
                                Source="/Resources/about.png"
                                x:Name="icon" />
                         <TextBlock Grid.Column="3"
-                                   Margin="20,20,20,20"
+                                   Margin="10,20,10,20"
                                    Text="Dialog Box (Info)"
                                    TextWrapping="Wrap"
                                    MaxWidth="300"
@@ -87,7 +87,9 @@
                     </Grid>
                     <Border Background="#50000000"
                             CornerRadius="0,0,8,8"
-                            Grid.Row="2">
+                            Grid.Row="2"
+                            ClipToBounds="True"
+                            x:Name="BtnBorder">
                         <Grid Grid.Row="2"
                               HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>

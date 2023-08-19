@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System;
 using System.Windows.Media;
+using System.Xml.Linq;
 
 namespace Unowhy_Tools_WPF.Views.Windows
 {
@@ -72,8 +73,29 @@ namespace Unowhy_Tools_WPF.Views.Windows
             storyboard.Children.Add(fadeInAnimation);
             storyboard.Children.Add(zoomAnimation1);
             storyboard.Children.Add(zoomAnimation2);
-
             storyboard.Begin();
+            
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 30,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            BtnBorder.RenderTransform = transform;
+
+            BtnBorder.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
 
             _hideRequest = false;
             while (!_hideRequest)
