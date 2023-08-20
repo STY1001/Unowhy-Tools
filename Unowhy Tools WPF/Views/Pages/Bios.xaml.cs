@@ -247,16 +247,16 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             await UT.Check();
         }
-        mfbox.PlaceholderText = UTdata.mf;
-        mdbox.PlaceholderText = UTdata.md;
-        skubox.PlaceholderText = UTdata.sku;
-        snbox.PlaceholderText = UTdata.sn;
-        biosvbox.PlaceholderText = UTdata.biosv;
-        mbmfbox.PlaceholderText = UTdata.mbmf;
-        mbmdbox.PlaceholderText = UTdata.mbmd;
-        mbvbox.PlaceholderText = UTdata.mbv;
-        biosmfbox.PlaceholderText = UTdata.biosmf;
-        biosdbox.Text = UTdata.biosd;
+        mfbox.PlaceholderText = UTdata.mf; // /SM
+        mdbox.PlaceholderText = UTdata.md; // /SV
+        skubox.PlaceholderText = UTdata.sku; // /SK
+        snbox.PlaceholderText = UTdata.sn; // /SS
+        biosvbox.PlaceholderText = UTdata.biosv; // /IV
+        mbmfbox.PlaceholderText = UTdata.mbmf; // /BM
+        mbmdbox.PlaceholderText = UTdata.mbmd; // /BP
+        mbvbox.PlaceholderText = UTdata.mbv; // /BV
+        biosmfbox.PlaceholderText = UTdata.biosmf; // /IVN
+        biosdbox.Text = UTdata.biosd; // /ID
     }
 
     public void applylang()
@@ -475,6 +475,191 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 mbvbox.Text = mbv;
                 biosmfbox.Text = biosmf;
                 biosdbox.Text = biosd;
+            }
+        }
+    }
+
+    private async void ButtonApply_Click(object sender, RoutedEventArgs e)
+    {
+        if (amidefiles.Any(file => !File.Exists(file)))
+        {
+            UT.DialogIShow(UT.GetLang("needres"), "download.png");
+            if (UT.CheckInternet())
+            {
+                await UT.waitstatus.open();
+                await DlRes("AMIDE");
+                await UT.waitstatus.close();
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+            }
+        }
+        if (amidefiles.Any(file => File.Exists(file)))
+        {
+            if (!(mfbox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/SM {mfbox.Text}");
+            }
+            if (!(mdbox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/SV {mdbox.Text}");
+            }
+            if (!(skubox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/SK {skubox.Text}");
+            }
+            if (!(snbox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/SS {snbox.Text}");
+            }
+            if (!(biosvbox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/IV {biosvbox.Text}");
+            }
+            if (!(mbmfbox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/BM {mbmfbox.Text}");
+            }
+            if (!(mbmdbox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/BP {mbmdbox.Text}");
+            }
+            if (!(mbvbox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/BV {mbvbox.Text}");
+            }
+            if (!(biosmfbox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/IVN {biosmfbox.Text}");
+            }
+            if (!(biosdbox.Text == ""))
+            {
+                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/ID {biosdbox.SelectedDate.Value.ToString("MM/dd/yyyy")}");
+            }
+
+            await CheckBTN(true);
+
+            bool isOK = true;
+
+            if (!(mfbox.Text == ""))
+            {
+                if (mfbox.Text == mfbox.PlaceholderText)
+                {
+                    mfbox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+            if (!(mdbox.Text == ""))
+            {
+                if (mdbox.Text == mdbox.PlaceholderText)
+                {
+                    mdbox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+            if (!(skubox.Text == ""))
+            {
+                if (skubox.Text == skubox.PlaceholderText)
+                {
+                    skubox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+            if (!(snbox.Text == ""))
+            {
+                if (snbox.Text == snbox.PlaceholderText)
+                {
+                    snbox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+            if (!(biosvbox.Text == ""))
+            {
+                if (biosvbox.Text == biosvbox.PlaceholderText)
+                {
+                    biosvbox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+            if (!(mbmfbox.Text == ""))
+            {
+                if (mbmfbox.Text == mbmfbox.PlaceholderText)
+                {
+                    mbmfbox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+            if (!(mbmdbox.Text == ""))
+            {
+                if (mbmdbox.Text == mbmdbox.PlaceholderText)
+                {
+                    mbmdbox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+            if (!(mbvbox.Text == ""))
+            {
+                if (mbvbox.Text == mbvbox.PlaceholderText)
+                {
+                    mbvbox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+            if (!(biosmfbox.Text == ""))
+            {
+                if (biosmfbox.Text == biosmfbox.PlaceholderText)
+                {
+                    biosmfbox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+            if (!(biosdbox.Text == ""))
+            {
+                if (biosdbox.Text == biosdbox.Text)
+                {
+                    //biosdbox.Text = "";
+                }
+                else
+                {
+                    isOK = false;
+                }
+            }
+
+            if (isOK)
+            {
+                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(UT.GetLang("failed"), "no.png");
             }
         }
     }
