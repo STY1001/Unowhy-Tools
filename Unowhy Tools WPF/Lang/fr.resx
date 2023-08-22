@@ -555,11 +555,11 @@
   <data name="snpw" xml:space="preserve">
     <value>Définir un nouveau mot de passe</value>
   </data>
-  <data name="space6gpc" xml:space="preserve">
-    <value>Vous avez besoin de plus d'espace libre sur votre PC (6Go)</value>
+  <data name="space8gpc" xml:space="preserve">
+    <value>Vous avez besoin de plus d'espace libre sur votre PC (8Go)</value>
   </data>
-  <data name="space6gusb" xml:space="preserve">
-    <value>Vous avez besoin de plus d'espace libre sur votre PC/Periph. (6Go)</value>
+  <data name="space8gusb" xml:space="preserve">
+    <value>Vous avez besoin de plus d'espace libre sur votre PC/Periph. (8Go)</value>
   </data>
   <data name="start" xml:space="preserve">
     <value>Start</value>

@@ -179,7 +179,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("space6gpc"), "no.png");
+                UT.DialogIShow(UT.GetLang("space8gpc"), "no.png");
             }
         }
     }

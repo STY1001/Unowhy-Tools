@@ -151,7 +151,7 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("space6gusb"), "no.png");
+                UT.DialogIShow(UT.GetLang("space8gusb"), "no.png");
             }
         }
     }
