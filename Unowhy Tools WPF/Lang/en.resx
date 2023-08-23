@@ -163,7 +163,13 @@
     <value>Backup app</value>
   </data>
   <data name="bkcloud" xml:space="preserve">
-    <value>Download a driver backup from cloud</value>
+    <value>Restore a driver backup from cloud</value>
+  </data>
+  <data name="bkcloudhost" xml:space="preserve">
+    <value>Driver backups are hosted on my SharePoint</value>
+  </data>
+  <data name="bkcloudhostdesc" xml:space="preserve">
+    <value>You can download driver backup manually and submit your driver backup</value>
   </data>
   <data name="bkfail" xml:space="preserve">
     <value>The backup failed, use DISM</value>
@@ -271,7 +277,7 @@
     <value>Remove "IgnoreAllFailures" (BootStatusPolicy) in BCD, to re-enable blue screen "Recovery" (Not WinRE/BootIM) and diagnostics ("Please wait") in case of boot issue, also allows to boot with a different behavior ( Safe Mode, Low Resolution, and more)</value>
   </data>
   <data name="descbkcloud" xml:space="preserve">
-    <value>Download a Unowhy Tools driver backup from cloud made by another user. If you have an driver issue and if you haven't made a backup of your drivers, you can try to restore a cloud backup, use the guide to learn more about this method</value>
+    <value>Restore a Unowhy Tools driver backup from cloud made by another user. If you have an driver issue and if you haven't made a backup of your drivers, you can try to restore a cloud backup</value>
   </data>
   <data name="descbootim" xml:space="preserve">
     <value>Repair BootIM (Boot Immersive Menu) (Blue Menu). Unowhy deployed a patch to disable bootim.exe, via bootim.exe redirection. If you want to boot from a USB device with a 2022 Y13, do this</value>

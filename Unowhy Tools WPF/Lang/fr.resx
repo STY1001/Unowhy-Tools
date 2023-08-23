@@ -163,7 +163,13 @@
     <value>App de sauv.</value>
   </data>
   <data name="bkcloud" xml:space="preserve">
-    <value>Télécharger une sauv. à partir du cloud</value>
+    <value>Restaurer une sauv. à partir du cloud</value>
+  </data>
+  <data name="bkcloudhost" xml:space="preserve">
+    <value>Les sauvegardes de pilotes sont hébergées sur mon SharePoint</value>
+  </data>
+  <data name="bkcloudhostdesc" xml:space="preserve">
+    <value>Vous pouvez télécharger les sauvegardes de pilotes manuellement et soumettre votre sauvegarde de pilotes</value>
   </data>
   <data name="bkfail" xml:space="preserve">
     <value>La sauvegarde a échoué, utilisez DISM</value>
@@ -271,7 +277,7 @@
     <value>Supprimer « IgnoreAllFailures » (BootStatusPolicy) dans BCD, réactive l’écran bleu "Recovery" (Pas WinRE/BootIM) et le diagnostic ("Veuillez patienter") en cas de problème de démarrage, permet aussi de pouvoir démarrer avec un comportement différant (Mode sans échec, Base résolution, etc…)</value>
   </data>
   <data name="descbkcloud" xml:space="preserve">
-    <value>Téléchargez une sauvegarde des pilotes Unowhy Tools à partir du cloud faites par d'autres utilisateurs. Si vous avez un problème de pilote et si vous n'avez pas fait de sauvegarde de vos pilotes, vous pouvez essayer de restaurer une sauvegarde cloud, utilisez le guide pour en savoir plus sur cette méthode</value>
+    <value>Téléchargez une sauvegarde des pilotes Unowhy Tools à partir du cloud faites par d'autres utilisateurs. Si vous avez un problème de pilote et si vous n'avez pas fait de sauvegarde de vos pilotes, vous pouvez essayer de restaurer une sauvegarde cloud</value>
   </data>
   <data name="descbootim" xml:space="preserve">
     <value>Réparer BootIM (Boot Immersive Menu) (Menu Bleu). Unowhy a déployé un patch pour désactiver bootim.exe, via la redirection bootim.exe. Si vous souhaitez démarrer à partir d'un périphérique USB avec un Y13 2022, faites ceci</value>
