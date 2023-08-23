@@ -137,12 +137,27 @@ public partial class Drivers : INavigableView<DashboardViewModel>
         InitializeComponent();
     }
 
-    public void dl_Click(object sender, RoutedEventArgs e)
+    public async void dl_Click(object sender, RoutedEventArgs e)
     {
-        System.Diagnostics.Process.Start(new ProcessStartInfo
-        {
-            FileName = "https://bit.ly/UTbkcloud",
-            UseShellExecute = true
-        });
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        dlcloud_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
+        UT.NavigateTo(typeof(DrvCloud));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        dlcloud_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
 }
