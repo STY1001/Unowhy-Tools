@@ -193,7 +193,7 @@
                                    MaxHeight="32"
                                    MaxWidth="32" />
                             <StackPanel VerticalAlignment="Top"
-                                        Margin="50,2,0,0">
+                                        Margin="50,0,0,0">
                                 <TextBlock x:Name="verbstatena_txt"
                                            FontSize="13"
                                            FontWeight="Medium"
@@ -224,7 +224,7 @@
                                    MaxHeight="32"
                                    MaxWidth="32" />
                             <StackPanel VerticalAlignment="Top"
-                                        Margin="50,2,0,0">
+                                        Margin="50,0,0,0">
                                 <TextBlock x:Name="edgeset_txt"
                                            FontSize="13"
                                            FontWeight="Medium"
@@ -255,7 +255,7 @@
                                    MaxHeight="32"
                                    MaxWidth="32" />
                             <StackPanel VerticalAlignment="Top"
-                                        Margin="50,2,0,0">
+                                        Margin="50,0,0,0">
                                 <TextBlock x:Name="windefset_txt"
                                            FontSize="13"
                                            FontWeight="Medium"
