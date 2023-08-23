@@ -70,6 +70,7 @@ public partial class App
             services.AddScoped<Views.Pages.Edge>();
             services.AddScoped<Views.Pages.WinDef>();
             services.AddScoped<Views.Pages.Bios>();
+            services.AddScoped<Views.Pages.DrvCloud>();
             services.AddScoped<TrayWindow>();
             services.AddScoped<UT>();
 
