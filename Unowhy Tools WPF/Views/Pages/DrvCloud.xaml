@@ -1,0 +1,104 @@
+﻿<ui:UiPage x:Class="Unowhy_Tools_WPF.Views.Pages.DrvCloud"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+           Title="DrvCloud"
+           Initialized="Init"
+           Loaded="InitAnim"
+           d:DataContext="{d:DesignInstance local:DrvCloud,
+                                     IsDesignTimeCreatable=False}"
+           d:DesignHeight="750"
+           d:DesignWidth="800"
+           Scrollable="True"
+           mc:Ignorable="d">
+
+    <Grid x:Name="RootGrid">
+        <Border x:Name="RootBorder"
+                RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <ScaleTransform ScaleX="1"
+                                ScaleY="1" />
+            </Border.RenderTransform>
+            <StackPanel x:Name="RootStack">
+                <ui:CardControl Margin="10,0,10,10"
+                                x:Name="repo">
+                    <ui:CardControl.Header>
+                        <Grid>
+                            <Image Source="pack://application:,,,/Resources/clouddl.png"
+                                   x:Name="repo_img"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                   MaxHeight="32"
+                                   MaxWidth="32" />
+                            <StackPanel Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Margin="50,0,0,0">
+                                <TextBlock x:Name="repo_txt"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           Text="Driver backup are hosted on SharePoint" />
+                                <TextBlock x:Name="repo_desc"
+                                           FontSize="12"
+                                           Foreground="#bebebe"
+                                           Text="Description"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button Click="submit_Click"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,0,0">
+                            <StackPanel>
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="submit_btn"
+                                               Margin="0"
+                                               FontSize="13"
+                                               FontWeight="Regular"
+                                               Text="Submit your backup" />
+                                </StackPanel>
+                            </StackPanel>
+                        </ui:Button>
+                        <ui:Button Click="refresh_Click"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="10,0,0,0">
+                            <StackPanel>
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="refresh_btn"
+                                               Margin="0"
+                                               FontSize="13"
+                                               FontWeight="Regular"
+                                               Text="Refresh" />
+                                </StackPanel>
+                            </StackPanel>
+                        </ui:Button>
+                        <ui:Button Click="repo_Click"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="10,0,0,0">
+                            <StackPanel>
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="repo_btn"
+                                               Margin="0"
+                                               FontSize="13"
+                                               FontWeight="Regular"
+                                               Text="Go to repo" />
+                                </StackPanel>
+                            </StackPanel>
+                        </ui:Button>
+                    </StackPanel>
+                </ui:CardControl>
+                <ui:NavigationSeparator Margin="10,0,10,5" 
+                                        x:Name="separator"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</ui:UiPage>
