@@ -60,7 +60,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         }
         else
         {
-            repo_img.Source = UT.GetImgSource("nowifi");
+            repo_img.Source = UT.GetImgSource("nowifi.png");
             repo_desc.Text = UT.GetLang("nonet");
         }
     }
@@ -292,7 +292,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         }
         else
         {
-            repo_img.Source = UT.GetImgSource("nowifi");
+            repo_img.Source = UT.GetImgSource("nowifi.png");
             repo_desc.Text = UT.GetLang("nonet");
         }
     }
