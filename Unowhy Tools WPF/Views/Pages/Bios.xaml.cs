@@ -348,54 +348,60 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     private async void dumpbtn_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("utbdumpwarn"), "upload.png"))
+        if(!(dumppath.Text == ""))
         {
-            if (afufiles.Any(file => !File.Exists(file)))
+            if (UT.DialogQShow(UT.GetLang("utbdumpwarn"), "upload.png"))
             {
-                UT.DialogIShow(UT.GetLang("needres"), "download.png");
-                if (UT.CheckInternet())
+                if (afufiles.Any(file => !File.Exists(file)))
+                {
+                    UT.DialogIShow(UT.GetLang("needres"), "download.png");
+                    if (UT.CheckInternet())
+                    {
+                        await UT.waitstatus.open();
+                        await DlRes("AFU");
+                        await UT.waitstatus.close();
+                    }
+                    else
+                    {
+                        UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                    }
+                }
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open();
-                    await DlRes("AFU");
+                    await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe", $"\"{flashpath.Text}\" /O");
                     await UT.waitstatus.close();
                 }
-                else
-                {
-                    UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
-                }
-            }
-            if (afufiles.Any(file => File.Exists(file)))
-            {
-                await UT.waitstatus.open();
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe", $"\"{flashpath.Text}\" /O");
-                await UT.waitstatus.close();
             }
         }
     }
 
     private async void flashbtn_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("utbflashwarn"), "download.png"))
+        if(!(flashpath.Text == ""))
         {
-            if (afufiles.Any(file => !File.Exists(file)))
+            if (UT.DialogQShow(UT.GetLang("utbflashwarn"), "download.png"))
             {
-                UT.DialogIShow(UT.GetLang("needres"), "download.png");
-                if (UT.CheckInternet())
+                if (afufiles.Any(file => !File.Exists(file)))
+                {
+                    UT.DialogIShow(UT.GetLang("needres"), "download.png");
+                    if (UT.CheckInternet())
+                    {
+                        await UT.waitstatus.open();
+                        await DlRes("AFU");
+                        await UT.waitstatus.close();
+                    }
+                    else
+                    {
+                        UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                    }
+                }
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open();
-                    await DlRes("AFU");
+                    await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe", $"\"{flashpath.Text}\" /P /N /REBOOT");
                     await UT.waitstatus.close();
                 }
-                else
-                {
-                    UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
-                }
-            }
-            if (afufiles.Any(file => File.Exists(file)))
-            {
-                await UT.waitstatus.open();
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe", $"\"{flashpath.Text}\" /P /N /REBOOT");
-                await UT.waitstatus.close();
             }
         }
     }
@@ -497,6 +503,8 @@ public partial class Bios : INavigableView<DashboardViewModel>
         }
         if (amidefiles.Any(file => File.Exists(file)))
         {
+            await UT.waitstatus.open();
+
             if (!(mfbox.Text == ""))
             {
                 await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/SM {mfbox.Text}");
@@ -652,6 +660,8 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     isOK = false;
                 }
             }
+
+            await UT.waitstatus.close();
 
             if (isOK)
             {
