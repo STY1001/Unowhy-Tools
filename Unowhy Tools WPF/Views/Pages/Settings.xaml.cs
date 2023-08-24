@@ -278,7 +278,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async void Apply_Settings(object sender, RoutedEventArgs e)
     {
-        await UT.waitstatus.open();
+        await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
         bool ok = true;
 
         if(sn.Text == "")
@@ -304,7 +304,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
                     {
                         await UT.waitstatus.close();
                         UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                        await UT.waitstatus.open();
+                        await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
                     }
                 }
                 else
@@ -318,7 +318,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.close();
                 UT.DialogIShow(UT.GetLang("noco"), "nowifi.png");
-                await UT.waitstatus.open();
+                await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
             }
         }
 
@@ -334,7 +334,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
                     {
                         await UT.waitstatus.close();
                         UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                        await UT.waitstatus.open();
+                        await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
                     }
                 }
                 else
@@ -345,7 +345,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
                     {
                         await UT.waitstatus.close();
                         UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                        await UT.waitstatus.open();
+                        await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
                     }
                 }
             }

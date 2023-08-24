@@ -163,7 +163,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("shell"), "explorer.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.apply"), "explorer.png");
             await UT.RunMin("reg", "add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\WinLogon\" /v Shell /d explorer.exe /t REG_SZ /f");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -182,7 +182,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("fixboot"), "script.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.delete"), "script.png");
             await UT.RunMin("cmd", "/w /c del /q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -201,7 +201,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("bootim"), "registry.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.repair"), "registry.png");
             await UT.RunMin("reg", "delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe\" /f");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -220,7 +220,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("enwhe"), "fp.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.enable"), "fp.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"EnablePinRecovery\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"RequireSecurityDevice\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"Enabled\" /t REG_DWORD /d \"1\" /f");
@@ -245,7 +245,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("bcdfail"), "boot.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.delete"), "boot.png");
             await UT.RunMin("bcdedit", "/deletevalue bootstatuspolicy");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -264,7 +264,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("taskmgr"), "taskmgr.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.enable"), "taskmgr.png");
             await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableTaskMgr /f");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -283,7 +283,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("locka"), "key.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.enable"), "key.png");
             await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableLockWorkstation /f");
             await CheckBTN(true);
             await UT.waitstatus.close();

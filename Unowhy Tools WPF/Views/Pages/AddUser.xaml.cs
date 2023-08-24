@@ -142,7 +142,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
             {
                 if (UT.DialogQShow(UT.GetLang("adduser"), "adduser.png"))
                 {
-                    await UT.waitstatus.open();
+                    await UT.waitstatus.open(UT.GetLang("wait.add"), "adduser.png");
 
                     if (passbox1.Text == "")
                     {

@@ -70,7 +70,8 @@
 
                         <Image Grid.Column="1"
                                Source="/Resources/wait.png"
-                               x:Name="icon" />
+                               x:Name="icon"
+                               Height="24"/>
                         <ui:ProgressRing IsIndeterminate="True"
                                          RenderTransformOrigin="0.5,0.5"
                                          Margin="4,0,79,0"

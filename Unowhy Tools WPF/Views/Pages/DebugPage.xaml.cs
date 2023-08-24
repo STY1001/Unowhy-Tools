@@ -68,9 +68,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public async void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        await UT.waitstatus.open();
-        await Task.Delay(1000);
-        await UT.waitstatus.close();
+        
     }
 
     public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)

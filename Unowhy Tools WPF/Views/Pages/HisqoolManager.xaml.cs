@@ -175,7 +175,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if(UT.DialogQShow(UT.GetLang("starthis"), "start.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.start"), "start.png");
             await UT.serv.start("HiSqoolManager");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -194,7 +194,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("stophis"), "stop.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.stop"), "stop.png");
             await UT.serv.stop("HiSqoolManager");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -213,7 +213,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("enhis"), "enable.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
             await UT.serv.auto("HiSqoolManager");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -232,7 +232,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("dishis"), "disable.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.disable"), "disable.png");
             await UT.serv.dis("HiSqoolManager");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -251,7 +251,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("delhismserv"), "delete.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.delete"), "delete.png");
             await UT.serv.del("HiSqoolManager");
             await CheckBTN(true);
             await UT.waitstatus.close();

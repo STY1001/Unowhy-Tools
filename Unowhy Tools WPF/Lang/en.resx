@@ -699,6 +699,72 @@
   <data name="wait" xml:space="preserve">
     <value>Please wait...</value>
   </data>
+  <data name="wait.add" xml:space="preserve">
+    <value>Adding...</value>
+  </data>
+  <data name="wait.apply" xml:space="preserve">
+    <value>Applying...</value>
+  </data>
+  <data name="wait.backup" xml:space="preserve">
+    <value>Backuping...</value>
+  </data>
+  <data name="wait.block" xml:space="preserve">
+    <value>Blocking...</value>
+  </data>
+  <data name="wait.check" xml:space="preserve">
+    <value>Checking...</value>
+  </data>
+  <data name="wait.compress" xml:space="preserve">
+    <value>Compressing...</value>
+  </data>
+  <data name="wait.delete" xml:space="preserve">
+    <value>Deleting...</value>
+  </data>
+  <data name="wait.disable" xml:space="preserve">
+    <value>Disabling...</value>
+  </data>
+  <data name="wait.disconnect" xml:space="preserve">
+    <value>Disconnecting...</value>
+  </data>
+  <data name="wait.download" xml:space="preserve">
+    <value>Downloading...</value>
+  </data>
+  <data name="wait.dump" xml:space="preserve">
+    <value>Dumping...</value>
+  </data>
+  <data name="wait.enable" xml:space="preserve">
+    <value>Enabling...</value>
+  </data>
+  <data name="wait.extract" xml:space="preserve">
+    <value>Extracting...</value>
+  </data>
+  <data name="wait.flash" xml:space="preserve">
+    <value>Flashing...</value>
+  </data>
+  <data name="wait.get" xml:space="preserve">
+    <value>Getting...</value>
+  </data>
+  <data name="wait.install" xml:space="preserve">
+    <value>Installing...</value>
+  </data>
+  <data name="wait.repair" xml:space="preserve">
+    <value>Repairing...</value>
+  </data>
+  <data name="wait.restore" xml:space="preserve">
+    <value>Restoring...</value>
+  </data>
+  <data name="wait.set" xml:space="preserve">
+    <value>Setting...</value>
+  </data>
+  <data name="wait.start" xml:space="preserve">
+    <value>Starting...</value>
+  </data>
+  <data name="wait.stop" xml:space="preserve">
+    <value>Stopping...</value>
+  </data>
+  <data name="wait.uninstall" xml:space="preserve">
+    <value>Uninstalling...</value>
+  </data>
   <data name="wifisync" xml:space="preserve">
     <value>School Wifi settings sync.</value>
   </data>

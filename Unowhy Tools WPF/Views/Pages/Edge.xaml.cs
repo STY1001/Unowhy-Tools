@@ -147,21 +147,21 @@ public partial class Edge : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(UT.GetLang("edgeun"), "uninstall.png"))
             {
-                await UT.waitstatus.open();
+                await UT.waitstatus.open(UT.GetLang("wait.uninstall"), "uninstall.png");
                 if (!File.Exists(Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
-                    dlstate.Visibility = Visibility.Visible;
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
-                    progress.ProgressChanged += (sender, value) =>
+                    string dl = UT.GetLang("wait.download");
+                    progress.ProgressChanged += async (sender, value) =>
                     {
-                        dlstate.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+                        await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
                     };
                     await UT.DlFilewithProgress("https://bit.ly/UTedgesetup", Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe", progress, cancellationToken.Token);
-                    dlstate.Visibility = Visibility.Collapsed;
                 }
                 if (File.Exists(Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
+                    await UT.waitstatus.open(UT.GetLang("wait.uninstall"), "uninstall.png");
                     await UT.RunMin("powershell", $"start-process -FilePath '{Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe"}' -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
                 }
                 await UT.waitstatus.close();
@@ -186,7 +186,7 @@ public partial class Edge : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("edgeblock"), "block.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.block"), "block.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\EdgeUpdate\" /v \"DoNotUpdateToEdgeWithChromium\" /t REG_DWORD /d \"1\" /f");
             await CheckBTN();
             await UT.waitstatus.close();

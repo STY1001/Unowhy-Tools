@@ -464,18 +464,18 @@ namespace Unowhy_Tools
 
         public class waitstatus
         {
+            public async static Task open(string title, string img)
+            {
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+                await mainWindow.ShowWait(title, img);
+                Write2Log("Open wait");
+            }
+
             public async static Task close()
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                 await mainWindow.HideWait();
                 Write2Log("Close wait");
-            }
-
-            public async static Task open()
-            {
-                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                await mainWindow.ShowWait();
-                Write2Log("Open wait");
             }
         }
 

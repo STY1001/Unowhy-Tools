@@ -246,7 +246,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("admin"), "admin.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.set"), "admin.png");
             await UT.RunMin("net", $"localgroup {UTdata.AdminsName} /add \"{UTdata.User}\"");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -265,7 +265,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("camoverena"), "camera.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.enable"), "camera.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\OEM\\Device\\Capture\" /v \"NoPhysicalCameraLED\" /t REG_DWORD /d \"1\" /f");
             await CheckBTN(true);
             await UT.waitstatus.close();
@@ -284,7 +284,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("verbstatena"), "verbose.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.enable"), "verbose.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v \"VerboseStatus\" /t REG_DWORD /d \"1\" /f");
             await CheckBTN(true);
             await UT.waitstatus.close();

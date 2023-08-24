@@ -198,7 +198,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         Color disabled = (Color)ColorConverter.ConvertFromString("#888888");
         updatebtntext.Foreground = new SolidColorBrush(disabled);
         UpdateBTN.IsEnabled = false;
-        labimg.Source = UT.GetImgSource("download.png");
+        labimg.Source = UT.GetImgSource("clouddl.png");
         labtext.Text = UT.GetLang("update.dl");
         await Task.Delay(1000);
 

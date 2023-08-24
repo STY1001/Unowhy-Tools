@@ -35,51 +35,67 @@ namespace Unowhy_Tools_WPF.Views.Windows
             Visibility = Visibility.Collapsed;
         }
 
-        public async Task Show()
+        public bool IsOpen = false;
+
+        public async Task Show(string title, string img)
         {
-            Visibility = Visibility.Visible;
-            var fadeInAnimation = new DoubleAnimation
+            if (IsOpen)
             {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.15),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            var zoomAnimation1 = new DoubleAnimation
+                icon.Source = UT.GetImgSource(img);
+                text.Text = title;
+            }
+            else
             {
-                From = 1.1,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.25),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
-            };
+                IsOpen = true;
 
-            var zoomAnimation2 = new DoubleAnimation
-            {
-                From = 1.1,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.25),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
-            };
+                icon.Source = UT.GetImgSource(img);
+                text.Text = title;
 
-            Storyboard.SetTarget(fadeInAnimation, RootGrid);
-            Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(OpacityProperty));
+                Visibility = Visibility.Visible;
+                var fadeInAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.15),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
 
-            Storyboard.SetTarget(zoomAnimation1, Border1);
-            Storyboard.SetTarget(zoomAnimation2, Border1);
-            Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
-            Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+                var zoomAnimation1 = new DoubleAnimation
+                {
+                    From = 1.1,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
 
-            var storyboard = new Storyboard();
-            storyboard.Children.Add(fadeInAnimation);
-            storyboard.Children.Add(zoomAnimation1);
-            storyboard.Children.Add(zoomAnimation2);
+                var zoomAnimation2 = new DoubleAnimation
+                {
+                    From = 1.1,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                };
 
-            storyboard.Begin();
+                Storyboard.SetTarget(fadeInAnimation, RootGrid);
+                Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(OpacityProperty));
+
+                Storyboard.SetTarget(zoomAnimation1, Border1);
+                Storyboard.SetTarget(zoomAnimation2, Border1);
+                Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+                Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+
+                var storyboard = new Storyboard();
+                storyboard.Children.Add(fadeInAnimation);
+                storyboard.Children.Add(zoomAnimation1);
+                storyboard.Children.Add(zoomAnimation2);
+
+                storyboard.Begin();
+            }
         }
 
         public async Task Hide()
         {
+            IsOpen = false;
             var fadeInAnimation2 = new DoubleAnimation
             {
                 From = 1,

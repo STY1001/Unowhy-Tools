@@ -222,7 +222,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         {
             if (UT.CheckInternet())
             {
-                await UT.waitstatus.open();
+                await UT.waitstatus.open(UT.GetLang("wait.apply"), "datamatrix.png");
                 var web = new HttpClient();
                 string ssn = snbox.Text;
                 string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
@@ -411,7 +411,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
         if (wifisync.IsEnabled)
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.apply"), "wifi.png");
             if (wifisync.IsChecked == true)
             {
                 await UT.UTS.UTSmsg("UTSW", "SetWS:" + "True");
@@ -420,7 +420,6 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
                 {
                     await UT.waitstatus.close();
                     UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                    await UT.waitstatus.open();
                 }
             }
             else
@@ -431,7 +430,6 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
                 {
                     await UT.waitstatus.close();
                     UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                    await UT.waitstatus.open();
                 }
             }
             await UT.waitstatus.close();
@@ -495,8 +493,6 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             StartDone.Visibility = Visibility.Collapsed;
 
             await Task.Delay(150);
-
-            await UT.waitstatus.open();
 
             /*var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             mainWindow.RootNavigation.Visibility = Visibility.Visible;

@@ -137,7 +137,7 @@ public partial class WinDef : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("enable"), "enable.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $false");
@@ -159,7 +159,7 @@ public partial class WinDef : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("disable"), "disable.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.disable"), "disable.png");
             await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $true");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"1\" /f");

@@ -213,7 +213,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
     {
         if (UT.CheckInternet())
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.get"), "clouddl.png");
             await Task.Delay(1000);
 
             var web = new HttpClient();

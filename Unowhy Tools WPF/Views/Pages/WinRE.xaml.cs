@@ -127,7 +127,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(UT.GetLang("winre.ena"), "enable.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
             UTdata.WinRE = true;
             await UT.RunMin("reagentc.exe", "/enable");
             await UT.waitstatus.close();
@@ -147,7 +147,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
     {
         if(UT.DialogQShow(UT.GetLang("winre.dis"), "disable.png"))
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.disable"), "disable.png");
             UTdata.WinRE = false;
             await UT.RunMin("reagentc.exe", "/disable");
             await CheckBTN();
@@ -167,18 +167,18 @@ public partial class WinRE : INavigableView<DashboardViewModel>
     {
         if (UT.CheckInternet())
         {
-            await UT.waitstatus.open();
-            dllab.Visibility = Visibility.Visible;
-
+            await UT.waitstatus.open(UT.GetLang("wait.repair"), "repair.png");
+            await Task.Delay(1000);
             var progress = new System.Progress<double>();
-            progress.ProgressChanged += (sender, value) =>
+            string dl = UT.GetLang("wait.download");
+            progress.ProgressChanged += async (sender, value) =>
             {
-                dllab.Text = "Downloading... " + value.ToString("###.#") + "%";
+                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
             };
             var cancellationToken = new CancellationTokenSource();
-
             await UT.DlFilewithProgress("https://bit.ly/UTWinRE", "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
-            dllab.Visibility = Visibility.Collapsed;
+
+            await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
 
             await UT.RunMin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
             await UT.RunMin("reagentc.exe", "/enable");

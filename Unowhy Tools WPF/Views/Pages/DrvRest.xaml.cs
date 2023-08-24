@@ -141,7 +141,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
             FileInfo fi = new FileInfo(rtpath.Text);
             if (di.AvailableFreeSpace > fi.Length * 2.5)
             {
-                await UT.waitstatus.open();
+                await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
                 await Task.Delay(1000);
                 string rttemps = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers";
                 await Task.Run(() =>
@@ -151,6 +151,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                         ZipFile.ExtractToDirectory(rtpath.Text, rttemps);
                     });
                 });
+                await UT.waitstatus.open(UT.GetLang("wait.restore"), "download.png");
                 if (File.Exists(rttemps + "\\UT-Restore.exe"))
                 {
                     await Task.Run(() =>

@@ -70,17 +70,17 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         DriveInfo drive = new DriveInfo("C");
         if(drive.AvailableFreeSpace > size * 3)
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
             string uttemps = Path.GetTempPath() + "\\Unowhy Tools\\Temps";
             var progress = new System.Progress<double>();
             var cancellationToken = new CancellationTokenSource();
-            progress.ProgressChanged += (sender, value) =>
+            string dl = UT.GetLang("wait.download");
+            progress.ProgressChanged += async (sender, value) =>
             {
-                repo_desc.Text = "Downloading... " + "(" + value.ToString("###.#") + "%)";
+                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
             };
             await UT.DlFilewithProgress(link, uttemps + $"\\{filename}", progress, cancellationToken.Token);
-            repo_desc.Text = UT.GetLang("bkcloudhostdesc");
-
+            await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
             await Task.Run(() =>
             {
                 Dispatcher.Invoke(() =>
@@ -88,6 +88,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                     ZipFile.ExtractToDirectory(uttemps + $"\\{filename}", uttemps + "\\Drivers");
                 });
             });
+            await UT.waitstatus.open(UT.GetLang("wait.restore"), "download.png");
             await Task.Run(() =>
             {
                 Process p = new Process();

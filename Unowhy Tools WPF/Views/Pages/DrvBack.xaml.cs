@@ -116,9 +116,9 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
             DriveInfo di = new DriveInfo(drivel);
             long afs = di.AvailableFreeSpace;
 
-            if (afs > 6000000000)
+            if (afs > 8000000000)
             {
-                await UT.waitstatus.open();
+                await UT.waitstatus.open(UT.GetLang("wait.backup"), "upload.png");
                 Directory.CreateDirectory(drivel + ":\\UT-Drv-TMP");
                 string backuptemp = drivel + ":\\UT-Drv-TMP";
                 await UT.Extract("UT-Restore.exe", backuptemp + "\\UT-Restore.exe");
@@ -130,6 +130,8 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
                 {
                     await UT.RunMin("powershell.exe", "Export-WindowsDriver -Online -Destination \"" + backuptemp + "\"");
                 }
+                await UT.waitstatus.open(UT.GetLang("wait.compress"), "zip.png");
+                await Task.Delay(1000);
                 await Task.Run(() =>
                 {
                     Dispatcher.Invoke(() =>

@@ -130,7 +130,7 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
         }
         else
         {
-            await UT.waitstatus.open();
+            await UT.waitstatus.open(UT.GetLang("wait.compress"), "zip.png");
             await Task.Delay(1000);
             ZipFile.CreateFromDirectory(oldpath.Text, newpath.Text, CompressionLevel.NoCompression, false);
             await UT.waitstatus.close();

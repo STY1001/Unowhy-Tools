@@ -105,9 +105,9 @@ public partial class MainWindow : INavigationWindow
         DialogIRoot.ShowDialog(msg, img);
     }
 
-    public async Task ShowWait()
+    public async Task ShowWait(string title, string img)
     {
-        await WaitRoot.Show();
+        await WaitRoot.Show(title, img);
     }
 
     public async Task HideWait()
