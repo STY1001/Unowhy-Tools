@@ -455,15 +455,15 @@ public partial class About : INavigableView<DashboardViewModel>
 
     private async void ExpContrib_Expanded(object sender, RoutedEventArgs e)
     {
-        foreach (UIElement element in ExpStackContrib.Children)
+        /*foreach (UIElement element in ExpStackContrib.Children)
         {
             element.Visibility = Visibility.Hidden;
-        }
+        }*/
 
         ExpMoreInfo.IsExpanded = false;
         ExpInfo.IsExpanded = false;
 
-        foreach (UIElement element in ExpStackContrib.Children)
+        /*foreach (UIElement element in ExpStackContrib.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -489,20 +489,20 @@ public partial class About : INavigableView<DashboardViewModel>
             transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
 
             await Task.Delay(50);
-        }
+        }*/
     }
 
     private async void ExpMoreInfo_Expanded(object sender, RoutedEventArgs e)
     {
-        foreach (UIElement element in ExpStackMoreInfo.Children)
+        /*foreach (UIElement element in ExpStackMoreInfo.Children)
         {
             element.Visibility = Visibility.Hidden;
-        }
+        }*/
 
         ExpContrib.IsExpanded = false;
         ExpInfo.IsExpanded = false;
 
-        foreach (UIElement element in ExpStackMoreInfo.Children)
+        /*foreach (UIElement element in ExpStackMoreInfo.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -528,20 +528,20 @@ public partial class About : INavigableView<DashboardViewModel>
             transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
 
             await Task.Delay(50);
-        }
+        }*/
     }
 
     private async void ExpInfo_Expanded(object sender, RoutedEventArgs e)
     {
-        foreach (UIElement element in ExpStackInfo.Children)
+        /*foreach (UIElement element in ExpStackInfo.Children)
         {
             element.Visibility = Visibility.Hidden;
-        }
+        }*/
 
         ExpMoreInfo.IsExpanded = false;
         ExpContrib.IsExpanded = false;
 
-        foreach (UIElement element in ExpStackInfo.Children)
+        /*foreach (UIElement element in ExpStackInfo.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -567,7 +567,7 @@ public partial class About : INavigableView<DashboardViewModel>
             transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
 
             await Task.Delay(50);
-        }
+        }*/
     }
 }
 
