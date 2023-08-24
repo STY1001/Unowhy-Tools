@@ -37,6 +37,7 @@
     <None Remove="Resources\block.png" />
     <None Remove="Resources\boot.png" />
     <None Remove="Resources\camera.png" />
+    <None Remove="Resources\check.png" />
     <None Remove="Resources\clouddl.png" />
     <None Remove="Resources\cmd.png" />
     <None Remove="Resources\code.png" />
@@ -159,6 +160,7 @@
     <Resource Include="Resources\block.png" />
     <Resource Include="Resources\boot.png" />
     <Resource Include="Resources\camera.png" />
+    <Resource Include="Resources\check.png" />
     <Resource Include="Resources\clouddl.png" />
     <Resource Include="Resources\cmd.png" />
     <Resource Include="Resources\code.png" />
