@@ -143,8 +143,15 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
             size = size / (1024 * 1024 * 1024);
 
-            title = name + " • by " + author;
-            desc = description + " • " + pcyear + " • " + size.ToString("#.##") + " GO";
+            title = name + "  •  by " + author;
+            if(description == "")
+            {
+                desc = pcyear + "  •  " + size.ToString("#.##") + " GB";
+            }
+            else
+            {
+                desc = description + "  •  " + pcyear + "  •  " + size.ToString("#.##") + " GB";
+            }
 
             await CreateCard(title, desc, name, link, size);
         }
