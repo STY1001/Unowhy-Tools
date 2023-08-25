@@ -1891,7 +1891,7 @@ namespace Unowhy_Tools
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception(string.Format("The request returned with HTTP status code {0}", response.StatusCode));
+                throw new Exception(string.Format("Download failed: {0}", response.StatusCode));
             }
 
             var total = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
