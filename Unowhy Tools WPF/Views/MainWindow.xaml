@@ -179,6 +179,16 @@
                                        Height="0"
                                        Content="Windows Defender Settings"
                                        PageType="{x:Type pages:WinDef}" />
+                    <ui:NavigationItem x:Name="bios"
+                                       Visibility="Collapsed"
+                                       Height="0"
+                                       Content="Unowhy Tools Bios"
+                                       PageType="{x:Type pages:Bios}" />
+                    <ui:NavigationItem x:Name="drvcloud"
+                                       Visibility="Collapsed"
+                                       Height="0"
+                                       Content="Restore from cloud"
+                                       PageType="{x:Type pages:DrvCloud}" />
                     <ui:NavigationSeparator Visibility="Collapsed"/>
                     <ui:NavigationItem x:Name="settings"
                                        Content="Settings"
