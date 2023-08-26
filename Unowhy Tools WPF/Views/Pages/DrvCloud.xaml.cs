@@ -17,6 +17,9 @@ using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using Microsoft.Win32;
 using System.Xml.Linq;
+using System.Collections.Generic;
+using System.Windows.Shapes;
+using Wpf.Ui.Interop.WinDef;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -55,7 +58,6 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             RootStack.Children.Clear();
             RootStack.Children.Add(repocard);
             RootStack.Children.Add(sep);
-
             await SyncWithCloud();
         }
         else
@@ -71,7 +73,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         if(drive.AvailableFreeSpace > size * 3)
         {
             await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
-            string uttemps = Path.GetTempPath() + "\\Unowhy Tools\\Temps";
+            string uttemps = System.IO.Path.GetTempPath() + "\\Unowhy Tools\\Temps";
             var progress = new System.Progress<double>();
             var cancellationToken = new CancellationTokenSource();
             string dl = UT.GetLang("wait.download");
@@ -113,6 +115,8 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
     public async Task SyncWithCloud()
     {
+
+        SkeletonStack.Visibility = Visibility.Visible;
         HttpClient client = new HttpClient();
 
         string json = await client.GetStringAsync("https://bit.ly/UTbkcloudjson");
@@ -120,6 +124,9 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
         RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
         string langString = key.GetValue("Lang", null).ToString();
+
+
+        SkeletonStack.Visibility = Visibility.Hidden;
 
         foreach (JObject obj in array)
         {
@@ -267,11 +274,46 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         }
     }
 
+    public List<Rectangle> SkeletonRec = new List<Rectangle>();
+
     public DrvCloud(DashboardViewModel viewModel)
     {
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        SkeletonRec.Add(Rec11);
+        SkeletonRec.Add(Rec12);
+        SkeletonRec.Add(Rec21);
+        SkeletonRec.Add(Rec22);
+        SkeletonRec.Add(Rec31);
+        SkeletonRec.Add(Rec32);
+        SkeletonRec.Add(Rec41);
+        SkeletonRec.Add(Rec42);
+        SkeletonRec.Add(Rec51);
+        SkeletonRec.Add(Rec52);
+        SkeletonRec.Add(Rec61);
+        SkeletonRec.Add(Rec62);
+        SkeletonRec.Add(Rec71);
+        SkeletonRec.Add(Rec72);
+        SkeletonRec.Add(Rec81);
+        SkeletonRec.Add(Rec82);
+        SkeletonRec.Add(Rec91);
+        SkeletonRec.Add(Rec92);
+
+        foreach(Rectangle rec in SkeletonRec)
+        {
+            DoubleAnimation anim = new DoubleAnimation();
+            anim.From = -300;
+            anim.To = 300;
+            anim.RepeatBehavior = RepeatBehavior.Forever;
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+            TranslateTransform trans = new TranslateTransform();
+            rec.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            
+        }
     }
 
     private async void repo_Click(object sender, RoutedEventArgs e)
@@ -295,7 +337,6 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             RootStack.Children.Clear();
             RootStack.Children.Add(repocard);
             RootStack.Children.Add(sep);
-
             await SyncWithCloud();
         }
         else
