@@ -301,7 +301,7 @@ public partial class TrayWindow : Window
     {
         await Task.Delay(1000);
         await ShowTray();
-        await WaitControl.Show(UT.GetLang("wait.check"), "ckeck.png");
+        await WaitControl.Show(UT.GetLang("wait.check"), "check.png");
         await Task.Delay(500);
 
         _camerakey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", true);
