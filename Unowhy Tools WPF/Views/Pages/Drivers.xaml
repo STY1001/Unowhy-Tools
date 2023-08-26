@@ -37,7 +37,7 @@
                                 <TextBlock x:Name="dlcloud_txt"
                                            FontSize="13"
                                            FontWeight="Medium"
-                                           Text="Restore a driver backup from cloud" />
+                                           Text="Restore drivers from cloud" />
                                 <TextBlock x:Name="dlcloud_desc"
                                            FontSize="12"
                                            Foreground="#bebebe"
