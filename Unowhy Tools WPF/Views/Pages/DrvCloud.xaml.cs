@@ -115,8 +115,26 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
     public async Task SyncWithCloud()
     {
-
         SkeletonStack.Visibility = Visibility.Visible;
+
+        await Task.Delay(1000);
+
+        foreach (Rectangle rec in SkeletonRec)
+        {
+            DoubleAnimation anim = new DoubleAnimation();
+            anim.From = -300;
+            anim.To = 300;
+            anim.RepeatBehavior = RepeatBehavior.Forever;
+            anim.Duration = TimeSpan.FromMilliseconds(1000);
+            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+            TranslateTransform trans = new TranslateTransform();
+            rec.RenderTransform = trans;
+            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+            await Task.Delay(50);
+        }
+
+        await Task.Delay(1000);
         HttpClient client = new HttpClient();
 
         string json = await client.GetStringAsync("https://bit.ly/UTbkcloudjson");
@@ -282,6 +300,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
+
         SkeletonRec.Add(Rec11);
         SkeletonRec.Add(Rec12);
         SkeletonRec.Add(Rec21);
@@ -300,20 +319,6 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         SkeletonRec.Add(Rec82);
         SkeletonRec.Add(Rec91);
         SkeletonRec.Add(Rec92);
-
-        foreach(Rectangle rec in SkeletonRec)
-        {
-            DoubleAnimation anim = new DoubleAnimation();
-            anim.From = -300;
-            anim.To = 300;
-            anim.RepeatBehavior = RepeatBehavior.Forever;
-            anim.Duration = TimeSpan.FromMilliseconds(1000);
-            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-            TranslateTransform trans = new TranslateTransform();
-            rec.RenderTransform = trans;
-            trans.BeginAnimation(TranslateTransform.XProperty, anim);
-            
-        }
     }
 
     private async void repo_Click(object sender, RoutedEventArgs e)
