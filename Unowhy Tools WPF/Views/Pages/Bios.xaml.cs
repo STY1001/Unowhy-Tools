@@ -546,6 +546,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/ID {biosdbox.SelectedDate.Value.ToString("MM/dd/yyyy")}");
             }
 
+            await Task.Delay(1000);
             await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
 
             await CheckBTN(true);

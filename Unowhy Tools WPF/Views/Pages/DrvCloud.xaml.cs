@@ -143,7 +143,6 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
         string langString = key.GetValue("Lang", null).ToString();
 
-
         SkeletonStack.Visibility = Visibility.Hidden;
 
         foreach (JObject obj in array)

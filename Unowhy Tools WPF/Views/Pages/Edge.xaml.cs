@@ -164,8 +164,10 @@ public partial class Edge : INavigableView<DashboardViewModel>
                     await UT.waitstatus.open(UT.GetLang("wait.uninstall"), "uninstall.png");
                     await UT.RunMin("powershell", $"start-process -FilePath '{Path.GetTempPath() + "Unowhy Tools\\Temps\\Edge\\edgesetup.exe"}' -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
                 }
-                await UT.waitstatus.close();
+                await Task.Delay(1000);
+                await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
                 await CheckBTN();
+                await UT.waitstatus.close();
                 if (!uninstall.IsEnabled)
                 {
                     UT.DialogIShow(UT.GetLang("done"), "yes.png");
@@ -188,6 +190,8 @@ public partial class Edge : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.block"), "block.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\EdgeUpdate\" /v \"DoNotUpdateToEdgeWithChromium\" /t REG_DWORD /d \"1\" /f");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!block.IsEnabled)

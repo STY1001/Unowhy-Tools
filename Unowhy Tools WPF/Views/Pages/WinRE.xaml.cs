@@ -130,8 +130,10 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
             UTdata.WinRE = true;
             await UT.RunMin("reagentc.exe", "/enable");
-            await UT.waitstatus.close();
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
+            await UT.waitstatus.close();
             if (!en.IsEnabled & !rep.IsEnabled)
             {
                 UT.DialogIShow(UT.GetLang("done"), "yes.png");
@@ -150,6 +152,8 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             await UT.waitstatus.open(UT.GetLang("wait.disable"), "disable.png");
             UTdata.WinRE = false;
             await UT.RunMin("reagentc.exe", "/disable");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!dis.IsEnabled)
@@ -185,6 +189,8 @@ public partial class WinRE : INavigableView<DashboardViewModel>
 
             UTdata.WinRE = true;
 
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             if (dis.IsEnabled)

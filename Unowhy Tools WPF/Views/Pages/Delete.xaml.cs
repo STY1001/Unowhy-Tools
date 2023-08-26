@@ -170,6 +170,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.delete"), "deluser.png");
             await UT.RunMin("net", "user ENT /delete");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!entu.IsEnabled)
@@ -193,6 +195,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
                 Process p = Process.Start("C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe"); 
                 p.WaitForExit();
             });
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsq.IsEnabled)
@@ -212,6 +216,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.disconnect"), "azure.png");
             await UT.RunMin("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/leave\" -nonewwindow");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!aad.IsEnabled)
@@ -232,6 +238,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.waitstatus.open(UT.GetLang("wait.delete"), "service.png");
             await UT.serv.del("Hisqoolmanager");
             await UT.RunMin("cmd", "/w /c rmdir /s /q \"C:\\Program Files\\Unowhy\\Hisqool manager\"");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsmqf.IsEnabled)
@@ -252,6 +260,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.waitstatus.open(UT.GetLang("wait.delete"), "folder.png");
             await UT.RunMin("cmd", "/w /c del /q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Program Files\\Unowhy\\TO_INSTALL\"");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!tif.IsEnabled)
@@ -271,6 +281,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.delete"), "folder.png");
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\ProgramData\\RIDF\"");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!ridff.IsEnabled)
@@ -290,6 +302,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.delete"), "folder.png");
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Windows\\System32\\OEM\"");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!oemf.IsEnabled)
@@ -309,6 +323,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.delete"), "folder.png");
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\ProgramData\\ENT\"");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!entf.IsEnabled)

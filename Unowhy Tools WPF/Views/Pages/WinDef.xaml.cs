@@ -142,6 +142,8 @@ public partial class WinDef : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $false");
             await UT.UTS.UTSmsg("UTSWD", "SetWDS:False");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!enable.IsEnabled)
@@ -164,6 +166,8 @@ public partial class WinDef : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"1\" /f");
             await UT.UTS.UTSmsg("UTSWD", "SetWDS:True");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             UT.DialogIShow(UT.GetLang("windefsettamper"), "windef.png");

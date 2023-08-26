@@ -177,6 +177,8 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.start"), "start.png");
             await UT.serv.start("HiSqoolManager");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if(!hsqm_start.IsEnabled)
@@ -196,6 +198,8 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.stop"), "stop.png");
             await UT.serv.stop("HiSqoolManager");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsqm_stop.IsEnabled)
@@ -215,6 +219,8 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
             await UT.serv.auto("HiSqoolManager");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsqm_enable.IsEnabled)
@@ -234,6 +240,8 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.disable"), "disable.png");
             await UT.serv.dis("HiSqoolManager");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsqm_disable.IsEnabled)
@@ -253,6 +261,8 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.delete"), "delete.png");
             await UT.serv.del("HiSqoolManager");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!hsqm_stop.IsEnabled)

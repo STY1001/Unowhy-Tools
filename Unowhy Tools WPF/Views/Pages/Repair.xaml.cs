@@ -165,6 +165,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.apply"), "explorer.png");
             await UT.RunMin("reg", "add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\WinLogon\" /v Shell /d explorer.exe /t REG_SZ /f");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!shell.IsEnabled)
@@ -184,6 +186,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.delete"), "script.png");
             await UT.RunMin("cmd", "/w /c del /q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!tis.IsEnabled)
@@ -203,6 +207,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.repair"), "registry.png");
             await UT.RunMin("reg", "delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe\" /f");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!bim.IsEnabled)
@@ -228,6 +234,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock\" /v \"DynamicLock\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock\" /v \"Plugins\" /t REG_SZ /d \"<rule schemaVersion=\\\"1.0\\\"> <signal type=\\\"bluetooth\\\" scenario=\\\"Dynamic Lock\\\" classOfDevice=\\\"512\\\" rssiMin=\\\"-10\\\" rssiMaxDelta=\\\"-10\\\"/> </rule> \" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider\" /v \"Domain Accounts\" /t REG_DWORD /d \"1\" /f");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!whe.IsEnabled)
@@ -247,6 +255,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.delete"), "boot.png");
             await UT.RunMin("bcdedit", "/deletevalue bootstatuspolicy");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!iaf.IsEnabled)
@@ -266,6 +276,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.enable"), "taskmgr.png");
             await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableTaskMgr /f");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!tmgr.IsEnabled)
@@ -285,6 +297,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(UT.GetLang("wait.enable"), "key.png");
             await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableLockWorkstation /f");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!locka.IsEnabled)
