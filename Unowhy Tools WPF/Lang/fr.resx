@@ -163,7 +163,7 @@
     <value>App de sauv.</value>
   </data>
   <data name="bkcloud" xml:space="preserve">
-    <value>Restaurer une sauv. à partir du cloud</value>
+    <value>Restaurer les pilotes à partir du cloud</value>
   </data>
   <data name="bkcloudhost" xml:space="preserve">
     <value>Les sauvegardes de pilotes sont hébergées sur mon SharePoint</value>

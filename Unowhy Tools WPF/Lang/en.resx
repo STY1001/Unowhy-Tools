@@ -163,7 +163,7 @@
     <value>Backup app</value>
   </data>
   <data name="bkcloud" xml:space="preserve">
-    <value>Restore a driver backup from cloud</value>
+    <value>Restore drivers from cloud</value>
   </data>
   <data name="bkcloudhost" xml:space="preserve">
     <value>Driver backups are hosted on my SharePoint</value>
