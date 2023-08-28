@@ -1,4 +1,110 @@
-﻿using Microsoft.Win32;
+﻿/*
+            
+            
+              ."I!ii>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ii!I".
+             "!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>!"
+            :>>iii>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>iii>>:
+            iii>>>>>>>>>>iiiii>>>>>>>>>>>>>>>>>>>>>>>>>>iiiii>i>>>>>>>>>>>>>>>>>>>>>>>>iiiii>>>>>>>>>>>>>>>>>iii
+            >>>>>>>>>>>ii><>>>>i>>>>>>>>>>>>>>>>>>>>>>ii>>><>ii>>>>>>>>>>>>>>>>>>>>>>ii>>><>i>>>>>>>>>>>>>>>>>>>
+            >>>>>>>>>>>i~-----_<i>>>>>>>>>>>>>>>>>>>ii<_-----_>i>>>>>>>>>>>>>>>>>>>ii<_-----~i>>>>>>>>>>>>>>>>>>
+            >>>>>>>>>>>>_-____?~I!>>>>>>>>>>>>>>>>>>>i+?_____?<I!>>>>>>>>>>>>>>>>>>>i+?____--lli>>>>>>>>>>>>>>>>
+            >>>>>>>>>>>>______-~;II!>>>>>>>>>>>>>>>>>i~-_____->;II!>>>>>>>>>>>>>>>>>i~-______l;Ili>>>>>>>>>>>>>>
+            >>>>>>>>>>>>+_____-<;IIII!>>>>>>>>>>>>>>>i~______->;IIII!>>>>>>>>>>>>>>>i~_______l;IIIli>>>>>>>>>>>>
+            >>>>>>>>>>>>+_++++_<;IIIIII!>>>>>>>>>>>>>i~_+++++_>;IIIIII!>>>>>>>>>>>>>i~_++++++l;IIIIIli>>>>>>>>>>
+            >>>>>>>>>>>>++++++_<;;;IIIIII!>>>>>>>>>>>i~_+++++_>;IIIIIIII!>>>>>>>>iiii~_++++++l;IIIIIIIli>>>>>>>>
+            >>>>>>>>>>>>~+~~~~~~<ilII;;IIII!>>>>>>>>>i<+~~~~~+i;IIIIIIIIII!>>iii>>><~~~~~~~~~l;IIIIIIIIIli>>>>>>
+            >>>>>>>>>>>>~~~~~~~~~+~~<ilII;;;I!i>>>>>ii<+~~~~~_i;IIIIIIIIII;I!>><<~~+~~~~~~~~+l;IIIIIIIIIIIli>>>>
+            >>>>>>>>>>>><<~~~~<<<<<~~~~<>ilII;I!>>>>>>><>><<>iIIIIIIIII;IIli><~~~~<<<<<~~~~<iIIIIIIIIIIIIIIIli>>
+            >>>>>>>>>>>iiii!i<<~<<<<<<<<<~<<>!lII!i>>>>iilI;I;IIIII;IIl!><<~<<<<<<<<~~<>i!lI;IIIIIIIIIIIIIIIIIli
+            >>>>>>>>>>>>>>>ilII!i><<<<>>>>><<<<>i!l!i>i>>>ilIII;IIl!i><<<<>>>>><<<<>i!lI;;;IIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>>>>i>>il;;Il!ii><>>>>>>>>><>ii>>>i>>>ill!i>><>>>>>>>><<>ii!lII;;IIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>ilI;;IIIl!ii>>iiiiiii>>>iiiii>>>>>iiiiiii>>ii!llII;IIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIl!iiiiiiiiiiiiiiiiiiiiiiiiii!!lIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIll!!ii!!!!!!!!!!!ii!!llIIIIIIIIIII::IIIIIIII::;IIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIIlll!!!!!!!!!lllIIIIIIIIIIII::l~?l,;;;;:;-+l::IIIIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIIIlllllll!lIIIIIIIIIIIIIII-\uzYn}~ii<?tzcn\?lIIIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIIlllllllIIIIIIIIIIIIIIIIfUzcczzvnxnccvuucni;IIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIlIIIIIlIIIIIIIIIIIIIIl,_XvcuucUCCJznxnnv1,IIIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIII;:::ijcvvCpkdwwdaaZcrnr~:::;IIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIII;IIIIIIIIIIIIIII;>-]|ucucqoOf1}[}|JWMJjnx(?+>IIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIII;;;;;;IIIIIIIIII:/XccvunZ#Q]][[[]?+n%Mujrxxxfl;IIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIIIIIIIII:fzvununpWX_[[[]]]~|%%vjjjrrj!;IIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilI;IIIIIIIIIIIIIII;-|\rvuxUWWu-+~~<~(*$qfjrj|1[IIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIIIIII;::l?xnjXhB*mCJOo$%0ffj{i;::IIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIIIIIIII,-nrjjcOboohwYj/fj):;IIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIIIIII;[njrjfttttt//tftf(IIIIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIIIII}frxrr\}?-])tjff/)i;IIIIIIIIIIIIII
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ilIIIIIIIIIIIII:l~[)_;:::::i{}_i;;IIIIIIIIIIIIIII
+            >>>>>>>>>>>>i!!>>>>>>>>>>i!!>>>illllll!!!lllllli>>>>>ilIIIIIIIIIIIII:::;IIIIII;:::;IIIIIIIIIIIIIIIII
+            >>>>>>>>>>>lJhwii>>>>>>>lXhwi>l(##MMMMaha#MMM#M/I<>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>Id$8!I!i>>>><IZ$&lII[CJJJCU&$@CJJJJJ[,li>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>lw$M!;II!>>><I0$#l;I;,,"^^.m$*"`^^^^:IIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>lq$M!;IIII!i<I0$Ml;IIllii!:q$#!IllllIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>lq$M!;IIIIIIiI0$Ml;IIIIIIi;q$#l;IIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>lq$M!;IIIIIII"Q$Ml;IIIIIII:q$#l;IIIIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>lq$M!;IIIIIIl"L$Ml;IIIIIII,q$#l;IIIIIIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>lq$M!IIIIIIIl"Q$Ml;IIIIIII,q$#l;IIIIIIIIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>lq$Ml:;:::::;`L$Ml;IIIIIII,q$#l;IIIIIIIIIIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>lw$M~><<<<<<<l0$#l;IIIIIII,w$#l;IIIIIIIIIIIIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIIIIIII
+            >>>>>>>>>>>Id$$$$$$$$$$$$$$8l;IIIIIII,d$&l;IIIIIIIIIIIIIIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIIIII
+            iii>>>>>>>>i1\(|\\\\\\\\\||)IIIIIIIII;[|1IIIIIIIIIIIIIIIIIIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIIIIII
+            :>>iii>>>>>>lI;,""""""""""",IIIIIIIIII,",IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIIIIIII^
+             "!>>>>>>>>>><<<ilIIllllllllIIIIIIIIIIIlIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIli>>>>>>ilIIIIIIIIIIIIII;`
+              ."I!ii>>>>>>>>>>!IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIli>>>>>>ilIIIIIIIII:,`
+
+
+
+                                 .........................
+                  ..`^'''..`^```^^^^^^^,;lllll!llll!!>i<il<~ii/U;,^;>"'^".. .
+                  . .^,,"`^^"^^`````,:llili>ii>!>i<<>???_?}<_+Q@i!l-+":l"````  .
+                      ,:"^```'''^,;IliilI::lIIII~!l>:>~--<-]-!J&~ll>I,^`^^`...  .
+                     ^:^^""^^"'.;ll~+]]]]?--][[]1{-[?1(/|[[)+>L&lll;"'`"'.   ..^^
+                    .:I,""'^:;^:II,C8UJJJJJJUCCCLBdCLL0QZ@t[{+C&Il:`''`^.^^'.'``
+                      '`^"..^"'`,:^0M```'..`,:!Il$x>I>+<1${<-iz&Il^`^``^li,'
+                       .`...'`' .""Q@zXcccv}"IIi~@xil>+~/$ZUXvh8>;'`'^'^,'
+                 .      ..'.. '. '"I<_[(1[$O ;"I_@j!!i~<?\tX$c1?,".'^. '''.
+                  ^;;llI;IIll!!iIII;,,";~<@O.`,;<$r!>>~+~~~[$+`^,````. ''...    .
+                  1CCCCCCLCJCLLQLLLYzzUCCJQ| .^,l0[l!!<<<<>1$-I",,",.'..     ....
+                 ..'`'      .'^^'. [rji ]vunnnvxinXYYYUUUXf}$QXj'.       ..'''
+                  ...'`'''`^"^```^^_1$n.Q@[|//{]<$X|\|(/\hWi[[O% ..   ..'`'...
+                   .'..'````'^^`^^`. &j UM::Iiil+${;i!l>i0*:. nW    .'''''.
+                 .       .........'`^%x.CM!+~++~[${,i~<~<Zo ' vW.````''..''....
+                         . ......````%j U*.,l~([($L?!liiI0h ` vM .
+                    .   .'``.'..'''`'%j J@tfjzLOm$UOmvvcv#ol-.c$fjffftfffffffftt)
+                        ..'. ......'`%r >[|//|(1{[,_|\((){-``.![1)))))1111111111]
+                           .......``^%x'..  .``...'.``'    .                     .
+                           ....''```,$n.^"^`^^'''`^`""""^^`''''....
+                            ...'.'``"k\.`........'''``^^```'.......
+                 .                                          .`
+               '^'  '^^^`^^``^"^""":,""^:;,,":,,:I:,,::":l,`!l^`^^``"^"^"^'''`'   '..
+            .`",,^`,,,,"^^,;;":,,,:I!:I:ll;:;:;:il;:;:;Il!:,!::,:,,,:,::;,",;,,:,'```'.
+           .'`^",^`^````^^"::,,:;::I>!<>i~<><><~-_<<<><_~<<<>~illIIlII;:;,,,:^^^^``'''..
+      `......''```.'''''````^^^",",:!I:;IlIllllll!lllllIIIIIII;::,",,"""^^^````'.''''..... ..`.
+      ,                                                                                      ,'
+
+
+
+            
+          ============================================================
+          Name: Unowhy Tools (WPF)
+          Description: A tool for Y13 computers
+          Language: C#, XAML
+          Framework: .NET 6.0
+          Sub-Framework: Windows Presentation Foundation (WPF)
+          Open Source: true
+          License: Free
+          Author: STY1001
+          Git: https://github.com/STY1001/Unowhy-Tools.git
+          Contributable: true
+          Stealable: false
+          ============================================================
+         
+
+*/
+
+
+
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
