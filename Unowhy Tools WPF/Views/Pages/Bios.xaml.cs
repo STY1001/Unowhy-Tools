@@ -369,7 +369,20 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(UT.GetLang("wait.dump"), "upload.png");
-                    await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe", $"\"{flashpath.Text}\" /O");
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe";
+                        p.StartInfo.Arguments = $"\"{flashpath.Text}\" /O";
+                        p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU";
+                        p.StartInfo.RedirectStandardOutput = true;
+                        p.StartInfo.UseShellExecute = false;
+                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        p.StartInfo.CreateNoWindow = true;
+                        p.Start();
+                        p.WaitForExit();
+                        UT.Write2Log(p.StandardOutput.ReadToEnd());
+                    });
                     await UT.waitstatus.close();
                 }
             }
@@ -399,7 +412,20 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(UT.GetLang("wait.flash"), "download.png");
-                    await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe", $"\"{flashpath.Text}\" /P /N /REBOOT");
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe";
+                        p.StartInfo.Arguments = $"\"{flashpath.Text}\" /P /N /REBOOT";
+                        p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU";
+                        p.StartInfo.RedirectStandardOutput = true;
+                        p.StartInfo.UseShellExecute = false;
+                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        p.StartInfo.CreateNoWindow = true;
+                        p.Start();
+                        p.WaitForExit();
+                        UT.Write2Log(p.StandardOutput.ReadToEnd());
+                    });
                     await UT.waitstatus.close();
                 }
             }
@@ -507,43 +533,173 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
             if (!(mfbox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/SM {mfbox.Text}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/SM {mfbox.Text}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
             if (!(mdbox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/SV {mdbox.Text}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/SV {mdbox.Text}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
             if (!(skubox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/SK {skubox.Text}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/SK {skubox.Text}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
             if (!(snbox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/SS {snbox.Text}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/SS {snbox.Text}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
             if (!(biosvbox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/IV {biosvbox.Text}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/IV {biosvbox.Text}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
             if (!(mbmfbox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/BM {mbmfbox.Text}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/BM {mbmfbox.Text}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
             if (!(mbmdbox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/BP {mbmdbox.Text}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/BP {mbmdbox.Text}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
             if (!(mbvbox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/BV {mbvbox.Text}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/BV {mbvbox.Text}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
             if (!(biosmfbox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/IVN {biosmfbox.Text}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/IVN {biosmfbox.Text}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
             if (!(biosdbox.Text == ""))
             {
-                await UT.RunMin(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe", $"/ID {biosdbox.SelectedDate.Value.ToString("MM/dd/yyyy")}");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.Arguments = $"/ID {biosdbox.SelectedDate.Value.ToString("MM/dd/yyyy")}";
+                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                    UT.Write2Log(p.StandardOutput.ReadToEnd());
+                });
             }
 
             await Task.Delay(1000);
