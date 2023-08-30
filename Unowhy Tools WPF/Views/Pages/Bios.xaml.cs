@@ -385,7 +385,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(UT.GetLang("wait.dump"), "upload.png");
-                    string path = flashpath.Text;
+                    string path = dumppath.Text;
                     string ret = await Task.Run(() =>
                     {
                         Process p = new Process();
