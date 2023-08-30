@@ -83,12 +83,11 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             };
             await UT.DlFilewithProgress(link, uttemps + $"\\{filename}", progress, cancellationToken.Token);
             await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
+            string source = uttemps + $"\\{filename}";
+            string dest = uttemps + "\\Drivers";
             await Task.Run(() =>
             {
-                Dispatcher.Invoke(() =>
-                {
-                    ZipFile.ExtractToDirectory(uttemps + $"\\{filename}", uttemps + "\\Drivers");
-                });
+                ZipFile.ExtractToDirectory(source, dest);
             });
             await UT.waitstatus.open(UT.GetLang("wait.restore"), "download.png");
             await Task.Run(() =>

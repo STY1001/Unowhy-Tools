@@ -132,12 +132,11 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
                 }
                 await UT.waitstatus.open(UT.GetLang("wait.compress"), "zip.png");
                 await Task.Delay(1000);
+                string source = backuptemp;
+                string dest = bkpath.Text;
                 await Task.Run(() =>
                 {
-                    Dispatcher.Invoke(() =>
-                    {
-                        ZipFile.CreateFromDirectory(backuptemp, bkpath.Text, CompressionLevel.NoCompression, false);
-                    });
+                    ZipFile.CreateFromDirectory(source, dest, CompressionLevel.NoCompression, false);
                 });
                 Directory.Delete(backuptemp, true);
                 FileInfo fi = new FileInfo(bkpath.Text);

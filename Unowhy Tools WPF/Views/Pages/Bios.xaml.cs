@@ -18,6 +18,7 @@ using Newtonsoft.Json.Linq;
 using System.Windows.Documents;
 using System.IO.Compression;
 using System.Diagnostics;
+using System.Windows.Threading;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -280,29 +281,43 @@ public partial class Bios : INavigableView<DashboardViewModel>
     {
         if (resname == "AFU")
         {
-            dlstatus.Visibility = Visibility.Visible;
             var progress = new System.Progress<double>();
             var cancellationToken = new CancellationTokenSource();
-            progress.ProgressChanged += (sender, value) =>
+            string dl = UT.GetLang("wait.download");
+            progress.ProgressChanged += async (sender, value) =>
             {
-                dlstatus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
             await UT.DlFilewithProgress("https://bit.ly/UTAFUWin", Path.GetTempPath() + "Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
-            dlstatus.Visibility = Visibility.Collapsed;
-            ZipFile.ExtractToDirectory(Path.GetTempPath() + "Unowhy Tools\\Temps\\AFUWin.zip", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU");
+            await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
+            await Task.Delay(1000);
+            await Task.Run(() =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    ZipFile.ExtractToDirectory(Path.GetTempPath() + "Unowhy Tools\\Temps\\AFUWin.zip", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU");
+                });
+            });
         }
         if (resname == "AMIDE")
         {
-            dlstatus.Visibility = Visibility.Visible;
             var progress = new System.Progress<double>();
             var cancellationToken = new CancellationTokenSource();
-            progress.ProgressChanged += (sender, value) =>
+            string dl = UT.GetLang("wait.download");
+            progress.ProgressChanged += async (sender, value) =>
             {
-                dlstatus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
             await UT.DlFilewithProgress("https://bit.ly/UTAMIDEWin", Path.GetTempPath() + "Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
-            dlstatus.Visibility = Visibility.Collapsed;
-            ZipFile.ExtractToDirectory(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMIDEWin.zip", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
+            await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
+            await Task.Delay(1000);
+            await Task.Run(() =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    ZipFile.ExtractToDirectory(Path.GetTempPath() + "Unowhy Tools\\Temps\\AMIDEWin.zip", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
+                });
+            });
         }
     }
 
@@ -348,7 +363,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     private async void dumpbtn_Click(object sender, RoutedEventArgs e)
     {
-        if(!(dumppath.Text == ""))
+        if (!(dumppath.Text == ""))
         {
             if (UT.DialogQShow(UT.GetLang("utbdumpwarn"), "upload.png"))
             {
@@ -366,14 +381,16 @@ public partial class Bios : INavigableView<DashboardViewModel>
                         UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
                     }
                 }
+                await Task.Delay(1000);
                 if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(UT.GetLang("wait.dump"), "upload.png");
+                    string path = flashpath.Text;
                     string ret = await Task.Run(() =>
                     {
                         Process p = new Process();
                         p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe";
-                        p.StartInfo.Arguments = $"\"{flashpath.Text}\" /O";
+                        p.StartInfo.Arguments = $"\"{path}\" /O";
                         p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU";
                         p.StartInfo.RedirectStandardOutput = true;
                         p.StartInfo.UseShellExecute = false;
@@ -392,7 +409,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     private async void flashbtn_Click(object sender, RoutedEventArgs e)
     {
-        if(!(flashpath.Text == ""))
+        if (!(flashpath.Text == ""))
         {
             if (UT.DialogQShow(UT.GetLang("utbflashwarn"), "download.png"))
             {
@@ -410,14 +427,16 @@ public partial class Bios : INavigableView<DashboardViewModel>
                         UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
                     }
                 }
+                await Task.Delay(1000);
                 if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(UT.GetLang("wait.flash"), "download.png");
+                    string path = flashpath.Text;
                     string ret = await Task.Run(() =>
                     {
                         Process p = new Process();
                         p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe";
-                        p.StartInfo.Arguments = $"\"{flashpath.Text}\" /P /N /REBOOT";
+                        p.StartInfo.Arguments = $"\"{path}\" /P /N /REBOOT";
                         p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU";
                         p.StartInfo.RedirectStandardOutput = true;
                         p.StartInfo.UseShellExecute = false;
@@ -529,17 +548,19 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
             }
         }
+        await Task.Delay(1000);
         if (amidefiles.Any(file => File.Exists(file)))
         {
             await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
 
             if (!(mfbox.Text == ""))
             {
+                string newtxt = mfbox.Text;
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SM {mfbox.Text}";
+                    p.StartInfo.Arguments = $"/SM {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -553,11 +574,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
             if (!(mdbox.Text == ""))
             {
+                string newtxt = mdbox.Text;
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SV {mdbox.Text}";
+                    p.StartInfo.Arguments = $"/SV {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -571,11 +593,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
             if (!(skubox.Text == ""))
             {
+                string newtxt = skubox.Text;
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SK {skubox.Text}";
+                    p.StartInfo.Arguments = $"/SK {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -589,11 +612,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
             if (!(snbox.Text == ""))
             {
+                string newtxt = snbox.Text;
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SS {snbox.Text}";
+                    p.StartInfo.Arguments = $"/SS {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -607,11 +631,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
             if (!(biosvbox.Text == ""))
             {
+                string newtxt = biosvbox.Text;
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/IV {biosvbox.Text}";
+                    p.StartInfo.Arguments = $"/IV {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -625,11 +650,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
             if (!(mbmfbox.Text == ""))
             {
+                string newtxt = mbmfbox.Text;
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/BM {mbmfbox.Text}";
+                    p.StartInfo.Arguments = $"/BM {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -643,11 +669,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
             if (!(mbmdbox.Text == ""))
             {
+                string newtxt = mbmdbox.Text;
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/BP {mbmdbox.Text}";
+                    p.StartInfo.Arguments = $"/BP {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -661,11 +688,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
             if (!(mbvbox.Text == ""))
             {
+                string newtxt = mbvbox.Text;
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/BV {mbvbox.Text}";
+                    p.StartInfo.Arguments = $"/BV {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -679,11 +707,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
             if (!(biosmfbox.Text == ""))
             {
+                string newtxt = biosmfbox.Text;
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/IVN {biosmfbox.Text}";
+                    p.StartInfo.Arguments = $"/IVN {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -697,11 +726,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
             if (!(biosdbox.Text == ""))
             {
+                string newtxt = biosdbox.SelectedDate.Value.ToString("MM/dd/yyyy");
                 string ret = await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/ID {biosdbox.SelectedDate.Value.ToString("MM/dd/yyyy")}";
+                    p.StartInfo.Arguments = $"/ID {newtxt}";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
