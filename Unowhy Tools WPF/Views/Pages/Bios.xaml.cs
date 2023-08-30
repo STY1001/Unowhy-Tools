@@ -389,8 +389,8 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     string ret = await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe";
-                        p.StartInfo.Arguments = $"\"{path}\" /O";
+                        p.StartInfo.FileName = "powershell";
+                        p.StartInfo.Arguments = "start-process -FilePath \"" + Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe\" -ArgumentList \"'" + path + "' /O\" -nonewwindow";
                         p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU";
                         p.StartInfo.RedirectStandardOutput = true;
                         p.StartInfo.UseShellExecute = false;
@@ -435,8 +435,8 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     string ret = await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe";
-                        p.StartInfo.Arguments = $"\"{path}\" /P /N /REBOOT";
+                        p.StartInfo.FileName = "powershell";
+                        p.StartInfo.Arguments = "start-process -FilePath \"" + Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe\" -ArgumentList \"'" + path + "' /P /N /REBOOT\" -nonewwindow";
                         p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AFU";
                         p.StartInfo.RedirectStandardOutput = true;
                         p.StartInfo.UseShellExecute = false;
