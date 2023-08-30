@@ -560,7 +560,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SM {newtxt}";
+                    p.StartInfo.Arguments = $"/SM \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -579,7 +579,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SV {newtxt}";
+                    p.StartInfo.Arguments = $"/SV \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -598,7 +598,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SK {newtxt}";
+                    p.StartInfo.Arguments = $"/SK \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -617,7 +617,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SS {newtxt}";
+                    p.StartInfo.Arguments = $"/SS \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -636,7 +636,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/IV {newtxt}";
+                    p.StartInfo.Arguments = $"/IV \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -655,7 +655,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/BM {newtxt}";
+                    p.StartInfo.Arguments = $"/BM \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -674,7 +674,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/BP {newtxt}";
+                    p.StartInfo.Arguments = $"/BP \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -693,7 +693,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/BV {newtxt}";
+                    p.StartInfo.Arguments = $"/BV \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -712,7 +712,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/IVN {newtxt}";
+                    p.StartInfo.Arguments = $"/IVN \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
@@ -731,7 +731,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/ID {newtxt}";
+                    p.StartInfo.Arguments = $"/ID \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = Path.GetTempPath() + "Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
