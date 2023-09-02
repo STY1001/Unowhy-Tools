@@ -43,7 +43,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         repo_txt.Text = UT.GetLang("bkcloudhost");
         repo_desc.Text = UT.GetLang("bkcloudhostdesc");
         submit.Content = UT.GetLang("bkcloud.submit");
-        repo.Content = UT.GetLang("bkcloud.repo");
+        repobtn.Content = UT.GetLang("bkcloud.repo");
         refresh.Content = UT.GetLang("refresh");
     }
 

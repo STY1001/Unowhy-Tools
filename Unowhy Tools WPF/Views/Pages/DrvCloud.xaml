@@ -56,49 +56,22 @@
                                        Grid.Column="0"
                                        Grid.ColumnSpan="4"
                                        HorizontalAlignment="Stretch"
-                                       Margin="0,0,0,0">
-                                <StackPanel>
-                                    <StackPanel VerticalAlignment="Center">
-                                        <TextBlock x:Name="submit_btn"
-                                                   Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Regular"
-                                                   Text="Submit your backup" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </ui:Button>
+                                       Margin="0,0,0,0"
+                                       Content="Submit your backup" />
                             <ui:Button Click="refresh_Click"
                                        x:Name="refresh"
                                        Grid.Column="0"
                                        Grid.ColumnSpan="4"
                                        HorizontalAlignment="Stretch"
-                                       Margin="10,0,0,0">
-                                <StackPanel>
-                                    <StackPanel VerticalAlignment="Center">
-                                        <TextBlock x:Name="refresh_btn"
-                                                   Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Regular"
-                                                   Text="Refresh" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </ui:Button>
+                                       Margin="10,0,0,0"
+                                       Content="Refresh" />
                             <ui:Button Click="repo_Click"
-                                       x:Name="repo"
+                                       x:Name="repobtn"
                                        Grid.Column="0"
                                        Grid.ColumnSpan="4"
                                        HorizontalAlignment="Stretch"
-                                       Margin="10,0,0,0">
-                                <StackPanel>
-                                    <StackPanel VerticalAlignment="Center">
-                                        <TextBlock x:Name="repo_btn"
-                                                   Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Regular"
-                                                   Text="Go to repo" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </ui:Button>
+                                       Margin="10,0,0,0"
+                                       Content="Go to repo" />
                         </StackPanel>
                     </ui:CardControl>
                     <ui:NavigationSeparator Margin="10,0,10,5"
