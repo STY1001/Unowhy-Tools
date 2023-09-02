@@ -159,11 +159,17 @@
   <data name="biosversion" xml:space="preserve">
     <value>BIOS Version</value>
   </data>
+  <data name="bk.repo" xml:space="preserve">
+    <value>Go to repo</value>
+  </data>
   <data name="bkapp" xml:space="preserve">
     <value>Backup app</value>
   </data>
   <data name="bkcloud" xml:space="preserve">
     <value>Restore drivers from cloud</value>
+  </data>
+  <data name="bkcloud.submit" xml:space="preserve">
+    <value>Submit your backup</value>
   </data>
   <data name="bkcloudhost" xml:space="preserve">
     <value>Driver backups are hosted on my SharePoint</value>
@@ -524,6 +530,9 @@
   </data>
   <data name="rebootmsg" xml:space="preserve">
     <value>To finalize the action, your computer needs to reboot. Save your work, then click "OK"</value>
+  </data>
+  <data name="refresh" xml:space="preserve">
+    <value>Refresh</value>
   </data>
   <data name="repair" xml:space="preserve">
     <value>Repair</value>

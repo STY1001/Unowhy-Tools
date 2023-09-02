@@ -159,11 +159,17 @@
   <data name="biosversion" xml:space="preserve">
     <value>Version du BIOS</value>
   </data>
+  <data name="bk.repo" xml:space="preserve">
+    <value>Aller sur le dépôt</value>
+  </data>
   <data name="bkapp" xml:space="preserve">
     <value>App de sauv.</value>
   </data>
   <data name="bkcloud" xml:space="preserve">
     <value>Restaurer les pilotes à partir du cloud</value>
+  </data>
+  <data name="bkcloud.submit" xml:space="preserve">
+    <value>Soumettez votre sauvegarde</value>
   </data>
   <data name="bkcloudhost" xml:space="preserve">
     <value>Les sauvegardes de pilotes sont hébergées sur mon SharePoint</value>
@@ -524,6 +530,9 @@
   </data>
   <data name="rebootmsg" xml:space="preserve">
     <value>Pour finaliser l'action, votre ordinateur doit redémarrer. Enregistrez votre travail, puis cliquez sur "OK"</value>
+  </data>
+  <data name="refresh" xml:space="preserve">
+    <value>Rafraîchir</value>
   </data>
   <data name="repair" xml:space="preserve">
     <value>Réparer</value>

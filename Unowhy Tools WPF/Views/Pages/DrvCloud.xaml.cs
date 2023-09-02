@@ -42,10 +42,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
     {
         repo_txt.Text = UT.GetLang("bkcloudhost");
         repo_desc.Text = UT.GetLang("bkcloudhostdesc");
+        submit.Content = UT.GetLang("bkcloud.submit");
+        repo.Content = UT.GetLang("bkcloud.repo");
+        refresh.Content = UT.GetLang("refresh");
     }
 
     public async void Init(object sender, EventArgs e)
     {
+        refresh.IsEnabled = false;
         applylang();
 
         if (UT.CheckInternet())
@@ -65,6 +69,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             repo_img.Source = UT.GetImgSource("nowifi.png");
             repo_desc.Text = UT.GetLang("nonet");
         }
+        refresh.IsEnabled = true;
     }
 
     public async Task RestoreCloud(string filename, string link, double size)
@@ -330,6 +335,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
     private async void refresh_Click(object sender, RoutedEventArgs e)
     {
+        refresh.IsEnabled = false;
         if (UT.CheckInternet())
         {
             repo_img.Source = UT.GetImgSource("clouddl.png");
@@ -347,6 +353,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             repo_img.Source = UT.GetImgSource("nowifi.png");
             repo_desc.Text = UT.GetLang("nonet");
         }
+        refresh.IsEnabled = true;
     }
 
     private async void submit_Click(object sender, RoutedEventArgs e)
