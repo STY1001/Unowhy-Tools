@@ -159,14 +159,14 @@
   <data name="biosversion" xml:space="preserve">
     <value>BIOS Version</value>
   </data>
-  <data name="bk.repo" xml:space="preserve">
-    <value>Go to repo</value>
-  </data>
   <data name="bkapp" xml:space="preserve">
     <value>Backup app</value>
   </data>
   <data name="bkcloud" xml:space="preserve">
     <value>Restore drivers from cloud</value>
+  </data>
+  <data name="bkcloud.repo" xml:space="preserve">
+    <value>Go to repo</value>
   </data>
   <data name="bkcloud.submit" xml:space="preserve">
     <value>Submit your backup</value>

@@ -159,14 +159,14 @@
   <data name="biosversion" xml:space="preserve">
     <value>Version du BIOS</value>
   </data>
-  <data name="bk.repo" xml:space="preserve">
-    <value>Aller sur le dépôt</value>
-  </data>
   <data name="bkapp" xml:space="preserve">
     <value>App de sauv.</value>
   </data>
   <data name="bkcloud" xml:space="preserve">
     <value>Restaurer les pilotes à partir du cloud</value>
+  </data>
+  <data name="bkcloud.repo" xml:space="preserve">
+    <value>Aller sur le dépôt</value>
   </data>
   <data name="bkcloud.submit" xml:space="preserve">
     <value>Soumettez votre sauvegarde</value>
