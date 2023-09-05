@@ -167,15 +167,13 @@
                 <Border Grid.Row="1"
                         x:Name="quickoption"
                         CornerRadius="0,0,8,8"
-                        Background="#0affffff"
-                        ClipToBounds="True">
+                        VerticalAlignment="Bottom"
+                        Background="#0affffff">
                     <Grid Margin="10">
                         <Grid Grid.Row="0"
                               x:Name="qogrid">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="10" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="67.25" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -208,13 +206,13 @@
                                            Grid.Column="0"
                                            Margin="0,0,0,0"
                                            RenderOptions.BitmapScalingMode="HighQuality"
-                                           x:Name="utaimg"/>
+                                           x:Name="utaimg" />
                                     <StackPanel Grid.Column="2">
                                         <TextBlock Margin="0"
                                                    FontSize="13"
                                                    FontWeight="Medium"
                                                    Text="Unowhy Tools Apps"
-                                                   x:Name="utalab"/>
+                                                   x:Name="utalab" />
                                         <TextBlock FontSize="12"
                                                    Foreground="#bebebe"
                                                    Text="Wifi, BIOS"
@@ -321,142 +319,12 @@
                                     </StackPanel>
                                 </Grid>
                             </ui:CardAction>
-                            <ui:CardAction Click="Taskmgr"
-                                           Grid.Column="0"
-                                           Grid.Row="0"
-                                           HorizontalAlignment="Stretch"
-                                           VerticalAlignment="Stretch">
-                                <Grid Grid.Row="0"
-                                      Grid.Column="0"
-                                      Margin="0,0,0,0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/taskmgr.png"
-                                           Grid.Column="0"
-                                           Margin="0,0,0,0" />
-                                    <StackPanel Grid.Column="2">
-                                        <TextBlock Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="Task Manager"
-                                                   x:Name="labtask" />
-                                        <TextBlock FontSize="12"
-                                                   Foreground="#bebebe"
-                                                   Text="taskmgr.exe" />
-                                    </StackPanel>
-                                </Grid>
-                            </ui:CardAction>
-                            <ui:CardAction Click="CMD"
-                                           Grid.Column="2"
-                                           Grid.Row="0"
-                                           HorizontalAlignment="Stretch"
-                                           VerticalAlignment="Stretch">
-                                <Grid Grid.Row="0"
-                                      Grid.Column="0"
-                                      Margin="0,0,0,0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/cmd.png"
-                                           Grid.Column="0"
-                                           Margin="0,0,0,0" />
-                                    <StackPanel Grid.Column="2">
-                                        <TextBlock Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="CMD Terminal"
-                                                   x:Name="labcmd" />
-                                        <TextBlock FontSize="12"
-                                                   Foreground="#bebebe"
-                                                   Text="cmd.exe" />
-                                    </StackPanel>
-                                </Grid>
-                            </ui:CardAction>
-                            <ui:CardAction Click="Regedit"
-                                           Grid.Column="4"
-                                           Grid.Row="0"
-                                           HorizontalAlignment="Stretch"
-                                           VerticalAlignment="Stretch">
-                                <Grid Grid.Row="0"
-                                      Grid.Column="0"
-                                      Margin="0,0,0,0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/registry.png"
-                                           Grid.Column="0"
-                                           Margin="0,0,0,0" />
-                                    <StackPanel Grid.Column="2">
-                                        <TextBlock Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="REG Editor"
-                                                   x:Name="labreg" />
-                                        <TextBlock FontSize="12"
-                                                   Foreground="#bebebe"
-                                                   Text="regedit.exe" />
-                                    </StackPanel>
-                                </Grid>
-                            </ui:CardAction>
-                            <ui:CardAction Click="Gpedit"
-                                           Grid.Column="6"
-                                           Grid.Row="0"
-                                           HorizontalAlignment="Stretch"
-                                           VerticalAlignment="Stretch">
-                                <Grid Grid.Row="0"
-                                      Grid.Column="0"
-                                      Margin="0,0,0,0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/script.png"
-                                           Grid.Column="0"
-                                           Margin="0,0,0,0" />
-                                    <StackPanel Grid.Column="2">
-                                        <TextBlock Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="GP Editor"
-                                                   x:Name="labgp" />
-                                        <TextBlock FontSize="12"
-                                                   Foreground="#bebebe"
-                                                   Text="gpedit.msc" />
-                                    </StackPanel>
-                                </Grid>
-                            </ui:CardAction>
                         </Grid>
                         <Grid Grid.Row="0"
                               x:Name="utagrid"
                               Visibility="Collapsed">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="10" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="67.25" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />

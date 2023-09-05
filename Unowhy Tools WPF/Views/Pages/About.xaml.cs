@@ -74,7 +74,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
         DoubleAnimation animlogo = new DoubleAnimation();
         animlogo.From = 0;
-        animlogo.To = -40;
+        animlogo.To = 0;
         animlogo.Duration = TimeSpan.FromMilliseconds(500);
         animlogo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         DoubleAnimation animlogo2 = new DoubleAnimation();

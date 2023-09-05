@@ -327,10 +327,6 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         lababout.Text = UT.GetLang("about");
         labinfo.Text = UT.GetLang("pcinfo");
         labset.Text = UT.GetLang("settings");
-        labtask.Text = UT.GetLang("opentask");
-        labcmd.Text = UT.GetLang("opencmd");
-        labreg.Text = UT.GetLang("openreg");
-        labgp.Text = UT.GetLang("opengp");
     }
 
     public async void About(object sender, RoutedEventArgs e)
@@ -429,7 +425,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
         DoubleAnimation animlogo = new DoubleAnimation();
         animlogo.From = 0;
-        animlogo.To = 40;
+        animlogo.To = 0;
         animlogo.Duration = TimeSpan.FromMilliseconds(500);
         animlogo.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
         DoubleAnimation animlogo2 = new DoubleAnimation();
@@ -513,7 +509,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         uta.Click -= Switch_QO2UT;
 
         utaimg.Source = UT.GetImgSource("back.png");
-        utalab.Text = "Quick Launch";
+        utalab.Text = "Collapse";
         utalab2.Text = "Go Back";
         uta.IsChevronVisible = false;
         {
