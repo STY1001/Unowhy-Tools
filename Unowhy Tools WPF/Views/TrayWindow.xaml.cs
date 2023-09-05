@@ -350,8 +350,14 @@ public partial class TrayWindow : Window
                     trayIcon.ShowBalloonTip(3000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
                 }
             }
+            try
+            {
+                await UT.SendStats("tray");
+            }
+            catch
+            {
 
-            await UT.SendStats("tray");
+            }
         }
     }
 
