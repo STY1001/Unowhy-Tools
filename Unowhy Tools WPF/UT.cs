@@ -149,9 +149,9 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static int verfull = 2500;
+        public static int verfull = 2501;
         public static string verbuild = "1025020923";
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -1140,26 +1140,27 @@ namespace Unowhy_Tools
             }
 
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
-            object us = key.GetValue("UpdateStart", null);
-            if (us == null)
+            if (key.GetValue("UpdateStart", null) == null)
             {
                 key.SetValue("UpdateStart", "1", RegistryValueKind.String);
             }
 
-            object o = key.GetValue("Lang", null);
-            if (o == null)
+            if (key.GetValue("Lang", null) == null)
             {
                 key.SetValue("Lang", "EN", RegistryValueKind.String);
             }
 
-            object i = key.GetValue("Init2", null);
-            if (i == null)
+            if (key.GetValue("Init2", null) == null)
             {
                 key.SetValue("Init2", "0", RegistryValueKind.String);
             }
 
-            string i2 = key.GetValue("Init2").ToString();
-            if (i2 == "1")
+            if (key.GetValue("Init2", null) == null)
+            {
+                key.SetValue("Init2", "0", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("Init2").ToString() == "1")
             {
                 return false;
             }
