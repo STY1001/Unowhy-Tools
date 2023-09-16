@@ -4,8 +4,8 @@
         "author":"SonHaon",
         "pcyear":2022,
         "description":{
-            "en":"Work with the majority of Y13 with a Realtek sound chip",
-            "fr":"Fonctionne avec la majorité des Y13 avec une puce audio Realtek"
+            "en":"Work with the majority of Y13 (with a Realtek sound chip)",
+            "fr":"Fonctionne avec la majorité des Y13 (avec une puce audio Realtek)"
         },
         "size":2247516187,
         "link":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EYEHgD57u0BDoCiu_aRB9ToBXX0QGQgJf0d8Ur5g-MjQlA?e=824noe&download=1"
@@ -15,19 +15,30 @@
         "author":"Thomaszino",
         "pcyear":2022,
         "description":{
-            "en":"Work with the majority of Y13 with a EsAuDriver (Everest) sound chip",
-            "fr":"Fonctionne avec la majorité des Y13 avec une puce audio EsAuDriver (Everest)"
+            "en":"Work with the majority of Y13 (with a EsAuDriver (Everest) sound chip)",
+            "fr":"Fonctionne avec la majorité des Y13 (avec une puce audio EsAuDriver (Everest))"
         },
         "size":2076847362,
         "link":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EbhiQvoBVDxIvYH4ytShseEB_IDszvOwr9P7nb18NYzlbA?e=seebJb&download=1"
+    },
+    {
+        "name":"UT-Drv_21-50_13-09-23.zip",
+        "author":"The french bidouilleur",
+        "pcyear":2023,
+        "description":{
+            "en":"Work with the Y13 of 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
+            "fr":"Fonctionne avec les Y13 de 2023 (avec une puce audio Realtek et un lecteur d'empreintes digitales FocalTech)"
+        },
+        "size":2663952384,
+        "link":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EW6dKHzuJUZEjf-Y2SuHIFwBbTgM5nx_sLb1pAZr07bk7w?e=KC3aXS&download=1"
     },
     {
         "name":"UT-Drv_11-13_07-09-23.zip",
         "author":"STY1001",
         "pcyear":2020,
         "description":{
-            "en":"",
-            "fr":""
+            "en":"Work with the Y13 of 2020 (with Realtek sound chip and Goodix fingerprint reader)",
+            "fr":"Fonctionne avec les Y13 de 2020 (avec puce audio Realtek et lecteur d'empreintes digitales Goodix)"
         },
         "size":3069343076,
         "link":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EWxtPWdC0DJDsXye8F4Zvw0BrYvrNOVF0mcY1EfHnGQUBg?e=EsGckw&download=1"
@@ -37,8 +48,8 @@
         "author":"STY1001",
         "pcyear":2021,
         "description":{
-            "en":"",
-            "fr":""
+            "en":"Work with the Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
+            "fr":"Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
         },
         "size":1355409735,
         "link":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/ET9vEHEnGtJDkN5UzZlbLuMBZNsPDKaefFqNF4YEc5MOqw?e=AdehWT&download=1"
@@ -48,19 +59,30 @@
         "author":"STY1001",
         "pcyear":2021,
         "description":{
-            "en":"",
-            "fr":""
+            "en":"Work the Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
+            "fr":"Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
         },
-        "size":1355409735,
+        "size":2875021169,
         "link":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EevIAlp0mq5Dgy75DO2cc90BopsGNw6wfY6Gdc1J5GY93A?e=wmpWfb&download=1"
+    },
+    {
+        "name":"UT-Drv_18-12_14-09-23.zip",
+        "author":"FGAMER768",
+        "pcyear":2022,
+        "description":{
+            "en":"Work the Y13 of 2022 (with a EsAuDriver (Everest) with ISST (Intel Smart Sound Technology) sound chip and FocalTech fingerprint reader)",
+            "fr":"Fonctionne avec les Y13 de 2022 (avec une puce audio EsAuDriver (Everest) avec ISST (Intel Smart Sound Technology) et un lecteur d'empreintes digitales FocalTech)"
+        },
+        "size":3275970490,
+        "link":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EUbVMNd4fmFPv3mxASRH1FwBZ3jQhoZaDWuAWybNk9k3mQ?e=1kPID7&download=1"
     },
     {
         "name":"UT-Drv_09-39_06-03-23.zip",
         "author":"SpyXo",
         "pcyear":2021,
         "description":{
-            "en":"",
-            "fr":""
+            "en":"Work the Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
+            "fr":"Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
         },
         "size":2556647857,
         "link":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EeJGgfjBUtZDk0blckI_378BZa9jQgLdYbQFp5scV8UVAA?e=qe0u8J&download=1"
