@@ -54,7 +54,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         if (UTdata.sn.Contains("IFP1")) year = "(2021)";
         if (UTdata.sn.Contains("IFP0")) year = "(2020)";
         if (UTdata.sn.Contains("IFP9")) year = "(2019)";
-        if (UTdata.md.Contains("Y13G013")) year = "(2023)";
+        if (UTdata.md.Contains("Y13G113")) year = "(2023)";
         if (UTdata.md.Contains("Y13G012")) year = "(2022)";
         if (UTdata.md.Contains("Y13G011")) year = "(2021)";
         if (UTdata.md.Contains("Y13G010")) year = "(2020)";
