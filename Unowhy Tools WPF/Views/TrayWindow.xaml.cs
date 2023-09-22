@@ -11,6 +11,9 @@ using System.Windows.Threading;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Net.Http;
+using System.Xml.Linq;
+using System.Windows.Navigation;
+using System.Windows.Input;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -24,11 +27,43 @@ public partial class TrayWindow : Window
     private RegistryKey _camerakey;
     private RegistryKey _microkey;
 
+    private bool ToTray = true;
     private bool IsPause = false;
 
     private DispatcherTimer _timerStats;
     private DispatcherTimer _timerPriv;
     private DispatcherTimer _timerTimeDate;
+
+    public ImageSource editimg = UT.GetImgSource("customize.png");
+    public string editpath = UT.GetLang("qleditclick");
+
+    public ImageSource taskimg;
+    public ImageSource cmdimg;
+    public ImageSource regimg;
+    public ImageSource gpimg;
+
+    public string taskicon;
+    public string cmdicon;
+    public string regicon;
+    public string gpicon;
+
+    public string tasklab;
+    public string cmdlab;
+    public string reglab;
+    public string gplab;
+
+    public string taskpath;
+    public string cmdpath;
+    public string regpath;
+    public string gppath;
+
+    private PerformanceCounter cpuCounter1;
+    private PerformanceCounter cpucapp1;
+    private PerformanceCounter cpucapp2;
+    private PerformanceCounter ramCounter1;
+    private PerformanceCounter ramCounter2;
+    private ulong totalram = new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory;
+    private DriveInfo driveInfos = new DriveInfo("C");
 
     public async Task InitTimer()
     {
@@ -47,7 +82,7 @@ public partial class TrayWindow : Window
         _timerTimeDate.Tick += async (sender, e) => await UpdateTimeDate();
         _timerTimeDate.Start();
     }
-    
+
     public async Task StartTimer()
     {
         IsPause = false;
@@ -57,14 +92,6 @@ public partial class TrayWindow : Window
     {
         IsPause = true;
     }
-
-    private PerformanceCounter cpuCounter1;
-    private PerformanceCounter cpucapp1;
-    private PerformanceCounter cpucapp2;
-    private PerformanceCounter ramCounter1;
-    private PerformanceCounter ramCounter2;
-    private ulong totalram = new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory;
-    private DriveInfo driveInfos = new DriveInfo("C");
 
     public async Task CheckStats()
     {
@@ -107,7 +134,7 @@ public partial class TrayWindow : Window
             {
                 try
                 {
-                    
+
 
                     cpuCounter1.NextValue();
                     cpucapp1.NextValue();
@@ -162,7 +189,7 @@ public partial class TrayWindow : Window
             CamOn = false;
         }
 
-        if(micswitch.IsChecked == true)
+        if (micswitch.IsChecked == true)
         {
             MicOn = true;
         }
@@ -266,6 +293,30 @@ public partial class TrayWindow : Window
         }
     }
 
+    public ImageSource GetImgSourceFromPath(string path)
+    {
+        if (File.Exists(path))
+        {
+            string ext = Path.GetExtension(Path.GetFileName(path));
+            if (ext == ".exe")
+            {
+                return UT.GetImageSourceFromExe(path);
+            }
+            else if (ext == ".ico")
+            {
+                return UT.GetImageSourceFromIco(path);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public TrayWindow(IThemeService themeService)
     {
         base.Visibility = Visibility.Visible;
@@ -292,9 +343,122 @@ public partial class TrayWindow : Window
         contextMenuStrip.Items.Add(opentray);
         contextMenuStrip.Items.Add(closetray);
         trayIcon.ContextMenuStrip = contextMenuStrip;
+    }
 
-        
+    public async Task SetQL()
+    {
+        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
+        key.SetValue("QLtaskicon", taskicon);
+        key.SetValue("QLtasklab", tasklab);
+        key.SetValue("QLtaskpath", taskpath);
+        key.SetValue("QLcmdicon", cmdicon);
+        key.SetValue("QLcmdlab", cmdlab);
+        key.SetValue("QLcmdpath", cmdpath);
+        key.SetValue("QLregicon", regicon);
+        key.SetValue("QLreglab", reglab);
+        key.SetValue("QLregpath", regpath);
+        key.SetValue("QLgpicon", gpicon);
+        key.SetValue("QLgplab", gplab);
+        key.SetValue("QLgppath", gppath);
+        await CheckQL();
+    }
 
+    public async Task SetQL_Default()
+    {
+        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
+        key.SetValue("QLtaskicon", "default");
+        key.SetValue("QLtasklab", "default");
+        key.SetValue("QLtaskpath", "default");
+        key.SetValue("QLcmdicon", "default");
+        key.SetValue("QLcmdlab", "default");
+        key.SetValue("QLcmdpath", "default");
+        key.SetValue("QLregicon", "default");
+        key.SetValue("QLreglab", "default");
+        key.SetValue("QLregpath", "default");
+        key.SetValue("QLgpicon", "default");
+        key.SetValue("QLgplab", "default");
+        key.SetValue("QLgppath", "default");
+        await CheckQL();
+    }
+
+    public async Task CheckQL()
+    {
+        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
+        taskicon = key.GetValue("QLtaskicon").ToString();
+        tasklab = key.GetValue("QLtasklab").ToString();
+        taskpath = key.GetValue("QLtaskpath").ToString();
+        cmdicon = key.GetValue("QLcmdicon").ToString();
+        cmdlab = key.GetValue("QLcmdlab").ToString();
+        cmdpath = key.GetValue("QLcmdpath").ToString();
+        regicon = key.GetValue("QLregicon").ToString();
+        reglab = key.GetValue("QLreglab").ToString();
+        regpath = key.GetValue("QLregpath").ToString();
+        gpicon = key.GetValue("QLgpicon").ToString();
+        gplab = key.GetValue("QLgplab").ToString();
+        gppath = key.GetValue("QLgppath").ToString();
+
+        if (taskicon.Contains("default")) taskimg = UT.GetImgSource("taskmgr.png");
+        else taskimg = GetImgSourceFromPath(taskicon);
+        if (cmdicon.Contains("default")) cmdimg = UT.GetImgSource("cmd.png");
+        else cmdimg = GetImgSourceFromPath(cmdicon);
+        if (regicon.Contains("default")) regimg = UT.GetImgSource("registry.png");
+        else regimg = GetImgSourceFromPath(regicon);
+        if (gpicon.Contains("default")) gpimg = UT.GetImgSource("script.png");
+        else gpimg = GetImgSourceFromPath(gpicon);
+
+        imgtask.Source = taskimg;
+        imgcmd.Source = cmdimg;
+        imgreg.Source = regimg;
+        imggp.Source = gpimg;
+
+        imgtaskedit.Source = taskimg;
+        imgcmdedit.Source = cmdimg;
+        imgregedit.Source = regimg;
+        imggpedit.Source = gpimg;
+
+        if (taskpath.Contains("default")) labtaskdesc.Text = "taskmgr.exe";
+        else if (File.Exists(taskpath))labtaskdesc.Text = Path.GetFileName(taskpath);
+        else labtaskdesc.Text = Path.GetFileName(taskpath) + " (error)";
+        if (cmdpath.Contains("default")) labcmddesc.Text = "cmd.exe";
+        else if (File.Exists(cmdpath)) labcmddesc.Text = Path.GetFileName(cmdpath);
+        else labcmddesc.Text = Path.GetFileName(cmdpath) + " (error)";
+        if (regpath.Contains("default")) labregdesc.Text = "regedit.exe";
+        else if (File.Exists(regpath)) labregdesc.Text = Path.GetFileName(regpath);
+        else labregdesc.Text = Path.GetFileName(regpath) + " (error)";
+        if (gppath.Contains("default")) labgpdesc.Text = "gpedit.msc";
+        else if (File.Exists(gppath)) labgpdesc.Text = Path.GetFileName(gppath);
+        else labgpdesc.Text = Path.GetFileName(gppath) + " (error)";
+
+        if (taskpath.Contains("default")) labtaskdescedit.Text = "taskmgr.exe";
+        else if (File.Exists(taskpath)) labtaskdescedit.Text = Path.GetFileName(taskpath);
+        else labtaskdescedit.Text = Path.GetFileName(taskpath) + " (error)";
+        if (cmdpath.Contains("default")) labcmddescedit.Text = "cmd.exe";
+        else if (File.Exists(cmdpath)) labcmddescedit.Text = Path.GetFileName(cmdpath);
+        else labcmddescedit.Text = Path.GetFileName(cmdpath) + " (error)";
+        if (regpath.Contains("default")) labregdescedit.Text = "regedit.exe";
+        else if (File.Exists(regpath)) labregdescedit.Text = Path.GetFileName(regpath);
+        else labregdescedit.Text = Path.GetFileName(regpath) + " (error)";
+        if (gppath.Contains("default")) labgpdescedit.Text = "gpedit.msc";
+        else if (File.Exists(gppath)) labgpdescedit.Text = Path.GetFileName(gppath);
+        else labgpdescedit.Text = Path.GetFileName(gppath) + " (error)";
+
+        if (tasklab.Contains("default")) labtaskedit.Text = UT.GetLang("opentask");
+        else labtaskedit.Text = tasklab;
+        if (cmdlab.Contains("default")) labcmdedit.Text = UT.GetLang("opencmd");
+        else labcmdedit.Text = cmdlab;
+        if (reglab.Contains("default")) labregedit.Text = UT.GetLang("openreg");
+        else labregedit.Text = reglab;
+        if (gplab.Contains("default")) labgpedit.Text = UT.GetLang("opengp");
+        else labgpedit.Text = gplab;
+
+        if (tasklab.Contains("default")) labtask.Text = UT.GetLang("opentask");
+        else labtask.Text = tasklab;
+        if (cmdlab.Contains("default")) labcmd.Text = UT.GetLang("opencmd");
+        else labcmd.Text = cmdlab;
+        if (reglab.Contains("default")) labreg.Text = UT.GetLang("openreg");
+        else labreg.Text = reglab;
+        if (gplab.Contains("default")) labgp.Text = UT.GetLang("opengp");
+        else labgp.Text = gplab;
     }
 
     private async void Window_Initialized(object sender, EventArgs e)
@@ -309,8 +473,10 @@ public partial class TrayWindow : Window
 
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         UTbtndesc.Text = utpath;
-
         applylang();
+
+        await CheckQL();
+
         await CheckPriv();
         try
         {
@@ -363,10 +529,13 @@ public partial class TrayWindow : Window
 
     public async void TrayWindow_Deactivated(object sender, EventArgs e)
     {
-        await HideTray();
+        if (ToTray)
+        {
+            await HideTray();
+        }
     }
 
-    public async void TrayIcon_Click(object sender, MouseEventArgs e)
+    public async void TrayIcon_Click(object sender, System.Windows.Forms.MouseEventArgs e)
     {
         if (e.Button == MouseButtons.Left)
         {
@@ -496,31 +665,583 @@ public partial class TrayWindow : Window
 
     private void T_Click(object sender, RoutedEventArgs e)
     {
-        System.Diagnostics.Process.Start("taskmgr.exe");
+        if (taskpath.Contains("default"))
+        {
+            System.Diagnostics.Process.Start("taskmgr.exe");
+        }
+        else if(File.Exists(taskpath))
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = taskpath;
+            p.StartInfo.WorkingDirectory = taskpath.Replace(Path.GetFileName(taskpath), "");
+            p.Start();
+        }
     }
 
     private void C_Click(object sender, RoutedEventArgs e)
     {
-        Process p = new Process();
-        p.StartInfo.FileName = "cmd.exe";
-        p.StartInfo.WorkingDirectory = "C:\\Windows\\System32\\";
-        p.Start();
+        if(cmdpath.Contains("default"))
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.WorkingDirectory = "C:\\Windows\\System32\\";
+            p.Start();
+        }
+        else if (File.Exists(cmdpath))
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = cmdpath;
+            p.StartInfo.WorkingDirectory = cmdpath.Replace(Path.GetFileName(cmdpath), "");
+            p.Start();
+        }
     }
 
     private void R_Click(object sender, RoutedEventArgs e)
     {
-        System.Diagnostics.Process.Start("regedit.exe");
+        if(regpath.Contains("default"))
+        {
+            System.Diagnostics.Process.Start("regedit.exe");
+        }
+        else if (File.Exists(regpath))
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = regpath;
+            p.StartInfo.WorkingDirectory = regpath.Replace(Path.GetFileName(regpath), "");
+            p.Start();
+        }
     }
 
     private void G_Click(object sender, RoutedEventArgs e)
     {
-        System.Diagnostics.Process.Start("mmc.exe", "gpedit.msc");
+        if (gppath.Contains("default"))
+        {
+            System.Diagnostics.Process.Start("mmc.exe", "gpedit.msc");
+        }
+        else if (File.Exists(gppath))
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = gppath;
+            p.StartInfo.WorkingDirectory = gppath.Replace(Path.GetFileName(gppath), "");
+            p.Start();
+        }
+    }
+
+    private async void E_Click(object sender, RoutedEventArgs e)
+    {
+        ToTray = false;
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -50,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            QL.RenderTransform = transform;
+
+            QL.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+
+        await Task.Delay(250);
+
+        QL.Visibility = Visibility.Hidden;
+        QLedit.Visibility = Visibility.Visible;
+
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            QLedit.RenderTransform = transform;
+
+            QLedit.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+    }
+
+    private async void E_Back_Click(object sender, RoutedEventArgs e)
+    {
+        await SetQL();
+        ToTray = true;
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 50,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            QLedit.RenderTransform = transform;
+
+            QLedit.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+
+        await Task.Delay(250);
+
+        QLedit.Visibility = Visibility.Hidden;
+        QL.Visibility = Visibility.Visible;
+
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            QL.RenderTransform = transform;
+
+            QL.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+    }
+
+    private async void E_Back_Click_Default(object sender, MouseButtonEventArgs e)
+    {
+        await SetQL_Default();
     }
 
     private void UTbtn_Click(object sender, RoutedEventArgs e)
     {
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         System.Diagnostics.Process.Start(utpath);
+    }
+
+    private void labtaskedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        labtaskedit.Visibility = Visibility.Collapsed;
+        boxtaskedit.Visibility = Visibility.Visible;
+        boxtaskedit.Text = labtaskedit.Text;
+    }
+
+    private void boxtaskedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        labtaskedit.Visibility = Visibility.Visible;
+        boxtaskedit.Visibility = Visibility.Collapsed;
+        tasklab = boxtaskedit.Text;
+        labtaskedit.Text = boxtaskedit.Text;
+    }
+
+    private void labcmdedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        labcmdedit.Visibility = Visibility.Collapsed;
+        boxcmdedit.Visibility = Visibility.Visible;
+        boxcmdedit.Text = labcmdedit.Text;
+    }
+
+    private void boxcmdedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        labcmdedit.Visibility = Visibility.Visible;
+        boxcmdedit.Visibility = Visibility.Collapsed;
+        cmdlab = boxcmdedit.Text;
+        labcmdedit.Text = boxcmdedit.Text;
+    }
+
+    private void labregedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        labregedit.Visibility = Visibility.Collapsed;
+        boxregedit.Visibility = Visibility.Visible;
+        boxregedit.Text = labregedit.Text;
+    }
+
+    private void boxregedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        labregedit.Visibility = Visibility.Visible;
+        boxregedit.Visibility = Visibility.Collapsed;
+        reglab = boxregedit.Text;
+        labregedit.Text = boxregedit.Text;
+    }
+
+    private void labgpedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        labgpedit.Visibility = Visibility.Collapsed;
+        boxgpedit.Visibility = Visibility.Visible;
+        boxgpedit.Text = labgpedit.Text;
+    }
+
+    private void boxgpedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        labgpedit.Visibility = Visibility.Visible;
+        boxgpedit.Visibility = Visibility.Collapsed;
+        gplab = boxgpedit.Text;
+        labgpedit.Text = boxgpedit.Text;
+    }
+
+    private void imgtaskedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        imgtaskedit.Source = editimg;
+    }
+
+    private void imgtaskedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        imgtaskedit.Source = taskimg;
+    }
+
+    private void imgcmdedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        imgcmdedit.Source = editimg;
+    }
+
+    private void imgcmdedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        imgcmdedit.Source = cmdimg;
+    }
+
+    private void imgregedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        imgregedit.Source = editimg;
+    }
+
+    private void imgregedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        imgregedit.Source = regimg;
+    }
+
+    private void imggpedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        imggpedit.Source = editimg;
+    }
+
+    private void imggpedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        imggpedit.Source = gpimg;
+    }
+
+    private void labtaskdescedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (taskpath.Contains("default"))
+        {
+            labtaskdescedit.Text = "taskmgr.exe" + " " + editpath;
+        }
+        else if (File.Exists(taskpath))
+        {
+            labtaskdescedit.Text = Path.GetFileName(taskpath) + " " + editpath;
+        }
+        else
+        {
+            labtaskdescedit.Text = Path.GetFileName(taskpath) + " (error)" + " " + editpath;
+        }
+    }
+
+    private void labtaskdescedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if(taskpath.Contains("default"))
+        {
+            labtaskdescedit.Text = "taskmgr.exe";
+        }
+        else if (File.Exists(taskpath))
+        {
+            labtaskdescedit.Text = Path.GetFileName(taskpath);
+        }
+        else
+        {
+            labtaskdescedit.Text = Path.GetFileName(taskpath) + " (error)";
+        }
+    }
+
+    private void labcmddescedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (cmdpath.Contains("default"))
+        {
+            labcmddescedit.Text = "cmd.exe" + " " + editpath;
+        }
+        else if (File.Exists(cmdpath))
+        {
+            labcmddescedit.Text = Path.GetFileName(cmdpath) + " " + editpath;
+        }
+        else
+        {
+            labcmddescedit.Text = Path.GetFileName(cmdpath) + " (error)" + " " + editpath;
+        }
+    }
+
+    private void labcmddescedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (cmdpath.Contains("default"))
+        {
+            labcmddescedit.Text = "cmd.exe";
+        }
+        else if (File.Exists(cmdpath))
+        {
+            labcmddescedit.Text = Path.GetFileName(cmdpath);
+        }
+        else
+        {
+            labcmddescedit.Text = Path.GetFileName(cmdpath) + " (error)";
+        }
+    }
+
+    private void labregdescedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (regpath.Contains("default"))
+        {
+            labregdescedit.Text = "regedit.exe" + " " + editpath;
+        }
+        else if (File.Exists(regpath))
+        {
+            labregdescedit.Text = Path.GetFileName(regpath) + " " + editpath;
+        }
+        else
+        {
+            labregdescedit.Text = Path.GetFileName(regpath) + " (error)" + " " + editpath;
+        }
+    }
+
+    private void labregdescedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (regpath.Contains("default"))
+        {
+            labregdescedit.Text = "regedit.exe";
+        }
+        else if (File.Exists(regpath))
+        {
+            labregdescedit.Text = Path.GetFileName(regpath);
+        }
+        else
+        {
+            labregdescedit.Text = Path.GetFileName(regpath) + " (error)";
+        }
+    }
+
+    private void labgpdescedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (gppath.Contains("default"))
+        {
+            labgpdescedit.Text = "gpedit.msc" + " " + editpath;
+        }
+        else if (File.Exists(gppath))
+        {
+            labgpdescedit.Text = Path.GetFileName(gppath) + " " + editpath;
+        }
+        else
+        {
+            labgpdescedit.Text = Path.GetFileName(gppath) + " (error)" + " " + editpath;
+        }
+    }
+
+    private void labgpdescedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (gppath.Contains("default"))
+        {
+            labgpdescedit.Text = "gpedit.msc";
+        }
+        else if (File.Exists(gppath))
+        {
+            labgpdescedit.Text = Path.GetFileName(gppath);
+        }
+        else
+        {
+            labgpdescedit.Text = Path.GetFileName(gppath) + " (error)";
+        }
+    }
+
+    private void imgtaskedit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "ico";
+            fb.Filter = "Icon file (*.ico)|*.ico|Executable file (*.exe)|*.exe";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                taskicon = fb.FileName;
+                taskimg = GetImgSourceFromPath(taskicon);
+                imgtaskedit.Source = taskimg;
+            }
+        }
+    }
+
+    private void imgcmdedit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "ico";
+            fb.Filter = "Icon file (*.ico)|*.ico|Executable file (*.exe)|*.exe";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                cmdicon = fb.FileName;
+                cmdimg = GetImgSourceFromPath(cmdicon);
+                imgcmdedit.Source = cmdimg;
+            }
+        }
+    }
+
+    private void imgregedit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "ico";
+            fb.Filter = "Icon file (*.ico)|*.ico|Executable file (*.exe)|*.exe";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                regicon = fb.FileName;
+                regimg = GetImgSourceFromPath(regicon);
+                imgregedit.Source = regimg;
+            }
+        }
+    }
+
+    private void imggpedit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "ico";
+            fb.Filter = "Icon file (*.ico)|*.ico|Executable file (*.exe)|*.exe";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                gpicon = fb.FileName;
+                gpimg = GetImgSourceFromPath(gpicon);
+                imggpedit.Source = gpimg;
+            }
+        }
+    }
+
+    private void labtaskdescedit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "exe";
+            fb.Filter = "Executable file (*.exe)|*.exe";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                taskicon = fb.FileName;
+                taskimg = GetImgSourceFromPath(taskicon);
+                imgtaskedit.Source = taskimg;
+                taskpath = fb.FileName;
+                labtaskdescedit.Text = Path.GetFileName(taskpath);
+                FileVersionInfo fileInfo = FileVersionInfo.GetVersionInfo(fb.FileName);
+                tasklab = fileInfo.FileDescription;
+                labtaskedit.Text = tasklab;
+            }
+        }
+    }
+
+    private void labcmddescedit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "exe";
+            fb.Filter = "Executable file (*.exe)|*.exe";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                cmdpath = fb.FileName;
+                labcmddescedit.Text = Path.GetFileName(cmdpath);
+                cmdicon = fb.FileName;
+                cmdimg = GetImgSourceFromPath(cmdicon);
+                imgcmdedit.Source = cmdimg;
+                FileVersionInfo fileInfo = FileVersionInfo.GetVersionInfo(fb.FileName);
+                cmdlab = fileInfo.FileDescription;
+                labcmdedit.Text = cmdlab;
+            }
+        }
+    }
+
+    private void labregdescedit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "exe";
+            fb.Filter = "Executable file (*.exe)|*.exe";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                regpath = fb.FileName;
+                labregdescedit.Text = Path.GetFileName(regpath);
+                regicon = fb.FileName;
+                regimg = GetImgSourceFromPath(regicon);
+                imgregedit.Source = regimg;
+                FileVersionInfo fileInfo = FileVersionInfo.GetVersionInfo(fb.FileName);
+                reglab = fileInfo.FileDescription;
+                labregedit.Text = reglab;
+            }
+        }
+    }
+
+    private void labgpdescedit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "exe";
+            fb.Filter = "Executable file (*.exe)|*.exe";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                gppath = fb.FileName;
+                labgpdescedit.Text = Path.GetFileName(gppath);
+                gpicon = fb.FileName;
+                gpimg = GetImgSourceFromPath(gpicon);
+                imggpedit.Source = gpimg;
+                FileVersionInfo fileInfo = FileVersionInfo.GetVersionInfo(fb.FileName);
+                gplab = fileInfo.FileDescription;
+                labgpedit.Text = gplab;
+            }
+        }
     }
 }
 
