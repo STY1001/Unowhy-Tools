@@ -132,6 +132,7 @@ using System.Drawing;
 using TaskScheduler = Microsoft.Win32.TaskScheduler;
 using System.Windows;
 using System.Linq;
+using System.Windows.Interop;
 
 namespace Unowhy_Tools
 {
@@ -1157,9 +1158,64 @@ namespace Unowhy_Tools
                 key.SetValue("Init2", "0", RegistryValueKind.String);
             }
 
-            if (key.GetValue("Init2", null) == null)
+            if (key.GetValue("QLtaskpath", null) == null)
             {
-                key.SetValue("Init2", "0", RegistryValueKind.String);
+                key.SetValue("QLtaskpath", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLtaskicon", null) == null)
+            {
+                key.SetValue("QLtaskicon", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLtasklab", null) == null)
+            {
+                key.SetValue("QLtasklab", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLcmdpath", null) == null)
+            {
+                key.SetValue("QLcmdpath", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLcmdicon", null) == null)
+            {
+                key.SetValue("QLcmdicon", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLcmdlab", null) == null)
+            {
+                key.SetValue("QLcmdlab", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLregpath", null) == null)
+            {
+                key.SetValue("QLregpath", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLregicon", null) == null)
+            {
+                key.SetValue("QLregicon", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLreglab", null) == null)
+            {
+                key.SetValue("QLreglab", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLgppath", null) == null)
+            {
+                key.SetValue("QLgppath", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLgpicon", null) == null)
+            {
+                key.SetValue("QLgpicon", "default", RegistryValueKind.String);
+            }
+
+            if (key.GetValue("QLgplab", null) == null)
+            {
+                key.SetValue("QLgplab", "default", RegistryValueKind.String);
             }
 
             if (key.GetValue("Init2").ToString() == "1")
@@ -2063,6 +2119,51 @@ namespace Unowhy_Tools
             return bmp;
         }
 
+        public static ImageSource GetImageSourceFromExe(string path)
+        {
+            try
+            {
+                Icon appIcon = Icon.ExtractAssociatedIcon(path);
+
+                if (appIcon != null)
+                {
+                    ImageSource imageSource = Imaging.CreateBitmapSourceFromHIcon(
+                        appIcon.Handle,
+                        Int32Rect.Empty,
+                        BitmapSizeOptions.FromEmptyOptions());
+
+                    return imageSource;
+                }
+            }
+            catch
+            {
+
+            }
+
+            return null;
+        }
+
+        public static ImageSource GetImageSourceFromIco(string path)
+        {
+            try
+            {
+                Icon icon = new Icon(path);
+
+                ImageSource imageSource = Imaging.CreateBitmapSourceFromHIcon(
+                    icon.Handle,
+                    Int32Rect.Empty,
+                    BitmapSizeOptions.FromEmptyOptions());
+
+                return imageSource;
+            }
+            catch
+            {
+
+            }
+
+            return null;
+        }
+
         public static Icon GetIconFromRes(string resname)
         {
             var imgsource = UT.GetImgSource(resname);
@@ -2309,7 +2410,7 @@ namespace Unowhy_Tools
                 get { return _mbv; }
                 set
                 {
-                    _mbv= value;
+                    _mbv = value;
                     OnPropertyChanged();
                 }
             }
