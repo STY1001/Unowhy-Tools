@@ -481,16 +481,16 @@
     <value>Open</value>
   </data>
   <data name="opencmd" xml:space="preserve">
-    <value>Open CMD Terminal</value>
+    <value>Terminal (CMD)</value>
   </data>
   <data name="opengp" xml:space="preserve">
-    <value>Open GP Editor</value>
+    <value>Group Policy Editor</value>
   </data>
   <data name="openreg" xml:space="preserve">
-    <value>Open REG Editor</value>
+    <value>Registry Editor</value>
   </data>
   <data name="opentask" xml:space="preserve">
-    <value>Open Task Manager</value>
+    <value>Task Manager</value>
   </data>
   <data name="openut" xml:space="preserve">
     <value>Open Unowhy Tools</value>
@@ -521,6 +521,9 @@
   </data>
   <data name="pwmis" xml:space="preserve">
     <value>Passwords do not match</value>
+  </data>
+  <data name="qleditclick" xml:space="preserve">
+    <value>(click to edit)</value>
   </data>
   <data name="raminfo" xml:space="preserve">
     <value>RAM Info</value>

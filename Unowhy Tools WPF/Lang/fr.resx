@@ -481,16 +481,16 @@
     <value>Ouvrir</value>
   </data>
   <data name="opencmd" xml:space="preserve">
-    <value>Ouvrir CMD</value>
+    <value>Terminal (CMD)</value>
   </data>
   <data name="opengp" xml:space="preserve">
-    <value>Ouvrir GPedit</value>
+    <value>Editeur de strat. du groupe</value>
   </data>
   <data name="openreg" xml:space="preserve">
-    <value>Ouvrir REGedit</value>
+    <value>Editeur de registre</value>
   </data>
   <data name="opentask" xml:space="preserve">
-    <value>Ouvrir TaskMgr</value>
+    <value>Gestionnaire des tâches</value>
   </data>
   <data name="openut" xml:space="preserve">
     <value>Ouvrir Unowhy Tools</value>
@@ -521,6 +521,9 @@
   </data>
   <data name="pwmis" xml:space="preserve">
     <value>Les mots de passe ne correspondent pas</value>
+  </data>
+  <data name="qleditclick" xml:space="preserve">
+    <value>(cliquez pour modifier)</value>
   </data>
   <data name="raminfo" xml:space="preserve">
     <value>Info de la RAM</value>
