@@ -2051,6 +2051,7 @@ namespace Unowhy_Tools
             Write2Log("====== End ======");
         }
 
+        /*
         public static async Task DlFilewithProgress(string url, string path, IProgress<double> progress, CancellationToken token)
         {
             Write2Log("Downloading file: From \"" + url + "\" to \"" + path + "\"");
@@ -2099,6 +2100,55 @@ namespace Unowhy_Tools
                     await File.WriteAllBytesAsync(path, fileStream.ToArray());
                 }
             }
+            Write2Log("Download completed");
+        }
+        */
+
+        public static async Task DlFilewithProgress(string url, string path, IProgress<double> progress, CancellationToken token)
+        {
+            Write2Log("Downloading file: From \"" + url + "\" to \"" + path + "\"");
+            var client = new HttpClient();
+            var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, token);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception(string.Format("Download failed: {0}", response.StatusCode));
+            }
+
+            var total = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
+            var canReportProgress = total != -1 && progress != null;
+
+            using (var stream = await response.Content.ReadAsStreamAsync())
+            using (var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                var totalRead = 0L;
+                var buffer = new byte[4096];
+                var isMoreToRead = true;
+
+                do
+                {
+                    token.ThrowIfCancellationRequested();
+
+                    var read = await stream.ReadAsync(buffer, 0, buffer.Length, token);
+
+                    if (read == 0)
+                    {
+                        isMoreToRead = false;
+                    }
+                    else
+                    {
+                        await fileStream.WriteAsync(buffer, 0, read);
+
+                        totalRead += read;
+
+                        if (canReportProgress)
+                        {
+                            progress.Report((totalRead * 1d) / (total * 1d) * 100);
+                        }
+                    }
+                } while (isMoreToRead);
+            }
+
             Write2Log("Download completed");
         }
 
