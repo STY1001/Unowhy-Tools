@@ -130,15 +130,12 @@
                                                          Grid.RowSpan="2"
                                                          Progress="0"
                                                          x:Name="cpuring" />
-                                        <TextBlock Grid.Row="0"
-                                                   Grid.RowSpan="2"
-                                                   Text="0%"
-                                                   Foreground="#ffffff"
-                                                   FontSize="14"
-                                                   FontFamily="Segoe UI SemiBold"
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"
-                                                   x:Name="cpuper" />
+                                        <Image Source="../Resources/cpu.png"
+                                               Grid.Row="0"
+                                               Grid.RowSpan="2"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Height="32" />
                                         <TextBlock  Grid.Row="0"
                                                     Grid.Column="2"
                                                     Text="CPU Usage"
@@ -148,15 +145,23 @@
                                                     VerticalAlignment="Bottom"
                                                     HorizontalAlignment="Left"
                                                     x:Name="cpulab" />
-                                        <TextBlock  Grid.Row="1"
+                                        <StackPanel Grid.Row="1"
                                                     Grid.Column="2"
-                                                    Text="CPU"
-                                                    Foreground="#b2b2b2"
-                                                    FontSize="13"
-                                                    FontFamily="Segoe UI Normal"
-                                                    VerticalAlignment="Top"
-                                                    HorizontalAlignment="Left"
-                                                    x:Name="cpucap" />
+                                                    Orientation="Horizontal">
+                                            <TextBlock Text="0%"
+                                                       Foreground="#ffffff"
+                                                       FontSize="14"
+                                                       FontFamily="Segoe UI SemiBold"
+                                                       x:Name="cpuper" />
+                                            <TextBlock  Margin="10,0,0,0"
+                                                Text="CPU"
+                                                        Foreground="#b2b2b2"
+                                                        FontSize="13"
+                                                        FontFamily="Segoe UI Normal"
+                                                        VerticalAlignment="Top"
+                                                        HorizontalAlignment="Left"
+                                                        x:Name="cpucap" />
+                                        </StackPanel>
                                     </Grid>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -172,15 +177,12 @@
                                                          Grid.RowSpan="2"
                                                          Progress="0"
                                                          x:Name="ramring" />
-                                        <TextBlock Grid.Row="0"
-                                                   Grid.RowSpan="2"
-                                                   Text="0%"
-                                                   Foreground="#ffffff"
-                                                   FontSize="14"
-                                                   FontFamily="Segoe UI SemiBold"
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"
-                                                   x:Name="ramper" />
+                                        <Image Source="../Resources/ram.png"
+                                               Grid.Row="0"
+                                               Grid.RowSpan="2"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Height="32" />
                                         <TextBlock  Grid.Row="0"
                                                     Grid.Column="2"
                                                     Text="RAM Usage"
@@ -190,15 +192,22 @@
                                                     VerticalAlignment="Bottom"
                                                     HorizontalAlignment="Left"
                                                     x:Name="ramlab" />
-                                        <TextBlock  Grid.Row="1"
-                                                    Grid.Column="2"
-                                                    Text="RAM"
-                                                    Foreground="#b2b2b2"
-                                                    FontSize="13"
-                                                    FontFamily="Segoe UI Normal"
-                                                    VerticalAlignment="Top"
-                                                    HorizontalAlignment="Left"
-                                                    x:Name="ramcap" />
+                                        <StackPanel Orientation="Horizontal"
+                                                    Grid.Row="1"
+                                                    Grid.Column="2">
+                                            <TextBlock Text="0%"
+                                                       Foreground="#ffffff"
+                                                       FontSize="14"
+                                                       FontFamily="Segoe UI SemiBold"
+                                                       x:Name="ramper" />
+                                            <TextBlock  Margin="10,0,0,0"
+                                                        Text="RAM"
+                                                        Foreground="#b2b2b2"
+                                                        FontSize="13"
+                                                        FontFamily="Segoe UI Normal"
+                                                        x:Name="ramcap" />
+                                        </StackPanel>
+
                                     </Grid>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -214,15 +223,12 @@
                                                          Grid.RowSpan="2"
                                                          Progress="0"
                                                          x:Name="storring" />
-                                        <TextBlock Grid.Row="0"
-                                                   Grid.RowSpan="2"
-                                                   Text="0%"
-                                                   Foreground="#ffffff"
-                                                   FontSize="14"
-                                                   FontFamily="Segoe UI SemiBold"
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"
-                                                   x:Name="storper" />
+                                        <Image Source="../Resources/storage.png"
+                                               Grid.Row="0"
+                                               Grid.RowSpan="2"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Height="32" />
                                         <TextBlock  Grid.Row="0"
                                                     Grid.Column="2"
                                                     Text="Storage Usage"
@@ -232,15 +238,23 @@
                                                     VerticalAlignment="Bottom"
                                                     HorizontalAlignment="Left"
                                                     x:Name="storlab" />
-                                        <TextBlock  Grid.Row="1"
-                                                    Grid.Column="2"
-                                                    Text="Storage"
-                                                    Foreground="#b2b2b2"
-                                                    FontSize="13"
-                                                    FontFamily="Segoe UI Normal"
-                                                    VerticalAlignment="Top"
-                                                    HorizontalAlignment="Left"
-                                                    x:Name="storcap" />
+                                        <StackPanel Orientation="Horizontal"
+                                                    Grid.Row="1"
+                                                    Grid.Column="2">
+
+                                            <TextBlock Text="0%"
+                                                       Foreground="#ffffff"
+                                                       FontSize="14"
+                                                       FontFamily="Segoe UI SemiBold"
+                                                       x:Name="storper" />
+                                            <TextBlock Text="Storage"
+                                                       Margin="10,0,0,0"
+                                                       Foreground="#b2b2b2"
+                                                       FontSize="13"
+                                                       FontFamily="Segoe UI Normal"
+                                                       x:Name="storcap" />
+                                        </StackPanel>
+
                                     </Grid>
                                     <ui:NavigationSeparator Margin="0,10,0,15" />
                                     <Grid>
