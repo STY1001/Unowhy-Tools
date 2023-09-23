@@ -635,9 +635,6 @@ public partial class MainWindow : INavigationWindow
             await USS("Loading... (Cleaning)");
             await Task.Delay(500);
             await UT.Cleanup();
-            await USS("Loading... (Tray)");
-            await Task.Delay(500);
-            await UT.TrayCheck();
             await USS("Loading... (Checking Files)");
             await Task.Delay(500);
             bool fs = await UT.FirstStart();
@@ -647,6 +644,9 @@ public partial class MainWindow : INavigationWindow
             await USS("Loading... (Checking Unowhy Tools Service)");
             await Task.Delay(500);
             await UT.UTS.UTScheck();
+            await USS("Loading... (Tray)");
+            await Task.Delay(500);
+            await UT.TrayCheck();
             await USS("Loading... (Preloading pages)");
             await Task.Delay(500);
             await USS("Preloading pages... (Dashboard)");
