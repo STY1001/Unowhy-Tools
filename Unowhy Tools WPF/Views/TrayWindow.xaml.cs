@@ -26,11 +26,13 @@ public partial class TrayWindow : Window
 
     private RegistryKey _camerakey;
     private RegistryKey _microkey;
+    private RegistryKey _powerkey;
 
     private bool ToTray = true;
     private bool IsPause = false;
 
     private DispatcherTimer _timerStats;
+    private DispatcherTimer _timerPower;
     private DispatcherTimer _timerPriv;
     private DispatcherTimer _timerTimeDate;
 
@@ -71,6 +73,11 @@ public partial class TrayWindow : Window
         _timerStats.Interval = TimeSpan.FromSeconds(1);
         _timerStats.Tick += async (sender, e) => await CheckStats();
         _timerStats.Start();
+
+        _timerPower = new DispatcherTimer();
+        _timerPower.Interval = TimeSpan.FromSeconds(5);
+        _timerPower.Tick += async (sender, e) => await CheckPower();
+        _timerPower.Start();
 
         _timerPriv = new DispatcherTimer();
         _timerPriv.Interval = TimeSpan.FromSeconds(5);
@@ -263,6 +270,86 @@ public partial class TrayWindow : Window
             {
                 micswitch.IsChecked = false;
             }
+        }
+    }
+
+    public async Task CheckPower()
+    {
+        if (!IsPause)
+        {
+            var batringint = ((double)SystemInformation.PowerStatus.BatteryLifePercent) * 100;
+            var isOnAC = (bool)(SystemInformation.PowerStatus.PowerLineStatus == System.Windows.Forms.PowerLineStatus.Online);
+
+            var powerscheme = "null";
+            ImageSource batstatussource = null;
+
+            if (isOnAC)
+            {
+                powerscheme = _powerkey.GetValue("ActiveOverlayAcPowerScheme").ToString();
+                batstatussource = UT.GetImgSource("charge.png");
+            }
+            else
+            {
+                powerscheme = _powerkey.GetValue("ActiveOverlayDcPowerScheme").ToString();
+                batstatussource = null;
+            }
+
+            string perf = "ded574b5-45a0-4f42-8737-46345c09c238";
+            string balanced = "00000000-0000-0000-0000-000000000000";
+            string efficiency = "961cc777-2547-4f9d-8174-7d86181b8a7a";
+
+            string batcapstring = "null";
+            ImageSource batmodesource = null;
+
+            if (powerscheme.Contains(perf))
+            {
+                batcapstring = UT.GetLang("bat.perf");
+                batmodesource = UT.GetImgSource("power.png");
+            }
+            else if (powerscheme.Contains(balanced))
+            {
+                batcapstring = UT.GetLang("bat.balanced");
+                batmodesource = UT.GetImgSource("balanced.png");
+            }
+            else if (powerscheme.Contains(efficiency))
+            {
+                batcapstring = UT.GetLang("bat.efficiency");
+                batmodesource = UT.GetImgSource("efficiency.png");
+            }
+
+            ImageSource batimgsource = null;
+
+            if(batringint > 90)
+            {
+                batimgsource = UT.GetImgSource("bat100.png");
+            }
+            else if (batringint > 75)
+            {
+                batimgsource = UT.GetImgSource("bat75.png");
+            }
+            else if(batringint > 50)
+            {
+                batimgsource = UT.GetImgSource("bat50.png");
+            }
+            else if(batringint > 25)
+            {
+                batimgsource = UT.GetImgSource("bat25.png");
+            }
+            else if(batringint > 10)
+            {
+                batimgsource = UT.GetImgSource("bat15.png");
+            }
+            else
+            {
+                batimgsource = UT.GetImgSource("bat0.png");
+            }
+
+            batring.Progress = batringint;
+            batper.Text = $"{batringint.ToString("###")} %";
+            batcap.Text = batcapstring;
+            batimg.Source = batimgsource;
+            batmodeimg.Source = batmodesource;
+            batstatusimg.Source = batstatussource;
         }
     }
 
@@ -470,6 +557,7 @@ public partial class TrayWindow : Window
 
         _camerakey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", true);
         _microkey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone", true);
+        _powerkey = Registry.LocalMachine.OpenSubKey("SYSTEM\\CurrentControlSet\\Control\\Power\\User\\PowerSchemes", true);
 
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         UTbtndesc.Text = utpath;
@@ -837,6 +925,118 @@ public partial class TrayWindow : Window
             QL.RenderTransform = transform;
 
             QL.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+    }
+
+    private async void QO_Click(object sender, RoutedEventArgs e)
+    {
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -50,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            PerfViewer.RenderTransform = transform;
+
+            PerfViewer.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+
+        await Task.Delay(250);
+
+        PerfViewer.Visibility = Visibility.Hidden;
+        QuickOption.Visibility = Visibility.Visible;
+
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            QuickOption.RenderTransform = transform;
+
+            QuickOption.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+    }
+
+    private async void PV_Click(object sender, RoutedEventArgs e)
+    {
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -50,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            QuickOption.RenderTransform = transform;
+
+            QuickOption.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+
+        await Task.Delay(250);
+
+        QuickOption.Visibility = Visibility.Hidden;
+        PerfViewer.Visibility = Visibility.Visible;
+
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            PerfViewer.RenderTransform = transform;
+
+            PerfViewer.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
             transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
         }
     }

@@ -153,6 +153,15 @@
   <data name="backup.short" xml:space="preserve">
     <value>Backup</value>
   </data>
+  <data name="bat.balanced" xml:space="preserve">
+    <value>Balanced mode</value>
+  </data>
+  <data name="bat.efficiency" xml:space="preserve">
+    <value>Efficiency mode</value>
+  </data>
+  <data name="bat.perf" xml:space="preserve">
+    <value>Performance mode</value>
+  </data>
   <data name="bcdfail" xml:space="preserve">
     <value>Del "IgnoreAllFailures" in BCD</value>
   </data>
