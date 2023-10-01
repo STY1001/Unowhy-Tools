@@ -75,12 +75,12 @@ public partial class TrayWindow : Window
         _timerStats.Start();
 
         _timerPower = new DispatcherTimer();
-        _timerPower.Interval = TimeSpan.FromSeconds(5);
+        _timerPower.Interval = TimeSpan.FromSeconds(1);
         _timerPower.Tick += async (sender, e) => await CheckPower();
         _timerPower.Start();
 
         _timerPriv = new DispatcherTimer();
-        _timerPriv.Interval = TimeSpan.FromSeconds(5);
+        _timerPriv.Interval = TimeSpan.FromSeconds(1);
         _timerPriv.Tick += async (sender, e) => await CheckPriv();
         _timerPriv.Start();
 
