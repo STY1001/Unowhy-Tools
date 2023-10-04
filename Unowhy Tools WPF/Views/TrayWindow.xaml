@@ -107,7 +107,7 @@
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0"
                                   x:Name="PerfViewer"
-                                  Visibility="Collapsed">
+                                  Visibility="Visible">
                                 <StackPanel Orientation="Vertical"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Stretch"
@@ -358,7 +358,7 @@
                             </Grid>
                             <Grid Grid.Column="0"
                                   x:Name="QuickOption"
-                                  Visibility="Visible">
+                                  Visibility="Collapsed">
                                 <StackPanel Orientation="Vertical"
                                             VerticalAlignment="Stretch"
                                             HorizontalAlignment="Stretch"
