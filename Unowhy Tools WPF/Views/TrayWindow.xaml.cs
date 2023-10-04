@@ -14,6 +14,7 @@ using System.Net.Http;
 using System.Xml.Linq;
 using System.Windows.Navigation;
 using System.Windows.Input;
+using System.Runtime.InteropServices;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -21,20 +22,23 @@ public partial class TrayWindow : Window
 {
     private System.Windows.Forms.NotifyIcon trayIcon = new System.Windows.Forms.NotifyIcon();
 
-    private bool CamOn;
-    private bool MicOn;
+    public string perf = "ded574b5-45a0-4f42-8737-46345c09c238";
+    public string balanced = "00000000-0000-0000-0000-000000000000";
+    public string efficiency = "961cc777-2547-4f9d-8174-7d86181b8a7a";
 
-    private RegistryKey _camerakey;
-    private RegistryKey _microkey;
-    private RegistryKey _powerkey;
+    public bool CamOn;
+    public bool MicOn;
 
-    private bool ToTray = true;
-    private bool IsPause = false;
+    public RegistryKey _camerakey;
+    public RegistryKey _microkey;
 
-    private DispatcherTimer _timerStats;
-    private DispatcherTimer _timerPower;
-    private DispatcherTimer _timerPriv;
-    private DispatcherTimer _timerTimeDate;
+    public bool ToTray = true;
+    public bool IsPause = false;
+
+    public DispatcherTimer _timerStats;
+    public DispatcherTimer _timerPower;
+    public DispatcherTimer _timerPriv;
+    public DispatcherTimer _timerTimeDate;
 
     public ImageSource editimg = UT.GetImgSource("customize.png");
     public string editpath = UT.GetLang("qleditclick");
@@ -59,13 +63,19 @@ public partial class TrayWindow : Window
     public string regpath;
     public string gppath;
 
-    private PerformanceCounter cpuCounter1;
-    private PerformanceCounter cpucapp1;
-    private PerformanceCounter cpucapp2;
-    private PerformanceCounter ramCounter1;
-    private PerformanceCounter ramCounter2;
-    private ulong totalram = new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory;
-    private DriveInfo driveInfos = new DriveInfo("C");
+    public PerformanceCounter cpuCounter1;
+    public PerformanceCounter cpucapp1;
+    public PerformanceCounter cpucapp2;
+    public PerformanceCounter ramCounter1;
+    public PerformanceCounter ramCounter2;
+    public ulong totalram = new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory;
+    public DriveInfo driveInfos = new DriveInfo("C");
+
+    [DllImport("powrprof.dll", EntryPoint = "PowerGetEffectiveOverlayScheme")]
+    private static extern uint PowerGetEffectiveOverlayScheme(out Guid EffectiveOverlayPolicyGuid);
+
+    [DllImportAttribute("powrprof.dll", EntryPoint = "PowerSetActiveOverlayScheme")]
+    private static extern uint PowerSetActiveOverlayScheme(Guid OverlaySchemeGuid);
 
     public async Task InitTimer()
     {
@@ -280,24 +290,20 @@ public partial class TrayWindow : Window
             var batringint = ((double)SystemInformation.PowerStatus.BatteryLifePercent) * 100;
             var isOnAC = (bool)(SystemInformation.PowerStatus.PowerLineStatus == System.Windows.Forms.PowerLineStatus.Online);
 
-            var powerscheme = "null";
+            PowerGetEffectiveOverlayScheme(out Guid modeguid);
+
+            var powerscheme = modeguid.ToString();
             ImageSource batstatussource = null;
 
             if (isOnAC)
             {
-                powerscheme = _powerkey.GetValue("ActiveOverlayAcPowerScheme").ToString();
                 batstatussource = UT.GetImgSource("charge.png");
             }
             else
             {
-                powerscheme = _powerkey.GetValue("ActiveOverlayDcPowerScheme").ToString();
                 batstatussource = null;
             }
-
-            string perf = "ded574b5-45a0-4f42-8737-46345c09c238";
-            string balanced = "00000000-0000-0000-0000-000000000000";
-            string efficiency = "961cc777-2547-4f9d-8174-7d86181b8a7a";
-
+            
             string batcapstring = "null";
             ImageSource batmodesource = null;
 
@@ -305,16 +311,19 @@ public partial class TrayWindow : Window
             {
                 batcapstring = UT.GetLang("bat.perf");
                 batmodesource = UT.GetImgSource("power.png");
+                pmodeperf.IsSelected = true;
             }
             else if (powerscheme.Contains(balanced))
             {
                 batcapstring = UT.GetLang("bat.balanced");
                 batmodesource = UT.GetImgSource("balanced.png");
+                pmodebalanced.IsSelected = true;
             }
             else if (powerscheme.Contains(efficiency))
             {
                 batcapstring = UT.GetLang("bat.efficiency");
                 batmodesource = UT.GetImgSource("efficiency.png");
+                pmodeefficiency.IsSelected = true;
             }
 
             ImageSource batimgsource = null;
@@ -348,7 +357,9 @@ public partial class TrayWindow : Window
             batper.Text = $"{batringint.ToString("###")} %";
             batcap.Text = batcapstring;
             batimg.Source = batimgsource;
+            qobatimg.Source = batimgsource;
             batmodeimg.Source = batmodesource;
+            qopmodeimg.Source = batmodesource;
             batstatusimg.Source = batstatussource;
         }
     }
@@ -557,7 +568,6 @@ public partial class TrayWindow : Window
 
         _camerakey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", true);
         _microkey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone", true);
-        _powerkey = Registry.LocalMachine.OpenSubKey("SYSTEM\\CurrentControlSet\\Control\\Power\\User\\PowerSchemes", true);
 
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         UTbtndesc.Text = utpath;
@@ -1441,6 +1451,29 @@ public partial class TrayWindow : Window
                 gplab = fileInfo.FileDescription;
                 labgpedit.Text = gplab;
             }
+        }
+    }
+
+    private async void pmodebox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+    {
+        if (QuickOption.Visibility == Visibility.Visible)
+        {
+            Guid newmode = new(balanced);
+
+            if (pmodeperf.IsSelected)
+            {
+                newmode = new(perf);
+            }
+            else if(pmodebalanced.IsSelected)
+            {
+                newmode = new(balanced);
+            }
+            else if(pmodeefficiency.IsSelected)
+            {
+                newmode = new(efficiency);
+            }
+
+            PowerSetActiveOverlayScheme(newmode);
         }
     }
 }

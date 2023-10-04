@@ -107,7 +107,7 @@
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0"
                                   x:Name="PerfViewer"
-                                  Visibility="Visible">
+                                  Visibility="Collapsed">
                                 <StackPanel Orientation="Vertical"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Stretch"
@@ -156,7 +156,7 @@
                                                        FontFamily="Segoe UI SemiBold"
                                                        x:Name="cpuper" />
                                             <TextBlock  Margin="10,0,0,0"
-                                                Text="CPU"
+                                                        Text="CPU"
                                                         Foreground="#b2b2b2"
                                                         FontSize="13"
                                                         FontFamily="Segoe UI Normal"
@@ -358,7 +358,7 @@
                             </Grid>
                             <Grid Grid.Column="0"
                                   x:Name="QuickOption"
-                                  Visibility="Collapsed">
+                                  Visibility="Visible">
                                 <StackPanel Orientation="Vertical"
                                             VerticalAlignment="Stretch"
                                             HorizontalAlignment="Stretch"
@@ -370,42 +370,146 @@
                                         </Style>
                                     </StackPanel.Resources>
                                     <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="32" />
-                                            <ColumnDefinition Width="5" />
                                             <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="10" />
-                                            <ColumnDefinition Width="auto" />
-                                            <ColumnDefinition Width="10" />
-                                            <ColumnDefinition Width="auto" />
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="../Resources/privacy.png"
-                                               Height="32" />
-                                        <TextBlock Foreground="#ffffff"
-                                                   Grid.Column="2"
-                                                   Text="Privacy"
-                                                   FontSize="18"
-                                                   FontFamily="Segoe UI"
-                                                   VerticalAlignment="Center" />
                                         <StackPanel Orientation="Horizontal"
-                                                    Grid.Column="4">
-                                            <Image Source="../Resources/camera.png"
+                                                    Grid.Column="0"
+                                                    Grid.Row="0"
+                                                    Grid.ColumnSpan="2">
+                                            <Image Source="../Resources/privacy.png"
                                                    Height="32" />
+                                            <TextBlock Foreground="#ffffff"
+                                                       Text="Privacy"
+                                                       FontSize="16"
+                                                       FontFamily="Segoe UI"
+                                                       VerticalAlignment="Center"
+                                                       Margin="5,0,0,0" />
+                                        </StackPanel>
+                                        <ui:NavigationSeparator Grid.Column="0"
+                                                                Grid.Row="1"
+                                                                Grid.RowSpan="4"
+                                                                HorizontalAlignment="Center" />
+                                        <Grid Grid.Column="1"
+                                              Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Grid.Column="0">
+                                                <Image Source="../Resources/camera.png"
+                                                       Height="32" />
+                                                <TextBlock Foreground="#ffffff"
+                                                           Text="Camera"
+                                                           FontSize="14"
+                                                           FontFamily="Segoe UI"
+                                                           VerticalAlignment="Center"
+                                                           Margin="5,0,0,0" />
+                                            </StackPanel>
                                             <ui:ToggleSwitch x:Name="camswitch"
                                                              Click="switch_Changed"
-                                                             Margin="5,0,0,0" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal"
-                                                    Grid.Column="6">
-                                            <Image Source="../Resources/micro.png"
-                                                   Height="32" />
+                                                             Margin="0,0,0,0"
+                                                             Grid.Column="1" />
+                                        </Grid>
+                                        <Grid Grid.Column="1"
+                                              Grid.Row="4">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Grid.Column="0">
+                                                <Image Source="../Resources/micro.png"
+                                                       Height="32" />
+                                                <TextBlock Foreground="#ffffff"
+                                                           Text="Micro"
+                                                           FontSize="14"
+                                                           FontFamily="Segoe UI"
+                                                           VerticalAlignment="Center"
+                                                           Margin="5,0,0,0" />
+                                            </StackPanel>
                                             <ui:ToggleSwitch x:Name="micswitch"
                                                              Click="switch_Changed"
-                                                             Margin="5,0,0,0" />
-                                        </StackPanel>
+                                                             Margin="0,0,0,0"
+                                                             Grid.Column="1" />
+                                        </Grid>
                                     </Grid>
-                                    <Grid Margin="0,240,0,0"/>
-                                    <ui:NavigationSeparator/>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="32" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal"
+                                                    Grid.Column="0"
+                                                    Grid.Row="0"
+                                                    Grid.ColumnSpan="2">
+                                            <Image Source="../Resources/bat100.png"
+                                                   Height="32"
+                                                   x:Name="qobatimg" />
+                                            <TextBlock Foreground="#ffffff"
+                                                       Text="Power"
+                                                       FontSize="16"
+                                                       FontFamily="Segoe UI"
+                                                       VerticalAlignment="Center"
+                                                       Margin="5,0,0,0" />
+                                        </StackPanel>
+                                        <ui:NavigationSeparator Grid.Column="0"
+                                                                Grid.Row="1"
+                                                                Grid.RowSpan="4"
+                                                                HorizontalAlignment="Center" />
+                                        <Grid Grid.Column="1"
+                                              Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Grid.Column="0">
+                                                <Image Source="../Resources/power.png"
+                                                       Height="32"
+                                                       x:Name="qopmodeimg" />
+                                                <TextBlock Foreground="#ffffff"
+                                                           Text="Power mode"
+                                                           FontSize="14"
+                                                           FontFamily="Segoe UI"
+                                                           VerticalAlignment="Center"
+                                                           Margin="5,0,0,0" />
+                                            </StackPanel>
+                                            <ComboBox Margin="0,0,0,0"
+                                                      Grid.Column="1"
+                                                      Width="150"
+                                                      x:Name="pmodebox"
+                                                      SelectionChanged="pmodebox_SelectionChanged">
+                                                <ComboBoxItem x:Name="pmodeperf">
+                                                    <TextBlock Text="Performance" />
+                                                </ComboBoxItem>
+                                                <ComboBoxItem x:Name="pmodebalanced">
+                                                    <TextBlock Text="Balanced" />
+                                                </ComboBoxItem>
+                                                <ComboBoxItem x:Name="pmodeefficiency">
+                                                    <TextBlock Text="Efficiency" />
+                                                </ComboBoxItem>
+                                            </ComboBox>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Margin="0,30,0,0" />
+                                    <ui:NavigationSeparator />
                                     <ui:CardAction HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Stretch"
                                                    Click="PV_Click">
