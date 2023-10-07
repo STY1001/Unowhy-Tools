@@ -194,7 +194,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void InstallButton_Click(object sender, RoutedEventArgs e)
     {
-        string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
+        string utemp = Path.GetTempPath() + "\\Unowhy Tools\\Temps";
         Color disabled = (Color)ColorConverter.ConvertFromString("#888888");
         updatebtntext.Foreground = new SolidColorBrush(disabled);
         UpdateBTN.IsEnabled = false;

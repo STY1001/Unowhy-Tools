@@ -74,7 +74,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
         debus.Text = "Downloading...";
-        string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
+        string utemp = Path.GetTempPath() + "\\Unowhy Tools\\Temps";
         var progress = new System.Progress<double>();
         var cancellationToken = new CancellationTokenSource();
         progress.ProgressChanged += (sender, value) =>

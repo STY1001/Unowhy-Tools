@@ -643,7 +643,7 @@ namespace Unowhy_Tools
                     if (CheckInternet())
                     {
                         await MainWindow.USSwB("Preparing UTS... (Downloading)");
-                        string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
+                        string utemp = Path.GetTempPath() + "\\Unowhy Tools\\Temps";
                         var progress = new System.Progress<double>();
                         var cancellationToken = new CancellationTokenSource();
                         progress.ProgressChanged += (sender, value) =>
@@ -729,7 +729,7 @@ namespace Unowhy_Tools
                         Directory.Delete(instdir, true);
                         await Task.Delay(100);
                         Directory.CreateDirectory(instdir);
-                        string utemp = Path.GetTempPath() + "Unowhy Tools\\Temps";
+                        string utemp = Path.GetTempPath() + "\\Unowhy Tools\\Temps";
                         var progress = new System.Progress<double>();
                         var cancellationToken = new CancellationTokenSource();
                         progress.ProgressChanged += (sender, value) =>
