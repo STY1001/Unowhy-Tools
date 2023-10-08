@@ -613,6 +613,11 @@ public partial class MainWindow : INavigationWindow
             SplashText.Text = "Hi !";
             await Task.Delay(1500);
 
+            string regver;
+            if (UT.version.isdeb()) regver = "Debug";
+            else regver = "Release";
+            await UT.RunMin("reg", $"add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayVersion\" /t REG_SZ /d \"{regver}\" /f");
+
             DoubleAnimation animsb = new DoubleAnimation();
             animsb.From = 0;
             animsb.To = 20;
