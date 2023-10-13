@@ -793,7 +793,7 @@
     <value>Paramètres de Windows Defender</value>
   </data>
   <data name="windefsettamper" xml:space="preserve">
-    <value>Pour désactiver Windows Defender, vous devez désactiver la protection antialtération. Unowhy Tools ouvrira les paramètres de Windows Defender pour vous, la protection contre les falsifications est le dernier interrupteur. Cliquez sur "OK" pour continuer</value>
+    <value>Pour désactiver Windows Defender, vous devez désactiver la protection contre les falsifications. Unowhy Tools ouvrira les paramètres de Windows Defender pour vous, la protection contre les falsifications est le dernier interrupteur. Cliquez sur "OK" pour continuer</value>
   </data>
   <data name="winre" xml:space="preserve">
     <value>Paramètres WinRE (reagentc)</value>
