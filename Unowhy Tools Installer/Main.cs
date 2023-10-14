@@ -61,7 +61,7 @@ namespace Unowhy_Tools_Installer
             }
         }
 
-        public static void Extract(string nameSpace, string outFile, string internalFilePath, string resourceName)
+        public static async Task Extract(string nameSpace, string outFile, string internalFilePath, string resourceName)
         {
             //nameSpace = Project
             //outDirectory = Out File
@@ -89,7 +89,7 @@ namespace Unowhy_Tools_Installer
             while (i == 0) { };
         }
 
-        public static void runmin(string file, string args)
+        public static async Task runmin(string file, string args)
         {
             Process p = new Process();
             p.StartInfo.FileName = file;
@@ -202,8 +202,6 @@ namespace Unowhy_Tools_Installer
             TaskbarManager.Instance.SetProgressValue(40, 100);
             statusbar.Value = 45;
             TaskbarManager.Instance.SetProgressValue(45, 100);
-            statusbar.Value = 50;
-            TaskbarManager.Instance.SetProgressValue(50, 100);
 
             status.Text = "Installing...";
             
@@ -221,30 +219,31 @@ namespace Unowhy_Tools_Installer
             p12.Start();
             p12.WaitForExit();
             
-            statusbar.Value = 55;
-            TaskbarManager.Instance.SetProgressValue(55, 100);
+            statusbar.Value = 50;
+            TaskbarManager.Instance.SetProgressValue(50, 100);
 
             ZipFile.ExtractToDirectory("C:\\Program Files (x86)\\Unowhy Tools\\install.zip", "C:\\Program Files (x86)\\Unowhy Tools");
 
 
-            statusbar.Value = 60;
-            TaskbarManager.Instance.SetProgressValue(60, 100);
+            statusbar.Value = 55;
+            TaskbarManager.Instance.SetProgressValue(55, 100);
 
             ZipFile.ExtractToDirectory("C:\\Program Files (x86)\\Unowhy Tools\\service.zip", "C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools Service");
 
+            await runmin("powershell", "Add-MpPreference -ExclusionPath 'C:\\Program Files (x86)\\Unowhy Tools'");
 
             statusbar.Value = 65;
             TaskbarManager.Instance.SetProgressValue(65, 100);
 
-            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"InstallLocation\" /t REG_SZ /d \"C:\\Program Files (x86)\\Unowhy Tools\\\\\" /f");
-            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayName\" /t REG_SZ /d \"Unowhy Tools\" /f");
-            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayIcon\" /t REG_SZ /d \"\\\"C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools.exe\\\"\" /f");
-            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"UninstallString\" /t REG_SZ /d \"\\\"C:\\Program Files (x86)\\Unowhy Tools\\uninstall.exe\\\"\" /f");
-            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayVersion\" /t REG_SZ /d \"Release\" /f");
-            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"Publisher\" /t REG_SZ /d \"STY1001\" /f");
-            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"URLInfoAbout\" /t REG_SZ /d \"https://github.com/STY1001/Unowhy-Tools/\" /f");
-            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"NoModify\" /t REG_DWORD /d \"1\" /f");
-            runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"NoRepair\" /t REG_DWORD /d \"1\" /f");
+            await runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"InstallLocation\" /t REG_SZ /d \"C:\\Program Files (x86)\\Unowhy Tools\\\\\" /f");
+            await runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayName\" /t REG_SZ /d \"Unowhy Tools\" /f");
+            await runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayIcon\" /t REG_SZ /d \"\\\"C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools.exe\\\"\" /f");
+            await runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"UninstallString\" /t REG_SZ /d \"\\\"C:\\Program Files (x86)\\Unowhy Tools\\uninstall.exe\\\"\" /f");
+            await runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayVersion\" /t REG_SZ /d \"Release\" /f");
+            await runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"Publisher\" /t REG_SZ /d \"STY Inc. (STY1001)\" /f");
+            await runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"URLInfoAbout\" /t REG_SZ /d \"https://github.com/STY1001/Unowhy-Tools/\" /f");
+            await runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"NoModify\" /t REG_DWORD /d \"1\" /f");
+            await runmin("reg", "add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"NoRepair\" /t REG_DWORD /d \"1\" /f");
 
             statusbar.Value = 70;
             TaskbarManager.Instance.SetProgressValue(70, 100);
