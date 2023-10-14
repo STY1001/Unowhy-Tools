@@ -613,11 +613,6 @@ public partial class MainWindow : INavigationWindow
             SplashText.Text = "Hi !";
             await Task.Delay(1500);
 
-            string regver;
-            if (UT.version.isdeb()) regver = "Debug";
-            else regver = "Release";
-            await UT.RunMin("reg", $"add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayVersion\" /t REG_SZ /d \"{regver}\" /f");
-
             DoubleAnimation animsb = new DoubleAnimation();
             animsb.From = 0;
             animsb.To = 20;
@@ -636,6 +631,20 @@ public partial class MainWindow : INavigationWindow
             transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
             transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
             transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
+
+            await USS("Loading... (Updating version in reg)");
+            string regver;
+            if (UT.version.isdeb()) regver = "Debug";
+            else regver = "Release";
+            await UT.RunMin("reg", $"add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayVersion\" /t REG_SZ /d \"{regver}\" /f");
+
+            await USS("Loading... (Checking WD Exclusion)");
+            string expath = await UT.RunReturn("powershell", "'Get-MpPreference | Select-Object ExclusionPath'");
+            if(!expath.Contains("C:\\Program Files (x86)\\Unowhy Tools"))
+            {
+                await USSwB("Loading... (Adding WD Exclusion)");
+                await UT.RunMin("powershell", "Add-MpPreference -ExclusionPath 'C:\\Program Files (x86)\\Unowhy Tools'");
+            }
 
             await USS("Loading... (Cleaning)");
             await Task.Delay(500);
