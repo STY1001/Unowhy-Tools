@@ -109,6 +109,14 @@ namespace Unowhy_Tools_Uninstaller
             p1.StartInfo.CreateNoWindow = true;
             p1.Start();
             p1.WaitForExit();
+            
+            Process p7 = new Process();
+            p7.StartInfo.FileName = "powershell";
+            p7.StartInfo.Arguments = "Remove-MpPreference -ExclusionPath 'C:\\Program Files (x86)\\Unowhy Tools'";
+            p7.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p7.StartInfo.CreateNoWindow = true;
+            p7.Start();
+            p7.WaitForExit();
 
             Process p3 = new Process();
             p3.StartInfo.FileName = "cmd.exe";
