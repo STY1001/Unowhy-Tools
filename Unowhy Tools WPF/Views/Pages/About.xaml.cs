@@ -573,11 +573,11 @@ public partial class About : INavigableView<DashboardViewModel>
     int eeldclick = 0;
     private async void LogoDesc_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
-        if(eeldclick < 10)
+        if(eeldclick < 5)
         {
             eeldclick++;
         }
-        if(eeldclick >= 10)
+        if(eeldclick >= 5)
         {
             LogoDesc.Text = "Unowhy Tools ne sera jamais finit tant que Pétasse sera là";
             LogoCredit.Text = "";
@@ -590,11 +590,11 @@ public partial class About : INavigableView<DashboardViewModel>
     int eelutvllick = 0;
     private async void UTVerLogo_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
-        if (eelutvllick < 10)
+        if (eelutvllick < 0)
         {
             eelutvllick++;
         }
-        if (eelutvllick >= 10)
+        if (eelutvllick >= 0)
         {
             UTVerLogo.Source = UT.GetImgSource("UTB.png");
             await Task.Delay(500);
