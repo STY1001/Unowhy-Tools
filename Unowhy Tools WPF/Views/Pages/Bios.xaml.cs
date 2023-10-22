@@ -50,29 +50,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
+        ExpAFU.IsExpanded = false;
+        ExpAMIDE.IsExpanded = false;
+
         await CheckBTN(false);
 
-        foreach (UIElement element in GridDump.Children)
-        {
-            element.Visibility = Visibility.Hidden;
-        }
-        foreach (UIElement element in GridFlash.Children)
-        {
-            element.Visibility = Visibility.Hidden;
-        }
-        foreach (UIElement element in GridSeparator.Children)
-        {
-            element.Visibility = Visibility.Hidden;
-        }
-        foreach (UIElement element in StackSMBIOS1.Children)
-        {
-            element.Visibility = Visibility.Hidden;
-        }
-        foreach (UIElement element in StackSMBIOS2.Children)
-        {
-            element.Visibility = Visibility.Hidden;
-        }
-        foreach (UIElement element in StackButton.Children)
+        foreach (UIElement element in RootGrid2.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
@@ -80,7 +63,8 @@ public partial class Bios : INavigableView<DashboardViewModel>
         await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
         UT.anim.BorderZoomOut(RootBorder);
 
-        foreach (UIElement element in GridDump.Children)
+
+        foreach (UIElement element in RootGrid2.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -106,139 +90,6 @@ public partial class Bios : INavigableView<DashboardViewModel>
             transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
 
             await Task.Delay(50);
-        }
-        foreach (UIElement element in GridFlash.Children)
-        {
-            element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 10,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-            await Task.Delay(50);
-        }
-        foreach (UIElement element in GridSeparator.Children)
-        {
-            element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 10,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-            await Task.Delay(50);
-        }
-        foreach (UIElement element in StackSMBIOS1.Children)
-        {
-            element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 10,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-            await Task.Delay(50);
-        }
-        foreach (UIElement element in StackSMBIOS2.Children)
-        {
-            element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 10,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-            await Task.Delay(50);
-        }
-        foreach (UIElement element in StackButton.Children)
-        {
-            element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 10,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
         }
     }
 
@@ -279,6 +130,17 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     public async Task DlRes(string resname)
     {
+        if (resname == "IFPT")
+        {
+            var progress = new System.Progress<double>();
+            var cancellationToken = new CancellationTokenSource();
+            string dl = UT.GetLang("wait.download");
+            progress.ProgressChanged += async (sender, value) =>
+            {
+                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
+            };
+            await UT.DlFilewithProgress("https://bit.ly/UTFPTW", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe", progress, cancellationToken.Token);
+        }
         if (resname == "AFU")
         {
             var progress = new System.Progress<double>();
@@ -328,7 +190,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         InitializeComponent();
     }
 
-    private void dumpexp_Click(object sender, RoutedEventArgs e)
+    private void ifptdumpexp_Click(object sender, RoutedEventArgs e)
     {
         using (var fb = new System.Windows.Forms.SaveFileDialog())
         {
@@ -340,12 +202,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             DialogResult result = fb.ShowDialog();
             if (result == DialogResult.OK)
             {
-                dumppath.Text = fb.FileName;
+                ifptdumppath.Text = fb.FileName;
             }
         }
     }
 
-    private void flashexp_Click(object sender, RoutedEventArgs e)
+    private void ifptflashexp_Click(object sender, RoutedEventArgs e)
     {
         using (var fb = new System.Windows.Forms.OpenFileDialog())
         {
@@ -356,14 +218,142 @@ public partial class Bios : INavigableView<DashboardViewModel>
             DialogResult result = fb.ShowDialog();
             if (result == DialogResult.OK)
             {
-                flashpath.Text = fb.FileName;
+                ifptflashpath.Text = fb.FileName;
             }
         }
     }
 
-    private async void dumpbtn_Click(object sender, RoutedEventArgs e)
+    private async void ifptdumpbtn_Click(object sender, RoutedEventArgs e)
     {
-        if (!(dumppath.Text == ""))
+        if (!(ifptdumppath.Text == ""))
+        {
+            if (UT.DialogQShow(UT.GetLang("utbdumpwarn"), "upload.png"))
+            {
+                if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                {
+                    UT.DialogIShow(UT.GetLang("needres"), "clouddl.png");
+                    if (UT.CheckInternet())
+                    {
+                        await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
+                        await DlRes("IFPT");
+                        await UT.waitstatus.close();
+                    }
+                    else
+                    {
+                        UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                    }
+                }
+                await Task.Delay(1000);
+                if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                {
+                    await UT.waitstatus.open(UT.GetLang("wait.dump"), "upload.png");
+                    string path = ifptdumppath.Text;
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
+                        p.StartInfo.Arguments = $"-bios -d \"{path}\"";
+                        p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        p.StartInfo.CreateNoWindow = true;
+                        p.Start();
+                        p.WaitForExit();
+                    });
+                    await UT.waitstatus.close();
+                    if (File.Exists(path))
+                    {
+                        UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                    }
+                    else
+                    {
+                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    }
+                }
+            }
+        }
+    }
+
+    private async void ifptflashbtn_Click(object sender, RoutedEventArgs e)
+    {
+        if (!(ifptflashpath.Text == ""))
+        {
+            if (UT.DialogQShow(UT.GetLang("utbflashwarn"), "download.png"))
+            {
+                if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                {
+                    UT.DialogIShow(UT.GetLang("needres"), "clouddl.png");
+                    if (UT.CheckInternet())
+                    {
+                        await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
+                        await DlRes("IFPT");
+                        await UT.waitstatus.close();
+                    }
+                    else
+                    {
+                        UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                    }
+                }
+                await Task.Delay(1000);
+                if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                {
+                    await UT.waitstatus.open(UT.GetLang("wait.flash"), "download.png");
+                    string path = ifptflashpath.Text;
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
+                        p.StartInfo.Arguments = $"-bios -f \"{path}\"";
+                        p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        p.StartInfo.CreateNoWindow = true;
+                        p.Start();
+                        p.WaitForExit();
+                    });
+                    await UT.waitstatus.close();
+
+                    UT.DialogIShow(UT.GetLang("rebootmsg"), "reboot.png");
+                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                }
+            }
+        }
+    }
+
+    private void afudumpexp_Click(object sender, RoutedEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.SaveFileDialog())
+        {
+            fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "");
+            fb.DefaultExt = "rom";
+            fb.Filter = "Unowhy Tools BIOS file (*.rom)|*.rom";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                afudumppath.Text = fb.FileName;
+            }
+        }
+    }
+
+    private void afuflashexp_Click(object sender, RoutedEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "rom";
+            fb.Filter = "Unowhy Tools BIOS file (*.rom)|*.rom";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                afuflashpath.Text = fb.FileName;
+            }
+        }
+    }
+
+    private async void afudumpbtn_Click(object sender, RoutedEventArgs e)
+    {
+        if (!(afudumppath.Text == ""))
         {
             if (UT.DialogQShow(UT.GetLang("utbdumpwarn"), "upload.png"))
             {
@@ -385,7 +375,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(UT.GetLang("wait.dump"), "upload.png");
-                    string path = dumppath.Text;
+                    string path = afudumppath.Text;
                     await Task.Run(() =>
                     {
                         Process p = new Process();
@@ -398,14 +388,22 @@ public partial class Bios : INavigableView<DashboardViewModel>
                         p.WaitForExit();
                     });
                     await UT.waitstatus.close();
+                    if (File.Exists(path))
+                    {
+                        UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                    }
+                    else
+                    {
+                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    }
                 }
             }
         }
     }
 
-    private async void flashbtn_Click(object sender, RoutedEventArgs e)
+    private async void afuflashbtn_Click(object sender, RoutedEventArgs e)
     {
-        if (!(flashpath.Text == ""))
+        if (!(afuflashpath.Text == ""))
         {
             if (UT.DialogQShow(UT.GetLang("utbflashwarn"), "download.png"))
             {
@@ -427,12 +425,19 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(UT.GetLang("wait.flash"), "download.png");
-                    string path = flashpath.Text;
+                    string path = afuflashpath.Text;
+                    string extarg = "";
+                    if (afuflashmain.IsChecked == true) extarg = extarg + " /P";
+                    if (afuflashnvram.IsChecked == true) extarg = extarg + " /N";
+                    if (afuflashreboot.IsChecked == true) extarg = extarg + " /REBOOT";
+                    if (afuflashsmbios.IsChecked == true) extarg = extarg + " /R";
+                    if (afuflashsettings.IsChecked == true) extarg = extarg + " /SP";
+
                     await Task.Run(() =>
                     {
                         Process p = new Process();
                         p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe";
-                        p.StartInfo.Arguments = $"\"{path}\" /P /N /REBOOT";
+                        p.StartInfo.Arguments = $"\"{path}\"{extarg}";
                         p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU";
                         p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                         p.StartInfo.CreateNoWindow = true;
@@ -445,7 +450,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         }
     }
 
-    private void ButtonExport_Click(object sender, RoutedEventArgs e)
+    private async void ButtonExport_Click(object sender, RoutedEventArgs e)
     {
         using (var fb = new System.Windows.Forms.SaveFileDialog())
         {
@@ -697,133 +702,302 @@ public partial class Bios : INavigableView<DashboardViewModel>
             }
 
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
-
-            await CheckBTN(true);
-
-            bool isOK = true;
-
-            if (!(mfbox.Text == ""))
-            {
-                if (mfbox.Text == mfbox.PlaceholderText)
-                {
-                    mfbox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-            if (!(mdbox.Text == ""))
-            {
-                if (mdbox.Text == mdbox.PlaceholderText)
-                {
-                    mdbox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-            if (!(skubox.Text == ""))
-            {
-                if (skubox.Text == skubox.PlaceholderText)
-                {
-                    skubox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-            if (!(snbox.Text == ""))
-            {
-                if (snbox.Text == snbox.PlaceholderText)
-                {
-                    snbox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-            if (!(biosvbox.Text == ""))
-            {
-                if (biosvbox.Text == biosvbox.PlaceholderText)
-                {
-                    biosvbox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-            if (!(mbmfbox.Text == ""))
-            {
-                if (mbmfbox.Text == mbmfbox.PlaceholderText)
-                {
-                    mbmfbox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-            if (!(mbmdbox.Text == ""))
-            {
-                if (mbmdbox.Text == mbmdbox.PlaceholderText)
-                {
-                    mbmdbox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-            if (!(mbvbox.Text == ""))
-            {
-                if (mbvbox.Text == mbvbox.PlaceholderText)
-                {
-                    mbvbox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-            if (!(biosmfbox.Text == ""))
-            {
-                if (biosmfbox.Text == biosmfbox.PlaceholderText)
-                {
-                    biosmfbox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-            if (!(biosdbox.Text == ""))
-            {
-                if (biosdbox.Text == biosdbox.Text)
-                {
-                    //biosdbox.Text = "";
-                }
-                else
-                {
-                    isOK = false;
-                }
-            }
-
             await UT.waitstatus.close();
 
-            if (isOK)
+            UT.DialogIShow(UT.GetLang("rebootmsg"), "reboot.png");
+            Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+        }
+    }
+
+    private async void ExpIFPT_Expanded(object sender, RoutedEventArgs e)
+    {
+        foreach (UIElement element in IFPTGridDump.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in IFPTGridFlash.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        foreach (UIElement element in IFPTGridDump.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
-            }
-            else
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
-            }
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in IFPTGridFlash.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+    }
+
+    private async void ExpAFU_Expanded(object sender, RoutedEventArgs e)
+    {
+        foreach (UIElement element in AFUGridDump.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in AFUGridFlash.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in AFUfaGrid1.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in AFUfaGrid2.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        foreach (UIElement element in AFUGridDump.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in AFUGridFlash.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in AFUfaGrid1.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in AFUfaGrid2.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+    }
+
+    private async void ExpAMIDE_Expanded(object sender, RoutedEventArgs e)
+    {
+        foreach (UIElement element in StackSMBIOS1.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in StackSMBIOS2.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in StackButton.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        foreach (UIElement element in StackSMBIOS1.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in StackSMBIOS2.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in StackButton.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
         }
     }
 }

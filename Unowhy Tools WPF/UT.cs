@@ -1113,6 +1113,12 @@ namespace Unowhy_Tools
                 Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
             }
 
+            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\AMI\\IFPT)");
+            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT"))
+            {
+                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT");
+            }
+
             await MainWindow.USS("Checking... (%temp%\\Unowhy Tools\\Logs\\UT_Logs.txt)");
             if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
             {
