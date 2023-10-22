@@ -66,32 +66,41 @@
                     <TextBlock x:Name="labsn"
                                Text="Enter the serial number of your PC: "
                                Grid.Column="0"
-                               Grid.Row="0" 
+                               Grid.Row="0"
                                Grid.ColumnSpan="3"
                                FontSize="13"
-                               Foreground="#ffffff"/>
+                               Foreground="#ffffff" />
 
                     <ui:TextBox x:Name="serial"
                                 Grid.Column="2"
                                 Grid.Row="2"
                                 VerticalAlignment="Stretch"
-                                HorizontalAlignment="Stretch"/>
+                                HorizontalAlignment="Stretch"
+                                KeyDown="serial_KeyDown" />
                     <ui:Button x:Name="getbtn"
-                               Click="Get_Click"
+                               Click="getbtn_Click"
                                Grid.Column="4"
                                Grid.Row="2"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch"
                                Content="Get"
-                               FontSize="16"/>
+                               FontSize="16" />
                 </Grid>
-                
-                <ui:DataGrid Grid.Row="2"
-                             MinHeight="0"
-                             MinWidth="600"
-                             HeadersVisibility="None"
-                             IsReadOnly="True"
-                             x:Name="Board" />
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="32" />
+                    </Grid.ColumnDefinitions>
+                    <ui:DataGrid MinHeight="0"
+                                 MinWidth="600"
+                                 HeadersVisibility="None"
+                                 IsReadOnly="True"
+                                 x:Name="Board" 
+                                 Grid.Column="0"/>
+                    <StackPanel Grid.Column="2"
+                                x:Name="StackClip" />
+                </Grid>
             </Grid>
         </Border>
     </Grid>

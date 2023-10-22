@@ -23,6 +23,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Security.Policy;
+using Wpf.Ui.Styles.Controls;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -209,7 +210,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
         Board.DataContext = dt;
     }*/
 
-    public async void Get_Click(object sender, RoutedEventArgs e)
+    public async Task Get()
     {
         if (UT.CheckInternet())
         {
@@ -233,6 +234,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
                 };
                 TranslateTransform transform = new TranslateTransform();
                 Board.RenderTransform = transform;
+                StackClip.Children.Clear();
                 transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
                 await Task.Delay(500);
 
@@ -271,6 +273,11 @@ public partial class Wifi : INavigableView<DashboardViewModel>
                 prerow.ProxyUrlAutomatic = "Proxy URL (Automatic)   ";
                 dataRows.Add(prerow);
 
+                Image PreClipImage = new Image();
+                PreClipImage.Source = UT.GetImgSource("clipboard.png");
+                PreClipImage.Visibility = Visibility.Hidden;
+                StackClip.Children.Add(PreClipImage);
+
                 foreach (JProperty property in mergedJson.Properties())
                 {
                     if (property.Name.StartsWith("conf/network/all/"))
@@ -282,39 +289,47 @@ public partial class Wifi : INavigableView<DashboardViewModel>
                         {
                             DataRow row = new DataRow();
 
-                            row.SSID = options["ssid"].ToString() + "   ";
-                            row.Password = options["password"].ToString() + "   ";
-                            row.SecurityType = options["securityType"].ToString() + "   ";
+                            row.SSID = (string)options["ssid"] + "   ";
+                            row.Password = (string)options["password"] + "   ";
+                            row.SecurityType = (string)options["securityType"] + "   ";
                             if (options["hidden"] != null)
                             {
-                                row.Hidden = options["hidden"].ToString() + "   ";
+                                row.Hidden = (string)options["hidden"] + "   ";
                             }
                             else
                             {
                                 row.Hidden = "Null" + "   ";
                             }
 
-                            row.ProxyType = proxy["type"].ToString() + "   ";
+                            row.ProxyType = proxy["type"] + "   ";
 
-                            if (proxy["type"].ToString() == "none")
+                            if ((string)proxy["type"] == "none")
                             {
 
                             }
-                            else if (proxy["type"].ToString() == "manual")
+                            else if ((string)proxy["type"] == "manual")
                             {
-                                row.ProxyAddressManual = proxy["proxyHostName"].ToString() + "   ";
-                                row.ProxyPortManual = proxy["proxyPort"].ToString() + "   ";
+                                row.ProxyAddressManual = (string)proxy["proxyHostName"] + "   ";
+                                row.ProxyPortManual = (string)proxy["proxyPort"] + "   ";
                             }
-                            else if (proxy["type"].ToString() == "automatic")
+                            else if ((string)proxy["type"] == "automatic")
                             {
-                                row.ProxyUrlAutomatic = proxy["autoProxyUrl"].ToString() + "   ";
+                                row.ProxyUrlAutomatic = (string)proxy["autoProxyUrl"] + "   ";
                             }
 
                             dataRows.Add(row);
+
+                            Image ClipImage = new Image();
+                            ClipImage.Source = UT.GetImgSource("clipboard.png");
+                            ClipImage.MouseDown += async (sender, e) =>
+                            {
+                                await ClipMenuOpen(sender, e, (string)options["ssid"], (string)options["password"], (string)proxy["type"], (string)proxy["proxyHostName"], (string)proxy["proxyPort"], (string)proxy["autoProxyUrl"]);
+                            };
+
+                            StackClip.Children.Add(ClipImage);
                         }
                     }
                 }
-
                 Board.ItemsSource = dataRows;
                 await UT.waitstatus.close();
 
@@ -328,6 +343,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
                 };
                 transform = new TranslateTransform();
                 Board.RenderTransform = transform;
+                StackClip.RenderTransform = transform;
                 transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
             }
             else
@@ -352,5 +368,97 @@ public partial class Wifi : INavigableView<DashboardViewModel>
         public string ProxyAddressManual { get; set; }
         public string ProxyPortManual { get; set; }
         public string ProxyUrlAutomatic { get; set; }
+    }
+
+    public async Task ClipMenuOpen(object sender, RoutedEventArgs e, string ssid,  string password, string proxytype, string proxyip, string proxyport, string proxyurl)
+    {
+        await Task.Delay(100);
+        System.Windows.Controls.ContextMenu ClipMenu = new System.Windows.Controls.ContextMenu();
+        MenuItem SSIDItem = new MenuItem();
+        SSIDItem.Header = "Copy SSID";
+        SSIDItem.Click += (sender, e) =>
+        {
+            System.Windows.Forms.Clipboard.SetText(ssid);
+        };
+        MenuItem PasswordItem = new MenuItem();
+        PasswordItem.Header = "Copy Password";
+        PasswordItem.Click += (sender, e) =>
+        {
+            System.Windows.Forms.Clipboard.SetText(password);
+        };
+
+        ClipMenu.Items.Add(SSIDItem);
+        ClipMenu.Items.Add(PasswordItem);
+
+        if (proxytype == "none")
+        {
+            MenuItem ProxyIPItem = new MenuItem();
+            ProxyIPItem.Header = "Copy Proxy IP";
+            ProxyIPItem.IsEnabled = false;
+            ClipMenu.Items.Add(ProxyIPItem);
+            MenuItem ProxyPortItem = new MenuItem();
+            ProxyPortItem.Header = "Copy Proxy Port";
+            ProxyPortItem.IsEnabled = false;
+            ClipMenu.Items.Add(ProxyPortItem);
+            MenuItem ProxyURLItem = new MenuItem();
+            ProxyURLItem.Header = "Copy Proxy URL";
+            ProxyURLItem.IsEnabled = false;
+            ClipMenu.Items.Add(ProxyURLItem);
+        }
+        else if (proxytype == "manual")
+        {
+            MenuItem ProxyIPItem = new MenuItem();
+            ProxyIPItem.Header = "Copy Proxy IP";
+            ProxyIPItem.Click += (sender, e) =>
+            {
+                System.Windows.Forms.Clipboard.SetText(proxyip);
+            };
+            ClipMenu.Items.Add(ProxyIPItem);
+            MenuItem ProxyPortItem = new MenuItem();
+            ProxyPortItem.Header = "Copy Proxy Port";
+            ProxyPortItem.Click += (sender, e) =>
+            {
+                System.Windows.Forms.Clipboard.SetText(proxyport);
+            };
+            ClipMenu.Items.Add(ProxyPortItem);
+            MenuItem ProxyURLItem = new MenuItem();
+            ProxyURLItem.Header = "Copy Proxy URL";
+            ProxyURLItem.IsEnabled = false;
+            ClipMenu.Items.Add(ProxyURLItem);
+        }
+        else if (proxytype == "automatic")
+        {
+            MenuItem ProxyIPItem = new MenuItem();
+            ProxyIPItem.Header = "Copy Proxy IP";
+            ProxyIPItem.IsEnabled = false;
+            ClipMenu.Items.Add(ProxyIPItem);
+            MenuItem ProxyPortItem = new MenuItem();
+            ProxyPortItem.Header = "Copy Proxy Port";
+            ProxyPortItem.IsEnabled = false;
+            ClipMenu.Items.Add(ProxyPortItem);
+            MenuItem ProxyURLItem = new MenuItem();
+            ProxyURLItem.Header = "Copy Proxy URL";
+            ProxyURLItem.Click += (sender, e) =>
+            {
+                System.Windows.Forms.Clipboard.SetText(proxyurl);
+            };
+            ClipMenu.Items.Add(ProxyURLItem);
+        }
+
+        ClipMenu.PlacementTarget = (Image)sender;
+        ClipMenu.IsOpen = true;
+    }
+
+    private async void serial_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+    {
+        if(e.Key == System.Windows.Input.Key.Enter)
+        {
+            await Get();
+        }
+    }
+
+    private async void getbtn_Click(object sender, RoutedEventArgs e)
+    {
+        await Get();
     }
 }
