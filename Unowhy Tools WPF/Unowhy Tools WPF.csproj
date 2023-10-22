@@ -68,6 +68,7 @@
     <None Remove="Resources\en.png" />
     <None Remove="Resources\enable.png" />
     <None Remove="Resources\explorer.png" />
+    <None Remove="Resources\fgamer768.png" />
     <None Remove="Resources\fluent-ui-microsoft.png" />
     <None Remove="Resources\folder.png" />
     <None Remove="Resources\fp.png" />
@@ -75,6 +76,7 @@
     <None Remove="Resources\g9.jpg" />
     <None Remove="Resources\github.png" />
     <None Remove="Resources\guide.png" />
+    <None Remove="Resources\heart.png" />
     <None Remove="Resources\hi.png" />
     <None Remove="Resources\home.png" />
     <None Remove="Resources\ic.png" />
@@ -82,10 +84,12 @@
     <None Remove="Resources\key.png" />
     <None Remove="Resources\language.png" />
     <None Remove="Resources\laptop.png" />
+    <None Remove="Resources\link.png" />
     <None Remove="Resources\manufacturer.png" />
     <None Remove="Resources\micro.png" />
     <None Remove="Resources\monitor.png" />
     <None Remove="Resources\next.png" />
+    <None Remove="Resources\nico.png" />
     <None Remove="Resources\no.png" />
     <None Remove="Resources\noupdate.png" />
     <None Remove="Resources\nowifi.png" />
@@ -204,6 +208,7 @@
     <Resource Include="Resources\en.png" />
     <Resource Include="Resources\enable.png" />
     <Resource Include="Resources\explorer.png" />
+    <Resource Include="Resources\fgamer768.png" />
     <Resource Include="Resources\fluent-ui-microsoft.png" />
     <Resource Include="Resources\folder.png" />
     <Resource Include="Resources\fp.png" />
@@ -211,6 +216,7 @@
     <Resource Include="Resources\g9.jpg" />
     <Resource Include="Resources\github.png" />
     <Resource Include="Resources\guide.png" />
+    <Resource Include="Resources\heart.png" />
     <Resource Include="Resources\hi.png" />
     <Resource Include="Resources\home.png" />
     <Resource Include="Resources\ic.png" />
@@ -218,10 +224,12 @@
     <Resource Include="Resources\key.png" />
     <Resource Include="Resources\language.png" />
     <Resource Include="Resources\laptop.png" />
+    <Resource Include="Resources\link.png" />
     <Resource Include="Resources\manufacturer.png" />
     <Resource Include="Resources\micro.png" />
     <Resource Include="Resources\monitor.png" />
     <Resource Include="Resources\next.png" />
+    <Resource Include="Resources\nico.png" />
     <Resource Include="Resources\no.png" />
     <Resource Include="Resources\noupdate.png" />
     <Resource Include="Resources\nowifi.png" />
