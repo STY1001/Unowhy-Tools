@@ -270,11 +270,11 @@ public partial class About : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, System.Windows.RoutedEventArgs e)
     {
-        await UT.DeployDABack();
-
         ExpInfo.IsExpanded = false;
         ExpMoreInfo.IsExpanded = false;
         ExpContrib.IsExpanded = false;
+
+        await UT.DeployDABack();
 
         DoubleAnimation animis = new DoubleAnimation();
         animis.From = 0;
@@ -455,15 +455,15 @@ public partial class About : INavigableView<DashboardViewModel>
 
     private async void ExpContrib_Expanded(object sender, RoutedEventArgs e)
     {
-        /*foreach (UIElement element in ExpStackContrib.Children)
+        foreach (UIElement element in ExpStackContrib.Children)
         {
             element.Visibility = Visibility.Hidden;
-        }*/
+        }
 
         ExpMoreInfo.IsExpanded = false;
         ExpInfo.IsExpanded = false;
 
-        /*foreach (UIElement element in ExpStackContrib.Children)
+        foreach (UIElement element in ExpStackContrib.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -476,7 +476,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = 150,
+                From = 10,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -486,23 +486,23 @@ public partial class About : INavigableView<DashboardViewModel>
             element.RenderTransform = transform;
 
             element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
 
             await Task.Delay(50);
-        }*/
+        }
     }
 
     private async void ExpMoreInfo_Expanded(object sender, RoutedEventArgs e)
     {
-        /*foreach (UIElement element in ExpStackMoreInfo.Children)
+        foreach (UIElement element in ExpStackMoreInfo.Children)
         {
             element.Visibility = Visibility.Hidden;
-        }*/
+        }
 
         ExpContrib.IsExpanded = false;
         ExpInfo.IsExpanded = false;
 
-        /*foreach (UIElement element in ExpStackMoreInfo.Children)
+        foreach (UIElement element in ExpStackMoreInfo.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -515,7 +515,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = 150,
+                From = 10,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -525,23 +525,23 @@ public partial class About : INavigableView<DashboardViewModel>
             element.RenderTransform = transform;
 
             element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
 
             await Task.Delay(50);
-        }*/
+        }
     }
 
     private async void ExpInfo_Expanded(object sender, RoutedEventArgs e)
     {
-        /*foreach (UIElement element in ExpStackInfo.Children)
+        foreach (UIElement element in ExpStackInfo.Children)
         {
             element.Visibility = Visibility.Hidden;
-        }*/
+        }
 
         ExpMoreInfo.IsExpanded = false;
         ExpContrib.IsExpanded = false;
 
-        /*foreach (UIElement element in ExpStackInfo.Children)
+        foreach (UIElement element in ExpStackInfo.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -554,7 +554,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = 150,
+                From = 10,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -564,10 +564,176 @@ public partial class About : INavigableView<DashboardViewModel>
             element.RenderTransform = transform;
 
             element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
 
             await Task.Delay(50);
-        }*/
+        }
+    }
+
+    int eeldclick = 0;
+    private async void LogoDesc_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        if(eeldclick < 10)
+        {
+            eeldclick++;
+        }
+        if(eeldclick >= 10)
+        {
+            LogoDesc.Text = "Unowhy Tools ne sera jamais finit tant que Pétasse sera là";
+            LogoCredit.Text = "";
+            await Task.Delay(5000);
+            LogoDesc.Text = "A tool for Y13 computers !";
+            LogoCredit.Text = "by STY1001";
+        }
+    }
+
+    int eelutvllick = 0;
+    private async void UTVerLogo_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        if (eelutvllick < 10)
+        {
+            eelutvllick++;
+        }
+        if (eelutvllick >= 10)
+        {
+            UTVerLogo.Source = UT.GetImgSource("UTB.png");
+            await Task.Delay(500);
+            UTVerLogo.Source = UT.GetImgSource("UTS.png");
+            await Task.Delay(500);
+            UTVerLogo.Source = UT.GetImgSource("UTU.png");
+            await Task.Delay(500);
+            UTVerLogo.Source = UT.GetImgSource("UTW.png");
+            await Task.Delay(500);
+            UTVerLogo.Source = UT.GetImgSource("UT.png");
+        }
+    }
+
+    int eecstyleft = 0;
+    private async void ContribSTY_SuperPote(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        if(eecstyleft < 10)
+        {
+            eecstyleft++;
+        }
+        if(eecstyleft >= 10)
+        {
+            ContribSuperPote.Visibility = Visibility.Visible;
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 50,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                ContribSuperPote.RenderTransform = transform;
+
+                ContribSuperPote.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            }
+
+            await Task.Delay(5000);
+
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 50,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                ContribSuperPote.RenderTransform = transform;
+
+                ContribSuperPote.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            }
+            await Task.Delay(500);
+            ContribSuperPote.Visibility = Visibility.Hidden;
+        }
+    }
+
+    int eecstyright = 0;
+    private async void ContribSTY_Bibou(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        if (eecstyright < 10)
+        {
+            eecstyright++;
+        }
+        if (eecstyright >= 10)
+        {
+            ContribBibou.Visibility = Visibility.Visible;
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 50,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                ContribBibou.RenderTransform = transform;
+
+                ContribBibou.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            }
+
+            await Task.Delay(5000);
+
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 50,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                ContribBibou.RenderTransform = transform;
+
+                ContribBibou.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            }
+            await Task.Delay(500);
+            ContribBibou.Visibility = Visibility.Hidden;
+        }
     }
 }
 
