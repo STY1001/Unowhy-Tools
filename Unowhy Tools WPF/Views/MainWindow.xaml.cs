@@ -928,48 +928,48 @@ public partial class MainWindow : INavigationWindow
 
             if (konamiDebugKeyIndex == 3)
             {
-                await ViewKonamiDebugKey(konamiup1);
+                await ViewKonamiDebugKey(konamiup1, "up");
             }
             if (konamiDebugKeyIndex == 4)
             {
-                await ViewKonamiDebugKey(konamiup2);
+                await ViewKonamiDebugKey(konamiup2, "up");
             }
             if (konamiDebugKeyIndex == 5)
             {
-                await ViewKonamiDebugKey(konamidown1);
+                await ViewKonamiDebugKey(konamidown1, "down");
             }
             if (konamiDebugKeyIndex == 6)
             {
-                await ViewKonamiDebugKey(konamidown2);
+                await ViewKonamiDebugKey(konamidown2, "down");
             }
             if (konamiDebugKeyIndex == 7)
             {
-                await ViewKonamiDebugKey(konamileft1);
+                await ViewKonamiDebugKey(konamileft1, "left");
             }
             if (konamiDebugKeyIndex == 8)
             {
-                await ViewKonamiDebugKey(konamiright1);
+                await ViewKonamiDebugKey(konamiright1, "right");
             }
             if (konamiDebugKeyIndex == 9)
             {
-                await ViewKonamiDebugKey(konamileft2);
+                await ViewKonamiDebugKey(konamileft2, "left");
             }
             if (konamiDebugKeyIndex == 10)
             {
-                await ViewKonamiDebugKey(konamiright2);
+                await ViewKonamiDebugKey(konamiright2, "right");
             }
             if (konamiDebugKeyIndex == 11)
             {
-                await ViewKonamiDebugKey(konamia);
+                await ViewKonamiDebugKey(konamia, "none");
             }
             if (konamiDebugKeyIndex == 12)
             {
-                await ViewKonamiDebugKey(konamib);
+                await ViewKonamiDebugKey(konamib, "none");
             }
 
             if (konamiDebugKeyIndex == konamiDebugKey.Count)
             {
-                await ViewKonamiDebugKey(konamienter);
+                await ViewKonamiDebugKey(konamienter, "none");
 
                 await KonamiOpenDebug();
 
@@ -986,29 +986,242 @@ public partial class MainWindow : INavigationWindow
     private async Task ViewKonamiDebug()
     {
         konamiText2.Visibility = Visibility.Hidden;
-        foreach(UIElement element in konamiKeyGrid.Children)
+        foreach (UIElement element in konamiKeyGrid.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
         RootKonamiDebug.Visibility = Visibility.Visible;
+        DoubleAnimation opacityAnimation = new DoubleAnimation
+        {
+            From = 0,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.5),
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+        };
+        RootKonamiDebug.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
         RootKonamiDebug.Focus();
     }
 
-    private async Task ViewKonamiDebugKey(UIElement element)
+    private async Task ViewKonamiDebugKey(UIElement element, string direction)
     {
-        element.Visibility = Visibility.Visible;
+        if (direction == "none")
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+        if (direction == "up")
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+        if (direction == "down")
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+        if (direction == "right")
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+        if (direction == "left")
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+
         await Task.Delay(100);
         RootKonamiDebug.Focus();
     }
 
     private async Task RemoveKonamiDebug()
     {
+        DoubleAnimation opacityAnimation = new DoubleAnimation
+        {
+            From = 1,
+            To = 0,
+            Duration = TimeSpan.FromSeconds(0.5),
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+        };
+        RootKonamiDebug.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+        await Task.Delay(500);
         RootKonamiDebug.Visibility = Visibility.Collapsed;
     }
 
     private async Task KonamiOpenDebug()
     {
+        foreach (UIElement element in konamiKeyGrid.Children)
+        {
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 15,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        await Task.Delay(100);
+
+        foreach (UIElement element in konamiKeyGrid.Children)
+        {
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 15,
+                To = -15,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+            await Task.Delay(50);
+        }
+
+        await Task.Delay(100);
+
+        foreach (UIElement element in konamiKeyGrid.Children)
+        {
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -15,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        await Task.Delay(500);
+
         konamiText2.Visibility = Visibility.Visible;
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+            TranslateTransform transform = new TranslateTransform();
+            konamiText2.RenderTransform = transform;
+            konamiText2.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+
         await Task.Delay(1000);
         await RemoveKonamiDebug();
         UT.NavigateTo(typeof(DebugPage));

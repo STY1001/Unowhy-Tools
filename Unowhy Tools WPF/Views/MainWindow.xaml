@@ -252,7 +252,7 @@
                     <RowDefinition Height="64" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock Text="Unowhy Tools combo key triggered &#x0a;Press ESC to return, continue the combo to enter to the Debug Menu"
+                <TextBlock Text="Combo key triggered &#x0a;Press ESC to return, continue the combo to enter to the Debug Menu"
                            Grid.Row="0"
                            Foreground="#ffffff"
                            FontSize="18"
