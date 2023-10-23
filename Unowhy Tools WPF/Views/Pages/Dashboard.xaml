@@ -118,7 +118,8 @@
                                     <Image Grid.Row="0"
                                            x:Name="LogoImg"
                                            RenderOptions.BitmapScalingMode="HighQuality"
-                                           Source="pack://application:,,,/Resources/UTLogoWhite3.0.png" />
+                                           Source="pack://application:,,,/Resources/UTLogoWhite3.0.png"
+                                           MouseDown="LogoImg_MouseDown"/>
                                 </Grid>
                                 <Grid Grid.Column="1"
                                       Grid.Row="2">

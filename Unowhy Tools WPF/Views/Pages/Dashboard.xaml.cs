@@ -627,4 +627,91 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         await Task.Delay(500);
         utagrid.Visibility = Visibility.Collapsed;
     }
+
+    private async void LogoImg_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        {
+            DoubleAnimation animsb = new DoubleAnimation();
+            animsb.From = 20;
+            animsb.To = 0;
+            animsb.Duration = TimeSpan.FromMilliseconds(500);
+            animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
+            DoubleAnimation animsb2 = new DoubleAnimation();
+            animsb2.From = -20;
+            animsb2.To = 0;
+            animsb2.Duration = TimeSpan.FromMilliseconds(500);
+            animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
+            TranslateTransform transsb = new TranslateTransform();
+            TranslateTransform transsb2 = new TranslateTransform();
+            SB1.RenderTransform = transsb;
+            SB2.RenderTransform = transsb2;
+            transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
+            transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
+        }
+        await Task.Delay(500);
+        {
+            DoubleAnimation animsb = new DoubleAnimation();
+            animsb.From = 0;
+            animsb.To = 20;
+            animsb.Duration = TimeSpan.FromMilliseconds(1800);
+            animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+            DoubleAnimation animsb2 = new DoubleAnimation();
+            animsb2.From = 0;
+            animsb2.To = -20;
+            animsb2.Duration = TimeSpan.FromMilliseconds(1800);
+            animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+            TranslateTransform transsb = new TranslateTransform();
+            TranslateTransform transsb2 = new TranslateTransform();
+            SB1.RenderTransform = transsb;
+            SB2.RenderTransform = transsb2;
+            transsb.BeginAnimation(TranslateTransform.YProperty, animsb);
+            transsb.BeginAnimation(TranslateTransform.XProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.YProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.XProperty, animsb);
+        }
+        await Task.Delay(1800);
+        {
+            DoubleAnimation animsb = new DoubleAnimation();
+            animsb.From = 20;
+            animsb.To = 0;
+            animsb.Duration = TimeSpan.FromMilliseconds(500);
+            animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
+            DoubleAnimation animsb2 = new DoubleAnimation();
+            animsb2.From = -20;
+            animsb2.To = 0;
+            animsb2.Duration = TimeSpan.FromMilliseconds(500);
+            animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
+            TranslateTransform transsb = new TranslateTransform();
+            TranslateTransform transsb2 = new TranslateTransform();
+            SB1.RenderTransform = transsb;
+            SB2.RenderTransform = transsb2;
+            transsb.BeginAnimation(TranslateTransform.YProperty, animsb);
+            transsb.BeginAnimation(TranslateTransform.XProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.YProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.XProperty, animsb);
+        }
+        await Task.Delay(500);
+        {
+            DoubleAnimation animsb = new DoubleAnimation();
+            animsb.From = 0;
+            animsb.To = 20;
+            animsb.Duration = TimeSpan.FromMilliseconds(1800);
+            animsb.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+            DoubleAnimation animsb2 = new DoubleAnimation();
+            animsb2.From = 0;
+            animsb2.To = -20;
+            animsb2.Duration = TimeSpan.FromMilliseconds(1800);
+            animsb2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+            TranslateTransform transsb = new TranslateTransform();
+            TranslateTransform transsb2 = new TranslateTransform();
+            SB1.RenderTransform = transsb;
+            SB2.RenderTransform = transsb2;
+            transsb.BeginAnimation(TranslateTransform.XProperty, animsb);
+            transsb.BeginAnimation(TranslateTransform.YProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.XProperty, animsb2);
+            transsb2.BeginAnimation(TranslateTransform.YProperty, animsb);
+        }
+    }
 }
