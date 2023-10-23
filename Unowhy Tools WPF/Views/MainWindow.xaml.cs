@@ -1197,8 +1197,6 @@ public partial class MainWindow : INavigationWindow
             transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
         }
 
-        await Task.Delay(500);
-
         konamiText2.Visibility = Visibility.Visible;
         {
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -1211,7 +1209,7 @@ public partial class MainWindow : INavigationWindow
 
             DoubleAnimation translateAnimation = new DoubleAnimation
             {
-                From = 50,
+                From = -15,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
@@ -1219,7 +1217,7 @@ public partial class MainWindow : INavigationWindow
             TranslateTransform transform = new TranslateTransform();
             konamiText2.RenderTransform = transform;
             konamiText2.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
         }
 
         await Task.Delay(1000);
