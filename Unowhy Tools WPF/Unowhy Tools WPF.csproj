@@ -26,6 +26,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\a.png" />
     <None Remove="Resources\about.png" />
     <None Remove="Resources\adduser.png" />
     <None Remove="Resources\admin.png" />
@@ -33,6 +34,7 @@
     <None Remove="Resources\ahhj93.jpg" />
     <None Remove="Resources\azgard.jpg" />
     <None Remove="Resources\azure.png" />
+    <None Remove="Resources\b.png" />
     <None Remove="Resources\back.png" />
     <None Remove="Resources\balanced.png" />
     <None Remove="Resources\bat0.png" />
@@ -61,6 +63,7 @@
     <None Remove="Resources\disable.png" />
     <None Remove="Resources\discord.png" />
     <None Remove="Resources\dism.png" />
+    <None Remove="Resources\down.png" />
     <None Remove="Resources\download.png" />
     <None Remove="Resources\drivers.png" />
     <None Remove="Resources\eco.png" />
@@ -68,6 +71,7 @@
     <None Remove="Resources\efficiency.png" />
     <None Remove="Resources\en.png" />
     <None Remove="Resources\enable.png" />
+    <None Remove="Resources\enter.png" />
     <None Remove="Resources\explorer.png" />
     <None Remove="Resources\fgamer768.png" />
     <None Remove="Resources\fluent-ui-microsoft.png" />
@@ -85,6 +89,7 @@
     <None Remove="Resources\key.png" />
     <None Remove="Resources\language.png" />
     <None Remove="Resources\laptop.png" />
+    <None Remove="Resources\left.png" />
     <None Remove="Resources\link.png" />
     <None Remove="Resources\manufacturer.png" />
     <None Remove="Resources\micro.png" />
@@ -108,6 +113,7 @@
     <None Remove="Resources\recovery.png" />
     <None Remove="Resources\registry.png" />
     <None Remove="Resources\repair.png" />
+    <None Remove="Resources\right.png" />
     <None Remove="Resources\script.png" />
     <None Remove="Resources\service.png" />
     <None Remove="Resources\settings.png" />
@@ -120,6 +126,7 @@
     <None Remove="Resources\taskmgr.png" />
     <None Remove="Resources\trayicon.png" />
     <None Remove="Resources\uninstall.png" />
+    <None Remove="Resources\up.png" />
     <None Remove="Resources\update.png" />
     <None Remove="Resources\upload.png" />
     <None Remove="Resources\user.png" />
@@ -167,6 +174,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\a.png" />
     <Resource Include="Resources\about.png" />
     <Resource Include="Resources\adduser.png" />
     <Resource Include="Resources\admin.png" />
@@ -174,6 +182,7 @@
     <Resource Include="Resources\ahhj93.jpg" />
     <Resource Include="Resources\azgard.jpg" />
     <Resource Include="Resources\azure.png" />
+    <Resource Include="Resources\b.png" />
     <Resource Include="Resources\back.png" />
     <Resource Include="Resources\balanced.png" />
     <Resource Include="Resources\bat0.png" />
@@ -202,6 +211,7 @@
     <Resource Include="Resources\disable.png" />
     <Resource Include="Resources\discord.png" />
     <Resource Include="Resources\dism.png" />
+    <Resource Include="Resources\down.png" />
     <Resource Include="Resources\download.png" />
     <Resource Include="Resources\drivers.png" />
     <Resource Include="Resources\eco.png" />
@@ -209,6 +219,7 @@
     <Resource Include="Resources\efficiency.png" />
     <Resource Include="Resources\en.png" />
     <Resource Include="Resources\enable.png" />
+    <Resource Include="Resources\enter.png" />
     <Resource Include="Resources\explorer.png" />
     <Resource Include="Resources\fgamer768.png" />
     <Resource Include="Resources\fluent-ui-microsoft.png" />
@@ -226,6 +237,7 @@
     <Resource Include="Resources\key.png" />
     <Resource Include="Resources\language.png" />
     <Resource Include="Resources\laptop.png" />
+    <Resource Include="Resources\left.png" />
     <Resource Include="Resources\link.png" />
     <Resource Include="Resources\manufacturer.png" />
     <Resource Include="Resources\micro.png" />
@@ -249,6 +261,7 @@
     <Resource Include="Resources\recovery.png" />
     <Resource Include="Resources\registry.png" />
     <Resource Include="Resources\repair.png" />
+    <Resource Include="Resources\right.png" />
     <Resource Include="Resources\script.png" />
     <Resource Include="Resources\service.png" />
     <Resource Include="Resources\settings.png" />
@@ -261,6 +274,7 @@
     <Resource Include="Resources\taskmgr.png" />
     <Resource Include="Resources\trayicon.png" />
     <Resource Include="Resources\uninstall.png" />
+    <Resource Include="Resources\up.png" />
     <Resource Include="Resources\update.png" />
     <Resource Include="Resources\upload.png" />
     <Resource Include="Resources\user.png" />

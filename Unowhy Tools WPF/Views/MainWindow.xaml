@@ -67,7 +67,7 @@
                                        ToolTip="Back"
                                        Image="pack://application:,,,/Resources/back.png"
                                        Click="GoBack"
-                                       Visibility="Collapsed"/>
+                                       Visibility="Collapsed" />
                     <ui:NavigationSeparator />
                     <ui:NavigationItem x:Name="hsqm"
                                        Content="Hisqool Manager"
@@ -113,7 +113,7 @@
                                        PageTag="debug"
                                        PageType="{x:Type pages:DebugPage}"
                                        Click="NavClick" />
-                    <ui:NavigationSeparator Visibility="Collapsed"/>
+                    <ui:NavigationSeparator Visibility="Collapsed" />
                     <ui:NavigationItem x:Name="pcname"
                                        Visibility="Collapsed"
                                        Height="0"
@@ -189,7 +189,7 @@
                                        Height="0"
                                        Content="Restore from cloud"
                                        PageType="{x:Type pages:DrvCloud}" />
-                    <ui:NavigationSeparator Visibility="Collapsed"/>
+                    <ui:NavigationSeparator Visibility="Collapsed" />
                     <ui:NavigationItem x:Name="settings"
                                        Content="Settings"
                                        ToolTip="Settings"
@@ -197,7 +197,7 @@
                                        PageTag="settings"
                                        PageType="{x:Type pages:Settings}"
                                        Click="NavClick"
-                                       Visibility="Collapsed"/>
+                                       Visibility="Collapsed" />
                     <ui:NavigationItem x:Name="about"
                                        Content="About"
                                        ToolTip="About"
@@ -205,7 +205,7 @@
                                        PageTag="about"
                                        PageType="{x:Type pages:About}"
                                        Click="NavClick"
-                                       Visibility="Collapsed"/>
+                                       Visibility="Collapsed" />
                 </ui:NavigationStore.Footer>
             </ui:NavigationStore>
 
@@ -229,18 +229,96 @@
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
                                    FontSize="24"
-                                   Navigation="{Binding ElementName=RootNavigation}"/>
+                                   Navigation="{Binding ElementName=RootNavigation}" />
 
                     <ui:Snackbar x:Name="RootSnackbar"
                                  Grid.Row="1"
                                  Appearance="Primary"
                                  CloseButtonEnabled="True"
                                  Timeout="5000"
-                                 Margin="24,24,24,24"/>
+                                 Margin="24,24,24,24" />
                 </Grid>
             </Border>
         </Grid>
-
+        <Grid x:Name="RootKonamiDebug"
+              Focusable="True"
+              Grid.RowSpan="3"
+              Background="#88000000"
+              Visibility="Collapsed">
+            <Grid VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="64" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Unowhy Tools combo key triggered &#x0a;Press ESC to return, continue the combo to enter to the Debug Menu"
+                           Grid.Row="0"
+                           Foreground="#ffffff"
+                           FontSize="18"
+                           Margin="0,0,0,20"
+                           FontFamily="Segoe UI Semi Bold"
+                           x:Name="konamiText1"/>
+                <Grid VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      Grid.Row="1"
+                      x:Name="konamiKeyGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="64" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="pack://application:,,,/Resources/up.png"
+                           Grid.Column="0"
+                           x:Name="konamiup1" />
+                    <Image Source="pack://application:,,,/Resources/up.png"
+                           Grid.Column="1"
+                           x:Name="konamiup2" />
+                    <Image Source="pack://application:,,,/Resources/down.png"
+                           Grid.Column="2"
+                           x:Name="konamidown1" />
+                    <Image Source="pack://application:,,,/Resources/down.png"
+                           Grid.Column="3"
+                           x:Name="konamidown2" />
+                    <Image Source="pack://application:,,,/Resources/left.png"
+                           Grid.Column="4"
+                           x:Name="konamileft1" />
+                    <Image Source="pack://application:,,,/Resources/right.png"
+                           Grid.Column="5"
+                           x:Name="konamiright1" />
+                    <Image Source="pack://application:,,,/Resources/left.png"
+                           Grid.Column="6"
+                           x:Name="konamileft2" />
+                    <Image Source="pack://application:,,,/Resources/right.png"
+                           Grid.Column="7"
+                           x:Name="konamiright2" />
+                    <Image Source="pack://application:,,,/Resources/a.png"
+                           Grid.Column="8"
+                           x:Name="konamia" />
+                    <Image Source="pack://application:,,,/Resources/b.png"
+                           Grid.Column="9"
+                           x:Name="konamib" />
+                    <Image Source="pack://application:,,,/Resources/enter.png"
+                           Grid.Column="10"
+                           x:Name="konamienter" />
+                </Grid>
+                <TextBlock Text="Welcome to the Debug Menu, use carefully !"
+                           Grid.Row="2"
+                           Foreground="#ffffff"
+                           FontSize="18"
+                           Margin="0,20,0,0"
+                           FontFamily="Segoe UI Semi Bold"
+                           x:Name="konamiText2"/>
+            </Grid>
+        </Grid>
         <Grid x:Name="RootWelcomeGrid"
               Grid.Row="1"
               Visibility="Collapsed"
@@ -374,6 +452,7 @@
                                         IsFocusIndicatorEnabled="False"
                                         IsHitTestVisible="False"
                                         Visibility="Visible" />
+        
 
         <!--  The title bar contains window navigation elements and some Tray related extras.  -->
         <!--  You can put additional controls in the header, such as a search bar.  -->

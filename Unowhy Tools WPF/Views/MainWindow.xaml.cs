@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Xml.Linq;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -70,23 +72,10 @@ public partial class MainWindow : INavigationWindow
         //ChangeTheme();
 
         applylang();
-    }
-    /*
-    public void NavAnimLeft()
-    {
-        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideLeft;
+        this.KeyDown += MainWindow_KonamiKeyDown;
     }
 
-    public void NavAnimRight()
-    {
-        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
-    }
-    
-    public void NavAnimNormal()
-    {
-        RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
-    }*/
-
+    #region Dialog and Wait
     public bool ShowDialogQ(string msg, BitmapImage img)
     {
         var result = DialogQRoot.ShowDialog(msg, img);
@@ -114,6 +103,7 @@ public partial class MainWindow : INavigationWindow
     {
         await WaitRoot.Hide();
     }
+    #endregion
 
     /// <summary>
     /// Raises the closed event.
@@ -153,11 +143,13 @@ public partial class MainWindow : INavigationWindow
         await Load();
     }
 
+    #region Back System
+
     private bool backisdeployed = false;
     private Type backtype = null;
     private Grid backgrid = null;
     private Border backborder = null;
-    
+
     public async Task DeployDABack()
     {
         back.Click -= GoBack;
@@ -242,7 +234,7 @@ public partial class MainWindow : INavigationWindow
         backgrid = grid;
         backborder = border;
 
-        if(!backisdeployed)
+        if (!backisdeployed)
         {
             backisdeployed = true;
 
@@ -315,7 +307,7 @@ public partial class MainWindow : INavigationWindow
         if (backisdeployed)
         {
             backisdeployed = false;
-            
+
             DoubleAnimation opacityAnimation = new DoubleAnimation
             {
                 From = 1,
@@ -401,6 +393,8 @@ public partial class MainWindow : INavigationWindow
         await UT.anim.AnimParent("zoomin");
     }
 
+    #endregion
+
     private async void NavClick(object sender, RoutedEventArgs e)
     {
         /*
@@ -426,6 +420,8 @@ public partial class MainWindow : INavigationWindow
         transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
         */
     }
+
+    #region Splash Bar system
 
     public static async Task USSwB(string status)
     {
@@ -463,6 +459,8 @@ public partial class MainWindow : INavigationWindow
         await Task.Delay(50);
     }
 
+    #endregion
+
     private async Task Load()
     {
         if (UT.version.isdeb())
@@ -475,7 +473,7 @@ public partial class MainWindow : INavigationWindow
             RootMainGrid.Visibility = Visibility.Collapsed;
             RootTitleBar.Visibility = Visibility.Collapsed;
         }
-        
+
         if (!UT.version.isdeb())
         {
             RootMainGrid.Visibility = Visibility.Collapsed;
@@ -483,7 +481,7 @@ public partial class MainWindow : INavigationWindow
             await Task.Delay(1000);
         }
 
-        
+
         DoubleAnimation anim = new DoubleAnimation();
         anim.From = 1000;
         anim.To = 0;
@@ -498,7 +496,7 @@ public partial class MainWindow : INavigationWindow
         //RootWelcomeGrid.RenderTransform = trans;
         //RootWelcomeGrid.BeginAnimation(UIElement.OpacityProperty, animopac);
         //trans.BeginAnimation(TranslateTransform.XProperty, anim);
-        
+
         RootWelcomeGrid.Visibility = Visibility.Visible;
 
         Visibility = Visibility.Visible;
@@ -605,7 +603,7 @@ public partial class MainWindow : INavigationWindow
             anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
             RootWelcomeGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
-            
+
             UT.RunAdmin($"-user {UTdata.UserID}");
         }
         else
@@ -640,7 +638,7 @@ public partial class MainWindow : INavigationWindow
 
             await USS("Loading... (Checking WD Exclusion)");
             string expath = await UT.RunReturn("powershell", "'Get-MpPreference | Select-Object ExclusionPath'");
-            if(!expath.Contains("C:\\Program Files (x86)\\Unowhy Tools"))
+            if (!expath.Contains("C:\\Program Files (x86)\\Unowhy Tools"))
             {
                 await USSwB("Loading... (Adding WD Exclusion)");
                 await UT.RunMin("powershell", "Add-MpPreference -ExclusionPath 'C:\\Program Files (x86)\\Unowhy Tools'");
@@ -682,7 +680,7 @@ public partial class MainWindow : INavigationWindow
             await USS("Preloading pages... (Drivers)");
             Navigate(typeof(Drivers));
             await Task.Delay(100);
-            
+
             animsb = new DoubleAnimation();
             animsb.From = 20;
             animsb.To = 0;
@@ -899,6 +897,124 @@ public partial class MainWindow : INavigationWindow
         }
     }
 
+    private List<Key> konamiDebugKey = new List<Key>
+    {
+        Key.U,
+        Key.T,
+        Key.Up,
+        Key.Up,
+        Key.Down,
+        Key.Down,
+        Key.Left,
+        Key.Right,
+        Key.Left,
+        Key.Right,
+        Key.A,
+        Key.B,
+        Key.Enter
+    };
+
+    private int konamiDebugKeyIndex = 0;
+    private async void MainWindow_KonamiKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == konamiDebugKey[konamiDebugKeyIndex])
+        {
+            konamiDebugKeyIndex++;
+
+            if (konamiDebugKeyIndex == 2)
+            {
+                await ViewKonamiDebug();
+            }
+
+            if (konamiDebugKeyIndex == 3)
+            {
+                await ViewKonamiDebugKey(konamiup1);
+            }
+            if (konamiDebugKeyIndex == 4)
+            {
+                await ViewKonamiDebugKey(konamiup2);
+            }
+            if (konamiDebugKeyIndex == 5)
+            {
+                await ViewKonamiDebugKey(konamidown1);
+            }
+            if (konamiDebugKeyIndex == 6)
+            {
+                await ViewKonamiDebugKey(konamidown2);
+            }
+            if (konamiDebugKeyIndex == 7)
+            {
+                await ViewKonamiDebugKey(konamileft1);
+            }
+            if (konamiDebugKeyIndex == 8)
+            {
+                await ViewKonamiDebugKey(konamiright1);
+            }
+            if (konamiDebugKeyIndex == 9)
+            {
+                await ViewKonamiDebugKey(konamileft2);
+            }
+            if (konamiDebugKeyIndex == 10)
+            {
+                await ViewKonamiDebugKey(konamiright2);
+            }
+            if (konamiDebugKeyIndex == 11)
+            {
+                await ViewKonamiDebugKey(konamia);
+            }
+            if (konamiDebugKeyIndex == 12)
+            {
+                await ViewKonamiDebugKey(konamib);
+            }
+
+            if (konamiDebugKeyIndex == konamiDebugKey.Count)
+            {
+                await ViewKonamiDebugKey(konamienter);
+
+                await KonamiOpenDebug();
+
+                konamiDebugKeyIndex = 0;
+            }
+        }
+        else
+        {
+            await RemoveKonamiDebug();
+            konamiDebugKeyIndex = 0;
+        }
+    }
+
+    private async Task ViewKonamiDebug()
+    {
+        konamiText2.Visibility = Visibility.Hidden;
+        foreach(UIElement element in konamiKeyGrid.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        RootKonamiDebug.Visibility = Visibility.Visible;
+        RootKonamiDebug.Focus();
+    }
+
+    private async Task ViewKonamiDebugKey(UIElement element)
+    {
+        element.Visibility = Visibility.Visible;
+        await Task.Delay(100);
+        RootKonamiDebug.Focus();
+    }
+
+    private async Task RemoveKonamiDebug()
+    {
+        RootKonamiDebug.Visibility = Visibility.Collapsed;
+    }
+
+    private async Task KonamiOpenDebug()
+    {
+        konamiText2.Visibility = Visibility.Visible;
+        await Task.Delay(1000);
+        await RemoveKonamiDebug();
+        UT.NavigateTo(typeof(DebugPage));
+    }
+
+    #region Old Stuff
     public void ChangeTheme()
     {
         _themeService.SetTheme(_themeService.GetTheme() == ThemeType.Dark ? ThemeType.Light : ThemeType.Dark);
@@ -906,12 +1022,13 @@ public partial class MainWindow : INavigationWindow
 
     private void TrayMenuItem_OnClick(object sender, RoutedEventArgs e)
     {
-        
+
     }
 
     private void RootNavigation_OnNavigated(INavigation sender, RoutedNavigationEventArgs e)
     {
-        
+
     }
+    #endregion
 }
 
