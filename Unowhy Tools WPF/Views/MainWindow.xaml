@@ -243,7 +243,7 @@
         <Grid x:Name="RootKonamiDebug"
               Focusable="True"
               Grid.RowSpan="3"
-              Background="#88000000"
+              Background="#AA000000"
               Visibility="Collapsed">
             <Grid VerticalAlignment="Center"
                   HorizontalAlignment="Center">
