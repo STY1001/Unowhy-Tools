@@ -389,7 +389,7 @@
                                    HorizontalAlignment="Left"
                                    Foreground="#B7FFFFFF"
                                    FontFamily="Segoe UI SemiBold"
-                                   Text="A tool for Y13 computers !" />
+                                   Text="The all-in-on tool for your Unowhy Y13 !" />
                         <TextBlock FontSize="15"
                                    Margin="0,0,5,0"
                                    x:Name="SplashCredit"
