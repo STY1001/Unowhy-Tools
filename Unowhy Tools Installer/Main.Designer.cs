@@ -98,9 +98,9 @@
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(12, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(213, 17);
+            this.label3.Size = new System.Drawing.Size(242, 17);
             this.label3.TabIndex = 36;
-            this.label3.Text = "A tool for Unowhy Y13 computers !";
+            this.label3.Text = "The all-in-on tool for your Unowhy Y13 !";
             // 
             // sty1001
             // 
@@ -137,7 +137,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(242, 110);
+            this.label2.Location = new System.Drawing.Point(242, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 39;

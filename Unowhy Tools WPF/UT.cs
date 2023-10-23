@@ -89,7 +89,7 @@
             
           ============================================================
           Name: Unowhy Tools (WPF)
-          Description: A tool for Y13 computers
+          Description: The all-in-on tool for your Unowhy Y13 !
           Language: C#, XAML
           Framework: .NET 6.0
           Sub-Framework: Windows Presentation Foundation (WPF)
