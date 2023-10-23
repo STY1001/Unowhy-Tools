@@ -581,7 +581,10 @@ public partial class About : INavigableView<DashboardViewModel>
         {
             LogoDesc.Text = "Unowhy Tools ne sera jamais finit tant que Pétasse sera là";
             LogoCredit.Text = "";
-            await Task.Delay(5000);
+            await Task.Delay(2500);
+            LogoDesc.Text = "";
+            LogoCredit.Text = "The French Bidouilleur, 2023";
+            await Task.Delay(2500);
             LogoDesc.Text = "A tool for Y13 computers !";
             LogoCredit.Text = "by STY1001";
         }
