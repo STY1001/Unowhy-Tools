@@ -209,7 +209,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         };
         Wpf.Ui.Controls.Button button = new Wpf.Ui.Controls.Button
         {
-            Content = "Download"
+            Content = UT.GetLang("restore")
         };
 
         button.Click += async (sender, e) =>
