@@ -242,43 +242,60 @@ public partial class TrayWindow : Window
     {
         if (!IsPause)
         {
-            string cam = _camerakey.GetValue("Value").ToString();
-            string mic = _microkey.GetValue("Value").ToString();
+            if (_camerakey.GetValue("Value") != null)
+            {
+                string cam = _camerakey.GetValue("Value").ToString();
+                camswitch.IsEnabled = true;
 
-            if (cam == "Allow")
-            {
-                CamOn = true;
-            }
-            else if (cam == "Deny")
-            {
-                CamOn = false;
-            }
+                if (cam == "Allow")
+                {
+                    CamOn = true;
+                }
+                else if (cam == "Deny")
+                {
+                    CamOn = false;
+                }
 
-            if (mic == "Allow")
-            {
-                MicOn = true;
-            }
-            else if (mic == "Deny")
-            {
-                MicOn = false;
-            }
-
-            if (CamOn)
-            {
-                camswitch.IsChecked = true;
+                if (CamOn)
+                {
+                    camswitch.IsChecked = true;
+                }
+                else
+                {
+                    camswitch.IsChecked = false;
+                }
             }
             else
             {
-                camswitch.IsChecked = false;
+                camswitch.IsEnabled = false;
             }
-
-            if (MicOn)
+            
+            if(_microkey.GetValue("Value") != null)
             {
-                micswitch.IsChecked = true;
+                string mic = _microkey.GetValue("Value").ToString();
+                micswitch.IsEnabled = true;
+
+                if (mic == "Allow")
+                {
+                    MicOn = true;
+                }
+                else if (mic == "Deny")
+                {
+                    MicOn = false;
+                }
+
+                if (MicOn)
+                {
+                    micswitch.IsChecked = true;
+                }
+                else
+                {
+                    micswitch.IsChecked = false;
+                }
             }
             else
             {
-                micswitch.IsChecked = false;
+                micswitch.IsEnabled = false;
             }
         }
     }
