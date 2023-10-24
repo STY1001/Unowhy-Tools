@@ -291,7 +291,7 @@
     <None Include="Resources\about1.png" />
     <None Include="Resources\yes1.png" />
     <None Include="Resources\UTLogoWhite3.0.png" />
-    <EmbeddedResource Include="Files\dotnetwdrt6.0.16.exe" />
+    <EmbeddedResource Include="Files\dotnetwdrt6.0.24.exe" />
     <Content Include="UTI.ico" />
   </ItemGroup>
   <ItemGroup />
