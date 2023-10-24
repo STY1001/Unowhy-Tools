@@ -187,13 +187,13 @@ namespace Unowhy_Tools_Installer
             delay(1000);
             statusbar.Value = 15;
             TaskbarManager.Instance.SetProgressValue(15, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\service.zip", "Files", "service.zip");
+            await Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\service.zip", "Files", "service.zip");
             statusbar.Value = 20;
             TaskbarManager.Instance.SetProgressValue(20, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\install.zip", "Files", "install.zip");
+            await Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\install.zip", "Files", "install.zip");
             statusbar.Value = 25;
             TaskbarManager.Instance.SetProgressValue(25, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\dotnetwdrt6.0.24.exe", "Files", "dotnetwdrt6.0.24.exe");
+            await Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\dotnetwdrt6.0.24.exe", "Files", "dotnetwdrt6.0.24.exe");
             statusbar.Value = 30;
             TaskbarManager.Instance.SetProgressValue(30, 100);
             statusbar.Value = 35;
@@ -255,14 +255,14 @@ namespace Unowhy_Tools_Installer
         {
             status.Text = "Finalizing...";
 
-            Extract("Unowhy_Tools_Installer", "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools.lnk", "Files", "Unowhy Tools.lnk");
+            await Extract("Unowhy_Tools_Installer", "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools.lnk", "Files", "Unowhy Tools.lnk");
 
             statusbar.Value = 75;
             TaskbarManager.Instance.SetProgressValue(75, 100);
 
             if (desktop.Checked == true)
             {
-                Extract("Unowhy_Tools_Installer", "C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk", "Files", "Unowhy Tools.lnk");
+                await Extract("Unowhy_Tools_Installer", "C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk", "Files", "Unowhy Tools.lnk");
             }
 
             statusbar.Value = 80;
