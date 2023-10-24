@@ -634,14 +634,21 @@ public partial class MainWindow : INavigationWindow
             string regver;
             if (UT.version.isdeb()) regver = "Debug";
             else regver = "Release";
+            UT.Write2Log("Updating version in registry: " + regver);
             await UT.RunMin("reg", $"add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"DisplayVersion\" /t REG_SZ /d \"{regver}\" /f");
 
             await USS("Loading... (Checking WD Exclusion)");
-            string expath = await UT.RunReturn("powershell", "'Get-MpPreference | Select-Object ExclusionPath'");
+            UT.Write2Log("Checking Unowhy Tools in Windows Defender exclusion list");
+            string expath = await UT.RunReturn("powershell", "\"Get-MpPreference | Select-Object ExclusionPath\"");
             if (!expath.Contains("C:\\Program Files (x86)\\Unowhy Tools"))
             {
                 await USSwB("Loading... (Adding WD Exclusion)");
+                UT.Write2Log("Unowhy Tools isn't in Windows Defender exclusion list, adding....");
                 await UT.RunMin("powershell", "Add-MpPreference -ExclusionPath 'C:\\Program Files (x86)\\Unowhy Tools'");
+            }
+            else
+            {
+                UT.Write2Log("Unowhy Tools is in Windows Defender exclusion list");
             }
 
             await USS("Loading... (Cleaning)");
