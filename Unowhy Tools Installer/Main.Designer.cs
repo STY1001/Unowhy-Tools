@@ -100,7 +100,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(242, 17);
             this.label3.TabIndex = 36;
-            this.label3.Text = "The all-in-on tool for your Unowhy Y13 !";
+            this.label3.Text = "The all-in-one tool for your Unowhy Y13 !";
             // 
             // sty1001
             // 
