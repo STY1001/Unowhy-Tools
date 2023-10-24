@@ -28,13 +28,13 @@ Currently, with this tool, you can:
 - Enable/Disable/Repair Winre (reagentc)
 - Enable Windows Hello Enterprise
 - Repair BootIM (Blue Menu)
-- Quickly launch CMD, TaskMgr, REGedit, GPedit
+- Quickly launch CMD, TaskMgr, REGedit, GPedit (by default, but it's customizable) (Tray)
 - Del "IgnoreAllFailures" (Boot Status Policy) in BCD
 - Enable TaskMGR
 - Enable account lockout
 - Get and sync Wifi settings with Serial Number
-- Control camera and micro
-- View performance usage
+- Control camera and micro (Tray)
+- View performance usage and battery info (Tray)
 - Enable camera privacy overlay
 - Enable Windows verbose status
 - Uninstall Edge
@@ -42,6 +42,7 @@ Currently, with this tool, you can:
 - Enable and disable Windows Defender
 - Download driver backup from cloud (update of 25.00: Restore directly driver backup from cloud)
 - Dump, Flash and Customize your BIOS
+- Control Windows power mode quickly (Tray)
 
 More features coming soon
 
@@ -55,9 +56,16 @@ More features coming soon
 ## 🔧 Debug version (Beta)
 ### Warning: Debug version (or beta) is for testing new features before release, it can be unstable
 You can update Unowhy Tools to the Debug version (or Beta) to early test feature before the release
-To update to the Debug version, go to the debug menu (hidden small button in bottom left) and click on "Update Debug Version"
 
-![Debug](/README/DebugUpdate.png)
+To update to the Debug version:
+
+![Debug](/README/DebugUpdate.gif)
+
+- Go to the Debug menu, by pressing this key sequence:
+
+   - U, T, Up, Up, Down, Down, Left, Right, Left, Right, A, B, Enter
+
+- Now in Debug menu, click on "Update Debug version" and wait
 
 ## 📷 Screenshots
 
