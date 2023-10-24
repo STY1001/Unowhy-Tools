@@ -107,7 +107,8 @@
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem x:Name="deb"
-                                       Height="3"
+                                       Height="0"
+                                       Visibility="Collapsed"
                                        Content="Debug Page"
                                        Image="pack://application:,,,/Resources/code.png"
                                        PageTag="debug"
