@@ -139,7 +139,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         {
             DriveInfo di = new DriveInfo("C");
             FileInfo fi = new FileInfo(rtpath.Text);
-            if (di.AvailableFreeSpace > fi.Length * 2.5)
+            if (di.AvailableFreeSpace > fi.Length * 3)
             {
                 await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
                 await Task.Delay(1000);
@@ -178,7 +178,9 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("space8gpc"), "no.png");
+                long needsize = di.AvailableFreeSpace - (fi.Length * Convert.ToInt64(3));
+                string needsizes = UT.FormatSize(needsize);
+                UT.DialogIShow(UT.GetLang("spacepc") + " " + needsizes, "no.png");
             }
         }
     }

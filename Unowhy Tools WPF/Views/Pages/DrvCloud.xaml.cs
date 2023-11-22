@@ -84,7 +84,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             string dl = UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
-                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
+                await UT.waitstatus.open(dl + " (" + value.ToString("000.0") + "%)", "clouddl.png");
             };
             await UT.DlFilewithProgress(link, uttemps + $"\\{filename}", progress, cancellationToken.Token);
             await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
@@ -113,7 +113,9 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         }
         else
         {
-            UT.DialogIShow(UT.GetLang("space8gpc"), "no.png");
+            long needsize = drive.AvailableFreeSpace - (Convert.ToInt64(size) * Convert.ToInt64(3));
+            string needsizes = UT.FormatSize(needsize);
+            UT.DialogIShow(UT.GetLang("spacepc") + " " + needsizes, "no.png");
         }
     }
 

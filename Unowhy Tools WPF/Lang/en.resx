@@ -582,11 +582,11 @@
   <data name="snpw" xml:space="preserve">
     <value>Set new password</value>
   </data>
-  <data name="space8gpc" xml:space="preserve">
-    <value>You need more free space on your PC (8GB)</value>
+  <data name="spacepc" xml:space="preserve">
+    <value>You need more free space on your PC</value>
   </data>
-  <data name="space8gusb" xml:space="preserve">
-    <value>You need more free space on your PC/Devices (8GB)</value>
+  <data name="spaceusb" xml:space="preserve">
+    <value>You need more free space on your PC/Devices</value>
   </data>
   <data name="start" xml:space="preserve">
     <value>Start</value>

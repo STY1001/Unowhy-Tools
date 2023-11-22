@@ -116,7 +116,9 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
             DriveInfo di = new DriveInfo(drivel);
             long afs = di.AvailableFreeSpace;
 
-            if (afs > 8000000000)
+            long drvfolder = await UT.FolderSizeGet("C:\\Windows\\System32\\DriverStore\\FileRepository");
+
+            if (afs > drvfolder)
             {
                 await UT.waitstatus.open(UT.GetLang("wait.backup"), "upload.png");
                 Directory.CreateDirectory(drivel + ":\\UT-Drv-TMP");
@@ -152,7 +154,9 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("space8gusb"), "no.png");
+                long needsize = drvfolder - afs;
+                string needsizes = UT.FormatSize(needsize);
+                UT.DialogIShow(UT.GetLang("spaceusb") + " " + needsizes, "no.png");
             }
         }
     }

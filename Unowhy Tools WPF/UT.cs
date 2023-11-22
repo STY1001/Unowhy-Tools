@@ -648,7 +648,7 @@ namespace Unowhy_Tools
                         var cancellationToken = new CancellationTokenSource();
                         progress.ProgressChanged += (sender, value) =>
                         {
-                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("###.#") + "%)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("000.0") + "%)";
                         };
                         await UT.DlFilewithProgress("https://bit.ly/UTSzip", utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
@@ -734,7 +734,7 @@ namespace Unowhy_Tools
                         var cancellationToken = new CancellationTokenSource();
                         progress.ProgressChanged += (sender, value) =>
                         {
-                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("###.#") + "%)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("000.0") + "%)";
                         };
                         await UT.DlFilewithProgress("https://bit.ly/UTSzip", utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
@@ -1255,12 +1255,12 @@ namespace Unowhy_Tools
             return trayrun;
         }
 
-        public static async Task<string> FolderSizeString(string directoryPath)
+        public static async Task<long> FolderSizeGet(string path)
         {
             try
             {
                 long size = 0;
-                DirectoryInfo directoryInfo = new DirectoryInfo(directoryPath);
+                DirectoryInfo directoryInfo = new DirectoryInfo(path);
 
                 await Task.Run(() =>
                 {
@@ -1271,15 +1271,21 @@ namespace Unowhy_Tools
                         Interlocked.Add(ref size, file.Length);
                     }
                 });
-
-                string rep = "0.00 B";
-                rep = FormatSize(size);
-                return rep;
+                return size;
             }
             catch
             {
-                return "-.-- B";
+                long size = 0;
+                return size;
             }
+        }
+
+        public static async Task<string> FolderSizeString(string directoryPath)
+        {
+            long size = await FolderSizeGet(directoryPath);
+            string rep = "0.00 B";
+            rep = FormatSize(size);
+            return rep;
         }
 
         public static string FormatSize(long byteSize)
