@@ -5,16 +5,16 @@
     },
     "updates": {
         "utnewver": "2600",
-        "utsnewver": "3.2",
-        "utdebupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/updatedebug.zip",
-        "utuninstaller": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/uninstall.exe",
-        "utszip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/service.zip",
-        "utupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip",
-        "utcloghtmlprev": "https://htmlpreview.github.io/?https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.html"
+        "utsnewver": "3.2"
     },
     "urls": {
         "api": "https://api.sty1001.fr/ut-stats",
         "sty1001": "https://sty1001.fr",
+        "utdebupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/updatedebug.zip",
+        "utuninstaller": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/uninstall.exe",
+        "utszip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/service.zip",
+        "utupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip",
+        "utcloghtmlprev": "https://htmlpreview.github.io/?https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.html",
         "//idfconf": "https://idf.hisqool.com/conf",
         "idfconf": "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf",
         "utfptw": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EX4P3d99wHBHq0yHefZfJGMBp2gGHgGVGtkM6t9u8cbG-g?e=JeRB3b&download=1",
