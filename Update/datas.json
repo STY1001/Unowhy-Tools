@@ -1,0 +1,226 @@
+{
+    "strings": {
+        "discordname": "{unohelp}",
+        "websitename": "sty1001.fr"
+    },
+    "updates": {
+        "utnewver": "2600",
+        "utsnewver": "3.2"
+    },
+    "urls": {
+        "api": "https://api.sty1001.fr/ut-stats",
+        "sty1001": "https://sty1001.fr",
+        "utdebupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/updatedebug.zip",
+        "utuninstaller": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/uninstall.exe",
+        "utszip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/service.zip",
+        "utupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip",
+        "utcloghtmlprev": "https://htmlpreview.github.io/?https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.html",
+        "//idfconf": "https://idf.hisqool.com/conf",
+        "idfconf": "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf",
+        "discordinvite":"https://discord.com/invite/dw3ZJ9u7WS",
+        "fptw": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EX4P3d99wHBHq0yHefZfJGMBp2gGHgGVGtkM6t9u8cbG-g?e=JeRB3b&download=1",
+        "afuwin": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/ES94Y6WCGztPqnFGyzwioO4BbtoAGK-iK04mK-h2DoLTWA?e=aK34tD&download=1",
+        "amidewin": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EW_6AEUsAbxIpGmjbkZKl8QBOeVTJveP5jfmzn3o_XAhjw?e=beNoV8&download=1",
+        "utbkcloud": "https://hksty1001-my.sharepoint.com/:f:/g/personal/cloud_sty1001_cf/Ejk2S5pcwCFPnUxKDVQaUPoBpw-3IMAjuLYiJO_Fi-vsKQ?e=SAI4SS",
+        "edgesetup": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Extras/edgesetup.exe",
+        "utreleases": "https://github.com/STY1001/Unowhy-Tools/releases",
+        "winre": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EQC1TXSnpK5DsHsG_KPrd88BfC7h9MwJYT3LX-6Vt4wP3Q?e=mKEdCu&download=1"
+    },
+    "avatars": {
+        "sty1001": "https://cdn.discordapp.com/avatars/1028607912320442410/d374ed0da829c066283c0ce0d534c751.png?size=4096",
+        "fgamer768": "https://cdn.discordapp.com/avatars/647069392055828490/2d3cc79b891be02a99eca36642f858f8.png?size=4096",
+        "nicospc": "https://cdn.discordapp.com/avatars/842458307762454548/075bb173971e7c38febff9a94cee1c15.png?size=4096"
+    },
+    "contribs": [
+        {
+            "name": "Azgar",
+            "avatar": "https://avatars.githubusercontent.com/u/50982832"
+        },
+        {
+            "name": "G9-Dev",
+            "avatar": "https://avatars.githubusercontent.com/u/67204439"
+        },
+        {
+            "name": "Ahhj93",
+            "avatar": "https://avatars.githubusercontent.com/u/69793084"
+        }
+    ],
+    "drivers": [
+        {
+            "name": "UT-Drv_12-50_16-10-22.zip",
+            "author": "SonHaon",
+            "pcyear": 2022,
+            "description": {
+                "en": "Works with the majority of Y13 (with a Realtek sound chip)",
+                "fr": "Fonctionne avec la majorité des Y13 (avec une puce audio Realtek)"
+            },
+            "size": 2247516187,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EYEHgD57u0BDoCiu_aRB9ToBXX0QGQgJf0d8Ur5g-MjQlA?e=824noe&download=1"
+        },
+        {
+            "name": "UT-Drv_11-03_20-11-22.zip",
+            "author": "Thomaszino",
+            "pcyear": 2022,
+            "description": {
+                "en": "Works with the majority of Y13 (with a EsAuDriver (Everest) sound chip)",
+                "fr": "Fonctionne avec la majorité des Y13 (avec une puce audio EsAuDriver (Everest))"
+            },
+            "size": 2076847362,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EbhiQvoBVDxIvYH4ytShseEB_IDszvOwr9P7nb18NYzlbA?e=seebJb&download=1"
+        },
+        {
+            "name": "UT-Drv_16-30_24-09-23.zip",
+            "author": "STY1001",
+            "pcyear": 2023,
+            "description": {
+                "en": "Works with Y13s from 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
+                "fr": "Fonctionne avec les Y13 de 2023 (avec une puce audio Realtek et un lecteur d'empreintes digitales FocalTech)"
+            },
+            "size": 5687703202,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EabYHyTl9IRJvSNp43Lck2UB2NqJsmDgs0LJrF1RHdNAZw?e=OpIEvk&download=1"
+        },
+        {
+            "name": "UT-Drv_11-13_07-09-23.zip",
+            "author": "STY1001",
+            "pcyear": 2020,
+            "description": {
+                "en": "Works with Y13s from 2020 (with Realtek sound chip and Goodix fingerprint reader)",
+                "fr": "Fonctionne avec les Y13 de 2020 (avec puce audio Realtek et lecteur d'empreintes digitales Goodix)"
+            },
+            "size": 3069343076,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EWxtPWdC0DJDsXye8F4Zvw0BrYvrNOVF0mcY1EfHnGQUBg?e=EsGckw&download=1"
+        },
+        {
+            "name": "UT-Drv_17-46_25-10-22.zip",
+            "author": "STY1001",
+            "pcyear": 2021,
+            "description": {
+                "en": "Works with Y13s from 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
+                "fr": "Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
+            },
+            "size": 1355409735,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/ET9vEHEnGtJDkN5UzZlbLuMBZNsPDKaefFqNF4YEc5MOqw?e=AdehWT&download=1"
+        },
+        {
+            "name": "UT-Drv_12-00_25-10-22.zip",
+            "author": "STY1001",
+            "pcyear": 2021,
+            "description": {
+                "en": "Works with Y13s from 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
+                "fr": "Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
+            },
+            "size": 2875021169,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EevIAlp0mq5Dgy75DO2cc90BopsGNw6wfY6Gdc1J5GY93A?e=wmpWfb&download=1"
+        },
+        {
+            "name": "UT-Drv_18-12_14-09-23.zip",
+            "author": "FGAMER768",
+            "pcyear": 2022,
+            "description": {
+                "en": "Works with Y13 from 2022 (with a EsAuDriver (Everest) with ISST (Intel Smart Sound Technology) sound chip and FocalTech fingerprint reader)",
+                "fr": "Fonctionne avec les Y13 de 2022 (avec une puce audio EsAuDriver (Everest) avec ISST (Intel Smart Sound Technology) et un lecteur d'empreintes digitales FocalTech)"
+            },
+            "size": 3275970490,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EUbVMNd4fmFPv3mxASRH1FwBZ3jQhoZaDWuAWybNk9k3mQ?e=1kPID7&download=1"
+        },
+        {
+            "name": "UT-Drv_09-39_06-03-23.zip",
+            "author": "SpyXo",
+            "pcyear": 2021,
+            "description": {
+                "en": "Works with Y13s from 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
+                "fr": "Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
+            },
+            "size": 2556647857,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EeJGgfjBUtZDk0blckI_378BZa9jQgLdYbQFp5scV8UVAA?e=qe0u8J&download=1"
+        },
+        {
+            "name": "UT-Drv_21-50_13-09-23.zip",
+            "author": "The french bidouilleur",
+            "pcyear": 2023,
+            "description": {
+                "en": "Works with Y13s from 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
+                "fr": "Fonctionne avec les Y13 de 2023 (avec une puce audio Realtek et un lecteur d'empreintes digitales FocalTech)"
+            },
+            "size": 2663952384,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EW6dKHzuJUZEjf-Y2SuHIFwBbTgM5nx_sLb1pAZr07bk7w?e=KC3aXS&download=1"
+        },
+        {
+            "name": "UT-Drv_18-06_18-10-23.zip",
+            "author": "Kofy",
+            "pcyear": 2022,
+            "description": {
+                "en": "Works with Y13s from 2022 (with a EsAuDriver (Everest) with ISST (Intel Smart Sound Technology) and FocalTech fingerprint reader)",
+                "fr": "Fonctionne avec les Y13 de 2022 (avec une puce audio EsAuDriver (Everest) avec ISST (Intel Smart Sound Technology) et un lecteur d'empreintes digitales FocalTech)"
+            },
+            "size": 3746091008,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EbxE220En2NNkgLoAku0oPQBIvkv8ljZpdif-C_28BapFA?e=wkM21m&download=1"
+        },
+        {
+            "name": "UT-Drv_09-46_03-02-23.zip",
+            "author": "@on._.dine",
+            "pcyear": 2022,
+            "description": {
+                "en": "",
+                "fr": ""
+            },
+            "size": 2620617054,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EUt6KQpkNu5GoobwuhXDK0EB5xxL43QX4x1uV42_NYjCMw?e=Jb5MsP&download=1"
+        },
+        {
+            "name": "UT-Drv_17-03_26-11-22.zip",
+            "author": "Creeper",
+            "pcyear": 2022,
+            "description": {
+                "en": "",
+                "fr": ""
+            },
+            "size": 1787330458,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EQNzaDiakvRMu6sC1-aSJ0cBT9XrbTflu4NCsvGtCuH8OQ?e=PGKXMo&download=1"
+        },
+        {
+            "name": "UT-Drv_18-22_18-01-23.zip",
+            "author": "√(noham)²",
+            "pcyear": 2021,
+            "description": {
+                "en": "",
+                "fr": ""
+            },
+            "size": 1633588445,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EYOh2Gob3nZAl39v696TJncBoHAp-BgqWdTzAbBVK8rxOg?e=OoG0r8&download=1"
+        },
+        {
+            "name": "UT-Drv_19-28_23-01-23.zip",
+            "author": "Alexander",
+            "pcyear": 2021,
+            "description": {
+                "en": "",
+                "fr": ""
+            },
+            "size": 1630113729,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/ESwjUD9Tx9VGvvd3uNJO7sQBXSz8U8Er1tOXXXsO78fBZg?e=iN8ujL&download=1"
+        },
+        {
+            "name": "UT-Drv_20-40_10-06-23.zip",
+            "author": "Finix",
+            "pcyear": 2022,
+            "description": {
+                "en": "",
+                "fr": ""
+            },
+            "size": 2034852593,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/Ee9eYJJET69AjT4Sz6fEAN0BwwqIfOpMabdPFwh2xkxWCg?e=3RxbEY&download=1"
+        },
+        {
+            "name": "UT-Drv_22-05_18-01-23.zip",
+            "author": "Dylan_Zpl",
+            "pcyear": 2022,
+            "description": {
+                "en": "",
+                "fr": ""
+            },
+            "size": 3890564884,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_cf/EUJkjxi4FohLipFmU7sy7MsBJtjGQiSJeaSPlwnuvw9QvA?e=ryfckB&download=1"
+        }
+    ]
+}
