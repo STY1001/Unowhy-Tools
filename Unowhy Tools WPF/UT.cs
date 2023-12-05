@@ -133,6 +133,9 @@ using TaskScheduler = Microsoft.Win32.TaskScheduler;
 using System.Windows;
 using System.Linq;
 using System.Windows.Interop;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.Security.Policy;
 
 namespace Unowhy_Tools
 {
@@ -152,9 +155,11 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
-        public static int verfull = 2600;
+        public static string online_datas = "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json";
+
+        public static int verfull = 2700;
         public static string verbuild = "1715241023";
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -177,7 +182,7 @@ namespace Unowhy_Tools
             public static async Task<bool> newver()
             {
                 var web = new HttpClient();
-                string newver = await web.GetStringAsync("https://bit.ly/UTnvTXT");
+                string newver = await UT.OnlineDatas.GetUpdates("utnewver");
                 int newverint = Convert.ToInt32(newver);
                 if (verfull < newverint)
                 {
@@ -650,7 +655,7 @@ namespace Unowhy_Tools
                         {
                             mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("000.0") + "%)";
                         };
-                        await UT.DlFilewithProgress("https://bit.ly/UTSzip", utemp + "\\service.zip", progress, cancellationToken.Token);
+                        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
                         await Task.Delay(100);
                         ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
@@ -713,7 +718,7 @@ namespace Unowhy_Tools
                 if (CheckInternet())
                 {
                     var web = new HttpClient();
-                    string newver = await web.GetStringAsync("https://bit.ly/UTStext");
+                    string newver = await UT.OnlineDatas.GetUpdates("utsnewver");
                     newver = newver.Replace("\n", "").Replace("\r", "").Replace(" ", "");
 
                     string ver = await UT.UTS.UTSmsg("UTS", "GetVer");
@@ -736,7 +741,7 @@ namespace Unowhy_Tools
                         {
                             mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("000.0") + "%)";
                         };
-                        await UT.DlFilewithProgress("https://bit.ly/UTSzip", utemp + "\\service.zip", progress, cancellationToken.Token);
+                        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
                         await Task.Delay(100);
                         ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
@@ -747,6 +752,125 @@ namespace Unowhy_Tools
                 }
             }
         }
+
+        public class OnlineDatas
+        {
+            public static async Task<string> GetUrls(string name)
+            {
+                Write2Log("GetUrls: " + name);
+                if (CheckInternet())
+                {
+                    string datasurl = online_datas;
+                    HttpClient web = new HttpClient();
+                    HttpResponseMessage rep = await web.GetAsync(datasurl);
+                    if(rep.StatusCode == HttpStatusCode.OK)
+                    {
+                        string jsonContent = await web.GetStringAsync(datasurl);
+                        dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
+                        if (jsonObject.urls != null && jsonObject.urls[name] != null)
+                        {
+                            string url = jsonObject.urls[name].ToString();
+                            return url;
+                        }
+                    }
+                }
+                return "null";
+            }
+
+            public static async Task<string> GetUpdates(string name)
+            {
+                Write2Log("GetUpdates: " + name);
+                if (CheckInternet())
+                {
+                    string datasurl = online_datas;
+                    HttpClient web = new HttpClient();
+                    HttpResponseMessage rep = await web.GetAsync(datasurl);
+                    if (rep.StatusCode == HttpStatusCode.OK)
+                    {
+                        string jsonContent = await web.GetStringAsync(datasurl);
+                        dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
+                        if (jsonObject.updates != null && jsonObject.updates[name] != null)
+                        {
+                            string update = jsonObject.updates[name].ToString();
+                            return update;
+                        }
+                    }
+                }
+                return "null";
+            }
+
+            public static async Task<string> GetStrings(string name)
+            {
+                Write2Log("GetStrings: " + name);
+                if (CheckInternet())
+                {
+                    string datasurl = online_datas;
+                    HttpClient web = new HttpClient();
+                    HttpResponseMessage rep = await web.GetAsync(datasurl);
+                    if (rep.StatusCode == HttpStatusCode.OK)
+                    {
+                        string jsonContent = await web.GetStringAsync(datasurl);
+                        dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
+                        if (jsonObject.strings != null && jsonObject.strings[name] != null)
+                        {
+                            string str = jsonObject.strings[name].ToString();
+                            return str;
+                        }
+                    }
+                }
+                return "null";
+            }
+
+            public static async Task<ImageSource> GetAvatars(string name)
+            {
+                Write2Log("GetAvatars: " + name);
+                if (CheckInternet())
+                {
+                    string datasurl = online_datas;
+                    HttpClient web = new HttpClient();
+                    HttpResponseMessage rep = await web.GetAsync(datasurl);
+                    if (rep.StatusCode == HttpStatusCode.OK)
+                    {
+                        string jsonContent = await web.GetStringAsync(datasurl);
+                        dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
+                        if (jsonObject.avatars != null && jsonObject.avatars[name] != null)
+                        {
+                            string avatarsurl = jsonObject.avatars[name].ToString();
+                            HttpResponseMessage rep2 = await web.GetAsync(avatarsurl);
+                            if (rep2.StatusCode == HttpStatusCode.OK)
+                            {
+                                byte[] imageData = await web.GetByteArrayAsync(avatarsurl);
+                                BitmapImage bitmapImage = new BitmapImage();
+                                MemoryStream stream = new MemoryStream(imageData);
+                                bitmapImage.BeginInit();
+                                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmapImage.StreamSource = stream;
+                                bitmapImage.EndInit();
+                                bitmapImage.Freeze();
+                                return bitmapImage;
+                            }
+                        }
+                    }
+                }
+                if (name == "sty1001")
+                {
+                    return GetImgSource("sty1001.png");
+                }
+                else if (name == "fgamer768")
+                {
+                    return GetImgSource("fgamer768.png");
+                }
+                else if (name == "nicospc")
+                {
+                    return GetImgSource("nico.png");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         public static async Task DeployDABack()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
@@ -917,7 +1041,7 @@ namespace Unowhy_Tools
                 {
                     try
                     {
-                        string url = "https://api.sty1001.fr/ut-stats";
+                        string url = await UT.OnlineDatas.GetUrls("api");
                         string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"" + launchmode + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"wifiena\" : " + wifi.ToString().ToLower() + " }";
                         Write2Log("Sending Stats to \"" + url + "\" with \"" + jsonData + "\"");
                         StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
@@ -1375,22 +1499,6 @@ namespace Unowhy_Tools
             ResXResourceSet resxSet3 = new ResXResourceSet(resxFile);
             Write2Log("Get lang " + name + " => " + resxSet3.GetString(name));
             return resxSet3.GetString(name);
-
-
-            /*
-            //Check the current saved language
-            string resxFile = @".\lang\en.resx";
-            RegistryKey utl = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utls = utl.GetValue("Lang").ToString();
-            string enresx = @".\lang\en.resx";
-            string frresx = @".\lang\fr.resx";
-            //Chose the ResX file
-            if (utls == "EN") resxFile = enresx;                     //English   
-            else if (utls == "FR") resxFile = frresx;               //French
-            ResXResourceSet resxSet = new ResXResourceSet(resxFile);
-            Write2Log("Get lang " + name + " => " + resxSet.GetString(name));
-            return resxSet.GetString(name);
-            */
         }
 
         public async static Task RunMin(string file, string args)
@@ -2066,59 +2174,6 @@ namespace Unowhy_Tools
 
             Write2Log("====== End ======");
         }
-
-        /*
-        public static async Task DlFilewithProgress(string url, string path, IProgress<double> progress, CancellationToken token)
-        {
-            Write2Log("Downloading file: From \"" + url + "\" to \"" + path + "\"");
-            var client = new HttpClient();
-            var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, token);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new Exception(string.Format("Download failed: {0}", response.StatusCode));
-            }
-
-            var total = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
-            var canReportProgress = total != -1 && progress != null;
-
-            using (var stream = await response.Content.ReadAsStreamAsync())
-            {
-                var totalRead = 0L;
-                var buffer = new byte[4096];
-                var isMoreToRead = true;
-
-                using (var fileStream = new MemoryStream())
-                {
-                    do
-                    {
-                        token.ThrowIfCancellationRequested();
-
-                        var read = await stream.ReadAsync(buffer, 0, buffer.Length, token);
-
-                        if (read == 0)
-                        {
-                            isMoreToRead = false;
-                        }
-                        else
-                        {
-                            await fileStream.WriteAsync(buffer, 0, read);
-
-                            totalRead += read;
-
-                            if (canReportProgress)
-                            {
-                                progress.Report((totalRead * 1d) / (total * 1d) * 100);
-                            }
-                        }
-                    } while (isMoreToRead);
-
-                    await File.WriteAllBytesAsync(path, fileStream.ToArray());
-                }
-            }
-            Write2Log("Download completed");
-        }
-        */
 
         public static async Task DlFilewithProgress(string url, string path, IProgress<double> progress, CancellationToken token)
         {

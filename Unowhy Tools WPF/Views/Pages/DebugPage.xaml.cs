@@ -21,6 +21,7 @@ using Unowhy_Tools_WPF.Services.Contracts;
 using System.Net;
 using System.Reflection.Metadata;
 using System.Linq;
+using System.Data;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -81,14 +82,14 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         {
             debus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
         };
-        await UT.DlFilewithProgress("https://bit.ly/UTdebupdateZIP", utemp + "\\update.zip", progress, cancellationToken.Token);
+        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utdebupdatezip"), utemp + "\\update.zip", progress, cancellationToken.Token);
         progress = new System.Progress<double>();
         cancellationToken = new CancellationTokenSource();
         progress.ProgressChanged += (sender, value) =>
         {
             debus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
         };
-        await UT.DlFilewithProgress("https://bit.ly/UTuninstaller", utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
         debus.Text = "Extracting...";
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
         string pre = utemp + "\\update";
@@ -204,6 +205,30 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     private void getdate_Click(object sender, RoutedEventArgs e)
     {
         dateview.Text = datepick.SelectedDate.Value.ToString("MM/dd/yyyy");
+    }
+
+    private async void Button_Click_6(object sender, RoutedEventArgs e)
+    {
+        if (odataavatar.IsSelected)
+        {
+            string result = await UT.OnlineDatas.GetUrls(odataget.Text);
+            UT.DialogIShow(result, "about.png");
+        }
+        else if (odatastring.IsSelected)
+        {
+            string result = await UT.OnlineDatas.GetStrings(odataget.Text);
+            UT.DialogIShow(result, "about.png");
+        }
+        else if (odataupdate.IsSelected)
+        {
+            string result = await UT.OnlineDatas.GetUpdates(odataget.Text);
+            UT.DialogIShow(result, "about.png");
+        }
+        else if (odataurl.IsSelected)
+        {
+            string result = await UT.OnlineDatas.GetUrls(odataget.Text);
+            UT.DialogIShow(result, "about.png");
+        }
     }
 }
 

@@ -139,7 +139,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
-            await UT.DlFilewithProgress("https://bit.ly/UTFPTW", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe", progress, cancellationToken.Token);
         }
         if (resname == "AFU")
         {
@@ -150,7 +150,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
-            await UT.DlFilewithProgress("https://bit.ly/UTAFUWin", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("afuwin"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
             await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
             await Task.Delay(1000);
             await Task.Run(() =>
@@ -170,7 +170,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
-            await UT.DlFilewithProgress("https://bit.ly/UTAMIDEWin", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("amidewin"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
             await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
             await Task.Delay(1000);
             await Task.Run(() =>

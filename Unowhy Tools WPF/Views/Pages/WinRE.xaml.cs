@@ -180,7 +180,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
             };
             var cancellationToken = new CancellationTokenSource();
-            await UT.DlFilewithProgress("https://bit.ly/UTWinRE", "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("winre"), "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
 
             await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
 

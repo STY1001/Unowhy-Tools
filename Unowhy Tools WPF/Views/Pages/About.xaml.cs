@@ -17,6 +17,11 @@ using System.Windows.Media.Animation;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.IO;
+using Newtonsoft.Json;
+using static Unowhy_Tools.UT;
+using System.Net.Http;
+using System.Net;
+using System.Windows.Media.Imaging;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -237,6 +242,60 @@ public partial class About : INavigableView<DashboardViewModel>
 
         if (UT.CheckInternet())
         {
+            DiscordName.Text = await UT.OnlineDatas.GetStrings("discordname");
+            WebsiteName.Text = await UT.OnlineDatas.GetStrings("websitename");
+
+            stypp.Source = await UT.OnlineDatas.GetAvatars("sty1001");
+            superpotepp.Source = await UT.OnlineDatas.GetAvatars("fgamer768");
+            biboupp.Source = await UT.OnlineDatas.GetAvatars("nicospc");
+
+            string datasurl = UT.online_datas;
+            HttpClient web = new HttpClient();
+            HttpResponseMessage rep = await web.GetAsync(datasurl);
+            if (rep.StatusCode == HttpStatusCode.OK)
+            {
+                string jsonContent = await web.GetStringAsync(datasurl);
+                dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
+                if (jsonObject.contribs != null && jsonObject.contribs.Count > 0)
+                {
+                    foreach(var contrib in jsonObject.contribs)
+                    {
+                        string contribname = contrib["name"].ToString();
+                        string contribavatarurl = contrib["avatar"].ToString();
+
+                        StackPanel stackPanel = new StackPanel();
+                        stackPanel.Orientation = Orientation.Horizontal;
+
+                        Image image = new Image();
+                        image.Width = 32;
+                        RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality);
+
+                        TextBlock textBlock = new TextBlock();
+                        textBlock.Text = contribname;
+                        textBlock.Margin = new Thickness(10, 0, 0, 0);
+
+                        HttpResponseMessage rep2 = await web.GetAsync(contribavatarurl);
+                        if (rep2.StatusCode == HttpStatusCode.OK)
+                        {
+                            byte[] imageData = await web.GetByteArrayAsync(contribavatarurl);
+                            BitmapImage bitmapImage = new BitmapImage();
+                            MemoryStream stream = new MemoryStream(imageData);
+                            bitmapImage.BeginInit();
+                            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                            bitmapImage.StreamSource = stream;
+                            bitmapImage.EndInit();
+                            bitmapImage.Freeze();
+                            image.Source = bitmapImage;
+                        }
+
+                        stackPanel.Children.Add(image);
+                        stackPanel.Children.Add(textBlock);
+
+                        ExpStackContrib.Children.Add(stackPanel);
+                    }
+                }
+            }
+
             RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
             string utcuab = lcs.GetValue("UpdateStart").ToString();
             if (utcuab == "1")
@@ -426,7 +485,7 @@ public partial class About : INavigableView<DashboardViewModel>
         aed.Info = InfoStack;
     }
 
-    public void Github_Click(object sender, System.Windows.RoutedEventArgs e)
+    public async void Github_Click(object sender, System.Windows.RoutedEventArgs e)
     {
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
@@ -435,20 +494,20 @@ public partial class About : INavigableView<DashboardViewModel>
         });
     }
 
-    public void STY1001_Click(object sender, System.Windows.RoutedEventArgs e)
+    public async void STY1001_Click(object sender, System.Windows.RoutedEventArgs e)
     {
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
-            FileName = "https://sty1001.fr",
+            FileName = await UT.OnlineDatas.GetUrls("sty1001"),
             UseShellExecute = true
         });
     }
 
-    public void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
+    public async void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
     {
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
-            FileName = "https://discord.com/invite/dw3ZJ9u7WS",
+            FileName = await UT.OnlineDatas.GetUrls("discordinvite"),
             UseShellExecute = true
         });
     }

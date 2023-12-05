@@ -105,6 +105,22 @@
                                 Click="getdate_Click" />
                         <TextBlock x:Name="dateview" />
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="odataget"
+                                 Width="250" />
+                        <ComboBox>
+                            <ComboBoxItem x:Name="odataurl"
+                                          Content="Urls" />
+                            <ComboBoxItem x:Name="odatastring"
+                                          Content="Strings" />
+                            <ComboBoxItem x:Name="odataavatar"
+                                          Content="Avatars" />
+                            <ComboBoxItem x:Name="odataupdate"
+                                          Content="Updates" />
+                        </ComboBox>
+                        <Button Content="Get"
+                                Click="Button_Click_6" />
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>

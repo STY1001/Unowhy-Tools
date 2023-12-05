@@ -219,7 +219,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
             var web = new HttpClient();
             string sn = serial.Text;
-            string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
+            string preurl = await UT.OnlineDatas.GetUrls("idfconf");
             string configurl = $"{preurl}/devices/{sn}/configuration";
 
             HttpResponseMessage response = await web.GetAsync(configurl);

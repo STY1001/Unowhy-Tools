@@ -20,6 +20,9 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 using System.Windows.Shapes;
 using Wpf.Ui.Interop.WinDef;
+using Newtonsoft.Json;
+using System.Net;
+using System.Windows.Media.Imaging;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -151,40 +154,56 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
         SkeletonStack.Visibility = Visibility.Hidden;
 
+        string datasurl = UT.online_datas;
+        HttpClient web = new HttpClient();
+        HttpResponseMessage rep = await web.GetAsync(datasurl);
+        if (rep.StatusCode == HttpStatusCode.OK)
+        {
+            string jsonContent = await web.GetStringAsync(datasurl);
+            dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
+            if (jsonObject.drivers != null && jsonObject.drivers.Count > 0)
+            {
+                foreach (var driver in jsonObject.drivers)
+                {
+                    string title;
+                    string desc;
+
+                    string name = (string)driver["name"];
+                    string author = (string)driver["author"];
+                    string pcyear = (string)driver["pcyear"];
+                    double size = (double)driver["size"];
+                    string link = (string)driver["link"];
+
+                    string description = "null";
+                    if (langString == "EN")
+                    {
+                        description = (string)driver["description"]["en"];
+                    }
+                    else if (langString == "FR")
+                    {
+                        description = (string)driver["description"]["fr"];
+                    }
+
+                    size = size / (1024 * 1024 * 1024);
+
+                    title = name + "  •  by " + author;
+                    if (description == "")
+                    {
+                        desc = pcyear + "  •  " + size.ToString("#.##") + " GB";
+                    }
+                    else
+                    {
+                        desc = description + "  •  " + pcyear + "  •  " + size.ToString("#.##") + " GB";
+                    }
+
+                    await CreateCard(title, desc, name, link, size);
+                }
+            }
+        }
+
         foreach (JObject obj in array)
         {
-            string title;
-            string desc;
-
-            string name = (string)obj["name"];
-            string author = (string)obj["author"];
-            string pcyear = (string)obj["pcyear"];
-            double size = (double)obj["size"];
-            string link = (string)obj["link"];
-
-            string description = "null";
-            if(langString == "EN")
-            {
-                description = (string)obj["description"]["en"];
-            }
-            else if(langString == "FR")
-            {
-                description = (string)obj["description"]["fr"];
-            }
-
-            size = size / (1024 * 1024 * 1024);
-
-            title = name + "  •  by " + author;
-            if(description == "")
-            {
-                desc = pcyear + "  •  " + size.ToString("#.##") + " GB";
-            }
-            else
-            {
-                desc = description + "  •  " + pcyear + "  •  " + size.ToString("#.##") + " GB";
-            }
-
-            await CreateCard(title, desc, name, link, size);
+            
         }
     }
 
@@ -331,7 +350,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         Process.Start(new ProcessStartInfo
         {
             UseShellExecute = true,
-            FileName = "https://bit.ly/UTbkcloud"
+            FileName = await UT.OnlineDatas.GetUrls("utbkcloud")
         });
     }
 
@@ -363,7 +382,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         Process.Start(new ProcessStartInfo
         {
             UseShellExecute = true,
-            FileName = "https://discord.com/invite/dw3ZJ9u7WS"
+            FileName = await UT.OnlineDatas.GetUrls("discordinvite")
         });
     }
 }

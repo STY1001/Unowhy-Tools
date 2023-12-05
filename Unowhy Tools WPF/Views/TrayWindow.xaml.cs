@@ -624,7 +624,7 @@ public partial class TrayWindow : Window
                 if (await UT.version.newver())
                 {
                     var web = new HttpClient();
-                    string newver = await web.GetStringAsync("https://bit.ly/UTnvTXT");
+                    string newver = await UT.OnlineDatas.GetUpdates("utnewver");
                     newver = newver.Insert(2, ".");
                     newver = newver.Replace("\n", "");
                     string newverfull = UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";

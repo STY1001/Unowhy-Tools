@@ -308,7 +308,9 @@
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
                                                 <Image Source="../../Resources/sty1001.png"
-                                                       Grid.Column="0" />
+                                                       Grid.Column="0"
+                                                       x:Name="stypp"
+                                                       RenderOptions.BitmapScalingMode="HighQuality" />
                                                 <TextBlock Text="STY1001"
                                                            Foreground="#ffffff"
                                                            Grid.Column="2"
@@ -329,16 +331,19 @@
                                                 </Grid.ColumnDefinitions>
                                                 <Image Source="../../Resources/sty1001.png"
                                                        Grid.Column="0"
-                                                       Visibility="Hidden"/>
+                                                       Visibility="Hidden" />
                                                 <TextBlock Text="STY1001"
                                                            Foreground="#ffffff"
                                                            Grid.Column="2"
                                                            VerticalAlignment="Center"
                                                            Visibility="Hidden" />
                                                 <Image Source="../../Resources/link.png"
-                                                       Grid.Column="4" />
+                                                       Grid.Column="4"
+                                                       RenderOptions.BitmapScalingMode="HighQuality" />
                                                 <Image Source="../../Resources/fgamer768.png"
-                                                       Grid.Column="6" />
+                                                       Grid.Column="6"
+                                                       x:Name="superpotepp"
+                                                       RenderOptions.BitmapScalingMode="HighQuality" />
                                                 <TextBlock Text="FGAMER768"
                                                            Foreground="#ffffff"
                                                            Grid.Column="8"
@@ -366,53 +371,17 @@
                                                            VerticalAlignment="Center"
                                                            Visibility="Hidden" />
                                                 <Image Source="../../Resources/heart.png"
-                                                       Grid.Column="4" />
+                                                       Grid.Column="4"
+                                                       RenderOptions.BitmapScalingMode="HighQuality" />
                                                 <Image Source="../../Resources/nico.png"
-                                                       Grid.Column="6" />
+                                                       Grid.Column="6"
+                                                       x:Name="biboupp"
+                                                       RenderOptions.BitmapScalingMode="HighQuality" />
                                                 <TextBlock Text="Nico's PC"
                                                            Foreground="#ffffff"
                                                            Grid.Column="8"
                                                            VerticalAlignment="Center" />
                                             </Grid>
-                                        </Grid>
-                                        <Grid Margin="10,0,0,0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../../Resources/azgard.jpg"
-                                                   Grid.Column="0" />
-                                            <TextBlock Text="Azgar"
-                                                       Foreground="#ffffff"
-                                                       Grid.Column="2"
-                                                       VerticalAlignment="Center" />
-                                        </Grid>
-                                        <Grid Margin="10,0,0,0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../../Resources/g9.jpg"
-                                                   Grid.Column="0" />
-                                            <TextBlock Text="G9-Dev"
-                                                       Foreground="#ffffff"
-                                                       Grid.Column="2"
-                                                       VerticalAlignment="Center" />
-                                        </Grid>
-                                        <Grid Margin="10,0,0,0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../../Resources/ahhj93.jpg"
-                                                   Grid.Column="0" />
-                                            <TextBlock Text="Ahhj93"
-                                                       Foreground="#ffffff"
-                                                       Grid.Column="2"
-                                                       VerticalAlignment="Center" />
                                         </Grid>
                                     </StackPanel>
                                 </Expander>
@@ -497,7 +466,8 @@
                                         <TextBlock FontSize="12"
                                                    Foreground="#bebebe"
                                                    Text="sty1001.fr"
-                                                   FontFamily="Segoe UI" />
+                                                   FontFamily="Segoe UI" 
+                                                   x:Name="WebsiteName"/>
                                     </StackPanel>
                                 </Grid>
                             </ui:CardAction>
@@ -529,7 +499,8 @@
                                         <TextBlock FontSize="12"
                                                    Foreground="#bebebe"
                                                    Text="{}{unohelp}"
-                                                   FontFamily="Segoe UI" />
+                                                   FontFamily="Segoe UI"
+                                                   x:Name="DiscordName"/>
                                     </StackPanel>
                                 </Grid>
                             </ui:CardAction>

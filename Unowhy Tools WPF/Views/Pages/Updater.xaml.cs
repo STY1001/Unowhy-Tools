@@ -59,7 +59,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         if (UT.CheckInternet())
         {
             noco.Visibility = Visibility.Collapsed;
-            browser.Source = new System.Uri("https://bit.ly/UTclogHTMLPrev");
+            browser.Source = new System.Uri(await UT.OnlineDatas.GetUrls("utcloghtmlprev"));
         }
         else
         {
@@ -88,7 +88,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void GithubButton_Click(object sender, RoutedEventArgs e)
     {
-        browser.Source = new System.Uri("https://bit.ly/UTreleases");
+        browser.Source = new System.Uri(await UT.OnlineDatas.GetUrls("utreleases"));
 
         DoubleAnimation anim = new DoubleAnimation();
         anim.From = 0;
@@ -119,7 +119,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
     
     public async void GithubButton2_Click(object sender, RoutedEventArgs e)
     {
-        browser.Source = new System.Uri("https://bit.ly/UTclogHTMLPrev");
+        browser.Source = new System.Uri(await UT.OnlineDatas.GetUrls("utcloghtmlprev"));
 
         DoubleAnimation anim = new DoubleAnimation();
         anim.From = 0;
@@ -175,7 +175,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         {
             labimg.Source = UT.GetImgSource("yes.png");
             var web = new HttpClient();
-            string newver = await web.GetStringAsync("https://bit.ly/UTnvTXT");
+            string newver = await UT.OnlineDatas.GetUpdates("utnewver");
             newver = newver.Insert(2, ".");
             newver = newver.Replace("\n", "");
             string newverfull = UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
@@ -209,7 +209,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         {
             labtext.Text = uddl + " 1/2 (" + value.ToString("###.#") + "%)";
         };
-        await UT.DlFilewithProgress("https://bit.ly/UTupdateZIP", utemp + "\\update.zip", progress, cancellationToken.Token);
+        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utupdatezip"), utemp + "\\update.zip", progress, cancellationToken.Token);
 
         progress = new System.Progress<double>();
         cancellationToken = new CancellationTokenSource();
@@ -217,7 +217,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         {
             labtext.Text = uddl + " 2/2 (" + value.ToString("###.#") + "%)";
         };
-        await UT.DlFilewithProgress("https://bit.ly/UTuninstaller", utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
 
         labtext.Text = UT.GetLang("update.ext");
         labimg.Source = UT.GetImgSource("zip.png");

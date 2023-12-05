@@ -157,7 +157,7 @@ public partial class Edge : INavigableView<DashboardViewModel>
                     {
                         await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
                     };
-                    await UT.DlFilewithProgress("https://bit.ly/UTedgesetup", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe", progress, cancellationToken.Token);
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("edgesetup"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe", progress, cancellationToken.Token);
                 }
                 if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
