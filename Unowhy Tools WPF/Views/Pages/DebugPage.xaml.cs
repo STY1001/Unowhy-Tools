@@ -22,6 +22,7 @@ using System.Net;
 using System.Reflection.Metadata;
 using System.Linq;
 using System.Data;
+using System.Collections.Generic;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -229,6 +230,30 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
             string result = await UT.OnlineDatas.GetUrls(odataget.Text);
             UT.DialogIShow(result, "about.png");
         }
+    }
+
+    private async void Button_Click_7(object sender, RoutedEventArgs e)
+    {
+        List<string> list = new List<string>();
+        foreach (string filePath in Directory.GetFiles(scanpath.Text, scantype.Text))
+        {
+            list.Add(filePath);
+        }
+        foreach (string subDirectory in Directory.GetDirectories(scanpath.Text))
+        {
+            foreach (string filePath in Directory.GetFiles(subDirectory, scantype.Text))
+            {
+                list.Add(filePath);
+            }
+        }
+        string result = list.Count.ToString();
+
+        foreach (string filePath in list)
+        {
+            result = result + Environment.NewLine + filePath;
+        }
+
+        UT.DialogIShow(result, "about.png");
     }
 }
 

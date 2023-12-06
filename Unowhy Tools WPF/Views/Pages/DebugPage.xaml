@@ -121,6 +121,14 @@
                         <Button Content="Get"
                                 Click="Button_Click_6" />
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="scanpath"
+                                 Width="250" />
+                        <TextBox x:Name="scantype"
+                                 Width="250" />
+                        <Button Content="Get"
+                                Click="Button_Click_7" />
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>

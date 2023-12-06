@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Windows.Media.Animation;
 using System;
 using System.Windows.Media;
+using System.Collections.Generic;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -32,7 +33,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         await Task.Delay(200);
         UT.NavigateTo(typeof(Drivers));
     }
-    
+
     public async void GoForw(object sender, RoutedEventArgs e)
     {
         DoubleAnimation anim = new DoubleAnimation();
@@ -150,10 +151,47 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                 {
                     ZipFile.ExtractToDirectory(source, dest);
                 });
-                await UT.waitstatus.open(UT.GetLang("wait.restore"), "download.png");
+                await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
                 if (File.Exists(rttemps + "\\UT-Restore.exe"))
                 {
-                    await Task.Run(() =>
+                    List<string> list = new List<string>();
+                    foreach (string filePath in Directory.GetFiles(rttemps, "*.inf"))
+                    {
+                        list.Add(filePath);
+                    }
+                    foreach (string subDirectory in Directory.GetDirectories(rttemps))
+                    {
+                        foreach (string filePath in Directory.GetFiles(subDirectory, "*.inf"))
+                        {
+                            list.Add(filePath);
+                        }
+                    }
+
+                    string result = list.Count.ToString();
+                    int status = 0;
+
+                    foreach (string filePath in list)
+                    {
+                        status++;
+
+                        string percentage = ((status * 100) / list.Count).ToString("##0") + " %";
+
+                        await UT.waitstatus.open(UT.GetLang("wait.restore") + " (" + percentage + ")", "download.png");
+
+                        await Task.Run(() =>
+                        {
+                            var process = new Process();
+                            process.StartInfo.UseShellExecute = false;
+                            process.StartInfo.CreateNoWindow = true;
+                            process.StartInfo.FileName = "pnputil.exe";
+                            process.StartInfo.Arguments = "/add-driver \"" + filePath + "\" /install";
+                            process.Start();
+                            process.WaitForExit();
+                            process.Dispose();
+                        });
+                    }
+
+                    /*await Task.Run(() =>
                     {
                         Process p = new Process();
                         p.StartInfo.FileName = rttemps + "\\UT-Restore.exe";
@@ -162,7 +200,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                         p.StartInfo.CreateNoWindow = true;
                         p.Start();
                         p.WaitForExit();
-                    });
+                    });*/
 
                 }
                 else
