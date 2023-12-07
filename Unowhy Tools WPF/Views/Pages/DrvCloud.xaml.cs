@@ -87,7 +87,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             string dl = UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
-                await UT.waitstatus.open(dl + " (" + value.ToString("000.0") + "%)", "clouddl.png");
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "clouddl.png");
             };
             await UT.DlFilewithProgress(link, uttemps + $"\\{filename}", progress, cancellationToken.Token);
             await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");

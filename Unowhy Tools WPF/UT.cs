@@ -653,7 +653,7 @@ namespace Unowhy_Tools
                         var cancellationToken = new CancellationTokenSource();
                         progress.ProgressChanged += (sender, value) =>
                         {
-                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("000.0") + "%)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("##0.0") + "%)";
                         };
                         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
@@ -739,7 +739,7 @@ namespace Unowhy_Tools
                         var cancellationToken = new CancellationTokenSource();
                         progress.ProgressChanged += (sender, value) =>
                         {
-                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("000.0") + "%)";
+                            mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("##0.0") + "%)";
                         };
                         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
