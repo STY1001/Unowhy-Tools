@@ -73,6 +73,12 @@ public partial class MainWindow : INavigationWindow
 
         applylang();
         this.KeyDown += MainWindow_KonamiKeyDown;
+        this.KeyUp += MainWindow_KonamiKeyUp;
+    }
+
+    private void MainWindow_KeyUp(object sender, KeyEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 
     #region Dialog and Wait
@@ -922,9 +928,14 @@ public partial class MainWindow : INavigationWindow
     };
 
     private int konamiDebugKeyIndex = 0;
+    private bool konamiCtrlDown = false;
     private async void MainWindow_KonamiKeyDown(object sender, KeyEventArgs e)
     {
-        if (e.Key == konamiDebugKey[konamiDebugKeyIndex])
+        if (e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl)
+        {
+            konamiCtrlDown = true;
+        }
+        else if (konamiCtrlDown && e.Key == konamiDebugKey[konamiDebugKeyIndex])
         {
             konamiDebugKeyIndex++;
 
@@ -932,6 +943,19 @@ public partial class MainWindow : INavigationWindow
             {
                 await ViewKonamiDebug();
             }
+
+            if (konamiDebugKeyIndex == konamiDebugKey.Count)
+            {
+                await ViewKonamiDebugKey(konamienter, "none");
+
+                await KonamiOpenDebug();
+
+                konamiDebugKeyIndex = 0;
+            }
+        }
+        else if(!konamiCtrlDown && e.Key == konamiDebugKey[konamiDebugKeyIndex] && konamiDebugKeyIndex > 1)
+        {
+            konamiDebugKeyIndex++;
 
             if (konamiDebugKeyIndex == 3)
             {
@@ -987,6 +1011,15 @@ public partial class MainWindow : INavigationWindow
         {
             await RemoveKonamiDebug();
             konamiDebugKeyIndex = 0;
+            konamiCtrlDown = false;
+        }
+    }
+
+    private async void MainWindow_KonamiKeyUp(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl)
+        {
+            konamiCtrlDown = false;
         }
     }
 
