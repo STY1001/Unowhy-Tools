@@ -723,7 +723,7 @@ namespace Unowhy_Tools
 
                     string ver = await UT.UTS.UTSmsg("UTS", "GetVer");
 
-                    if (!(newver == ver) || verisdeb)
+                    if (!(newver == ver))
                     {
                         await MainWindow.USSwB("Preparing UTS... (" + ver + " => " + newver + ")");
                         await Task.Delay(1000);
