@@ -461,8 +461,6 @@ public partial class MainWindow : INavigationWindow
             SplashBar.IsIndeterminate = true;
             SplashPercent.Visibility = Visibility.Hidden;
         }
-
-        await Task.Delay(50);
     }
 
     #endregion
@@ -597,8 +595,6 @@ public partial class MainWindow : INavigationWindow
 
         if (!UT.CheckAdmin())
         {
-            SplashText.Text = "Hi !";
-            await Task.Delay(500);
             SplashText.Text = "Restarting as admin...";
             SplashBar.Value = 100;
             await Task.Delay(500);
@@ -658,22 +654,16 @@ public partial class MainWindow : INavigationWindow
             }
 
             await USS("Loading... (Cleaning)");
-            await Task.Delay(500);
             await UT.Cleanup();
             await USS("Loading... (Checking Files)");
-            await Task.Delay(500);
             bool fs = await UT.FirstStart();
             await USS("Loading... (Checking System)");
-            await Task.Delay(500);
             await UT.Check();
             await USS("Loading... (Checking Unowhy Tools Service)");
-            await Task.Delay(500);
             await UT.UTS.UTScheck();
             await USS("Loading... (Tray)");
-            await Task.Delay(500);
             await UT.TrayCheck();
             await USS("Loading... (Preloading pages)");
-            await Task.Delay(500);
             await USS("Preloading pages... (Dashboard)");
             Navigate(typeof(Dashboard));
             await USS("Preloading pages... (Settings)");
@@ -692,8 +682,7 @@ public partial class MainWindow : INavigationWindow
             Navigate(typeof(Customize));
             await USS("Preloading pages... (Drivers)");
             Navigate(typeof(Drivers));
-            await Task.Delay(100);
-
+            await Task.Delay(500);
             animsb = new DoubleAnimation();
             animsb.From = 20;
             animsb.To = 0;
@@ -870,12 +859,38 @@ public partial class MainWindow : INavigationWindow
             else
             {
                 Navigate(typeof(Dashboard));
-                /*
+
+                backisdeployed = false;
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = -50,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                back.RenderTransform = transform;
+
+                back.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+
+                await Task.Delay(500);
+
                 foreach (UIElement elements in RootNavigation.Items)
                 {
                     elements.Visibility = Visibility.Visible;
                     back.Visibility = Visibility.Collapsed;
-                    DoubleAnimation opacityAnimation = new DoubleAnimation
+
+                    DoubleAnimation opacityAnim = new DoubleAnimation
                     {
                         From = 0,
                         To = 1,
@@ -883,7 +898,7 @@ public partial class MainWindow : INavigationWindow
                         EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
                     };
 
-                    DoubleAnimation translateAnimation = new DoubleAnimation
+                    DoubleAnimation translateAnim = new DoubleAnimation
                     {
                         From = -50,
                         To = 0,
@@ -891,22 +906,20 @@ public partial class MainWindow : INavigationWindow
                         EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
                     };
 
-                    TranslateTransform transform = new TranslateTransform();
-                    elements.RenderTransform = transform;
+                    TranslateTransform trans2 = new TranslateTransform();
+                    elements.RenderTransform = trans2;
 
-                    elements.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-                    transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+                    elements.BeginAnimation(UIElement.OpacityProperty, opacityAnim);
+                    trans2.BeginAnimation(TranslateTransform.XProperty, translateAnim);
 
                     await Task.Delay(50);
                 }
-                */
                 await Task.Delay(1000);
                 RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.None;
             }
 
-            UT.Write2Log("\n\n\nReady !\n");
             await UT.SendStats("normal");
-            UT.Write2Log("\n\n\n");
+            UT.Write2Log("\n\n\nReady !\n");
         }
     }
 
