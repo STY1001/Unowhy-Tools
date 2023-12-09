@@ -50,8 +50,15 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
         InitializeComponent();
 
+        ODupdate();
+
         _testWindowService = testWindowService;
         _snackbarService = snackbarService;
+    }
+
+    public async void ODupdate()
+    {
+        ODataBox.Text = await UT.Config.Get("OnlineData");
     }
 
     public void Github_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -254,6 +261,12 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         }
 
         UT.DialogIShow(result, "about.png");
+    }
+
+    private async void Button_Click_8(object sender, RoutedEventArgs e)
+    {
+        await UT.Config.Set("OnlineData", ODataBox.Text);
+        UT.online_datas = ODataBox.Text;
     }
 }
 

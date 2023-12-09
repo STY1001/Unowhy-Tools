@@ -65,6 +65,12 @@
                 <ui:NavigationSeparator />
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
+                        <ui:TextBox Width="350"
+                                    x:Name="ODataBox"/>
+                        <ui:Button Content="Apply Online Data"
+                                   Click="Button_Click_8"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
                         <ui:TextBox Text="Dialog Text Test"
                                     x:Name="dialogtxt"
                                     Width="250" />
