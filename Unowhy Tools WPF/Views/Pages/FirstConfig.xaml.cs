@@ -218,7 +218,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         {
             if (UT.CheckInternet())
             {
-                await UT.waitstatus.open(UT.GetLang("wait.apply"), "datamatrix.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.apply"), "datamatrix.png");
                 var web = new HttpClient();
                 string ssn = snbox.Text;
                 string preurl = await UT.OnlineDatas.GetUrls("idfconf");
@@ -233,7 +233,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
                     if (!(nsn == ssn))
                     {
-                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                        UT.DialogIShow(await UT.GetLang("failed"), "no.png");
                         IsOK = true;
                         InitOK = true;
                     }
@@ -245,12 +245,12 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
                 else
                 {
                     await UT.waitstatus.close();
-                    UT.DialogIShow(UT.GetLang("noid"), "no.png");
+                    UT.DialogIShow(await UT.GetLang("noid"), "no.png");
                 }
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("noco"), "nowifi.png");
+                UT.DialogIShow(await UT.GetLang("noco"), "nowifi.png");
                 IsOK = true;
                 InitOK = true;
             }
@@ -406,7 +406,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
         if (wifisync.IsEnabled)
         {
-            await UT.waitstatus.open(UT.GetLang("wait.apply"), "wifi.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.apply"), "wifi.png");
             if (wifisync.IsChecked == true)
             {
                 await UT.UTS.UTSmsg("UTSW", "SetWS:" + "True");
@@ -414,7 +414,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
                 if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "True"))
                 {
                     await UT.waitstatus.close();
-                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    UT.DialogIShow(await UT.GetLang("failed"), "no.png");
                 }
             }
             else
@@ -424,7 +424,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
                 if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "False"))
                 {
                     await UT.waitstatus.close();
-                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    UT.DialogIShow(await UT.GetLang("failed"), "no.png");
                 }
             }
             await UT.waitstatus.close();

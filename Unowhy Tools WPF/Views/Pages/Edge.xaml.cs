@@ -41,10 +41,10 @@ public partial class Edge : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(Customize));
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        uninstall_txt.Text = UT.GetLang("edgeun");
-        block_txt.Text = UT.GetLang("edgeblock");
+        uninstall_txt.Text = await UT.GetLang("edgeun");
+        block_txt.Text = await UT.GetLang("edgeblock");
 
     }
 
@@ -58,7 +58,7 @@ public partial class Edge : INavigableView<DashboardViewModel>
         }
         else
         {
-            uninstall_txt.Text = UT.GetLang("edgeun") + " (" + out1.Replace("\n", "").Replace("\r", "").Replace(" ", "") + ")";
+            uninstall_txt.Text = await UT.GetLang("edgeun") + " (" + out1.Replace("\n", "").Replace("\r", "").Replace(" ", "") + ")";
             edgever = out1.Replace("\n", "").Replace("\r", "").Replace(" ", "");
             uninstall.IsEnabled = true;
             uninstall_txt.Foreground = new SolidColorBrush(enabled);
@@ -140,19 +140,19 @@ public partial class Edge : INavigableView<DashboardViewModel>
     {
         if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
         {
-            UT.DialogIShow(UT.GetLang("needres"), "download.png");
+            UT.DialogIShow(await UT.GetLang("needres"), "download.png");
         }
 
         if (UT.CheckInternet() || File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
         {
-            if (UT.DialogQShow(UT.GetLang("edgeun"), "uninstall.png"))
+            if (UT.DialogQShow(await UT.GetLang("edgeun"), "uninstall.png"))
             {
-                await UT.waitstatus.open(UT.GetLang("wait.uninstall"), "uninstall.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.uninstall"), "uninstall.png");
                 if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
-                    string dl = UT.GetLang("wait.download");
+                    string dl = await UT.GetLang("wait.download");
                     progress.ProgressChanged += async (sender, value) =>
                     {
                         await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
@@ -161,46 +161,46 @@ public partial class Edge : INavigableView<DashboardViewModel>
                 }
                 if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
-                    await UT.waitstatus.open(UT.GetLang("wait.uninstall"), "uninstall.png");
+                    await UT.waitstatus.open(await UT.GetLang("wait.uninstall"), "uninstall.png");
                     await UT.RunMin("powershell", $"start-process -FilePath '{Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"}' -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
                 }
                 await Task.Delay(1000);
-                await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
                 await CheckBTN();
                 await UT.waitstatus.close();
                 if (!uninstall.IsEnabled)
                 {
-                    UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                    UT.DialogIShow(await UT.GetLang("done"), "yes.png");
                 }
                 else
                 {
-                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    UT.DialogIShow(await UT.GetLang("failed"), "no.png");
                 }
             }
         }
         else
         {
-            UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
         }
     }
 
     public async void Block_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("edgeblock"), "block.png"))
+        if (UT.DialogQShow(await UT.GetLang("edgeblock"), "block.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.block"), "block.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.block"), "block.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\EdgeUpdate\" /v \"DoNotUpdateToEdgeWithChromium\" /t REG_DWORD /d \"1\" /f");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!block.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }

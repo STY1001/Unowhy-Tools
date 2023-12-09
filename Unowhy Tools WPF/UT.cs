@@ -1031,8 +1031,8 @@ namespace Unowhy_Tools
                 await UT.Config.Set("ID", uuidString);
             }
 
-            string idString = key.GetValue("ID", null).ToString();
-            string langString = key.GetValue("Lang", null).ToString();
+            string idString = await UT.Config.Get("ID");
+            string langString = await UT.Config.Get("Lang");
 
             bool tray;
             TaskScheduler.TaskService taskService = new TaskScheduler.TaskService();
@@ -1287,10 +1287,11 @@ namespace Unowhy_Tools
                 Write2Log("Last logs are on bottom\n\n\n");
             }
 
+            await MainWindow.USS("Checking... (settings.json)");
+
             if (!File.Exists("settings.json"))
             {
-                var f = File.CreateText("settings.json");
-                f.Close();
+                File.WriteAllText("settings.json", "{\n  \"name\":\"value\"\n}");
 
                 RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
                 if (keyut != null)
@@ -1457,14 +1458,23 @@ namespace Unowhy_Tools
         public static async Task<string> GetLang(string name)
         {
             string resxFile = @".\lang\en.resx";
-            string enresx = @".\lang\en.resx";
-            string frresx = @".\lang\fr.resx";
-            string lang = await UT.Config.Get("Lang");
-            if (lang == "EN") resxFile = enresx;
-            else if (lang == "FR") resxFile = frresx;
-            ResXResourceSet resxSet1 = new ResXResourceSet(resxFile);
-            Write2Log("Get lang " + name + " => " + resxSet1.GetString(name));
-            return resxSet1.GetString(name);
+            try
+            {
+                string enresx = @".\lang\en.resx";
+                string frresx = @".\lang\fr.resx";
+                string lang = await UT.Config.Get("Lang");
+                if (lang == "EN") resxFile = enresx;
+                else if (lang == "FR") resxFile = frresx;
+                ResXResourceSet resxSet1 = new ResXResourceSet(resxFile);
+                Write2Log("Get lang " + name + " => " + resxSet1.GetString(name));
+                return resxSet1.GetString(name);
+            }
+            catch
+            {
+                ResXResourceSet resxSet1 = new ResXResourceSet(resxFile);
+                Write2Log("Get lang " + name + " => " + resxSet1.GetString(name));
+                return resxSet1.GetString(name);
+            }
         }
 
         public async static Task RunMin(string file, string args)

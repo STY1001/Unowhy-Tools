@@ -25,8 +25,13 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             InitializeComponent();
             Visibility = Visibility.Collapsed;
-            btn_no.Text = UT.GetLang("no");
-            btn_yes.Text = UT.GetLang("yes");
+            applylang();
+        }
+
+        public async void applylang()
+        {
+            btn_no.Text = await UT.GetLang("no");
+            btn_yes.Text = await UT.GetLang("yes");
         }
 
         private bool _hideRequest = false;

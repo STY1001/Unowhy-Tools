@@ -32,26 +32,26 @@ public partial class MainWindow : INavigationWindow
     private readonly ISnackbarService _snackbarService;
     private readonly IDialogService _dialogService;
 
-    public void applylang()
+    public async Task applylang()
     {
-        home.Content = UT.GetLang("titlehome");
-        hsqm.Content = UT.GetLang("titlehsqm");
-        repair.Content = UT.GetLang("titlerepair");
-        delete.Content = UT.GetLang("titledelete");
-        customize.Content = UT.GetLang("titlecust");
-        drivers.Content = UT.GetLang("titledrv");
-        pcname.Content = UT.GetLang("titlepcn");
-        wre.Content = UT.GetLang("titlewre");
-        adduser.Content = UT.GetLang("titleadduser");
-        adminset.Content = UT.GetLang("titleadminset");
-        about.Content = UT.GetLang("titleabout");
-        drvbk.Content = UT.GetLang("titledrvbk");
-        drvrt.Content = UT.GetLang("titledrvrt");
-        drvconv.Content = UT.GetLang("titleconv");
-        settings.Content = UT.GetLang("titlesettings");
-        pcinfo.Content = UT.GetLang("titlepci");
-        mes.Content = UT.GetLang("titleedge");
-        wds.Content = UT.GetLang("titlewindef");
+        home.Content = await UT.GetLang("titlehome");
+        hsqm.Content = await UT.GetLang("titlehsqm");
+        repair.Content = await UT.GetLang("titlerepair");
+        delete.Content = await UT.GetLang("titledelete");
+        customize.Content = await UT.GetLang("titlecust");
+        drivers.Content = await UT.GetLang("titledrv");
+        pcname.Content = await UT.GetLang("titlepcn");
+        wre.Content = await UT.GetLang("titlewre");
+        adduser.Content = await UT.GetLang("titleadduser");
+        adminset.Content = await UT.GetLang("titleadminset");
+        about.Content = await UT.GetLang("titleabout");
+        drvbk.Content = await UT.GetLang("titledrvbk");
+        drvrt.Content = await UT.GetLang("titledrvrt");
+        drvconv.Content = await UT.GetLang("titleconv");
+        settings.Content = await UT.GetLang("titlesettings");
+        pcinfo.Content = await UT.GetLang("titlepci");
+        mes.Content = await UT.GetLang("titleedge");
+        wds.Content = await UT.GetLang("titlewindef");
     }
 
     public MainWindow(INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)

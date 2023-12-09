@@ -110,9 +110,9 @@ public partial class Wifi : INavigableView<DashboardViewModel>
         }
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        labsn.Text = UT.GetLang("pcserial");
+        labsn.Text = await UT.GetLang("pcserial");
     }
 
     public Wifi(DashboardViewModel viewModel)
@@ -214,7 +214,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
     {
         if (UT.CheckInternet())
         {
-            await UT.waitstatus.open(UT.GetLang("wait.get"), "clouddl.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.get"), "clouddl.png");
             await Task.Delay(1000);
 
             var web = new HttpClient();
@@ -349,12 +349,12 @@ public partial class Wifi : INavigableView<DashboardViewModel>
             else
             {
                 await UT.waitstatus.close();
-                UT.DialogIShow(UT.GetLang("noid"), "no.png");
+                UT.DialogIShow(await UT.GetLang("noid"), "no.png");
             }            
         }
         else
         {
-            UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
         }
     }
 

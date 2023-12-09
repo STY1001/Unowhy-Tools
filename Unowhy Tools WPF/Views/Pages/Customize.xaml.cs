@@ -147,32 +147,32 @@ public partial class Customize : INavigableView<DashboardViewModel>
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        pcname_txt.Text = UT.GetLang("pcname");
-        pcname_desc.Text = UT.GetLang("descpcname");
-        pcname_btn.Content = UT.GetLang("change");
-        adminset_txt.Text = UT.GetLang("admin");
-        adminset_desc.Text = UT.GetLang("descadmin");
-        adminset_btn.Content = UT.GetLang("set");
-        adduser_txt.Text = UT.GetLang("adduser");
-        adduser_desc.Text = UT.GetLang("descadduser");
-        adduser_btn.Content = UT.GetLang("create");
-        auset_txt.Text = UT.GetLang("adminset");
-        auset_desc.Text = UT.GetLang("descadminset");
-        auset_btn.Content = UT.GetLang("open");
-        camoverena_txt.Text = UT.GetLang("camoverena");
-        camoverena_desc.Text = UT.GetLang("desccamoverena");
-        camoverena_btn.Content = UT.GetLang("enable");
-        verbstatena_txt.Text = UT.GetLang("verbstatena");
-        verbstatena_desc.Text = UT.GetLang("descverbstatena");
-        verbstatena_btn.Content = UT.GetLang("enable");
-        edgeset_txt.Text = UT.GetLang("edgeset");
-        edgeset_desc.Text = UT.GetLang("descedgeset");
-        edgeset_btn.Content = UT.GetLang("open");
-        windefset_txt.Text = UT.GetLang("windefset");
-        windefset_desc.Text = UT.GetLang("descwindefset");
-        windefset_btn.Content = UT.GetLang("open");
+        pcname_txt.Text = await UT.GetLang("pcname");
+        pcname_desc.Text = await UT.GetLang("descpcname");
+        pcname_btn.Content = await UT.GetLang("change");
+        adminset_txt.Text = await UT.GetLang("admin");
+        adminset_desc.Text = await UT.GetLang("descadmin");
+        adminset_btn.Content = await UT.GetLang("set");
+        adduser_txt.Text = await UT.GetLang("adduser");
+        adduser_desc.Text = await UT.GetLang("descadduser");
+        adduser_btn.Content = await UT.GetLang("create");
+        auset_txt.Text = await UT.GetLang("adminset");
+        auset_desc.Text = await UT.GetLang("descadminset");
+        auset_btn.Content = await UT.GetLang("open");
+        camoverena_txt.Text = await UT.GetLang("camoverena");
+        camoverena_desc.Text = await UT.GetLang("desccamoverena");
+        camoverena_btn.Content = await UT.GetLang("enable");
+        verbstatena_txt.Text = await UT.GetLang("verbstatena");
+        verbstatena_desc.Text = await UT.GetLang("descverbstatena");
+        verbstatena_btn.Content = await UT.GetLang("enable");
+        edgeset_txt.Text = await UT.GetLang("edgeset");
+        edgeset_desc.Text = await UT.GetLang("descedgeset");
+        edgeset_btn.Content = await UT.GetLang("open");
+        windefset_txt.Text = await UT.GetLang("windefset");
+        windefset_desc.Text = await UT.GetLang("descwindefset");
+        windefset_btn.Content = await UT.GetLang("open");
     }
 
     public async Task CheckBTN(bool check)
@@ -244,63 +244,63 @@ public partial class Customize : INavigableView<DashboardViewModel>
 
     public async void adminset_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("admin"), "admin.png"))
+        if (UT.DialogQShow(await UT.GetLang("admin"), "admin.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.set"), "admin.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.set"), "admin.png");
             await UT.RunMin("net", $"localgroup {UTdata.AdminsName} /add \"{UTdata.User}\"");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!adminset.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
     
     public async void camover_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("camoverena"), "camera.png"))
+        if (UT.DialogQShow(await UT.GetLang("camoverena"), "camera.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.enable"), "camera.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "camera.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\OEM\\Device\\Capture\" /v \"NoPhysicalCameraLED\" /t REG_DWORD /d \"1\" /f");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!camoverena.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
 
     public async void verbstatena_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("verbstatena"), "verbose.png"))
+        if (UT.DialogQShow(await UT.GetLang("verbstatena"), "verbose.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.enable"), "verbose.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "verbose.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v \"VerboseStatus\" /t REG_DWORD /d \"1\" /f");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!verbstatena.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }

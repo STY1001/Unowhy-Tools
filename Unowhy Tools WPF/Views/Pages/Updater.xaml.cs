@@ -42,9 +42,9 @@ public partial class Updater : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(About));
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        updatebtntext.Text = UT.GetLang("udcheck");
+        updatebtntext.Text = await UT.GetLang("udcheck");
     }
 
     public async void Init(object sender, System.EventArgs e)
@@ -150,7 +150,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
     
     public async void CheckButton_Click(object sender, RoutedEventArgs e)
     {
-        labtext.Text = UT.GetLang("update.check");
+        labtext.Text = await UT.GetLang("update.check");
         labimg.Source = UT.GetImgSource("wait.png");
 
         DoubleAnimation anim = new DoubleAnimation();
@@ -178,16 +178,16 @@ public partial class Updater : INavigableView<DashboardViewModel>
             string newver = await UT.OnlineDatas.GetUpdates("utnewver");
             newver = newver.Insert(2, ".");
             newver = newver.Replace("\n", "");
-            string newverfull = UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
+            string newverfull = await UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
             labtext.Text = newverfull;
             UpdateBTN.Click -= CheckButton_Click;
             UpdateBTN.Click += InstallButton_Click;
             updatebtnimg.Source = UT.GetImgSource("download.png");
-            updatebtntext.Text = UT.GetLang("unow");
+            updatebtntext.Text = await UT.GetLang("unow");
         }
         else
         {
-            labtext.Text = UT.GetLang("nover");
+            labtext.Text = await UT.GetLang("nover");
             labimg.Source = UT.GetImgSource("no.png");
         }
     }
@@ -199,10 +199,10 @@ public partial class Updater : INavigableView<DashboardViewModel>
         updatebtntext.Foreground = new SolidColorBrush(disabled);
         UpdateBTN.IsEnabled = false;
         labimg.Source = UT.GetImgSource("clouddl.png");
-        labtext.Text = UT.GetLang("update.dl");
+        labtext.Text = await UT.GetLang("update.dl");
         await Task.Delay(1000);
 
-        string uddl = UT.GetLang("update.dl");
+        string uddl = await UT.GetLang("update.dl");
         var progress = new System.Progress<double>();
         var cancellationToken = new CancellationTokenSource();
         progress.ProgressChanged += (sender, value) =>
@@ -219,12 +219,12 @@ public partial class Updater : INavigableView<DashboardViewModel>
         };
         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
 
-        labtext.Text = UT.GetLang("update.ext");
+        labtext.Text = await UT.GetLang("update.ext");
         labimg.Source = UT.GetImgSource("zip.png");
         await Task.Delay(1000);
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
 
-        labtext.Text = UT.GetLang("update.updating");
+        labtext.Text = await UT.GetLang("update.updating");
         labimg.Source = UT.GetImgSource("update.png");
         await Task.Delay(1000);
         string pre = utemp + "\\update";

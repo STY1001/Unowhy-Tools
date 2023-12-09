@@ -74,17 +74,17 @@ public partial class Drivers : INavigableView<DashboardViewModel>
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        dlcloud_txt.Text = UT.GetLang("bkcloud");
-        dlcloud_desc.Text = UT.GetLang("descbkcloud");
-        dlcloud_btn.Text = UT.GetLang("dl");
-        bk_txt.Text = UT.GetLang("back");
-        bk_desc.Text = UT.GetLang("drvbr");
-        bk_btn.Content = UT.GetLang("backup");
-        rt_txt.Text = UT.GetLang("rest");
-        rt_desc.Text = UT.GetLang("drvbr");
-        rt_btn.Content = UT.GetLang("restore");
+        dlcloud_txt.Text = await UT.GetLang("bkcloud");
+        dlcloud_desc.Text = await UT.GetLang("descbkcloud");
+        dlcloud_btn.Text = await UT.GetLang("dl");
+        bk_txt.Text = await UT.GetLang("back");
+        bk_desc.Text = await UT.GetLang("drvbr");
+        bk_btn.Content = await UT.GetLang("backup");
+        rt_txt.Text = await UT.GetLang("rest");
+        rt_desc.Text = await UT.GetLang("drvbr");
+        rt_btn.Content = await UT.GetLang("restore");
     }
 
     public async void Init(object sender, EventArgs e)

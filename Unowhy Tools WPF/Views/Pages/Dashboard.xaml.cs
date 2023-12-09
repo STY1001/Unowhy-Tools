@@ -63,7 +63,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         {
             if (await UT.Config.Get("UpdateStart") == "1")
             {
-                lababout2.Text = UT.GetLang("update.check");
+                lababout2.Text = await UT.GetLang("update.check");
                 if (await UT.version.newver())
                 {
                     Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
@@ -73,7 +73,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
                     newver = newver.Insert(2, ".");
                     newver = newver.Replace("\n", "");
                     string newverfull = UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver;
-                    string labnewver = UT.GetLang("newver");
+                    string labnewver = await UT.GetLang("newver");
 
                     DoubleAnimation anim = new DoubleAnimation();
                     anim.From = 0;
@@ -320,11 +320,11 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         InitializeComponent();
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        lababout.Text = UT.GetLang("about");
-        labinfo.Text = UT.GetLang("pcinfo");
-        labset.Text = UT.GetLang("settings");
+        lababout.Text = await UT.GetLang("about");
+        labinfo.Text = await UT.GetLang("pcinfo");
+        labset.Text = await UT.GetLang("settings");
     }
 
     public async void About(object sender, RoutedEventArgs e)

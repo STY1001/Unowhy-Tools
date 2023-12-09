@@ -41,13 +41,13 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         //UT.anim.TransitionForw(RootGrid);
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        repo_txt.Text = UT.GetLang("bkcloudhost");
-        repo_desc.Text = UT.GetLang("bkcloudhostdesc");
-        submit.Content = UT.GetLang("bkcloud.submit");
-        repobtn.Content = UT.GetLang("bkcloud.repo");
-        refresh.Content = UT.GetLang("refresh");
+        repo_txt.Text = await UT.GetLang("bkcloudhost");
+        repo_desc.Text = await UT.GetLang("bkcloudhostdesc");
+        submit.Content = await UT.GetLang("bkcloud.submit");
+        repobtn.Content = await UT.GetLang("bkcloud.repo");
+        refresh.Content = await UT.GetLang("refresh");
     }
 
     public async void Init(object sender, EventArgs e)
@@ -58,7 +58,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         if (UT.CheckInternet())
         {
             repo_img.Source = UT.GetImgSource("clouddl.png");
-            repo_desc.Text = UT.GetLang("bkcloudhostdesc");
+            repo_desc.Text = await UT.GetLang("bkcloudhostdesc");
 
             var repocard = repo;
             var sep = separator;
@@ -70,7 +70,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         else
         {
             repo_img.Source = UT.GetImgSource("nowifi.png");
-            repo_desc.Text = UT.GetLang("nonet");
+            repo_desc.Text = await UT.GetLang("nonet");
         }
         refresh.IsEnabled = true;
     }
@@ -80,24 +80,24 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         DriveInfo drive = new DriveInfo("C");
         if(drive.AvailableFreeSpace > size * 3)
         {
-            await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
             string uttemps = System.IO.Path.GetTempPath() + "\\Unowhy Tools\\Temps";
             var progress = new System.Progress<double>();
             var cancellationToken = new CancellationTokenSource();
-            string dl = UT.GetLang("wait.download");
+            string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "clouddl.png");
             };
             await UT.DlFilewithProgress(link, uttemps + $"\\{filename}", progress, cancellationToken.Token);
-            await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
             string source = uttemps + $"\\{filename}";
             string dest = uttemps + "\\Drivers";
             await Task.Run(() =>
             {
                 ZipFile.ExtractToDirectory(source, dest);
             });
-            await UT.waitstatus.open(UT.GetLang("wait.restore"), "download.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.restore"), "download.png");
             List<string> list = new List<string>();
             foreach (string filePath in Directory.GetFiles(uttemps + $"\\Drivers", "*.inf"))
             {
@@ -120,7 +120,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
                 string percentage = ((status * 100) / list.Count).ToString("##0") + " %";
 
-                await UT.waitstatus.open(UT.GetLang("wait.restore") + " (" + percentage + ")", "download.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.restore") + " (" + percentage + ")", "download.png");
 
                 await Task.Run(() =>
                 {
@@ -147,14 +147,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             Directory.Delete(uttemps + "\\Drivers", true);
             Directory.CreateDirectory(uttemps + "\\Drivers");
             await UT.waitstatus.close();
-            UT.DialogIShow(UT.GetLang("rebootmsg"), "reboot.png");
+            UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
             Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
         }
         else
         {
             long needsize = drive.AvailableFreeSpace - (Convert.ToInt64(size) * Convert.ToInt64(3));
             string needsizes = UT.FormatSize(needsize);
-            UT.DialogIShow(UT.GetLang("spacepc") + " " + needsizes, "no.png");
+            UT.DialogIShow(await UT.GetLang("spacepc") + " " + needsizes, "no.png");
         }
     }
 
@@ -265,7 +265,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         };
         Wpf.Ui.Controls.Button button = new Wpf.Ui.Controls.Button
         {
-            Content = UT.GetLang("restore")
+            Content = await UT.GetLang("restore")
         };
 
         button.Click += async (sender, e) =>
@@ -395,7 +395,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         if (UT.CheckInternet())
         {
             repo_img.Source = UT.GetImgSource("clouddl.png");
-            repo_desc.Text = UT.GetLang("bkcloudhostdesc");
+            repo_desc.Text = await UT.GetLang("bkcloudhostdesc");
 
             var repocard = repo;
             var sep = separator;
@@ -407,7 +407,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         else
         {
             repo_img.Source = UT.GetImgSource("nowifi.png");
-            repo_desc.Text = UT.GetLang("nonet");
+            repo_desc.Text = await UT.GetLang("nonet");
         }
         refresh.IsEnabled = true;
     }

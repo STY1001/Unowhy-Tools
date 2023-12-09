@@ -58,12 +58,12 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        labconv.Text = UT.GetLang("convdesc");
-        convbtn.Content = UT.GetLang("conv");
-        labpath.Text = UT.GetLang("bkpath");
-        rest_btn.Text = UT.GetLang("restore");
+        labconv.Text = await UT.GetLang("convdesc");
+        convbtn.Content = await UT.GetLang("conv");
+        labpath.Text = await UT.GetLang("bkpath");
+        rest_btn.Text = await UT.GetLang("restore");
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
@@ -142,7 +142,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
             FileInfo fi = new FileInfo(rtpath.Text);
             if (di.AvailableFreeSpace > fi.Length * 3)
             {
-                await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
                 await Task.Delay(1000);
                 string rttemps = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers";
                 string source = rtpath.Text;
@@ -151,7 +151,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                 {
                     ZipFile.ExtractToDirectory(source, dest);
                 });
-                await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
                 if (File.Exists(rttemps + "\\UT-Restore.exe"))
                 {
                     List<string> list = new List<string>();
@@ -176,7 +176,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
 
                         string percentage = ((status * 100) / list.Count).ToString("##0") + " %";
 
-                        await UT.waitstatus.open(UT.GetLang("wait.restore") + " (" + percentage + ")", "download.png");
+                        await UT.waitstatus.open(await UT.GetLang("wait.restore") + " (" + percentage + ")", "download.png");
 
                         await Task.Run(() =>
                         {
@@ -206,19 +206,19 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                 else
                 {
                     await UT.waitstatus.close();
-                    UT.DialogIShow(UT.GetLang("conv.nout"), "no.png");
+                    UT.DialogIShow(await UT.GetLang("conv.nout"), "no.png");
                 }
                 Directory.Delete(rttemps, true);
                 Directory.CreateDirectory(rttemps);
                 await UT.waitstatus.close();
-                UT.DialogIShow(UT.GetLang("rebootmsg"), "reboot.png");
+                UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
                 Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
             }
             else
             {
                 long needsize = di.AvailableFreeSpace - (fi.Length * Convert.ToInt64(3));
                 string needsizes = UT.FormatSize(needsize);
-                UT.DialogIShow(UT.GetLang("spacepc") + " " + needsizes, "no.png");
+                UT.DialogIShow(await UT.GetLang("spacepc") + " " + needsizes, "no.png");
             }
         }
     }

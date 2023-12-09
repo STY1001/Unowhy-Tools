@@ -29,10 +29,15 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             InitializeComponent();
 
-            lab1.Text = UT.GetLang("wait");
-            text.Text = UT.GetLang("wait");
+            applylang();
 
             Visibility = Visibility.Collapsed;
+        }
+
+        public async void applylang()
+        {
+            lab1.Text = await UT.GetLang("wait");
+            text.Text = await UT.GetLang("wait");
         }
 
         public bool IsOpen = false;

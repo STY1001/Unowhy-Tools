@@ -211,9 +211,9 @@ public partial class About : INavigableView<DashboardViewModel>
         mainWindow.RootNavigation.TransitionType = Wpf.Ui.Animations.TransitionType.SlideBottom;
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        ubtnlab.Text = UT.GetLang("udcheck");
+        ubtnlab.Text = await UT.GetLang("udcheck");
     }
 
     public async void Init(object sender, EventArgs e)
@@ -293,12 +293,12 @@ public partial class About : INavigableView<DashboardViewModel>
 
             if (await UT.Config.Get("UpdateStart") == "1")
             {
-                ubtnlab.Text = UT.GetLang("update.check");
+                ubtnlab.Text = await UT.GetLang("update.check");
                 if (await UT.version.newver())
                 {
                     Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
                     Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
-                    ubtnlab.Text = UT.GetLang("newver");
+                    ubtnlab.Text = await UT.GetLang("newver");
 
                     while (true)
                     {
@@ -310,13 +310,13 @@ public partial class About : INavigableView<DashboardViewModel>
                 }
                 else
                 {
-                    ubtnlab.Text = UT.GetLang("udcheck");
+                    ubtnlab.Text = await UT.GetLang("udcheck");
                 }
             }
         }
         else
         {
-            ubtnlab.Text = UT.GetLang("udcheck");
+            ubtnlab.Text = await UT.GetLang("udcheck");
         }
     }
 

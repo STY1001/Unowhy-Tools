@@ -111,7 +111,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         biosdbox.Text = UTdata.biosd; // /ID
     }
 
-    public void applylang()
+    public async Task applylang()
     {
 
     }
@@ -134,7 +134,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             var progress = new System.Progress<double>();
             var cancellationToken = new CancellationTokenSource();
-            string dl = UT.GetLang("wait.download");
+            string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
@@ -145,13 +145,13 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             var progress = new System.Progress<double>();
             var cancellationToken = new CancellationTokenSource();
-            string dl = UT.GetLang("wait.download");
+            string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
             await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("afuwin"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
-            await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
             await Task.Delay(1000);
             await Task.Run(() =>
             {
@@ -165,13 +165,13 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             var progress = new System.Progress<double>();
             var cancellationToken = new CancellationTokenSource();
-            string dl = UT.GetLang("wait.download");
+            string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
             await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("amidewin"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
-            await UT.waitstatus.open(UT.GetLang("wait.extract"), "zip.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
             await Task.Delay(1000);
             await Task.Run(() =>
             {
@@ -227,26 +227,26 @@ public partial class Bios : INavigableView<DashboardViewModel>
     {
         if (!(ifptdumppath.Text == ""))
         {
-            if (UT.DialogQShow(UT.GetLang("utbdumpwarn"), "upload.png"))
+            if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
                 if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
-                    UT.DialogIShow(UT.GetLang("needres"), "clouddl.png");
+                    UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (UT.CheckInternet())
                     {
-                        await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
+                        await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                         await DlRes("IFPT");
                         await UT.waitstatus.close();
                     }
                     else
                     {
-                        UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                        UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
                     }
                 }
                 await Task.Delay(1000);
                 if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
-                    await UT.waitstatus.open(UT.GetLang("wait.dump"), "upload.png");
+                    await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath.Text;
                     await Task.Run(() =>
                     {
@@ -262,11 +262,11 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
                     if (File.Exists(path))
                     {
-                        UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                        UT.DialogIShow(await UT.GetLang("done"), "yes.png");
                     }
                     else
                     {
-                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                        UT.DialogIShow(await UT.GetLang("failed"), "no.png");
                     }
                 }
             }
@@ -277,26 +277,26 @@ public partial class Bios : INavigableView<DashboardViewModel>
     {
         if (!(ifptflashpath.Text == ""))
         {
-            if (UT.DialogQShow(UT.GetLang("utbflashwarn"), "download.png"))
+            if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
                 if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
-                    UT.DialogIShow(UT.GetLang("needres"), "clouddl.png");
+                    UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (UT.CheckInternet())
                     {
-                        await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
+                        await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                         await DlRes("IFPT");
                         await UT.waitstatus.close();
                     }
                     else
                     {
-                        UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                        UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
                     }
                 }
                 await Task.Delay(1000);
                 if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
-                    await UT.waitstatus.open(UT.GetLang("wait.flash"), "download.png");
+                    await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = ifptflashpath.Text;
                     await Task.Run(() =>
                     {
@@ -311,7 +311,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     });
                     await UT.waitstatus.close();
 
-                    UT.DialogIShow(UT.GetLang("rebootmsg"), "reboot.png");
+                    UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
                     Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
                 }
             }
@@ -355,26 +355,26 @@ public partial class Bios : INavigableView<DashboardViewModel>
     {
         if (!(afudumppath.Text == ""))
         {
-            if (UT.DialogQShow(UT.GetLang("utbdumpwarn"), "upload.png"))
+            if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
                 if (afufiles.Any(file => !File.Exists(file)))
                 {
-                    UT.DialogIShow(UT.GetLang("needres"), "clouddl.png");
+                    UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (UT.CheckInternet())
                     {
-                        await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
+                        await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                         await DlRes("AFU");
                         await UT.waitstatus.close();
                     }
                     else
                     {
-                        UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                        UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
                     }
                 }
                 await Task.Delay(1000);
                 if (afufiles.Any(file => File.Exists(file)))
                 {
-                    await UT.waitstatus.open(UT.GetLang("wait.dump"), "upload.png");
+                    await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = afudumppath.Text;
                     await Task.Run(() =>
                     {
@@ -390,11 +390,11 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
                     if (File.Exists(path))
                     {
-                        UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                        UT.DialogIShow(await UT.GetLang("done"), "yes.png");
                     }
                     else
                     {
-                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                        UT.DialogIShow(await UT.GetLang("failed"), "no.png");
                     }
                 }
             }
@@ -405,26 +405,26 @@ public partial class Bios : INavigableView<DashboardViewModel>
     {
         if (!(afuflashpath.Text == ""))
         {
-            if (UT.DialogQShow(UT.GetLang("utbflashwarn"), "download.png"))
+            if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
                 if (afufiles.Any(file => !File.Exists(file)))
                 {
-                    UT.DialogIShow(UT.GetLang("needres"), "clouddl.png");
+                    UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (UT.CheckInternet())
                     {
-                        await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
+                        await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                         await DlRes("AFU");
                         await UT.waitstatus.close();
                     }
                     else
                     {
-                        UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                        UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
                     }
                 }
                 await Task.Delay(1000);
                 if (afufiles.Any(file => File.Exists(file)))
                 {
-                    await UT.waitstatus.open(UT.GetLang("wait.flash"), "download.png");
+                    await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = afuflashpath.Text;
                     string extarg = "";
                     if (afuflashmain.IsChecked == true) extarg = extarg + " /P";
@@ -480,11 +480,11 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
                 if (JsonConvert.SerializeObject(jsonData, Formatting.Indented) == File.ReadAllText(fb.FileName))
                 {
-                    UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                    UT.DialogIShow(await UT.GetLang("done"), "yes.png");
                 }
                 else
                 {
-                    UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                    UT.DialogIShow(await UT.GetLang("failed"), "no.png");
                 }
             }
         }
@@ -533,22 +533,22 @@ public partial class Bios : INavigableView<DashboardViewModel>
     {
         if (amidefiles.Any(file => !File.Exists(file)))
         {
-            UT.DialogIShow(UT.GetLang("needres"), "clouddl.png");
+            UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
             if (UT.CheckInternet())
             {
-                await UT.waitstatus.open(UT.GetLang("wait.download"), "clouddl.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                 await DlRes("AMIDE");
                 await UT.waitstatus.close();
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
             }
         }
         await Task.Delay(1000);
         if (amidefiles.Any(file => File.Exists(file)))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
 
             if (!(mfbox.Text == ""))
             {
@@ -704,7 +704,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             await Task.Delay(1000);
             await UT.waitstatus.close();
 
-            UT.DialogIShow(UT.GetLang("rebootmsg"), "reboot.png");
+            UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
             Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
         }
     }

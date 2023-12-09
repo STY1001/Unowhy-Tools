@@ -41,7 +41,7 @@ public partial class TrayWindow : Window
     public DispatcherTimer _timerTimeDate;
 
     public ImageSource editimg = UT.GetImgSource("customize.png");
-    public string editpath = UT.GetLang("qleditclick");
+    public string editpath = "null";
 
     public ImageSource taskimg;
     public ImageSource cmdimg;
@@ -326,19 +326,19 @@ public partial class TrayWindow : Window
 
             if (powerscheme.Contains(perf))
             {
-                batcapstring = UT.GetLang("bat.perf");
+                batcapstring = await UT.GetLang("bat.perf");
                 batmodesource = UT.GetImgSource("power.png");
                 pmodeperf.IsSelected = true;
             }
             else if (powerscheme.Contains(balanced))
             {
-                batcapstring = UT.GetLang("bat.balanced");
+                batcapstring = await UT.GetLang("bat.balanced");
                 batmodesource = UT.GetImgSource("balanced.png");
                 pmodebalanced.IsSelected = true;
             }
             else if (powerscheme.Contains(efficiency))
             {
-                batcapstring = UT.GetLang("bat.efficiency");
+                batcapstring = await UT.GetLang("bat.efficiency");
                 batmodesource = UT.GetImgSource("efficiency.png");
                 pmodeefficiency.IsSelected = true;
             }
@@ -381,16 +381,17 @@ public partial class TrayWindow : Window
         }
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        cpulab.Text = UT.GetLang("usecpu");
-        ramlab.Text = UT.GetLang("useram");
-        storlab.Text = UT.GetLang("usestor");
-        labout.Text = UT.GetLang("openut");
-        labtask.Text = UT.GetLang("opentask");
-        labcmd.Text = UT.GetLang("opencmd");
-        labreg.Text = UT.GetLang("openreg");
-        labgp.Text = UT.GetLang("opengp");
+        cpulab.Text = await UT.GetLang("usecpu");
+        ramlab.Text = await UT.GetLang("useram");
+        storlab.Text = await UT.GetLang("usestor");
+        labout.Text = await UT.GetLang("openut");
+        labtask.Text = await UT.GetLang("opentask");
+        labcmd.Text = await UT.GetLang("opencmd");
+        labreg.Text = await UT.GetLang("openreg");
+        labgp.Text = await UT.GetLang("opengp");
+        editpath = await UT.GetLang("qleditclick");
     }
 
     public async Task UpdateTimeDate()
@@ -555,22 +556,22 @@ public partial class TrayWindow : Window
         else if (File.Exists(gppath)) labgpdescedit.Text = Path.GetFileName(gppath);
         else labgpdescedit.Text = Path.GetFileName(gppath) + " (error)";
 
-        if (tasklab.Contains("default")) labtaskedit.Text = UT.GetLang("opentask");
+        if (tasklab.Contains("default")) labtaskedit.Text = await UT.GetLang("opentask");
         else labtaskedit.Text = tasklab;
-        if (cmdlab.Contains("default")) labcmdedit.Text = UT.GetLang("opencmd");
+        if (cmdlab.Contains("default")) labcmdedit.Text = await UT.GetLang("opencmd");
         else labcmdedit.Text = cmdlab;
-        if (reglab.Contains("default")) labregedit.Text = UT.GetLang("openreg");
+        if (reglab.Contains("default")) labregedit.Text = await UT.GetLang("openreg");
         else labregedit.Text = reglab;
-        if (gplab.Contains("default")) labgpedit.Text = UT.GetLang("opengp");
+        if (gplab.Contains("default")) labgpedit.Text = await UT.GetLang("opengp");
         else labgpedit.Text = gplab;
 
-        if (tasklab.Contains("default")) labtask.Text = UT.GetLang("opentask");
+        if (tasklab.Contains("default")) labtask.Text = await UT.GetLang("opentask");
         else labtask.Text = tasklab;
-        if (cmdlab.Contains("default")) labcmd.Text = UT.GetLang("opencmd");
+        if (cmdlab.Contains("default")) labcmd.Text = await UT.GetLang("opencmd");
         else labcmd.Text = cmdlab;
-        if (reglab.Contains("default")) labreg.Text = UT.GetLang("openreg");
+        if (reglab.Contains("default")) labreg.Text = await UT.GetLang("openreg");
         else labreg.Text = reglab;
-        if (gplab.Contains("default")) labgp.Text = UT.GetLang("opengp");
+        if (gplab.Contains("default")) labgp.Text = await UT.GetLang("opengp");
         else labgp.Text = gplab;
     }
 
@@ -578,7 +579,7 @@ public partial class TrayWindow : Window
     {
         await Task.Delay(1000);
         await ShowTray();
-        await WaitControl.Show(UT.GetLang("wait.check"), "check.png");
+        await WaitControl.Show(await UT.GetLang("wait.check"), "check.png");
         await Task.Delay(500);
 
         _camerakey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", true);
@@ -623,7 +624,7 @@ public partial class TrayWindow : Window
                     string newver = await UT.OnlineDatas.GetUpdates("utnewver");
                     newver = newver.Insert(2, ".");
                     newver = newver.Replace("\n", "");
-                    string newverfull = UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
+                    string newverfull = await UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
                     trayIcon.ShowBalloonTip(3000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
                 }
             }

@@ -32,17 +32,17 @@ public partial class Settings : INavigableView<DashboardViewModel>
         get;
     }
 
-    public void applylang()
+    public async System.Threading.Tasks.Task applylang()
     {
-        labol.Text = UT.GetLang("logsopen");
-        labdl.Text = UT.GetLang("logsdel");
-        dl.Content = UT.GetLang("delete");
-        ol.Content = UT.GetLang("open");
-        lablang.Text = UT.GetLang("lang");
-        labus.Text = UT.GetLang("cuab");
-        labsn.Text = UT.GetLang("pcserial");
-        labtray.Text = UT.GetLang("boottray");
-        labws.Text = UT.GetLang("wifisync");
+        labol.Text = await UT.GetLang("logsopen");
+        labdl.Text = await UT.GetLang("logsdel");
+        dl.Content = await UT.GetLang("delete");
+        ol.Content = await UT.GetLang("open");
+        lablang.Text = await UT.GetLang("lang");
+        labus.Text = await UT.GetLang("cuab");
+        labsn.Text = await UT.GetLang("pcserial");
+        labtray.Text = await UT.GetLang("boottray");
+        labws.Text = await UT.GetLang("wifisync");
     }
 
     public async void GoBack(object sender, RoutedEventArgs e)
@@ -118,7 +118,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         if (fi.Length > 1024 * 1024) size = (fi.Length / (1024 * 1024)).ToString() + " MB";
         else if (fi.Length > 1024) size = (fi.Length / 1024).ToString() + " KB";
         else size = fi.Length.ToString() + " B";
-        dl.Content = UT.GetLang("clean") + " (" + size + ")";
+        dl.Content = await UT.GetLang("clean") + " (" + size + ")";
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
@@ -146,7 +146,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         if (fi.Length > 1024 * 1024) size = (fi.Length / (1024 * 1024)).ToString() + " MB";
         else if (fi.Length > 1024) size = (fi.Length / 1024).ToString() + " KB";
         else size = fi.Length.ToString() + " B";
-        dl.Content = UT.GetLang("clean") + " (" + size + ")";
+        dl.Content = await UT.GetLang("clean") + " (" + size + ")";
 
         foreach (UIElement element in RootStack.Children)
         {
@@ -231,7 +231,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         }
     }
 
-    public void Logs_Clear(object sender, RoutedEventArgs e)
+    public async void Logs_Clear(object sender, RoutedEventArgs e)
     {
         string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         File.Create(fp).Close();
@@ -249,7 +249,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         if (fi.Length > 1024 * 1024) size = (fi.Length / 1024 * 1024).ToString() + " MB";
         else if (fi.Length > 1024) size = (fi.Length / 1024).ToString() + " KB";
         else size = fi.Length.ToString() + " B";
-        dl.Content = UT.GetLang("clean") + " (" + size + ")";
+        dl.Content = await UT.GetLang("clean") + " (" + size + ")";
     }
 
     public void Logs_Open(object sender, RoutedEventArgs e)
@@ -275,7 +275,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async void Apply_Settings(object sender, RoutedEventArgs e)
     {
-        await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
+        await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
         bool ok = true;
 
         if(sn.Text == "")
@@ -300,22 +300,22 @@ public partial class Settings : INavigableView<DashboardViewModel>
                     if (!(nsn == ssn))
                     {
                         await UT.waitstatus.close();
-                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                        await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
+                        UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                        await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
                     }
                 }
                 else
                 {
                     await UT.waitstatus.close();
                     ok = false;
-                    UT.DialogIShow(UT.GetLang("noid"), "no.png");
+                    UT.DialogIShow(await UT.GetLang("noid"), "no.png");
                 }
             }
             else
             {
                 await UT.waitstatus.close();
-                UT.DialogIShow(UT.GetLang("noco"), "nowifi.png");
-                await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
+                UT.DialogIShow(await UT.GetLang("noco"), "nowifi.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
             }
         }
 
@@ -330,8 +330,8 @@ public partial class Settings : INavigableView<DashboardViewModel>
                     if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "True"))
                     {
                         await UT.waitstatus.close();
-                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                        await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
+                        UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                        await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
                     }
                 }
                 else
@@ -341,8 +341,8 @@ public partial class Settings : INavigableView<DashboardViewModel>
                     if (!(await UT.UTS.UTSmsg("UTSW", "GetWS") == "False"))
                     {
                         await UT.waitstatus.close();
-                        UT.DialogIShow(UT.GetLang("failed"), "no.png");
-                        await UT.waitstatus.open(UT.GetLang("wait.apply"), "customize.png");
+                        UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                        await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
                     }
                 }
             }

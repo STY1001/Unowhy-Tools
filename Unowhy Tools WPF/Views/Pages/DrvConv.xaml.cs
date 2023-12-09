@@ -32,11 +32,11 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(DrvRest));
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        labnew.Text = UT.GetLang("new");
-        labold.Text = UT.GetLang("old");
-        conv_btn.Text = UT.GetLang("conv");
+        labnew.Text = await UT.GetLang("new");
+        labold.Text = await UT.GetLang("old");
+        conv_btn.Text = await UT.GetLang("conv");
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
@@ -87,7 +87,7 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
         applylang();
     }
 
-    public void oldpath_Click(object sender, RoutedEventArgs e)
+    public async void oldpath_Click(object sender, RoutedEventArgs e)
     {
         using (var fbd = new FolderBrowserDialog())
         {
@@ -98,7 +98,7 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
                 oldpath.Text = fbd.SelectedPath;
                 if (!File.Exists(oldpath.Text + "\\UT-Restore.exe"))
                 {
-                    UT.DialogIShow(UT.GetLang("conv.nout"), "no.png");
+                    UT.DialogIShow(await UT.GetLang("conv.nout"), "no.png");
                     oldpath.Text = "";
                 }
             }
@@ -130,11 +130,11 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
         }
         else
         {
-            await UT.waitstatus.open(UT.GetLang("wait.compress"), "zip.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.compress"), "zip.png");
             await Task.Delay(1000);
             ZipFile.CreateFromDirectory(oldpath.Text, newpath.Text, CompressionLevel.NoCompression, false);
             await UT.waitstatus.close();
-            UT.DialogIShow(UT.GetLang("done"), "yes.png");
+            UT.DialogIShow(await UT.GetLang("done"), "yes.png");
         }
     }
 }

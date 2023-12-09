@@ -51,32 +51,32 @@ public partial class Repair : INavigableView<DashboardViewModel>
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        shell_txt.Text = UT.GetLang("shell");
-        shell_desc.Text = UT.GetLang("descshell");
-        shell_btn.Content = UT.GetLang("change");
-        tis_txt.Text = UT.GetLang("fixboot");
-        tis_desc.Text = UT.GetLang("descstart");
-        tis_btn.Content = UT.GetLang("del");
-        wre_txt.Text = UT.GetLang("winre");
-        wre_desc.Text = UT.GetLang("descwinre");
-        wre_btn.Content = UT.GetLang("open");
-        bim_txt.Text = UT.GetLang("bootim");
-        bim_desc.Text = UT.GetLang("descbootim");
-        bim_btn.Content = UT.GetLang("repair");
-        whe_txt.Text = UT.GetLang("enwhe");
-        whe_desc.Text = UT.GetLang("descenwhe");
-        whe_btn.Content = UT.GetLang("enable");
-        iaf_txt.Text = UT.GetLang("bcdfail");
-        iaf_desc.Text = UT.GetLang("descbcdfail");
-        iaf_btn.Content = UT.GetLang("del");
-        tmgr_txt.Text = UT.GetLang("taskmgr");
-        tmgr_desc.Text = UT.GetLang("desctaskmgr");
-        tmgr_btn.Content = UT.GetLang("enable");
-        locka_txt.Text = UT.GetLang("locka");
-        locka_desc.Text = UT.GetLang("desclocka");
-        locka_btn.Content = UT.GetLang("enable");
+        shell_txt.Text = await UT.GetLang("shell");
+        shell_desc.Text = await UT.GetLang("descshell");
+        shell_btn.Content = await UT.GetLang("change");
+        tis_txt.Text = await UT.GetLang("fixboot");
+        tis_desc.Text = await UT.GetLang("descstart");
+        tis_btn.Content = await UT.GetLang("del");
+        wre_txt.Text = await UT.GetLang("winre");
+        wre_desc.Text = await UT.GetLang("descwinre");
+        wre_btn.Content = await UT.GetLang("open");
+        bim_txt.Text = await UT.GetLang("bootim");
+        bim_desc.Text = await UT.GetLang("descbootim");
+        bim_btn.Content = await UT.GetLang("repair");
+        whe_txt.Text = await UT.GetLang("enwhe");
+        whe_desc.Text = await UT.GetLang("descenwhe");
+        whe_btn.Content = await UT.GetLang("enable");
+        iaf_txt.Text = await UT.GetLang("bcdfail");
+        iaf_desc.Text = await UT.GetLang("descbcdfail");
+        iaf_btn.Content = await UT.GetLang("del");
+        tmgr_txt.Text = await UT.GetLang("taskmgr");
+        tmgr_desc.Text = await UT.GetLang("desctaskmgr");
+        tmgr_btn.Content = await UT.GetLang("enable");
+        locka_txt.Text = await UT.GetLang("locka");
+        locka_desc.Text = await UT.GetLang("desclocka");
+        locka_btn.Content = await UT.GetLang("enable");
     }
 
     public async Task CheckBTN(bool check)
@@ -161,72 +161,72 @@ public partial class Repair : INavigableView<DashboardViewModel>
 
     public async void shell_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("shell"), "explorer.png"))
+        if (UT.DialogQShow(await UT.GetLang("shell"), "explorer.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.apply"), "explorer.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.apply"), "explorer.png");
             await UT.RunMin("reg", "add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\WinLogon\" /v Shell /d explorer.exe /t REG_SZ /f");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!shell.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
 
     public async void tis_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("fixboot"), "script.png"))
+        if (UT.DialogQShow(await UT.GetLang("fixboot"), "script.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.delete"), "script.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.delete"), "script.png");
             await UT.RunMin("cmd", "/w /c del /q /f \"c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!tis.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
 
     public async void bim_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("bootim"), "registry.png"))
+        if (UT.DialogQShow(await UT.GetLang("bootim"), "registry.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.repair"), "registry.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.repair"), "registry.png");
             await UT.RunMin("reg", "delete \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe\" /f");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!bim.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
 
     public async void whe_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("enwhe"), "fp.png"))
+        if (UT.DialogQShow(await UT.GetLang("enwhe"), "fp.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.enable"), "fp.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "fp.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"EnablePinRecovery\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"RequireSecurityDevice\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\" /v \"Enabled\" /t REG_DWORD /d \"1\" /f");
@@ -235,79 +235,79 @@ public partial class Repair : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock\" /v \"Plugins\" /t REG_SZ /d \"<rule schemaVersion=\\\"1.0\\\"> <signal type=\\\"bluetooth\\\" scenario=\\\"Dynamic Lock\\\" classOfDevice=\\\"512\\\" rssiMin=\\\"-10\\\" rssiMaxDelta=\\\"-10\\\"/> </rule> \" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider\" /v \"Domain Accounts\" /t REG_DWORD /d \"1\" /f");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!whe.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
 
     public async void iaf_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("bcdfail"), "boot.png"))
+        if (UT.DialogQShow(await UT.GetLang("bcdfail"), "boot.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.delete"), "boot.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.delete"), "boot.png");
             await UT.RunMin("bcdedit", "/deletevalue bootstatuspolicy");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!iaf.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
 
     public async void tmgr_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("taskmgr"), "taskmgr.png"))
+        if (UT.DialogQShow(await UT.GetLang("taskmgr"), "taskmgr.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.enable"), "taskmgr.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "taskmgr.png");
             await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableTaskMgr /f");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!tmgr.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
     
     public async void locka_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("locka"), "key.png"))
+        if (UT.DialogQShow(await UT.GetLang("locka"), "key.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.enable"), "key.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "key.png");
             await UT.RunMin("reg", "delete \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v DisableLockWorkstation /f");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true);
             await UT.waitstatus.close();
             if (!locka.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }

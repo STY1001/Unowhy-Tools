@@ -41,10 +41,10 @@ public partial class WinDef : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(Customize));
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        disable_txt.Text = UT.GetLang("disable");
-        enable_txt.Text = UT.GetLang("enable");
+        disable_txt.Text = await UT.GetLang("disable");
+        enable_txt.Text = await UT.GetLang("enable");
 
     }
 
@@ -135,42 +135,42 @@ public partial class WinDef : INavigableView<DashboardViewModel>
 
     public async void Enable_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("enable"), "enable.png"))
+        if (UT.DialogQShow(await UT.GetLang("enable"), "enable.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $false");
             await UT.UTS.UTSmsg("UTSWD", "SetWDS:False");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!enable.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
 
     public async void Disable_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("disable"), "disable.png"))
+        if (UT.DialogQShow(await UT.GetLang("disable"), "disable.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.disable"), "disable.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.disable"), "disable.png");
             await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $true");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"1\" /f");
             await UT.UTS.UTSmsg("UTSWD", "SetWDS:True");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
-            UT.DialogIShow(UT.GetLang("windefsettamper"), "windef.png");
+            UT.DialogIShow(await UT.GetLang("windefsettamper"), "windef.png");
             System.Diagnostics.Process.Start(new ProcessStartInfo
             {
                 FileName = "windowsdefender://threatsettings",
@@ -178,11 +178,11 @@ public partial class WinDef : INavigableView<DashboardViewModel>
             });
             if (!disable.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }

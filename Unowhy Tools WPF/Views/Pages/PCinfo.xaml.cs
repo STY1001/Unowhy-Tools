@@ -33,17 +33,17 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(Dashboard));
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        labpnc.Text = UT.GetLang("pcn");
-        labuid.Text = UT.GetLang("domuser");
-        labmf.Text = UT.GetLang("mfm");
-        labsn.Text = UT.GetLang("serial");
-        labbv.Text = UT.GetLang("biosversion");
-        labwv.Text = UT.GetLang("os");
-        labcpu.Text = UT.GetLang("cpuinfo");
-        labram.Text = UT.GetLang("raminfo");
-        labstor.Text = UT.GetLang("storageinfo");
+        labpnc.Text = await UT.GetLang("pcn");
+        labuid.Text = await UT.GetLang("domuser");
+        labmf.Text = await UT.GetLang("mfm");
+        labsn.Text = await UT.GetLang("serial");
+        labbv.Text = await UT.GetLang("biosversion");
+        labwv.Text = await UT.GetLang("os");
+        labcpu.Text = await UT.GetLang("cpuinfo");
+        labram.Text = await UT.GetLang("raminfo");
+        labstor.Text = await UT.GetLang("storageinfo");
     }
 
     public void infoapply()
@@ -104,7 +104,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         double usedSpace = totalSpace - freeSpace;
         int percentFree = (int)((freeSpace / totalSpace) * 100);
 
-        stor.Text = String.Format("{0:0.00} GB / {1:0.00} GB ({2}% {3})", usedSpace, totalSpace, percentFree, UT.GetLang("free")); 
+        stor.Text = String.Format("{0:0.00} GB / {1:0.00} GB ({2}% {3})", usedSpace, totalSpace, percentFree, await UT.GetLang("free")); 
 
         foreach (UIElement element in RootStack.Children)
         {

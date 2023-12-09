@@ -32,11 +32,11 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(Drivers));
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        labbkapp.Text = UT.GetLang("bkapp");
-        labpath.Text = UT.GetLang("bkpath");
-        bk_btn.Text = UT.GetLang("backup");
+        labbkapp.Text = await UT.GetLang("bkapp");
+        labpath.Text = await UT.GetLang("bkpath");
+        bk_btn.Text = await UT.GetLang("backup");
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
@@ -120,7 +120,7 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
 
             if (afs > drvfolder)
             {
-                await UT.waitstatus.open(UT.GetLang("wait.backup"), "upload.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.backup"), "upload.png");
                 Directory.CreateDirectory(drivel + ":\\UT-Drv-TMP");
                 string backuptemp = drivel + ":\\UT-Drv-TMP";
                 await UT.Extract("UT-Restore.exe", backuptemp + "\\UT-Restore.exe");
@@ -132,7 +132,7 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
                 {
                     await UT.RunMin("powershell.exe", "Export-WindowsDriver -Online -Destination \"" + backuptemp + "\"");
                 }
-                await UT.waitstatus.open(UT.GetLang("wait.compress"), "zip.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.compress"), "zip.png");
                 await Task.Delay(1000);
                 string source = backuptemp;
                 string dest = bkpath.Text;
@@ -145,18 +145,18 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
                 await UT.waitstatus.close();
                 if (fi.Length > 1000000)
                 {
-                    UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                    UT.DialogIShow(await UT.GetLang("done"), "yes.png");
                 }
                 else
                 {
-                    UT.DialogIShow(UT.GetLang("bkfail"), "no.png");
+                    UT.DialogIShow(await UT.GetLang("bkfail"), "no.png");
                 }
             }
             else
             {
                 long needsize = drvfolder - afs;
                 string needsizes = UT.FormatSize(needsize);
-                UT.DialogIShow(UT.GetLang("spaceusb") + " " + needsizes, "no.png");
+                UT.DialogIShow(await UT.GetLang("spaceusb") + " " + needsizes, "no.png");
             }
         }
     }

@@ -75,13 +75,13 @@ public partial class AddUser : INavigableView<DashboardViewModel>
         }
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        labu.Text = UT.GetLang("name");
-        labp.Text = UT.GetLang("password");
-        labc.Text = UT.GetLang("confpw");
-        laba.Text = UT.GetLang("la");
-        labb.Text = UT.GetLang("create");
+        labu.Text = await UT.GetLang("name");
+        labp.Text = await UT.GetLang("password");
+        labc.Text = await UT.GetLang("confpw");
+        laba.Text = await UT.GetLang("la");
+        labb.Text = await UT.GetLang("create");
     }
 
     public AddUser(DashboardViewModel viewModel)
@@ -134,15 +134,15 @@ public partial class AddUser : INavigableView<DashboardViewModel>
 
         if (r.IsMatch(namebox.Text.ToString().Trim()) || namebox.Text == "" || namebox.Text.Contains(" "))
         {
-            UT.DialogIShow(UT.GetLang("an"), "no.png");
+            UT.DialogIShow(await UT.GetLang("an"), "no.png");
         }
         else
         {
             if (passbox1.Text == passbox2.Text)
             {
-                if (UT.DialogQShow(UT.GetLang("adduser"), "adduser.png"))
+                if (UT.DialogQShow(await UT.GetLang("adduser"), "adduser.png"))
                 {
-                    await UT.waitstatus.open(UT.GetLang("wait.add"), "adduser.png");
+                    await UT.waitstatus.open(await UT.GetLang("wait.add"), "adduser.png");
 
                     if (passbox1.Text == "")
                     {
@@ -165,12 +165,12 @@ public partial class AddUser : INavigableView<DashboardViewModel>
 
                     await UT.waitstatus.close();
 
-                    UT.DialogIShow(UT.GetLang("adduser.id") + $": \".\\{namebox.Text}\"", "user.png");
+                    UT.DialogIShow(await UT.GetLang("adduser.id") + $": \".\\{namebox.Text}\"", "user.png");
                 }
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("pwmis"), "no.png");
+                UT.DialogIShow(await UT.GetLang("pwmis"), "no.png");
             }
         }
     }

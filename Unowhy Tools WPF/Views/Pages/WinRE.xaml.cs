@@ -40,11 +40,11 @@ public partial class WinRE : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(Repair));
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        en_txt.Text = UT.GetLang("enable");
-        dis_txt.Text = UT.GetLang("disable");
-        rep_txt.Text = UT.GetLang("repair");
+        en_txt.Text = await UT.GetLang("enable");
+        dis_txt.Text = await UT.GetLang("disable");
+        rep_txt.Text = await UT.GetLang("repair");
     }
 
     public async Task CheckBTN()
@@ -69,7 +69,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
                 rep_txt.Foreground = new SolidColorBrush(enabled);
                 dis.IsEnabled = false;
                 dis_txt.Foreground = new SolidColorBrush(disabled);
-                UT.DialogIShow(UT.GetLang("winremsg"), "no.png");
+                UT.DialogIShow(await UT.GetLang("winremsg"), "no.png");
             }
             else
             {
@@ -125,44 +125,44 @@ public partial class WinRE : INavigableView<DashboardViewModel>
 
     public async void Enable_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow(UT.GetLang("winre.ena"), "enable.png"))
+        if (UT.DialogQShow(await UT.GetLang("winre.ena"), "enable.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
             UTdata.WinRE = true;
             await UT.RunMin("reagentc.exe", "/enable");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!en.IsEnabled & !rep.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
 
     public async void Disable_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(UT.GetLang("winre.dis"), "disable.png"))
+        if(UT.DialogQShow(await UT.GetLang("winre.dis"), "disable.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.disable"), "disable.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.disable"), "disable.png");
             UTdata.WinRE = false;
             await UT.RunMin("reagentc.exe", "/disable");
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             if (!dis.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
     }
@@ -171,10 +171,10 @@ public partial class WinRE : INavigableView<DashboardViewModel>
     {
         if (UT.CheckInternet())
         {
-            await UT.waitstatus.open(UT.GetLang("wait.repair"), "repair.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.repair"), "repair.png");
             await Task.Delay(1000);
             var progress = new System.Progress<double>();
-            string dl = UT.GetLang("wait.download");
+            string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
@@ -182,7 +182,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             var cancellationToken = new CancellationTokenSource();
             await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("winre"), "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
 
-            await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
 
             await UT.RunMin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
             await UT.RunMin("reagentc.exe", "/enable");
@@ -190,21 +190,21 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             UTdata.WinRE = true;
 
             await Task.Delay(1000);
-            await UT.waitstatus.open(UT.GetLang("wait.check"), "check.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN();
             await UT.waitstatus.close();
             if (dis.IsEnabled)
             {
-                UT.DialogIShow(UT.GetLang("done"), "yes.png");
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
             else
             {
-                UT.DialogIShow(UT.GetLang("failed"), "no.png");
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
         else
         {
-            UT.DialogIShow(UT.GetLang("nonet"), "nowifi.png");
+            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
         }
     }
 

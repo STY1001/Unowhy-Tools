@@ -31,11 +31,11 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(Customize));
     }
 
-    public void applylang()
+    public async Task applylang()
     {
-        snpw.Text = UT.GetLang("snpw");
-        en.Text = UT.GetLang("enablea");
-        dis.Text = UT.GetLang("disablea");
+        snpw.Text = await UT.GetLang("snpw");
+        en.Text = await UT.GetLang("enablea");
+        dis.Text = await UT.GetLang("disablea");
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
@@ -88,9 +88,9 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
 
     public async void Pass_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(UT.GetLang("snpw"), "key.png"))
+        if(UT.DialogQShow(await UT.GetLang("snpw"), "key.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.apply"), "key.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.apply"), "key.png");
             await UT.RunMin("net", $"user {UTdata.AdminName} \"{passbox.Text}\"");
             await UT.waitstatus.close();
         }
@@ -98,9 +98,9 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
     
     public async void Ena_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(UT.GetLang("enablea"), "enable.png"))
+        if(UT.DialogQShow(await UT.GetLang("enablea"), "enable.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.enable"), "enable.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
             await UT.RunMin("net", $"user {UTdata.AdminName} /active:yes");
             await UT.waitstatus.close();
         }
@@ -108,9 +108,9 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
     
     public async void Dis_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(UT.GetLang("disablea"), "disable.png"))
+        if(UT.DialogQShow(await UT.GetLang("disablea"), "disable.png"))
         {
-            await UT.waitstatus.open(UT.GetLang("wait.disable"), "disable.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.disable"), "disable.png");
             await UT.RunMin("net", $"user {UTdata.AdminName} /active:no");
             await UT.waitstatus.close();
         }
