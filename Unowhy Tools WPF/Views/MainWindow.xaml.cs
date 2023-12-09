@@ -17,6 +17,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Windows.Input;
+using System.IO;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -441,7 +442,7 @@ public partial class MainWindow : INavigationWindow
         await mainWindow.updatesplashstatus(status, true);
     }
 
-    public int totalstep = 75;
+    public int totalstep = 76;
     public int actualstep = 0;
 
     public async Task updatesplashstatus(string status, bool bar)
@@ -651,6 +652,12 @@ public partial class MainWindow : INavigationWindow
             else
             {
                 UT.Write2Log("Unowhy Tools is in Windows Defender exclusion list");
+            }
+
+            await USS("Loading... (Online Data)");
+            if (File.Exists("settings.json"))
+            {
+                UT.online_datas = await UT.Config.Get("OnlineData");
             }
 
             await USS("Loading... (Cleaning)");

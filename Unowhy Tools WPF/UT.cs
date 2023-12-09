@@ -1288,6 +1288,8 @@ namespace Unowhy_Tools
             if (!File.Exists("settings.json"))
             {
                 File.WriteAllText("settings.json", "{\n  \"name\":\"value\"\n}");
+                
+                await Config.Set("OnlineData", "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json");
 
                 RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
                 if (keyut != null)
