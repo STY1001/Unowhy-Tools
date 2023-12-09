@@ -94,9 +94,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             tray.IsEnabled = false;
         }
         
-        RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-        string utlst = lcs.GetValue("Lang").ToString();
-        if (utlst == "EN")
+        if (await UT.Config.Get("Lang") == "EN")
         {
             lang_en.IsSelected = true;
         }
@@ -105,8 +103,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             lang_fr.IsSelected = true;
         }
 
-        string utcuab = lcs.GetValue("UpdateStart").ToString();
-        if(utcuab == "1")
+        if(await UT.Config.Get("UpdateStart") == "1")
         {
             us.IsChecked = true;
         }
@@ -350,24 +347,23 @@ public partial class Settings : INavigableView<DashboardViewModel>
                 }
             }
 
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
             if (lang_en.IsSelected)
             {
-                key.SetValue("Lang", "EN");
+                await UT.Config.Set("Lang", "EN");
             }
             else if (lang_fr.IsSelected)
             {
-                key.SetValue("Lang", "FR");
+                await UT.Config.Set("Lang", "FR");
             }
 
             if (us.IsChecked == true)
             {
-                key.SetValue("UpdateStart", "1");
+                await UT.Config.Set("UpdateStart", "1");
 
             }
             else
             {
-                key.SetValue("UpdateStart", "0");
+                await UT.Config.Set("UpdateStart", "0");
             }
 
             if(tray.IsEnabled == true)

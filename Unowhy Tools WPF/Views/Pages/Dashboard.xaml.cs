@@ -61,9 +61,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
         if (UT.CheckInternet())
         {
-            RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utcuab = lcs.GetValue("UpdateStart").ToString();
-            if (utcuab == "1")
+            if (await UT.Config.Get("UpdateStart") == "1")
             {
                 lababout2.Text = UT.GetLang("update.check");
                 if (await UT.version.newver())

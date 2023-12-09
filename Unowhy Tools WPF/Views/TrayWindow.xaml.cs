@@ -462,55 +462,53 @@ public partial class TrayWindow : Window
 
     public async Task SetQL()
     {
-        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
-        key.SetValue("QLtaskicon", taskicon);
-        key.SetValue("QLtasklab", tasklab);
-        key.SetValue("QLtaskpath", taskpath);
-        key.SetValue("QLcmdicon", cmdicon);
-        key.SetValue("QLcmdlab", cmdlab);
-        key.SetValue("QLcmdpath", cmdpath);
-        key.SetValue("QLregicon", regicon);
-        key.SetValue("QLreglab", reglab);
-        key.SetValue("QLregpath", regpath);
-        key.SetValue("QLgpicon", gpicon);
-        key.SetValue("QLgplab", gplab);
-        key.SetValue("QLgppath", gppath);
+        await UT.Config.Set("QLtaskicon", taskicon);
+        await UT.Config.Set("QLtasklab", tasklab);
+        await UT.Config.Set("QLtaskpath", taskpath);
+        await UT.Config.Set("QLcmdicon", cmdicon);
+        await UT.Config.Set("QLcmdlab", cmdlab);
+        await UT.Config.Set("QLcmdpath", cmdpath);
+        await UT.Config.Set("QLregicon", regicon);
+        await UT.Config.Set("QLreglab", reglab);
+        await UT.Config.Set("QLregpath", regpath);
+        await UT.Config.Set("QLgpicon", gpicon);
+        await UT.Config.Set("QLgplab", gplab);
+        await UT.Config.Set("QLgppath", gppath);
         await CheckQL();
     }
 
     public async Task SetQL_Default()
     {
-        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
-        key.SetValue("QLtaskicon", "default");
-        key.SetValue("QLtasklab", "default");
-        key.SetValue("QLtaskpath", "default");
-        key.SetValue("QLcmdicon", "default");
-        key.SetValue("QLcmdlab", "default");
-        key.SetValue("QLcmdpath", "default");
-        key.SetValue("QLregicon", "default");
-        key.SetValue("QLreglab", "default");
-        key.SetValue("QLregpath", "default");
-        key.SetValue("QLgpicon", "default");
-        key.SetValue("QLgplab", "default");
-        key.SetValue("QLgppath", "default");
+        await UT.Config.Set("QLtaskicon", "default");
+        await UT.Config.Set("QLtasklab", "default");
+        await UT.Config.Set("QLtaskpath", "default");
+        await UT.Config.Set("QLcmdicon", "default");
+        await UT.Config.Set("QLcmdlab", "default");
+        await UT.Config.Set("QLcmdpath", "default");
+        await UT.Config.Set("QLregicon", "default");
+        await UT.Config.Set("QLreglab", "default");
+        await UT.Config.Set("QLregpath", "default");
+        await UT.Config.Set("QLgpicon", "default");
+        await UT.Config.Set("QLgplab", "default");
+        await UT.Config.Set("QLgppath", "default");
         await CheckQL();
     }
 
     public async Task CheckQL()
     {
         RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
-        taskicon = key.GetValue("QLtaskicon").ToString();
-        tasklab = key.GetValue("QLtasklab").ToString();
-        taskpath = key.GetValue("QLtaskpath").ToString();
-        cmdicon = key.GetValue("QLcmdicon").ToString();
-        cmdlab = key.GetValue("QLcmdlab").ToString();
-        cmdpath = key.GetValue("QLcmdpath").ToString();
-        regicon = key.GetValue("QLregicon").ToString();
-        reglab = key.GetValue("QLreglab").ToString();
-        regpath = key.GetValue("QLregpath").ToString();
-        gpicon = key.GetValue("QLgpicon").ToString();
-        gplab = key.GetValue("QLgplab").ToString();
-        gppath = key.GetValue("QLgppath").ToString();
+        taskicon = await UT.Config.Get("QLtaskicon");
+        tasklab = await UT.Config.Get("QLtasklab");
+        taskpath = await UT.Config.Get("QLtaskpath");
+        cmdicon = await UT.Config.Get("QLcmdicon");
+        cmdlab = await UT.Config.Get("QLcmdlab");
+        cmdpath = await UT.Config.Get("QLcmdpath");
+        regicon = await UT.Config.Get("QLregicon");
+        reglab = await UT.Config.Get("QLreglab");
+        regpath = await UT.Config.Get("QLregpath");
+        gpicon = await UT.Config.Get("QLgpicon");
+        gplab = await UT.Config.Get("QLgplab");
+        gppath = await UT.Config.Get("QLgppath");
 
         if (taskicon.Contains("default")) taskimg = UT.GetImgSource("taskmgr.png");
         else taskimg = GetImgSourceFromPath(taskicon);
@@ -617,9 +615,7 @@ public partial class TrayWindow : Window
         await Task.Delay(1000);
         if (UT.CheckInternet())
         {
-            RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utcuab = lcs.GetValue("UpdateStart").ToString();
-            if (utcuab == "1")
+            if (await UT.Config.Get("UpdateStart") == "1")
             {
                 if (await UT.version.newver())
                 {

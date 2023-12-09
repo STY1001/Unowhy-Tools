@@ -185,8 +185,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         string json = await client.GetStringAsync("https://bit.ly/UTbkcloudjson");
         JArray array = JArray.Parse(json);
 
-        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
-        string langString = key.GetValue("Lang", null).ToString();
+        string langString = await UT.Config.Get("Lang");
 
         SkeletonStack.Visibility = Visibility.Hidden;
 

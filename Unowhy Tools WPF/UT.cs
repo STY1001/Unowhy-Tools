@@ -763,7 +763,7 @@ namespace Unowhy_Tools
                     string datasurl = online_datas;
                     HttpClient web = new HttpClient();
                     HttpResponseMessage rep = await web.GetAsync(datasurl);
-                    if(rep.StatusCode == HttpStatusCode.OK)
+                    if (rep.StatusCode == HttpStatusCode.OK)
                     {
                         string jsonContent = await web.GetStringAsync(datasurl);
                         dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
@@ -868,6 +868,35 @@ namespace Unowhy_Tools
                 {
                     return null;
                 }
+            }
+        }
+
+        public class Config
+        {
+            static string filePath = "settings.json";
+
+            public static async Task<string> Get(string name)
+            {
+                string jsonContent = File.ReadAllText(filePath);
+                JObject jsonObject = JObject.Parse(jsonContent);
+
+                if (jsonObject.TryGetValue(name, out var value))
+                {
+                    return value.ToString();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            public static async Task Set(string name, string value)
+            {
+                string jsonContent = File.ReadAllText(filePath);
+                JObject jsonObject = JObject.Parse(jsonContent);
+
+                jsonObject[name] = value;
+
+                File.WriteAllText(filePath, jsonObject.ToString());
             }
         }
 
@@ -977,6 +1006,7 @@ namespace Unowhy_Tools
                 }
             }
             */
+
             await MainWindow.USS("Cleanup... (Checking)");
             if (Directory.Exists("temp"))
             {
@@ -996,11 +1026,9 @@ namespace Unowhy_Tools
             Guid uuid = Guid.NewGuid();
             string uuidString = uuid.ToString();
 
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
-            object id = key.GetValue("ID", null);
-            if (id == null)
+            if (await UT.Config.Get("ID") == null)
             {
-                key.SetValue("ID", uuidString, RegistryValueKind.String);
+                await UT.Config.Set("ID", uuidString);
             }
 
             string idString = key.GetValue("ID", null).ToString();
@@ -1259,99 +1287,52 @@ namespace Unowhy_Tools
                 Write2Log("Last logs are on bottom\n\n\n");
             }
 
-            await MainWindow.USS("Checking... (Registry)");
-
-            RegistryKey keysoft = Registry.CurrentUser.OpenSubKey(@"Software", true);
-            RegistryKey keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
-            if (keysty == null)
+            if (!File.Exists("settings.json"))
             {
-                keysoft.CreateSubKey("STY1001");
+                var f = File.CreateText("settings.json");
+                f.Close();
+
+                RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
+                if (keyut != null)
+                {
+                    await Config.Set("ID", keyut.GetValue("ID").ToString());
+                    await Config.Set("UpdateStart", keyut.GetValue("UpdateStart").ToString());
+                    await Config.Set("Lang", keyut.GetValue("Lang").ToString());
+                    await Config.Set("Init", keyut.GetValue("Init2").ToString());
+                    await Config.Set("QLtaskpath", keyut.GetValue("QLtaskpath").ToString());
+                    await Config.Set("QLtaskicon", keyut.GetValue("QLtaskicon").ToString());
+                    await Config.Set("QLtasklab", keyut.GetValue("QLtasklab").ToString());
+                    await Config.Set("QLcmdpath", keyut.GetValue("QLcmdpath").ToString());
+                    await Config.Set("QLcmdicon", keyut.GetValue("QLcmdicon").ToString());
+                    await Config.Set("QLcmdlab", keyut.GetValue("QLcmdlab").ToString());
+                    await Config.Set("QLregpath", keyut.GetValue("QLregpath").ToString());
+                    await Config.Set("QLregicon", keyut.GetValue("QLregicon").ToString());
+                    await Config.Set("QLreglab", keyut.GetValue("QLreglab").ToString());
+                    await Config.Set("QLgppath", keyut.GetValue("QLgppath").ToString());
+                    await Config.Set("QLgpicon", keyut.GetValue("QLgpicon").ToString());
+                    await Config.Set("QLgplab", keyut.GetValue("QLgplab").ToString());
+                }
+                else
+                {
+                    await Config.Set("UpdateStart", "1");
+                    await Config.Set("Lang", "EN");
+                    await Config.Set("Init", "0");
+                    await Config.Set("QLtaskpath", "default");
+                    await Config.Set("QLtaskicon", "default");
+                    await Config.Set("QLtasklab", "default");
+                    await Config.Set("QLcmdpath", "default");
+                    await Config.Set("QLcmdicon", "default");
+                    await Config.Set("QLcmdlab", "default");
+                    await Config.Set("QLregpath", "default");
+                    await Config.Set("QLregicon", "default");
+                    await Config.Set("QLreglab", "default");
+                    await Config.Set("QLgppath", "default");
+                    await Config.Set("QLgpicon", "default");
+                    await Config.Set("QLgplab", "default");
+                }
             }
 
-            keysty = Registry.CurrentUser.OpenSubKey(@"Software\STY1001", true);
-            RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);
-            if (keyut == null)
-            {
-                keysty.CreateSubKey("Unowhy Tools");
-            }
-
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
-            if (key.GetValue("UpdateStart", null) == null)
-            {
-                key.SetValue("UpdateStart", "1", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("Lang", null) == null)
-            {
-                key.SetValue("Lang", "EN", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("Init2", null) == null)
-            {
-                key.SetValue("Init2", "0", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLtaskpath", null) == null)
-            {
-                key.SetValue("QLtaskpath", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLtaskicon", null) == null)
-            {
-                key.SetValue("QLtaskicon", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLtasklab", null) == null)
-            {
-                key.SetValue("QLtasklab", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLcmdpath", null) == null)
-            {
-                key.SetValue("QLcmdpath", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLcmdicon", null) == null)
-            {
-                key.SetValue("QLcmdicon", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLcmdlab", null) == null)
-            {
-                key.SetValue("QLcmdlab", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLregpath", null) == null)
-            {
-                key.SetValue("QLregpath", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLregicon", null) == null)
-            {
-                key.SetValue("QLregicon", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLreglab", null) == null)
-            {
-                key.SetValue("QLreglab", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLgppath", null) == null)
-            {
-                key.SetValue("QLgppath", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLgpicon", null) == null)
-            {
-                key.SetValue("QLgpicon", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("QLgplab", null) == null)
-            {
-                key.SetValue("QLgplab", "default", RegistryValueKind.String);
-            }
-
-            if (key.GetValue("Init2").ToString() == "1")
+            if (await UT.Config.Get("Init") == "1")
             {
                 return false;
             }
@@ -1473,32 +1454,17 @@ namespace Unowhy_Tools
             return lines[line2].Replace("\n", "").Replace("\r", "");
         }
 
-        public static string GetLang(string name)
+        public static async Task<string> GetLang(string name)
         {
             string resxFile = @".\lang\en.resx";
             string enresx = @".\lang\en.resx";
             string frresx = @".\lang\fr.resx";
-            RegistryKey ut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            if (ut != null)
-            {
-                object utl = ut.GetValue("Lang", null);
-                if (utl != null)
-                {
-                    if (ut.GetValue("Lang").ToString() == "EN") resxFile = enresx;
-                    else if (ut.GetValue("Lang").ToString() == "FR") resxFile = frresx;
-                    ResXResourceSet resxSet1 = new ResXResourceSet(resxFile);
-                    Write2Log("Get lang " + name + " => " + resxSet1.GetString(name));
-                    return resxSet1.GetString(name);
-                }
-
-                ResXResourceSet resxSet2 = new ResXResourceSet(resxFile);
-                Write2Log("Get lang " + name + " => " + resxSet2.GetString(name));
-                return resxSet2.GetString(name);
-            }
-
-            ResXResourceSet resxSet3 = new ResXResourceSet(resxFile);
-            Write2Log("Get lang " + name + " => " + resxSet3.GetString(name));
-            return resxSet3.GetString(name);
+            string lang = await UT.Config.Get("Lang");
+            if (lang == "EN") resxFile = enresx;
+            else if (lang == "FR") resxFile = frresx;
+            ResXResourceSet resxSet1 = new ResXResourceSet(resxFile);
+            Write2Log("Get lang " + name + " => " + resxSet1.GetString(name));
+            return resxSet1.GetString(name);
         }
 
         public async static Task RunMin(string file, string args)

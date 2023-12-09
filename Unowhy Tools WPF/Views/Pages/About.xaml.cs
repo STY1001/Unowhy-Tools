@@ -221,12 +221,7 @@ public partial class About : INavigableView<DashboardViewModel>
         applylang();
 
         string idString = "Installation ID: Null";
-        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
-        object id = key.GetValue("ID", null);
-        if (id != null)
-        {
-            idString = "Installation ID: " + key.GetValue("ID", null).ToString();
-        }
+        idString = "Installation ID: " + await UT.Config.Get("ID");
 
         string UTsver = "Unowhy Tools version " + UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
 
@@ -296,9 +291,7 @@ public partial class About : INavigableView<DashboardViewModel>
                 }
             }
 
-            RegistryKey lcs = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", false);
-            string utcuab = lcs.GetValue("UpdateStart").ToString();
-            if (utcuab == "1")
+            if (await UT.Config.Get("UpdateStart") == "1")
             {
                 ubtnlab.Text = UT.GetLang("update.check");
                 if (await UT.version.newver())
