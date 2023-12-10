@@ -90,7 +90,7 @@
             Framework: .NET 6.0
             Sub-Framework: Windows Presentation Foundation (WPF)
             Open Source: true
-            License: Free
+            License: MIT
             Author: STY1001
             Git: https://github.com/STY1001/Unowhy-Tools.git
             Contributable: true
