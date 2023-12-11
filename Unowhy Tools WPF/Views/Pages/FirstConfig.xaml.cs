@@ -36,8 +36,23 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        RootConfigGrid.Visibility = Visibility.Hidden;
-        RootStateGrid.Visibility = Visibility.Hidden;
+        StartHello.Visibility = Visibility.Visible;
+        RootConfigGrid.Visibility = Visibility.Visible;
+        RootStateGrid.Visibility = Visibility.Visible;
+        fcimg.Source = UT.GetImgSource("hi.png");
+        fctxt.Text = "Hi !";
+        btn.Click += step1;
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 1000;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(1000);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+
+        TranslateTransform trans = new TranslateTransform();
+        RootConfigGrid.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        RootStateGrid.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
         string sn = await UT.RunReturn("wmic", "bios get serialnumber");
         string pn = await UT.RunReturn("hostname", "");
@@ -96,25 +111,6 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             traycheck.IsChecked = false;
             traycheck.IsEnabled = false;
         }
-
-        StartHello.Visibility = Visibility.Visible;
-        RootConfigGrid.Visibility = Visibility.Visible;
-        RootStateGrid.Visibility = Visibility.Visible;
-        fcimg.Source = UT.GetImgSource("hi.png");
-        fctxt.Text = "Hi !";
-        btn.Click += step1;
-        DoubleAnimation anim = new DoubleAnimation();
-        anim.From = 1000;
-        anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(1000);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-
-        TranslateTransform trans = new TranslateTransform();
-        RootConfigGrid.RenderTransform = trans;
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
-        RootStateGrid.RenderTransform = trans;
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
-
     }
 
     public async void step1(object sender, RoutedEventArgs e)
