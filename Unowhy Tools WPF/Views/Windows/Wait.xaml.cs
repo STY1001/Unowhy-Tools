@@ -46,14 +46,20 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             if (IsOpen)
             {
-                icon.Source = UT.GetImgSource(img);
+                if(img != "null")
+                {
+                    icon.Source = UT.GetImgSource(img);
+                }
                 text.Text = title;
             }
             else
             {
                 IsOpen = true;
 
-                icon.Source = UT.GetImgSource(img);
+                if (img != "null")
+                {
+                    icon.Source = UT.GetImgSource(img);
+                }
                 text.Text = title;
 
                 Visibility = Visibility.Visible;

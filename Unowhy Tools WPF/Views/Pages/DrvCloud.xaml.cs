@@ -1,4 +1,4 @@
-﻿using Wpf.Ui.Common.Interfaces;
+﻿ using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
@@ -87,7 +87,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
-                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "clouddl.png");
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "null");
             };
             await UT.DlFilewithProgress(link, uttemps + $"\\{filename}", progress, cancellationToken.Token);
             await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
@@ -120,7 +120,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
                 string percentage = ((status * 100) / list.Count).ToString("##0") + " %";
 
-                await UT.waitstatus.open(await UT.GetLang("wait.restore") + " (" + percentage + ")", "download.png");
+                await UT.waitstatus.open(await UT.GetLang("wait.restore") + " (" + percentage + ")", "null");
 
                 await Task.Run(() =>
                 {
