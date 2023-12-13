@@ -144,7 +144,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
                 await Task.Delay(1000);
-                string rttemps = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers";
+                string rttemps = UT.utpath + "\\Unowhy Tools\\Temps\\Drivers";
                 string source = rtpath.Text;
                 string dest = rttemps;
                 await Task.Run(() =>

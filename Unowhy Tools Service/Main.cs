@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Windows.Threading;
 using System.IO.Pipes;
+using System.Reflection;
 
 namespace Unowhy_Tools_Service
 {
@@ -26,6 +27,7 @@ namespace Unowhy_Tools_Service
         private DispatcherTimer _wifitimer;
         private DispatcherTimer _wdtimer;
         public string Version = "3.2";
+        string utspath = "C:\\Unowhy Tools\\Unowhy Tools Service";
 
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(out int state, int value);
@@ -65,9 +67,9 @@ namespace Unowhy_Tools_Service
         {
             WDStatus = "False";
 
-            if (File.Exists("C:\\UTSConfig\\disablewd.txt"))
+            if (File.Exists(utspath + "\\disablewd.txt"))
             {
-                WDStatus = File.ReadAllText("C:\\UTSConfig\\disablewd.txt");
+                WDStatus = File.ReadAllText(utspath + "\\disablewd.txt");
             }
 
             if (WDStatus.Contains("True"))
@@ -86,24 +88,24 @@ namespace Unowhy_Tools_Service
             WifiStatus = "True";
             Serial = "Null";
 
-            if (File.Exists("C:\\UTSConfig\\wifisync.txt"))
+            if (File.Exists(utspath + "\\wifisync.txt"))
             {
-                WifiStatus = File.ReadAllText("C:\\UTSConfig\\wifisync.txt");
+                WifiStatus = File.ReadAllText(utspath + "\\wifisync.txt");
             }
 
-            if (!File.Exists("C:\\UTSConfig\\serial.txt"))
+            if (!File.Exists(utspath + "\\serial.txt"))
             {
                 return;
             }
             else
             {
-                if (File.ReadAllText("C:\\UTSConfig\\serial.txt") == "Null")
+                if (File.ReadAllText(utspath + "\\serial.txt") == "Null")
                 {
                     return;
                 }
                 else
                 {
-                    Serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+                    Serial = File.ReadAllText(utspath + "\\serial.txt");
 
                     if (WifiStatus.Contains("True"))
                     {
@@ -244,7 +246,7 @@ namespace Unowhy_Tools_Service
                 </MSM>
             </WLANProfile>";
 
-            string fileName = $@"C:\UTSConfig\WifiXml\{ssid}.xml";
+            string fileName = utspath + $"\\WifiXml\\{ssid}.xml";
             System.IO.File.WriteAllText(fileName, profileXml);
 
             string arguments = $@"wlan add profile filename=""{fileName}""";
@@ -280,25 +282,25 @@ namespace Unowhy_Tools_Service
 
         public async Task SetWS(string status)
         {
-            File.Delete("C:\\UTSConfig\\wifisync.txt");
-            File.WriteAllText("C:\\UTSConfig\\wifisync.txt", status);
-            WifiStatus = File.ReadAllText("C:\\UTSConfig\\wifisync.txt");
+            File.Delete(utspath + "\\wifisync.txt");
+            File.WriteAllText(utspath + "\\wifisync.txt", status);
+            WifiStatus = File.ReadAllText(utspath + "\\wifisync.txt");
             Task.Run(() => WifiSync());
         }
 
         public async Task SetWDS(string status)
         {
-            File.Delete("C:\\UTSConfig\\disablewd.txt");
-            File.WriteAllText("C:\\UTSConfig\\disablewd.txt", status);
-            WDStatus = File.ReadAllText("C:\\UTSConfig\\disablewd.txt");
+            File.Delete(utspath + "\\disablewd.txt");
+            File.WriteAllText(utspath + "\\disablewd.txt", status);
+            WDStatus = File.ReadAllText(utspath + "\\disablewd.txt");
             Task.Run(() => WDDisable());
         }
 
         public async Task SetSerial(string serial)
         {
-            File.Delete("C:\\UTSConfig\\serial.txt");
-            File.WriteAllText("C:\\UTSConfig\\serial.txt", serial);
-            serial = File.ReadAllText("C:\\UTSConfig\\serial.txt");
+            File.Delete(utspath + "\\serial.txt");
+            File.WriteAllText(utspath + "\\serial.txt", serial);
+            serial = File.ReadAllText(utspath + "\\serial.txt");
             Task.Run(() => WifiSync());
         }
 
@@ -328,6 +330,21 @@ namespace Unowhy_Tools_Service
                             if (clientData == "GetVer")
                             {
                                 ret = Version;
+                            }
+
+                            if (clientData == "GetWDir")
+                            {
+                                ret = Directory.GetCurrentDirectory();
+                            }
+
+                            if (clientData == "GetExePath")
+                            {
+                                ret = Assembly.GetExecutingAssembly().Location;
+                            }
+
+                            if (clientData == "GetExeName")
+                            {
+                                ret = AppDomain.CurrentDomain.FriendlyName;
                             }
 
                             await writer.WriteLineAsync(ret);

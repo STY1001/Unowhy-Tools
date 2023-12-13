@@ -132,6 +132,7 @@ using System.Windows.Interop;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Security.Policy;
+using System.Windows.Shapes;
 
 namespace Unowhy_Tools
 {
@@ -152,6 +153,7 @@ namespace Unowhy_Tools
         #endregion
 
         public static string online_datas = "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json";
+        public static string utpath = "C:\\Unowhy Tools";
 
         public static int verfull = 2700;
         public static string verbuild = "2028091223";
@@ -644,7 +646,7 @@ namespace Unowhy_Tools
                     if (CheckInternet())
                     {
                         await MainWindow.USSwB("Preparing UTS... (Downloading)");
-                        string utemp = Path.GetTempPath() + "\\Unowhy Tools\\Temps";
+                        string utemp = utpath + "\\Unowhy Tools\\Temps";
                         var progress = new System.Progress<double>();
                         var cancellationToken = new CancellationTokenSource();
                         progress.ProgressChanged += (sender, value) =>
@@ -730,7 +732,7 @@ namespace Unowhy_Tools
                         Directory.Delete(instdir, true);
                         await Task.Delay(100);
                         Directory.CreateDirectory(instdir);
-                        string utemp = Path.GetTempPath() + "\\Unowhy Tools\\Temps";
+                        string utemp = utpath + "\\Unowhy Tools\\Temps";
                         var progress = new System.Progress<double>();
                         var cancellationToken = new CancellationTokenSource();
                         progress.ProgressChanged += (sender, value) =>
@@ -869,7 +871,7 @@ namespace Unowhy_Tools
 
         public class Config
         {
-            static string filePath = "settings.json";
+            static string filePath = utpath + "\\Unowhy Tools\\settings.json";
 
             public static async Task<string> Get(string name)
             {
@@ -1010,10 +1012,10 @@ namespace Unowhy_Tools
                 Directory.Delete("temp", true);
             }
             await MainWindow.USS("Cleanup... (Checking)");
-            if (Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
+            if (Directory.Exists(utpath + "\\Unowhy Tools\\Temps"))
             {
                 await MainWindow.USSwB("Cleanup... (%temp%\\Unowhy Tools\\Temps)");
-                Directory.Delete(Path.GetTempPath() + "\\Unowhy Tools\\Temps", true);
+                Directory.Delete(utpath + "\\Unowhy Tools\\Temps", true);
             }
         }
 
@@ -1163,114 +1165,97 @@ namespace Unowhy_Tools
         public static async Task<bool> FirstStart()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-            await MainWindow.USS("Checking... (Folder)");
+            await MainWindow.USS("Checking... (Folder and file)");
 
-            await MainWindow.USS("Folder... (C:\\UTSConfig)");
-            if (!Directory.Exists("C:\\UTSConfig"))
+
+            if (!Directory.Exists(utpath + "\\Unowhy Tools Service"))
             {
-                Directory.CreateDirectory("C:\\UTSConfig");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools Service");
             }
 
-            await MainWindow.USS("Folder... (C:\\UTSConfig\\WifiXml)");
-            if (!Directory.Exists("C:\\UTSConfig\\WifiXml"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools Service\\WifiXml"))
             {
-                Directory.CreateDirectory("C:\\UTSConfig\\WifiXml");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools Service\\WifiXml");
             }
 
-            await MainWindow.USS("Folder... (C:\\UTSConfig\\serial.txt)");
-            if (!File.Exists("C:\\UTSConfig\\serial.txt"))
+            if (!File.Exists(utpath + "\\Unowhy Tools Service\\serial.txt"))
             {
-                File.WriteAllText("C:\\UTSConfig\\serial.txt", "Null");
+                File.WriteAllText(utpath + "\\Unowhy Tools Service\\serial.txt", "Null");
             }
 
-            await MainWindow.USS("Folder... (C:\\UTSConfig\\wifisync.txt)");
-            if (!File.Exists("C:\\UTSConfig\\wifisync.txt"))
+            if (!File.Exists(utpath + "\\Unowhy Tools Service\\wifisync.txt"))
             {
-                File.WriteAllText("C:\\UTSConfig\\wifisync.txt", "True");
+                File.WriteAllText(utpath + "\\Unowhy Tools Service\\wifisync.txt", "True");
             }
 
-            await MainWindow.USS("Folder... (C:\\UTSConfig\\disablewd.txt)");
-            if (!File.Exists("C:\\UTSConfig\\disablewd.txt"))
+            if (!File.Exists(utpath + "\\Unowhy Tools Service\\disablewd.txt"))
             {
-                File.WriteAllText("C:\\UTSConfig\\disablewd.txt", "False");
+                File.WriteAllText(utpath + "\\Unowhy Tools Service\\disablewd.txt", "False");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Logs)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Logs"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Logs");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Logs");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\Update)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Update"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\Update"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Update");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\Update");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\Drivers)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\Drivers"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Drivers");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\Drivers");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\WebView2)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\WebView2"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\WebView2");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\Service)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Service"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\Service"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Service");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\Service");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\Edge)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\Edge"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\Edge");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\AMI)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\AMI"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\AMI");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\AMI\\AFU)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\AMI\\AMIDE)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
             }
 
-            await MainWindow.USS("Folder... (%temp%\\Unowhy Tools\\Temps\\AMI\\IFPT)");
-            if (!Directory.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT"))
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT");
             }
 
-            await MainWindow.USS("Checking... (%temp%\\Unowhy Tools\\Logs\\UT_Logs.txt)");
-            if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
+            if (!File.Exists(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
             {
-                var f = File.CreateText(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
+                var f = File.CreateText(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
                 f.Close();
                 Write2Log("============");
                 Write2Log("Unowhy Tools");
@@ -1283,11 +1268,9 @@ namespace Unowhy_Tools
                 Write2Log("Last logs are on bottom\n\n\n");
             }
 
-            await MainWindow.USS("Checking... (settings.json)");
-
-            if (!File.Exists("settings.json"))
+            if (!File.Exists(utpath + "\\Unowhy Tools\\settings.json"))
             {
-                File.WriteAllText("settings.json", "{\n  \"name\":\"value\"\n}");
+                File.WriteAllText(utpath + "\\Unowhy Tools\\settings.json", "{\n  \"name\":\"value\"\n}");
                 
                 await Config.Set("OnlineData", "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json");
 
@@ -1499,9 +1482,9 @@ namespace Unowhy_Tools
         {
             try
             {
-                if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
+                if (File.Exists(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
                 {
-                    File.AppendAllText(Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt", DateTime.Now.ToString() + " : " + log + Environment.NewLine);
+                    File.AppendAllText(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt", DateTime.Now.ToString() + " : " + log + Environment.NewLine);
                 }
             }
             catch { }

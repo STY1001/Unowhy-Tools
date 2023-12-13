@@ -49,7 +49,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, System.EventArgs e)
     {
-        string path = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\WebView2";
+        string path = UT.utpath + "\\Unowhy Tools\\Temps\\WebView2";
 
         browser.CreationProperties = new CoreWebView2CreationProperties()
         {
@@ -194,7 +194,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void InstallButton_Click(object sender, RoutedEventArgs e)
     {
-        string utemp = Path.GetTempPath() + "\\Unowhy Tools\\Temps";
+        string utemp = UT.utpath + "\\Unowhy Tools\\Temps";
         Color disabled = (Color)ColorConverter.ConvertFromString("#888888");
         updatebtntext.Foreground = new SolidColorBrush(disabled);
         UpdateBTN.IsEnabled = false;

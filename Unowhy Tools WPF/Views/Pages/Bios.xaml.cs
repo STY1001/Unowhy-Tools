@@ -118,14 +118,14 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     List<string> afufiles = new List<string>
     {
-        Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe",
-        Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys"
+        UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe",
+        UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys"
     };
 
     List<string> amidefiles = new List<string>
     {
-        Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe",
-        Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIFLDRV64.sys"
+        UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe",
+        UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIFLDRV64.sys"
     };
 
     public async Task DlRes(string resname)
@@ -139,7 +139,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
-            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw"), UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe", progress, cancellationToken.Token);
         }
         if (resname == "AFU")
         {
@@ -150,14 +150,14 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
-            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("afuwin"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("afuwin"), UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
             await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
             await Task.Delay(1000);
             await Task.Run(() =>
             {
                 Dispatcher.Invoke(() =>
                 {
-                    ZipFile.ExtractToDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AFUWin.zip", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU");
+                    ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU");
                 });
             });
         }
@@ -170,14 +170,14 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
             };
-            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("amidewin"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("amidewin"), UT.utpath + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
             await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
             await Task.Delay(1000);
             await Task.Run(() =>
             {
                 Dispatcher.Invoke(() =>
                 {
-                    ZipFile.ExtractToDirectory(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
+                    ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
                 });
             });
         }
@@ -229,7 +229,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
-                if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (UT.CheckInternet())
@@ -244,16 +244,16 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath.Text;
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
                         p.StartInfo.Arguments = $"-bios -d \"{path}\"";
-                        p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
                         p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                         p.StartInfo.CreateNoWindow = true;
                         p.Start();
@@ -279,7 +279,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
-                if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (UT.CheckInternet())
@@ -294,16 +294,16 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = ifptflashpath.Text;
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
                         p.StartInfo.Arguments = $"-bios -f \"{path}\"";
-                        p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
                         p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                         p.StartInfo.CreateNoWindow = true;
                         p.Start();
@@ -379,9 +379,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe";
                         p.StartInfo.Arguments = $"\"{path}\" /O";
-                        p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU";
                         p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                         p.StartInfo.CreateNoWindow = true;
                         p.Start();
@@ -436,9 +436,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe";
                         p.StartInfo.Arguments = $"\"{path}\"{extarg}";
-                        p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AFU";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU";
                         p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                         p.StartInfo.CreateNoWindow = true;
                         p.Start();
@@ -556,9 +556,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/SM \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
@@ -571,9 +571,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/SV \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
@@ -586,9 +586,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/SK \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
@@ -601,9 +601,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/SS \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
@@ -616,9 +616,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/IV \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
@@ -631,9 +631,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/BM \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
@@ -646,9 +646,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/BP \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
@@ -661,9 +661,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/BV \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
@@ -676,9 +676,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/IVN \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
@@ -691,9 +691,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
                     p.StartInfo.Arguments = $"/ID \"{newtxt}\"";
-                    p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();

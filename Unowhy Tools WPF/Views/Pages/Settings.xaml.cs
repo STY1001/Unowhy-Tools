@@ -112,7 +112,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             us.IsChecked = false;
         }
 
-        string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
+        string fp = UT.utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         FileInfo fi = new FileInfo(fp);
         string size;
         if (fi.Length > 1024 * 1024) size = (fi.Length / (1024 * 1024)).ToString() + " MB";
@@ -140,7 +140,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         UT.anim.BorderZoomOut(RootBorder);
 
 
-        string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
+        string fp = UT.utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         FileInfo fi = new FileInfo(fp);
         string size;
         if (fi.Length > 1024 * 1024) size = (fi.Length / (1024 * 1024)).ToString() + " MB";
@@ -233,7 +233,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async void Logs_Clear(object sender, RoutedEventArgs e)
     {
-        string fp = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
+        string fp = UT.utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         File.Create(fp).Close();
         UT.Write2Log("============");
         UT.Write2Log("Unowhy Tools");
@@ -256,14 +256,14 @@ public partial class Settings : INavigableView<DashboardViewModel>
     {
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
-            FileName = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt",
+            FileName = UT.utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt",
             UseShellExecute = true
         });
     }
 
     public void Live_Logs(object sender, RoutedEventArgs e)
     {
-        string logspath = Path.GetTempPath() + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
+        string logspath = UT.utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
         string args = "\"type '" + logspath + "' -wait\"";
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {

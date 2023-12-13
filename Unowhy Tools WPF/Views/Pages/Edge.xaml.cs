@@ -138,17 +138,17 @@ public partial class Edge : INavigableView<DashboardViewModel>
 
     public async void Uninstall_Click(object sender, RoutedEventArgs e)
     {
-        if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+        if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
         {
             UT.DialogIShow(await UT.GetLang("needres"), "download.png");
         }
 
-        if (UT.CheckInternet() || File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+        if (UT.CheckInternet() || File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
         {
             if (UT.DialogQShow(await UT.GetLang("edgeun"), "uninstall.png"))
             {
                 await UT.waitstatus.open(await UT.GetLang("wait.uninstall"), "uninstall.png");
-                if (!File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
@@ -157,12 +157,12 @@ public partial class Edge : INavigableView<DashboardViewModel>
                     {
                         await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
                     };
-                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("edgesetup"), Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe", progress, cancellationToken.Token);
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("edgesetup"), UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe", progress, cancellationToken.Token);
                 }
-                if (File.Exists(Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.uninstall"), "uninstall.png");
-                    await UT.RunMin("powershell", $"start-process -FilePath '{Path.GetTempPath() + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"}' -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
+                    await UT.RunMin("powershell", $"start-process -FilePath '{UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"}' -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
                 }
                 await Task.Delay(1000);
                 await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
