@@ -1167,7 +1167,6 @@ namespace Unowhy_Tools
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
             await MainWindow.USS("Checking... (Folder and file)");
 
-
             if (!Directory.Exists(utpath + "\\Unowhy Tools Service"))
             {
                 Directory.CreateDirectory(utpath + "\\Unowhy Tools Service");
@@ -1180,17 +1179,38 @@ namespace Unowhy_Tools
 
             if (!File.Exists(utpath + "\\Unowhy Tools Service\\serial.txt"))
             {
-                File.WriteAllText(utpath + "\\Unowhy Tools Service\\serial.txt", "Null");
+                if (File.Exists("C:\\UTSConfig\\serial.txt"))
+                {
+                    File.WriteAllText(utpath + "\\Unowhy Tools Service\\serial.txt", File.ReadAllText("C:\\UTSConfig\\serial.txt"));
+                }
+                else
+                {
+                    File.WriteAllText(utpath + "\\Unowhy Tools Service\\serial.txt", "Null");
+                }
             }
 
             if (!File.Exists(utpath + "\\Unowhy Tools Service\\wifisync.txt"))
             {
-                File.WriteAllText(utpath + "\\Unowhy Tools Service\\wifisync.txt", "True");
+                if (File.Exists("C:\\UTSConfig\\wifisync.txt"))
+                {
+                    File.WriteAllText(utpath + "\\Unowhy Tools Service\\wifisync.txt", File.ReadAllText("C:\\UTSConfig\\wifisync.txt"));
+                }
+                else
+                {
+                    File.WriteAllText(utpath + "\\Unowhy Tools Service\\wifisync.txt", "True");
+                }
             }
 
             if (!File.Exists(utpath + "\\Unowhy Tools Service\\disablewd.txt"))
             {
-                File.WriteAllText(utpath + "\\Unowhy Tools Service\\disablewd.txt", "False");
+                if (File.Exists("C:\\UTSConfig\\disablewd.txt"))
+                {
+                    File.WriteAllText(utpath + "\\Unowhy Tools Service\\disablewd.txt", File.ReadAllText("C:\\UTSConfig\\disablewd.txt"));
+                }
+                else
+                {
+                    File.WriteAllText(utpath + "\\Unowhy Tools Service\\disablewd.txt", "False");
+                }
             }
 
             if (!Directory.Exists(utpath + "\\Unowhy Tools"))
@@ -1271,7 +1291,7 @@ namespace Unowhy_Tools
             if (!File.Exists(utpath + "\\Unowhy Tools\\settings.json"))
             {
                 File.WriteAllText(utpath + "\\Unowhy Tools\\settings.json", "{\n  \"name\":\"value\"\n}");
-                
+
                 await Config.Set("OnlineData", "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json");
 
                 RegistryKey keyut = Registry.CurrentUser.OpenSubKey(@"Software\STY1001\Unowhy Tools", true);

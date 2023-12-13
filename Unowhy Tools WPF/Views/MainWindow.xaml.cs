@@ -655,7 +655,7 @@ public partial class MainWindow : INavigationWindow
             }
 
             await USS("Loading... (Online Data)");
-            if (File.Exists("settings.json"))
+            if (File.Exists(UT.utpath + "\\Unowhy Tools\\settings.json"))
             {
                 UT.online_datas = await UT.Config.Get("OnlineData");
             }
