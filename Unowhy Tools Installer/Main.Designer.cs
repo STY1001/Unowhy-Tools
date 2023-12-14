@@ -141,7 +141,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 39;
-            this.label2.Text = "Ver 26.00";
+            this.label2.Text = "Ver 27.00";
             // 
             // cancel
             // 
