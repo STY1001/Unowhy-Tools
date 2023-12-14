@@ -4,8 +4,8 @@
         "websitename": "sty1001.fr"
     },
     "updates": {
-        "utnewver": "2600",
-        "utsnewver": "3.2"
+        "utnewver": "2700",
+        "utsnewver": "3.3"
     },
     "urls": {
         "api": "https://api.sty1001.fr/ut-stats",
