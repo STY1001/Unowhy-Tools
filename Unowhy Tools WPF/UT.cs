@@ -643,7 +643,7 @@ namespace Unowhy_Tools
                 }
                 if (!File.Exists(instdir + "\\Unowhy Tools Service.exe"))
                 {
-                    if (CheckInternet())
+                    if (UT.CheckInternet())
                     {
                         await MainWindow.USSwB("Preparing UTS... (Downloading)");
                         string utemp = utpath + "\\Unowhy Tools\\Temps";
@@ -713,7 +713,7 @@ namespace Unowhy_Tools
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
 
-                if (CheckInternet())
+                if (UT.CheckInternet())
                 {
                     var web = new HttpClient();
                     string newver = await UT.OnlineDatas.GetUpdates("utsnewver");
@@ -756,7 +756,7 @@ namespace Unowhy_Tools
             public static async Task<string> GetUrls(string name)
             {
                 Write2Log("GetUrls: " + name);
-                if (CheckInternet())
+                if (UT.CheckInternet())
                 {
                     string datasurl = online_datas;
                     HttpClient web = new HttpClient();
@@ -778,7 +778,7 @@ namespace Unowhy_Tools
             public static async Task<string> GetUpdates(string name)
             {
                 Write2Log("GetUpdates: " + name);
-                if (CheckInternet())
+                if (UT.CheckInternet())
                 {
                     string datasurl = online_datas;
                     HttpClient web = new HttpClient();
@@ -800,7 +800,7 @@ namespace Unowhy_Tools
             public static async Task<string> GetStrings(string name)
             {
                 Write2Log("GetStrings: " + name);
-                if (CheckInternet())
+                if (UT.CheckInternet())
                 {
                     string datasurl = online_datas;
                     HttpClient web = new HttpClient();
@@ -822,7 +822,7 @@ namespace Unowhy_Tools
             public static async Task<ImageSource> GetAvatars(string name)
             {
                 Write2Log("GetAvatars: " + name);
-                if (CheckInternet())
+                if (UT.CheckInternet())
                 {
                     string datasurl = online_datas;
                     HttpClient web = new HttpClient();
