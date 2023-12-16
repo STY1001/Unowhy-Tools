@@ -63,11 +63,15 @@ To update to the Debug version:
 
 - Go to the Debug menu, by pressing this key sequence:
 
-   - U, T, Up, Up, Down, Down, Left, Right, Left, Right, A, B, Enter
+   - Ctrl + U, Ctrl + T, Up, Up, Down, Down, Left, Right, Left, Right, A, B, Enter
 
 - Now in Debug menu, click on "Update Debug version" and wait
 
 ## 📷 Screenshots
+
+27.00
+
+![UT Screen](/README/UT27.00.png)
 
 26.00
 
