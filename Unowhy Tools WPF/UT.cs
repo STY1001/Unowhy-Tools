@@ -155,9 +155,9 @@ namespace Unowhy_Tools
         public static string online_datas = "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json";
         public static string utpath = "C:\\Unowhy Tools";
 
-        public static int verfull = 2700;
-        public static string verbuild = "1520141223";
-        public static bool verisdeb = false;
+        public static int verfull = 2701;
+        public static string verbuild = "2136161223";
+        public static bool verisdeb = true;
 
         public class version
         {
