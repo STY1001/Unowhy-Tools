@@ -88,14 +88,14 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         var cancellationToken = new CancellationTokenSource();
         progress.ProgressChanged += (sender, value) =>
         {
-            debus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+            debus.Text = "Downloading... (" + value.ToString("##0") + "%)";
         };
         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utdebupdatezip"), utemp + "\\update.zip", progress, cancellationToken.Token);
         progress = new System.Progress<double>();
         cancellationToken = new CancellationTokenSource();
         progress.ProgressChanged += (sender, value) =>
         {
-            debus.Text = "Downloading... (" + value.ToString("###.#") + "%)";
+            debus.Text = "Downloading... (" + value.ToString("##0") + "%)";
         };
         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
         debus.Text = "Extracting...";

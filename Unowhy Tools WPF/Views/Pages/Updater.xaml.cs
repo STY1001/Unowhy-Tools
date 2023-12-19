@@ -201,24 +201,21 @@ public partial class Updater : INavigableView<DashboardViewModel>
         labimg.Source = UT.GetImgSource("clouddl.png");
         labtext.Text = await UT.GetLang("update.dl");
         await Task.Delay(1000);
-
         string uddl = await UT.GetLang("update.dl");
         var progress = new System.Progress<double>();
         var cancellationToken = new CancellationTokenSource();
         progress.ProgressChanged += (sender, value) =>
         {
-            labtext.Text = uddl + " 1/2 (" + value.ToString("###.#") + "%)";
+            labtext.Text = uddl + " 1/2 (" + value.ToString("##0") + "%)";
         };
         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utupdatezip"), utemp + "\\update.zip", progress, cancellationToken.Token);
-
         progress = new System.Progress<double>();
         cancellationToken = new CancellationTokenSource();
         progress.ProgressChanged += (sender, value) =>
         {
-            labtext.Text = uddl + " 2/2 (" + value.ToString("###.#") + "%)";
+            labtext.Text = uddl + " 2/2 (" + value.ToString("##0") + "%)";
         };
         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
-
         labtext.Text = await UT.GetLang("update.ext");
         labimg.Source = UT.GetImgSource("zip.png");
         await Task.Delay(1000);
