@@ -156,11 +156,23 @@
   <data name="bat.balanced" xml:space="preserve">
     <value>Balanced mode</value>
   </data>
+  <data name="bat.balancedshort" xml:space="preserve">
+    <value>Balanced</value>
+  </data>
   <data name="bat.efficiency" xml:space="preserve">
     <value>Efficiency mode</value>
   </data>
+  <data name="bat.efficiencyshort" xml:space="preserve">
+    <value>Efficiency</value>
+  </data>
   <data name="bat.perf" xml:space="preserve">
     <value>Performance mode</value>
+  </data>
+  <data name="bat.perfshort" xml:space="preserve">
+    <value>Performance</value>
+  </data>
+  <data name="batinfo" xml:space="preserve">
+    <value>Battery info</value>
   </data>
   <data name="bcdfail" xml:space="preserve">
     <value>Del "IgnoreAllFailures" in BCD</value>
@@ -522,6 +534,15 @@
   <data name="pcserial" xml:space="preserve">
     <value>Serial Number of this PC</value>
   </data>
+  <data name="power" xml:space="preserve">
+    <value>Power</value>
+  </data>
+  <data name="powermode" xml:space="preserve">
+    <value>Power mode</value>
+  </data>
+  <data name="privacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
   <data name="psdrv" xml:space="preserve">
     <value>Backup and Restore drivers with PS</value>
   </data>
@@ -533,6 +554,24 @@
   </data>
   <data name="qleditclick" xml:space="preserve">
     <value>(click to edit)</value>
+  </data>
+  <data name="quicklaunchedit" xml:space="preserve">
+    <value>Quick launch editor</value>
+  </data>
+  <data name="quicklauncheditdesc" xml:space="preserve">
+    <value>Edit shortcut</value>
+  </data>
+  <data name="quicklaunchsave" xml:space="preserve">
+    <value>Go back and save change</value>
+  </data>
+  <data name="quicklaunchsavedesc" xml:space="preserve">
+    <value>Right click to set to default</value>
+  </data>
+  <data name="quickoption" xml:space="preserve">
+    <value>Quick option</value>
+  </data>
+  <data name="quickoptiondesc" xml:space="preserve">
+    <value>Privacy, Power</value>
   </data>
   <data name="raminfo" xml:space="preserve">
     <value>RAM Info</value>
@@ -602,6 +641,12 @@
   </data>
   <data name="storageinfo" xml:space="preserve">
     <value>Storage Info (used/total)</value>
+  </data>
+  <data name="sysmonitor" xml:space="preserve">
+    <value>System monitoring</value>
+  </data>
+  <data name="sysmonitordesc" xml:space="preserve">
+    <value>CPU, RAM, Storage, Battery</value>
   </data>
   <data name="taskmgr" xml:space="preserve">
     <value>Enable the Task Manager</value>
