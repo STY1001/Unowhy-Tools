@@ -10,9 +10,9 @@
         xmlns:controls="clr-namespace:Unowhy_Tools_WPF.Views.Windows"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         Title="Unowhy Tools Tray"
-        d:DesignHeight="730"
+        d:DesignHeight="700"
         d:DesignWidth="900"
-        Height="730"
+        Height="700"
         Width="900"
         Background="Transparent"
         AllowsTransparency="True"
@@ -23,7 +23,7 @@
         <Grid x:Name="TrayGrid"
               VerticalAlignment="Center"
               HorizontalAlignment="Center">
-            <Border Height="650"
+            <Border Height="600"
                     Width="800"
                     x:Name="Border1"
                     Background="Transparent"
@@ -31,7 +31,7 @@
                     BorderThickness="1"
                     CornerRadius="8,8,8,8">
             </Border>
-            <Border Height="650"
+            <Border Height="600"
                     Width="800"
                     x:Name="Border2"
                     Background="Transparent"
@@ -39,7 +39,7 @@
                     BorderThickness="3"
                     CornerRadius="8,8,8,8">
             </Border>
-            <Border Height="650"
+            <Border Height="600"
                     Width="800"
                     x:Name="TrayBorder"
                     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
@@ -48,9 +48,7 @@
                     CornerRadius="8,8,8,8">
                 <Grid>
                     <Border BorderBrush="#353535"
-                            Background="#0affffff"
                             BorderThickness="1"
-                            Margin="0,50,0,0"
                             CornerRadius="8">
                         <Grid x:Name="MainGrid">
                             <Grid.RowDefinitions>
@@ -998,13 +996,6 @@
                                        Grid.Row="0"
                                        Grid.RowSpan="2" />
                     </Grid>
-                    <ui:TitleBar ShowMaximize="False"
-                                 ShowMinimize="False"
-                                 MinimizeToTray="True"
-                                 ShowClose="False"
-                                 CloseClicked="Close_Click"
-                                 Icon="pack://application:,,,/Resources/UT.png"
-                                 Title="Unowhy Tools Tray" />
                 </Grid>
             </Border>
         </Grid>
