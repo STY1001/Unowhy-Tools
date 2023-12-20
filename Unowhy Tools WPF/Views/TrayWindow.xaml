@@ -10,9 +10,9 @@
         xmlns:controls="clr-namespace:Unowhy_Tools_WPF.Views.Windows"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         Title="Unowhy Tools Tray"
-        d:DesignHeight="700"
+        d:DesignHeight="730"
         d:DesignWidth="900"
-        Height="700"
+        Height="730"
         Width="900"
         Background="Transparent"
         AllowsTransparency="True"
@@ -23,7 +23,7 @@
         <Grid x:Name="TrayGrid"
               VerticalAlignment="Center"
               HorizontalAlignment="Center">
-            <Border Height="600"
+            <Border Height="650"
                     Width="800"
                     x:Name="Border1"
                     Background="Transparent"
@@ -31,7 +31,7 @@
                     BorderThickness="1"
                     CornerRadius="8,8,8,8">
             </Border>
-            <Border Height="600"
+            <Border Height="650"
                     Width="800"
                     x:Name="Border2"
                     Background="Transparent"
@@ -39,522 +39,926 @@
                     BorderThickness="3"
                     CornerRadius="8,8,8,8">
             </Border>
-            <Border Height="600"
+            <Border Height="650"
                     Width="800"
                     x:Name="TrayBorder"
-                    Background="#202020"
+                    Background="{ui:ThemeResource ApplicationBackgroundBrush}"
                     BorderBrush="#2b2b2b"
                     BorderThickness="2"
                     CornerRadius="8,8,8,8">
                 <Grid>
-                    <Grid x:Name="MainGrid">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="15" />
-                            <RowDefinition Height="64" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Image Source="/Resources/UTLogoWhite3.0.png"
-                                   Grid.Column="0"
-                                   RenderOptions.BitmapScalingMode="HighQuality"
-                                   HorizontalAlignment="Left"
-                                   Margin="15,0,0,0" />
-                            <Grid Grid.Column="1"
-                                  HorizontalAlignment="Right"
-                                  Margin="0,0,15,0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <StackPanel Grid.Row="0"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Bottom"
-                                            Orientation="Horizontal">
-                                    <TextBlock Text="17:20"
-                                               FontSize="26"
-                                               FontFamily="Segoe UI Variable Display Bold"
+                    <Border BorderBrush="#353535"
+                            Background="#0affffff"
+                            BorderThickness="1"
+                            Margin="0,50,0,0"
+                            CornerRadius="8">
+                        <Grid x:Name="MainGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="15" />
+                                <RowDefinition Height="64" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="/Resources/UTLogoWhite3.0.png"
+                                       Grid.Column="0"
+                                       RenderOptions.BitmapScalingMode="HighQuality"
+                                       HorizontalAlignment="Left"
+                                       Margin="15,0,0,0" />
+                                <Grid Grid.Column="1"
+                                      HorizontalAlignment="Right"
+                                      Margin="0,0,15,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Bottom"
+                                                Orientation="Horizontal">
+                                        <TextBlock Text="17:20"
+                                                   FontSize="26"
+                                                   FontFamily="Segoe UI Variable Display Bold"
+                                                   Foreground="#ffffff"
+                                                   VerticalAlignment="Bottom"
+                                                   x:Name="time" />
+                                        <TextBlock Text="00"
+                                                   Margin="3,0,0,2"
+                                                   FontSize="20"
+                                                   FontFamily="Segoe UI Variable Display SemiBold"
+                                                   Foreground="#b2b2b2"
+                                                   VerticalAlignment="Bottom"
+                                                   x:Name="time2" />
+                                    </StackPanel>
+                                    <TextBlock Text="07/08/2006"
+                                               Grid.Row="1"
+                                               FontSize="18"
+                                               FontFamily="Segoe UI"
                                                Foreground="#ffffff"
-                                               VerticalAlignment="Bottom"
-                                               x:Name="time" />
-                                    <TextBlock Text="00"
-                                               Margin="3,0,0,2"
-                                               FontSize="20"
-                                               FontFamily="Segoe UI Variable Display SemiBold"
-                                               Foreground="#b2b2b2"
-                                               VerticalAlignment="Bottom"
-                                               x:Name="time2" />
-                                </StackPanel>
-                                <TextBlock Text="07/08/2006"
-                                           Grid.Row="1"
-                                           FontSize="18"
-                                           FontFamily="Segoe UI"
-                                           Foreground="#ffffff"
-                                           VerticalAlignment="Top"
-                                           x:Name="date" />
+                                               VerticalAlignment="Top"
+                                               x:Name="date" />
+                                </Grid>
                             </Grid>
-                        </Grid>
-                        <Grid Grid.Row="2"
-                              Margin="15">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0"
-                                  x:Name="PerfViewer"
-                                  Visibility="Visible">
-                                <StackPanel Orientation="Vertical"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Stretch"
-                                            Margin="15">
-                                    <StackPanel.Resources>
-                                        <Style TargetType="Grid">
-                                            <Setter Property="Margin"
-                                                    Value="0,0,0,10" />
-                                        </Style>
-                                    </StackPanel.Resources>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="64" />
-                                            <ColumnDefinition Width="15" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="32" />
-                                            <RowDefinition Height="32" />
-                                        </Grid.RowDefinitions>
-                                        <ui:ProgressRing Grid.Row="0"
-                                                         Grid.RowSpan="2"
-                                                         Progress="0"
-                                                         x:Name="cpuring" />
-                                        <Image Source="../Resources/cpu.png"
-                                               Grid.Row="0"
-                                               Grid.RowSpan="2"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"
-                                               Height="32" />
-                                        <TextBlock  Grid.Row="0"
-                                                    Grid.Column="2"
-                                                    Text="CPU Usage"
-                                                    Foreground="#ffffff"
-                                                    FontSize="16"
-                                                    FontFamily="Segoe UI SemiBold"
-                                                    VerticalAlignment="Bottom"
-                                                    HorizontalAlignment="Left"
-                                                    x:Name="cpulab" />
-                                        <StackPanel Grid.Row="1"
-                                                    Grid.Column="2"
-                                                    Orientation="Horizontal">
-                                            <TextBlock Text="0%"
-                                                       Foreground="#ffffff"
-                                                       FontSize="14"
-                                                       FontFamily="Segoe UI SemiBold"
-                                                       x:Name="cpuper" />
-                                            <TextBlock  Margin="10,0,0,0"
-                                                        Text="CPU"
-                                                        Foreground="#b2b2b2"
-                                                        FontSize="13"
-                                                        FontFamily="Segoe UI Normal"
-                                                        VerticalAlignment="Top"
-                                                        HorizontalAlignment="Left"
-                                                        x:Name="cpucap" />
-                                        </StackPanel>
-                                    </Grid>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="64" />
-                                            <ColumnDefinition Width="15" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="32" />
-                                            <RowDefinition Height="32" />
-                                        </Grid.RowDefinitions>
-                                        <ui:ProgressRing Grid.Row="0"
-                                                         Grid.RowSpan="2"
-                                                         Progress="0"
-                                                         x:Name="ramring" />
-                                        <Image Source="../Resources/ram.png"
-                                               Grid.Row="0"
-                                               Grid.RowSpan="2"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"
-                                               Height="32" />
-                                        <TextBlock  Grid.Row="0"
-                                                    Grid.Column="2"
-                                                    Text="RAM Usage"
-                                                    Foreground="#ffffff"
-                                                    FontSize="16"
-                                                    FontFamily="Segoe UI SemiBold"
-                                                    VerticalAlignment="Bottom"
-                                                    HorizontalAlignment="Left"
-                                                    x:Name="ramlab" />
-                                        <StackPanel Orientation="Horizontal"
-                                                    Grid.Row="1"
-                                                    Grid.Column="2">
-                                            <TextBlock Text="0%"
-                                                       Foreground="#ffffff"
-                                                       FontSize="14"
-                                                       FontFamily="Segoe UI SemiBold"
-                                                       x:Name="ramper" />
-                                            <TextBlock  Margin="10,0,0,0"
-                                                        Text="RAM"
-                                                        Foreground="#b2b2b2"
-                                                        FontSize="13"
-                                                        FontFamily="Segoe UI Normal"
-                                                        x:Name="ramcap" />
-                                        </StackPanel>
-
-                                    </Grid>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="64" />
-                                            <ColumnDefinition Width="15" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="32" />
-                                            <RowDefinition Height="32" />
-                                        </Grid.RowDefinitions>
-                                        <ui:ProgressRing Grid.Row="0"
-                                                         Grid.RowSpan="2"
-                                                         Progress="0"
-                                                         x:Name="storring" />
-                                        <Image Source="../Resources/storage.png"
-                                               Grid.Row="0"
-                                               Grid.RowSpan="2"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"
-                                               Height="32" />
-                                        <TextBlock  Grid.Row="0"
-                                                    Grid.Column="2"
-                                                    Text="Storage Usage"
-                                                    Foreground="#ffffff"
-                                                    FontSize="16"
-                                                    FontFamily="Segoe UI SemiBold"
-                                                    VerticalAlignment="Bottom"
-                                                    HorizontalAlignment="Left"
-                                                    x:Name="storlab" />
-                                        <StackPanel Orientation="Horizontal"
-                                                    Grid.Row="1"
-                                                    Grid.Column="2">
-
-                                            <TextBlock Text="0%"
-                                                       Foreground="#ffffff"
-                                                       FontSize="14"
-                                                       FontFamily="Segoe UI SemiBold"
-                                                       x:Name="storper" />
-                                            <TextBlock Text="Storage"
-                                                       Margin="10,0,0,0"
-                                                       Foreground="#b2b2b2"
-                                                       FontSize="13"
-                                                       FontFamily="Segoe UI Normal"
-                                                       x:Name="storcap" />
-                                        </StackPanel>
-
-                                    </Grid>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="64" />
-                                            <ColumnDefinition Width="15" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="32" />
-                                            <RowDefinition Height="32" />
-                                        </Grid.RowDefinitions>
-                                        <ui:ProgressRing Grid.Row="0"
-                                                         Grid.RowSpan="2"
-                                                         Progress="0"
-                                                         x:Name="batring" />
-                                        <Image Source="../Resources/bat100.png"
-                                               Grid.Row="0"
-                                               Grid.RowSpan="2"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"
-                                               Height="24"
-                                               x:Name="batimg" />
-                                        <Image Source="../Resources/charge.png"
-                                               Margin="10,0,0,0"
-                                               Grid.Row="0"
-                                               Grid.RowSpan="2"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Left"
-                                               Height="16"
-                                               x:Name="batstatusimg" />
-                                        <Image Source="../Resources/power.png"
-                                               Margin="0,0,10,0"
-                                               Grid.Row="0"
-                                               Grid.RowSpan="2"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Right"
-                                               Height="16"
-                                               x:Name="batmodeimg" />
-                                        <TextBlock  Grid.Row="0"
-                                                    Grid.Column="2"
-                                                    Text="Battery info"
-                                                    Foreground="#ffffff"
-                                                    FontSize="16"
-                                                    FontFamily="Segoe UI SemiBold"
-                                                    VerticalAlignment="Bottom"
-                                                    HorizontalAlignment="Left"
-                                                    x:Name="batlab" />
-                                        <StackPanel Grid.Row="1"
-                                                    Grid.Column="2"
-                                                    Orientation="Horizontal">
-                                            <TextBlock Text="0%"
-                                                       Foreground="#ffffff"
-                                                       FontSize="14"
-                                                       FontFamily="Segoe UI SemiBold"
-                                                       x:Name="batper" />
-                                            <TextBlock  Margin="10,0,0,0"
-                                                        Text="BAT"
-                                                        Foreground="#b2b2b2"
-                                                        FontSize="13"
-                                                        FontFamily="Segoe UI Normal"
-                                                        VerticalAlignment="Top"
-                                                        HorizontalAlignment="Left"
-                                                        x:Name="batcap" />
-                                        </StackPanel>
-                                    </Grid>
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   IsChevronVisible="True"
-                                                   Click="QO_Click">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="2"
+                                  Margin="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0"
+                                      x:Name="PerfViewer"
+                                      Visibility="Visible">
+                                    <StackPanel Orientation="Vertical"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Stretch"
+                                                Margin="15">
+                                        <StackPanel.Resources>
+                                            <Style TargetType="Grid">
+                                                <Setter Property="Margin"
+                                                        Value="0,0,0,10" />
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="64" />
+                                                <ColumnDefinition Width="15" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/settings.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="Quick option"
-                                                           x:Name="labqo" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="Privacy, Power"
-                                                           x:Name="labqodesc" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                </StackPanel>
-                            </Grid>
-                            <Grid Grid.Column="0"
-                                  x:Name="QuickOption"
-                                  Visibility="Collapsed">
-                                <StackPanel Orientation="Vertical"
-                                            VerticalAlignment="Stretch"
-                                            HorizontalAlignment="Stretch"
-                                            Margin="15">
-                                    <StackPanel.Resources>
-                                        <Style TargetType="Grid">
-                                            <Setter Property="Margin"
-                                                    Value="0,0,0,10" />
-                                        </Style>
-                                    </StackPanel.Resources>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="10" />
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="10" />
-                                            <RowDefinition Height="*" />
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="32" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <StackPanel Orientation="Horizontal"
-                                                    Grid.Column="0"
-                                                    Grid.Row="0"
-                                                    Grid.ColumnSpan="2">
-                                            <Image Source="../Resources/privacy.png"
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="32" />
+                                                <RowDefinition Height="32" />
+                                            </Grid.RowDefinitions>
+                                            <ui:ProgressRing Grid.Row="0"
+                                                             Grid.RowSpan="2"
+                                                             Progress="0"
+                                                             x:Name="cpuring" />
+                                            <Image Source="../Resources/cpu.png"
+                                                   Grid.Row="0"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
                                                    Height="32" />
-                                            <TextBlock Foreground="#ffffff"
-                                                       Text="Privacy"
-                                                       FontSize="16"
-                                                       FontFamily="Segoe UI"
-                                                       VerticalAlignment="Center"
-                                                       Margin="5,0,0,0" />
-                                        </StackPanel>
-                                        <ui:NavigationSeparator Grid.Column="0"
-                                                                Grid.Row="1"
-                                                                Grid.RowSpan="4"
-                                                                HorizontalAlignment="Center" />
-                                        <Grid Grid.Column="1"
-                                              Grid.Row="2">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="auto" />
-                                            </Grid.ColumnDefinitions>
-                                            <StackPanel Orientation="Horizontal"
-                                                        Grid.Column="0">
-                                                <Image Source="../Resources/camera.png"
-                                                       Height="32" />
-                                                <TextBlock Foreground="#ffffff"
-                                                           Text="Camera"
+                                            <TextBlock  Grid.Row="0"
+                                                        Grid.Column="2"
+                                                        Text="CPU Usage"
+                                                        Foreground="#ffffff"
+                                                        FontSize="16"
+                                                        FontFamily="Segoe UI SemiBold"
+                                                        VerticalAlignment="Bottom"
+                                                        HorizontalAlignment="Left"
+                                                        x:Name="cpulab" />
+                                            <StackPanel Grid.Row="1"
+                                                        Grid.Column="2"
+                                                        Orientation="Horizontal">
+                                                <TextBlock Text="0%"
+                                                           Foreground="#ffffff"
                                                            FontSize="14"
-                                                           FontFamily="Segoe UI"
-                                                           VerticalAlignment="Center"
-                                                           Margin="5,0,0,0" />
+                                                           FontFamily="Segoe UI SemiBold"
+                                                           x:Name="cpuper" />
+                                                <TextBlock  Margin="10,0,0,0"
+                                                            Text="CPU"
+                                                            Foreground="#b2b2b2"
+                                                            FontSize="13"
+                                                            FontFamily="Segoe UI Normal"
+                                                            VerticalAlignment="Top"
+                                                            HorizontalAlignment="Left"
+                                                            x:Name="cpucap" />
                                             </StackPanel>
-                                            <ui:ToggleSwitch x:Name="camswitch"
-                                                             Click="switch_Changed"
-                                                             Margin="0,0,0,0"
-                                                             Grid.Column="1" />
                                         </Grid>
-                                        <Grid Grid.Column="1"
-                                              Grid.Row="4">
+                                        <Grid>
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="64" />
+                                                <ColumnDefinition Width="15" />
                                                 <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="auto" />
                                             </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="32" />
+                                                <RowDefinition Height="32" />
+                                            </Grid.RowDefinitions>
+                                            <ui:ProgressRing Grid.Row="0"
+                                                             Grid.RowSpan="2"
+                                                             Progress="0"
+                                                             x:Name="ramring" />
+                                            <Image Source="../Resources/ram.png"
+                                                   Grid.Row="0"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                                   Height="32" />
+                                            <TextBlock  Grid.Row="0"
+                                                        Grid.Column="2"
+                                                        Text="RAM Usage"
+                                                        Foreground="#ffffff"
+                                                        FontSize="16"
+                                                        FontFamily="Segoe UI SemiBold"
+                                                        VerticalAlignment="Bottom"
+                                                        HorizontalAlignment="Left"
+                                                        x:Name="ramlab" />
                                             <StackPanel Orientation="Horizontal"
-                                                        Grid.Column="0">
-                                                <Image Source="../Resources/micro.png"
-                                                       Height="32" />
-                                                <TextBlock Foreground="#ffffff"
-                                                           Text="Micro"
+                                                        Grid.Row="1"
+                                                        Grid.Column="2">
+                                                <TextBlock Text="0%"
+                                                           Foreground="#ffffff"
                                                            FontSize="14"
-                                                           FontFamily="Segoe UI"
-                                                           VerticalAlignment="Center"
-                                                           Margin="5,0,0,0" />
+                                                           FontFamily="Segoe UI SemiBold"
+                                                           x:Name="ramper" />
+                                                <TextBlock  Margin="10,0,0,0"
+                                                            Text="RAM"
+                                                            Foreground="#b2b2b2"
+                                                            FontSize="13"
+                                                            FontFamily="Segoe UI Normal"
+                                                            x:Name="ramcap" />
                                             </StackPanel>
-                                            <ui:ToggleSwitch x:Name="micswitch"
-                                                             Click="switch_Changed"
-                                                             Margin="0,0,0,0"
-                                                             Grid.Column="1" />
+
                                         </Grid>
-                                    </Grid>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="10" />
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="10" />
-                                            <RowDefinition Height="*" />
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="32" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <StackPanel Orientation="Horizontal"
-                                                    Grid.Column="0"
-                                                    Grid.Row="0"
-                                                    Grid.ColumnSpan="2">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="64" />
+                                                <ColumnDefinition Width="15" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="32" />
+                                                <RowDefinition Height="32" />
+                                            </Grid.RowDefinitions>
+                                            <ui:ProgressRing Grid.Row="0"
+                                                             Grid.RowSpan="2"
+                                                             Progress="0"
+                                                             x:Name="storring" />
+                                            <Image Source="../Resources/storage.png"
+                                                   Grid.Row="0"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                                   Height="32" />
+                                            <TextBlock  Grid.Row="0"
+                                                        Grid.Column="2"
+                                                        Text="Storage Usage"
+                                                        Foreground="#ffffff"
+                                                        FontSize="16"
+                                                        FontFamily="Segoe UI SemiBold"
+                                                        VerticalAlignment="Bottom"
+                                                        HorizontalAlignment="Left"
+                                                        x:Name="storlab" />
+                                            <StackPanel Orientation="Horizontal"
+                                                        Grid.Row="1"
+                                                        Grid.Column="2">
+
+                                                <TextBlock Text="0%"
+                                                           Foreground="#ffffff"
+                                                           FontSize="14"
+                                                           FontFamily="Segoe UI SemiBold"
+                                                           x:Name="storper" />
+                                                <TextBlock Text="Storage"
+                                                           Margin="10,0,0,0"
+                                                           Foreground="#b2b2b2"
+                                                           FontSize="13"
+                                                           FontFamily="Segoe UI Normal"
+                                                           x:Name="storcap" />
+                                            </StackPanel>
+
+                                        </Grid>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="64" />
+                                                <ColumnDefinition Width="15" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="32" />
+                                                <RowDefinition Height="32" />
+                                            </Grid.RowDefinitions>
+                                            <ui:ProgressRing Grid.Row="0"
+                                                             Grid.RowSpan="2"
+                                                             Progress="0"
+                                                             x:Name="batring" />
                                             <Image Source="../Resources/bat100.png"
-                                                   Height="32"
-                                                   x:Name="qobatimg" />
-                                            <TextBlock Foreground="#ffffff"
-                                                       Text="Power"
-                                                       FontSize="16"
-                                                       FontFamily="Segoe UI"
-                                                       VerticalAlignment="Center"
-                                                       Margin="5,0,0,0" />
-                                        </StackPanel>
-                                        <ui:NavigationSeparator Grid.Column="0"
-                                                                Grid.Row="1"
-                                                                Grid.RowSpan="4"
-                                                                HorizontalAlignment="Center" />
-                                        <Grid Grid.Column="1"
-                                              Grid.Row="2">
+                                                   Grid.Row="0"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                                   Height="24"
+                                                   x:Name="batimg" />
+                                            <Image Source="../Resources/charge.png"
+                                                   Margin="10,0,0,0"
+                                                   Grid.Row="0"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Left"
+                                                   Height="16"
+                                                   x:Name="batstatusimg" />
+                                            <Image Source="../Resources/power.png"
+                                                   Margin="0,0,10,0"
+                                                   Grid.Row="0"
+                                                   Grid.RowSpan="2"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Right"
+                                                   Height="16"
+                                                   x:Name="batmodeimg" />
+                                            <TextBlock  Grid.Row="0"
+                                                        Grid.Column="2"
+                                                        Text="Battery info"
+                                                        Foreground="#ffffff"
+                                                        FontSize="16"
+                                                        FontFamily="Segoe UI SemiBold"
+                                                        VerticalAlignment="Bottom"
+                                                        HorizontalAlignment="Left"
+                                                        x:Name="batlab" />
+                                            <StackPanel Grid.Row="1"
+                                                        Grid.Column="2"
+                                                        Orientation="Horizontal">
+                                                <TextBlock Text="0%"
+                                                           Foreground="#ffffff"
+                                                           FontSize="14"
+                                                           FontFamily="Segoe UI SemiBold"
+                                                           x:Name="batper" />
+                                                <TextBlock  Margin="10,0,0,0"
+                                                            Text="BAT"
+                                                            Foreground="#b2b2b2"
+                                                            FontSize="13"
+                                                            FontFamily="Segoe UI Normal"
+                                                            VerticalAlignment="Top"
+                                                            HorizontalAlignment="Left"
+                                                            x:Name="batcap" />
+                                            </StackPanel>
+                                        </Grid>
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       IsChevronVisible="True"
+                                                       Click="QO_Click">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/settings.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="Quick option"
+                                                               x:Name="labqo" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="Privacy, Power"
+                                                               x:Name="labqodesc" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="0"
+                                      x:Name="QuickOption"
+                                      Visibility="Collapsed">
+                                    <StackPanel Orientation="Vertical"
+                                                VerticalAlignment="Stretch"
+                                                HorizontalAlignment="Stretch"
+                                                Margin="15">
+                                        <StackPanel.Resources>
+                                            <Style TargetType="Grid">
+                                                <Setter Property="Margin"
+                                                        Value="0,0,0,10" />
+                                            </Style>
+                                        </StackPanel.Resources>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="32" />
                                                 <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="auto" />
                                             </Grid.ColumnDefinitions>
                                             <StackPanel Orientation="Horizontal"
-                                                        Grid.Column="0">
-                                                <Image Source="../Resources/power.png"
-                                                       Height="32"
-                                                       x:Name="qopmodeimg" />
+                                                        Grid.Column="0"
+                                                        Grid.Row="0"
+                                                        Grid.ColumnSpan="2">
+                                                <Image Source="../Resources/privacy.png"
+                                                       Height="32" />
                                                 <TextBlock Foreground="#ffffff"
-                                                           Text="Power mode"
-                                                           FontSize="14"
+                                                           Text="Privacy"
+                                                           FontSize="16"
                                                            FontFamily="Segoe UI"
                                                            VerticalAlignment="Center"
                                                            Margin="5,0,0,0" />
                                             </StackPanel>
-                                            <ComboBox Margin="0,0,0,0"
-                                                      Grid.Column="1"
-                                                      Width="150"
-                                                      x:Name="pmodebox"
-                                                      SelectionChanged="pmodebox_SelectionChanged">
-                                                <ComboBoxItem x:Name="pmodeperf">
-                                                    <TextBlock Text="Performance" />
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="pmodebalanced">
-                                                    <TextBlock Text="Balanced" />
-                                                </ComboBoxItem>
-                                                <ComboBoxItem x:Name="pmodeefficiency">
-                                                    <TextBlock Text="Efficiency" />
-                                                </ComboBoxItem>
-                                            </ComboBox>
+                                            <ui:NavigationSeparator Grid.Column="0"
+                                                                    Grid.Row="1"
+                                                                    Grid.RowSpan="4"
+                                                                    HorizontalAlignment="Center" />
+                                            <Grid Grid.Column="1"
+                                                  Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Orientation="Horizontal"
+                                                            Grid.Column="0">
+                                                    <Image Source="../Resources/camera.png"
+                                                           Height="32" />
+                                                    <TextBlock Foreground="#ffffff"
+                                                               Text="Camera"
+                                                               FontSize="14"
+                                                               FontFamily="Segoe UI"
+                                                               VerticalAlignment="Center"
+                                                               Margin="5,0,0,0" />
+                                                </StackPanel>
+                                                <ui:ToggleSwitch x:Name="camswitch"
+                                                                 Click="switch_Changed"
+                                                                 Margin="0,0,0,0"
+                                                                 Grid.Column="1" />
+                                            </Grid>
+                                            <Grid Grid.Column="1"
+                                                  Grid.Row="4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Orientation="Horizontal"
+                                                            Grid.Column="0">
+                                                    <Image Source="../Resources/micro.png"
+                                                           Height="32" />
+                                                    <TextBlock Foreground="#ffffff"
+                                                               Text="Micro"
+                                                               FontSize="14"
+                                                               FontFamily="Segoe UI"
+                                                               VerticalAlignment="Center"
+                                                               Margin="5,0,0,0" />
+                                                </StackPanel>
+                                                <ui:ToggleSwitch x:Name="micswitch"
+                                                                 Click="switch_Changed"
+                                                                 Margin="0,0,0,0"
+                                                                 Grid.Column="1" />
+                                            </Grid>
                                         </Grid>
-                                    </Grid>
-                                    <Grid Margin="0,30,0,0" />
-                                    <ui:NavigationSeparator />
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   Click="PV_Click">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
+                                        <Grid>
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="*" />
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/monitor.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="System monitoring"
-                                                           x:Name="labpvback" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="CPU, RAM, Storage, Battery"
-                                                           x:Name="labpvdescback" />
+                                            <StackPanel Orientation="Horizontal"
+                                                        Grid.Column="0"
+                                                        Grid.Row="0"
+                                                        Grid.ColumnSpan="2">
+                                                <Image Source="../Resources/bat100.png"
+                                                       Height="32"
+                                                       x:Name="qobatimg" />
+                                                <TextBlock Foreground="#ffffff"
+                                                           Text="Power"
+                                                           FontSize="16"
+                                                           FontFamily="Segoe UI"
+                                                           VerticalAlignment="Center"
+                                                           Margin="5,0,0,0" />
                                             </StackPanel>
+                                            <ui:NavigationSeparator Grid.Column="0"
+                                                                    Grid.Row="1"
+                                                                    Grid.RowSpan="4"
+                                                                    HorizontalAlignment="Center" />
+                                            <Grid Grid.Column="1"
+                                                  Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Orientation="Horizontal"
+                                                            Grid.Column="0">
+                                                    <Image Source="../Resources/power.png"
+                                                           Height="32"
+                                                           x:Name="qopmodeimg" />
+                                                    <TextBlock Foreground="#ffffff"
+                                                               Text="Power mode"
+                                                               FontSize="14"
+                                                               FontFamily="Segoe UI"
+                                                               VerticalAlignment="Center"
+                                                               Margin="5,0,0,0" />
+                                                </StackPanel>
+                                                <ComboBox Margin="0,0,0,0"
+                                                          Grid.Column="1"
+                                                          Width="150"
+                                                          x:Name="pmodebox"
+                                                          SelectionChanged="pmodebox_SelectionChanged">
+                                                    <ComboBoxItem x:Name="pmodeperf">
+                                                        <TextBlock Text="Performance" />
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="pmodebalanced">
+                                                        <TextBlock Text="Balanced" />
+                                                    </ComboBoxItem>
+                                                    <ComboBoxItem x:Name="pmodeefficiency">
+                                                        <TextBlock Text="Efficiency" />
+                                                    </ComboBoxItem>
+                                                </ComboBox>
+                                            </Grid>
                                         </Grid>
-                                    </ui:CardAction>
-                                </StackPanel>
+                                        <Grid Margin="0,30,0,0" />
+                                        <ui:NavigationSeparator />
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       Click="PV_Click">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/monitor.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="System monitoring"
+                                                               x:Name="labpvback" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="CPU, RAM, Storage, Battery"
+                                                               x:Name="labpvdescback" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                    </StackPanel>
+                                </Grid>
+                                <ui:NavigationSeparator Grid.Column="1"
+                                                        Margin="7.5,0,7.5,0" />
+                                <Grid Grid.Column="2"
+                                      x:Name="QL"
+                                      Visibility="Visible">
+                                    <StackPanel Orientation="Vertical"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Stretch"
+                                                Margin="15">
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       Click="T_Click">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/taskmgr.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0"
+                                                       x:Name="imgtask" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="Task Manager"
+                                                               x:Name="labtask" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="taskmgr.exe"
+                                                               x:Name="labtaskdesc" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       Click="C_Click"
+                                                       Margin="0,5,0,0">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/cmd.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0"
+                                                       x:Name="imgcmd" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="CMD Terminal"
+                                                               x:Name="labcmd" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="cmd.exe"
+                                                               x:Name="labcmddesc" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       Click="R_Click"
+                                                       Margin="0,5,0,0">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/registry.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0"
+                                                       x:Name="imgreg" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="REG Editor"
+                                                               x:Name="labreg" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="regedit.exe"
+                                                               x:Name="labregdesc" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       Click="G_Click"
+                                                       Margin="0,5,0,0">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/script.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0"
+                                                       x:Name="imggp" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="GP Editor"
+                                                               x:Name="labgp" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="gpedit.msc"
+                                                               x:Name="labgpdesc" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                        <Separator Margin="0,2.5,0,2.5" />
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       IsChevronVisible="False"
+                                                       Click="E_Click">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/customize.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="Quick launch editor"
+                                                               x:Name="labedit" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="Edit shortcut"
+                                                               x:Name="labeditdesc" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="2"
+                                      x:Name="QLedit"
+                                      Visibility="Collapsed">
+                                    <StackPanel Orientation="Vertical"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Stretch"
+                                                Margin="15">
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       IsChevronVisible="False">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/taskmgr.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0"
+                                                       MouseEnter="imgtaskedit_MouseEnter"
+                                                       MouseLeave="imgtaskedit_MouseLeave"
+                                                       MouseDown="imgtaskedit_MouseDown"
+                                                       x:Name="imgtaskedit" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBox Margin="0"
+                                                             FontSize="13"
+                                                             Text="Task Manager"
+                                                             x:Name="boxtaskedit"
+                                                             MouseLeave="boxtaskedit_MouseLeave"
+                                                             Visibility="Collapsed" />
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="Task Manager"
+                                                               MouseEnter="labtaskedit_MouseEnter"
+                                                               x:Name="labtaskedit" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="taskmgr.exe"
+                                                               MouseEnter="labtaskdescedit_MouseEnter"
+                                                               MouseLeave="labtaskdescedit_MouseLeave"
+                                                               MouseDown="labtaskdescedit_MouseDown"
+                                                               x:Name="labtaskdescedit" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       IsChevronVisible="False"
+                                                       Margin="0,5,0,0">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/cmd.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0"
+                                                       MouseEnter="imgcmdedit_MouseEnter"
+                                                       MouseLeave="imgcmdedit_MouseLeave"
+                                                       MouseDown="imgcmdedit_MouseDown"
+                                                       x:Name="imgcmdedit" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBox Margin="0"
+                                                             FontSize="13"
+                                                             Text="CMD Terminal"
+                                                             Visibility="Collapsed"
+                                                             MouseLeave="boxcmdedit_MouseLeave"
+                                                             x:Name="boxcmdedit" />
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="CMD Terminal"
+                                                               MouseEnter="labcmdedit_MouseEnter"
+                                                               x:Name="labcmdedit" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="cmd.exe"
+                                                               MouseEnter="labcmddescedit_MouseEnter"
+                                                               MouseLeave="labcmddescedit_MouseLeave"
+                                                               MouseDown="labcmddescedit_MouseDown"
+                                                               x:Name="labcmddescedit" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       IsChevronVisible="False"
+                                                       Margin="0,5,0,0">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/registry.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0"
+                                                       MouseEnter="imgregedit_MouseEnter"
+                                                       MouseLeave="imgregedit_MouseLeave"
+                                                       MouseDown="imgregedit_MouseDown"
+                                                       x:Name="imgregedit" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBox Margin="0"
+                                                             FontSize="13"
+                                                             Text="REG Editor"
+                                                             Visibility="Collapsed"
+                                                             MouseLeave="boxregedit_MouseLeave"
+                                                             x:Name="boxregedit" />
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="REG Editor"
+                                                               MouseEnter="labregedit_MouseEnter"
+                                                               x:Name="labregedit" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="regedit.exe"
+                                                               MouseEnter="labregdescedit_MouseEnter"
+                                                               MouseLeave="labregdescedit_MouseLeave"
+                                                               MouseDown="labregdescedit_MouseDown"
+                                                               x:Name="labregdescedit" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       IsChevronVisible="False"
+                                                       Margin="0,5,0,0">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/script.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0"
+                                                       MouseEnter="imggpedit_MouseEnter"
+                                                       MouseLeave="imggpedit_MouseLeave"
+                                                       MouseDown="imggpedit_MouseDown"
+                                                       x:Name="imggpedit" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBox Margin="0"
+                                                             FontSize="13"
+                                                             Text="GP Editor"
+                                                             Visibility="Collapsed"
+                                                             MouseLeave="boxgpedit_MouseLeave"
+                                                             x:Name="boxgpedit" />
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontFamily="Medium"
+                                                               Text="GP Editor"
+                                                               MouseEnter="labgpedit_MouseEnter"
+                                                               x:Name="labgpedit" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="gpedit.msc"
+                                                               MouseEnter="labgpdescedit_MouseEnter"
+                                                               MouseLeave="labgpdescedit_MouseLeave"
+                                                               MouseDown="labgpdescedit_MouseDown"
+                                                               x:Name="labgpdescedit" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                        <Separator Margin="0,2.5,0,2.5" />
+                                        <ui:CardAction HorizontalAlignment="Stretch"
+                                                       VerticalAlignment="Stretch"
+                                                       IsChevronVisible="False"
+                                                       Click="E_Back_Click"
+                                                       MouseDown="E_Back_Click_Default">
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="0"
+                                                  Margin="0,0,0,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="32" />
+                                                    <ColumnDefinition Width="10" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="../Resources/back.png"
+                                                       Grid.Column="0"
+                                                       Margin="0,0,0,0" />
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Margin="0"
+                                                               FontSize="13"
+                                                               FontWeight="Medium"
+                                                               Text="Go back and save change"
+                                                               x:Name="labeditedit" />
+                                                    <TextBlock FontSize="12"
+                                                               Foreground="#bebebe"
+                                                               Text="Right click to set to default"
+                                                               x:Name="labeditdescedit" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </ui:CardAction>
+                                    </StackPanel>
+                                </Grid>
                             </Grid>
-                            <ui:NavigationSeparator Grid.Column="1"
-                                                    Margin="7.5,0,7.5,0" />
-                            <Grid Grid.Column="2"
-                                  x:Name="QL"
-                                  Visibility="Visible">
-                                <StackPanel Orientation="Vertical"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Stretch"
-                                            Margin="15">
+                            <Border Grid.Row="3"
+                                    Background="#50000000"
+                                    CornerRadius="0,0,8,8">
+                                <Grid>
                                     <ui:CardAction HorizontalAlignment="Stretch"
                                                    VerticalAlignment="Stretch"
-                                                   Click="T_Click">
+                                                   Margin="10"
+                                                   x:Name="UTbtn"
+                                                   Click="UTbtn_Click">
                                         <Grid Grid.Row="0"
                                               Grid.Column="0"
                                               Margin="0,0,0,0">
@@ -567,429 +971,40 @@
                                                 <ColumnDefinition Width="10" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/taskmgr.png"
+                                            <Image Source="../Resources/UT.png"
                                                    Grid.Column="0"
                                                    Margin="0,0,0,0"
-                                                   x:Name="imgtask" />
+                                                   RenderOptions.BitmapScalingMode="HighQuality" />
                                             <StackPanel Grid.Column="2">
                                                 <TextBlock Margin="0"
                                                            FontSize="13"
                                                            FontWeight="Medium"
-                                                           Text="Task Manager"
-                                                           x:Name="labtask" />
+                                                           Text="Open Unowhy Tools"
+                                                           x:Name="labout" />
                                                 <TextBlock FontSize="12"
                                                            Foreground="#bebebe"
-                                                           Text="taskmgr.exe"
-                                                           x:Name="labtaskdesc" />
+                                                           Text="Unowhy Tools.exe"
+                                                           x:Name="UTbtndesc" />
                                             </StackPanel>
                                         </Grid>
                                     </ui:CardAction>
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   Click="C_Click"
-                                                   Margin="0,5,0,0">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/cmd.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0"
-                                                   x:Name="imgcmd" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="CMD Terminal"
-                                                           x:Name="labcmd" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="cmd.exe"
-                                                           x:Name="labcmddesc" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   Click="R_Click"
-                                                   Margin="0,5,0,0">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/registry.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0"
-                                                   x:Name="imgreg" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="REG Editor"
-                                                           x:Name="labreg" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="regedit.exe"
-                                                           x:Name="labregdesc" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   Click="G_Click"
-                                                   Margin="0,5,0,0">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/script.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0"
-                                                   x:Name="imggp" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="GP Editor"
-                                                           x:Name="labgp" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="gpedit.msc"
-                                                           x:Name="labgpdesc" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                    <Separator Margin="0,2.5,0,2.5" />
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   IsChevronVisible="False"
-                                                   Click="E_Click">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/customize.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="Quick launch editor"
-                                                           x:Name="labedit" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="Edit shortcut"
-                                                           x:Name="labeditdesc" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                </StackPanel>
-                            </Grid>
-                            <Grid Grid.Column="2"
-                                  x:Name="QLedit"
-                                  Visibility="Collapsed">
-                                <StackPanel Orientation="Vertical"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Stretch"
-                                            Margin="15">
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   IsChevronVisible="False">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/taskmgr.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0"
-                                                   MouseEnter="imgtaskedit_MouseEnter"
-                                                   MouseLeave="imgtaskedit_MouseLeave"
-                                                   MouseDown="imgtaskedit_MouseDown"
-                                                   x:Name="imgtaskedit" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBox Margin="0"
-                                                         FontSize="13"
-                                                         Text="Task Manager"
-                                                         x:Name="boxtaskedit"
-                                                         MouseLeave="boxtaskedit_MouseLeave"
-                                                         Visibility="Collapsed" />
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="Task Manager"
-                                                           MouseEnter="labtaskedit_MouseEnter"
-                                                           x:Name="labtaskedit" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="taskmgr.exe"
-                                                           MouseEnter="labtaskdescedit_MouseEnter"
-                                                           MouseLeave="labtaskdescedit_MouseLeave"
-                                                           MouseDown="labtaskdescedit_MouseDown"
-                                                           x:Name="labtaskdescedit" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   IsChevronVisible="False"
-                                                   Margin="0,5,0,0">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/cmd.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0"
-                                                   MouseEnter="imgcmdedit_MouseEnter"
-                                                   MouseLeave="imgcmdedit_MouseLeave"
-                                                   MouseDown="imgcmdedit_MouseDown"
-                                                   x:Name="imgcmdedit" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBox Margin="0"
-                                                         FontSize="13"
-                                                         Text="CMD Terminal"
-                                                         Visibility="Collapsed"
-                                                         MouseLeave="boxcmdedit_MouseLeave"
-                                                         x:Name="boxcmdedit" />
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="CMD Terminal"
-                                                           MouseEnter="labcmdedit_MouseEnter"
-                                                           x:Name="labcmdedit" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="cmd.exe"
-                                                           MouseEnter="labcmddescedit_MouseEnter"
-                                                           MouseLeave="labcmddescedit_MouseLeave"
-                                                           MouseDown="labcmddescedit_MouseDown"
-                                                           x:Name="labcmddescedit" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   IsChevronVisible="False"
-                                                   Margin="0,5,0,0">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/registry.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0"
-                                                   MouseEnter="imgregedit_MouseEnter"
-                                                   MouseLeave="imgregedit_MouseLeave"
-                                                   MouseDown="imgregedit_MouseDown"
-                                                   x:Name="imgregedit" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBox Margin="0"
-                                                         FontSize="13"
-                                                         Text="REG Editor"
-                                                         Visibility="Collapsed"
-                                                         MouseLeave="boxregedit_MouseLeave"
-                                                         x:Name="boxregedit" />
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="REG Editor"
-                                                           MouseEnter="labregedit_MouseEnter"
-                                                           x:Name="labregedit" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="regedit.exe"
-                                                           MouseEnter="labregdescedit_MouseEnter"
-                                                           MouseLeave="labregdescedit_MouseLeave"
-                                                           MouseDown="labregdescedit_MouseDown"
-                                                           x:Name="labregdescedit" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   IsChevronVisible="False"
-                                                   Margin="0,5,0,0">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/script.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0"
-                                                   MouseEnter="imggpedit_MouseEnter"
-                                                   MouseLeave="imggpedit_MouseLeave"
-                                                   MouseDown="imggpedit_MouseDown"
-                                                   x:Name="imggpedit" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBox Margin="0"
-                                                         FontSize="13"
-                                                         Text="GP Editor"
-                                                         Visibility="Collapsed"
-                                                         MouseLeave="boxgpedit_MouseLeave"
-                                                         x:Name="boxgpedit" />
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontFamily="Medium"
-                                                           Text="GP Editor"
-                                                           MouseEnter="labgpedit_MouseEnter"
-                                                           x:Name="labgpedit" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="gpedit.msc"
-                                                           MouseEnter="labgpdescedit_MouseEnter"
-                                                           MouseLeave="labgpdescedit_MouseLeave"
-                                                           MouseDown="labgpdescedit_MouseDown"
-                                                           x:Name="labgpdescedit" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                    <Separator Margin="0,2.5,0,2.5" />
-                                    <ui:CardAction HorizontalAlignment="Stretch"
-                                                   VerticalAlignment="Stretch"
-                                                   IsChevronVisible="False"
-                                                   Click="E_Back_Click"
-                                                   MouseDown="E_Back_Click_Default">
-                                        <Grid Grid.Row="0"
-                                              Grid.Column="0"
-                                              Margin="0,0,0,0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="32" />
-                                                <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image Source="../Resources/back.png"
-                                                   Grid.Column="0"
-                                                   Margin="0,0,0,0" />
-                                            <StackPanel Grid.Column="2">
-                                                <TextBlock Margin="0"
-                                                           FontSize="13"
-                                                           FontWeight="Medium"
-                                                           Text="Go back and save change"
-                                                           x:Name="labeditedit" />
-                                                <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
-                                                           Text="Right click to set to default"
-                                                           x:Name="labeditdescedit" />
-                                            </StackPanel>
-                                        </Grid>
-                                    </ui:CardAction>
-                                </StackPanel>
-                            </Grid>
+                                </Grid>
+                            </Border>
                         </Grid>
-                        <Grid Grid.Row="3">
-                            <Grid>
-                                <ui:CardAction HorizontalAlignment="Stretch"
-                                               VerticalAlignment="Stretch"
-                                               Margin="10"
-                                               x:Name="UTbtn"
-                                               Click="UTbtn_Click">
-                                    <Grid Grid.Row="0"
-                                          Grid.Column="0"
-                                          Margin="0,0,0,0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="32" />
-                                            <ColumnDefinition Width="10" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-                                        <Image Source="../Resources/UT.png"
-                                               Grid.Column="0"
-                                               Margin="0,0,0,0"
-                                               RenderOptions.BitmapScalingMode="HighQuality" />
-                                        <StackPanel Grid.Column="2">
-                                            <TextBlock Margin="0"
-                                                       FontSize="13"
-                                                       FontWeight="Medium"
-                                                       Text="Open Unowhy Tools"
-                                                       x:Name="labout" />
-                                            <TextBlock FontSize="12"
-                                                       Foreground="#bebebe"
-                                                       Text="Unowhy Tools.exe"
-                                                       x:Name="UTbtndesc" />
-                                        </StackPanel>
-                                    </Grid>
-                                </ui:CardAction>
-                            </Grid>
-                        </Grid>
-                    </Grid>
+                    </Border>
                     <Grid x:Name="WaitGrid">
                         <controls:Wait x:Name="WaitControl"
                                        Visibility="Collapsed"
                                        Grid.Row="0"
                                        Grid.RowSpan="2" />
                     </Grid>
+                    <ui:TitleBar ShowMaximize="False"
+                                 ShowMinimize="False"
+                                 MinimizeToTray="True"
+                                 ShowClose="False"
+                                 CloseClicked="Close_Click"
+                                 Icon="pack://application:,,,/Resources/UT.png"
+                                 Title="Unowhy Tools Tray" />
                 </Grid>
             </Border>
         </Grid>
