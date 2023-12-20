@@ -36,8 +36,12 @@ namespace Unowhy_Tools_WPF.Views.Windows
 
         public async void applylang()
         {
-            lab1.Text = await UT.GetLang("wait");
-            text.Text = await UT.GetLang("wait");
+            try
+            {
+                lab1.Text = await UT.GetLang("wait");
+                text.Text = await UT.GetLang("wait");
+            }
+            catch { }
         }
 
         public bool IsOpen = false;
@@ -46,7 +50,7 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             if (IsOpen)
             {
-                if(img != "null")
+                if (img != "null")
                 {
                     icon.Source = UT.GetImgSource(img);
                 }
