@@ -282,7 +282,7 @@
                                                    x:Name="labset" />
                                         <TextBlock FontSize="12"
                                                    Foreground="#bebebe"
-                                                   Text="Langs and logs" />
+                                                   Text="Langs, logs and more" />
                                     </StackPanel>
                                 </Grid>
                             </ui:CardAction>
