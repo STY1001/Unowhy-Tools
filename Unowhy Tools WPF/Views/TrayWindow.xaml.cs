@@ -752,6 +752,8 @@ public partial class TrayWindow : Window
 
     public async Task HideTray()
     {
+        await Task.Delay(100);
+
         Topmost = true;
 
         DoubleAnimation animb = new DoubleAnimation();
