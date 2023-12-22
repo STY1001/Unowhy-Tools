@@ -196,7 +196,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "");
             fb.DefaultExt = "rom";
-            fb.Filter = "Unowhy Tools BIOS file (*.rom)|*.rom";
+            fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
             DialogResult result = fb.ShowDialog();
@@ -212,7 +212,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         using (var fb = new System.Windows.Forms.OpenFileDialog())
         {
             fb.DefaultExt = "rom";
-            fb.Filter = "Unowhy Tools BIOS file (*.rom)|*.rom";
+            fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
             DialogResult result = fb.ShowDialog();
@@ -324,7 +324,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "");
             fb.DefaultExt = "rom";
-            fb.Filter = "Unowhy Tools BIOS file (*.rom)|*.rom";
+            fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
             DialogResult result = fb.ShowDialog();
@@ -340,7 +340,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         using (var fb = new System.Windows.Forms.OpenFileDialog())
         {
             fb.DefaultExt = "rom";
-            fb.Filter = "Unowhy Tools BIOS file (*.rom)|*.rom";
+            fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
             DialogResult result = fb.ShowDialog();
