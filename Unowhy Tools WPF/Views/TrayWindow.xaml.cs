@@ -15,6 +15,7 @@ using System.Xml.Linq;
 using System.Windows.Navigation;
 using System.Windows.Input;
 using System.Runtime.InteropServices;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -401,7 +402,10 @@ public partial class TrayWindow : Window
         labpvdescback.Text = await UT.GetLang("sysmonitordesc");
         labeditedit.Text = await UT.GetLang("quicklaunchsave");
         labeditdescedit.Text = await UT.GetLang("quicklaunchsavedesc");
-        labout.Text = await UT.GetLang("openut");
+        string UTsver = " (Version " + UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
+        if (UT.version.isdeb()) UTsver = UTsver + "(Debug))";
+        else UTsver = UTsver + "(Release))";
+        labout.Text = await UT.GetLang("openut") + UTsver;
         labtask.Text = await UT.GetLang("opentask");
         labcmd.Text = await UT.GetLang("opencmd");
         labreg.Text = await UT.GetLang("openreg");
