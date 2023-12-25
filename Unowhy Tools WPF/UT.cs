@@ -152,6 +152,8 @@ namespace Unowhy_Tools
         private static extern bool InternetGetConnectedState(out int state, int value);
         #endregion
 
+        public static Data UTdata = new Data();
+
         public static string online_datas = "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json";
         public static string utpath = "C:\\Unowhy Tools";
 
@@ -768,6 +770,7 @@ namespace Unowhy_Tools
                         if (jsonObject.urls != null && jsonObject.urls[name] != null)
                         {
                             string url = jsonObject.urls[name].ToString();
+                            Write2Log("GetUrls result: " + name + " " + url);
                             return url;
                         }
                     }
@@ -790,6 +793,7 @@ namespace Unowhy_Tools
                         if (jsonObject.updates != null && jsonObject.updates[name] != null)
                         {
                             string update = jsonObject.updates[name].ToString();
+                            Write2Log("GetUpdates result: " + name + " " + update);
                             return update;
                         }
                     }
@@ -812,6 +816,7 @@ namespace Unowhy_Tools
                         if (jsonObject.strings != null && jsonObject.strings[name] != null)
                         {
                             string str = jsonObject.strings[name].ToString();
+                            Write2Log("GetStrings: " + name + " " + str);
                             return str;
                         }
                     }
@@ -1500,6 +1505,14 @@ namespace Unowhy_Tools
 
         public static void Write2Log(string log)
         {
+            if (UTdata.RunConsole)
+            {
+                Console.WriteLine(DateTime.Now.ToString() + " : " + log);
+            }
+            if (verisdeb)
+            {
+                Debug.WriteLine(DateTime.Now.ToString() + " : " + log);
+            }
             try
             {
                 if (File.Exists(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
@@ -1545,8 +1558,6 @@ namespace Unowhy_Tools
         public static async Task Check()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-
-            Data UTdata = new Data();
 
             await MainWindow.USS("Checking... (Getting Hardware Info)");
             Write2Log("Getting PC Infos");
@@ -2361,6 +2372,8 @@ namespace Unowhy_Tools
 
             private static bool _trayrunok;
             private static bool _runtray;
+            private static bool _runconsole;
+            private static bool _runupdater;
 
             public string HostName
             {
@@ -2765,6 +2778,24 @@ namespace Unowhy_Tools
                 set
                 {
                     _runtray = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool RunConsole
+            {
+                get { return _runconsole; }
+                set
+                {
+                    _runconsole = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool RunUpdater
+            {
+                get { return _runupdater; }
+                set
+                {
+                    _runupdater = value;
                     OnPropertyChanged();
                 }
             }

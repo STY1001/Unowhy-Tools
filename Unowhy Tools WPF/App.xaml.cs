@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Media;
 using System.Windows.Threading;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -168,6 +172,9 @@ public partial class App
         }
         */
 
+        bool showUpdater = false;
+        string rescueUpdate = null;
+        bool showConsole = false;
         bool useTray = false;
         string userId = null;
         bool isHelp = false;
@@ -196,9 +203,25 @@ public partial class App
                     }
                     i++;
                 }
+                else if (e.Args[i] == "-rescueupdate")
+                {
+                    if (i < e.Args.Length - 1)
+                    {
+                        rescueUpdate = e.Args[i + 1];
+                    }
+                    i++;
+                }
                 else if (e.Args[i] == "-tray")
                 {
                     useTray = true;
+                }
+                else if (e.Args[i] == "-console")
+                {
+                    showConsole = true;
+                }
+                else if (e.Args[i] == "-updater")
+                {
+                    showUpdater = true;
                 }
                 else if (e.Args[i] == "-help" || e.Args[i] == "-?")
                 {
@@ -220,17 +243,127 @@ public partial class App
             UTdata.RunTray = true;
         }
 
-        if (isHelp)
+        if (showUpdater)
+        {
+            UTdata.RunUpdater = true;
+        }
+
+        if (rescueUpdate != null)
         {
             string UTsver = UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
-
             if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
             else UTsver = UTsver + "(Release)";
             AllocConsole();
+
+            Console.WriteLine($"Unowhy Tools by STY1001\nVersion {UTsver}\n\nRescue update mode\nUpdating UT...\n");
+
+            if (UT.CheckInternet())
+            {
+                if (rescueUpdate.Contains("release"))
+                {
+                    Console.WriteLine("Release version");
+                    string utemp = UT.utpath + "\\Unowhy Tools\\Temps";
+                    await Task.Delay(1000);
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    progress.ProgressChanged += (sender, value) =>
+                    {
+                        Console.SetCursorPosition(0, Console.CursorTop);
+                        Console.Write(new string(' ', Console.WindowWidth - 1));
+                        Console.SetCursorPosition(0, Console.CursorTop);
+                        Console.Write($"Downloading(1/2)... ({value}%)");
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utupdatezip"), utemp + "\\update.zip", progress, cancellationToken.Token);
+                    progress = new System.Progress<double>();
+                    cancellationToken = new CancellationTokenSource();
+                    progress.ProgressChanged += (sender, value) =>
+                    {
+                        Console.SetCursorPosition(0, Console.CursorTop);
+                        Console.Write(new string(' ', Console.WindowWidth - 1));
+                        Console.SetCursorPosition(0, Console.CursorTop);
+                        Console.Write($"Downloading(2/2)... ({value}%)");
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+                    Console.WriteLine("Extracting...");
+                    await Task.Delay(1000);
+                    ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
+                    Console.WriteLine("Updating...");
+                    await Task.Delay(1000);
+                    string pre = utemp + "\\update";
+                    string post = Directory.GetCurrentDirectory();
+                    Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & net stop UTS & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -user {UTdata.UserID}");
+                    Console.ReadKey();
+                }
+                else if (rescueUpdate.Contains("debug"))
+                {
+                    Console.WriteLine("Debug version");
+                    string utemp = UT.utpath + "\\Unowhy Tools\\Temps";
+                    await Task.Delay(1000);
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    progress.ProgressChanged += (sender, value) =>
+                    {
+                        Console.SetCursorPosition(0, Console.CursorTop);
+                        Console.Write(new string(' ', Console.WindowWidth - 1));
+                        Console.SetCursorPosition(0, Console.CursorTop);
+                        Console.Write($"Downloading(1/2)... ({value}%)");
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utdebupdatezip"), utemp + "\\update.zip", progress, cancellationToken.Token);
+                    progress = new System.Progress<double>();
+                    cancellationToken = new CancellationTokenSource();
+                    progress.ProgressChanged += (sender, value) =>
+                    {
+                        Console.SetCursorPosition(0, Console.CursorTop);
+                        Console.Write(new string(' ', Console.WindowWidth - 1));
+                        Console.SetCursorPosition(0, Console.CursorTop);
+                        Console.Write($"Downloading(2/2)... ({value}%)");
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+                    Console.WriteLine("Extracting...");
+                    await Task.Delay(1000);
+                    ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
+                    Console.WriteLine("Updating...");
+                    await Task.Delay(1000);
+                    string pre = utemp + "\\update";
+                    string post = Directory.GetCurrentDirectory();
+                    Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & net stop UTS & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -user {UTdata.UserID}");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("Error, select a valid version (debug or release)");
+                    Console.ReadKey();
+                    System.Windows.Application.Current.Shutdown();
+                }
+            }
+        }
+
+        if(showConsole)
+        {
+            string UTsver = UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
+            if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
+            else UTsver = UTsver + "(Release)";
+            AllocConsole();
+
+            Console.WriteLine($"Unowhy Tools by STY1001\nVersion {UTsver}\n\nConsole mode\nStarting UT...\n");
+
+            UTdata.RunConsole = true;
+        }
+
+        if (isHelp)
+        {
+            string UTsver = UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
+            if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
+            else UTsver = UTsver + "(Release)";
+            AllocConsole();
+
             Console.WriteLine($"Unowhy Tools by STY1001\nVersion {UTsver}\n\n\nArgs for Unowhy Tools:\n");
-            Console.WriteLine("-user [string]           Set a custom UserID");
-            Console.WriteLine("-tray                    Launch UT in tray mode, can only open 1 tray simultaneously");
-            Console.WriteLine("-help | -?               Display help");
+            Console.WriteLine("-user [string]                           Set a custom UserID");
+            Console.WriteLine("-tray                                    Launch UT in tray mode, can only open 1 tray simultaneously");
+            Console.WriteLine("-updater                                 Launch UT in updater");
+            Console.WriteLine("-rescueupdate [debug|release]            Update UT without launching it, if you cannot update it normally");
+            Console.WriteLine("-console                                 Launch UT with console pre opened");
+            Console.WriteLine("-help | -?                               Display help");
             Console.ReadKey();
             System.Windows.Application.Current.Shutdown();
         }
@@ -245,9 +378,16 @@ public partial class App
     /// </summary>
     private async void OnExit(object sender, ExitEventArgs e)
     {
-        await _host.StopAsync();
+        UT.Data UTdata = new UT.Data();
 
+        await _host.StopAsync();
         _host.Dispose();
+
+        if (UTdata.RunConsole)
+        {
+            Console.ReadKey();
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 
     private async void HandleCrash(object sender, UnhandledExceptionEventArgs e)

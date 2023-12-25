@@ -454,30 +454,20 @@ public partial class TrayWindow : Window
 
     public TrayWindow(IThemeService themeService)
     {
-        base.Visibility = Visibility.Visible;
-
         InitializeComponent();
+
+        base.Visibility = Visibility.Collapsed;
+        base.IsEnabled = false;
+
         if (!UT.CheckAdmin())
         {
             UT.RunAdmin("-tray");
         }
 
-        base.Deactivated += TrayWindow_Deactivated;
-
-        base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
         trayIcon.Icon = UT.GetIconFromRes("UT.png");
         trayIcon.Text = "Unowhy Tools";
         trayIcon.Visible = true;
-        trayIcon.MouseClick += TrayIcon_Click;
-
-        var contextMenuStrip = new ContextMenuStrip();
-        var opentray = new ToolStripButton("Open Tray");
-        opentray.Click += TCM_Open;
-        var closetray = new ToolStripButton("Exit");
-        closetray.Click += TCM_Close;
-        contextMenuStrip.Items.Add(opentray);
-        contextMenuStrip.Items.Add(closetray);
-        trayIcon.ContextMenuStrip = contextMenuStrip;
+        base.Visibility = Visibility.Collapsed; 
     }
 
     public async Task SetQL()
@@ -596,20 +586,23 @@ public partial class TrayWindow : Window
 
     private async void Window_Initialized(object sender, EventArgs e)
     {
+        base.Visibility = Visibility.Collapsed;
+        await Task.Delay(100);
+        base.Visibility = Visibility.Collapsed;
+        trayIcon.Icon = UT.GetIconFromRes("wait.png");
+        trayIcon.Text = "Unowhy Tools (Loading...)";
+        base.Visibility = Visibility.Collapsed;
+        await Task.Delay(100);
+        base.Visibility = Visibility.Collapsed;
         await Task.Delay(1000);
-        await ShowTray();
+        base.Visibility = Visibility.Collapsed;
         await WaitControl.Show(await UT.GetLang("wait.check"), "check.png");
-        await Task.Delay(500);
-
         _camerakey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", true);
         _microkey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone", true);
-
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         UTbtndesc.Text = utpath;
         applylang();
-
         await CheckQL();
-
         await CheckPriv();
         try
         {
@@ -627,14 +620,38 @@ public partial class TrayWindow : Window
             ramCounter1 = new PerformanceCounter("Mémoire", "Octets disponibles");
             ramCounter2 = new PerformanceCounter("Mémoire", "Mégaoctets disponibles");
         }
+        base.Visibility = Visibility.Collapsed;
         await InitTimer();
+        await Task.Delay(100);
+        base.Visibility = Visibility.Collapsed;
         await Task.Delay(1000);
         await WaitControl.Hide();
-        await Task.Delay(300);
-        await HideTray();
+        await StopTimer();
+        base.Deactivated += TrayWindow_Deactivated;
+        base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+        trayIcon.Icon = UT.GetIconFromRes("UT.png");
+        trayIcon.Text = "Unowhy Tools";
+        trayIcon.MouseClick += TrayIcon_Click;
+        var contextMenuStrip = new ContextMenuStrip();
+        var opentray = new ToolStripButton("Open Tray");
+        opentray.Click += TCM_Open;
+        var closetray = new ToolStripButton("Exit");
+        closetray.Click += TCM_Close;
+        contextMenuStrip.Items.Add(opentray);
+        contextMenuStrip.Items.Add(closetray);
+        trayIcon.ContextMenuStrip = contextMenuStrip;
+        base.Visibility = Visibility.Collapsed;
         await Task.Delay(1000);
         if (UT.CheckInternet())
         {
+            try
+            {
+                await UT.SendStats("tray");
+            }
+            catch
+            {
+
+            }
             if (await UT.Config.Get("UpdateStart") == "1")
             {
                 if (await UT.version.newver())
@@ -643,17 +660,64 @@ public partial class TrayWindow : Window
                     string newver = await UT.OnlineDatas.GetUpdates("utnewver");
                     newver = newver.Insert(2, ".");
                     newver = newver.Replace("\n", "");
-                    string newverfull = await UT.GetLang("newver") + " (" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
-                    trayIcon.ShowBalloonTip(3000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
-                }
-            }
-            try
-            {
-                await UT.SendStats("tray");
-            }
-            catch
-            {
+                    string newverfull = await UT.GetLang("newver") + "\n(" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
+                    trayIcon.ShowBalloonTip(5000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
 
+                    Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
+                    Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
+                    newver = newver.Insert(2, ".");
+                    newver = newver.Replace("\n", "");
+                    string newverfull2 = UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver;
+                    string labnewver = await UT.GetLang("newver");
+
+                    DoubleAnimation anim = new DoubleAnimation();
+                    anim.From = 0;
+                    anim.To = 250;
+                    anim.Duration = TimeSpan.FromMilliseconds(500);
+                    anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
+                    DoubleAnimation anim2 = new DoubleAnimation();
+                    anim2.From = -250;
+                    anim2.To = 0;
+                    anim2.Duration = TimeSpan.FromMilliseconds(500);
+                    anim2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+
+                    TranslateTransform trans = new TranslateTransform();
+                    UTUbtndesc.RenderTransform = trans;
+
+                    while (true)
+                    {
+                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+                        await Task.Delay(500);
+                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                        await Task.Delay(500);
+                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+                        await Task.Delay(500);
+                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                        await Task.Delay(500);
+                        UTUbtndesc.Text = labnewver;
+                        trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+                        await Task.Delay(500);
+                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                        await Task.Delay(500);
+                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+                        await Task.Delay(500);
+                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                        await Task.Delay(500);
+                        UTUbtndesc.Text = newverfull2;
+                        trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+
+
+                    }
+                }
+                else
+                {
+                    UTUbtn.Visibility = Visibility.Collapsed;
+                    UToc.Width = new GridLength(1, GridUnitType.Star);
+                    UTUoc.Width = new GridLength(0, GridUnitType.Star);
+                }
             }
         }
     }
@@ -1097,6 +1161,12 @@ public partial class TrayWindow : Window
     {
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         System.Diagnostics.Process.Start(utpath);
+    }
+
+    private void UTUbtn_Click(object sender, RoutedEventArgs e)
+    {
+        string utpath = Process.GetCurrentProcess().MainModule.FileName;
+        System.Diagnostics.Process.Start(utpath, "-updater");
     }
 
     private void labtaskedit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)

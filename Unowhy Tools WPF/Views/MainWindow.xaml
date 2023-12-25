@@ -230,6 +230,7 @@
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
                                    FontSize="24"
+                                   x:Name="RootBreadcrumb"
                                    Navigation="{Binding ElementName=RootNavigation}" />
 
                     <ui:Snackbar x:Name="RootSnackbar"
