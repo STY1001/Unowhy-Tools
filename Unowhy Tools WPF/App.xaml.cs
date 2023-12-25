@@ -273,8 +273,8 @@ public partial class App
                         Console.SetCursorPosition(0, Console.CursorTop);
                         Console.Write($"Downloading... (1/2 {value.ToString("##0")}%)");
                     };
-                    Console.WriteLine("Done\n");
                     await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utupdatezip"), utemp + "\\update.zip", progress, cancellationToken.Token);
+                    Console.WriteLine("Done\n");
                     progress = new System.Progress<double>();
                     cancellationToken = new CancellationTokenSource();
                     progress.ProgressChanged += (sender, value) =>
@@ -284,8 +284,8 @@ public partial class App
                         Console.SetCursorPosition(0, Console.CursorTop);
                         Console.Write($"Downloading... (2/2 {value.ToString("##0")}%)");
                     };
-                    Console.WriteLine("Done");
                     await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+                    Console.WriteLine("Done");
                     Console.WriteLine("Extracting...");
                     await Task.Delay(1000);
                     ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
@@ -310,8 +310,8 @@ public partial class App
                         Console.SetCursorPosition(0, Console.CursorTop);
                         Console.Write($"Downloading... (1/2 {value.ToString("##0")}%)");
                     };
-                    Console.WriteLine("Done\n");
                     await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utdebupdatezip"), utemp + "\\update.zip", progress, cancellationToken.Token);
+                    Console.WriteLine("Done\n");
                     progress = new System.Progress<double>();
                     cancellationToken = new CancellationTokenSource();
                     progress.ProgressChanged += (sender, value) =>
@@ -321,8 +321,8 @@ public partial class App
                         Console.SetCursorPosition(0, Console.CursorTop);
                         Console.Write($"Downloading... (2/2 {value.ToString("##0")}%)");
                     };
-                    Console.WriteLine("Done");
                     await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+                    Console.WriteLine("Done");
                     Console.WriteLine("Extracting...");
                     await Task.Delay(1000);
                     ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
