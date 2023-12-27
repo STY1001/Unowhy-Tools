@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/UTsplash/UTsplash.csproj
+/UTwait/UTwait.csproj
+/Unowhy Tools Updater/Unowhy Tools Updater.csproj
