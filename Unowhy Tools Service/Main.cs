@@ -112,7 +112,7 @@ namespace Unowhy_Tools_Service
                         if (CheckInternet())
                         {
                             var web = new HttpClient();
-                            string preurl = "https://storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"; //"https://idf.hisqool.com/conf";
+                            string preurl = "https://idf.hisqool.com/conf";
                             string configurl = $"{preurl}/devices/{Serial}/configuration";
 
                             HttpResponseMessage response = await web.GetAsync(configurl);
