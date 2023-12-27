@@ -1073,7 +1073,7 @@ namespace Unowhy_Tools
                     try
                     {
                         string url = await UT.OnlineDatas.GetUrls("api");
-                        string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"utsversion\" : \"" + UT.UTS.UTSmsg("UTS", "GetVer").ToString() + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"" + launchmode + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"wifiena\" : " + wifi.ToString().ToLower() + " }";
+                        string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"utsversion\" : \"" + await UT.UTS.UTSmsg("UTS", "GetVer") + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"" + launchmode + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"wifiena\" : " + wifi.ToString().ToLower() + " }";
                         Write2Log("Sending Stats to \"" + url + "\" with \"" + jsonData + "\"");
                         StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(url, content);
