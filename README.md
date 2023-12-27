@@ -74,6 +74,10 @@ To update to the Debug version:
 
 ## 📷 Screenshots
 
+27.01
+
+![UT Screen](/README/UT27.01.png)
+
 27.00
 
 ![UT Screen](/README/UT27.00.png)
