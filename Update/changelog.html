@@ -1,231 +1,264 @@
 <html>
-  <head>
-    <style>body {
-    font: 400 16px/1. "Segoe UI", normal;
-    color: #111;
-    background-color: #272727;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-    padding: 30px;
-  }
 
-::-webkit-scrollbar {
-  width: 10px;
-  background-color: #272727;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 20px;
-  border: 3px solid #1f1f1f;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-}
-
-.scroll-container {
-  max-height: 200px;
-  overflow-y: scroll;
-}
-
-.scroll-content {
-  padding: 10px;
-  color: #eee;
-  font-size: 18px;
-  line-height: 1.5;
-  background-color: #1f1f1f;
-}
-  
-  @media only screen and (max-width: 600px) {
+<head>
+  <style>
     body {
-      padding: 5px;
+      font: 400 16px/1. "Segoe UI", normal;
+      color: #111;
+      background-color: #272727;
+      -webkit-text-size-adjust: 100%;
+      -webkit-font-feature-settings: "kern" 1;
+      -moz-font-feature-settings: "kern" 1;
+      -o-font-feature-settings: "kern" 1;
+      font-feature-settings: "kern" 1;
+      font-kerning: normal;
+      padding: 30px;
     }
-  
-    body > #content {
-      padding: 0px 20px 20px 20px !important;
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      background-color: #272727;
     }
-  }
-  
-  body > #content {
-    margin: 0px;
-    max-width: 900px;
-    border: 1px solid #e1e4e8;
-    padding: 10px 40px;
-    padding-bottom: 20px;
-    border-radius: 2px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  hr {
-    color: #bbb;
-    background-color: #bbb;
-    height: 1px;
-    flex: 0 1 auto;
-    margin: 1em 0;
-    padding: 0;
-    border: none;
-  }
-  
-  /**
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 20px;
+      border: 3px solid #1f1f1f;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+
+    .scroll-container {
+      max-height: 200px;
+      overflow-y: scroll;
+    }
+
+    .scroll-content {
+      padding: 10px;
+      color: #eee;
+      font-size: 18px;
+      line-height: 1.5;
+      background-color: #1f1f1f;
+    }
+
+    @media only screen and (max-width: 600px) {
+      body {
+        padding: 5px;
+      }
+
+      body>#content {
+        padding: 0px 20px 20px 20px !important;
+      }
+    }
+
+    body>#content {
+      margin: 0px;
+      max-width: 900px;
+      border: 1px solid #e1e4e8;
+      padding: 10px 40px;
+      padding-bottom: 20px;
+      border-radius: 2px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    hr {
+      color: #bbb;
+      background-color: #bbb;
+      height: 1px;
+      flex: 0 1 auto;
+      margin: 1em 0;
+      padding: 0;
+      border: none;
+    }
+
+    /**
    * Links
    */
-  a {
-    color: #0366d6;
-    text-decoration: none; }
+    a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+
     a:visited {
-      color: #0366d6; }
+      color: #0366d6;
+    }
+
     a:hover {
       color: #0366d6;
-      text-decoration: underline; }
-  
-  pre {
-    background-color: #f6f8fa;
-    border-radius: 3px;
-    font-size: 85%;
-    line-height: 1.45;
-    overflow: auto;
-    padding: 16px;
-  }
-  
-  /**
+      text-decoration: underline;
+    }
+
+    pre {
+      background-color: #f6f8fa;
+      border-radius: 3px;
+      font-size: 85%;
+      line-height: 1.45;
+      overflow: auto;
+      padding: 16px;
+    }
+
+    /**
     * Code blocks
     */
-  
-  code {
-    background-color: rgba(27,31,35,.05);
-    border-radius: 3px;
-    font-size: 85%;
-    margin: 0;
-    word-wrap: break-word;
-    padding: .2em .4em;
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-  }
-  
-  pre > code {
-    background-color: transparent;
-    border: 0;
-    display: inline;
-    line-height: inherit;
-    margin: 0;
-    overflow: visible;
-    padding: 0;
-    word-wrap: normal;
-    font-size: 100%;
-  }
-  
-  
-  /**
+
+    code {
+      background-color: rgba(27, 31, 35, .05);
+      border-radius: 3px;
+      font-size: 85%;
+      margin: 0;
+      word-wrap: break-word;
+      padding: .2em .4em;
+      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+    }
+
+    pre>code {
+      background-color: transparent;
+      border: 0;
+      display: inline;
+      line-height: inherit;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+      word-wrap: normal;
+      font-size: 100%;
+    }
+
+
+    /**
    * Blockquotes
    */
-  blockquote {
-    margin-left: 30px;
-    margin-top: 0px;
-    margin-bottom: 16px;
-    border-left-width: 3px;
-    padding: 0 1em;
-    color: #828282;
-    border-left: 4px solid #e8e8e8;
-    padding-left: 15px;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
-  }
-  blockquote * {
-    font-style: normal !important;
-    letter-spacing: 0;
-    color: #6a737d !important;
-  }
-  
-  /**
+    blockquote {
+      margin-left: 30px;
+      margin-top: 0px;
+      margin-bottom: 16px;
+      border-left-width: 3px;
+      padding: 0 1em;
+      color: #828282;
+      border-left: 4px solid #e8e8e8;
+      padding-left: 15px;
+      font-size: 18px;
+      letter-spacing: -1px;
+      font-style: italic;
+    }
+
+    blockquote * {
+      font-style: normal !important;
+      letter-spacing: 0;
+      color: #6a737d !important;
+    }
+
+    /**
    * Tables
    */
-  table {
-    border-spacing: 2px;
-    display: block;
-    font-size: 14px;
-    overflow: auto;
-    width: 100%;
-    margin-bottom: 16px;
-    border-spacing: 0;
-    border-collapse: collapse;
-  }
-  
-  td {
-    padding: 6px 13px;
-    border: 1px solid #dfe2e5;
-  }
-  
-  th {
-    font-weight: 600;
-    padding: 6px 13px;
-    border: 1px solid #dfe2e5;
-  }
-  
-  tr {
-    background-color: #fff;
-    border-top: 1px solid #c6cbd1;
-  }
-  
-  table tr:nth-child(2n) {
-    background-color: #f6f8fa;
-  }
-  
-  /**
+    table {
+      border-spacing: 2px;
+      display: block;
+      font-size: 14px;
+      overflow: auto;
+      width: 100%;
+      margin-bottom: 16px;
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 6px 13px;
+      border: 1px solid #dfe2e5;
+    }
+
+    th {
+      font-weight: 600;
+      padding: 6px 13px;
+      border: 1px solid #dfe2e5;
+    }
+
+    tr {
+      background-color: #fff;
+      border-top: 1px solid #c6cbd1;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: #f6f8fa;
+    }
+
+    /**
    * Others
    */
-  
-  img {
-    max-width: 100%;
-  }
-  
-  p {
-    font: "Segoe UI", normal;
-    line-height: 24px;
-    font-weight: 400;
-    font-size: 16px;
-    color: #ffffff; }
-  
-  ul {
-    margin-top: 0; }
-  
-  li {
-    color: #cfcfcf;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.3; }
-  
-  li + li {
-    margin-top: 0.25em; }
-  
-  * {
-    font-family: Segoe UI Emoji;
-    color: #000000; }
-  
-  a:visited {
-    color: #0366d6; }
-  
-  h3 {
-    color: #ffffff;
-    
-       }
 
-  h1, h2 {
-    border-bottom: 1px solid #666666;
-    color: #ffffff;
-    font-family: "Segoe UI", normal;
-             } 
+    img {
+      max-width: 100%;
+    }
+
+    p {
+      font: "Segoe UI", normal;
+      line-height: 24px;
+      font-weight: 400;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+
+    li {
+      color: #cfcfcf;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    li+li {
+      margin-top: 0.25em;
+    }
+
+    * {
+      font-family: Segoe UI Emoji;
+      color: #000000;
+    }
+
+    a:visited {
+      color: #0366d6;
+    }
+
+    h3 {
+      color: #ffffff;
+
+    }
+
+    h1,
+    h2 {
+      border-bottom: 1px solid #505050;
+      color: #ffffff;
+      font-family: "Segoe UI", normal;
+    }
   </style>
 </head>
 
 <body>
   <h1>Unowhy Tools Change Log</h1>
   <h3>✅:Added | ✏️:Modified | 🩹:Patched/Fixed | ❌:Removed</h3>
+  <h2>27.01 - (27/12/2023)</h2>
+  <h3>Advanced feature, UI and bug fix update</h3>
+  <ul>
+    <li>✅ New args</li>
+    <ul>
+      <li>-rescueupdate [debug|release]: Update UT if you cannot update in app</li>
+      <li>-updater: Go directly to updater</li>
+      <li>-console: Open .NET console with UT</li>
+    </ul>
+    <li>✅ Showing update in tray and you can open UT with -updater</li>
+    <li>✅ UTS version send to stats API</li>
+    <li>✏️ Small tray redesign</li>
+    <li>✏️ Dashboard small UI change</li>
+    <li>🩹 Fix updater download fix</li>
+    <li>🩹 UTB file browser fix, you can now open .bin file</li>
+    <li>🩹 Fix tray UX when minimized and when starting</li>
+    <li>🩹 Tray language fix</li>
+  </ul>
   <h2>27.00 - (14/12/2023)</h2>
   <h3>Big back-end, features and bug fix update</h3>
   <ul>
@@ -253,7 +286,8 @@
     <li>✅ New animations (again x12)</li>
     <li>✅ Added a lot of easter eggs</li>
     <li>✅ You can now use Enter key to get wifi info in Unowhy Tools Wifi</li>
-    <li>✅ Adding Unowhy Tools to the exclusion list of Windows Defender automaticaly (to prevent Win Def from killing or breaking UT)</li>
+    <li>✅ Adding Unowhy Tools to the exclusion list of Windows Defender automaticaly (to prevent Win Def from killing or
+      breaking UT)</li>
     <li>✅ A new way to go to the Debug menu</li>
     <li>✅ Switched to Release for Release in Visual Studio</li>
     <li>✅ Updating dynamically "Release" or "Debug" version in "Installed software" in Windows Settings</li>
@@ -399,7 +433,8 @@
     <li>✏️ About and Dashboard/Home redesigned</li>
     <li>✏️ First config redesigned</li>
     <li>✏️ Redesigned logo</li>
-    <li>🩹 Bug Fix with HiSqool's server, changed url from "idf.hisqool.com/conf" to "storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"</li>
+    <li>🩹 Bug Fix with HiSqool's server, changed url from "idf.hisqool.com/conf" to
+      "storage.gra.cloud.ovh.net/v1/AUTH_765727b4bb3a465fa4e277aef1356869/idfconf"</li>
     <li>🩹 First config bug fix</li>
     <li>🩹 Lang system improvement and bug fix</li>
     <li>❌ Removed some resources</li>
@@ -524,7 +559,8 @@
     <li>✅ New features:
       <ul>
         <li>Del "IgnoreAllFailures" (Boot Status Policy) in BCD</li>
-        <li>All new drivers backup and restore system and format (you can convert your old backup to the new format)</li>
+        <li>All new drivers backup and restore system and format (you can convert your old backup to the new format)
+        </li>
       </ul>
     </li>
     <li>✅ New convert form</li>
@@ -576,201 +612,223 @@
     <li>❌ Removed UTU Script</li>
   </ul>
   <h2 id="17-0-16-10-2022-">17.0 - (16/10/2022)</h2>
-    <ul>
-      <li>✅ New feature:
+  <ul>
+    <li>✅ New feature:
       <ul>
         <li>Backup and Restore drivers with DISM</li>
         <li>Enable/Disable/Repair WinRE (reagentc)</li>
       </ul>
-      </li>
-      <li>✏️ Logo of PS changed</li>
-      <li>✏️ Modified WinRE feature</li>
-      <li>🩹 Drv restore bug fix</li>
-      <li>🩹 WOW64 and PNPUTIL issue fixed</li>
-      <li>🩹 Win Def issue fixed (seems to be fixed)</li>
-      <li>❌ Re enable WinRE feature removed (to introduce "WinRE settings")</li>
-    </ul>
+    </li>
+    <li>✏️ Logo of PS changed</li>
+    <li>✏️ Modified WinRE feature</li>
+    <li>🩹 Drv restore bug fix</li>
+    <li>🩹 WOW64 and PNPUTIL issue fixed</li>
+    <li>🩹 Win Def issue fixed (seems to be fixed)</li>
+    <li>❌ Re enable WinRE feature removed (to introduce "WinRE settings")</li>
+  </ul>
   <h2 id="16-0-18-09-2022-">16.0 - (18/09/2022)</h2>
   <h3 id="the-biggest-update">The biggest update</h3>
   <ul>
-  <li>✅ New feature:
-    <ul>
-      <li>Backup and Restore drivers with Power Shell</li>
-    </ul>
-  </li>
-  <li>✅ New category:
-    <ul>
-    <li>Drivers</li>
-    </ul>
-  </li>
-  <li>✅ New Installer</li>
-  <li>✅ New Uninstaller</li>
-  <li>✅ New Updater Post-Script (AV Issue)</li>
-  <li>✅ Taskbar progress bar</li>
-  <li>✅ Change Log form with Github render (powered by a .png)</li>
-  <li>✅ Auto update of langs files (if &quot;Check update at startup&quot; is enabled)</li>
-  <li>✅ Presentation mode form</li>
-  <li>✏️ New logo</li>
-  <li>✏️ Updater now execute post-script (AV Issue)</li>
-  <li>✏️ Modified UI (buttons look like Fluent UI)</li>
-  <li>✏️ Modified font (Now the font of Fluent UI (Segoe UI))</li>
-  <li>✏️ Progress Bar in &quot;Wait&quot; and Splash forms</li>
-  <li>✏️ &quot;HISM delete service only&quot; and &quot;HISM delete service and folder&quot; are separated</li>
-  <li>✏️ You can view change log in &quot;newver&quot; and &quot;nonew&quot; forms</li>
-  <li>✏️ Github buttons on &quot;nonew&quot;</li>
-  <li>✏️ New presentation mode</li>
-  <li>🩹 Unselected Window Title Bar (grey title bar) bug fix</li>
-  <li>🩹 Windows 11 22H2 Title Bar (alway gray) bug fix</li>
-  <li>🩹 &quot;Wait&quot; form don&#39;t dispose</li>
-  <li>🩹 Splash screen bug</li>
-  <li>🩹 Fix issue with A-V (Win Def)(seems to be fixed)</li>
-  <li>🩹 Updater crash fix</li>
-  <li>❌ Removed &quot;OK&quot; button from &quot;Reboot&quot; form (to force user to reboot in order to bypass fast boot)</li>
+    <li>✅ New feature:
+      <ul>
+        <li>Backup and Restore drivers with Power Shell</li>
+      </ul>
+    </li>
+    <li>✅ New category:
+      <ul>
+        <li>Drivers</li>
+      </ul>
+    </li>
+    <li>✅ New Installer</li>
+    <li>✅ New Uninstaller</li>
+    <li>✅ New Updater Post-Script (AV Issue)</li>
+    <li>✅ Taskbar progress bar</li>
+    <li>✅ Change Log form with Github render (powered by a .png)</li>
+    <li>✅ Auto update of langs files (if &quot;Check update at startup&quot; is enabled)</li>
+    <li>✅ Presentation mode form</li>
+    <li>✏️ New logo</li>
+    <li>✏️ Updater now execute post-script (AV Issue)</li>
+    <li>✏️ Modified UI (buttons look like Fluent UI)</li>
+    <li>✏️ Modified font (Now the font of Fluent UI (Segoe UI))</li>
+    <li>✏️ Progress Bar in &quot;Wait&quot; and Splash forms</li>
+    <li>✏️ &quot;HISM delete service only&quot; and &quot;HISM delete service and folder&quot; are separated</li>
+    <li>✏️ You can view change log in &quot;newver&quot; and &quot;nonew&quot; forms</li>
+    <li>✏️ Github buttons on &quot;nonew&quot;</li>
+    <li>✏️ New presentation mode</li>
+    <li>🩹 Unselected Window Title Bar (grey title bar) bug fix</li>
+    <li>🩹 Windows 11 22H2 Title Bar (alway gray) bug fix</li>
+    <li>🩹 &quot;Wait&quot; form don&#39;t dispose</li>
+    <li>🩹 Splash screen bug</li>
+    <li>🩹 Fix issue with A-V (Win Def)(seems to be fixed)</li>
+    <li>🩹 Updater crash fix</li>
+    <li>❌ Removed &quot;OK&quot; button from &quot;Reboot&quot; form (to force user to reboot in order to bypass fast
+      boot)</li>
   </ul>
   <h2 id="15-0-21-06-2022-">15.0 - (21/06/2022)</h2>
   <h3 id="another-big-update">Another Big Update</h3>
   <ul>
-  <li>✅ Dynamic Buttons (disable the button if it has already been executed, ...)</li>
-  <li><p>✅ Show User ID in System Info</p>
-  </li>
-  <li><p>✏️ Delete the &quot;HiSqool Manager&quot; folder, also delete the service now</p>
-  </li>
-  <li><p>🩹 Translation bug in &quot;newver&quot; form</p>
-  </li>
-  <li>🩹 Uninstall &quot;HiSqool&quot; bug</li>
+    <li>✅ Dynamic Buttons (disable the button if it has already been executed, ...)</li>
+    <li>
+      <p>✅ Show User ID in System Info</p>
+    </li>
+    <li>
+      <p>✏️ Delete the &quot;HiSqool Manager&quot; folder, also delete the service now</p>
+    </li>
+    <li>
+      <p>🩹 Translation bug in &quot;newver&quot; form</p>
+    </li>
+    <li>🩹 Uninstall &quot;HiSqool&quot; bug</li>
   </ul>
   <h2 id="14-0-09-06-2022-">14.0 - (09/06/2022)</h2>
   <h3 id="big-update">Big Update</h3>
   <ul>
-  <li><p>✅ No connection form</p>
-  </li>
-  <li><p>✏️ New Update System (Unowhy Tools Updater (Auto Update) and new ver. (with changelog))</p>
-  </li>
-  <li><p>🩹 First start crash</p>
-  </li>
-  <li>🩹 No internet crash</li>
+    <li>
+      <p>✅ No connection form</p>
+    </li>
+    <li>
+      <p>✏️ New Update System (Unowhy Tools Updater (Auto Update) and new ver. (with changelog))</p>
+    </li>
+    <li>
+      <p>🩹 First start crash</p>
+    </li>
+    <li>🩹 No internet crash</li>
   </ul>
   <h2 id="13-0-07-06-2022-">13.0 - (07/06/2022)</h2>
   <ul>
-  <li><p>✅ New features:</p>
-  <ul>
-  <li>Add new local user (account) and get their ID</li>
-  <li>Manage the built-in &quot;.\administrator&quot; account (Disable, Enable, Change password)</li>
-  <li>Disconnect your PC from AzureAD (and disable management of Intune / Endpoint too)</li>
-  </ul>
-  </li>
-  <li><p>🩹 Dark Theme in &quot;Change Windows PC Name&quot; form</p>
-  </li>
-  <li>🩹 &quot;Wait&quot; and &quot;Reboot&quot; forms window now unexpandable</li>
+    <li>
+      <p>✅ New features:</p>
+      <ul>
+        <li>Add new local user (account) and get their ID</li>
+        <li>Manage the built-in &quot;.\administrator&quot; account (Disable, Enable, Change password)</li>
+        <li>Disconnect your PC from AzureAD (and disable management of Intune / Endpoint too)</li>
+      </ul>
+    </li>
+    <li>
+      <p>🩹 Dark Theme in &quot;Change Windows PC Name&quot; form</p>
+    </li>
+    <li>🩹 &quot;Wait&quot; and &quot;Reboot&quot; forms window now unexpandable</li>
   </ul>
   <h2 id="12-0-02-06-2022-">12.0 - (02/06/2022)</h2>
   <h3 id="big-update">Big Update</h3>
   <ul>
-  <li>✅ New feature:<ul>
-  <li>Set your Azure AD account as a local admin</li>
-  </ul>
-  </li>
-  <li><p>✅ Dynamic description</p>
-  </li>
-  <li><p>✏️ Text on Splash (&quot;A tool for Unowhy Y13 computers !&quot;, &quot;by STY1001&quot;, &quot;Loading...&quot;)</p>
-  </li>
-  <li><p>✏️ Text on Main and About (&quot;A tool for Unowhy Y13 computers !&quot;)</p>
-  </li>
-  <li><p>🩹 Reduced Start Time (Not first start)</p>
-  </li>
-  <li>🩹 Fix &quot;Wait&quot; form bug on &quot;PC name&quot;</li>
-  <li>🩹 CMD and PowerShell windows pop-ups pre-minimized</li>
+    <li>✅ New feature:<ul>
+        <li>Set your Azure AD account as a local admin</li>
+      </ul>
+    </li>
+    <li>
+      <p>✅ Dynamic description</p>
+    </li>
+    <li>
+      <p>✏️ Text on Splash (&quot;A tool for Unowhy Y13 computers !&quot;, &quot;by STY1001&quot;,
+        &quot;Loading...&quot;)</p>
+    </li>
+    <li>
+      <p>✏️ Text on Main and About (&quot;A tool for Unowhy Y13 computers !&quot;)</p>
+    </li>
+    <li>
+      <p>🩹 Reduced Start Time (Not first start)</p>
+    </li>
+    <li>🩹 Fix &quot;Wait&quot; form bug on &quot;PC name&quot;</li>
+    <li>🩹 CMD and PowerShell windows pop-ups pre-minimized</li>
   </ul>
   <h2 id="11-0-30-05-2022-">11.0 - (30/05/2022)</h2>
   <ul>
-  <li>✅ &quot;Wait&quot; form and minimized CMD window</li>
-  <li>✅ Reboot prompt form</li>
-  <li><p>✅ PC Info form (System Info)</p>
-  </li>
-  <li><p>🩹 Reduced start time (Not the first start)</p>
-  </li>
-  <li>🩹 Splash Screen with white square</li>
+    <li>✅ &quot;Wait&quot; form and minimized CMD window</li>
+    <li>✅ Reboot prompt form</li>
+    <li>
+      <p>✅ PC Info form (System Info)</p>
+    </li>
+    <li>
+      <p>🩹 Reduced start time (Not the first start)</p>
+    </li>
+    <li>🩹 Splash Screen with white square</li>
   </ul>
   <h2 id="10-0-25-05-2022-">10.0 - (25/05/2022)</h2>
   <ul>
-  <li>✅ New features:<ul>
-  <li>Delete &quot;OEM&quot; folder</li>
-  <li>Delete &quot;ENT&quot; folder</li>
-  </ul>
-  </li>
-  <li><p>✅ &quot;Presentation&quot; Mode</p>
-  </li>
-  <li><p>🩹 French Translation error</p>
-  </li>
+    <li>✅ New features:<ul>
+        <li>Delete &quot;OEM&quot; folder</li>
+        <li>Delete &quot;ENT&quot; folder</li>
+      </ul>
+    </li>
+    <li>
+      <p>✅ &quot;Presentation&quot; Mode</p>
+    </li>
+    <li>
+      <p>🩹 French Translation error</p>
+    </li>
   </ul>
   <h2 id="9-0-19-05-2022-">9.0 - (19/05/2022)</h2>
   <ul>
-  <li>✅ Splash Screen</li>
-  <li>✅ New feature:<ul>
-  <li>Change Windows PC name</li>
-  </ul>
-  </li>
-  <li><p>✅ New category:</p>
-  <ul>
-  <li>Customization</li>
-  </ul>
-  </li>
-  <li><p>🩹 First Start crash</p>
-  </li>
+    <li>✅ Splash Screen</li>
+    <li>✅ New feature:<ul>
+        <li>Change Windows PC name</li>
+      </ul>
+    </li>
+    <li>
+      <p>✅ New category:</p>
+      <ul>
+        <li>Customization</li>
+      </ul>
+    </li>
+    <li>
+      <p>🩹 First Start crash</p>
+    </li>
   </ul>
   <h2 id="8-0-17-05-2022-">8.0 - (17/05/2022)</h2>
   <h3 id="big-update">Big Update</h3>
   <ul>
-  <li>✅ UI Icons</li>
+    <li>✅ UI Icons</li>
   </ul>
   <h2 id="7-0-14-05-2022-">7.0 - (14/05/2022)</h2>
   <ul>
-  <li>✅ Full Dark Mode</li>
-  <li>✅ Custom Dialog Box</li>
+    <li>✅ Full Dark Mode</li>
+    <li>✅ Custom Dialog Box</li>
   </ul>
   <h2 id="6-0-12-05-2022-">6.0 - (12/05/2022)</h2>
   <ul>
-  <li>✅ Confirmation Dialog Box</li>
-  <li>✅ New features:<ul>
-  <li>Enable &quot;reagentc&quot; (Recovery)</li>
-  <li>Delete &quot;RIDF&quot; folder</li>
-  </ul>
-  </li>
+    <li>✅ Confirmation Dialog Box</li>
+    <li>✅ New features:<ul>
+        <li>Enable &quot;reagentc&quot; (Recovery)</li>
+        <li>Delete &quot;RIDF&quot; folder</li>
+      </ul>
+    </li>
   </ul>
   <h2 id="5-0-10-05-2022-">5.0 - (10/05/2022)</h2>
   <ul>
-  <li>✅ Check update at startup</li>
-  <li>✅ Run automaticaly with admin without right clicking</li>
+    <li>✅ Check update at startup</li>
+    <li>✅ Run automaticaly with admin without right clicking</li>
   </ul>
   <h2 id="4-0-08-05-2022-">4.0 - (08/05/2022)</h2>
   <h3 id="big-update">Big update</h3>
   <ul>
-  <li>✅ Multi language</li>
-  <li>✅ Settings</li>
-  <li>✅ Descriptions</li>
-  <li>✅ Categories</li>
+    <li>✅ Multi language</li>
+    <li>✅ Settings</li>
+    <li>✅ Descriptions</li>
+    <li>✅ Categories</li>
   </ul>
   <h2 id="3-0-04-05-2022-">3.0 - (04/05/2022)</h2>
   <ul>
-  <li>✅ Icons</li>
-  <li>✅ New features:<ul>
-  <li>Delete &quot;silent_*.vbs.lnk&quot; files in &quot;StartUp&quot; folder</li>
-  <li>Delete &quot;TO_INSTALL&quot; folder</li>
-  </ul>
-  </li>
+    <li>✅ Icons</li>
+    <li>✅ New features:<ul>
+        <li>Delete &quot;silent_*.vbs.lnk&quot; files in &quot;StartUp&quot; folder</li>
+        <li>Delete &quot;TO_INSTALL&quot; folder</li>
+      </ul>
+    </li>
   </ul>
   <h2 id="2-0-02-05-2022-">2.0 - (02/05/2022)</h2>
   <ul>
-  <li>✅ &quot;About&quot; form</li>
-  <li>✅ Update System (In &quot;about&quot; form)</li>
+    <li>✅ &quot;About&quot; form</li>
+    <li>✅ Update System (In &quot;about&quot; form)</li>
   </ul>
   <h2 id="1-0-29-04-2022-">1.0 - (29/04/2022)</h2>
   <h3 id="first-release">First Release</h3>
   <p>Current features:</p>
   <ul>
-  <li>Enable/Disable/Stop/Start &quot;HiSqool Manager&quot; service</li>
-  <li>Delete the local &quot;ENT&quot; account</li>
-  <li>Restore the &quot;Shell&quot; value to &quot;explorer.exe&quot; in the registery</li>
-  <li>Uninstall &quot;HiSqool&quot; and delete &quot;HiSqool Manager&quot; folder</li>
+    <li>Enable/Disable/Stop/Start &quot;HiSqool Manager&quot; service</li>
+    <li>Delete the local &quot;ENT&quot; account</li>
+    <li>Restore the &quot;Shell&quot; value to &quot;explorer.exe&quot; in the registery</li>
+    <li>Uninstall &quot;HiSqool&quot; and delete &quot;HiSqool Manager&quot; folder</li>
   </ul>
-</body></html>
+</body>
+
+</html>
