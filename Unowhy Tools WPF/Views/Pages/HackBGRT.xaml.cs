@@ -48,12 +48,13 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-
+        await Check();
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
-
+        await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
+        UT.anim.BorderZoomOut(RootBorder);
     }
 
     public HackBGRT(DashboardViewModel viewModel)
