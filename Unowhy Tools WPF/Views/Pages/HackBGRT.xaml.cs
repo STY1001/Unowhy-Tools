@@ -298,8 +298,8 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                 {
                     var linepost = line.Replace("image= ", "");
                     linepost = linepost.Replace(" ", "\n");
-                    File.WriteAllText("C:\\Users\\HIDAYET\\Downloads\\HackBGRT-2.3.1\\configtemp.txt", linepost);
-                    var lines2 = File.ReadAllLines("C:\\Users\\HIDAYET\\Downloads\\HackBGRT-2.3.1\\configtemp.txt");
+                    File.WriteAllText(letter + ":\\EFI\\HackBGRT\\configtemp.txt", linepost);
+                    var lines2 = File.ReadAllLines(letter + ":\\EFI\\HackBGRT\\configtemp.txt");
                     foreach (var line2 in lines2.Where(s => s.StartsWith("x=")))
                     {
                         string linepost2 = line2.Replace("x=", "");
