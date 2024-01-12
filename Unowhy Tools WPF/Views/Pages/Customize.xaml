@@ -276,6 +276,37 @@
                                HorizontalAlignment="Stretch"
                                Margin="0,0,0,0" />
                 </ui:CardControl>
+                <ui:CardControl x:Name="hackbgrtset"
+                                Margin="10,0,10,10">
+                    <ui:CardControl.Header>
+                        <Grid>
+                            <Image Source="pack://application:,,,/Resources/image.png"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                   MaxHeight="32"
+                                   MaxWidth="32" />
+                            <StackPanel VerticalAlignment="Top"
+                                        Margin="50,0,0,0">
+                                <TextBlock x:Name="hackbgrtset_txt"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           Text="HackBGRT settings" />
+                                <TextBlock x:Name="hackbgrtset_desc"
+                                           FontSize="12"
+                                           Foreground="#bebebe"
+                                           Text="Description"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardControl.Header>
+                    <ui:Button Grid.Column="0"
+                               Click="HackBGRTSet_Click"
+                               x:Name="hackbgrtset_btn"
+                               Content="Open"
+                               Grid.ColumnSpan="4"
+                               HorizontalAlignment="Stretch"
+                               Margin="0,0,0,0" />
+                </ui:CardControl>
             </StackPanel>
         </Border>
     </Grid>

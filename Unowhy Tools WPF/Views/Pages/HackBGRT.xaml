@@ -1,0 +1,319 @@
+﻿<ui:UiPage x:Class="Unowhy_Tools_WPF.Views.Pages.HackBGRT"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:local="clr-namespace:Unowhy_Tools_WPF.Views.Pages"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+           xmlns:gif="http://wpfanimatedgif.codeplex.com"
+           Title="HackBGRT"
+           Initialized="Init"
+           Loaded="InitAnim"
+           d:DataContext="{d:DesignInstance local:HackBGRT,
+                                     IsDesignTimeCreatable=False}"
+           d:DesignHeight="601"
+           d:DesignWidth="1126"
+           Scrollable="True"
+           mc:Ignorable="d">
+
+    <Grid x:Name="RootGrid">
+        <ui:Button Click="GoBack"
+                   x:Name="BackBTN"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="10,10,0,0"
+                   Panel.ZIndex="2"
+                   Visibility="Hidden">
+            <Image Source="../../Resources/back.png"
+                   Height="16" />
+        </ui:Button>
+        <Border Background="#0affffff"
+                CornerRadius="8,8,8,8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                RenderTransformOrigin="0.5,0.5"
+                x:Name="RootBorder">
+            <Border.RenderTransform>
+                <ScaleTransform ScaleX="1"
+                                ScaleY="1" />
+            </Border.RenderTransform>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid Margin="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Border Background="#000000"
+                                CornerRadius="8,8,8,8">
+                            <Viewbox Stretch="Uniform"
+                                     Margin="4"
+                                     RenderOptions.BitmapScalingMode="HighQuality">
+                                <Grid x:Name="PreviewGrid"
+                                      Height="1080"
+                                      Width="1920"
+                                      Background="Black"
+                                      ClipToBounds="True">
+                                    <Image x:Name="imagepreview" 
+                                           RenderTransformOrigin="0.5,0.5"/>
+                                    <Image Width="45"
+                                           Height="45"
+                                           VerticalAlignment="Bottom"
+                                           Margin="0,0,0,216"
+                                           gif:ImageBehavior.AnimatedSource="/Resources/hackbgrtloading.gif" />
+                                </Grid>
+                            </Viewbox>
+                        </Border>
+                    </Grid>
+                    <ui:NavigationSeparator Margin="10"
+                                            Grid.Column="1" />
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <RadioButton Content="Center (For fullscreen image)"
+                                             x:Name="positioncenter"
+                                             GroupName="positionpreset"
+                                             Click="positioncenter_Click"/>
+                                <Border Background="#0affffff"
+                                        CornerRadius="8,8,8,8"
+                                        Width="184"
+                                        Height="103"
+                                        Grid.Row="1">
+                                    <Border CornerRadius="8,8,8,8"
+                                            Background="#0aff0000"
+                                            Margin="4"
+                                            BorderThickness="1"
+                                            BorderBrush="#a0ff0000" />
+                                </Border>
+                            </Grid>
+                            <ui:NavigationSeparator Grid.Column="1"
+                                                    Margin="10" />
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <RadioButton Content="Upper (For small logo)"
+                                             x:Name="positionupper"
+                                             GroupName="positionpreset"
+                                             Click="positionupper_Click"/>
+                                <Border Background="#0affffff"
+                                        CornerRadius="8,8,8,8"
+                                        Width="184"
+                                        Height="103"
+                                        Grid.Row="1">
+                                    <Border CornerRadius="8,8,8,8"
+                                            Background="#0aff0000"
+                                            Margin="55,20,55,50"
+                                            BorderThickness="1"
+                                            BorderBrush="#a0ff0000" />
+                                </Border>
+                            </Grid>
+                        </Grid>
+                        <ui:NavigationSeparator Margin="10"
+                                                Grid.Row="1" />
+                        <Grid Grid.Row="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <RadioButton Content="Custom"
+                                             x:Name="positioncustom"
+                                             GroupName="positionpreset" />
+                                <StackPanel Orientation="Vertical"
+                                            Grid.Row="1">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="0.4*" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="0.6*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="X (↔): "
+                                                   FontSize="18"
+                                                   Foreground="#ffffff"
+                                                   FontFamily="Segoe UI SemiBold"
+                                                   VerticalAlignment="Center"
+                                                   Grid.Column="0" />
+                                        <ui:NumberBox Maximum="1920"
+                                                      Minimum="-1920"
+                                                      VerticalAlignment="Center"
+                                                      Grid.Column="1"
+                                                      x:Name="xnumbox"
+                                                      Value="0"
+                                                      ValueChanged="xnumbox_ValueChanged"
+                                                      ClearButtonEnabled="False" />
+                                        <Slider Maximum="1920"
+                                                Minimum="-1920"
+                                                VerticalAlignment="Center"
+                                                Grid.Column="3"
+                                                x:Name="xslider"
+                                                Value="0"
+                                                
+                                                ValueChanged="xslider_ValueChanged"
+                                                SmallChange="1" />
+                                    </Grid>
+                                    <Grid Margin="0,10,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="0.4*" />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="0.6*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="Y (↕): "
+                                                   FontSize="18"
+                                                   Foreground="#ffffff"
+                                                   FontFamily="Segoe UI SemiBold"
+                                                   VerticalAlignment="Center"
+                                                   Grid.Column="0"
+                                                   Margin="0,0,8,0"/>
+                                        <ui:NumberBox Maximum="1080"
+                                                      Minimum="-1080"
+                                                      VerticalAlignment="Center"
+                                                      Grid.Column="1"
+                                                      x:Name="ynumbox"
+                                                      Value="0"
+                                                      ValueChanged="ynumbox_ValueChanged"
+                                                      ClearButtonEnabled="False" />
+                                        <Slider Maximum="1080"
+                                                Minimum="-1080"
+                                                VerticalAlignment="Center"
+                                                Grid.Column="3"
+                                                x:Name="yslider"
+                                                Value="0"
+                                                ValueChanged="yslider_ValueChanged"
+                                                SmallChange="1" />
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Border Background="#50000000"
+                        CornerRadius="0,0,8,8"
+                        Grid.Column="0"
+                        Grid.Row="1" />
+                <Grid Grid.Row="1"
+                      Margin="20">
+                    <StackPanel HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+                        <ui:Button Click="OpenImg_Click"
+                                   x:Name="openimgbtn">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/image.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Open an image"
+                                                   x:Name="openimgbtnlab"/>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right"
+                                Orientation="Horizontal">
+                        <ui:Button Margin="0,0,20,0"
+                                   x:Name="removebtn">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/delete.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Remove"
+                                                   x:Name="removebtnlab"/>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                        <ui:Button x:Name="installbtn"
+                                   Click="installbtn_Click">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/customize.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top"
+                                           x:Name="installbtnimg"/>
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Install/Update"
+                                                   x:Name="installbtnlab"/>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</ui:UiPage>

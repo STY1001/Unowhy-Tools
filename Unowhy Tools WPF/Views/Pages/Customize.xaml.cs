@@ -147,6 +147,30 @@ public partial class Customize : INavigableView<DashboardViewModel>
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
 
+    public async void HackBGRTSet_Click(object sender, RoutedEventArgs e)
+    {
+        DoubleAnimation anim = new DoubleAnimation();
+        anim.From = 0;
+        anim.To = 300;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        TranslateTransform trans = new TranslateTransform();
+        hackbgrtset_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+        UT.anim.RegisterParent(RootGrid, RootBorder);
+        UT.anim.AnimParent("zoomout2");
+        await Task.Delay(500);
+        UT.NavigateTo(typeof(HackBGRT));
+
+        anim.From = 0;
+        anim.To = 0;
+        anim.Duration = TimeSpan.FromMilliseconds(500);
+        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
+        hackbgrtset_btn.RenderTransform = trans;
+        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+    }
+
     public async Task applylang()
     {
         pcname_txt.Text = await UT.GetLang("pcname");

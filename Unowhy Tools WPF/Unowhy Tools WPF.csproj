@@ -78,10 +78,12 @@
     <None Remove="Resources\fr.png" />
     <None Remove="Resources\github.png" />
     <None Remove="Resources\guide.png" />
+    <None Remove="Resources\hackbgrtloading.gif" />
     <None Remove="Resources\heart.png" />
     <None Remove="Resources\hi.png" />
     <None Remove="Resources\home.png" />
     <None Remove="Resources\ic.png" />
+    <None Remove="Resources\image.png" />
     <None Remove="Resources\instprog.png" />
     <None Remove="Resources\key.png" />
     <None Remove="Resources\language.png" />
@@ -162,6 +164,7 @@
     <PackageReference Include="WPF-UI" Version="2.1.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -223,10 +226,12 @@
     <Resource Include="Resources\fr.png" />
     <Resource Include="Resources\github.png" />
     <Resource Include="Resources\guide.png" />
+    <Resource Include="Resources\hackbgrtloading.gif" />
     <Resource Include="Resources\heart.png" />
     <Resource Include="Resources\hi.png" />
     <Resource Include="Resources\home.png" />
     <Resource Include="Resources\ic.png" />
+    <Resource Include="Resources\image.png" />
     <Resource Include="Resources\instprog.png" />
     <Resource Include="Resources\key.png" />
     <Resource Include="Resources\language.png" />

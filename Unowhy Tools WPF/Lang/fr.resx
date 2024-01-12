@@ -444,6 +444,9 @@
   <data name="guide" xml:space="preserve">
     <value>Guide</value>
   </data>
+  <data name="install" xml:space="preserve">
+    <value>Installer</value>
+  </data>
   <data name="la" xml:space="preserve">
     <value>Admin Local</value>
   </data>
@@ -506,6 +509,9 @@
   </data>
   <data name="opengp" xml:space="preserve">
     <value>Editeur de strat. du groupe</value>
+  </data>
+  <data name="openimg" xml:space="preserve">
+    <value>Open an image</value>
   </data>
   <data name="openreg" xml:space="preserve">
     <value>Editeur de registre</value>
@@ -602,6 +608,9 @@
   </data>
   <data name="restore.short" xml:space="preserve">
     <value>Rest.</value>
+  </data>
+  <data name="securebootwarn" xml:space="preserve">
+    <value>Le Secure Boot est activé, vous devez désactiver le Secure Boot dans le BIOS pour démarrer correctement avec HackBGRT. Vous pouvez continuer, mais vous devez ajouter un certificat dans le BIOS. Voulez-vous continuer ?</value>
   </data>
   <data name="serial" xml:space="preserve">
     <value>Numéro de série</value>
@@ -716,6 +725,9 @@
   </data>
   <data name="unprog" xml:space="preserve">
     <value>Program. installés (Paramètres Windows)</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>Mettre à jour</value>
   </data>
   <data name="update.check" xml:space="preserve">
     <value>Verification...</value>
