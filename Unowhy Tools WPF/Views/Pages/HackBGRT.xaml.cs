@@ -218,7 +218,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     private async Task install()
     {
-        if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe"))
+        if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe"))
         {
             UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
 
@@ -248,7 +248,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             }
         }
 
-        if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe"))
+        if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe"))
         {
             await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
             if (HackBGRTInstalled)
@@ -256,24 +256,24 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                 await Task.Run(() =>
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe";
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe";
                     p.StartInfo.Arguments = "batch uninstall";
-                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
                     p.WaitForExit();
                 });
             }
-            if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\config.txt"))
+            if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\config.txt"))
             {
-                File.Delete(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\config.txt");
+                File.Delete(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\config.txt");
             }
 
             string configtemplate = "boot=MS\r\nimage= x=%x% y=%y% path=\\EFI\\HackBGRT\\splash.bmp\r\nresolution=0x0\r\nlog=1\r\ndebug=0";
             configtemplate = configtemplate.Replace("%x%", xnumbox.Value.ToString());
             configtemplate = configtemplate.Replace("%y%", ynumbox.Value.ToString());
-            File.WriteAllText(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\config.txt", configtemplate);
+            File.WriteAllText(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\config.txt", configtemplate);
 
             if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp"))
             {
@@ -288,7 +288,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             await Task.Run(() =>
             {
                 Process p = new Process();
-                p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe";
+                p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe";
                 p.StartInfo.Arguments = "batch install enable-entry";
                 p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT";
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -338,6 +338,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                     linepost = linepost.Replace(" ", "\n");
                     File.WriteAllText(letter + ":\\EFI\\HackBGRT\\configtemp.txt", linepost);
                     var lines2 = File.ReadAllLines(letter + ":\\EFI\\HackBGRT\\configtemp.txt");
+                    File.Delete(letter + ":\\EFI\\HackBGRT\\configtemp.txt");
                     foreach (var line2 in lines2.Where(s => s.StartsWith("x=")))
                     {
                         string linepost2 = line2.Replace("x=", "");
