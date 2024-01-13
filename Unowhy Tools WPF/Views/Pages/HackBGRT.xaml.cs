@@ -369,9 +369,9 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
             if (pathFValue != "null")
             {
-                if (File.Exists(":" + pathFValue))
+                if (File.Exists( letter + ":" + pathFValue))
                 {
-                    BitmapImage preimage = new BitmapImage(new Uri(":" + pathFValue));
+                    BitmapImage preimage = new BitmapImage(new Uri(letter + ":" + pathFValue));
                     BitmapImage postimage = ResizeImage(preimage);
                     imagepreview.Source = postimage;
                     ImageApply = postimage;
