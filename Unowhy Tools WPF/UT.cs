@@ -658,7 +658,7 @@ namespace Unowhy_Tools
                         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
                         await Task.Delay(100);
-                        ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
+                        ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir, true);
                         await Task.Delay(100);
                     }
                 }
@@ -744,7 +744,7 @@ namespace Unowhy_Tools
                         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
                         await MainWindow.USSwB("Preparing UTS... (Extracting)");
                         await Task.Delay(100);
-                        ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir);
+                        ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir, true);
                         await Task.Delay(100);
                         await MainWindow.USSwB("Preparing UTS... (Starting)");
                         await UT.serv.start("UTS");
@@ -1017,10 +1017,20 @@ namespace Unowhy_Tools
                 Directory.Delete("temp", true);
             }
             await MainWindow.USS("Cleanup... (Checking)");
-            if (Directory.Exists(utpath + "\\Unowhy Tools\\Temps"))
+            if (Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\Drivers"))
             {
-                await MainWindow.USSwB("Cleanup... (%temp%\\Unowhy Tools\\Temps)");
-                Directory.Delete(utpath + "\\Unowhy Tools\\Temps", true);
+                await MainWindow.USSwB("Cleanup... (%temp%\\Unowhy Tools\\Temps\\Drivers)");
+                Directory.Delete(utpath + "\\Unowhy Tools\\Temps\\Drivers", true);
+            }
+            if (Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\Service"))
+            {
+                await MainWindow.USSwB("Cleanup... (%temp%\\Unowhy Tools\\Temps\\Service)");
+                Directory.Delete(utpath + "\\Unowhy Tools\\Temps\\Service", true);
+            }
+            if (Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\Update"))
+            {
+                await MainWindow.USSwB("Cleanup... (%temp%\\Unowhy Tools\\Temps\\Update)");
+                Directory.Delete(utpath + "\\Unowhy Tools\\Temps\\Update", true);
             }
         }
 
