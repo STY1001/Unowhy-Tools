@@ -275,14 +275,14 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             configtemplate = configtemplate.Replace("%y%", ynumbox.Value.ToString());
             File.WriteAllText(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\config.txt", configtemplate);
 
-            if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp"))
+            if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\splash.bmp"))
             {
-                File.Delete(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp");
+                File.Delete(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\splash.bmp");
             }
 
             if (ImageApply != null)
             {
-                await ExportToBmp(ImageApply, UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp");
+                await ExportToBmp(ImageApply, UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\splash.bmp");
             }
 
             await Task.Run(() =>
@@ -290,7 +290,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                 Process p = new Process();
                 p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe";
                 p.StartInfo.Arguments = "batch install enable-entry";
-                p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT";
+                p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT";
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.StartInfo.CreateNoWindow = true;
                 p.Start();
