@@ -99,7 +99,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         };
         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
         debus.Text = "Extracting...";
-        ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
+        ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update", true);
         string pre = utemp + "\\update";
         string post = Directory.GetCurrentDirectory();
 

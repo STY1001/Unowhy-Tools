@@ -95,7 +95,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             string dest = uttemps + "\\Drivers";
             await Task.Run(() =>
             {
-                ZipFile.ExtractToDirectory(source, dest);
+                ZipFile.ExtractToDirectory(source, dest, true);
             });
             await UT.waitstatus.open(await UT.GetLang("wait.restore"), "download.png");
             List<string> list = new List<string>();

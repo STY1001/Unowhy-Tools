@@ -219,7 +219,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         labtext.Text = await UT.GetLang("update.ext");
         labimg.Source = UT.GetImgSource("zip.png");
         await Task.Delay(1000);
-        ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
+        ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update", true);
 
         labtext.Text = await UT.GetLang("update.updating");
         labimg.Source = UT.GetImgSource("update.png");

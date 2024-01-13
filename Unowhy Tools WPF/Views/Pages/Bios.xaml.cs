@@ -137,7 +137,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
-                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "download.png");
             };
             await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw"), UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe", progress, cancellationToken.Token);
         }
@@ -148,7 +148,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
-                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "download.png");
             };
             await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("afuwin"), UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
             await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
@@ -157,7 +157,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 Dispatcher.Invoke(() =>
                 {
-                    ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU");
+                    ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU", true);
                 });
             });
         }
@@ -168,7 +168,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
-                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "download.png");
             };
             await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("amidewin"), UT.utpath + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
             await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
@@ -177,7 +177,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 Dispatcher.Invoke(() =>
                 {
-                    ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
+                    ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE", true);
                 });
             });
         }

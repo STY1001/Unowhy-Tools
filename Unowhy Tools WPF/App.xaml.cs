@@ -289,7 +289,7 @@ public partial class App
                     Console.WriteLine("Done");
                     Console.WriteLine("Extracting...");
                     await Task.Delay(1000);
-                    ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
+                    ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update", true);
                     Console.WriteLine("Updating...");
                     await Task.Delay(1000);
                     string pre = utemp + "\\update";
@@ -326,7 +326,7 @@ public partial class App
                     Console.WriteLine("Done");
                     Console.WriteLine("Extracting...");
                     await Task.Delay(1000);
-                    ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update");
+                    ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update", true);
                     Console.WriteLine("Updating...");
                     await Task.Delay(1000);
                     string pre = utemp + "\\update";

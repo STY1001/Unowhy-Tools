@@ -149,7 +149,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                 string dest = rttemps;
                 await Task.Run(() =>
                 {
-                    ZipFile.ExtractToDirectory(source, dest);
+                    ZipFile.ExtractToDirectory(source, dest, true);
                 });
                 await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
                 if (File.Exists(rttemps + "\\UT-Restore.exe"))
