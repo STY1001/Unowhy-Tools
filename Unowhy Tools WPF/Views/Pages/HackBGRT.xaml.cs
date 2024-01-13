@@ -306,12 +306,12 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
     private async Task Check()
     {
         string letter = "null";
-        if (Directory.Exists("A:\\"))
+        if (!Directory.Exists("A:\\") || Directory.Exists("A:\\EFI"))
         {
             await UT.RunMin("mountvol", "a: /s");
             letter = "A";
         }
-        else if (Directory.Exists("B:\\"))
+        else if (!Directory.Exists("B:\\") || Directory.Exists("A:\\EFI"))
         {
             await UT.RunMin("mountvol", "b: /s");
             letter = "B";
