@@ -19,6 +19,8 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Shapes;
+using System.IO.Compression;
+using System.Threading;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -216,8 +218,39 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     private async Task install()
     {
+        if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe"))
+        {
+            UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
+
+            if (UT.CheckInternet())
+            {
+                var progress = new System.Progress<double>();
+                var cancellationToken = new CancellationTokenSource();
+                string dl = await UT.GetLang("wait.download");
+                progress.ProgressChanged += async (sender, value) =>
+                {
+                    await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
+                };
+                await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("hackbgrt"), UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT.zip", progress, cancellationToken.Token);
+                await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
+                await Task.Delay(1000);
+                await Task.Run(() =>
+                {
+                    Dispatcher.Invoke(() =>
+                    {
+                        ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT", true);
+                    });
+                });
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            }
+        }
+
         if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe"))
         {
+            await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
             if (HackBGRTInstalled)
             {
                 await Task.Run(() =>
@@ -225,45 +258,48 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                     Process p = new Process();
                     p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe";
                     p.StartInfo.Arguments = "batch uninstall";
-                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe";
-                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    p.StartInfo.CreateNoWindow = true;
-                    p.Start();
-                    p.WaitForExit();
-                });
-
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\config.txt"))
-                {
-                    File.Delete(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\config.txt");
-                }
-
-                string configtemplate = "boot=MS\r\nimage= x=%x% y=%y% path=\\EFI\\HackBGRT\\splash.bmp\r\nresolution=0x0\r\nlog=1\r\ndebug=0";
-                configtemplate = configtemplate.Replace("%x%", xnumbox.Value.ToString());
-                configtemplate = configtemplate.Replace("%y%", ynumbox.Value.ToString());
-                File.WriteAllText(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\config.txt", configtemplate);
-
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp"))
-                {
-                    File.Delete(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp");
-                }
-
-                if (ImageApply != null)
-                {
-                    await ExportToBmp(ImageApply, UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp");
-                }
-
-                await Task.Run(() =>
-                {
-                    Process p = new Process();
-                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe";
-                    p.StartInfo.Arguments = "batch install enable-entry";
-                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
                     p.Start();
                     p.WaitForExit();
                 });
             }
+            if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\config.txt"))
+            {
+                File.Delete(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\config.txt");
+            }
+
+            string configtemplate = "boot=MS\r\nimage= x=%x% y=%y% path=\\EFI\\HackBGRT\\splash.bmp\r\nresolution=0x0\r\nlog=1\r\ndebug=0";
+            configtemplate = configtemplate.Replace("%x%", xnumbox.Value.ToString());
+            configtemplate = configtemplate.Replace("%y%", ynumbox.Value.ToString());
+            File.WriteAllText(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\config.txt", configtemplate);
+
+            if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp"))
+            {
+                File.Delete(UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp");
+            }
+
+            if (ImageApply != null)
+            {
+                await ExportToBmp(ImageApply, UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\splash.bmp");
+            }
+
+            await Task.Run(() =>
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT\\setup.exe";
+                p.StartInfo.Arguments = "batch install enable-entry";
+                p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temp\\HackBGRT";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.Start();
+                p.WaitForExit();
+            });
+
+            await UT.waitstatus.close();
+            UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
+            Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
         }
     }
 
