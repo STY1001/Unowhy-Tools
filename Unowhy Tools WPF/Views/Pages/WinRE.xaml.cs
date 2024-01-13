@@ -177,7 +177,7 @@ public partial class WinRE : INavigableView<DashboardViewModel>
             string dl = await UT.GetLang("wait.download");
             progress.ProgressChanged += async (sender, value) =>
             {
-                await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "clouddl.png");
             };
             var cancellationToken = new CancellationTokenSource();
             await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("winre"), "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
