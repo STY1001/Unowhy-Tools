@@ -317,8 +317,11 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             letter = "B";
         }
 
+        UT.Write2Log("Checking HackBGRT on letter: " +letter);
+
         if (File.Exists(letter + ":\\EFI\\HackBGRT\\config.txt"))
         {
+            UT.Write2Log("HackBGRT is installed");
             HackBGRTInstalled = true;
 
             var lines = File.ReadAllLines(letter + ":\\EFI\\HackBGRT\\config.txt");
@@ -329,7 +332,6 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
             try
             {
-
                 foreach (var line in lines.Where(s => s.StartsWith("image=")))
                 {
                     var linepost = line.Replace("image= ", "");
@@ -340,23 +342,30 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                     {
                         string linepost2 = line2.Replace("x=", "");
                         xFValue = linepost2;
+                        UT.Write2Log("x: " + xFValue);
                     }
                     foreach (var line2 in lines2.Where(s => s.StartsWith("y=")))
                     {
                         string linepost2 = line2.Replace("y=", "");
                         yFValue = linepost2;
+                        UT.Write2Log("y: " + yFValue);
                     }
                     foreach (var line2 in lines2.Where(s => s.StartsWith("path=")))
                     {
                         string linepost2 = line2.Replace("path=", "");
                         pathFValue = linepost2;
+                        UT.Write2Log("path: " + pathFValue);
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                UT.Write2Log("Error while reading config.txt: " + e.Message);
             }
+
+            UT.Write2Log("x: " + xFValue);
+            UT.Write2Log("y: " + yFValue);
+            UT.Write2Log("path: " + pathFValue);
 
             if (pathFValue != "null")
             {
@@ -375,6 +384,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         }
         else
         {
+            UT.Write2Log("HackBGRT is not installed");
             HackBGRTInstalled = false;
         }
     }
