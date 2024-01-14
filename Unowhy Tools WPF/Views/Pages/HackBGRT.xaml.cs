@@ -21,6 +21,7 @@ using System.Linq;
 using System.Windows.Shapes;
 using System.IO.Compression;
 using System.Threading;
+using System.Reflection;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -55,7 +56,8 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
-        await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
+        await UT.DeployBack(typeof(Customize), RootGrid, RootBorder);
+        await Task.Delay(1000);
         UT.anim.BorderZoomOut(RootBorder);
     }
 
@@ -64,6 +66,8 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         ViewModel = viewModel;
 
         InitializeComponent();
+
+        applylang();
     }
 
     public async Task applylang()
@@ -148,6 +152,42 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         xnumbox.Value = 0;
         ynumbox.Value = 0;
         positioncenter.IsChecked = true;
+
+        var fadeInAnimation = new DoubleAnimation
+        {
+            From = 0,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.30),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var zoomAnimation1 = new DoubleAnimation
+        {
+            From = 0.9,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var zoomAnimation2 = new DoubleAnimation
+        {
+            From = 0.9,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        Storyboard.SetTarget(fadeInAnimation, centeranim);
+        Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+        Storyboard.SetTarget(zoomAnimation1, centeranim);
+        Storyboard.SetTarget(zoomAnimation2, centeranim);
+        Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+        Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+        var storyboard = new Storyboard();
+        storyboard.Children.Add(fadeInAnimation);
+        storyboard.Children.Add(zoomAnimation1);
+        storyboard.Children.Add(zoomAnimation2);
+        storyboard.Begin();
     }
 
     private void positionupper_Click(object sender, RoutedEventArgs e)
@@ -155,6 +195,42 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         xnumbox.Value = 0;
         ynumbox.Value = -200;
         positionupper.IsChecked = true;
+
+        var fadeInAnimation = new DoubleAnimation
+        {
+            From = 0,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.30),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var zoomAnimation1 = new DoubleAnimation
+        {
+            From = 1.1,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var zoomAnimation2 = new DoubleAnimation
+        {
+            From = 1.1,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        Storyboard.SetTarget(fadeInAnimation, upperanim);
+        Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+        Storyboard.SetTarget(zoomAnimation1, upperanim);
+        Storyboard.SetTarget(zoomAnimation2, upperanim);
+        Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+        Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+        var storyboard = new Storyboard();
+        storyboard.Children.Add(fadeInAnimation);
+        storyboard.Children.Add(zoomAnimation1);
+        storyboard.Children.Add(zoomAnimation2);
+        storyboard.Begin();
     }
 
     public BitmapImage ResizeImage(BitmapImage imgToResize)
@@ -199,7 +275,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     private async void installbtn_Click(object sender, RoutedEventArgs e)
     {
-        if (UT.DialogQShow("Install/Update", "customize.png"))
+        if (UT.DialogQShow(installbtnlab.Text, "customize.png"))
         {
             string sb = await UT.RunReturn("powershell", "Confirm-SecureBootUEFI");
             if (sb.Contains("True"))
@@ -323,6 +399,9 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         {
             UT.Write2Log("HackBGRT is installed");
             HackBGRTInstalled = true;
+            removebtn.IsEnabled = true;
+            installbtnimg.Source = UT.GetImgSource("customize.png");
+            installbtnlab.Text = await UT.GetLang("update");
 
             var lines = File.ReadAllLines(letter + ":\\EFI\\HackBGRT\\config.txt");
 
@@ -387,6 +466,9 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         {
             UT.Write2Log("HackBGRT is not installed");
             HackBGRTInstalled = false;
+            removebtn.IsEnabled = false;
+            installbtnimg.Source = UT.GetImgSource("download.png");
+            installbtnlab.Text = await UT.GetLang("install");
         }
     }
 }

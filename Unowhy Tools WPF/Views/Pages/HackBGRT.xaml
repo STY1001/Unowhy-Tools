@@ -59,8 +59,8 @@
                                       Width="1920"
                                       Background="Black"
                                       ClipToBounds="True">
-                                    <Image x:Name="imagepreview" 
-                                           RenderTransformOrigin="0.5,0.5"/>
+                                    <Image x:Name="imagepreview"
+                                           RenderTransformOrigin="0.5,0.5" />
                                     <Image Width="45"
                                            Height="45"
                                            VerticalAlignment="Bottom"
@@ -92,7 +92,7 @@
                                 <RadioButton Content="Center (For fullscreen image)"
                                              x:Name="positioncenter"
                                              GroupName="positionpreset"
-                                             Click="positioncenter_Click"/>
+                                             Click="positioncenter_Click" />
                                 <Border Background="#0affffff"
                                         CornerRadius="8,8,8,8"
                                         Width="184"
@@ -102,7 +102,14 @@
                                             Background="#0aff0000"
                                             Margin="4"
                                             BorderThickness="1"
-                                            BorderBrush="#a0ff0000" />
+                                            BorderBrush="#a0ff0000"
+                                            x:Name="centeranim"
+                                            RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1"
+                                                            ScaleY="1" />
+                                        </Border.RenderTransform>
+                                    </Border>
                                 </Border>
                             </Grid>
                             <ui:NavigationSeparator Grid.Column="1"
@@ -115,7 +122,7 @@
                                 <RadioButton Content="Upper (For small logo)"
                                              x:Name="positionupper"
                                              GroupName="positionpreset"
-                                             Click="positionupper_Click"/>
+                                             Click="positionupper_Click" />
                                 <Border Background="#0affffff"
                                         CornerRadius="8,8,8,8"
                                         Width="184"
@@ -123,9 +130,16 @@
                                         Grid.Row="1">
                                     <Border CornerRadius="8,8,8,8"
                                             Background="#0aff0000"
-                                            Margin="55,20,55,50"
+                                            Margin="60,23,60,46"
                                             BorderThickness="1"
-                                            BorderBrush="#a0ff0000" />
+                                            BorderBrush="#a0ff0000"
+                                            x:Name="upperanim"
+                                            RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1"
+                                                            ScaleY="1" />
+                                        </Border.RenderTransform>
+                                    </Border>
                                 </Border>
                             </Grid>
                         </Grid>
@@ -169,7 +183,6 @@
                                                 Grid.Column="3"
                                                 x:Name="xslider"
                                                 Value="0"
-                                                
                                                 ValueChanged="xslider_ValueChanged"
                                                 SmallChange="1" />
                                     </Grid>
@@ -186,7 +199,7 @@
                                                    FontFamily="Segoe UI SemiBold"
                                                    VerticalAlignment="Center"
                                                    Grid.Column="0"
-                                                   Margin="0,0,8,0"/>
+                                                   Margin="0,0,8,0" />
                                         <ui:NumberBox Maximum="1080"
                                                       Minimum="-1080"
                                                       VerticalAlignment="Center"
@@ -242,7 +255,7 @@
                                                    FontSize="13"
                                                    FontWeight="Medium"
                                                    Text="Open an image"
-                                                   x:Name="openimgbtnlab"/>
+                                                   x:Name="openimgbtnlab" />
                                     </StackPanel>
                                 </Grid>
                             </StackPanel>
@@ -275,7 +288,7 @@
                                                    FontSize="13"
                                                    FontWeight="Medium"
                                                    Text="Remove"
-                                                   x:Name="removebtnlab"/>
+                                                   x:Name="removebtnlab" />
                                     </StackPanel>
                                 </Grid>
                             </StackPanel>
@@ -299,14 +312,14 @@
                                            Grid.Column="0"
                                            Height="32"
                                            VerticalAlignment="Top"
-                                           x:Name="installbtnimg"/>
+                                           x:Name="installbtnimg" />
                                     <StackPanel VerticalAlignment="Center"
                                                 Grid.Column="2">
                                         <TextBlock Margin="0"
                                                    FontSize="13"
                                                    FontWeight="Medium"
                                                    Text="Install/Update"
-                                                   x:Name="installbtnlab"/>
+                                                   x:Name="installbtnlab" />
                                     </StackPanel>
                                 </Grid>
                             </StackPanel>
