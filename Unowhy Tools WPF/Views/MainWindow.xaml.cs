@@ -54,6 +54,7 @@ public partial class MainWindow : INavigationWindow
         pcinfo.Content = await UT.GetLang("titlepci");
         mes.Content = await UT.GetLang("titleedge");
         wds.Content = await UT.GetLang("titlewindef");
+        hackbgrt.Content = await UT.GetLang("titlehackbgrt");
     }
 
     public MainWindow(INavigationService navigationService, IPageService pageService, IThemeService themeService, ITaskBarService taskBarService, ISnackbarService snackbarService, IDialogService dialogService)

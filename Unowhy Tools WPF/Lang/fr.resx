@@ -330,6 +330,9 @@
   <data name="descenwhe" xml:space="preserve">
     <value>Activer Windows Hello for Enterprise. Si vous voulez déverrouiller votre PC avec le lecteur d'empreintes digitales et si il est désactivé par l'administrateur, faites ceci.</value>
   </data>
+  <data name="deschackbgrtset" xml:space="preserve">
+    <value>Paramètres de HackBGRT. HackBGRT est un petit loader EFI open source qui usurpe le logo UEFI pour Windows Boot Manager. Pour simplifier, c'est un logiciel pour changer le logo de démarrage de Windows, et avec Unowhy Tools, vous pouvez le faire avec une belle interface utilisateur</value>
+  </data>
   <data name="deschisdel" xml:space="preserve">
     <value>Désinstaller le logiciel inutile "HiSqool" (Dans : C:\Program Files\Unowhy)</value>
   </data>
@@ -443,6 +446,9 @@
   </data>
   <data name="guide" xml:space="preserve">
     <value>Guide</value>
+  </data>
+  <data name="hackbgrtset" xml:space="preserve">
+    <value>Paramètres de HackBGRT</value>
   </data>
   <data name="install" xml:space="preserve">
     <value>Installer</value>
@@ -689,6 +695,9 @@
   </data>
   <data name="titleedge" xml:space="preserve">
     <value>Paramètres Microsoft Edge</value>
+  </data>
+  <data name="titlehackbgrt" xml:space="preserve">
+    <value>Paramètres de HackBGRT</value>
   </data>
   <data name="titlehome" xml:space="preserve">
     <value>Accueil</value>

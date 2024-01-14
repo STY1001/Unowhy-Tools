@@ -190,6 +190,11 @@
                                        Height="0"
                                        Content="Restore from cloud"
                                        PageType="{x:Type pages:DrvCloud}" />
+                    <ui:NavigationItem x:Name="hackbgrt"
+                                       Visibility="Collapsed"
+                                       Height="0"
+                                       Content="HackBGRT settings"
+                                       PageType="{x:Type pages:HackBGRT}" />
                     <ui:NavigationSeparator Visibility="Collapsed" />
                     <ui:NavigationItem x:Name="settings"
                                        Content="Settings"

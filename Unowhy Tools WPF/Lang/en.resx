@@ -330,6 +330,9 @@
   <data name="descenwhe" xml:space="preserve">
     <value>Enable Windows Hello for Enterprise. If you want to unlock your PC with the fingerprint reader and if it's disabled by administrator, do this.</value>
   </data>
+  <data name="deschackbgrtset" xml:space="preserve">
+    <value>HackBGRT settings. HackBGRT is a small open source EFI loader that spoof UEFI logo for Windows Boot Manager. To simplify-it, it's a software to change Windows boot logo, and with Unowhy Tools, you can do it with beautiful UI</value>
+  </data>
   <data name="deschisdel" xml:space="preserve">
     <value>Uninstall the useless "HiSqool" software (In : C:\Program Files\Unowhy)</value>
   </data>
@@ -443,6 +446,9 @@
   </data>
   <data name="guide" xml:space="preserve">
     <value>Guide</value>
+  </data>
+  <data name="hackbgrtset" xml:space="preserve">
+    <value>HackBGRT settings</value>
   </data>
   <data name="install" xml:space="preserve">
     <value>Install</value>
@@ -689,6 +695,9 @@
   </data>
   <data name="titleedge" xml:space="preserve">
     <value>Microsoft Edge settings</value>
+  </data>
+  <data name="titlehackbgrt" xml:space="preserve">
+    <value>HackBGRT settings</value>
   </data>
   <data name="titlehome" xml:space="preserve">
     <value>Home</value>

@@ -197,6 +197,9 @@ public partial class Customize : INavigableView<DashboardViewModel>
         windefset_txt.Text = await UT.GetLang("windefset");
         windefset_desc.Text = await UT.GetLang("descwindefset");
         windefset_btn.Content = await UT.GetLang("open");
+        hackbgrtset_txt.Text = await UT.GetLang("hackbgrtset");
+        hackbgrtset_desc.Text = await UT.GetLang("deschackbgrtset");
+        hackbgrtset_btn.Content = await UT.GetLang("open");
     }
 
     public async Task CheckBTN(bool check)
