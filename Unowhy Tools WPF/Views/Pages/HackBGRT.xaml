@@ -60,7 +60,11 @@
                                       Background="Black"
                                       ClipToBounds="True">
                                     <Image x:Name="imagepreview"
-                                           RenderTransformOrigin="0.5,0.5" />
+                                           RenderTransformOrigin="0.5,0.5"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" 
+                                           RenderOptions.BitmapScalingMode="HighQuality"
+                                           Stretch="Fill" />
                                     <Image Width="45"
                                            Height="45"
                                            VerticalAlignment="Bottom"
@@ -69,10 +73,34 @@
                                 </Grid>
                             </Viewbox>
                         </Border>
+                        <Border Background="#0fffffff"
+                                CornerRadius="8,8,8,8"
+                                x:Name="EditImgBorder"
+                                MouseEnter="EditImgBorder_MouseEnter"
+                                MouseLeave="EditImgBorder_MouseLeave"
+                                MouseLeftButtonDown="EditImgBorder_MouseLeftButtonDown"
+                                Opacity="0">
+                            <Grid>
+                                <TextBlock Text="Click here to edit image"
+                                           FontSize="18"
+                                           Foreground="#ffffff"
+                                           FontFamily="Segoe UI SemiBold"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           Margin="0,0,0,0"
+                                           x:Name="editimglab" />
+                            </Grid>
+                        </Border>
                     </Grid>
                     <ui:NavigationSeparator Margin="10"
                                             Grid.Column="1" />
-                    <Grid Grid.Column="2">
+                    <Grid Grid.Column="2"
+                          x:Name="positiongrid"
+                          RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <ScaleTransform ScaleX="1"
+                                            ScaleY="1" />
+                        </Grid.RenderTransform>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="auto" />
@@ -219,6 +247,101 @@
                                     </Grid>
                                 </StackPanel>
                             </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="2"
+                          x:Name="editgrid"
+                          Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Button Content="⬅️"
+                                x:Name="returnbtn"
+                                Click="returnbtn_Click"
+                                Grid.Row="0" />
+                        <Grid Grid.Row="2">
+                            <StackPanel>
+                                <Grid Margin="0,10,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="0.4*" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="0.6*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="X (↔): "
+                                               FontSize="18"
+                                               Foreground="#ffffff"
+                                               FontFamily="Segoe UI SemiBold"
+                                               VerticalAlignment="Center"
+                                               Grid.Column="0" />
+                                    <ui:NumberBox VerticalAlignment="Center"
+                                                  Grid.Column="1"
+                                                  Value="0"
+                                                  ClearButtonEnabled="False"
+                                                  x:Name="xsizenumbox"
+                                                  Maximum="1920"
+                                                  Minimum="1"
+                                                  ValueChanged="xsizenumbox_ValueChanged"
+                                                  MouseDown="sizenumbox_MouseDown"/>
+                                    <Slider VerticalAlignment="Center"
+                                            Grid.Column="3"
+                                            Value="0"
+                                            SmallChange="1"
+                                            Maximum="1920"
+                                            Minimum="1"
+                                            x:Name="xsizeslider"
+                                            ValueChanged="xsizeslider_ValueChanged"
+                                            MouseUp="sizeslider_MouseUp"
+                                            PreviewMouseUp="sizeslider_MouseUp"/>
+                                </Grid>
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="0,10,0,0">
+                                    <ui:SymbolIcon Symbol="Link48"
+                                                   Filled="True"
+                                                   FontSize="24"
+                                                   Margin="10,0,0,0" />
+                                    <CheckBox Content="Keep aspect ratio"
+                                              x:Name="keepaspectratio"
+                                              VerticalAlignment="Center"
+                                              Margin="20,0,0,0" />
+                                </StackPanel>
+                                <Grid Margin="0,10,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="0.4*" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="0.6*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="Y (↕): "
+                                               FontSize="18"
+                                               Foreground="#ffffff"
+                                               FontFamily="Segoe UI SemiBold"
+                                               VerticalAlignment="Center"
+                                               Grid.Column="0"
+                                               Margin="0,0,8,0" />
+                                    <ui:NumberBox VerticalAlignment="Center"
+                                                  Grid.Column="1"
+                                                  Value="0"
+                                                  ClearButtonEnabled="False"
+                                                  x:Name="ysizenumbox"
+                                                  Maximum="1080"
+                                                  Minimum="1"
+                                                  ValueChanged="ysizenumbox_ValueChanged"
+                                                  MouseDown="sizenumbox_MouseDown"/>
+                                    <Slider VerticalAlignment="Center"
+                                            Grid.Column="3"
+                                            Value="0"
+                                            SmallChange="1"
+                                            Maximum="1080"
+                                            Minimum="1"
+                                            x:Name="ysizeslider"
+                                            ValueChanged="ysizeslider_ValueChanged"
+                                            MouseUp="sizeslider_MouseUp" 
+                                            PreviewMouseUp="sizeslider_MouseUp"/>
+                                </Grid>
+                            </StackPanel>
                         </Grid>
                     </Grid>
                 </Grid>

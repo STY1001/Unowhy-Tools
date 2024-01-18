@@ -22,6 +22,8 @@ using System.Windows.Shapes;
 using System.IO.Compression;
 using System.Threading;
 using System.Reflection;
+using System.Drawing.Drawing2D;
+using System.Drawing;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -33,6 +35,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
     UT.Data UTdata = new UT.Data();
     public bool utadeployed = false;
     public BitmapImage ImageApply;
+    public BitmapImage ImageSource;
     public bool HackBGRTInstalled;
 
     public DashboardViewModel ViewModel
@@ -76,7 +79,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         removebtnlab.Text = await UT.GetLang("uninstall");
     }
 
-    private void OpenImg_Click(object sender, RoutedEventArgs e)
+    private async void OpenImg_Click(object sender, RoutedEventArgs e)
     {
         using (var fb = new System.Windows.Forms.OpenFileDialog())
         {
@@ -88,11 +91,21 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             {
                 string imgpath = fb.FileName;
                 BitmapImage preimage = new BitmapImage(new Uri(imgpath));
-                BitmapImage postimage = ResizeImage(preimage);
-                imagepreview.Source = postimage;
-                ImageApply = postimage;
+                await UpdatePreview(preimage);
+                ImageSource = ResizeImage(preimage);
             }
         }
+    }
+
+    private async Task UpdatePreview(BitmapImage image)
+    {
+        image = ResizeImage(image);
+        imagepreview.Source = image;
+        imagepreview.Width = image.PixelWidth;
+        imagepreview.Height = image.PixelHeight;
+        xsizenumbox.Value = image.PixelWidth;
+        ysizenumbox.Value = image.PixelHeight;
+        ImageApply = image;
     }
 
     private void xnumbox_ValueChanged(object sender, RoutedEventArgs e)
@@ -139,7 +152,73 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
     {
         try
         {
-            ynumbox.Value = Math.Round(yslider.Value, 0);
+            ysizenumbox.Value = Math.Round(yslider.Value, 0);
+        }
+        catch (Exception)
+        {
+
+        }
+    }
+
+    private void xsizenumbox_ValueChanged(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            xsizeslider.Value = (double)xsizenumbox.Value;
+            if(keepaspectratio.IsChecked == true)
+            {
+                imagepreview.Height = (double)xsizenumbox.Value * (imagepreview.Height / imagepreview.Width);
+                imagepreview.Width = (double)xsizenumbox.Value;
+            }
+            else
+            {
+                imagepreview.Width = (double)xsizenumbox.Value;
+            }
+        }
+        catch (Exception)
+        {
+
+        }
+    }
+
+    private void xsizeslider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+        try
+        {
+            xsizenumbox.Value = Math.Round(xsizeslider.Value, 0);
+        }
+        catch (Exception)
+        {
+
+        }
+    }
+
+    private void ysizenumbox_ValueChanged(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            ysizeslider.Value = (double)ysizenumbox.Value;
+            if (keepaspectratio.IsChecked == true)
+            {
+                imagepreview.Width = (double)ysizenumbox.Value * (imagepreview.Width / imagepreview.Height);
+                imagepreview.Height = (double)ysizenumbox.Value;
+            }
+            else
+            {
+                imagepreview.Height = (double)ysizenumbox.Value;
+            }
+        }
+        catch (Exception)
+        {
+
+        }
+    }
+
+    private void ysizeslider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+        try
+        {
+            ysizenumbox.Value = Math.Round(ysizeslider.Value, 0);
         }
         catch (Exception)
         {
@@ -163,7 +242,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
         var zoomAnimation1 = new DoubleAnimation
         {
-            From = 0.9,
+            From = 0,
             To = 1,
             Duration = TimeSpan.FromSeconds(0.50),
             EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
@@ -171,7 +250,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
         var zoomAnimation2 = new DoubleAnimation
         {
-            From = 0.9,
+            From = 0,
             To = 1,
             Duration = TimeSpan.FromSeconds(0.50),
             EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
@@ -206,7 +285,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
         var zoomAnimation1 = new DoubleAnimation
         {
-            From = 1.1,
+            From = 2,
             To = 1,
             Duration = TimeSpan.FromSeconds(0.50),
             EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
@@ -214,7 +293,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
         var zoomAnimation2 = new DoubleAnimation
         {
-            From = 1.1,
+            From = 2,
             To = 1,
             Duration = TimeSpan.FromSeconds(0.50),
             EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
@@ -235,32 +314,28 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     public BitmapImage ResizeImage(BitmapImage imgToResize)
     {
-        int sourceWidth = imgToResize.PixelWidth;
-        int sourceHeight = imgToResize.PixelHeight;
+        if(imgToResize.Width > 1920 || imgToResize.Height > 1080)
+        {
+            double ratioX = 1920 / imgToResize.Width;
+            double ratioY = 1080 / imgToResize.Height;
+            double ratio = Math.Min(ratioX, ratioY);
 
-        double nPercent = 0;
-        double nPercentW = 0;
-        double nPercentH = 0;
+            int newWidth = (int)(imgToResize.Width * ratio);
+            int newHeight = (int)(imgToResize.Height * ratio);
 
-        nPercentW = ((double)1920 / (double)sourceWidth);
-        nPercentH = ((double)1080 / (double)sourceHeight);
+            BitmapImage resizedimage = new BitmapImage();
+            resizedimage.BeginInit();
+            resizedimage.UriSource = new Uri(imgToResize.UriSource.ToString());
+            resizedimage.DecodePixelWidth = newWidth;
+            resizedimage.DecodePixelHeight = newHeight;
+            resizedimage.EndInit();
 
-        if (nPercentH < nPercentW)
-            nPercent = nPercentH;
+            return resizedimage;
+        }
         else
-            nPercent = nPercentW;
-
-        int destWidth = (int)(sourceWidth * nPercent);
-        int destHeight = (int)(sourceHeight * nPercent);
-
-        BitmapImage b = new BitmapImage();
-        b.BeginInit();
-        b.UriSource = imgToResize.UriSource;
-        b.DecodePixelWidth = destWidth;
-        b.DecodePixelHeight = destHeight;
-        b.EndInit();
-
-        return b;
+        {
+            return imgToResize;
+        }
     }
 
     public async Task ExportToBmp(BitmapImage bitmapImage, string filePath)
@@ -452,9 +527,8 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                 if (File.Exists( letter + ":" + pathFValue))
                 {
                     BitmapImage preimage = new BitmapImage(new Uri(letter + ":" + pathFValue));
-                    BitmapImage postimage = ResizeImage(preimage);
-                    imagepreview.Source = postimage;
-                    ImageApply = postimage;
+                    await UpdatePreview(preimage);
+                    ImageSource = ResizeImage(preimage);
                 }
             }
             double.TryParse(xFValue, out double xResultF);
@@ -470,5 +544,244 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             installbtnimg.Source = UT.GetImgSource("download.png");
             installbtnlab.Text = await UT.GetLang("install");
         }
+    }
+
+    bool editdeployed = false;
+
+    private async void EditImgBorder_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (!editdeployed)
+        {
+            var fadeInAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.30),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            Storyboard.SetTarget(fadeInAnimation, EditImgBorder);
+            Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+            var storyboard = new Storyboard();
+            storyboard.Children.Add(fadeInAnimation);
+            storyboard.Begin();
+
+            await Task.Delay(300);
+
+            EditImgBorder.Opacity = 1;
+        }
+    }
+
+    private async void EditImgBorder_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+    {
+        if (!editdeployed)
+        {
+            var fadeOutAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.30),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            Storyboard.SetTarget(fadeOutAnimation, EditImgBorder);
+            Storyboard.SetTargetProperty(fadeOutAnimation, new PropertyPath(UIElement.OpacityProperty));
+            var storyboard = new Storyboard();
+            storyboard.Children.Add(fadeOutAnimation);
+            storyboard.Begin();
+
+            await Task.Delay(300);
+
+            EditImgBorder.Opacity = 0;
+        }
+    }
+
+    private async void EditImgBorder_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        editgrid.Visibility = Visibility.Visible;
+        {
+            var fadeAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.30),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            var zoomAnimation1 = new DoubleAnimation
+            {
+                From = 1,
+                To = 0.9,
+                Duration = TimeSpan.FromSeconds(0.50),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            var zoomAnimation2 = new DoubleAnimation
+            {
+                From = 1,
+                To = 0.9,
+                Duration = TimeSpan.FromSeconds(0.50),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            Storyboard.SetTarget(fadeAnimation, positiongrid);
+            Storyboard.SetTargetProperty(fadeAnimation, new PropertyPath(UIElement.OpacityProperty));
+            Storyboard.SetTarget(zoomAnimation1, positiongrid);
+            Storyboard.SetTarget(zoomAnimation2, positiongrid);
+            Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+            Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+            var storyboard = new Storyboard();
+            storyboard.Children.Add(fadeAnimation);
+            storyboard.Children.Add(zoomAnimation1);
+            storyboard.Children.Add(zoomAnimation2);
+            storyboard.Begin();
+        }
+
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            editgrid.RenderTransform = transform;
+            editgrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+
+        {
+            var fadeOutAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.30),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            Storyboard.SetTarget(fadeOutAnimation, EditImgBorder);
+            Storyboard.SetTargetProperty(fadeOutAnimation, new PropertyPath(UIElement.OpacityProperty));
+            var storyboard = new Storyboard();
+            storyboard.Children.Add(fadeOutAnimation);
+            storyboard.Begin();
+
+            await Task.Delay(300);
+
+            EditImgBorder.Opacity = 0;
+        }
+
+        editdeployed = true;
+        await Task.Delay(500);
+        positiongrid.Visibility = Visibility.Hidden;
+    }
+
+    private async void returnbtn_Click(object sender, RoutedEventArgs e)
+    {
+        positiongrid.Visibility = Visibility.Visible;
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -50,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            editgrid.RenderTransform = transform;
+            editgrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+        }
+
+        {
+            var fadeAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.30),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            var zoomAnimation1 = new DoubleAnimation
+            {
+                From = 0.9,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.50),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            var zoomAnimation2 = new DoubleAnimation
+            {
+                From = 0.9,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.50),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            Storyboard.SetTarget(fadeAnimation, positiongrid);
+            Storyboard.SetTargetProperty(fadeAnimation, new PropertyPath(UIElement.OpacityProperty));
+            Storyboard.SetTarget(zoomAnimation1, positiongrid);
+            Storyboard.SetTarget(zoomAnimation2, positiongrid);
+            Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+            Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+            var storyboard = new Storyboard();
+            storyboard.Children.Add(fadeAnimation);
+            storyboard.Children.Add(zoomAnimation1);
+            storyboard.Children.Add(zoomAnimation2);
+            storyboard.Begin();
+        }
+
+        await Task.Delay(500);
+        editgrid.Visibility = Visibility.Hidden;
+        editdeployed = false;
+    }
+
+    public BitmapImage ResizeImageManual(BitmapImage originalImage, double newWidth, double newHeight)
+    {
+        var resizedImage = new BitmapImage();
+        resizedImage.BeginInit();
+        resizedImage.DecodePixelWidth = (int)newWidth;
+        resizedImage.DecodePixelHeight = (int)newHeight;
+        resizedImage.CacheOption = BitmapCacheOption.OnLoad;
+        resizedImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+        resizedImage.UriSource = originalImage.UriSource;
+        resizedImage.EndInit();
+
+        return resizedImage;
+    }
+
+    private async void sizeslider_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        xsizenumbox.Value = imagepreview.Width;
+        ysizenumbox.Value = imagepreview.Height;
+        await EditImageUpdate();
+    }
+
+    public async Task EditImageUpdate()
+    {
+        UpdatePreview(ResizeImageManual(ImageSource, imagepreview.Width, imagepreview.Height));
+    }
+
+    private async void sizenumbox_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        await EditImageUpdate();
     }
 }
