@@ -152,7 +152,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
     {
         try
         {
-            ysizenumbox.Value = Math.Round(yslider.Value, 0);
+            ynumbox.Value = Math.Round(yslider.Value, 0);
         }
         catch (Exception)
         {
@@ -724,7 +724,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             {
                 From = 0.9,
                 To = 1,
-                Duration = TimeSpan.FromSeconds(0.50),
+                Duration = TimeSpan.FromSeconds(0.25),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
             };
 
@@ -732,7 +732,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             {
                 From = 0.9,
                 To = 1,
-                Duration = TimeSpan.FromSeconds(0.50),
+                Duration = TimeSpan.FromSeconds(0.25),
                 EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
             };
 
