@@ -616,6 +616,8 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                         BitmapImage preimage = new BitmapImage(new Uri(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp"));
                         await UpdatePreview(preimage);
                         ImageSource = ResizeImage(preimage);
+
+                        await UT.waitstatus.close();
                     }
                     else
                     {
