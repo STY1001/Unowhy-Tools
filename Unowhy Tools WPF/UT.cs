@@ -1288,6 +1288,11 @@ namespace Unowhy_Tools
                 Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT");
             }
 
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo"))
+            {
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo");
+            }
+
             if (!File.Exists(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt"))
             {
                 var f = File.CreateText(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
