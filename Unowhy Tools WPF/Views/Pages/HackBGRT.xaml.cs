@@ -165,7 +165,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         try
         {
             xsizeslider.Value = (double)xsizenumbox.Value;
-            if(keepaspectratio.IsChecked == true)
+            if (keepaspectratio.IsChecked == true)
             {
                 imagepreview.Height = (double)xsizenumbox.Value * (imagepreview.Height / imagepreview.Width);
                 imagepreview.Width = (double)xsizenumbox.Value;
@@ -314,7 +314,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     public BitmapImage ResizeImage(BitmapImage imgToResize)
     {
-        if(imgToResize.Width > 1920 || imgToResize.Height > 1080)
+        if (imgToResize.Width > 1920 || imgToResize.Height > 1080)
         {
             double ratioX = 1920 / imgToResize.Width;
             double ratioY = 1080 / imgToResize.Height;
@@ -380,7 +380,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                 string dl = await UT.GetLang("wait.download");
                 progress.ProgressChanged += async (sender, value) =>
                 {
-                    await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "download.png");
+                    await UT.waitstatus.open(dl + " (" + value.ToString("###") + "%)", "download.png");
                 };
                 await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("hackbgrt"), UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT.zip", progress, cancellationToken.Token);
                 await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
@@ -468,7 +468,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             letter = "B";
         }
 
-        UT.Write2Log("Checking HackBGRT on letter: " +letter);
+        UT.Write2Log("Checking HackBGRT on letter: " + letter);
 
         if (File.Exists(letter + ":\\EFI\\HackBGRT\\config.txt"))
         {
@@ -524,7 +524,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
             if (pathFValue != "null")
             {
-                if (File.Exists( letter + ":" + pathFValue))
+                if (File.Exists(letter + ":" + pathFValue))
                 {
                     BitmapImage preimage = new BitmapImage(new Uri(letter + ":" + pathFValue));
                     await UpdatePreview(preimage);
@@ -543,6 +543,91 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             removebtn.IsEnabled = false;
             installbtnimg.Source = UT.GetImgSource("download.png");
             installbtnlab.Text = await UT.GetLang("install");
+
+            if (UT.DialogQShow(await UT.GetLang("nohackbgrt"), "ic.png"))
+            {
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys"))
+                {
+                    UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
+
+                    if (UT.CheckInternet())
+                    {
+                        var progress = new System.Progress<double>();
+                        var cancellationToken = new CancellationTokenSource();
+                        string dl = await UT.GetLang("wait.download");
+                        progress.ProgressChanged += async (sender, value) =>
+                        {
+                            await UT.waitstatus.open(dl + " (" + value.ToString("###") + "%)", "download.png");
+                        };
+                        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("changelogo"), UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe", progress, cancellationToken.Token);
+
+                        progress = new System.Progress<double>();
+                        cancellationToken = new CancellationTokenSource();
+                        dl = await UT.GetLang("wait.download");
+                        progress.ProgressChanged += async (sender, value) =>
+                        {
+                            await UT.waitstatus.open(dl + " (" + value.ToString("###") + "%)", "download.png");
+                        };
+                        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("afuwin"), UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
+                        await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
+                        await Task.Delay(1000);
+                        await Task.Run(() =>
+                        {
+                            Dispatcher.Invoke(() =>
+                            {
+                                ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU", true);
+                            });
+                        });
+                    }
+                    else
+                    {
+                        UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+                    }
+                }
+
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys"))
+                {
+                    await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe";
+                        p.StartInfo.Arguments = $"\"{UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom"}\" /O";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU";
+                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        p.StartInfo.CreateNoWindow = true;
+                        p.Start();
+                        p.WaitForExit();
+                    });
+                    if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom"))
+                    {
+                        await UT.waitstatus.open(await UT.GetLang("wait.extract"), "upload.png");
+                        await Task.Run(() =>
+                        {
+                            Process p = new Process();
+                            p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe";
+                            p.StartInfo.Arguments = "/i dump.rom /e splash.bmp";
+                            p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo";
+                            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                            p.StartInfo.CreateNoWindow = true;
+                            p.Start();
+                            p.WaitForExit();
+                        });
+                        BitmapImage preimage = new BitmapImage(new Uri(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp"));
+                        await UpdatePreview(preimage);
+                        ImageSource = ResizeImage(preimage);
+                    }
+                    else
+                    {
+                        await UT.waitstatus.close();
+                        UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                    }
+                }
+                else
+                {
+                    UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                }
+            }
         }
     }
 
@@ -783,5 +868,58 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
     private async void sizenumbox_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
         await EditImageUpdate();
+    }
+
+    private async void removebtn_Click(object sender, RoutedEventArgs e)
+    {
+        if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe"))
+        {
+            UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
+
+            if (UT.CheckInternet())
+            {
+                var progress = new System.Progress<double>();
+                var cancellationToken = new CancellationTokenSource();
+                string dl = await UT.GetLang("wait.download");
+                progress.ProgressChanged += async (sender, value) =>
+                {
+                    await UT.waitstatus.open(dl + " (" + value.ToString("###") + "%)", "download.png");
+                };
+                await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("hackbgrt"), UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT.zip", progress, cancellationToken.Token);
+                await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
+                await Task.Delay(1000);
+                await Task.Run(() =>
+                {
+                    Dispatcher.Invoke(() =>
+                    {
+                        ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT", true);
+                    });
+                });
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            }
+        }
+
+        if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe"))
+        {
+            await UT.waitstatus.open(await UT.GetLang("wait.delete"), "delete.png");
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe";
+                    p.StartInfo.Arguments = "batch uninstall";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                });
+
+            await UT.waitstatus.close();
+            UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
+            Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+        }
     }
 }

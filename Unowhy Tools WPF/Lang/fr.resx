@@ -495,6 +495,9 @@
   <data name="no" xml:space="preserve">
     <value>Non</value>
   </data>
+  <data name="nohackbgrt" xml:space="preserve">
+    <value>HackBGRT n'est pas installé. Voulez-vous récupérer l'écran de démarrage du BIOS ? (Cela prendra quelques minutes)</value>
+  </data>
   <data name="noid" xml:space="preserve">
     <value>Le numéro de série de votre PC n'a pas été trouvé, assurez-vous d'avoir correctement saisi votre numéro de série</value>
   </data>
