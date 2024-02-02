@@ -59,12 +59,18 @@
                                       Width="1920"
                                       Background="Black"
                                       ClipToBounds="True">
-                                    <Image x:Name="imagepreview"
-                                           RenderTransformOrigin="0.5,0.5"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center" 
-                                           RenderOptions.BitmapScalingMode="HighQuality"
-                                           Stretch="Fill" />
+                                    <Border HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            BorderBrush="#ff0000"
+                                            BorderThickness="1"
+                                            CornerRadius="8,8,8,8">
+                                        <Image x:Name="imagepreview"
+                                               RenderTransformOrigin="0.5,0.5"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               RenderOptions.BitmapScalingMode="HighQuality"
+                                               Stretch="Fill" />
+                                    </Border>
                                     <Image Width="45"
                                            Height="45"
                                            VerticalAlignment="Bottom"
