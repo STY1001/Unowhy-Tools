@@ -935,6 +935,99 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     private async void EditImgBorder_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
-        await Check();
+        if (UT.DialogQShow(await UT.GetLang("nohackbgrt"), "ic.png"))
+        {
+            if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys"))
+            {
+                UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
+
+                if (UT.CheckInternet())
+                {
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    string dl = await UT.GetLang("wait.download");
+                    progress.ProgressChanged += async (sender, value) =>
+                    {
+                        await UT.waitstatus.open(dl + " (" + value.ToString("###") + "%)", "download.png");
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("changelogo"), UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe", progress, cancellationToken.Token);
+
+                    progress = new System.Progress<double>();
+                    cancellationToken = new CancellationTokenSource();
+                    dl = await UT.GetLang("wait.download");
+                    progress.ProgressChanged += async (sender, value) =>
+                    {
+                        await UT.waitstatus.open(dl + " (" + value.ToString("###") + "%)", "download.png");
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("afuwin"), UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
+                    await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
+                    await Task.Delay(1000);
+                    await Task.Run(() =>
+                    {
+                        Dispatcher.Invoke(() =>
+                        {
+                            ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU", true);
+                        });
+                    });
+                }
+                else
+                {
+                    UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+                }
+            }
+
+            if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys"))
+            {
+                await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom"))
+                {
+                    File.Delete(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom");
+                }
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp"))
+                {
+                    File.Delete(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp");
+                }
+                await Task.Run(() =>
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe";
+                    p.StartInfo.Arguments = $"\"{UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom"}\" /O";
+                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU";
+                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    p.WaitForExit();
+                });
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom"))
+                {
+                    await UT.waitstatus.open(await UT.GetLang("wait.extract"), "upload.png");
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe";
+                        p.StartInfo.Arguments = "/i dump.rom /e splash.bmp";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo";
+                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        p.StartInfo.CreateNoWindow = true;
+                        p.Start();
+                        p.WaitForExit();
+                    });
+                    BitmapImage preimage = new BitmapImage(new Uri(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp"));
+                    await UpdatePreview(preimage);
+                    ImageSource = ResizeImage(preimage);
+
+                    await UT.waitstatus.close();
+                }
+                else
+                {
+                    await UT.waitstatus.close();
+                    UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                }
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+            }
+        }
     }
 }
