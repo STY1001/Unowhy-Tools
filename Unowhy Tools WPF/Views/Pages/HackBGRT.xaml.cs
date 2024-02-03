@@ -588,6 +588,14 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                 if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys"))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
+                    if(File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom"))
+                    {
+                        File.Delete(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom");
+                    }
+                    if(File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp"))
+                    {
+                        File.Delete(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp");
+                    }
                     await Task.Run(() =>
                     {
                         Process p = new Process();
@@ -923,5 +931,10 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
             Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
         }
+    }
+
+    private async void EditImgBorder_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        await Check();
     }
 }

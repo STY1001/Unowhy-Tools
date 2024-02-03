@@ -85,6 +85,7 @@
                                 MouseEnter="EditImgBorder_MouseEnter"
                                 MouseLeave="EditImgBorder_MouseLeave"
                                 MouseLeftButtonDown="EditImgBorder_MouseLeftButtonDown"
+                                MouseRightButtonDown="EditImgBorder_MouseRightButtonDown"
                                 Opacity="0">
                             <Grid>
                                 <TextBlock Text="Click here to edit image"
