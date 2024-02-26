@@ -1122,31 +1122,38 @@ namespace Unowhy_Tools
                 {
                     await MainWindow.USSwB("Preparing Tray... (Creating)");
 
-                    TaskScheduler.TaskDefinition taskDefinition = taskService.NewTask();
-                    taskDefinition.RegistrationInfo.Date = DateTime.Now;
-                    taskDefinition.RegistrationInfo.Author = "Unowhy Tools";
-                    taskDefinition.RegistrationInfo.Description = "Launch Unowhy Tools Tray at user logon. If your account isn't set as admin, tray startup can fail. Go to Unowhy Tools and set your account as admin.";
-                    taskDefinition.RegistrationInfo.URI = @"\STY1001\Unowhy Tools\Unowhy Tools Tray Launch";
-                    taskDefinition.Principal.GroupId = new SecurityIdentifier("S-1-5-32-544").ToString();
-                    taskDefinition.Principal.RunLevel = TaskScheduler.TaskRunLevel.Highest;
-                    taskDefinition.Settings.DisallowStartIfOnBatteries = false;
-                    taskDefinition.Settings.StopIfGoingOnBatteries = false;
-                    taskDefinition.Settings.AllowHardTerminate = true;
-                    taskDefinition.Settings.StartWhenAvailable = true;
-                    taskDefinition.Settings.RunOnlyIfNetworkAvailable = false;
-                    taskDefinition.Settings.IdleSettings.StopOnIdleEnd = true;
-                    taskDefinition.Settings.IdleSettings.RestartOnIdle = false;
-                    taskDefinition.Settings.Enabled = true;
-                    taskDefinition.Settings.Hidden = false;
-                    taskDefinition.Settings.RunOnlyIfIdle = false;
-                    taskDefinition.Settings.DisallowStartOnRemoteAppSession = false;
-                    taskDefinition.Settings.UseUnifiedSchedulingEngine = true;
-                    taskDefinition.Settings.WakeToRun = false;
-                    taskDefinition.Settings.ExecutionTimeLimit = TimeSpan.Zero;
-                    taskDefinition.Settings.Priority = System.Diagnostics.ProcessPriorityClass.Normal;
-                    taskDefinition.Triggers.Add(new TaskScheduler.LogonTrigger { Enabled = true });
-                    taskDefinition.Actions.Add(new TaskScheduler.ExecAction(Process.GetCurrentProcess().MainModule.FileName, "-tray", Directory.GetCurrentDirectory()));
-                    taskService.RootFolder.RegisterTaskDefinition(@"Unowhy Tools Tray Launch", taskDefinition);
+                    try
+                    {
+                        TaskScheduler.TaskDefinition taskDefinition = taskService.NewTask();
+                        taskDefinition.RegistrationInfo.Date = DateTime.Now;
+                        taskDefinition.RegistrationInfo.Author = "Unowhy Tools";
+                        taskDefinition.RegistrationInfo.Description = "Launch Unowhy Tools Tray at user logon. If your account isn't set as admin, tray startup can fail. Go to Unowhy Tools and set your account as admin.";
+                        taskDefinition.RegistrationInfo.URI = @"\STY1001\Unowhy Tools\Unowhy Tools Tray Launch";
+                        taskDefinition.Principal.GroupId = new SecurityIdentifier("S-1-5-32-544").ToString();
+                        taskDefinition.Principal.RunLevel = TaskScheduler.TaskRunLevel.Highest;
+                        taskDefinition.Settings.DisallowStartIfOnBatteries = false;
+                        taskDefinition.Settings.StopIfGoingOnBatteries = false;
+                        taskDefinition.Settings.AllowHardTerminate = true;
+                        taskDefinition.Settings.StartWhenAvailable = true;
+                        taskDefinition.Settings.RunOnlyIfNetworkAvailable = false;
+                        taskDefinition.Settings.IdleSettings.StopOnIdleEnd = true;
+                        taskDefinition.Settings.IdleSettings.RestartOnIdle = false;
+                        taskDefinition.Settings.Enabled = true;
+                        taskDefinition.Settings.Hidden = false;
+                        taskDefinition.Settings.RunOnlyIfIdle = false;
+                        taskDefinition.Settings.DisallowStartOnRemoteAppSession = false;
+                        taskDefinition.Settings.UseUnifiedSchedulingEngine = true;
+                        taskDefinition.Settings.WakeToRun = false;
+                        taskDefinition.Settings.ExecutionTimeLimit = TimeSpan.Zero;
+                        taskDefinition.Settings.Priority = System.Diagnostics.ProcessPriorityClass.Normal;
+                        taskDefinition.Triggers.Add(new TaskScheduler.LogonTrigger { Enabled = true });
+                        taskDefinition.Actions.Add(new TaskScheduler.ExecAction(Process.GetCurrentProcess().MainModule.FileName, "-tray", Directory.GetCurrentDirectory()));
+                        taskService.RootFolder.RegisterTaskDefinition(@"Unowhy Tools Tray Launch", taskDefinition);
+                    }
+                    catch
+                    {
+                        
+                    }
 
                     try
                     {
@@ -1368,8 +1375,8 @@ namespace Unowhy_Tools
         public static async Task<bool> CheckTray()
         {
             bool trayrun = false;
-            string tl = await RunReturn("powershell", "start-process -FilePath \"tasklist\" -ArgumentList \"/v\" -nonewwindow");
-            if (tl.Contains("Unowhy Tools Tray"))
+            string tl = await RunReturn("powershell", "Get-WmiObject Win32_Process -Filter \"name = 'Unowhy Tools.exe'\" | Select-Object CommandLine");
+            if (tl.Contains("-tray"))
             {
                 trayrun = true;
                 Write2Log("UT Tray is already running");
