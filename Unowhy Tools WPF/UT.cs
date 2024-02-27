@@ -1632,8 +1632,14 @@ namespace Unowhy_Tools
             UTdata.ram = GetLine(ram, 2).TrimEnd();
             await MainWindow.USS("Hardware Info... (Done)");
 
+            string HostName = UTdata.HostName;
 
-            if (UTdata.UserID.Contains(UTdata.HostName.ToLower()))
+            if(UTdata.HostName.Length > 15)
+            {
+                HostName = UTdata.HostName.Substring(0, 15);
+            }
+
+            if (UTdata.UserID.Contains(HostName.ToLower()))
             {
                 UTdata.User = UTdata.UserID.Replace(UTdata.HostName.ToLower() + "\\", "");
             }
