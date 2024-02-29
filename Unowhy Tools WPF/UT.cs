@@ -127,12 +127,10 @@ using System.Threading;
 using System.Drawing;
 using TaskScheduler = Microsoft.Win32.TaskScheduler;
 using System.Windows;
-using System.Linq;
 using System.Windows.Interop;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using System.Security.Policy;
-using System.Windows.Shapes;
+using System.Management;
 
 namespace Unowhy_Tools
 {
@@ -1152,7 +1150,7 @@ namespace Unowhy_Tools
                     }
                     catch
                     {
-                        
+
                     }
 
                     try
@@ -1577,64 +1575,65 @@ namespace Unowhy_Tools
             else return false;
         }
 
-        public static async Task Check()
+        public static async Task CheckHardware()
         {
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-
             await MainWindow.USS("Checking... (Getting Hardware Info)");
             Write2Log("Getting PC Infos");
 
             await MainWindow.USS("Hardware Info... (Name)");
+
+            await MainWindow.USS("Hardware Info... (Name)");
             string hn = await RunReturn("hostname", "");
             UTdata.HostName = hn.Replace("\n", "").Replace("\r", "").Replace(" ", "");
+
             await MainWindow.USS("Hardware Info... (Manufacturer)");
-            string mf = await RunReturn("wmic", "computersystem get manufacturer");
-            UTdata.mf = GetLine(mf, 2).TrimEnd();
+            UTdata.mf = GetWMI("Win32_ComputerSystem", "Manufacturer");
+
             await MainWindow.USS("Hardware Info... (Model)");
-            string md = await RunReturn("wmic", "computersystem get model");
-            UTdata.md = GetLine(md, 2).TrimEnd();
+            UTdata.md = GetWMI("Win32_ComputerSystem", "Model");
+
             await MainWindow.USS("Hardware Info... (SKU)");
-            string sku = await RunReturn("wmic", "computersystem get systemskunumber");
-            UTdata.sku = GetLine(sku, 2).TrimEnd();
+            UTdata.sku = GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
+
             await MainWindow.USS("Hardware Info... (Motherboard Manufacturer)");
-            string mbmf = await RunReturn("wmic", "baseboard get manufacturer");
-            UTdata.mbmf = GetLine(mbmf, 2).TrimEnd();
+            UTdata.mbmf = GetWMI("Win32_BaseBoard", "Manufacturer");
+
             await MainWindow.USS("Hardware Info... (Motherboard Model)");
-            string mbmd = await RunReturn("wmic", "baseboard get product");
-            UTdata.mbmd = GetLine(mbmd, 2).TrimEnd();
+            UTdata.mbmd = GetWMI("Win32_BaseBoard", "Product");
+
             await MainWindow.USS("Hardware Info... (Motherboard Version)");
-            string mbv = await RunReturn("wmic", "baseboard get version");
-            UTdata.mbv = GetLine(mbv, 2).TrimEnd();
+            UTdata.mbv = GetWMI("Win32_BaseBoard", "Version");
+
             await MainWindow.USS("Hardware Info... (OS)");
-            string os = await RunReturn("wmic", "os get caption");
-            UTdata.os = GetLine(os, 2).TrimEnd();
+            UTdata.os = GetWMI("Win32_OperatingSystem", "Caption");
+
             await MainWindow.USS("Hardware Info... (BIOS Manufacturer)");
-            string biosmf = await RunReturn("wmic", "bios get manufacturer");
-            UTdata.biosmf = GetLine(biosmf, 2).TrimEnd();
+            UTdata.biosmf = GetWMI("Win32_BIOS", "Manufacturer");
+
             await MainWindow.USS("Hardware Info... (BIOS Variant)");
-            string bios = await RunReturn("wmic", "bios get smbiosbiosversion");
-            UTdata.bios = GetLine(bios, 2).TrimEnd();
+            UTdata.bios = GetWMI("Win32_BIOS", "SMBIOSBIOSVersion");
+
             await MainWindow.USS("Hardware Info... (BIOS Version)");
-            string biosv = await RunReturn("wmic", "bios get smbiosbiosversion");
-            UTdata.biosv = GetLine(biosv, 2).TrimEnd();
+            UTdata.biosv = GetWMI("Win32_BIOS", "SMBIOSBIOSVersion");
+
             await MainWindow.USS("Hardware Info... (BIOS Date)");
-            string biosd = await RunReturn("wmic", "bios get releasedate");
-            biosd = GetLine(biosd, 2).TrimEnd();
+            string biosd = GetWMI("Win32_BIOS", "ReleaseDate");
             UTdata.biosd = DateTime.ParseExact(biosd.Substring(0, 14), "yyyyMMddHHmmss", null).ToString("MM/dd/yyyy");
+
             await MainWindow.USS("Hardware Info... (Serial Number)");
-            string sn = await RunReturn("wmic", "bios get serialnumber");
-            UTdata.sn = GetLine(sn, 2).TrimEnd();
+            UTdata.sn = GetWMI("Win32_BIOS", "SerialNumber");
+
             await MainWindow.USS("Hardware Info... (CPU)");
-            string cpu = await RunReturn("wmic", "cpu get name");
-            UTdata.cpu = GetLine(cpu, 2).TrimEnd();
+            UTdata.cpu = GetWMI("Win32_Processor", "Name");
+
             await MainWindow.USS("Hardware Info... (RAM)");
-            string ram = await RunReturn("wmic", "computersystem get totalphysicalmemory");
-            UTdata.ram = GetLine(ram, 2).TrimEnd();
+            UTdata.ram = GetWMI("Win32_ComputerSystem", "TotalPhysicalMemory");
+
             await MainWindow.USS("Hardware Info... (Done)");
 
             string HostName = UTdata.HostName;
 
-            if(UTdata.HostName.Length > 15)
+            if (UTdata.HostName.Length > 15)
             {
                 HostName = UTdata.HostName.Substring(0, 15);
             }
@@ -1668,7 +1667,10 @@ namespace Unowhy_Tools
             Write2Log(UTdata.ram);
 
             Write2Log("Done");
+        }
 
+        public static async Task Check()
+        {
             await MainWindow.USS("Checking... (Getting Software Info)");
 
             await MainWindow.USS("Software Info... (Users and Groups lang)");
@@ -2189,6 +2191,17 @@ namespace Unowhy_Tools
             #endregion
 
             Write2Log("====== End ======");
+        }
+
+        public static string GetWMI(string classname, string propertyname)
+        {
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher($"SELECT {propertyname} FROM {classname}");
+            ManagementObjectCollection result = searcher.Get();
+            foreach (ManagementObject obj in result)
+            {
+                return obj[propertyname]?.ToString();
+            }
+            return string.Empty;
         }
 
         public static async Task DlFilewithProgress(string url, string path, IProgress<double> progress, CancellationToken token)

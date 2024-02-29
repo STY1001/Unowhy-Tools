@@ -652,6 +652,7 @@ public partial class MainWindow : INavigationWindow
                 await USS("Loading... (Checking Files)");
                 bool fs = await UT.FirstStart();
                 await USS("Loading... (Checking System)");
+                await UT.CheckHardware();
                 await UT.Check();
                 await USS("Loading... (Checking Unowhy Tools Service)");
                 await UT.UTS.UTScheck();
