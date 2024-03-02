@@ -631,6 +631,8 @@ public partial class About : INavigableView<DashboardViewModel>
         }
         if(eeldclick >= 5)
         {
+            eeldclick = 0;
+
             LogoDesc.Text = "Unowhy Tools ne sera jamais finit tant que Pétasse sera là";
             LogoCredit.Text = "";
             await Task.Delay(2500);
@@ -642,7 +644,7 @@ public partial class About : INavigableView<DashboardViewModel>
         }
     }
 
-    int eelutvllick = 0;
+    int eelutvllick = 3;
     private async void UTVerLogo_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
         if (eelutvllick < 0)
@@ -651,6 +653,8 @@ public partial class About : INavigableView<DashboardViewModel>
         }
         if (eelutvllick >= 0)
         {
+            eelutvllick = 0;
+
             UTVerLogo.Source = UT.GetImgSource("UTB.png");
             await Task.Delay(500);
             UTVerLogo.Source = UT.GetImgSource("UTS.png");
@@ -672,6 +676,8 @@ public partial class About : INavigableView<DashboardViewModel>
         }
         if(eecstyleft >= 10)
         {
+            eecstyleft = 0;
+
             ContribSuperPote.Visibility = Visibility.Visible;
             {
                 DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -736,6 +742,8 @@ public partial class About : INavigableView<DashboardViewModel>
         }
         if (eecstyright >= 10)
         {
+            eecstyright = 0; 
+
             ContribBibou.Visibility = Visibility.Visible;
             {
                 DoubleAnimation opacityAnimation = new DoubleAnimation

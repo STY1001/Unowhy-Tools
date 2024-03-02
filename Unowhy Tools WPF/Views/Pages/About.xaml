@@ -146,7 +146,7 @@
                                                    Foreground="#B7FFFFFF"
                                                    FontFamily="Segoe UI SemiBold"
                                                    Text="The all-in-one tool for your Unowhy Y13 !"
-                                                   MouseDown="LogoDesc_MouseDown"/>
+                                                   MouseDown="LogoDesc_MouseDown" />
                                         <TextBlock FontSize="15"
                                                    Margin="0,0,5,0"
                                                    x:Name="LogoCredit"
@@ -203,7 +203,7 @@
                                                    Grid.Column="0"
                                                    RenderOptions.BitmapScalingMode="HighQuality"
                                                    x:Name="UTVerLogo"
-                                                   MouseDown="UTVerLogo_MouseDown"/>
+                                                   MouseDown="UTVerLogo_MouseDown" />
                                             <TextBlock Text="Unowhy Tools version --.-- (Build ----------)"
                                                        TextWrapping="Wrap"
                                                        Foreground="#ffffff"
@@ -466,8 +466,8 @@
                                         <TextBlock FontSize="12"
                                                    Foreground="#bebebe"
                                                    Text="sty1001.fr"
-                                                   FontFamily="Segoe UI" 
-                                                   x:Name="WebsiteName"/>
+                                                   FontFamily="Segoe UI"
+                                                   x:Name="WebsiteName" />
                                     </StackPanel>
                                 </Grid>
                             </ui:CardAction>
@@ -500,7 +500,7 @@
                                                    Foreground="#bebebe"
                                                    Text="{}{unohelp}"
                                                    FontFamily="Segoe UI"
-                                                   x:Name="DiscordName"/>
+                                                   x:Name="DiscordName" />
                                     </StackPanel>
                                 </Grid>
                             </ui:CardAction>
