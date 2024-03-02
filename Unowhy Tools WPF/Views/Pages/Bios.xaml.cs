@@ -53,7 +53,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         ExpAFU.IsExpanded = false;
         ExpAMIDE.IsExpanded = false;
 
-        await CheckBTN(false);
+        await CheckBTN(false, "none");
 
         foreach (UIElement element in RootGrid2.Children)
         {
@@ -93,11 +93,11 @@ public partial class Bios : INavigableView<DashboardViewModel>
         }
     }
 
-    public async Task CheckBTN(bool check)
+    public async Task CheckBTN(bool check, string step)
     {
         if (check)
         {
-            await UT.Check();
+            await UT.Check(step);
         }
         mfbox.PlaceholderText = UTdata.mf; // /SM
         mdbox.PlaceholderText = UTdata.md; // /SV

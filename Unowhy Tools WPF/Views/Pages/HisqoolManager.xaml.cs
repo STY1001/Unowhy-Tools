@@ -36,11 +36,11 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         hsqm_delete_txt.Text = await UT.GetLang("delserv");
     }
 
-    public async Task CheckBTN(bool check)
+    public async Task CheckBTN(bool check, string step)
     {
         if (check)
         {
-            await UT.Check();
+            await UT.Check(step);
         }
         hsqm_delete_txt.Foreground = new SolidColorBrush(enabled);
         hsqm_disable_txt.Foreground = new SolidColorBrush(enabled);
@@ -123,7 +123,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     public async void Init(object sender, EventArgs e)
     {
         applylang();
-        await CheckBTN(false);
+        await CheckBTN(false, "none");
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
@@ -133,7 +133,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
 
-        await CheckBTN(false);
+        await CheckBTN(false, "none");
 
         foreach (UIElement element in RootStack.Children)
         {
@@ -179,7 +179,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
             await UT.serv.start("HiSqoolManager");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "hsqm");
             await UT.waitstatus.close();
             if(!hsqm_start.IsEnabled)
             {
@@ -200,7 +200,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
             await UT.serv.stop("HiSqoolManager");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "hsqm");
             await UT.waitstatus.close();
             if (!hsqm_stop.IsEnabled)
             {
@@ -221,7 +221,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
             await UT.serv.auto("HiSqoolManager");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "hsqm");
             await UT.waitstatus.close();
             if (!hsqm_enable.IsEnabled)
             {
@@ -242,7 +242,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
             await UT.serv.dis("HiSqoolManager");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "hsqm");
             await UT.waitstatus.close();
             if (!hsqm_disable.IsEnabled)
             {
@@ -263,7 +263,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
             await UT.serv.del("HiSqoolManager");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "hsqm");
             await UT.waitstatus.close();
             if (!hsqm_stop.IsEnabled)
             {

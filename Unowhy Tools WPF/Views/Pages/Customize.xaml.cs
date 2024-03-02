@@ -202,11 +202,11 @@ public partial class Customize : INavigableView<DashboardViewModel>
         hackbgrtset_btn.Content = await UT.GetLang("open");
     }
 
-    public async Task CheckBTN(bool check)
+    public async Task CheckBTN(bool check, string step)
     {
         if (check)
         {
-            await UT.Check();
+            await UT.Check(step);
         }
         if (UTdata.Admin == true) adminset.IsEnabled = false;
         else adminset.IsEnabled = true;
@@ -219,7 +219,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     public async void Init(object sender, EventArgs e)
     {
         applylang();
-        await CheckBTN(false);
+        await CheckBTN(false, "none");
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
@@ -231,7 +231,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
 
         await UT.UnDeployBack();
 
-        await CheckBTN(false);
+        await CheckBTN(false, "none");
 
         foreach (UIElement element in RootStack.Children)
         {
@@ -277,7 +277,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
             await UT.RunMin("net", $"localgroup {UTdata.AdminsName} /add \"{UTdata.User}\"");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "admins");
             await UT.waitstatus.close();
             if (!adminset.IsEnabled)
             {
@@ -298,7 +298,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\OEM\\Device\\Capture\" /v \"NoPhysicalCameraLED\" /t REG_DWORD /d \"1\" /f");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "cpo");
             await UT.waitstatus.close();
             if (!camoverena.IsEnabled)
             {
@@ -319,7 +319,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v \"VerboseStatus\" /t REG_DWORD /d \"1\" /f");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "verbose");
             await UT.waitstatus.close();
             if (!verbstatena.IsEnabled)
             {

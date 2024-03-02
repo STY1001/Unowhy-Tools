@@ -55,11 +55,11 @@ public partial class Delete : INavigableView<DashboardViewModel>
         entf_btn.Content = await UT.GetLang("delete");
     }
 
-    public async Task CheckBTN(bool check)
+    public async Task CheckBTN(bool check, string step)
     {
         if (check)
         {
-            await UT.Check();
+            await UT.Check(step);
         }
         entu.IsEnabled = true;
         hsq.IsEnabled = true;
@@ -104,7 +104,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     public async void Init(object sender, EventArgs e)
     {
         applylang();
-        await CheckBTN(false);
+        await CheckBTN(false, "none");
         await CheckFolderSize();
     }
 
@@ -117,7 +117,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
 
         await UT.UnDeployBack();
 
-        await CheckBTN(false);
+        await CheckBTN(false, "none");
         
         foreach (UIElement element in RootStack.Children)
         {
@@ -172,7 +172,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.RunMin("net", "user ENT /delete");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "entuser");
             await UT.waitstatus.close();
             if (!entu.IsEnabled)
             {
@@ -197,7 +197,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             });
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "folders");
             await UT.waitstatus.close();
             if (!hsq.IsEnabled)
             {
@@ -218,7 +218,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.RunMin("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/leave\" -nonewwindow");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "azure");
             await UT.waitstatus.close();
             if (!aad.IsEnabled)
             {
@@ -240,7 +240,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.RunMin("cmd", "/w /c rmdir /s /q \"C:\\Program Files\\Unowhy\\Hisqool manager\"");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "folders");
             await UT.waitstatus.close();
             if (!hsmqf.IsEnabled)
             {
@@ -262,7 +262,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Program Files\\Unowhy\\TO_INSTALL\"");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "folders");
             await UT.waitstatus.close();
             if (!tif.IsEnabled)
             {
@@ -283,7 +283,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\ProgramData\\RIDF\"");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "folders");
             await UT.waitstatus.close();
             if (!ridff.IsEnabled)
             {
@@ -304,7 +304,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Windows\\System32\\OEM\"");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "folders");
             await UT.waitstatus.close();
             if (!oemf.IsEnabled)
             {
@@ -325,7 +325,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\ProgramData\\ENT\"");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-            await CheckBTN(true);
+            await CheckBTN(true, "folders");
             await UT.waitstatus.close();
             if (!entf.IsEnabled)
             {

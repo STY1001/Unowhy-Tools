@@ -1481,26 +1481,35 @@ namespace Unowhy_Tools
             return lines[line2].Replace("\n", "").Replace("\r", "");
         }
 
-        public static async Task<string> GetLang(string name)
+        public static ResXResourceSet resxLang;
+        public static async Task LangConfig()
         {
-            string resxFile = @".\lang\en.resx";
             try
             {
-                string enresx = @".\lang\en.resx";
-                string frresx = @".\lang\fr.resx";
                 string lang = await UT.Config.Get("Lang");
-                if (lang == "EN") resxFile = enresx;
-                else if (lang == "FR") resxFile = frresx;
-                ResXResourceSet resxSet1 = new ResXResourceSet(resxFile);
-                Write2Log("Get lang " + name + " => " + resxSet1.GetString(name));
-                return resxSet1.GetString(name);
+                if (lang == "EN")
+                {
+                    resxLang = new ResXResourceSet(@".\lang\en.resx");
+                }
+                else if (lang == "FR")
+                {
+                    resxLang = new ResXResourceSet(@".\lang\fr.resx");
+                }
+                else
+                {
+                    resxLang = new ResXResourceSet(@".\lang\en.resx");
+                }
             }
             catch
             {
-                ResXResourceSet resxSet1 = new ResXResourceSet(resxFile);
-                Write2Log("Get lang " + name + " => " + resxSet1.GetString(name));
-                return resxSet1.GetString(name);
+                resxLang = new ResXResourceSet(@".\lang\en.resx");
             }
+        }
+
+        public static async Task<string> GetLang(string name)
+        {
+            Write2Log("Get lang " + name + " => " + resxLang.GetString(name));
+            return resxLang.GetString(name);
         }
 
         public async static Task RunMin(string file, string args)
@@ -1575,7 +1584,7 @@ namespace Unowhy_Tools
             else return false;
         }
 
-        public static async Task CheckHardware()
+        public static async Task OneTimeCheck()
         {
             await MainWindow.USS("Checking... (Getting Hardware Info)");
             Write2Log("Getting PC Infos");
@@ -1667,10 +1676,7 @@ namespace Unowhy_Tools
             Write2Log(UTdata.ram);
 
             Write2Log("Done");
-        }
 
-        public static async Task Check()
-        {
             await MainWindow.USS("Checking... (Getting Software Info)");
 
             await MainWindow.USS("Software Info... (Users and Groups lang)");
@@ -1701,494 +1707,1003 @@ namespace Unowhy_Tools
             }
 
             Write2Log("=> " + UTdata.AdminsName);
+        }
 
+        public static async Task Check(string step)
+        {
             Write2Log("====== Dynamic Buttons ======");
+            Write2Log("Step: " + step);
 
-            await MainWindow.USS("Software Info... (HSQM)");
-
-            #region Hisqool Manager
-
-            Write2Log("=== HSM service ===");
-            bool hsme = await UT.serv.exist("HiSqoolManager");
-            if (hsme)
+            if (step.Contains("all"))
             {
-                ServiceController sc = new ServiceController();
-                sc.ServiceName = "HiSqoolManager";
+                await MainWindow.USS("Software Info... (HSQM)");
 
-                if (sc.StartType == ServiceStartMode.Automatic)
+                #region Hisqool Manager
+
+                Write2Log("=== HSM service ===");
+                bool hsme = await UT.serv.exist("HiSqoolManager");
+                if (hsme)
                 {
-                    if (sc.Status == ServiceControllerStatus.Running)
+                    ServiceController sc = new ServiceController();
+                    sc.ServiceName = "HiSqoolManager";
+
+                    if (sc.StartType == ServiceStartMode.Automatic)
                     {
-                        UTdata.HSMRunning = true;
-                        UTdata.HSMEnabled = true;
-                        UTdata.HSMExist = true;
-                        UTdata.HSMExeExist = true;
-                        Write2Log("HSM is running");
+                        if (sc.Status == ServiceControllerStatus.Running)
+                        {
+                            UTdata.HSMRunning = true;
+                            UTdata.HSMEnabled = true;
+                            UTdata.HSMExist = true;
+                            UTdata.HSMExeExist = true;
+                            Write2Log("HSM is running");
+                        }
+                        else
+                        {
+                            UTdata.HSMRunning = false;
+                            UTdata.HSMEnabled = true;
+                            UTdata.HSMExist = true;
+                            UTdata.HSMExeExist = true;
+                            Write2Log("HSM is stopped");
+                        }
                     }
                     else
                     {
                         UTdata.HSMRunning = false;
-                        UTdata.HSMEnabled = true;
+                        UTdata.HSMEnabled = false;
                         UTdata.HSMExist = true;
                         UTdata.HSMExeExist = true;
-                        Write2Log("HSM is stopped");
+                        Write2Log("HSM is disabled");
+                    }
+                    if (!File.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager\\HiSqoolManager.exe"))
+                    {
+                        UTdata.HSMRunning = true;
+                        UTdata.HSMEnabled = true;
+                        UTdata.HSMExist = true;
+                        UTdata.HSMExeExist = false;
+                        Write2Log("HSM is deleted");
                     }
                 }
                 else
                 {
                     UTdata.HSMRunning = false;
                     UTdata.HSMEnabled = false;
-                    UTdata.HSMExist = true;
-                    UTdata.HSMExeExist = true;
-                    Write2Log("HSM is disabled");
-                }
-                if (!File.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager\\HiSqoolManager.exe"))
-                {
-                    UTdata.HSMRunning = true;
-                    UTdata.HSMEnabled = true;
-                    UTdata.HSMExist = true;
+                    UTdata.HSMExist = false;
                     UTdata.HSMExeExist = false;
-                    Write2Log("HSM is deleted");
+                    Write2Log("HSM services is not present");
                 }
-            }
-            else
-            {
-                UTdata.HSMRunning = false;
-                UTdata.HSMEnabled = false;
-                UTdata.HSMExist = false;
-                UTdata.HSMExeExist = false;
-                Write2Log("HSM services is not present");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
+                Write2Log("=== End ===" + Environment.NewLine);
 
-            #endregion
+                #endregion
 
-            await MainWindow.USS("Software Info... (Azure)");
+                await MainWindow.USS("Software Info... (Azure)");
 
-            #region Azure
+                #region Azure
 
-            string preazure = await RunReturn("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow");
-            string azure = GetLine(preazure, 6);
+                string preazure = await RunReturn("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow");
+                string azure = GetLine(preazure, 6);
 
-            Write2Log("=== Azure AD ===");
-            if (azure.Contains("NO"))
-            {
-                UTdata.AAD = false;
-                Write2Log("Azure AD joined: NO");
-            }
-            else
-            {
-                UTdata.AAD = true;
-                Write2Log("Azure AD joined: YES");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
-
-            #endregion
-
-            await MainWindow.USS("Software Info... (Admins)");
-
-            #region Admins
-
-            string preadmins = await RunReturn("net", $"localgroup {UTdata.AdminsName}");
-            string admins = preadmins.ToLower();
-
-            Write2Log("=== Admins ===");
-            if (admins.Contains(UTdata.User))
-            {
-                UTdata.Admin = true;
-                Write2Log("User is admin");
-            }
-            else
-            {
-                UTdata.Admin = false;
-                Write2Log("User is not admin");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
-
-            #endregion
-
-            await MainWindow.USS("Software Info... (Folders)");
-
-            #region Folders
-
-            Write2Log("=== Folders ===");
-            if (Directory.Exists("C:\\ProgramData\\RIDF") == false)
-            {
-                UTdata.RIDFFolderExist = false;
-                Write2Log("RIDF: False");
-            }
-            else
-            {
-                UTdata.RIDFFolderExist = true;
-                Write2Log("RIDF: True");
-            }
-            if (Directory.Exists("C:\\ProgramData\\ENT") == false)
-            {
-                UTdata.ENTFolderExist = false;
-                Write2Log("ENT: False");
-            }
-            else
-            {
-                UTdata.ENTFolderExist = true;
-                Write2Log("ENT: True");
-            }
-            if (Directory.Exists("C:\\Windows\\system32\\OEM") == false)
-            {
-                UTdata.OEMFolderExist = false;
-                Write2Log("OEM: False");
-            }
-            else
-            {
-                UTdata.OEMFolderExist = true;
-                Write2Log("OEM: True");
-            }
-            if (Directory.Exists("C:\\Program Files\\Unowhy\\TO_INSTALL") == false)
-            {
-                UTdata.TIFolderExist = false;
-                Write2Log("TO_INSTALL: False");
-            }
-            else
-            {
-                UTdata.TIFolderExist = true;
-                Write2Log("TO_INSTALL: True");
-            }
-            if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager") == false)
-            {
-                UTdata.HSQMFolderExist = false;
-                Write2Log("Hisqool Manager: False");
-            }
-            else
-            {
-                UTdata.HSQMFolderExist = true;
-                Write2Log("Hisqool Manager: True");
-            }
-            if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
-            {
-                UTdata.HSQFolderExist = false;
-                Write2Log("Hisqool: False");
-            }
-            else
-            {
-                UTdata.HSQFolderExist = true;
-                Write2Log("Hisqool: True");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
-
-            #endregion
-
-            await MainWindow.USS("Software Info... (ENT User)");
-
-            #region ENT user
-
-            string users = await RunReturn("net", "user");
-
-            Write2Log("=== ./ENT ===");
-            if (users.Contains("ENT"))
-            {
-                UTdata.ENTUser = true;
-                Write2Log("ENT User is present");
-            }
-            else
-            {
-                UTdata.ENTUser = false;
-                Write2Log("ENT User is not present");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
-
-            #endregion
-
-            await MainWindow.USS("Software Info... (WHE)");
-
-            #region Windows Hello Enterprise
-
-            Write2Log("=== Win Hello Ent ===");
-            Write2Log("Open Key");
-            RegistryKey whe1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork");
-            //RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
-            RegistryKey whe3 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock");
-            Write2Log("Open Key End");
-            if (whe1 == null || /*whe2 == null ||*/ whe3 == null)
-            {
-                UTdata.WHE = false;
-                Write2Log("WHE No Key");
-            }
-            else
-            {
-                Write2Log("Open Val");
-                var val5 = whe3.GetValue("DynamicLock");
-                //string val2 = whe2.GetValue("Domain Accounts");
-                var val1 = whe1.GetValue("Enabled");
-                var val3 = whe1.GetValue("RequireSecurityDevice");
-                //string val4 = whe1.GetValue("UseCertificateForOnPremAuth").ToString();
-                Write2Log("Open Val End");
-
-                if (val1 == null || val3 == null || val5 == null)
+                Write2Log("=== Azure AD ===");
+                if (azure.Contains("NO"))
                 {
-                    UTdata.WHE = false;
-                    Write2Log("WHE No Value");
+                    UTdata.AAD = false;
+                    Write2Log("Azure AD joined: NO");
                 }
                 else
                 {
-                    string val21 = val1.ToString();
-                    string val23 = val3.ToString();
-                    string val25 = val5.ToString();
-                    Write2Log("Read Val");
-                    if (val21.Contains("1") && /*val2.Contains("1") &&*/ val23.Contains("1") && /*val4.Contains("1") &&*/ val25.Contains("1"))
+                    UTdata.AAD = true;
+                    Write2Log("Azure AD joined: YES");
+                }
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (Admins)");
+
+                #region Admins
+
+                string preadmins = await RunReturn("net", $"localgroup {UTdata.AdminsName}");
+                string admins = preadmins.ToLower();
+
+                Write2Log("=== Admins ===");
+                if (admins.Contains(UTdata.User))
+                {
+                    UTdata.Admin = true;
+                    Write2Log("User is admin");
+                }
+                else
+                {
+                    UTdata.Admin = false;
+                    Write2Log("User is not admin");
+                }
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (Folders)");
+
+                #region Folders
+
+                Write2Log("=== Folders ===");
+                if (Directory.Exists("C:\\ProgramData\\RIDF") == false)
+                {
+                    UTdata.RIDFFolderExist = false;
+                    Write2Log("RIDF: False");
+                }
+                else
+                {
+                    UTdata.RIDFFolderExist = true;
+                    Write2Log("RIDF: True");
+                }
+                if (Directory.Exists("C:\\ProgramData\\ENT") == false)
+                {
+                    UTdata.ENTFolderExist = false;
+                    Write2Log("ENT: False");
+                }
+                else
+                {
+                    UTdata.ENTFolderExist = true;
+                    Write2Log("ENT: True");
+                }
+                if (Directory.Exists("C:\\Windows\\system32\\OEM") == false)
+                {
+                    UTdata.OEMFolderExist = false;
+                    Write2Log("OEM: False");
+                }
+                else
+                {
+                    UTdata.OEMFolderExist = true;
+                    Write2Log("OEM: True");
+                }
+                if (Directory.Exists("C:\\Program Files\\Unowhy\\TO_INSTALL") == false)
+                {
+                    UTdata.TIFolderExist = false;
+                    Write2Log("TO_INSTALL: False");
+                }
+                else
+                {
+                    UTdata.TIFolderExist = true;
+                    Write2Log("TO_INSTALL: True");
+                }
+                if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager") == false)
+                {
+                    UTdata.HSQMFolderExist = false;
+                    Write2Log("Hisqool Manager: False");
+                }
+                else
+                {
+                    UTdata.HSQMFolderExist = true;
+                    Write2Log("Hisqool Manager: True");
+                }
+                if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
+                {
+                    UTdata.HSQFolderExist = false;
+                    Write2Log("Hisqool: False");
+                }
+                else
+                {
+                    UTdata.HSQFolderExist = true;
+                    Write2Log("Hisqool: True");
+                }
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (ENT User)");
+
+                #region ENT user
+
+                string users = await RunReturn("net", "user");
+
+                Write2Log("=== ./ENT ===");
+                if (users.Contains("ENT"))
+                {
+                    UTdata.ENTUser = true;
+                    Write2Log("ENT User is present");
+                }
+                else
+                {
+                    UTdata.ENTUser = false;
+                    Write2Log("ENT User is not present");
+                }
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (WHE)");
+
+                #region Windows Hello Enterprise
+
+                Write2Log("=== Win Hello Ent ===");
+                Write2Log("Open Key");
+                RegistryKey whe1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork");
+                //RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
+                RegistryKey whe3 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock");
+                Write2Log("Open Key End");
+                if (whe1 == null || /*whe2 == null ||*/ whe3 == null)
+                {
+                    UTdata.WHE = false;
+                    Write2Log("WHE No Key");
+                }
+                else
+                {
+                    Write2Log("Open Val");
+                    var val5 = whe3.GetValue("DynamicLock");
+                    //string val2 = whe2.GetValue("Domain Accounts");
+                    var val1 = whe1.GetValue("Enabled");
+                    var val3 = whe1.GetValue("RequireSecurityDevice");
+                    //string val4 = whe1.GetValue("UseCertificateForOnPremAuth").ToString();
+                    Write2Log("Open Val End");
+
+                    if (val1 == null || val3 == null || val5 == null)
                     {
-                        UTdata.WHE = true;
-                        Write2Log("WHE OK");
+                        UTdata.WHE = false;
+                        Write2Log("WHE No Value");
                     }
                     else
                     {
-                        UTdata.WHE = false;
-                        Write2Log("WHE Not OK");
+                        string val21 = val1.ToString();
+                        string val23 = val3.ToString();
+                        string val25 = val5.ToString();
+                        Write2Log("Read Val");
+                        if (val21.Contains("1") && /*val2.Contains("1") &&*/ val23.Contains("1") && /*val4.Contains("1") &&*/ val25.Contains("1"))
+                        {
+                            UTdata.WHE = true;
+                            Write2Log("WHE OK");
+                        }
+                        else
+                        {
+                            UTdata.WHE = false;
+                            Write2Log("WHE Not OK");
+                        }
+                        Write2Log("Read Val End");
                     }
-                    Write2Log("Read Val End");
                 }
-            }
-            if (whe1 != null)
-            {
-                whe1.Close();
-            }
-            /*if (whe2 != null)
-            {
-                whe2.Close();
-            }*/
-            if (whe3 != null)
-            {
-                whe3.Close();
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
-
-            #endregion
-
-            await MainWindow.USS("Software Info... (TI Start)");
-
-            #region TI Start
-
-            Write2Log("=== Auto script of TI ===");
-            DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
-            if (dir.Exists)
-            {
-                FileInfo[] files = dir.GetFiles("silent_" + "*.*");
-                if (files.Length > 0)
+                if (whe1 != null)
                 {
-                    UTdata.TIStartup = true;
-                    Write2Log("Present");
+                    whe1.Close();
+                }
+                /*if (whe2 != null)
+                {
+                    whe2.Close();
+                }*/
+                if (whe3 != null)
+                {
+                    whe3.Close();
+                }
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (TI Start)");
+
+                #region TI Start
+
+                Write2Log("=== Auto script of TI ===");
+                DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
+                if (dir.Exists)
+                {
+                    FileInfo[] files = dir.GetFiles("silent_" + "*.*");
+                    if (files.Length > 0)
+                    {
+                        UTdata.TIStartup = true;
+                        Write2Log("Present");
+                    }
+                    else
+                    {
+                        UTdata.TIStartup = false;
+                        Write2Log("Not present");
+                    }
                 }
                 else
                 {
                     UTdata.TIStartup = false;
-                    Write2Log("Not present");
+                    Write2Log("Common startup not present");
                 }
-            }
-            else
-            {
-                UTdata.TIStartup = false;
-                Write2Log("Common startup not present");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
+                Write2Log("=== End ===" + Environment.NewLine);
 
-            #endregion
+                #endregion
 
-            await MainWindow.USS("Software Info... (BootIM)");
+                await MainWindow.USS("Software Info... (BootIM)");
 
-            #region BootIM
+                #region BootIM
 
-            Write2Log("=== BootIM ===");
-            RegistryKey bim1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe");
-            if (bim1 == null)
-            {
-                UTdata.BIM = true;
-                Write2Log("OK");
-            }
-            else
-            {
-                UTdata.BIM = false;
-                Write2Log("Redirected");
-            }
-            if (bim1 != null)
-            {
-                bim1.Close();
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
+                Write2Log("=== BootIM ===");
+                RegistryKey bim1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe");
+                if (bim1 == null)
+                {
+                    UTdata.BIM = true;
+                    Write2Log("OK");
+                }
+                else
+                {
+                    UTdata.BIM = false;
+                    Write2Log("Redirected");
+                }
+                if (bim1 != null)
+                {
+                    bim1.Close();
+                }
+                Write2Log("=== End ===" + Environment.NewLine);
 
-            #endregion
+                #endregion
 
-            await MainWindow.USS("Software Info... (BCDedit)");
+                await MainWindow.USS("Software Info... (BCDedit)");
 
-            #region BCDedit
+                #region BCDedit
 
-            string bcd = await RunReturn("bcdedit", "");
+                string bcd = await RunReturn("bcdedit", "");
 
-            Write2Log("=== BCD ===");
-            if (bcd.Contains("IgnoreAllFailures"))
-            {
-                UTdata.BCD = false;
-                Write2Log("BCD patched");
-            }
-            else
-            {
-                UTdata.BCD = true;
-                Write2Log("BCD normal");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
+                Write2Log("=== BCD ===");
+                if (bcd.Contains("IgnoreAllFailures"))
+                {
+                    UTdata.BCD = false;
+                    Write2Log("BCD patched");
+                }
+                else
+                {
+                    UTdata.BCD = true;
+                    Write2Log("BCD normal");
+                }
+                Write2Log("=== End ===" + Environment.NewLine);
 
-            #endregion
+                #endregion
 
-            await MainWindow.USS("Software Info... (Shell)");
+                await MainWindow.USS("Software Info... (Shell)");
 
-            #region Shell
+                #region Shell
 
-            Write2Log("=== Shell ===");
-            RegistryKey shellkey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon");
-            string shellval = shellkey.GetValue("Shell").ToString();
-            if (shellval == "explorer.exe")
-            {
-                UTdata.ShellOK = true;
-            }
-            else
-            {
-                UTdata.ShellOK = false;
-            }
-            Write2Log($"Shell: {shellval}");
-            Write2Log("=== End ===" + Environment.NewLine);
+                Write2Log("=== Shell ===");
+                RegistryKey shellkey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon");
+                string shellval = shellkey.GetValue("Shell").ToString();
+                if (shellval == "explorer.exe")
+                {
+                    UTdata.ShellOK = true;
+                }
+                else
+                {
+                    UTdata.ShellOK = false;
+                }
+                Write2Log($"Shell: {shellval}");
+                Write2Log("=== End ===" + Environment.NewLine);
 
-            #endregion
+                #endregion
 
-            await MainWindow.USS("Software Info... (TaskMGR)");
+                await MainWindow.USS("Software Info... (TaskMGR)");
 
-            #region TaskMGR
+                #region TaskMGR
 
-            Write2Log("=== TaskMGR ===");
-            RegistryKey tmgr = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
-            if (tmgr != null)
-            {
-                object t = tmgr.GetValue("DisableTaskMGR", null);
-                if (t == null)
+                Write2Log("=== TaskMGR ===");
+                RegistryKey tmgr = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
+                if (tmgr != null)
+                {
+                    object t = tmgr.GetValue("DisableTaskMGR", null);
+                    if (t == null)
+                    {
+                        UTdata.TaskMGR = true;
+                        Write2Log("TaskMGR is enabled");
+                    }
+                    else
+                    {
+                        UTdata.TaskMGR = false;
+                        Write2Log("TaskMGR is disabled");
+                    }
+                }
+                else
                 {
                     UTdata.TaskMGR = true;
                     Write2Log("TaskMGR is enabled");
                 }
-                else
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (Lockout)");
+
+                #region Account Lockout
+
+                Write2Log("=== Account Lockout ===");
+                RegistryKey la = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
+                if (la != null)
                 {
-                    UTdata.TaskMGR = false;
-                    Write2Log("TaskMGR is disabled");
+                    object l = la.GetValue("DisableLockWorkstation", null);
+                    if (l == null)
+                    {
+                        UTdata.LockA = true;
+                        Write2Log("Account Lockout is enabled");
+                    }
+                    else
+                    {
+                        UTdata.LockA = false;
+                        Write2Log("Account Lockout is disabled");
+                    }
                 }
-            }
-            else
-            {
-                UTdata.TaskMGR = true;
-                Write2Log("TaskMGR is enabled");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
-
-            #endregion
-
-            await MainWindow.USS("Software Info... (Lockout)");
-
-            #region Account Lockout
-
-            Write2Log("=== Account Lockout ===");
-            RegistryKey la = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
-            if (la != null)
-            {
-                object l = la.GetValue("DisableLockWorkstation", null);
-                if (l == null)
+                else
                 {
                     UTdata.LockA = true;
                     Write2Log("Account Lockout is enabled");
                 }
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (CPO)");
+
+                #region Camera Privacy Overlay
+
+                Write2Log("=== Camera Privacy Overlay ===");
+                RegistryKey co = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\OEM\\Device\\Capture");
+                if (co != null)
+                {
+                    object c = co.GetValue("NoPhysicalCameraLED", null);
+                    if (c == null)
+                    {
+                        UTdata.CamOver = false;
+                        Write2Log("Camera Privacy Overlay No val");
+                    }
+                    else
+                    {
+                        int lc2 = (int)co.GetValue("NoPhysicalCameraLED", 0);
+                        if (lc2 == 1)
+                        {
+                            UTdata.CamOver = true;
+                            Write2Log("Camera Privacy Overlay OK");
+                        }
+                        else
+                        {
+                            UTdata.CamOver = false;
+                            Write2Log("Camera Privacy Overlay is 0");
+                        }
+                    }
+                }
                 else
                 {
-                    UTdata.LockA = false;
-                    Write2Log("Account Lockout is disabled");
+                    UTdata.CamOver = false;
+                    Write2Log("Camera Privacy Overlay No key");
                 }
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (Verbose)");
+
+                #region Windows verbose status
+
+                Write2Log("=== Windows verbose status ===");
+                RegistryKey vo = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
+                if (vo != null)
+                {
+                    object v = vo.GetValue("VerboseStatus", null);
+                    if (v == null)
+                    {
+                        UTdata.VerbStat = false;
+                        Write2Log("Windows verbose status No val");
+                    }
+                    else
+                    {
+                        int lv2 = (int)vo.GetValue("VerboseStatus", 0);
+                        if (lv2 == 1)
+                        {
+                            UTdata.VerbStat = true;
+                            Write2Log("Windows verbose status OK");
+                        }
+                        else
+                        {
+                            UTdata.VerbStat = false;
+                            Write2Log("Windows verbose status is 0");
+                        }
+                    }
+                }
+                else
+                {
+                    UTdata.VerbStat = false;
+                    Write2Log("Windows verbose status No key");
+                }
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
             }
             else
             {
-                UTdata.LockA = true;
-                Write2Log("Account Lockout is enabled");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
-
-            #endregion
-
-            await MainWindow.USS("Software Info... (CPO)");
-
-            #region Camera Privacy Overlay
-
-            Write2Log("=== Camera Privacy Overlay ===");
-            RegistryKey co = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\OEM\\Device\\Capture");
-            if (co != null)
-            {
-                object c = co.GetValue("NoPhysicalCameraLED", null);
-                if (c == null)
+                if (step.Contains("hsqm"))
                 {
-                    UTdata.CamOver = false;
-                    Write2Log("Camera Privacy Overlay No val");
-                }
-                else
-                {
-                    int lc2 = (int)co.GetValue("NoPhysicalCameraLED", 0);
-                    if (lc2 == 1)
+                    #region Hisqool Manager
+
+                    Write2Log("=== HSM service ===");
+                    bool hsme = await UT.serv.exist("HiSqoolManager");
+                    if (hsme)
                     {
-                        UTdata.CamOver = true;
-                        Write2Log("Camera Privacy Overlay OK");
+                        ServiceController sc = new ServiceController();
+                        sc.ServiceName = "HiSqoolManager";
+
+                        if (sc.StartType == ServiceStartMode.Automatic)
+                        {
+                            if (sc.Status == ServiceControllerStatus.Running)
+                            {
+                                UTdata.HSMRunning = true;
+                                UTdata.HSMEnabled = true;
+                                UTdata.HSMExist = true;
+                                UTdata.HSMExeExist = true;
+                                Write2Log("HSM is running");
+                            }
+                            else
+                            {
+                                UTdata.HSMRunning = false;
+                                UTdata.HSMEnabled = true;
+                                UTdata.HSMExist = true;
+                                UTdata.HSMExeExist = true;
+                                Write2Log("HSM is stopped");
+                            }
+                        }
+                        else
+                        {
+                            UTdata.HSMRunning = false;
+                            UTdata.HSMEnabled = false;
+                            UTdata.HSMExist = true;
+                            UTdata.HSMExeExist = true;
+                            Write2Log("HSM is disabled");
+                        }
+                        if (!File.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager\\HiSqoolManager.exe"))
+                        {
+                            UTdata.HSMRunning = true;
+                            UTdata.HSMEnabled = true;
+                            UTdata.HSMExist = true;
+                            UTdata.HSMExeExist = false;
+                            Write2Log("HSM is deleted");
+                        }
+                    }
+                    else
+                    {
+                        UTdata.HSMRunning = false;
+                        UTdata.HSMEnabled = false;
+                        UTdata.HSMExist = false;
+                        UTdata.HSMExeExist = false;
+                        Write2Log("HSM services is not present");
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("azure"))
+                {
+                    #region Azure
+
+                    string preazure = await RunReturn("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/status\" -nonewwindow");
+                    string azure = GetLine(preazure, 6);
+
+                    Write2Log("=== Azure AD ===");
+                    if (azure.Contains("NO"))
+                    {
+                        UTdata.AAD = false;
+                        Write2Log("Azure AD joined: NO");
+                    }
+                    else
+                    {
+                        UTdata.AAD = true;
+                        Write2Log("Azure AD joined: YES");
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("admins"))
+                {
+                    #region Admins
+
+                    string preadmins = await RunReturn("net", $"localgroup {UTdata.AdminsName}");
+                    string admins = preadmins.ToLower();
+
+                    Write2Log("=== Admins ===");
+                    if (admins.Contains(UTdata.User))
+                    {
+                        UTdata.Admin = true;
+                        Write2Log("User is admin");
+                    }
+                    else
+                    {
+                        UTdata.Admin = false;
+                        Write2Log("User is not admin");
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("folders"))
+                {
+                    #region Folders
+
+                    Write2Log("=== Folders ===");
+                    if (Directory.Exists("C:\\ProgramData\\RIDF") == false)
+                    {
+                        UTdata.RIDFFolderExist = false;
+                        Write2Log("RIDF: False");
+                    }
+                    else
+                    {
+                        UTdata.RIDFFolderExist = true;
+                        Write2Log("RIDF: True");
+                    }
+                    if (Directory.Exists("C:\\ProgramData\\ENT") == false)
+                    {
+                        UTdata.ENTFolderExist = false;
+                        Write2Log("ENT: False");
+                    }
+                    else
+                    {
+                        UTdata.ENTFolderExist = true;
+                        Write2Log("ENT: True");
+                    }
+                    if (Directory.Exists("C:\\Windows\\system32\\OEM") == false)
+                    {
+                        UTdata.OEMFolderExist = false;
+                        Write2Log("OEM: False");
+                    }
+                    else
+                    {
+                        UTdata.OEMFolderExist = true;
+                        Write2Log("OEM: True");
+                    }
+                    if (Directory.Exists("C:\\Program Files\\Unowhy\\TO_INSTALL") == false)
+                    {
+                        UTdata.TIFolderExist = false;
+                        Write2Log("TO_INSTALL: False");
+                    }
+                    else
+                    {
+                        UTdata.TIFolderExist = true;
+                        Write2Log("TO_INSTALL: True");
+                    }
+                    if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager") == false)
+                    {
+                        UTdata.HSQMFolderExist = false;
+                        Write2Log("Hisqool Manager: False");
+                    }
+                    else
+                    {
+                        UTdata.HSQMFolderExist = true;
+                        Write2Log("Hisqool Manager: True");
+                    }
+                    if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
+                    {
+                        UTdata.HSQFolderExist = false;
+                        Write2Log("Hisqool: False");
+                    }
+                    else
+                    {
+                        UTdata.HSQFolderExist = true;
+                        Write2Log("Hisqool: True");
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("entuser"))
+                {
+                    #region ENT user
+
+                    string users = await RunReturn("net", "user");
+
+                    Write2Log("=== ./ENT ===");
+                    if (users.Contains("ENT"))
+                    {
+                        UTdata.ENTUser = true;
+                        Write2Log("ENT User is present");
+                    }
+                    else
+                    {
+                        UTdata.ENTUser = false;
+                        Write2Log("ENT User is not present");
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("whe"))
+                {
+                    #region Windows Hello Enterprise
+
+                    Write2Log("=== Win Hello Ent ===");
+                    Write2Log("Open Key");
+                    RegistryKey whe1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork");
+                    //RegistryKey whe2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WinBio\\Credential Provider");
+                    RegistryKey whe3 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\PassportForWork\\DynamicLock");
+                    Write2Log("Open Key End");
+                    if (whe1 == null || /*whe2 == null ||*/ whe3 == null)
+                    {
+                        UTdata.WHE = false;
+                        Write2Log("WHE No Key");
+                    }
+                    else
+                    {
+                        Write2Log("Open Val");
+                        var val5 = whe3.GetValue("DynamicLock");
+                        //string val2 = whe2.GetValue("Domain Accounts");
+                        var val1 = whe1.GetValue("Enabled");
+                        var val3 = whe1.GetValue("RequireSecurityDevice");
+                        //string val4 = whe1.GetValue("UseCertificateForOnPremAuth").ToString();
+                        Write2Log("Open Val End");
+
+                        if (val1 == null || val3 == null || val5 == null)
+                        {
+                            UTdata.WHE = false;
+                            Write2Log("WHE No Value");
+                        }
+                        else
+                        {
+                            string val21 = val1.ToString();
+                            string val23 = val3.ToString();
+                            string val25 = val5.ToString();
+                            Write2Log("Read Val");
+                            if (val21.Contains("1") && /*val2.Contains("1") &&*/ val23.Contains("1") && /*val4.Contains("1") &&*/ val25.Contains("1"))
+                            {
+                                UTdata.WHE = true;
+                                Write2Log("WHE OK");
+                            }
+                            else
+                            {
+                                UTdata.WHE = false;
+                                Write2Log("WHE Not OK");
+                            }
+                            Write2Log("Read Val End");
+                        }
+                    }
+                    if (whe1 != null)
+                    {
+                        whe1.Close();
+                    }
+                    /*if (whe2 != null)
+                    {
+                        whe2.Close();
+                    }*/
+                    if (whe3 != null)
+                    {
+                        whe3.Close();
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("tistart"))
+                {
+                    #region TI Start
+
+                    Write2Log("=== Auto script of TI ===");
+                    DirectoryInfo dir = new DirectoryInfo("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup");
+                    if (dir.Exists)
+                    {
+                        FileInfo[] files = dir.GetFiles("silent_" + "*.*");
+                        if (files.Length > 0)
+                        {
+                            UTdata.TIStartup = true;
+                            Write2Log("Present");
+                        }
+                        else
+                        {
+                            UTdata.TIStartup = false;
+                            Write2Log("Not present");
+                        }
+                    }
+                    else
+                    {
+                        UTdata.TIStartup = false;
+                        Write2Log("Common startup not present");
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("bootim"))
+                {
+                    #region BootIM
+
+                    Write2Log("=== BootIM ===");
+                    RegistryKey bim1 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\bootim.exe");
+                    if (bim1 == null)
+                    {
+                        UTdata.BIM = true;
+                        Write2Log("OK");
+                    }
+                    else
+                    {
+                        UTdata.BIM = false;
+                        Write2Log("Redirected");
+                    }
+                    if (bim1 != null)
+                    {
+                        bim1.Close();
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("bcdedit"))
+                {
+                    #region BCDedit
+
+                    string bcd = await RunReturn("bcdedit", "");
+
+                    Write2Log("=== BCD ===");
+                    if (bcd.Contains("IgnoreAllFailures"))
+                    {
+                        UTdata.BCD = false;
+                        Write2Log("BCD patched");
+                    }
+                    else
+                    {
+                        UTdata.BCD = true;
+                        Write2Log("BCD normal");
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("shell"))
+                {
+                    #region Shell
+
+                    Write2Log("=== Shell ===");
+                    RegistryKey shellkey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon");
+                    string shellval = shellkey.GetValue("Shell").ToString();
+                    if (shellval == "explorer.exe")
+                    {
+                        UTdata.ShellOK = true;
+                    }
+                    else
+                    {
+                        UTdata.ShellOK = false;
+                    }
+                    Write2Log($"Shell: {shellval}");
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("taskmgr"))
+                {
+                    #region TaskMGR
+
+                    Write2Log("=== TaskMGR ===");
+                    RegistryKey tmgr = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
+                    if (tmgr != null)
+                    {
+                        object t = tmgr.GetValue("DisableTaskMGR", null);
+                        if (t == null)
+                        {
+                            UTdata.TaskMGR = true;
+                            Write2Log("TaskMGR is enabled");
+                        }
+                        else
+                        {
+                            UTdata.TaskMGR = false;
+                            Write2Log("TaskMGR is disabled");
+                        }
+                    }
+                    else
+                    {
+                        UTdata.TaskMGR = true;
+                        Write2Log("TaskMGR is enabled");
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("lockout"))
+                {
+                    #region Account Lockout
+
+                    Write2Log("=== Account Lockout ===");
+                    RegistryKey la = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
+                    if (la != null)
+                    {
+                        object l = la.GetValue("DisableLockWorkstation", null);
+                        if (l == null)
+                        {
+                            UTdata.LockA = true;
+                            Write2Log("Account Lockout is enabled");
+                        }
+                        else
+                        {
+                            UTdata.LockA = false;
+                            Write2Log("Account Lockout is disabled");
+                        }
+                    }
+                    else
+                    {
+                        UTdata.LockA = true;
+                        Write2Log("Account Lockout is enabled");
+                    }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("cpo"))
+                {
+                    #region Camera Privacy Overlay
+
+                    Write2Log("=== Camera Privacy Overlay ===");
+                    RegistryKey co = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\OEM\\Device\\Capture");
+                    if (co != null)
+                    {
+                        object c = co.GetValue("NoPhysicalCameraLED", null);
+                        if (c == null)
+                        {
+                            UTdata.CamOver = false;
+                            Write2Log("Camera Privacy Overlay No val");
+                        }
+                        else
+                        {
+                            int lc2 = (int)co.GetValue("NoPhysicalCameraLED", 0);
+                            if (lc2 == 1)
+                            {
+                                UTdata.CamOver = true;
+                                Write2Log("Camera Privacy Overlay OK");
+                            }
+                            else
+                            {
+                                UTdata.CamOver = false;
+                                Write2Log("Camera Privacy Overlay is 0");
+                            }
+                        }
                     }
                     else
                     {
                         UTdata.CamOver = false;
-                        Write2Log("Camera Privacy Overlay is 0");
+                        Write2Log("Camera Privacy Overlay No key");
                     }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
                 }
-            }
-            else
-            {
-                UTdata.CamOver = false;
-                Write2Log("Camera Privacy Overlay No key");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
 
-            #endregion
-
-            await MainWindow.USS("Software Info... (Verbose)");
-
-            #region Windows verbose status
-
-            Write2Log("=== Windows verbose status ===");
-            RegistryKey vo = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
-            if (vo != null)
-            {
-                object v = vo.GetValue("VerboseStatus", null);
-                if (v == null)
+                if (step.Contains("verbose"))
                 {
-                    UTdata.VerbStat = false;
-                    Write2Log("Windows verbose status No val");
-                }
-                else
-                {
-                    int lv2 = (int)vo.GetValue("VerboseStatus", 0);
-                    if (lv2 == 1)
+                    #region Windows verbose status
+
+                    Write2Log("=== Windows verbose status ===");
+                    RegistryKey vo = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System");
+                    if (vo != null)
                     {
-                        UTdata.VerbStat = true;
-                        Write2Log("Windows verbose status OK");
+                        object v = vo.GetValue("VerboseStatus", null);
+                        if (v == null)
+                        {
+                            UTdata.VerbStat = false;
+                            Write2Log("Windows verbose status No val");
+                        }
+                        else
+                        {
+                            int lv2 = (int)vo.GetValue("VerboseStatus", 0);
+                            if (lv2 == 1)
+                            {
+                                UTdata.VerbStat = true;
+                                Write2Log("Windows verbose status OK");
+                            }
+                            else
+                            {
+                                UTdata.VerbStat = false;
+                                Write2Log("Windows verbose status is 0");
+                            }
+                        }
                     }
                     else
                     {
                         UTdata.VerbStat = false;
-                        Write2Log("Windows verbose status is 0");
+                        Write2Log("Windows verbose status No key");
                     }
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
                 }
             }
-            else
-            {
-                UTdata.VerbStat = false;
-                Write2Log("Windows verbose status No key");
-            }
-            Write2Log("=== End ===" + Environment.NewLine);
-
-            #endregion
 
             Write2Log("====== End ======");
         }
