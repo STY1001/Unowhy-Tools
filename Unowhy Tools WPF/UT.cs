@@ -1878,7 +1878,7 @@ namespace Unowhy_Tools
                     UTdata.HSQMFolderExist = true;
                     Write2Log("Hisqool Manager: True");
                 }
-                if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
+                if (File.Exists("C:\\Program Files\\Unowhy\\HiSqool\\HiSqool.exe") == false)
                 {
                     UTdata.HSQFolderExist = false;
                     Write2Log("Hisqool: False");
@@ -2202,6 +2202,28 @@ namespace Unowhy_Tools
                     UTdata.VerbStat = false;
                     Write2Log("Windows verbose status No key");
                 }
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (WinRE)");
+
+                #region WinRE
+
+                Write2Log("=== WinRE ===");
+
+                string winre = await RunReturn("reagentc", "/info");
+                if (winre.Contains("Enabled"))
+                {
+                    UTdata.WinRE = true;
+                    Write2Log("WinRE is enabled");
+                }
+                else
+                {
+                    UTdata.WinRE = false;
+                    Write2Log("WinRE is disabled");
+                }
+
                 Write2Log("=== End ===" + Environment.NewLine);
 
                 #endregion
