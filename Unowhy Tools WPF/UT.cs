@@ -1508,6 +1508,10 @@ namespace Unowhy_Tools
 
         public static async Task<string> GetLang(string name)
         {
+            if(resxLang == null)
+            {
+                await LangConfig();
+            }
             Write2Log("Get lang " + name + " => " + resxLang.GetString(name));
             return resxLang.GetString(name);
         }
