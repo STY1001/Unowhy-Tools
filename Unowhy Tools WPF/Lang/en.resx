@@ -204,6 +204,9 @@
   <data name="bkpath" xml:space="preserve">
     <value>Backup path</value>
   </data>
+  <data name="block" xml:space="preserve">
+    <value>Block</value>
+  </data>
   <data name="bootim" xml:space="preserve">
     <value>Repair BootIM (Blue menu)</value>
   </data>

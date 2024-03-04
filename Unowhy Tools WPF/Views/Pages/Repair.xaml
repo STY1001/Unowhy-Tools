@@ -110,13 +110,25 @@
                             </StackPanel>
                         </Grid>
                     </ui:CardControl.Header>
-                    <ui:Button Grid.Column="0"
-                               Click="winre_Click"
-                               x:Name="wre_btn"
-                               Content="Open"
-                               Grid.ColumnSpan="4"
-                               HorizontalAlignment="Stretch"
-                               Margin="0,0,0,0" />
+                    <StackPanel Grid.ColumnSpan="4"
+                                Grid.Column="0"
+                                Orientation="Horizontal">
+                        <ui:Button x:Name="wreena_btn"
+                                   Click="winreena_Click"
+                                   Content="Enable"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,10,0" />
+                        <ui:Button x:Name="wredis_btn"
+                                   Click="winredis_Click"
+                                   Content="Disable"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,10,0" />
+                        <ui:Button x:Name="wrerep_btn"
+                                   Click="winrerep_Click"
+                                   Content="Repair"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,0,0" />
+                    </StackPanel>
                 </ui:CardControl>
                 <ui:CardControl Margin="10,0,10,10"
                                 x:Name="bim">

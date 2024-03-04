@@ -237,13 +237,20 @@
                             </StackPanel>
                         </Grid>
                     </ui:CardControl.Header>
-                    <ui:Button Grid.Column="0"
-                               Click="EdgeSet_Click"
-                               x:Name="edgeset_btn"
-                               Content="Open"
-                               Grid.ColumnSpan="4"
-                               HorizontalAlignment="Stretch"
-                               Margin="0,0,0,0" />
+                    <StackPanel Orientation="Horizontal"
+                                Grid.ColumnSpan="4"
+                                Grid.Column="0">
+                        <ui:Button x:Name="edgedel_btn"
+                                   Click="edgedel_Click"
+                                   Content="Uninstall"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,10,0" />
+                        <ui:Button x:Name="edgereg_btn"
+                                   Click="edgereg_Click"
+                                   Content="Block"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,0,0" />
+                    </StackPanel>
                 </ui:CardControl>
                 <ui:CardControl x:Name="windefset"
                                 Margin="10,0,10,10">
@@ -268,13 +275,20 @@
                             </StackPanel>
                         </Grid>
                     </ui:CardControl.Header>
-                    <ui:Button Grid.Column="0"
-                               Click="WinDefSet_Click"
-                               x:Name="windefset_btn"
-                               Content="Open"
-                               Grid.ColumnSpan="4"
-                               HorizontalAlignment="Stretch"
-                               Margin="0,0,0,0" />
+                    <StackPanel Grid.Column="0"
+                                Grid.ColumnSpan="4"
+                                Orientation="Horizontal">
+                        <ui:Button x:Name="windefdis_btn"
+                                   Click="windefdis_Click"
+                                   Content="Disable"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,10,0" />
+                        <ui:Button x:Name="windefena_btn"
+                                   Click="windefena_Click"
+                                   Content="Enable"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,0,0" />
+                    </StackPanel>
                 </ui:CardControl>
                 <ui:CardControl x:Name="hackbgrtset"
                                 Margin="10,0,10,10">

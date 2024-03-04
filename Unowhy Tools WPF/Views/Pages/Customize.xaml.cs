@@ -7,6 +7,11 @@ using System;
 using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
+using System.Security.RightsManagement;
+using System.Threading;
+using System.Windows.Documents;
+using System.Diagnostics;
+using System.IO;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -24,9 +29,9 @@ public partial class Customize : INavigableView<DashboardViewModel>
 
     public void GoForw(object sender, RoutedEventArgs e)
     {
-        
+
     }
-    
+
     public async void AdminSet_Click(object sender, RoutedEventArgs e)
     {
         DoubleAnimation anim = new DoubleAnimation();
@@ -50,7 +55,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
         auset_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
-    
+
     public async void AddUser_Click(object sender, RoutedEventArgs e)
     {
         DoubleAnimation anim = new DoubleAnimation();
@@ -74,7 +79,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
         adduser_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
-    
+
     public async void PCname_Click(object sender, RoutedEventArgs e)
     {
         DoubleAnimation anim = new DoubleAnimation();
@@ -96,54 +101,6 @@ public partial class Customize : INavigableView<DashboardViewModel>
         anim.Duration = TimeSpan.FromMilliseconds(500);
         anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
         pcname_btn.RenderTransform = trans;
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
-    }
-
-    public async void EdgeSet_Click(object sender, RoutedEventArgs e)
-    {
-        DoubleAnimation anim = new DoubleAnimation();
-        anim.From = 0;
-        anim.To = 300;
-        anim.Duration = TimeSpan.FromMilliseconds(500);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-        TranslateTransform trans = new TranslateTransform();
-        edgeset_btn.RenderTransform = trans;
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
-
-        UT.anim.RegisterParent(RootGrid, RootBorder);
-        UT.anim.AnimParent("zoomout2");
-        await Task.Delay(500);
-        UT.NavigateTo(typeof(Edge));
-
-        anim.From = 0;
-        anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(500);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-        edgeset_btn.RenderTransform = trans;
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
-    }
-
-    public async void WinDefSet_Click(object sender, RoutedEventArgs e)
-    {
-        DoubleAnimation anim = new DoubleAnimation();
-        anim.From = 0;
-        anim.To = 300;
-        anim.Duration = TimeSpan.FromMilliseconds(500);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-        TranslateTransform trans = new TranslateTransform();
-        windefset_btn.RenderTransform = trans;
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
-
-        UT.anim.RegisterParent(RootGrid, RootBorder);
-        UT.anim.AnimParent("zoomout2");
-        await Task.Delay(500);
-        UT.NavigateTo(typeof(WinDef));
-
-        anim.From = 0;
-        anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(500);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-        windefset_btn.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
 
@@ -193,10 +150,12 @@ public partial class Customize : INavigableView<DashboardViewModel>
         verbstatena_btn.Content = await UT.GetLang("enable");
         edgeset_txt.Text = await UT.GetLang("edgeset");
         edgeset_desc.Text = await UT.GetLang("descedgeset");
-        edgeset_btn.Content = await UT.GetLang("open");
+        edgedel_btn.Content = await UT.GetLang("uninstall");
+        edgereg_btn.Content = await UT.GetLang("block");
         windefset_txt.Text = await UT.GetLang("windefset");
         windefset_desc.Text = await UT.GetLang("descwindefset");
-        windefset_btn.Content = await UT.GetLang("open");
+        windefdis_btn.Content = await UT.GetLang("disable");
+        windefena_btn.Content = await UT.GetLang("enable");
         hackbgrtset_txt.Text = await UT.GetLang("hackbgrtset");
         hackbgrtset_desc.Text = await UT.GetLang("deschackbgrtset");
         hackbgrtset_btn.Content = await UT.GetLang("open");
@@ -210,10 +169,24 @@ public partial class Customize : INavigableView<DashboardViewModel>
         }
         if (UTdata.Admin == true) adminset.IsEnabled = false;
         else adminset.IsEnabled = true;
-        if(UTdata.CamOver == true) camoverena.IsEnabled = false;
+        if (UTdata.CamOver == true) camoverena.IsEnabled = false;
         else camoverena.IsEnabled = true;
-        if(UTdata.VerbStat == true) verbstatena.IsEnabled = false;
+        if (UTdata.VerbStat == true) verbstatena.IsEnabled = false;
         else verbstatena.IsEnabled = true;
+        if (UTdata.EdgeInstalled == true) edgedel_btn.IsEnabled = true;
+        else edgedel_btn.IsEnabled = false;
+        if (UTdata.NoEdgeReg == true) edgereg_btn.IsEnabled = false;
+        else edgereg_btn.IsEnabled = true;
+        if (UTdata.WinDefEnabled)
+        {
+            windefena_btn.IsEnabled = false;
+            windefdis_btn.IsEnabled = true;
+        }
+        else
+        {
+            windefena_btn.IsEnabled = true;
+            windefdis_btn.IsEnabled = false;
+        }
     }
 
     public async void Init(object sender, EventArgs e)
@@ -289,7 +262,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
             }
         }
     }
-    
+
     public async void camover_Click(object sender, RoutedEventArgs e)
     {
         if (UT.DialogQShow(await UT.GetLang("camoverena"), "camera.png"))
@@ -322,6 +295,128 @@ public partial class Customize : INavigableView<DashboardViewModel>
             await CheckBTN(true, "verbose");
             await UT.waitstatus.close();
             if (!verbstatena.IsEnabled)
+            {
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void edgedel_Click(object sender, RoutedEventArgs e)
+    {
+        if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+        {
+            UT.DialogIShow(await UT.GetLang("needres"), "download.png");
+        }
+
+        if (UT.CheckInternet() || File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+        {
+            if (UT.DialogQShow(await UT.GetLang("edgeun"), "uninstall.png"))
+            {
+                await UT.waitstatus.open(await UT.GetLang("wait.uninstall"), "uninstall.png");
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+                {
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    string dl = await UT.GetLang("wait.download");
+                    progress.ProgressChanged += async (sender, value) =>
+                    {
+                        await UT.waitstatus.open(dl + " (" + value.ToString("###.#") + "%)", "clouddl.png");
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("edgesetup"), UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe", progress, cancellationToken.Token);
+                }
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+                {
+                    await UT.waitstatus.open(await UT.GetLang("wait.uninstall"), "uninstall.png");
+                    await UT.RunMin("powershell", $"start-process -FilePath '{UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"}' -ArgumentList '--uninstall --system-level --force-uninstall' -nonewwindow -wait");
+                }
+                await Task.Delay(1000);
+                await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
+                await CheckBTN(true, "edge");
+                await UT.waitstatus.close();
+                if (!edgedel_btn.IsEnabled)
+                {
+                    UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+                }
+                else
+                {
+                    UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                }
+            }
+        }
+        else
+        {
+            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+        }
+    }
+
+    public async void edgereg_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(await UT.GetLang("edgeblock"), "block.png"))
+        {
+            await UT.waitstatus.open(await UT.GetLang("wait.block"), "block.png");
+            await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\EdgeUpdate\" /v \"DoNotUpdateToEdgeWithChromium\" /t REG_DWORD /d \"1\" /f");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
+            await CheckBTN(true, "edge");
+            await UT.waitstatus.close();
+            if (!edgereg_btn.IsEnabled)
+            {
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void windefena_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(await UT.GetLang("enable"), "enable.png"))
+        {
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
+            await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"0\" /f");
+            await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"0\" /f");
+            await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $false");
+            await UT.UTS.UTSmsg("UTSWD", "SetWDS:False");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
+            await CheckBTN(true, "windef");
+            await UT.waitstatus.close();
+            if (!windefena_btn.IsEnabled)
+            {
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+    public async void windefdis_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(await UT.GetLang("disable"), "disable.png"))
+        {
+            await UT.waitstatus.open(await UT.GetLang("wait.disable"), "disable.png");
+            await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $true");
+            await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f");
+            await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"1\" /f");
+            await UT.UTS.UTSmsg("UTSWD", "SetWDS:True");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
+            await CheckBTN(true, "windef");
+            await UT.waitstatus.close();
+            UT.DialogIShow(await UT.GetLang("windefsettamper"), "windef.png");
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = "windowsdefender://threatsettings",
+                UseShellExecute = true
+            });
+            if (!windefdis_btn.IsEnabled)
             {
                 UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }

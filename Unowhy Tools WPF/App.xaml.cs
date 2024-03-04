@@ -58,7 +58,6 @@ public partial class App
             services.AddScoped<Views.Pages.Delete>();
             services.AddScoped<Views.Pages.Customize>();
             services.AddScoped<Views.Pages.Drivers>();
-            services.AddScoped<Views.Pages.WinRE>();
             services.AddScoped<Views.Pages.PCname>();
             services.AddScoped<Views.Pages.AddUser>();
             services.AddScoped<Views.Pages.AdminUser>();
@@ -71,8 +70,6 @@ public partial class App
             services.AddScoped<Views.Pages.Updater>();
             services.AddScoped<Views.Pages.Wifi>();
             services.AddScoped<Views.Pages.FirstConfig>();
-            services.AddScoped<Views.Pages.Edge>();
-            services.AddScoped<Views.Pages.WinDef>();
             services.AddScoped<Views.Pages.Bios>();
             services.AddScoped<Views.Pages.DrvCloud>();
             services.AddScoped<Views.Pages.HackBGRT>();

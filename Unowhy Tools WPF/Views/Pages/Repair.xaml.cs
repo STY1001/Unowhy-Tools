@@ -7,6 +7,8 @@ using System;
 using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
+using System.Net;
+using System.Threading;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -27,28 +29,91 @@ public partial class Repair : INavigableView<DashboardViewModel>
         //UT.anim.TransitionForw(RootGrid);
     }
 
-    public async void winre_Click(object sender, RoutedEventArgs e)
+    public async void winreena_Click(object sender, RoutedEventArgs e)
     {
-        DoubleAnimation anim = new DoubleAnimation();
-        anim.From = 0;
-        anim.To = 300;
-        anim.Duration = TimeSpan.FromMilliseconds(500);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-        TranslateTransform trans = new TranslateTransform();
-        wre_btn.RenderTransform = trans;
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+        if (UT.DialogQShow(await UT.GetLang("winre.ena"), "enable.png"))
+        {
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
+            UTdata.WinRE = true;
+            await UT.RunMin("reagentc.exe", "/enable");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
+            await CheckBTN(true, "winre");
+            await UT.waitstatus.close();
+            if (!wreena_btn.IsEnabled & !wrerep_btn.IsEnabled)
+            {
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("winremsg"), "no.png");
+                wrerep_btn.IsEnabled = true;
+                wreena_btn.IsEnabled = false;
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
 
-        UT.anim.RegisterParent(RootGrid, RootBorder);
-        UT.anim.AnimParent("zoomout2");
-        await Task.Delay(500);
-        UT.NavigateTo(typeof(WinRE));
+    public async void winredis_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(await UT.GetLang("winre.dis"), "disable.png"))
+        {
+            await UT.waitstatus.open(await UT.GetLang("wait.disable"), "disable.png");
+            UTdata.WinRE = false;
+            await UT.RunMin("reagentc.exe", "/disable");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
+            await CheckBTN(true, "winre");
+            await UT.waitstatus.close();
+            if (!wredis_btn.IsEnabled & !wrerep_btn.IsEnabled)
+            {
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+    public async void winrerep_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.CheckInternet())
+        {
+            await UT.waitstatus.open(await UT.GetLang("wait.repair"), "repair.png");
+            await Task.Delay(1000);
+            var progress = new System.Progress<double>();
+            string dl = await UT.GetLang("wait.download");
+            progress.ProgressChanged += async (sender, value) =>
+            {
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "clouddl.png");
+            };
+            var cancellationToken = new CancellationTokenSource();
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("winre"), "C:\\Windows\\System32\\Recovery\\WinRE.wim", progress, cancellationToken.Token);
 
-        anim.From = 0;
-        anim.To = 0;
-        anim.Duration = TimeSpan.FromMilliseconds(500);
-        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 };
-        wre_btn.RenderTransform = trans;
-        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
+
+            await UT.RunMin("reagentc.exe", "/setreimage /path C:\\Windows\\System32\\Recovery");
+            await UT.RunMin("reagentc.exe", "/enable");
+
+            UTdata.WinRE = true;
+
+            await Task.Delay(1000);
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
+            await CheckBTN(true, "winre");
+            await UT.waitstatus.close();
+            if (wredis_btn.IsEnabled)
+            {
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+            }
+        }
+        else
+        {
+            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+        }
     }
 
     public async Task applylang()
@@ -61,7 +126,9 @@ public partial class Repair : INavigableView<DashboardViewModel>
         tis_btn.Content = await UT.GetLang("del");
         wre_txt.Text = await UT.GetLang("winre");
         wre_desc.Text = await UT.GetLang("descwinre");
-        wre_btn.Content = await UT.GetLang("open");
+        wreena_btn.Content = await UT.GetLang("enable");
+        wredis_btn.Content = await UT.GetLang("disable");
+        wrerep_btn.Content = await UT.GetLang("repair");
         bim_txt.Text = await UT.GetLang("bootim");
         bim_desc.Text = await UT.GetLang("descbootim");
         bim_btn.Content = await UT.GetLang("repair");
@@ -90,6 +157,9 @@ public partial class Repair : INavigableView<DashboardViewModel>
         bim.IsEnabled = true;
         whe.IsEnabled = true;
         iaf.IsEnabled = true;
+        wreena_btn.IsEnabled = false;
+        wredis_btn.IsEnabled = false;
+        wrerep_btn.IsEnabled = false;
         if (UTdata.WHE) whe.IsEnabled = false;
         else whe.IsEnabled = true;
         if(UTdata.BIM) bim.IsEnabled = false;
@@ -104,6 +174,8 @@ public partial class Repair : INavigableView<DashboardViewModel>
         else tmgr.IsEnabled = true;
         if (UTdata.LockA) locka.IsEnabled = false;
         else locka.IsEnabled = true;
+        if(UTdata.WinRE) wredis_btn.IsEnabled = true;
+        else wreena_btn.IsEnabled = true;
     }
 
     public async void Init(object sender, EventArgs e)

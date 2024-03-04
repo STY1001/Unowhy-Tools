@@ -131,6 +131,7 @@ using System.Windows.Interop;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Management;
+using System.Windows.Documents;
 
 namespace Unowhy_Tools
 {
@@ -1508,7 +1509,7 @@ namespace Unowhy_Tools
 
         public static async Task<string> GetLang(string name)
         {
-            if(resxLang == null)
+            if (resxLang == null)
             {
                 await LangConfig();
             }
@@ -2227,6 +2228,96 @@ namespace Unowhy_Tools
                 Write2Log("=== End ===" + Environment.NewLine);
 
                 #endregion
+
+                await MainWindow.USS("Software Info... (Edge)");
+
+                #region Edge
+
+                Write2Log("=== Edge ===");
+
+                if (File.Exists("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
+                {
+                    UTdata.EdgeInstalled = true;
+                    Write2Log("Edge is present");
+                }
+                else
+                {
+                    UTdata.EdgeInstalled = false;
+                    Write2Log("Edge is not present");
+                }
+
+                RegistryKey eu = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\EdgeUpdate");
+                if (eu != null)
+                {
+                    object dnu = eu.GetValue("DoNotUpdateToEdgeWithChromium", null);
+                    if (dnu != null)
+                    {
+                        int dnu2 = (int)eu.GetValue("DoNotUpdateToEdgeWithChromium", 0);
+                        if (dnu2 == 1)
+                        {
+                            UTdata.NoEdgeReg = true;
+                        }
+                        else
+                        {
+                            UTdata.NoEdgeReg = false;
+                        }
+                    }
+                    else
+                    {
+                        UTdata.NoEdgeReg = false;
+                    }
+                }
+                else
+                {
+                    UTdata.NoEdgeReg = false;
+                }
+
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
+                await MainWindow.USS("Software Info... (WinDef)");
+
+                #region Windows Defender
+
+                Write2Log("=== Windows Defender ===");
+
+                RegistryKey wd = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender");
+                RegistryKey rtp = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection");
+                if (wd != null && rtp != null)
+                {
+                    object das = wd.GetValue("DisableAntiSpyware", null);
+                    object drm = rtp.GetValue("DisableRealtimeMonitoring", null);
+                    if (das != null && drm != null)
+                    {
+                        int das2 = (int)wd.GetValue("DisableAntiSpyware", 0);
+                        int drm2 = (int)rtp.GetValue("DisableRealtimeMonitoring", 0);
+                        if (das2 == 1 && drm2 == 1 && (await UT.UTS.UTSmsg("UTSWD", "GetWDS")).Contains("True"))
+                        {
+                            UTdata.WinDefEnabled = false;
+                            UT.Write2Log("WinDef Disabled");
+                        }
+                        else
+                        {
+                            UTdata.WinDefEnabled = true;
+                            UT.Write2Log("WinDef Enabled (Not 1)");
+                        }
+                    }
+                    else
+                    {
+                        UTdata.WinDefEnabled = true;
+                        UT.Write2Log("WinDef Enabled (Not Value)");
+                    }
+                }
+                else
+                {
+                    UTdata.WinDefEnabled = true;
+                    UT.Write2Log("WinDef Enabled (Not Key)");
+                }
+
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
             }
             else
             {
@@ -2729,6 +2820,121 @@ namespace Unowhy_Tools
 
                     #endregion
                 }
+
+                if (step.Contains("winre"))
+                {
+                    #region WinRE
+
+                    Write2Log("=== WinRE ===");
+
+                    string winre = await RunReturn("reagentc", "/info");
+                    if (winre.Contains("Enabled"))
+                    {
+                        UTdata.WinRE = true;
+                        Write2Log("WinRE is enabled");
+                    }
+                    else
+                    {
+                        UTdata.WinRE = false;
+                        Write2Log("WinRE is disabled");
+                    }
+
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("edge"))
+                {
+                    #region Edge
+
+                    Write2Log("=== Edge ===");
+
+                    if (File.Exists("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"))
+                    {
+                        UTdata.EdgeInstalled = true;
+                        Write2Log("Edge is present");
+                    }
+                    else
+                    {
+                        UTdata.EdgeInstalled = false;
+                        Write2Log("Edge is not present");
+                    }
+
+                    RegistryKey eu = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\EdgeUpdate");
+                    if (eu != null)
+                    {
+                        object dnu = eu.GetValue("DoNotUpdateToEdgeWithChromium", null);
+                        if (dnu != null)
+                        {
+                            int dnu2 = (int)eu.GetValue("DoNotUpdateToEdgeWithChromium", 0);
+                            if (dnu2 == 1)
+                            {
+                                UTdata.NoEdgeReg = true;
+                            }
+                            else
+                            {
+                                UTdata.NoEdgeReg = false;
+                            }
+                        }
+                        else
+                        {
+                            UTdata.NoEdgeReg = false;
+                        }
+                    }
+                    else
+                    {
+                        UTdata.NoEdgeReg = false;
+                    }
+
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
+
+                if (step.Contains("windef"))
+                {
+                    #region Windows Defender
+
+                    Write2Log("=== Windows Defender ===");
+
+                    RegistryKey wd = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender");
+                    RegistryKey rtp = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection");
+                    if (wd != null && rtp != null)
+                    {
+                        object das = wd.GetValue("DisableAntiSpyware", null);
+                        object drm = rtp.GetValue("DisableRealtimeMonitoring", null);
+                        if (das != null && drm != null)
+                        {
+                            int das2 = (int)wd.GetValue("DisableAntiSpyware", 0);
+                            int drm2 = (int)rtp.GetValue("DisableRealtimeMonitoring", 0);
+                            if (das2 == 1 && drm2 == 1 && (await UT.UTS.UTSmsg("UTSWD", "GetWDS")).Contains("True"))
+                            {
+                                UTdata.WinDefEnabled = false;
+                                UT.Write2Log("WinDef Disabled");
+                            }
+                            else
+                            {
+                                UTdata.WinDefEnabled = true;
+                                UT.Write2Log("WinDef Enabled (Not 1)");
+                            }
+                        }
+                        else
+                        {
+                            UTdata.WinDefEnabled = true;
+                            UT.Write2Log("WinDef Enabled (Not Value)");
+                        }
+                    }
+                    else
+                    {
+                        UTdata.WinDefEnabled = true;
+                        UT.Write2Log("WinDef Enabled (Not Key)");
+                    }
+
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
             }
 
             Write2Log("====== End ======");
@@ -2951,6 +3157,9 @@ namespace Unowhy_Tools
             private static bool _winre;
             private static bool _camover;
             private static bool _verbstat;
+            private static bool _edgeinstalled;
+            private static bool _noedgereg;
+            private static bool _windefenabled;
 
             private static bool _trayrunok;
             private static bool _runtray;
@@ -3341,6 +3550,33 @@ namespace Unowhy_Tools
                 set
                 {
                     _verbstat = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool EdgeInstalled
+            {
+                get { return _edgeinstalled; }
+                set
+                {
+                    _edgeinstalled = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool NoEdgeReg
+            {
+                get { return _noedgereg; }
+                set
+                {
+                    _noedgereg = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool WinDefEnabled
+            {
+                get { return _windefenabled; }
+                set
+                {
+                    _windefenabled = value;
                     OnPropertyChanged();
                 }
             }

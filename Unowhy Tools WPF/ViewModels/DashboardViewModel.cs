@@ -41,10 +41,6 @@ public class DashboardViewModel : ObservableObject, INavigationAware
         await Task.Delay(150);
         switch (parameter)
         {
-            case "navigate_to_winre":
-                _navigationService.Navigate(typeof(Views.Pages.WinRE));
-                return;
-
             case "navigate_to_pcname":
                 _navigationService.Navigate(typeof(Views.Pages.PCname));
                 return;

@@ -43,7 +43,6 @@ public partial class MainWindow : INavigationWindow
         customize.Content = await UT.GetLang("titlecust");
         drivers.Content = await UT.GetLang("titledrv");
         pcname.Content = await UT.GetLang("titlepcn");
-        wre.Content = await UT.GetLang("titlewre");
         adduser.Content = await UT.GetLang("titleadduser");
         adminset.Content = await UT.GetLang("titleadminset");
         about.Content = await UT.GetLang("titleabout");
@@ -52,8 +51,6 @@ public partial class MainWindow : INavigationWindow
         drvconv.Content = await UT.GetLang("titleconv");
         settings.Content = await UT.GetLang("titlesettings");
         pcinfo.Content = await UT.GetLang("titlepci");
-        mes.Content = await UT.GetLang("titleedge");
-        wds.Content = await UT.GetLang("titlewindef");
         hackbgrt.Content = await UT.GetLang("titlehackbgrt");
     }
 
