@@ -16,6 +16,9 @@ using System.Windows.Navigation;
 using System.Windows.Input;
 using System.Runtime.InteropServices;
 using Microsoft.VisualBasic.ApplicationServices;
+using Wpf.Ui.Controls;
+using System.Windows.Controls;
+using System.Reflection;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -456,7 +459,8 @@ public partial class TrayWindow : Window
     {
         InitializeComponent();
 
-        base.Visibility = Visibility.Collapsed;
+        base.WindowState = WindowState.Maximized;
+        base.Visibility = Visibility.Hidden;
         base.IsEnabled = false;
 
         if (!UT.CheckAdmin())
@@ -467,7 +471,7 @@ public partial class TrayWindow : Window
         trayIcon.Icon = UT.GetIconFromRes("UT.png");
         trayIcon.Text = "Unowhy Tools";
         trayIcon.Visible = true;
-        base.Visibility = Visibility.Collapsed; 
+        base.Visibility = Visibility.Hidden; 
     }
 
     public async Task SetQL()
@@ -773,6 +777,90 @@ public partial class TrayWindow : Window
         await ShowTray();
     }
 
+    public async Task ZoomIn(UIElement element, bool onlyfade)
+    {
+        var fadeInAnimation = new DoubleAnimation
+        {
+            From = 1,
+            To = 0,
+            Duration = TimeSpan.FromSeconds(0.30),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var zoomAnimation1 = new DoubleAnimation
+        {
+            From = 1,
+            To = 1.1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var zoomAnimation2 = new DoubleAnimation
+        {
+            From = 1,
+            To = 1.1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        Storyboard.SetTarget(fadeInAnimation, element);
+        Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+        Storyboard.SetTarget(zoomAnimation1, element);
+        Storyboard.SetTarget(zoomAnimation2, element);
+        Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+        Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+        var storyboard = new Storyboard();
+        storyboard.Children.Add(fadeInAnimation);
+        if(!onlyfade)
+        {
+            storyboard.Children.Add(zoomAnimation1);
+            storyboard.Children.Add(zoomAnimation2);
+        }
+        storyboard.Begin();
+    }
+    
+    public async Task ZoomOut(UIElement element, bool onlyfade)
+    {
+        var fadeInAnimation = new DoubleAnimation
+        {
+            From = 0,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.30),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+        
+        var zoomAnimation1 = new DoubleAnimation
+        {
+            From = 1.1,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        var zoomAnimation2 = new DoubleAnimation
+        {
+            From = 1.1,
+            To = 1,
+            Duration = TimeSpan.FromSeconds(0.50),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+        };
+
+        Storyboard.SetTarget(fadeInAnimation,element);
+        Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+        Storyboard.SetTarget(zoomAnimation1, element);
+        Storyboard.SetTarget(zoomAnimation2, element);
+        Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
+        Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+        var storyboard = new Storyboard();
+        storyboard.Children.Add(fadeInAnimation);
+        if(!onlyfade)
+        {
+            storyboard.Children.Add(zoomAnimation1);
+            storyboard.Children.Add(zoomAnimation2);
+        }
+        storyboard.Begin();
+    }
+
     public async Task ShowTray()
     {
         await StartTimer();
@@ -786,17 +874,12 @@ public partial class TrayWindow : Window
         base.IsEnabled = true;
         base.Visibility = Visibility.Visible;
 
-        DoubleAnimation animg = new DoubleAnimation();
-        animg.From = 1000;
-        animg.To = 0;
-        animg.Duration = TimeSpan.FromMilliseconds(300);
-        animg.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-        TranslateTransform transg = new TranslateTransform();
-        TrayGrid.RenderTransform = transg;
-        transg.BeginAnimation(TranslateTransform.XProperty, animg);
-        transg.BeginAnimation(TranslateTransform.YProperty, animg);
+        await ZoomOut(TrayGrid, false);
+        await ZoomOut(BackGrid, true);
+        await ZoomOut(Border2, true);
+        await ZoomOut(Border1, true);
 
-        await Task.Delay(300);
+        await Task.Delay(600);
 
         DoubleAnimation animb = new DoubleAnimation();
         animb.From = 0;
@@ -843,21 +926,16 @@ public partial class TrayWindow : Window
         transb2.BeginAnimation(TranslateTransform.XProperty, anims2);
         transb2.BeginAnimation(TranslateTransform.YProperty, animb);
 
-        await Task.Delay(150);
+        await Task.Delay(100);
 
-        DoubleAnimation animg = new DoubleAnimation();
-        animg.From = 0;
-        animg.To = 1000;
-        animg.Duration = TimeSpan.FromMilliseconds(300);
-        animg.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
-        TranslateTransform transg = new TranslateTransform();
-        TrayGrid.RenderTransform = transg;
-        transg.BeginAnimation(TranslateTransform.XProperty, animg);
-        transg.BeginAnimation(TranslateTransform.YProperty, animg);
+        await ZoomIn(TrayGrid, false);
+        await ZoomIn(BackGrid, true);
+        await ZoomIn(Border2, true);
+        await ZoomIn(Border1, true);
 
-        await Task.Delay(300);
+        await Task.Delay(600);
 
-        base.Visibility = Visibility.Collapsed;
+        base.Visibility = Visibility.Hidden;
         base.IsEnabled = false;
         await StopTimer();
     }
@@ -1582,6 +1660,11 @@ public partial class TrayWindow : Window
 
             PowerSetActiveOverlayScheme(newmode);
         }
+    }
+
+    private async void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        await HideTray();
     }
 }
 
