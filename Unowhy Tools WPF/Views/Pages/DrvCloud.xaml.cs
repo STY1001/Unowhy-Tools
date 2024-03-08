@@ -180,10 +180,6 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         }
 
         await Task.Delay(1000);
-        HttpClient client = new HttpClient();
-
-        string json = await client.GetStringAsync("https://bit.ly/UTbkcloudjson");
-        JArray array = JArray.Parse(json);
 
         string langString = await UT.Config.Get("Lang");
 
@@ -234,11 +230,6 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                     await CreateCard(title, desc, name, link, size);
                 }
             }
-        }
-
-        foreach (JObject obj in array)
-        {
-            
         }
     }
 
