@@ -556,7 +556,7 @@ public partial class TrayWindow : Window
             UT.RunAdmin("-tray");
         }
 
-        trayIcon.Icon = UT.GetIconFromRes("UT.png");
+        trayIcon.Icon = UT.GetIconFromRes("UTtray.png");
         trayIcon.Text = "Unowhy Tools";
         trayIcon.Visible = true;
         base.Visibility = Visibility.Hidden; 
@@ -721,7 +721,7 @@ public partial class TrayWindow : Window
         await StopTimer();
         base.Deactivated += TrayWindow_Deactivated;
         base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-        trayIcon.Icon = UT.GetIconFromRes("UT.png");
+        trayIcon.Icon = UT.GetIconFromRes("UTtray.png");
         trayIcon.Text = "Unowhy Tools";
         trayIcon.MouseClick += TrayIcon_Click;
         var contextMenuStrip = new ContextMenuStrip();
@@ -924,10 +924,6 @@ public partial class TrayWindow : Window
 
     public async Task HideTray()
     {
-        Topmost = false;
-        await Task.Delay(150);
-        Topmost = true;
-
         DoubleAnimation animb = new DoubleAnimation();
         animb.From = 20;
         animb.To = 0;
@@ -1256,14 +1252,16 @@ public partial class TrayWindow : Window
         await SetQL_Default();
     }
 
-    private void UTbtn_Click(object sender, RoutedEventArgs e)
+    private async void UTbtn_Click(object sender, RoutedEventArgs e)
     {
+        await HideTray();
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         System.Diagnostics.Process.Start(utpath);
     }
 
-    private void UTUbtn_Click(object sender, RoutedEventArgs e)
+    private async void UTUbtn_Click(object sender, RoutedEventArgs e)
     {
+        await HideTray();
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         System.Diagnostics.Process.Start(utpath, "-updater");
     }

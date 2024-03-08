@@ -135,6 +135,7 @@
     <None Remove="Resources\UTB.png" />
     <None Remove="Resources\UTLogoWhite3.0.png" />
     <None Remove="Resources\UTS.png" />
+    <None Remove="Resources\UTtray.png" />
     <None Remove="Resources\UTU.png" />
     <None Remove="Resources\UTW.png" />
     <None Remove="Resources\verbose.png" />
@@ -286,6 +287,7 @@
     <Resource Include="Resources\UTB.png" />
     <Resource Include="Resources\UTLogoWhite3.0.png" />
     <Resource Include="Resources\UTS.png" />
+    <Resource Include="Resources\UTtray.png" />
     <Resource Include="Resources\UTU.png" />
     <Resource Include="Resources\UTW.png" />
     <Resource Include="Resources\verbose.png" />
