@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using System.IO;
 using System.Diagnostics.Eventing.Reader;
+using Microsoft.Win32;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -598,7 +599,7 @@ public partial class MainWindow : INavigationWindow
             else
             {
                 SplashText.Text = "Hi !";
-                await Task.Delay(1500);
+                await Task.Delay(1000);
 
                 DoubleAnimation animsb = new DoubleAnimation();
                 animsb.From = 0;
@@ -626,8 +627,9 @@ public partial class MainWindow : INavigationWindow
 
                 await USS("Loading... (Checking WD Exclusion)");
                 UT.Write2Log("Checking Unowhy Tools in Windows Defender exclusion list");
-                string expath = await UT.RunReturn("powershell", "\"Get-MpPreference | Select-Object ExclusionPath\"");
-                if (!expath.Contains("C:\\Program Files (x86)\\Unowhy Tools"))
+                RegistryKey key = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows Defender\\Exclusions\\Paths");
+
+                if (key.GetValue("C:\\Program Files (x86)\\Unowhy Tools", null) == null)
                 {
                     await USSwB("Loading... (Adding WD Exclusion)");
                     UT.Write2Log("Unowhy Tools isn't in Windows Defender exclusion list, adding....");
@@ -648,11 +650,11 @@ public partial class MainWindow : INavigationWindow
                 await UT.Cleanup();
                 await USS("Loading... (Checking Files)");
                 bool fs = await UT.FirstStart();
+                await USS("Loading... (Checking Unowhy Tools Service)");
+                await UT.UTS.UTScheck();
                 await USS("Loading... (Checking System)");
                 await UT.OneTimeCheck();
                 await UT.Check("all");
-                await USS("Loading... (Checking Unowhy Tools Service)");
-                await UT.UTS.UTScheck();
                 await USS("Loading... (Tray)");
                 await UT.TrayCheck();
                 await USS("Loading... (Preloading pages)");
