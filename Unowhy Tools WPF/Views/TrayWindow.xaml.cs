@@ -43,6 +43,7 @@ public partial class TrayWindow : Window
     public DispatcherTimer _timerPower;
     public DispatcherTimer _timerPriv;
     public DispatcherTimer _timerTimeDate;
+    public DispatcherTimer _timerUpdate;
 
     public ImageSource editimg = UT.GetImgSource("customize.png");
     public string editpath = "null";
@@ -102,6 +103,11 @@ public partial class TrayWindow : Window
         _timerTimeDate.Interval = TimeSpan.FromSeconds(1);
         _timerTimeDate.Tick += async (sender, e) => await UpdateTimeDate();
         _timerTimeDate.Start();
+
+        _timerUpdate = new DispatcherTimer();
+        _timerUpdate.Interval = TimeSpan.FromSeconds(600);
+        _timerUpdate.Tick += async (sender, e) => await CheckUpdate();
+        _timerUpdate.Start();
     }
 
     public async Task StartTimer()
@@ -112,6 +118,88 @@ public partial class TrayWindow : Window
     public async Task StopTimer()
     {
         IsPause = true;
+    }
+
+    public bool firstok = false;
+
+    public async Task CheckUpdate()
+    {
+        if (UT.CheckInternet())
+        {
+            if (await UT.Config.Get("UpdateStart") == "1")
+            {
+                if (await UT.version.newver())
+                {
+                    var web = new HttpClient();
+                    string newver = await UT.OnlineDatas.GetUpdates("utnewver");
+                    newver = newver.Insert(2, ".");
+                    newver = newver.Replace("\n", "");
+                    string newverfull = await UT.GetLang("newver") + "\n(" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
+                    trayIcon.ShowBalloonTip(5000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
+
+                    if (!firstok)
+                    {
+                        firstok = true;
+                        Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
+                        Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
+                        newver = newver.Insert(2, ".");
+                        newver = newver.Replace("\n", "");
+                        string newverfull2 = UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver;
+                        string labnewver = await UT.GetLang("newver");
+
+                        DoubleAnimation anim = new DoubleAnimation();
+                        anim.From = 0;
+                        anim.To = 250;
+                        anim.Duration = TimeSpan.FromMilliseconds(500);
+                        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
+                        DoubleAnimation anim2 = new DoubleAnimation();
+                        anim2.From = -250;
+                        anim2.To = 0;
+                        anim2.Duration = TimeSpan.FromMilliseconds(500);
+                        anim2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+
+                        TranslateTransform trans = new TranslateTransform();
+                        UTUbtndesc.RenderTransform = trans;
+
+                        UTUbtn.Visibility = Visibility.Visible;
+                        Grid.SetColumnSpan(UTbtn, 1);
+
+                        while (true)
+                        {
+                            UTUbtndesc.Foreground = new SolidColorBrush(white);
+                            await Task.Delay(500);
+                            UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                            await Task.Delay(500);
+                            UTUbtndesc.Foreground = new SolidColorBrush(white);
+                            await Task.Delay(500);
+                            UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                            await Task.Delay(500);
+                            UTUbtndesc.Text = labnewver;
+                            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+                            UTUbtndesc.Foreground = new SolidColorBrush(white);
+                            await Task.Delay(500);
+                            UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                            await Task.Delay(500);
+                            UTUbtndesc.Foreground = new SolidColorBrush(white);
+                            await Task.Delay(500);
+                            UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                            await Task.Delay(500);
+                            UTUbtndesc.Text = newverfull2;
+                            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+
+
+                        }
+                    }
+                }
+                else
+                {
+                    UTUbtn.Visibility = Visibility.Collapsed;
+                    Grid.SetColumnSpan(UTbtn, 2);
+                }
+            }
+        }
     }
 
     public async Task CheckStats()
@@ -655,73 +743,6 @@ public partial class TrayWindow : Window
             catch
             {
 
-            }
-            if (await UT.Config.Get("UpdateStart") == "1")
-            {
-                if (await UT.version.newver())
-                {
-                    var web = new HttpClient();
-                    string newver = await UT.OnlineDatas.GetUpdates("utnewver");
-                    newver = newver.Insert(2, ".");
-                    newver = newver.Replace("\n", "");
-                    string newverfull = await UT.GetLang("newver") + "\n(" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
-                    trayIcon.ShowBalloonTip(5000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
-
-                    Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
-                    Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
-                    newver = newver.Insert(2, ".");
-                    newver = newver.Replace("\n", "");
-                    string newverfull2 = UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver;
-                    string labnewver = await UT.GetLang("newver");
-
-                    DoubleAnimation anim = new DoubleAnimation();
-                    anim.From = 0;
-                    anim.To = 250;
-                    anim.Duration = TimeSpan.FromMilliseconds(500);
-                    anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
-                    DoubleAnimation anim2 = new DoubleAnimation();
-                    anim2.From = -250;
-                    anim2.To = 0;
-                    anim2.Duration = TimeSpan.FromMilliseconds(500);
-                    anim2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-
-                    TranslateTransform trans = new TranslateTransform();
-                    UTUbtndesc.RenderTransform = trans;
-
-                    while (true)
-                    {
-                        UTUbtndesc.Foreground = new SolidColorBrush(white);
-                        await Task.Delay(500);
-                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                        await Task.Delay(500);
-                        UTUbtndesc.Foreground = new SolidColorBrush(white);
-                        await Task.Delay(500);
-                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                        trans.BeginAnimation(TranslateTransform.XProperty, anim);
-                        await Task.Delay(500);
-                        UTUbtndesc.Text = labnewver;
-                        trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-                        UTUbtndesc.Foreground = new SolidColorBrush(white);
-                        await Task.Delay(500);
-                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                        await Task.Delay(500);
-                        UTUbtndesc.Foreground = new SolidColorBrush(white);
-                        await Task.Delay(500);
-                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                        trans.BeginAnimation(TranslateTransform.XProperty, anim);
-                        await Task.Delay(500);
-                        UTUbtndesc.Text = newverfull2;
-                        trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-
-
-                    }
-                }
-                else
-                {
-                    UTUbtn.Visibility = Visibility.Collapsed;
-                    UToc.Width = new GridLength(1, GridUnitType.Star);
-                    UTUoc.Width = new GridLength(0, GridUnitType.Star);
-                }
             }
         }
     }
