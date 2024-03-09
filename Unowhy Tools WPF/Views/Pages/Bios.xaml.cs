@@ -254,8 +254,6 @@ public partial class Bios : INavigableView<DashboardViewModel>
                         p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
                         p.StartInfo.Arguments = $"-bios -d \"{path}\"";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
-                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                        p.StartInfo.CreateNoWindow = true;
                         p.Start();
                         p.WaitForExit();
                     });
@@ -304,8 +302,6 @@ public partial class Bios : INavigableView<DashboardViewModel>
                         p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
                         p.StartInfo.Arguments = $"-bios -f \"{path}\"";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
-                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                        p.StartInfo.CreateNoWindow = true;
                         p.Start();
                         p.WaitForExit();
                     });
@@ -382,8 +378,6 @@ public partial class Bios : INavigableView<DashboardViewModel>
                         p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe";
                         p.StartInfo.Arguments = $"\"{path}\" /O";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU";
-                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                        p.StartInfo.CreateNoWindow = true;
                         p.Start();
                         p.WaitForExit();
                     });
@@ -439,8 +433,6 @@ public partial class Bios : INavigableView<DashboardViewModel>
                         p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\AFUWINx64.exe";
                         p.StartInfo.Arguments = $"\"{path}\"{extarg}";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU";
-                        p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                        p.StartInfo.CreateNoWindow = true;
                         p.Start();
                         p.WaitForExit();
                     });
