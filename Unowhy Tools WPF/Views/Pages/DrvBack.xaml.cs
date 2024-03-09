@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.IO.Compression;
 using System.Windows.Media.Animation;
 using System.Windows.Media;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -126,11 +127,25 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
                 await UT.Extract("UT-Restore.exe", backuptemp + "\\UT-Restore.exe");
                 if (dismbk.IsChecked == true)
                 {
-                    await UT.RunMin("dism.exe", "/online /export-driver /destination:\"" + backuptemp + "\"");
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = "dism.exe";
+                        p.StartInfo.Arguments = "/online /export-driver /destination:\"" + backuptemp + "\"";
+                        p.Start();
+                        p.WaitForExit();
+                    });
                 }
                 else if (psbk.IsChecked == true)
                 {
-                    await UT.RunMin("powershell.exe", "Export-WindowsDriver -Online -Destination \"" + backuptemp + "\"");
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = "powershell.exe";
+                        p.StartInfo.Arguments = "Export-WindowsDriver -Online -Destination \"" + backuptemp + "\"";
+                        p.Start();
+                        p.WaitForExit();
+                    });
                 }
                 await UT.waitstatus.open(await UT.GetLang("wait.compress"), "zip.png");
                 await Task.Delay(1000);
