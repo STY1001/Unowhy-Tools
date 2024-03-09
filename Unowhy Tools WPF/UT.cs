@@ -132,6 +132,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Management;
 using System.Windows.Documents;
+using System.Windows.Threading;
 
 namespace Unowhy_Tools
 {
@@ -1587,6 +1588,105 @@ namespace Unowhy_Tools
             int Out;
             if (InternetGetConnectedState(out Out, 0) == true) return true;
             else return false;
+        }
+
+        public static async Task PrepareResources()
+        {
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+
+            if (CheckInternet())
+            { 
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+                {
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    string dl = "Downloading... (Edge)";
+                    await MainWindow.USSwB(dl);
+                    progress.ProgressChanged += async (sender, value) =>
+                    {
+                        mainWindow.SplashText.Text = dl + " (" + value.ToString("###") + "%)";
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("edgesetup"), UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe", progress, cancellationToken.Token);
+                }
+                if(!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe"))
+                {
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    string dl = "Downloading... (Change Logo)";
+                    await MainWindow.USSwB(dl);
+                    progress.ProgressChanged += async (sender, value) =>
+                    {
+                        mainWindow.SplashText.Text = dl + " (" + value.ToString("###") + "%)";
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("changelogo"), UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe", progress, cancellationToken.Token);
+                }
+                if(!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe"))
+                {
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    string dl = "Downloading... (HackBGRT)";
+                    await MainWindow.USSwB(dl);
+                    progress.ProgressChanged += async (sender, value) =>
+                    {
+                        mainWindow.SplashText.Text = dl + " (" + value.ToString("###") + "%)";
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("hackbgrt"), UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT.zip", progress, cancellationToken.Token);
+                    await MainWindow.USSwB("Extracting... (HackBGRT)");
+                    await Task.Delay(100);
+                    await Task.Run(() =>
+                    {
+                        ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT", true);
+                    });
+                }
+                if(!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe"))
+                {
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    string dl = "Downloading... (AFUWin)";
+                    await MainWindow.USSwB(dl);
+                    progress.ProgressChanged += async (sender, value) =>
+                    {
+                        mainWindow.SplashText.Text = dl + " (" + value.ToString("###") + "%)";
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("afuwin"), UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", progress, cancellationToken.Token);
+                    await MainWindow.USSwB("Extracting... (AFUWin)");
+                    await Task.Delay(100);
+                    await Task.Run(() =>
+                    {
+                        ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU", true);
+                    });
+                }
+                if(!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIFLDRV64.sys"))
+                {
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    string dl = "Downloading... (AMIDEWin)";
+                    await MainWindow.USSwB(dl);
+                    progress.ProgressChanged += async (sender, value) =>
+                    {
+                        mainWindow.SplashText.Text = dl + " (" + value.ToString("###") + "%)";
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("amidewin"), UT.utpath + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", progress, cancellationToken.Token);
+                    await MainWindow.USSwB("Extracting... (AMIDEWin)");
+                    await Task.Delay(100);
+                    await Task.Run(() =>
+                    {
+                        ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE", true);
+                    });
+                }
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                {
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    string dl = "Downloading... (IFPT)";
+                    await MainWindow.USSwB(dl);
+                    progress.ProgressChanged += async (sender, value) =>
+                    {
+                        mainWindow.SplashText.Text = dl + " (" + value.ToString("###") + "%)";
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw"), UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe", progress, cancellationToken.Token);
+                }
+            }
         }
 
         public static async Task OneTimeCheck()

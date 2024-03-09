@@ -442,7 +442,7 @@ public partial class MainWindow : INavigationWindow
         await mainWindow.updatesplashstatus(status, true);
     }
 
-    public int totalstep = 63;
+    public int totalstep = 62;
     public int actualstep = 0;
 
     public async Task updatesplashstatus(string status, bool bar)
@@ -657,6 +657,8 @@ public partial class MainWindow : INavigationWindow
                 await UT.Check("all");
                 await USS("Loading... (Tray)");
                 await UT.TrayCheck();
+                await USS("Preparing resources... (Checking)");
+                await UT.PrepareResources();
                 await USS("Loading... (Preloading pages)");
                 await USS("Preloading pages... (Dashboard)");
                 Navigate(typeof(Dashboard));
