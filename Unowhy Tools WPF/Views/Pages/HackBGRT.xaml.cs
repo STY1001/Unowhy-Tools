@@ -105,7 +105,25 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         imagepreview.Height = image.PixelHeight;
         xsizenumbox.Value = image.PixelWidth;
         ysizenumbox.Value = image.PixelHeight;
+        await SetLimit(image.PixelWidth, image.PixelHeight);
         ImageApply = image;
+    }
+
+    private async Task SetLimit(double imagex, double imagey)
+    {
+        double maxx = 1920 - (imagex / 2);
+        double maxy = 1080 - (imagey / 2);
+        double minx = maxx * -1;
+        double miny = maxy * -1;
+
+        xnumbox.Maximum = maxx;
+        xnumbox.Minimum = minx;
+        ynumbox.Maximum = maxy;
+        ynumbox.Minimum = miny;
+        xslider.Maximum = maxx;
+        xslider.Minimum = minx;
+        yslider.Maximum = maxy;
+        yslider.Minimum = miny;
     }
 
     private void xnumbox_ValueChanged(object sender, RoutedEventArgs e)
@@ -588,13 +606,13 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                 if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys"))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
-                    if(File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom"))
+                    if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom"))
                     {
                         File.Delete(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\dump.rom");
                     }
-                    if(File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp"))
+                    if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.*"))
                     {
-                        File.Delete(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp");
+                        File.Delete(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.*");
                     }
                     await Task.Run(() =>
                     {
@@ -614,18 +632,32 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                         {
                             Process p = new Process();
                             p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe";
-                            p.StartInfo.Arguments = "/i dump.rom /e splash.bmp";
+                            p.StartInfo.Arguments = "/i dump.rom /e splash";
                             p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo";
                             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                             p.StartInfo.CreateNoWindow = true;
                             p.Start();
                             p.WaitForExit();
                         });
-                        BitmapImage preimage = new BitmapImage(new Uri(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp"));
-                        await UpdatePreview(preimage);
-                        ImageSource = ResizeImage(preimage);
-
-                        await UT.waitstatus.close();
+                        if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp"))
+                        {
+                            BitmapImage preimage = new BitmapImage(new Uri(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.bmp"));
+                            await UpdatePreview(preimage);
+                            ImageSource = ResizeImage(preimage);
+                            await UT.waitstatus.close();
+                        }
+                        else if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.jpg"))
+                        {
+                            BitmapImage preimage = new BitmapImage(new Uri(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\splash.jpg"));
+                            await UpdatePreview(preimage);
+                            ImageSource = ResizeImage(preimage);
+                            await UT.waitstatus.close();
+                        }
+                        else
+                        {
+                            await UT.waitstatus.close();
+                            UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                        }
                     }
                     else
                     {
