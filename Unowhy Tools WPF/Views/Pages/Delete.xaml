@@ -10,7 +10,7 @@
            Loaded="InitAnim"
            d:DataContext="{d:DesignInstance local:Delete,
                                      IsDesignTimeCreatable=False}"
-           d:DesignHeight="750"
+           d:DesignHeight="800"
            d:DesignWidth="800"
            Scrollable="True"
            mc:Ignorable="d">
@@ -176,6 +176,38 @@
                 </ui:CardControl.Header>
                 <ui:Button Click="hsmqf_Click"
                            x:Name="hsmqf_btn"
+                           Content="Delete"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="ridfcertdel"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/cert.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="ridfcertdel_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Delete &quot;RIDF&quot; root certificate authority" />
+                            <TextBlock  x:Name="ridfcertdel_desc"
+                                        FontSize="12"
+                                        Foreground="#bebebe"
+                                        Text="Description"
+                                        TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="ridfcertdel_Click"
+                           x:Name="ridfcertdel_btn"
                            Content="Delete"
                            Grid.Column="0"
                            Grid.ColumnSpan="4"

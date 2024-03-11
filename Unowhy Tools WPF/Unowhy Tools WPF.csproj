@@ -51,6 +51,7 @@
     <None Remove="Resources\block.png" />
     <None Remove="Resources\boot.png" />
     <None Remove="Resources\camera.png" />
+    <None Remove="Resources\cert.png" />
     <None Remove="Resources\charge.png" />
     <None Remove="Resources\check.png" />
     <None Remove="Resources\clipboard.png" />
@@ -201,6 +202,7 @@
     <Resource Include="Resources\block.png" />
     <Resource Include="Resources\boot.png" />
     <Resource Include="Resources\camera.png" />
+    <Resource Include="Resources\cert.png" />
     <Resource Include="Resources\charge.png" />
     <Resource Include="Resources\check.png" />
     <Resource Include="Resources\clipboard.png" />

@@ -2418,6 +2418,29 @@ namespace Unowhy_Tools
                 Write2Log("=== End ===" + Environment.NewLine);
 
                 #endregion
+
+                await MainWindow.USS("Software Info... (RIDF Certificate)");
+
+                #region RIDF Certificate
+
+                Write2Log("=== RIDF Certificate ===");
+
+                string rootcert = await UT.RunReturn("powershell", "\"Get-ChildItem Cert:\\LocalMachine\\Root | Where-Object { $_.Subject -match 'RIDF' }\"");
+                if (rootcert.Contains("RIDF"))
+                {
+                    UTdata.RIDFCertInstalled = true;
+                    Write2Log("RIDF Certificate is present");
+                }
+                else
+                {
+                    UTdata.RIDFCertInstalled = false;
+                    Write2Log("RIDF Certificate is not present");
+                }
+
+                Write2Log("=== End ===" + Environment.NewLine);
+
+                #endregion
+
             }
             else
             {
@@ -3035,6 +3058,29 @@ namespace Unowhy_Tools
 
                     #endregion
                 }
+
+                if (step.Contains("ridfcert"))
+                {
+                    #region RIDF Certificate
+
+                    Write2Log("=== RIDF Certificate ===");
+
+                    string rootcert = await UT.RunReturn("powershell", "\"Get-ChildItem Cert:\\LocalMachine\\Root | Where-Object { $_.Subject -match 'RIDF' }\"");
+                    if (rootcert.Contains("RIDF"))
+                    {
+                        UTdata.RIDFCertInstalled = true;
+                        Write2Log("RIDF Certificate is present");
+                    }
+                    else
+                    {
+                        UTdata.RIDFCertInstalled = false;
+                        Write2Log("RIDF Certificate is not present");
+                    }
+
+                    Write2Log("=== End ===" + Environment.NewLine);
+
+                    #endregion
+                }
             }
 
             Write2Log("====== End ======");
@@ -3260,6 +3306,7 @@ namespace Unowhy_Tools
             private static bool _edgeinstalled;
             private static bool _noedgereg;
             private static bool _windefenabled;
+            private static bool _ridfcertinstalled;
 
             private static bool _trayrunok;
             private static bool _runtray;
@@ -3677,6 +3724,15 @@ namespace Unowhy_Tools
                 set
                 {
                     _windefenabled = value;
+                    OnPropertyChanged();
+                }
+            }
+            public bool RIDFCertInstalled
+            {
+                get { return _ridfcertinstalled; }
+                set
+                {
+                    _ridfcertinstalled = value;
                     OnPropertyChanged();
                 }
             }

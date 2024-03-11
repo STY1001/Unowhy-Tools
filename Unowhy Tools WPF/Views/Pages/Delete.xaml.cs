@@ -41,6 +41,9 @@ public partial class Delete : INavigableView<DashboardViewModel>
         hsmqf_txt.Text = await UT.GetLang("delhism");
         hsmqf_desc.Text = await UT.GetLang("deschismdel");
         hsmqf_btn.Content = await UT.GetLang("delete");
+        ridfcertdel_txt.Text = await UT.GetLang("ridfcertdel");
+        ridfcertdel_desc.Text = await UT.GetLang("descridfcertdel");
+        ridfcertdel_btn.Content = await UT.GetLang("delete");
         tif_txt.Text = await UT.GetLang("delti");
         tif_desc.Text = await UT.GetLang("desctidel");
         tif_btn.Content = await UT.GetLang("delete");
@@ -77,6 +80,8 @@ public partial class Delete : INavigableView<DashboardViewModel>
         else aad.IsEnabled = false;
         if (UTdata.HSQMFolderExist == true) hsmqf.IsEnabled = true;
         else hsmqf.IsEnabled = false;
+        if (UTdata.RIDFCertInstalled == true) ridfcertdel.IsEnabled = true;
+        else ridfcertdel.IsEnabled = false;
         if (UTdata.TIFolderExist == true) tif.IsEnabled = true;
         else tif.IsEnabled = false;
         if (UTdata.RIDFFolderExist == true) ridff.IsEnabled = true;
@@ -328,6 +333,27 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await CheckBTN(true, "folders");
             await UT.waitstatus.close();
             if (!entf.IsEnabled)
+            {
+                UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+            }
+        }
+    }
+
+    public async void ridfcertdel_Click(object sender, RoutedEventArgs e)
+    {
+        if (UT.DialogQShow(await UT.GetLang("ridfcertdel"), "cert.png"))
+        {
+            await UT.waitstatus.open(await UT.GetLang("wait.delete"), "cert.png");
+            await UT.RunMin("powershell", "\"Get-ChildItem Cert:\\LocalMachine\\Root | Where-Object { $_.Subject -match 'RIDF' } | Remove-Item\"");
+            await Task.Delay(1000);
+            await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
+            await CheckBTN(true, "ridfcert");
+            await UT.waitstatus.close();
+            if (!ridfcertdel.IsEnabled)
             {
                 UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }

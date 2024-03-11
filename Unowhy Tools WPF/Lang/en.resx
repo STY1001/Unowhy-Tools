@@ -357,6 +357,9 @@
   <data name="descridf" xml:space="preserve">
     <value>Delete the first logon script and video folder (In : C:\ProgramData)</value>
   </data>
+  <data name="descridfcertdel" xml:space="preserve">
+    <value>Delete "RIDF" root certificate authority. Unowhy deployed a Root CA (certificate authority) with a payload to not simply log all DNS request, but also decrypt all your web request (HTTPS for example), to simplify, it's to spy you. Yes, it's a big privacy issue and can become a backdoor. The payload also disable Firefox certificate error to not avert user. But don't panic, you can remove, this also block the connection, use your 4G/5G instead or a VPN ?</value>
+  </data>
   <data name="descshell" xml:space="preserve">
     <value>Do this before modify somethings else ! If you have an boot issue (black screen with only cursor) or if you want to bypass the GRDP agreement, do this</value>
   </data>
@@ -620,6 +623,9 @@
   </data>
   <data name="restore.short" xml:space="preserve">
     <value>Restore</value>
+  </data>
+  <data name="ridfcertdel" xml:space="preserve">
+    <value>Delete "RIDF" root certificate authority</value>
   </data>
   <data name="securebootwarn" xml:space="preserve">
     <value>Secure Boot is enabled, you need to disable Secure Boot in BIOS to boot properly with HackBGRT. You can continue, but you need to enroll an Certificate to the BIOS. Do you want to continue ?</value>
