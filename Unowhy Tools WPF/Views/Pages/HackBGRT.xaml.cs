@@ -105,14 +105,14 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         imagepreview.Height = image.PixelHeight;
         xsizenumbox.Value = image.PixelWidth;
         ysizenumbox.Value = image.PixelHeight;
-        await SetLimit(image.PixelWidth, image.PixelHeight);
+        await SetLimit(imagepreview.Width, imagepreview.Height);
         ImageApply = image;
     }
 
     private async Task SetLimit(double imagex, double imagey)
     {
-        double maxx = 1920 - (imagex / 2);
-        double maxy = 1080 - (imagey / 2);
+        double maxx = (1920 / 2) - (imagex / 2);
+        double maxy = (1080 / 2) - (imagey / 2);
         double minx = maxx * -1;
         double miny = maxy * -1;
 
