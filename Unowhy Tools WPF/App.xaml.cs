@@ -73,6 +73,7 @@ public partial class App
             services.AddScoped<Views.Pages.Bios>();
             services.AddScoped<Views.Pages.DrvCloud>();
             services.AddScoped<Views.Pages.HackBGRT>();
+            services.AddScoped<Views.Pages.Extra>();
             services.AddScoped<TrayWindow>();
             services.AddScoped<UT>();
 

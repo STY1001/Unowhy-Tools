@@ -104,6 +104,13 @@
                                        PageTag="drivers"
                                        PageType="{x:Type pages:Drivers}"
                                        Click="NavClick" />
+                    <ui:NavigationItem x:Name="extra"
+                                       Content="Extras"
+                                       ToolTip="Extras"
+                                       Image="pack://application:,,,/Resources/extra.png"
+                                       PageTag="extra"
+                                       PageType="{x:Type pages:Extra}"
+                                       Click="NavClick" />
                 </ui:NavigationStore.Items>
                 <ui:NavigationStore.Footer>
                     <ui:NavigationItem x:Name="deb"

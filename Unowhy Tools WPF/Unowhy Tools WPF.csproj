@@ -79,6 +79,7 @@
     <None Remove="Resources\enable.png" />
     <None Remove="Resources\enter.png" />
     <None Remove="Resources\explorer.png" />
+    <None Remove="Resources\extra.png" />
     <None Remove="Resources\fgamer768.png" />
     <None Remove="Resources\fluent-ui-microsoft.png" />
     <None Remove="Resources\folder.png" />
@@ -90,6 +91,7 @@
     <None Remove="Resources\heart.png" />
     <None Remove="Resources\hi.png" />
     <None Remove="Resources\home.png" />
+    <None Remove="Resources\hsqm.png" />
     <None Remove="Resources\ic.png" />
     <None Remove="Resources\image.png" />
     <None Remove="Resources\instprog.png" />
@@ -99,6 +101,7 @@
     <None Remove="Resources\left.png" />
     <None Remove="Resources\link.png" />
     <None Remove="Resources\manufacturer.png" />
+    <None Remove="Resources\mas.png" />
     <None Remove="Resources\micro.png" />
     <None Remove="Resources\monitor.png" />
     <None Remove="Resources\next.png" />
@@ -121,6 +124,7 @@
     <None Remove="Resources\registry.png" />
     <None Remove="Resources\repair.png" />
     <None Remove="Resources\right.png" />
+    <None Remove="Resources\rufus.png" />
     <None Remove="Resources\script.png" />
     <None Remove="Resources\service.png" />
     <None Remove="Resources\settings.png" />
@@ -230,6 +234,7 @@
     <Resource Include="Resources\enable.png" />
     <Resource Include="Resources\enter.png" />
     <Resource Include="Resources\explorer.png" />
+    <Resource Include="Resources\extra.png" />
     <Resource Include="Resources\fgamer768.png" />
     <Resource Include="Resources\fluent-ui-microsoft.png" />
     <Resource Include="Resources\folder.png" />
@@ -241,6 +246,7 @@
     <Resource Include="Resources\heart.png" />
     <Resource Include="Resources\hi.png" />
     <Resource Include="Resources\home.png" />
+    <Resource Include="Resources\hsqm.png" />
     <Resource Include="Resources\ic.png" />
     <Resource Include="Resources\image.png" />
     <Resource Include="Resources\instprog.png" />
@@ -250,6 +256,7 @@
     <Resource Include="Resources\left.png" />
     <Resource Include="Resources\link.png" />
     <Resource Include="Resources\manufacturer.png" />
+    <Resource Include="Resources\mas.png" />
     <Resource Include="Resources\micro.png" />
     <Resource Include="Resources\monitor.png" />
     <Resource Include="Resources\next.png" />
@@ -272,6 +279,7 @@
     <Resource Include="Resources\registry.png" />
     <Resource Include="Resources\repair.png" />
     <Resource Include="Resources\right.png" />
+    <Resource Include="Resources\rufus.png" />
     <Resource Include="Resources\script.png" />
     <Resource Include="Resources\service.png" />
     <Resource Include="Resources\settings.png" />
