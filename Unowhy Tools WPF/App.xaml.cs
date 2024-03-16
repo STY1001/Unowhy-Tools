@@ -273,7 +273,7 @@ public partial class App
                         Console.Write($"Downloading... (1/2 {value.ToString("##0")}%)");
                     };
                     await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utupdatezip"), utemp + "\\update.zip", progress, cancellationToken.Token);
-                    Console.WriteLine("Done\n");
+                    Console.WriteLine("Done");
                     progress = new System.Progress<double>();
                     cancellationToken = new CancellationTokenSource();
                     progress.ProgressChanged += (sender, value) =>
