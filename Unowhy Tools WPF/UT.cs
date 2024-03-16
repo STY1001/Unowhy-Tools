@@ -158,7 +158,7 @@ namespace Unowhy_Tools
         public static string utpath = "C:\\Unowhy Tools";
 
         public static int verfull = 2800;
-        public static string verbuild = "2025150324";
+        public static string verbuild = "2035160324";
         public static bool verisdeb = true;
 
         public class version
@@ -3088,12 +3088,15 @@ namespace Unowhy_Tools
 
         public static string GetWMI(string classname, string propertyname)
         {
+            Write2Log("Get WMI: " + classname + " | " + propertyname);
             ManagementObjectSearcher searcher = new ManagementObjectSearcher($"SELECT {propertyname} FROM {classname}");
             ManagementObjectCollection result = searcher.Get();
             foreach (ManagementObject obj in result)
             {
+                Write2Log("Get WMI done: " + obj[propertyname]?.ToString());
                 return obj[propertyname]?.ToString();
             }
+            Write2Log("Get WMI fail");
             return string.Empty;
         }
 
