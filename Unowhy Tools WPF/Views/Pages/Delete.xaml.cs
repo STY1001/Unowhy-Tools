@@ -242,6 +242,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         {
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "service.png");
             await UT.serv.del("Hisqoolmanager");
+            await UT.RunMin("taskkill", "/f /im sqoolsys.exe")
             await UT.RunMin("cmd", "/w /c rmdir /s /q \"C:\\Program Files\\Unowhy\\Hisqool manager\"");
             await Task.Delay(1000);
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
