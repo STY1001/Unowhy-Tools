@@ -340,7 +340,7 @@
     <value>Désinstaller le logiciel inutile "HiSqool" (Dans : C:\Program Files\Unowhy)</value>
   </data>
   <data name="deschism" xml:space="preserve">
-    <value>HiSqool Manager est un logiciel embarqué pour gérer ce PC. Je vous recommande de le désactiver car il est comparable à un malware/spyware</value>
+    <value>HiSqool Manager est un logiciel embarqué pour gérer ce PC. Comparable à un malware/spyware</value>
   </data>
   <data name="deschismdel" xml:space="preserve">
     <value>Supprimer le gros dossier "HiSqool Manager" ainsi que le service (contient le programme pour gerer les PC (spyware/malware)) (Dans : C:\Program Files\Unowhy)</value>

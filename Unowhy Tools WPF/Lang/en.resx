@@ -340,7 +340,7 @@
     <value>Uninstall the useless "HiSqool" software (In : C:\Program Files\Unowhy)</value>
   </data>
   <data name="deschism" xml:space="preserve">
-    <value>HiSqool Manager is an embedded software to manage this PC. I recommend you to disable this because it's comparable to a malware/spyware</value>
+    <value>HiSqool Manager is an embedded software to manage this PC. It's comparable to a malware/spyware</value>
   </data>
   <data name="deschismdel" xml:space="preserve">
     <value>Delete the heavy "HiSqool Manager" folder and service (contains the software to manage this PC (Spyware/Malware)) (In : C:\Program Files\Unowhy)</value>
@@ -458,6 +458,9 @@
   </data>
   <data name="install" xml:space="preserve">
     <value>Install</value>
+  </data>
+  <data name="installhsm" xml:space="preserve">
+    <value />
   </data>
   <data name="la" xml:space="preserve">
     <value>Local Admin</value>
