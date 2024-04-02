@@ -33,7 +33,8 @@
                                FontSize="10"
                                Foreground="#bebebe"
                                    Grid.Column="0"
-                               Margin="0,0,10,0"/>
+                               Margin="0,0,10,0"
+                               x:Name="unowhyprodcat"/>
                     <Separator HorizontalAlignment="Stretch"
                                VerticalAlignment="Center"
                                Grid.Column="1"/>
@@ -112,7 +113,8 @@
                                FontSize="10"
                                Foreground="#bebebe"
                                Grid.Column="0"
-                               Margin="0,0,10,0" />
+                               Margin="0,0,10,0"
+                               x:Name="usefulcat"/>
                     <Separator HorizontalAlignment="Stretch"
                                VerticalAlignment="Center"
                                Grid.Column="1" />

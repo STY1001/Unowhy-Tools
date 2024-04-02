@@ -35,7 +35,16 @@ public partial class Extra : INavigableView<DashboardViewModel>
 
     public async Task applylang()
     {
-        
+        installhsqm_txt.Text = await UT.GetLang("installhsm");
+        installhsmq_desc.Text = await UT.GetLang("deschism");
+        installridfcert_txt.Text = await UT.GetLang("installridfcert");
+        installridfcert_desc.Text = await UT.GetLang("descinstridfcert");
+        openrufus_txt.Text = await UT.GetLang("openrufus");
+        openrufus_desc.Text = await UT.GetLang("descrufus");
+        openmas_txt.Text = await UT.GetLang("openmas");
+        openmas_desc.Text = await UT.GetLang("descmas");
+        usefulcat.Text = await UT.GetLang("usefulcat");
+        unowhyprodcat.Text = await UT.GetLang("unoprodcat");
     }
 
     public async Task CheckBTN(bool check, string step)
