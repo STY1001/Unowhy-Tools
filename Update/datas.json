@@ -55,6 +55,7 @@
             "name": "UT-Drv_12-50_16-10-22.zip",
             "author": "SonHaon",
             "pcyear": 2022,
+            "old": false,
             "description": {
                 "en": "Works with the majority of Y13 before 2023 (with a Realtek sound chip)",
                 "fr": "Fonctionne avec la majorité des Y13 avant 2023 (avec une puce audio Realtek)"
@@ -66,6 +67,7 @@
             "name": "UT-Drv_11-03_20-11-22.zip",
             "author": "Thomaszino",
             "pcyear": 2022,
+            "old": false,
             "description": {
                 "en": "Works with the majority of Y13 before 2023 (with a EsAuDriver (Everest) sound chip)",
                 "fr": "Fonctionne avec la majorité des Y13 avant 2023 (avec une puce audio EsAuDriver (Everest))"
@@ -77,6 +79,7 @@
             "name": "UT-Drv_16-30_24-09-23.zip",
             "author": "STY1001",
             "pcyear": 2023,
+            "old": false,
             "description": {
                 "en": "Works with all Y13 of 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec tous les Y13 de 2023 (avec une puce audio Realtek et un lecteur d'empreintes digitales FocalTech)"
@@ -88,6 +91,7 @@
             "name": "UT-Drv_11-13_07-09-23.zip",
             "author": "STY1001",
             "pcyear": 2020,
+            "old": false,
             "description": {
                 "en": "Works with Y13 of 2020 (with Realtek sound chip and Goodix fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2020 (avec puce audio Realtek et lecteur d'empreintes digitales Goodix)"
@@ -99,6 +103,7 @@
             "name": "UT-Drv_17-46_25-10-22.zip",
             "author": "STY1001",
             "pcyear": 2021,
+            "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
@@ -110,6 +115,7 @@
             "name": "UT-Drv_12-00_25-10-22.zip",
             "author": "STY1001",
             "pcyear": 2021,
+            "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
@@ -121,6 +127,7 @@
             "name": "UT-Drv_18-12_14-09-23.zip",
             "author": "FGAMER768",
             "pcyear": 2022,
+            "old": true,
             "description": {
                 "en": "Works with Y13 of 2022 (with a EsAuDriver (Everest) with ISST (Intel Smart Sound Technology) sound chip and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2022 (avec une puce audio EsAuDriver (Everest) avec ISST (Intel Smart Sound Technology) et un lecteur d'empreintes digitales FocalTech)"
@@ -132,6 +139,7 @@
             "name": "UT-Drv_09-39_06-03-23.zip",
             "author": "SpyXo",
             "pcyear": 2021,
+            "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
@@ -143,6 +151,7 @@
             "name": "UT-Drv_19-37_05-01-24.zip",
             "author": "Honda",
             "pcyear": 2023,
+            "old": true,
             "description": {
                 "en": "Works with Y13 of 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2023 (avec une puce audio Realtek et un lecteur d'empreintes digitales FocalTech)"
@@ -154,6 +163,7 @@
             "name": "UT-Drv_21-50_13-09-23.zip",
             "author": "The french bidouilleur",
             "pcyear": 2023,
+            "old": true,
             "description": {
                 "en": "Works with Y13 of 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2023 (avec une puce audio Realtek et un lecteur d'empreintes digitales FocalTech)"
@@ -165,6 +175,7 @@
             "name": "UT-Drv_19-35_18-12-23.zip",
             "author": "√(noham)²",
             "pcyear": 2021,
+            "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with a EsAuDriver (Everest) with ISST (Intel Smart Sound Technology))",
                 "fr": "Fonctionne avec les Y13 de 2021 (avec une puce audio EsAuDriver (Everest) avec ISST (Intel Smart Sound Technology))"
@@ -176,6 +187,7 @@
             "name": "UT-Drv_11-56_06-03-24.zip",
             "author": "Kofy",
             "pcyear": 2023,
+            "old": false,
             "description": {
                 "en": "Works with Y13 of 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2023 (avec une puce audio Realtek et un lecteur d'empreintes digitales FocalTech)"
@@ -187,6 +199,7 @@
             "name": "UT-Drv_18-06_18-10-23.zip",
             "author": "Kofy",
             "pcyear": 2022,
+            "old": true,
             "description": {
                 "en": "Works with Y13 of 2022 (with a EsAuDriver (Everest) with ISST (Intel Smart Sound Technology) and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2022 (avec une puce audio EsAuDriver (Everest) avec ISST (Intel Smart Sound Technology) et un lecteur d'empreintes digitales FocalTech)"
@@ -198,6 +211,7 @@
             "name": "UT-Drv_22-05_15-03-24.zip",
             "author": "Saffron",
             "pcyear": 2021,
+            "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
                 "fr": "Fonctionne avec les Y13 de 2021 (avec puce audio Realtek et lecteur d'empreintes digitales FocalTech)"
@@ -209,6 +223,7 @@
             "name": "UT-Drv_09-46_03-02-23.zip",
             "author": "@on._.dine",
             "pcyear": 2022,
+            "old": true,
             "description": {
                 "en": "",
                 "fr": ""
@@ -220,6 +235,7 @@
             "name": "UT-Drv_17-03_26-11-22.zip",
             "author": "Creeper",
             "pcyear": 2022,
+            "old": true,
             "description": {
                 "en": "",
                 "fr": ""
@@ -231,6 +247,7 @@
             "name": "UT-Drv_18-22_18-01-23.zip",
             "author": "√(noham)²",
             "pcyear": 2021,
+            "old": false,
             "description": {
                 "en": "",
                 "fr": ""
@@ -242,6 +259,7 @@
             "name": "UT-Drv_19-28_23-01-23.zip",
             "author": "Alexander",
             "pcyear": 2021,
+            "old": false,
             "description": {
                 "en": "",
                 "fr": ""
@@ -253,6 +271,7 @@
             "name": "UT-Drv_20-40_10-06-23.zip",
             "author": "Finix",
             "pcyear": 2022,
+            "old": true,
             "description": {
                 "en": "",
                 "fr": ""
@@ -264,6 +283,7 @@
             "name": "UT-Drv_22-05_18-01-23.zip",
             "author": "Dylan_Zpl",
             "pcyear": 2022,
+            "old": true,
             "description": {
                 "en": "",
                 "fr": ""
