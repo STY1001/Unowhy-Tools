@@ -345,8 +345,14 @@
   <data name="deschismdel" xml:space="preserve">
     <value>Delete the heavy "HiSqool Manager" folder and service (contains the software to manage this PC (Spyware/Malware)) (In : C:\Program Files\Unowhy)</value>
   </data>
+  <data name="descinstridfcert" xml:space="preserve">
+    <value>Unowhy deployed a Root CA (certificate authority) with a payload to not simply log all DNS request, but also decrypt all your web request (HTTPS for example), to simplify, it's to spy you. Yes, it's a big privacy issue and can become a backdoor. The payload also disable Firefox certificate error to not avert user. But don't panic, you can remove, this also block the connection, use your 4G/5G instead or a VPN ? If you have already remove the certificate, you can reintall it, but I don't recommand you to do this</value>
+  </data>
   <data name="desclocka" xml:space="preserve">
     <value>Enable the ability to lock the user account. For an unknown reason, Unowhy deployed a new version of HiSqoolManager that disable the ability to lock the user account (For exemple, by pressing Win+L). Do this to enable it</value>
+  </data>
+  <data name="descmas" xml:space="preserve">
+    <value>A useful open source tool to activate your Windows or Office, change your Windows edition, and more</value>
   </data>
   <data name="descpcname" xml:space="preserve">
     <value>Change the name of this PC (NETBIOS). By default, the Windows PC name of the Y13 is the serial number (IFP...)</value>
@@ -358,7 +364,10 @@
     <value>Delete the first logon script and video folder (In : C:\ProgramData)</value>
   </data>
   <data name="descridfcertdel" xml:space="preserve">
-    <value>Delete "RIDF" root certificate authority. Unowhy deployed a Root CA (certificate authority) with a payload to not simply log all DNS request, but also decrypt all your web request (HTTPS for example), to simplify, it's to spy you. Yes, it's a big privacy issue and can become a backdoor. The payload also disable Firefox certificate error to not avert user. But don't panic, you can remove, this also block the connection, use your 4G/5G instead or a VPN ?</value>
+    <value>Delete "RIDF" root certificate authority. Unowhy deployed a Root CA (certificate authority) with a payload to not simply log all DNS request, but also decrypt all your web request (HTTPS for example), to simplify, it's to spy you. Yes, it's a big privacy issue and can become a backdoor. The payload also disable Firefox certificate error to not avert user. But don't panic, you can remove it, this also block the connection, use your 4G/5G instead or a VPN ?</value>
+  </data>
+  <data name="descrufus" xml:space="preserve">
+    <value>The best open source tool to make bootable USB</value>
   </data>
   <data name="descshell" xml:space="preserve">
     <value>Do this before modify somethings else ! If you have an boot issue (black screen with only cursor) or if you want to bypass the GRDP agreement, do this</value>
@@ -460,7 +469,10 @@
     <value>Install</value>
   </data>
   <data name="installhsm" xml:space="preserve">
-    <value />
+    <value>Install "HiSqool Manager"</value>
+  </data>
+  <data name="installridfcert" xml:space="preserve">
+    <value>Install "RIDF" Root Certificate Authority</value>
   </data>
   <data name="la" xml:space="preserve">
     <value>Local Admin</value>
@@ -531,8 +543,14 @@
   <data name="openimg" xml:space="preserve">
     <value>Open an image</value>
   </data>
+  <data name="openmas" xml:space="preserve">
+    <value>Open "Microsoft Activation Script (MAS)"</value>
+  </data>
   <data name="openreg" xml:space="preserve">
     <value>Registry Editor</value>
+  </data>
+  <data name="openrufus" xml:space="preserve">
+    <value>Open "Rufus"</value>
   </data>
   <data name="opentask" xml:space="preserve">
     <value>Task Manager</value>

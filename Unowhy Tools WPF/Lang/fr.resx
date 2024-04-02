@@ -345,8 +345,14 @@
   <data name="deschismdel" xml:space="preserve">
     <value>Supprimer le gros dossier "HiSqool Manager" ainsi que le service (contient le programme pour gerer les PC (spyware/malware)) (Dans : C:\Program Files\Unowhy)</value>
   </data>
+  <data name="descinstridfcert" xml:space="preserve">
+    <value>Unowhy a déployé une Root CA (autorité de certification) avec un payload pour non seulement journaliser toutes les requêtes DNS, mais aussi décrypter toutes vos requêtes web (HTTPS par exemple), pour simplifier, c'est pour vous espionner. Oui, c'est un gros problème de confidentialité et peut devenir une porte dérobée. Le payload désactive également l’erreur de certificat Firefox pour ne pas détourner l’utilisateur. Mais pas de panique, vous pouvez supprimer, cela bloque également la connexion, utiliser plutôt votre 4G/5G ou un VPN ? Si vous avez déjà supprimé le certificat, vous pouvez le réinstaller, mais je ne vous recommande pas de le faire</value>
+  </data>
   <data name="desclocka" xml:space="preserve">
     <value>Activez la possibilité de verrouiller le compte d'utilisateur. Pour une raison inconnue, Unowhy a déployé une nouvelle version de HiSqoolManager qui désactive la possibilité de verrouiller le compte utilisateur (par exemple, en appuyant sur Win+L). Faites ceci pour l'activer</value>
+  </data>
+  <data name="descmas" xml:space="preserve">
+    <value>Un outil open source utile pour activer  Windows ou Office, modifier votre édition de Windows, et plus encore</value>
   </data>
   <data name="descpcname" xml:space="preserve">
     <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC (IFP...)</value>
@@ -359,6 +365,9 @@
   </data>
   <data name="descridfcertdel" xml:space="preserve">
     <value>Supprimez l’autorité de certification racine « RIDF ». Unowhy a déployé un autorité de certification racine avec un payload pour ne pas seulement journaliser toutes les requêtes DNS, mais aussi décrypter toutes vos requêtes web (HTTPS par exemple), pour simplifier, c'est pour vous espionner. Oui, c'est un gros problème de confidentialité et peut devenir une backdoor. Le payload désactive également l’erreur de certificat Firefox pour ne pas avertir l’utilisateur. Mais pas de panique, vous pouvez le supprimer, cependant, cela bloque également la connexion, utiliser plutôt votre 4G/5G ou un VPN ?</value>
+  </data>
+  <data name="descrufus" xml:space="preserve">
+    <value>Le meilleur outil open source pour créer une clé USB bootable</value>
   </data>
   <data name="descshell" xml:space="preserve">
     <value>Faites ceci avant de modifier autre chose ! Si vous avez un problème de démarrage (écran noir avec uniquement le curseur) ou si vous souhaitez contourner l'accord RGPD, faites ceci</value>
@@ -459,6 +468,12 @@
   <data name="install" xml:space="preserve">
     <value>Installer</value>
   </data>
+  <data name="installhsm" xml:space="preserve">
+    <value>Installer "HiSqool Manager"</value>
+  </data>
+  <data name="installridfcert" xml:space="preserve">
+    <value>Installer l'autorité de certification racine "RIDF"</value>
+  </data>
   <data name="la" xml:space="preserve">
     <value>Admin Local</value>
   </data>
@@ -528,8 +543,14 @@
   <data name="openimg" xml:space="preserve">
     <value>Open an image</value>
   </data>
+  <data name="openmas" xml:space="preserve">
+    <value>Ouvrir "Microsoft Activation Script (MAS)"</value>
+  </data>
   <data name="openreg" xml:space="preserve">
     <value>Editeur de registre</value>
+  </data>
+  <data name="openrufus" xml:space="preserve">
+    <value>Ouvrir "Rufus"</value>
   </data>
   <data name="opentask" xml:space="preserve">
     <value>Gestionnaire des tâches</value>
