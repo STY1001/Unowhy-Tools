@@ -40,7 +40,7 @@
                                            Text="Change &quot;Shell&quot; value to &quot;explorer.exe&quot;" />
                                 <TextBlock x:Name="shell_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -72,7 +72,7 @@
                                            Text="Delete &quot;silent_*.vbs&quot; in &quot;Startup&quot; folder" />
                                 <TextBlock x:Name="tis_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -104,7 +104,7 @@
                                            Text="WinRE (reagentc) settings" />
                                 <TextBlock x:Name="wre_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -148,7 +148,7 @@
                                            Text="Repair BootIM (Blue menu)" />
                                 <TextBlock x:Name="bim_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -180,7 +180,7 @@
                                            Text="Enable &quot;Windows Hello Enterprise&quot;" />
                                 <TextBlock x:Name="whe_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -212,7 +212,7 @@
                                            Text="Delete &quot;IgnoreAllFailures&quot; in BCD" />
                                 <TextBlock x:Name="iaf_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -244,7 +244,7 @@
                                            Text="Enable TaskMGR" />
                                 <TextBlock x:Name="tmgr_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -276,7 +276,7 @@
                                            Text="Enable the ability to lock the user account" />
                                 <TextBlock x:Name="locka_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>

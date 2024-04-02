@@ -44,7 +44,7 @@
                                                Text="Driver backup are hosted on SharePoint" />
                                     <TextBlock x:Name="repo_desc"
                                                FontSize="12"
-                                               Foreground="#bebebe"
+                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                Text="Description"
                                                TextWrapping="Wrap" />
                                 </StackPanel>
@@ -95,7 +95,7 @@
                                                FontWeight="Medium"
                                                Text="Driver backup are hosted on SharePoint" />
                                     <TextBlock FontSize="12"
-                                               Foreground="#bebebe"
+                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                Text="Description"
                                                TextWrapping="Wrap" />
                                 </StackPanel>

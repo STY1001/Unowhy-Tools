@@ -60,7 +60,7 @@
                                Source="/Resources/nowifi.png" />
                         <TextBlock Text="No Internet Connection"
                                    FontFamily="Segoe UI SemiBold"
-                                   Foreground="#ffffff"
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                    FontSize="18"
                                    VerticalAlignment="Center"
                                    Margin="30,0,0,0" />
@@ -107,7 +107,7 @@
                                    Text="Status"
                                    FontFamily="Segoe UI SemiNormal"
                                    FontSize="13"
-                                   Foreground="#ffffff"
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                    VerticalAlignment="Center"
                                    Margin="10" />
                     </StackPanel>

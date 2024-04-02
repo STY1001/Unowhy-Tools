@@ -72,14 +72,14 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Name:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <TextBox x:Name="namebox"
                                  SelectionChanged="name_Changed"
                                  MaxLength="20"
                                  Grid.Row="2"
                                  Grid.Column="2"
                                  Width="200"
-                                 Foreground="#ffffff" />
+                                 Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -101,12 +101,12 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Password:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ui:PasswordBox x:Name="passbox1"
                                         SelectionChanged="pass_Changed"
                                         Grid.Row="2"
                                         Grid.Column="2"
-                                        Foreground="#ffffff"
+                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                         Width="200" />
                     </Grid>
                     <Grid>
@@ -129,12 +129,12 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Password:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ui:PasswordBox x:Name="passbox2"
                                         SelectionChanged="pass_Changed"
                                         Grid.Row="2"
                                         Grid.Column="2"
-                                        Foreground="#ffffff"
+                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                         Width="200" />
                     </Grid>
                     <Grid>
@@ -156,7 +156,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Local Admin: "
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ui:ToggleSwitch x:Name="acheck"
                                          Grid.Row="2"
                                          Grid.Column="2"

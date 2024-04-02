@@ -40,7 +40,7 @@
                                        Text="Installed applications (Winodows Settings)" />
                             <TextBlock x:Name="instprog_desc"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        Text="Description"
                                        TextWrapping="Wrap" />
                         </StackPanel>
@@ -72,7 +72,7 @@
                                        Text="Delete &quot;.\ENT&quot; account" />
                             <TextBlock x:Name="entu_desc"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        Text="Description"
                                        TextWrapping="Wrap" />
                         </StackPanel>
@@ -104,7 +104,7 @@
                                        Text="Uninstall &quot;HiSqool&quot;" />
                             <TextBlock x:Name="hsq_desc"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        Text="Description"
                                        TextWrapping="Wrap" />
                         </StackPanel>
@@ -136,7 +136,7 @@
                                        Text="Disconnect this PC from AzureAD" />
                             <TextBlock x:Name="aad_desc"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        Text="Description"
                                        TextWrapping="Wrap" />
                         </StackPanel>
@@ -168,7 +168,7 @@
                                        Text="Delete &quot;HiSqoolManager&quot; service and folder" />
                             <TextBlock  x:Name="hsmqf_desc"
                                         FontSize="12"
-                                        Foreground="#bebebe"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                         Text="Description"
                                         TextWrapping="Wrap" />
                         </StackPanel>
@@ -200,7 +200,7 @@
                                        Text="Delete &quot;RIDF&quot; root certificate authority" />
                             <TextBlock  x:Name="ridfcertdel_desc"
                                         FontSize="12"
-                                        Foreground="#bebebe"
+                                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                         Text="Description"
                                         TextWrapping="Wrap" />
                         </StackPanel>
@@ -232,7 +232,7 @@
                                        Text="Delete &quot;TO_INSTALL&quot; folder" />
                             <TextBlock x:Name="tif_desc"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        Text="Description"
                                        TextWrapping="Wrap" />
                         </StackPanel>
@@ -264,7 +264,7 @@
                                         Text="Delete &quot;RIDF&quot; folder" />
                             <TextBlock x:Name="ridff_desc"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        Text="Description"
                                        TextWrapping="Wrap" />
                         </StackPanel>
@@ -296,7 +296,7 @@
                                        Text="Delete &quot;OEM&quot; folder" />
                             <TextBlock x:Name="oemf_desc"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        Text="Description"
                                        TextWrapping="Wrap" />
                         </StackPanel>
@@ -328,7 +328,7 @@
                                        Text="Delete &quot;ENT&quot; folder" />
                             <TextBlock x:Name="entf_desc"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        Text="Description"
                                        TextWrapping="Wrap" />
                         </StackPanel>

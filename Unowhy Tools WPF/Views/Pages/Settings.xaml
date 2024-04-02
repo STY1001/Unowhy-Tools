@@ -78,7 +78,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Language:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ComboBox Grid.Row="2"
                                   Grid.Column="2"
                                   x:Name="lang_box">
@@ -117,18 +117,18 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Open logs:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <StackPanel Orientation="Horizontal"
                                     Grid.Row="2"
                                     Grid.Column="2">
                             <ui:Button x:Name="ol"
                                        Click="Logs_Open"
                                        Content="Open"
-                                       Foreground="#ffffff" />
+                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                             <ui:Button x:Name="ll"
                                        Click="Live_Logs"
                                        Content="Live View"
-                                       Foreground="#ffffff" 
+                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}" 
                                        Margin="5,0,0,0"/>
                         </StackPanel>
                         
@@ -152,13 +152,13 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Delete logs:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ui:Button x:Name="dl"
                                    Click="Logs_Clear"
                                    Content="Delete"
                                    Grid.Row="2"
                                    Grid.Column="2"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                     </Grid>
                 </StackPanel>
                 <ui:NavigationSeparator Grid.Column="1"
@@ -194,7 +194,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Check for update at startup:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ui:ToggleSwitch x:Name="us"
                                          Grid.Row="2"
                                          Grid.Column="2"
@@ -219,7 +219,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Start Unowhy Tools Tray at boot:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ui:ToggleSwitch x:Name="tray"
                                          Grid.Row="2"
                                          Grid.Column="2"
@@ -244,7 +244,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Serial Number of this PC:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ui:TextBox x:Name="sn"
                                     Grid.Row="2"
                                     Grid.Column="2"
@@ -284,7 +284,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Sync Wifi settings:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ui:ToggleSwitch x:Name="ws"
                                          Grid.Row="2"
                                          Grid.Column="2"
@@ -309,7 +309,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Sync Wifi settings:"
-                                   Foreground="#ffffff"
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                    Visibility="Hidden"/>
                         <ui:ToggleSwitch Grid.Row="2"
                                          Grid.Column="2"
@@ -335,7 +335,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Sync Wifi settings:"
-                                   Foreground="#ffffff"
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                    Visibility="Hidden" />
                         <ui:ToggleSwitch Grid.Row="2"
                                          Grid.Column="2"

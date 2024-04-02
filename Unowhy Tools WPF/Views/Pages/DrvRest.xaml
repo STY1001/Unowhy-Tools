@@ -71,7 +71,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Convert an old backup (&lt;18.0):"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <ui:Button x:Name="convbtn"
                                    Click="GoForw"
                                    Grid.Row="2"
@@ -98,7 +98,7 @@
                                        Grid.Column="0"
                                        Grid.ColumnSpan="3"
                                        Text="Backup Path:"
-                                       Foreground="#ffffff" />
+                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                             <Grid Grid.Column="2"
                                   Grid.Row="2"
                                   Margin="0">
@@ -109,13 +109,13 @@
                                 <ui:TextBox x:Name="rtpath"
                                             Grid.Column="0"
                                             IsReadOnly="True"
-                                            Foreground="#ffffff"
+                                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                             Margin="0,0,10,0" />
                                 <ui:Button Click="Browse_Click"
                                            VerticalAlignment="Stretch"
                                            Grid.Column="1"
                                            Content="..."
-                                           Foreground="#ffffff" />
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                             </Grid>
                         </Grid>
                     </Grid>

@@ -93,7 +93,7 @@
                                         <TextBlock Text="17:20"
                                                    FontSize="26"
                                                    FontFamily="Segoe UI Variable Display Bold"
-                                                   Foreground="#ffffff"
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                    VerticalAlignment="Bottom"
                                                    x:Name="time" />
                                         <TextBlock Text="00"
@@ -108,7 +108,7 @@
                                                Grid.Row="1"
                                                FontSize="18"
                                                FontFamily="Segoe UI"
-                                               Foreground="#ffffff"
+                                               Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                VerticalAlignment="Top"
                                                x:Name="date" />
                                 </Grid>
@@ -156,7 +156,7 @@
                                             <TextBlock  Grid.Row="0"
                                                         Grid.Column="2"
                                                         Text="CPU Usage"
-                                                        Foreground="#ffffff"
+                                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                         FontSize="16"
                                                         FontFamily="Segoe UI SemiBold"
                                                         VerticalAlignment="Bottom"
@@ -166,7 +166,7 @@
                                                         Grid.Column="2"
                                                         Orientation="Horizontal">
                                                 <TextBlock Text="0%"
-                                                           Foreground="#ffffff"
+                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            FontSize="14"
                                                            FontFamily="Segoe UI SemiBold"
                                                            x:Name="cpuper" />
@@ -203,7 +203,7 @@
                                             <TextBlock  Grid.Row="0"
                                                         Grid.Column="2"
                                                         Text="RAM Usage"
-                                                        Foreground="#ffffff"
+                                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                         FontSize="16"
                                                         FontFamily="Segoe UI SemiBold"
                                                         VerticalAlignment="Bottom"
@@ -213,7 +213,7 @@
                                                         Grid.Row="1"
                                                         Grid.Column="2">
                                                 <TextBlock Text="0%"
-                                                           Foreground="#ffffff"
+                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            FontSize="14"
                                                            FontFamily="Segoe UI SemiBold"
                                                            x:Name="ramper" />
@@ -249,7 +249,7 @@
                                             <TextBlock  Grid.Row="0"
                                                         Grid.Column="2"
                                                         Text="Storage Usage"
-                                                        Foreground="#ffffff"
+                                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                         FontSize="16"
                                                         FontFamily="Segoe UI SemiBold"
                                                         VerticalAlignment="Bottom"
@@ -260,7 +260,7 @@
                                                         Grid.Column="2">
 
                                                 <TextBlock Text="0%"
-                                                           Foreground="#ffffff"
+                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            FontSize="14"
                                                            FontFamily="Segoe UI SemiBold"
                                                            x:Name="storper" />
@@ -313,7 +313,7 @@
                                             <TextBlock  Grid.Row="0"
                                                         Grid.Column="2"
                                                         Text="Battery info"
-                                                        Foreground="#ffffff"
+                                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                         FontSize="16"
                                                         FontFamily="Segoe UI SemiBold"
                                                         VerticalAlignment="Bottom"
@@ -323,7 +323,7 @@
                                                         Grid.Column="2"
                                                         Orientation="Horizontal">
                                                 <TextBlock Text="0%"
-                                                           Foreground="#ffffff"
+                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            FontSize="14"
                                                            FontFamily="Segoe UI SemiBold"
                                                            x:Name="batper" />
@@ -363,7 +363,7 @@
                                                                Text="Quick option"
                                                                x:Name="labqo" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="Privacy, Power"
                                                                x:Name="labqodesc" />
                                                 </StackPanel>
@@ -402,7 +402,7 @@
                                                         Grid.ColumnSpan="2">
                                                 <Image Source="../Resources/privacy.png"
                                                        Height="32" />
-                                                <TextBlock Foreground="#ffffff"
+                                                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Text="Privacy"
                                                            FontSize="16"
                                                            FontFamily="Segoe UI"
@@ -424,7 +424,7 @@
                                                             Grid.Column="0">
                                                     <Image Source="../Resources/camera.png"
                                                            Height="32" />
-                                                    <TextBlock Foreground="#ffffff"
+                                                    <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                                Text="Camera"
                                                                FontSize="14"
                                                                FontFamily="Segoe UI"
@@ -446,7 +446,7 @@
                                                             Grid.Column="0">
                                                     <Image Source="../Resources/micro.png"
                                                            Height="32" />
-                                                    <TextBlock Foreground="#ffffff"
+                                                    <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                                Text="Micro"
                                                                FontSize="14"
                                                                FontFamily="Segoe UI"
@@ -478,7 +478,7 @@
                                                 <Image Source="../Resources/bat100.png"
                                                        Height="32"
                                                        x:Name="qobatimg" />
-                                                <TextBlock Foreground="#ffffff"
+                                                <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Text="Power"
                                                            FontSize="16"
                                                            FontFamily="Segoe UI"
@@ -501,7 +501,7 @@
                                                     <Image Source="../Resources/power.png"
                                                            Height="32"
                                                            x:Name="qopmodeimg" />
-                                                    <TextBlock Foreground="#ffffff"
+                                                    <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                                Text="Power mode"
                                                                FontSize="14"
                                                                FontFamily="Segoe UI"
@@ -556,7 +556,7 @@
                                                                Text="System monitoring"
                                                                x:Name="labpvback" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="CPU, RAM, Storage, Battery"
                                                                x:Name="labpvdescback" />
                                                 </StackPanel>
@@ -599,7 +599,7 @@
                                                                Text="Task Manager"
                                                                x:Name="labtask" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="taskmgr.exe"
                                                                x:Name="labtaskdesc" />
                                                 </StackPanel>
@@ -632,7 +632,7 @@
                                                                Text="CMD Terminal"
                                                                x:Name="labcmd" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="cmd.exe"
                                                                x:Name="labcmddesc" />
                                                 </StackPanel>
@@ -665,7 +665,7 @@
                                                                Text="REG Editor"
                                                                x:Name="labreg" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="regedit.exe"
                                                                x:Name="labregdesc" />
                                                 </StackPanel>
@@ -698,7 +698,7 @@
                                                                Text="GP Editor"
                                                                x:Name="labgp" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="gpedit.msc"
                                                                x:Name="labgpdesc" />
                                                 </StackPanel>
@@ -731,7 +731,7 @@
                                                                Text="Quick launch editor"
                                                                x:Name="labedit" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="Edit shortcut"
                                                                x:Name="labeditdesc" />
                                                 </StackPanel>
@@ -782,7 +782,7 @@
                                                                MouseEnter="labtaskedit_MouseEnter"
                                                                x:Name="labtaskedit" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="taskmgr.exe"
                                                                MouseEnter="labtaskdescedit_MouseEnter"
                                                                MouseLeave="labtaskdescedit_MouseLeave"
@@ -828,7 +828,7 @@
                                                                MouseEnter="labcmdedit_MouseEnter"
                                                                x:Name="labcmdedit" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="cmd.exe"
                                                                MouseEnter="labcmddescedit_MouseEnter"
                                                                MouseLeave="labcmddescedit_MouseLeave"
@@ -874,7 +874,7 @@
                                                                MouseEnter="labregedit_MouseEnter"
                                                                x:Name="labregedit" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="regedit.exe"
                                                                MouseEnter="labregdescedit_MouseEnter"
                                                                MouseLeave="labregdescedit_MouseLeave"
@@ -920,7 +920,7 @@
                                                                MouseEnter="labgpedit_MouseEnter"
                                                                x:Name="labgpedit" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="gpedit.msc"
                                                                MouseEnter="labgpdescedit_MouseEnter"
                                                                MouseLeave="labgpdescedit_MouseLeave"
@@ -957,7 +957,7 @@
                                                                Text="Go back and save change"
                                                                x:Name="labeditedit" />
                                                     <TextBlock FontSize="12"
-                                                               Foreground="#bebebe"
+                                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                                Text="Right click to set to default"
                                                                x:Name="labeditdescedit" />
                                                 </StackPanel>
@@ -1005,7 +1005,7 @@
                                                            Text="Open Unowhy Tools"
                                                            x:Name="labout" />
                                                 <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
+                                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                            Text="Unowhy Tools.exe"
                                                            x:Name="UTbtndesc" />
                                             </StackPanel>
@@ -1042,7 +1042,7 @@
                                                            Text="Unowhy Tools Updater"
                                                            x:Name="laboutu" />
                                                 <TextBlock FontSize="12"
-                                                           Foreground="#bebebe"
+                                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                            Text="Unowhy Tools.exe -updater"
                                                            x:Name="UTUbtndesc" />
                                             </StackPanel>

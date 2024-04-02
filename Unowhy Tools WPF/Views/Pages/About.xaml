@@ -61,7 +61,7 @@
                             x:Name="utlabs">
                     <TextBlock FontSize="40"
                                FontWeight="Bold"
-                               Foreground="#FFFFFF"
+                               Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                Text="Unowhy Tools" />
                     <TextBlock FontSize="22"
                                Foreground="#B7FFFFFF"
@@ -143,7 +143,7 @@
                                                    Margin="5,0,0,0"
                                                    x:Name="LogoDesc"
                                                    HorizontalAlignment="Left"
-                                                   Foreground="#B7FFFFFF"
+                                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                    FontFamily="Segoe UI SemiBold"
                                                    Text="The all-in-one tool for your Unowhy Y13 !"
                                                    MouseDown="LogoDesc_MouseDown" />
@@ -151,7 +151,7 @@
                                                    Margin="0,0,5,0"
                                                    x:Name="LogoCredit"
                                                    HorizontalAlignment="Right"
-                                                   Foreground="#B7FFFFFF"
+                                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                    FontFamily="Segoe UI SemiBold"
                                                    Text="by STY1001" />
                                     </Grid>
@@ -175,7 +175,7 @@
                                        Text="Version --.-- (Build ----------)"
                                        FontFamily="Segoe UI SemiBold"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Bottom"
                                        Visibility="Collapsed"
@@ -206,7 +206,7 @@
                                                    MouseDown="UTVerLogo_MouseDown" />
                                             <TextBlock Text="Unowhy Tools version --.-- (Build ----------)"
                                                        TextWrapping="Wrap"
-                                                       Foreground="#ffffff"
+                                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                        Grid.Column="2"
                                                        VerticalAlignment="Center"
                                                        x:Name="UTverlab" />
@@ -222,7 +222,7 @@
                                                    RenderOptions.BitmapScalingMode="HighQuality" />
                                             <TextBlock Text="Installation ID: "
                                                        TextWrapping="Wrap"
-                                                       Foreground="#ffffff"
+                                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                        Grid.Column="2"
                                                        VerticalAlignment="Center"
                                                        x:Name="UTidlab" />
@@ -238,7 +238,7 @@
                                                    RenderOptions.BitmapScalingMode="HighQuality" />
                                             <TextBlock Text="Unowhy Tools Service version --.--"
                                                        TextWrapping="Wrap"
-                                                       Foreground="#ffffff"
+                                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                        Grid.Column="2"
                                                        VerticalAlignment="Center"
                                                        x:Name="UTSverlab" />
@@ -260,7 +260,7 @@
                                             <Image Source="../../Resources/vs.png"
                                                    Grid.Column="0" />
                                             <TextBlock Text="Dev on Visual Studio 2022 Enterprise"
-                                                       Foreground="#ffffff"
+                                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                        Grid.Column="2"
                                                        VerticalAlignment="Center" />
                                         </Grid>
@@ -273,7 +273,7 @@
                                             <Image Source="../../Resources/cs.png"
                                                    Grid.Column="0" />
                                             <TextBlock Text="Dev in C# (C Sharp)"
-                                                       Foreground="#ffffff"
+                                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                        Grid.Column="2"
                                                        VerticalAlignment="Center" />
                                         </Grid>
@@ -286,7 +286,7 @@
                                             <Image Source="../../Resources/wpfui.png"
                                                    Grid.Column="0" />
                                             <TextBlock Text="UI powered by WPF UI by Lepoco"
-                                                       Foreground="#ffffff"
+                                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                        Grid.Column="2"
                                                        VerticalAlignment="Center" />
                                         </Grid>
@@ -312,7 +312,7 @@
                                                        x:Name="stypp"
                                                        RenderOptions.BitmapScalingMode="HighQuality" />
                                                 <TextBlock Text="STY1001"
-                                                           Foreground="#ffffff"
+                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Grid.Column="2"
                                                            VerticalAlignment="Center" />
                                             </Grid>
@@ -333,7 +333,7 @@
                                                        Grid.Column="0"
                                                        Visibility="Hidden" />
                                                 <TextBlock Text="STY1001"
-                                                           Foreground="#ffffff"
+                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Grid.Column="2"
                                                            VerticalAlignment="Center"
                                                            Visibility="Hidden" />
@@ -345,7 +345,7 @@
                                                        x:Name="superpotepp"
                                                        RenderOptions.BitmapScalingMode="HighQuality" />
                                                 <TextBlock Text="FGAMER768"
-                                                           Foreground="#ffffff"
+                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Grid.Column="8"
                                                            VerticalAlignment="Center" />
                                             </Grid>
@@ -366,7 +366,7 @@
                                                        Grid.Column="0"
                                                        Visibility="Hidden" />
                                                 <TextBlock Text="STY1001"
-                                                           Foreground="#ffffff"
+                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Grid.Column="2"
                                                            VerticalAlignment="Center"
                                                            Visibility="Hidden" />
@@ -378,7 +378,7 @@
                                                        x:Name="biboupp"
                                                        RenderOptions.BitmapScalingMode="HighQuality" />
                                                 <TextBlock Text="Nico's PC"
-                                                           Foreground="#ffffff"
+                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Grid.Column="8"
                                                            VerticalAlignment="Center" />
                                             </Grid>
@@ -431,7 +431,7 @@
                                                    Text="Unowhy Tools's Github"
                                                    FontFamily="Segoe UI" />
                                         <TextBlock FontSize="12"
-                                                   Foreground="#bebebe"
+                                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                    Text="STY1001/Unowhy-Tools"
                                                    FontFamily="Segoe UI" />
                                     </StackPanel>
@@ -464,7 +464,7 @@
                                                    Text="STY1001's WebSite"
                                                    FontFamily="Segoe UI" />
                                         <TextBlock FontSize="12"
-                                                   Foreground="#bebebe"
+                                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                    Text="sty1001.fr"
                                                    FontFamily="Segoe UI"
                                                    x:Name="WebsiteName" />
@@ -497,7 +497,7 @@
                                                    Text="Discord for Y13"
                                                    FontFamily="Segoe UI" />
                                         <TextBlock FontSize="12"
-                                                   Foreground="#bebebe"
+                                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                    Text="{}{unohelp}"
                                                    FontFamily="Segoe UI"
                                                    x:Name="DiscordName" />
@@ -531,7 +531,7 @@
                                                    Text="Unowhy Tools Updater"
                                                    FontFamily="Segoe UI" />
                                         <TextBlock FontSize="12"
-                                                   Foreground="#bebebe"
+                                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                    Text="Check for update"
                                                    x:Name="ubtnlab"
                                                    FontFamily="Segoe UI" />

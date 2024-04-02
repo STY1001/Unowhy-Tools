@@ -90,7 +90,7 @@
                             <Grid>
                                 <TextBlock Text="Click here to edit image"
                                            FontSize="18"
-                                           Foreground="#ffffff"
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                            FontFamily="Segoe UI SemiBold"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
@@ -200,7 +200,7 @@
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Text="X (↔): "
                                                    FontSize="18"
-                                                   Foreground="#ffffff"
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                    FontFamily="Segoe UI SemiBold"
                                                    VerticalAlignment="Center"
                                                    Grid.Column="0" />
@@ -230,7 +230,7 @@
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Text="Y (↕): "
                                                    FontSize="18"
-                                                   Foreground="#ffffff"
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                    FontFamily="Segoe UI SemiBold"
                                                    VerticalAlignment="Center"
                                                    Grid.Column="0"
@@ -279,7 +279,7 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Text="X (↔): "
                                                FontSize="18"
-                                               Foreground="#ffffff"
+                                               Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                FontFamily="Segoe UI SemiBold"
                                                VerticalAlignment="Center"
                                                Grid.Column="0" />
@@ -323,7 +323,7 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Text="Y (↕): "
                                                FontSize="18"
-                                               Foreground="#ffffff"
+                                               Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                FontFamily="Segoe UI SemiBold"
                                                VerticalAlignment="Center"
                                                Grid.Column="0"

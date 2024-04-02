@@ -41,7 +41,7 @@
                                            Text="Change Windows PC name" />
                                 <TextBlock x:Name="pcname_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -73,7 +73,7 @@
                                            Text="Set this account as administrators" />
                                 <TextBlock x:Name="adminset_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -105,7 +105,7 @@
                                            Text="Create a new local account" />
                                 <TextBlock x:Name="adduser_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -137,7 +137,7 @@
                                            Text="Built-in &quot;Admin&quot; local account settings" />
                                 <TextBlock x:Name="auset_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -169,7 +169,7 @@
                                            Text="Enable camera privacy indicator (Virtual camera LED)" />
                                 <TextBlock x:Name="camoverena_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -200,7 +200,7 @@
                                            Text="Enable Windows verbose status" />
                                 <TextBlock x:Name="verbstatena_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -231,7 +231,7 @@
                                            Text="Microsoft Edge settings" />
                                 <TextBlock x:Name="edgeset_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -269,7 +269,7 @@
                                            Text="Windows Defender settings" />
                                 <TextBlock x:Name="windefset_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -307,7 +307,7 @@
                                            Text="HackBGRT settings" />
                                 <TextBlock x:Name="hackbgrtset_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>

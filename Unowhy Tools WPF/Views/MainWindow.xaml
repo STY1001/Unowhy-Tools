@@ -253,7 +253,7 @@
                 </Grid.RowDefinitions>
                 <TextBlock Text="Combo key triggered &#x0a;Press ESC to return, continue the combo to enter to the Debug Menu"
                            Grid.Row="0"
-                           Foreground="#ffffff"
+                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                            FontSize="18"
                            Margin="0,0,0,20"
                            FontFamily="Segoe UI Semi Bold"
@@ -311,7 +311,7 @@
                 </Grid>
                 <TextBlock Text="Welcome to the Debug Menu, use carefully !"
                            Grid.Row="2"
-                           Foreground="#ffffff"
+                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                            FontSize="18"
                            Margin="0,20,0,0"
                            FontFamily="Segoe UI Semi Bold"
@@ -386,14 +386,14 @@
                                    Margin="5,0,0,0"
                                    x:Name="SplashDesc"
                                    HorizontalAlignment="Left"
-                                   Foreground="#B7FFFFFF"
+                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                    FontFamily="Segoe UI SemiBold"
                                    Text="The all-in-one tool for your Unowhy Y13 !" />
                         <TextBlock FontSize="15"
                                    Margin="0,0,5,0"
                                    x:Name="SplashCredit"
                                    HorizontalAlignment="Right"
-                                   Foreground="#B7FFFFFF"
+                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                    FontFamily="Segoe UI SemiBold"
                                    Text="by STY1001" />
                     </Grid>
@@ -424,7 +424,7 @@
                        Text="Version --.-- (Build ----------)"
                        FontFamily="Segoe UI SemiBold"
                        FontSize="12"
-                       Foreground="#bebebe"
+                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Bottom"
                        Margin="0,0,0,20" />

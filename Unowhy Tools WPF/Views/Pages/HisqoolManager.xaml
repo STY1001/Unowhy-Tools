@@ -40,7 +40,7 @@
                                        Text="Modify Hisqool Manager service" />
                             <TextBlock x:Name="hsqm_desc"
                                        FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        Text="Description"
                                        TextWrapping="Wrap" />
                         </StackPanel>

@@ -52,7 +52,7 @@
                         <TextBlock Grid.Column="4"
                                    Grid.Row="1"
                                    Text="Wait"
-                                   Foreground="#FFFFFF"
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                    FontSize="11"
                                    FontFamily="Segoe UI SemiNormal"
                                    VerticalAlignment="Center"

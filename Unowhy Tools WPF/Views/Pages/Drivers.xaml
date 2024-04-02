@@ -40,7 +40,7 @@
                                            Text="Restore drivers from cloud" />
                                 <TextBlock x:Name="dlcloud_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -79,7 +79,7 @@
                                            Text="Backup drivers" />
                                 <TextBlock x:Name="bk_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -110,7 +110,7 @@
                                            Text="Restore drivers" />
                                 <TextBlock x:Name="rt_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>

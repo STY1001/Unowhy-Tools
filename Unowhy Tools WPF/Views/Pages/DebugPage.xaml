@@ -56,7 +56,7 @@
                                        FontWeight="Medium"
                                        Text="Update Debug Version" />
                             <TextBlock FontSize="12"
-                                       Foreground="#bebebe"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                        x:Name="debus"
                                        Text="Click to update" />
                         </StackPanel>

@@ -69,7 +69,7 @@
                                Grid.Row="0"
                                Grid.ColumnSpan="3"
                                FontSize="13"
-                               Foreground="#ffffff" />
+                               Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
 
                     <ui:TextBox x:Name="serial"
                                 Grid.Column="2"

@@ -71,7 +71,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Old:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <Grid Grid.Row="2"
                               Grid.Column="2"
                               Margin="0">
@@ -83,12 +83,12 @@
                             <ui:TextBox x:Name="oldpath"
                                         Grid.Column="0"
                                         IsReadOnly="True"
-                                        Foreground="#ffffff"
+                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                         Margin="0,0,10,0" />
                             <ui:Button Click="oldpath_Click"
                                        Grid.Column="2"
                                        Content="..."
-                                       Foreground="#ffffff"
+                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                        VerticalAlignment="Stretch" />
                         </Grid>
                     </Grid>
@@ -111,7 +111,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="New:"
-                                   Foreground="#ffffff" />
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                         <Grid Grid.Row="2"
                               Grid.Column="2"
                               Margin="0">
@@ -122,12 +122,12 @@
                             <ui:TextBox x:Name="newpath"
                                         Grid.Column="0"
                                         IsReadOnly="True"
-                                        Foreground="#ffffff"
+                                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                         Margin="0,0,10,0" />
                             <ui:Button Click="newpath_Click"
                                        Grid.Column="2"
                                        Content="..."
-                                       Foreground="#ffffff"
+                                       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                        VerticalAlignment="Stretch" />
                         </Grid>
                     </Grid>

@@ -82,7 +82,7 @@
                                            Grid.Row="0"
                                            Grid.ColumnSpan="3"
                                            FontSize="13"
-                                           Foreground="#ffffff" />
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                 <ui:TextBox x:Name="ifptdumppath"
                                             Grid.Column="2"
                                             Grid.Row="2"
@@ -132,7 +132,7 @@
                                            Grid.Row="0"
                                            Grid.ColumnSpan="3"
                                            FontSize="13"
-                                           Foreground="#ffffff" />
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                 <ui:TextBox x:Name="ifptflashpath"
                                             Grid.Column="2"
                                             Grid.Row="2"
@@ -196,7 +196,7 @@
                                            Grid.Row="0"
                                            Grid.ColumnSpan="3"
                                            FontSize="13"
-                                           Foreground="#ffffff" />
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                 <ui:TextBox x:Name="afudumppath"
                                             Grid.Column="2"
                                             Grid.Row="2"
@@ -247,7 +247,7 @@
                                            Grid.Row="0"
                                            Grid.ColumnSpan="3"
                                            FontSize="13"
-                                           Foreground="#ffffff" />
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                 <ui:TextBox x:Name="afuflashpath"
                                             Grid.Column="2"
                                             Grid.Row="2"
@@ -332,7 +332,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="Manufacturer:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
                                                     PlaceholderText="[Manufacturer]"
                                                     x:Name="mfbox" />
@@ -345,7 +345,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="Model:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
                                                     PlaceholderText="[Model]"
                                                     x:Name="mdbox" />
@@ -358,7 +358,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="SKU:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
                                                     PlaceholderText="[SKU]"
                                                     x:Name="skubox" />
@@ -371,7 +371,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="Serial Number:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
                                                     PlaceholderText="[Serial Number]"
                                                     x:Name="snbox" />
@@ -384,7 +384,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="BIOS Version:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
                                                     PlaceholderText="[BIOS Version]"
                                                     x:Name="biosvbox" />
@@ -408,7 +408,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="Motherboard Manufacturer:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
                                                     PlaceholderText="[Motherboard Manufacturer]"
                                                     x:Name="mbmfbox" />
@@ -421,7 +421,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="Motherboard Model:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
                                                     PlaceholderText="[Motherboard Model]"
                                                     x:Name="mbmdbox" />
@@ -434,7 +434,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="Motherboard Version:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
                                                     PlaceholderText="[Motherboard Version]"
                                                     x:Name="mbvbox" />
@@ -447,7 +447,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="BIOS Manufacturer:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
                                                     PlaceholderText="[BIOS Manufacturer]"
                                                     x:Name="biosmfbox" />
@@ -460,7 +460,7 @@
                                         </Grid.RowDefinitions>
                                         <TextBlock Text="BIOS Date:"
                                                    Grid.Row="0"
-                                                   Foreground="#FFFFFF" />
+                                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <DatePicker Grid.Row="2"
                                                     x:Name="biosdbox"
                                                     SelectedDateFormat="Short" />

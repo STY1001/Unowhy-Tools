@@ -31,7 +31,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Products of Unowhy"
                                FontSize="10"
-                               Foreground="#bebebe"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                    Grid.Column="0"
                                Margin="0,0,10,0"
                                x:Name="unowhyprodcat"/>
@@ -57,7 +57,7 @@
                                            Text="Install &quot;HiSqool Mnager&quot;" />
                                 <TextBlock x:Name="installhsmq_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -89,7 +89,7 @@
                                            Text="Install &quot;RIDF&quot; Root Certificate Autority" />
                                 <TextBlock x:Name="installridfcert_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -111,7 +111,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="Useful tools"
                                FontSize="10"
-                               Foreground="#bebebe"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                Grid.Column="0"
                                Margin="0,0,10,0"
                                x:Name="usefulcat"/>
@@ -137,7 +137,7 @@
                                            Text="Open &quot;Rufus&quot;" />
                                 <TextBlock x:Name="openrufus_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
@@ -169,7 +169,7 @@
                                            Text="Open &quot;Microsoft Activation Script (MAS)&quot;" />
                                 <TextBlock x:Name="openmas_desc"
                                            FontSize="12"
-                                           Foreground="#bebebe"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                            Text="Description"
                                            TextWrapping="Wrap" />
                             </StackPanel>
