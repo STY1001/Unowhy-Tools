@@ -246,7 +246,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             }
             else
             {
-                UT.DialogIShow(await UT.GetLang("noco"), "nowifi.png");
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
                 IsOK = true;
                 InitOK = true;
             }
