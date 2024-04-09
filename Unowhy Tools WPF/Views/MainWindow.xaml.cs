@@ -1213,38 +1213,53 @@ public partial class MainWindow : INavigationWindow
 
     private async Task KonamiOpenDebug()
     {
-        foreach (UIElement element in konamiKeyGrid.Children)
+        await Task.WhenAll(
+        Task.Run(async () =>
         {
-            DoubleAnimation translateAnimation = new DoubleAnimation
+            Dispatcher.InvokeAsync(async () =>
             {
-                From = 0,
-                To = 15,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-        }
+                foreach (UIElement element in konamiKeyGrid.Children)
+                {
+                    DoubleAnimation translateAnimation = new DoubleAnimation
+                    {
+                        From = 0,
+                        To = 15,
+                        Duration = TimeSpan.FromSeconds(0.5),
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
+                    };
+                    TranslateTransform transform = new TranslateTransform();
+                    element.RenderTransform = transform;
+                    transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+                    await Task.Delay(50);
+                }
 
-        await Task.Delay(100);
-
-        foreach (UIElement element in konamiKeyGrid.Children)
+                await Task.Delay(1000);
+            });
+        }),
+        Task.Run(async () =>
         {
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 15,
-                To = -15,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-            await Task.Delay(50);
-        }
+            await Task.Delay(500);
 
-        await Task.Delay(100);
+            Dispatcher.InvokeAsync(async () =>
+            {
+                foreach (UIElement element in konamiKeyGrid.Children)
+                {
+                    DoubleAnimation translateAnimation = new DoubleAnimation
+                    {
+                        From = 15,
+                        To = -15,
+                        Duration = TimeSpan.FromSeconds(0.5),
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
+                    };
+                    TranslateTransform transform = new TranslateTransform();
+                    element.RenderTransform = transform;
+                    transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+                    await Task.Delay(50);
+                }
+            });
+        }));
+
+        await Task.Delay(1000);
 
         foreach (UIElement element in konamiKeyGrid.Children)
         {
@@ -1253,7 +1268,7 @@ public partial class MainWindow : INavigationWindow
                 From = -15,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
             };
             TranslateTransform transform = new TranslateTransform();
             element.RenderTransform = transform;
