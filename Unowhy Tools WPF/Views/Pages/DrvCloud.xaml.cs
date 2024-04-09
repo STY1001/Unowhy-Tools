@@ -48,6 +48,9 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         submit.Content = await UT.GetLang("bkcloud.submit");
         repobtn.Content = await UT.GetLang("bkcloud.repo");
         refresh.Content = await UT.GetLang("refresh");
+        showold.Content = await UT.GetLang("showold");
+        selectall.Content = await UT.GetLang("allver");
+        gpudriver.Content = await UT.GetLang("igpudrv");
         restlang = await UT.GetLang("restore");
     }
 
@@ -150,6 +153,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                 p.Start();
                 p.WaitForExit();
             });*/
+            File.Delete(uttemps + $"\\{filename}");
             Directory.Delete(uttemps + "\\Drivers", true);
             Directory.CreateDirectory(uttemps + "\\Drivers");
             await UT.waitstatus.close();
@@ -241,16 +245,16 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                         description = (string)driver["description"]["fr"];
                     }
 
-                    size = size / (1024 * 1024 * 1024);
+                    size = size / (1024 * 1024);
 
                     title = name + "  •  by " + author;
                     if (description == "")
                     {
-                        desc = pcyear + "  •  " + size.ToString("#.##") + " GB";
+                        desc = pcyear + "  •  " + size.ToString("0") + " MB";
                     }
                     else
                     {
-                        desc = description + "  •  " + pcyear + "  •  " + size.ToString("#.##") + " GB";
+                        desc = description + "  •  " + pcyear + "  •  " + size.ToString("0") + " MB";
                     }
 
                     await CreateCard(title, desc, name, link, size);

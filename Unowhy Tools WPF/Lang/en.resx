@@ -135,6 +135,9 @@
   <data name="adminset" xml:space="preserve">
     <value>Built-in "Admin" local account settings</value>
   </data>
+  <data name="allver" xml:space="preserve">
+    <value>All version</value>
+  </data>
   <data name="an" xml:space="preserve">
     <value>The name must be alphanumeric only</value>
   </data>
@@ -465,6 +468,9 @@
   <data name="hackbgrtset" xml:space="preserve">
     <value>HackBGRT settings</value>
   </data>
+  <data name="igpudrv" xml:space="preserve">
+    <value>Install iGPU drivers</value>
+  </data>
   <data name="install" xml:space="preserve">
     <value>Install</value>
   </data>
@@ -665,6 +671,9 @@
   </data>
   <data name="shell" xml:space="preserve">
     <value>Change "Shell" value to "explorer.exe"</value>
+  </data>
+  <data name="showold" xml:space="preserve">
+    <value>Show old</value>
   </data>
   <data name="snpw" xml:space="preserve">
     <value>Set new password</value>
