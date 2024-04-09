@@ -501,4 +501,9 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         versionselect.IsEnabled = true;
         refresh.IsEnabled = true;
     }
+
+    private async void gpudriver_Click(object sender, RoutedEventArgs e)
+    {
+        await RestoreCloud("iGPU.zip", await UT.OnlineDatas.GetUrls("gpudrv"), 1337172998);
+    }
 }

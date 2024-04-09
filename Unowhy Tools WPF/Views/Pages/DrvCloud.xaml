@@ -88,7 +88,8 @@
                             <Button x:Name="gpudriver"
                                     Content="Install iGPU driver"
                                     Grid.Column="0"
-                                    Grid.Row="4" />
+                                    Grid.Row="4"
+                                    Click="gpudriver_Click" />
                             <Separator 
                                 Grid.Column="1"
                                 Grid.RowSpan="5"
