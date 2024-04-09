@@ -1,4 +1,4 @@
-﻿ using Wpf.Ui.Common.Interfaces;
+﻿using Wpf.Ui.Common.Interfaces;
 using Unowhy_Tools_WPF.ViewModels;
 
 using Unowhy_Tools;
@@ -48,11 +48,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         submit.Content = await UT.GetLang("bkcloud.submit");
         repobtn.Content = await UT.GetLang("bkcloud.repo");
         refresh.Content = await UT.GetLang("refresh");
+        restlang = await UT.GetLang("restore");
     }
 
     public async void Init(object sender, EventArgs e)
     {
         refresh.IsEnabled = false;
+        showold.IsEnabled = false;
+        versionselect.IsEnabled = false;
         applylang();
 
         if (UT.CheckInternet())
@@ -72,13 +75,16 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             repo_img.Source = UT.GetImgSource("nowifi.png");
             repo_desc.Text = await UT.GetLang("nonet");
         }
+        showold.IsEnabled = true;
+        versionselect.IsEnabled = true;
         refresh.IsEnabled = true;
+        versionselect.SelectionChanged += versionselect_SelectionChanged;
     }
 
     public async Task RestoreCloud(string filename, string link, double size)
     {
         DriveInfo drive = new DriveInfo("C");
-        if(drive.AvailableFreeSpace > size * 3)
+        if (drive.AvailableFreeSpace > size * 3)
         {
             await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
             string uttemps = UT.utpath + "\\Unowhy Tools\\Temps";
@@ -179,11 +185,9 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             await Task.Delay(50);
         }
 
-        await Task.Delay(1000);
-
         string langString = await UT.Config.Get("Lang");
 
-        SkeletonStack.Visibility = Visibility.Hidden;
+        SkeletonStack.Visibility = Visibility.Collapsed;
 
         string datasurl = UT.online_datas;
         HttpClient web = new HttpClient();
@@ -204,6 +208,28 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                     string pcyear = (string)driver["pcyear"];
                     double size = (double)driver["size"];
                     string link = (string)driver["link"];
+                    bool old = (bool)driver["old"];
+
+                    if (pcyear == "2023" && !select2023.IsSelected && !selectall.IsSelected)
+                    {
+                        continue;
+                    }
+                    if (pcyear == "2022" && !select2022.IsSelected && !selectall.IsSelected)
+                    {
+                        continue;
+                    }
+                    if (pcyear == "2021" && !select2021.IsSelected && !selectall.IsSelected)
+                    {
+                        continue;
+                    }
+                    if (pcyear == "2020" && !select2020.IsSelected && !selectall.IsSelected)
+                    {
+                        continue;
+                    }
+                    if (old && showold.IsChecked == false)
+                    {
+                        continue;
+                    }
 
                     string description = "null";
                     if (langString == "EN")
@@ -233,6 +259,8 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         }
     }
 
+    string restlang;
+
     public async Task CreateCard(string title, string desc, string filename, string link, double size)
     {
         CardControl cardControl = new CardControl
@@ -256,7 +284,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         };
         Wpf.Ui.Controls.Button button = new Wpf.Ui.Controls.Button
         {
-            Content = await UT.GetLang("restore")
+            Content = restlang
         };
 
         button.Click += async (sender, e) =>
@@ -383,6 +411,8 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
     private async void refresh_Click(object sender, RoutedEventArgs e)
     {
         refresh.IsEnabled = false;
+        showold.IsEnabled = false;
+        versionselect.IsEnabled = false;
         if (UT.CheckInternet())
         {
             repo_img.Source = UT.GetImgSource("clouddl.png");
@@ -400,6 +430,8 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             repo_img.Source = UT.GetImgSource("nowifi.png");
             repo_desc.Text = await UT.GetLang("nonet");
         }
+        showold.IsEnabled = true;
+        versionselect.IsEnabled = true;
         refresh.IsEnabled = true;
     }
 
@@ -410,5 +442,59 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             UseShellExecute = true,
             FileName = await UT.OnlineDatas.GetUrls("discordinvite")
         });
+    }
+
+    private async void versionselect_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        refresh.IsEnabled = false;
+        showold.IsEnabled = false;
+        versionselect.IsEnabled = false;
+        if (UT.CheckInternet())
+        {
+            repo_img.Source = UT.GetImgSource("clouddl.png");
+            repo_desc.Text = await UT.GetLang("bkcloudhostdesc");
+
+            var repocard = repo;
+            var sep = separator;
+            RootStack.Children.Clear();
+            RootStack.Children.Add(repocard);
+            RootStack.Children.Add(sep);
+            await SyncWithCloud();
+        }
+        else
+        {
+            repo_img.Source = UT.GetImgSource("nowifi.png");
+            repo_desc.Text = await UT.GetLang("nonet");
+        }
+        showold.IsEnabled = true;
+        versionselect.IsEnabled = true;
+        refresh.IsEnabled = true;
+    }
+
+    private async void showold_Changed(object sender, RoutedEventArgs e)
+    {
+        refresh.IsEnabled = false;
+        showold.IsEnabled = false;
+        versionselect.IsEnabled = false;
+        if (UT.CheckInternet())
+        {
+            repo_img.Source = UT.GetImgSource("clouddl.png");
+            repo_desc.Text = await UT.GetLang("bkcloudhostdesc");
+
+            var repocard = repo;
+            var sep = separator;
+            RootStack.Children.Clear();
+            RootStack.Children.Add(repocard);
+            RootStack.Children.Add(sep);
+            await SyncWithCloud();
+        }
+        else
+        {
+            repo_img.Source = UT.GetImgSource("nowifi.png");
+            repo_desc.Text = await UT.GetLang("nonet");
+        }
+        showold.IsEnabled = true;
+        versionselect.IsEnabled = true;
+        refresh.IsEnabled = true;
     }
 }

@@ -50,35 +50,74 @@
                                 </StackPanel>
                             </Grid>
                         </ui:CardControl.Header>
-                        <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ComboBox x:Name="versionselect"
+                                      Grid.Column="0"
+                                      Grid.Row="0">
+                                <ComboBoxItem Content="All"
+                                              x:Name="selectall"
+                                              IsSelected="True" />
+                                <ComboBoxItem Content="2023"
+                                              x:Name="select2023" />
+                                <ComboBoxItem Content="2022"
+                                              x:Name="select2022" />
+                                <ComboBoxItem Content="2021"
+                                              x:Name="select2021" />
+                                <ComboBoxItem Content="2020"
+                                              x:Name="select2020" />
+                            </ComboBox>
+                            <CheckBox x:Name="showold"
+                                      Checked="showold_Changed"
+                                      Unchecked="showold_Changed"
+                                      Content="Show old drivers"
+                                      IsChecked="False"
+                                      Grid.Column="0"
+                                      Grid.Row="2" />
+                            <Button x:Name="gpudriver"
+                                    Content="Install iGPU driver"
+                                    Grid.Column="0"
+                                    Grid.Row="4" />
+                            <Separator 
+                                Grid.Column="1"
+                                Grid.RowSpan="5"
+                                Margin="5"/>
                             <ui:Button Click="submit_Click"
                                        x:Name="submit"
-                                       Grid.Column="0"
-                                       Grid.ColumnSpan="4"
                                        HorizontalAlignment="Stretch"
-                                       Margin="0,0,0,0"
-                                       Content="Submit your backup" />
+                                       Content="Submit your backup"
+                                       Grid.Column="2"
+                                       Grid.Row="0" />
                             <ui:Button Click="refresh_Click"
                                        x:Name="refresh"
-                                       Grid.Column="0"
-                                       Grid.ColumnSpan="4"
                                        HorizontalAlignment="Stretch"
-                                       Margin="10,0,0,0"
-                                       Content="Refresh" />
+                                       Content="Refresh"
+                                       Grid.Column="2"
+                                       Grid.Row="2" />
                             <ui:Button Click="repo_Click"
                                        x:Name="repobtn"
-                                       Grid.Column="0"
-                                       Grid.ColumnSpan="4"
                                        HorizontalAlignment="Stretch"
-                                       Margin="10,0,0,0"
-                                       Content="Go to repo" />
-                        </StackPanel>
+                                       Content="Go to repo"
+                                       Grid.Column="2"
+                                       Grid.Row="4" />
+                        </Grid>
                     </ui:CardControl>
                     <ui:NavigationSeparator Margin="10,0,10,5"
                                             x:Name="separator" />
                 </StackPanel>
                 <StackPanel x:Name="SkeletonStack"
-                            Visibility="Hidden">
+                            Visibility="Collapsed">
                     <ui:CardControl Margin="10,0,10,10"
                                     Visibility="Hidden">
                         <ui:CardControl.Header>
@@ -101,6 +140,57 @@
                                 </StackPanel>
                             </Grid>
                         </ui:CardControl.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ComboBox SelectionChanged="versionselect_SelectionChanged"
+                                      Grid.Column="0"
+                                      Grid.Row="0">
+                                <ComboBoxItem Content="All"
+                                              IsSelected="True" />
+                                <ComboBoxItem Content="2023" />
+                                <ComboBoxItem Content="2022" />
+                                <ComboBoxItem Content="2021" />
+                                <ComboBoxItem Content="2020" />
+                            </ComboBox>
+                            <CheckBox Checked="showold_Changed"
+                                      Unchecked="showold_Changed"
+                                      Content="Show old drivers"
+                                      IsChecked="False"
+                                      Grid.Column="0"
+                                      Grid.Row="2" />
+                            <Button Content="Install iGPU driver"
+                                    Grid.Column="0"
+                                    Grid.Row="4" />
+                            <Separator Grid.Column="1"
+                                       Grid.RowSpan="5"
+                                       Margin="5" />
+                            <ui:Button Click="submit_Click"
+                                       HorizontalAlignment="Stretch"
+                                       Content="Submit your backup"
+                                       Grid.Column="2"
+                                       Grid.Row="0" />
+                            <ui:Button Click="refresh_Click"
+                                       HorizontalAlignment="Stretch"
+                                       Content="Refresh"
+                                       Grid.Column="2"
+                                       Grid.Row="2" />
+                            <ui:Button Click="repo_Click"
+                                       HorizontalAlignment="Stretch"
+                                       Content="Go to repo"
+                                       Grid.Column="2"
+                                       Grid.Row="4" />
+                        </Grid>
                     </ui:CardControl>
                     <ui:NavigationSeparator Margin="10,0,10,5"
                                             Visibility="Hidden" />
