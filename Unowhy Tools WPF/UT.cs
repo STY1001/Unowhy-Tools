@@ -601,13 +601,13 @@ namespace Unowhy_Tools
             public static async Task<string> UTSmsg(string pipe, string msg)
             {
                 Write2Log($"Message to UTS: Pipe:\"{pipe}\" Message:\"{msg}\"");
-                string ret = null;
+                string ret = "UTSerr";
 
                 try
                 {
                     using (NamedPipeClientStream pipeClient = new NamedPipeClientStream(".", pipe, PipeDirection.InOut, PipeOptions.Asynchronous))
                     {
-                        await pipeClient.ConnectAsync();
+                        await pipeClient.ConnectAsync(1000);
                         if (pipeClient.IsConnected)
                         {
                             using (var writer = new StreamWriter(pipeClient))
@@ -1374,7 +1374,7 @@ namespace Unowhy_Tools
 
         public static async Task<bool> CheckTray()
         {
-            bool trayrun = false;
+            /*bool trayrun = false;
             string tl = await RunReturn("powershell", "Get-WmiObject Win32_Process -Filter \"name = 'Unowhy Tools.exe'\" | Select-Object CommandLine");
             if (tl.Contains("-tray"))
             {
@@ -1384,9 +1384,19 @@ namespace Unowhy_Tools
             else
             {
                 Write2Log("UT Tray is not running");
-            }
+            }*/
 
-            return trayrun;
+            string UTTrep = await UTS.UTSmsg("UTT", "Ping");
+            if(UTTrep == "Pong")
+            {
+                Write2Log("UT Tray is already running");
+                return true;
+            }
+            else
+            {
+                Write2Log("UT Tray is not running");
+                return false;
+            }
         }
 
         public static async Task<long> FolderSizeGet(string path)

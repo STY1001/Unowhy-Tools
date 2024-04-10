@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO.Pipes;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -71,6 +73,7 @@ public class ApplicationHostService : IHostedService
             {
                 if(!await UT.CheckTray())
                 {
+                    Task.Run(() => UTTwait());
                     _testWindowService.Show<Views.TrayWindow>();
                 }
                 else
@@ -98,5 +101,46 @@ public class ApplicationHostService : IHostedService
     private void PrepareNavigation()
     {
         _navigationService.SetPageService(_pageService);
+    }
+
+    NamedPipeServerStream _utt;
+    private async Task UTTwait()
+    {
+        while (true)
+        {
+            _utt = new NamedPipeServerStream("UTT", PipeDirection.InOut);
+
+            try
+            {
+                await _utt.WaitForConnectionAsync();
+
+                using (StreamReader reader = new StreamReader(_utt))
+                using (StreamWriter writer = new StreamWriter(_utt))
+                {
+                    while (true)
+                    {
+                        string ret = "null";
+                        string clientData = await reader.ReadLineAsync();
+
+                        if (string.IsNullOrEmpty(clientData))
+                        {
+                            break;
+                        }
+
+                        if (clientData.Contains("Ping"))
+                        {
+                            ret = "Pong";
+                        }
+
+                        await writer.WriteLineAsync(ret);
+                        await writer.FlushAsync();
+                    }
+                }
+            }
+            catch (IOException)
+            {
+
+            }
+        }
     }
 }
