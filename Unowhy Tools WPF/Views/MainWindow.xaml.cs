@@ -1224,21 +1224,21 @@ public partial class MainWindow : INavigationWindow
                     {
                         From = 0,
                         To = 15,
-                        Duration = TimeSpan.FromSeconds(0.5),
+                        Duration = TimeSpan.FromSeconds(0.25),
                         EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
                     };
                     TranslateTransform transform = new TranslateTransform();
                     element.RenderTransform = transform;
                     transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-                    await Task.Delay(50);
+                    await Task.Delay(25);
                 }
 
-                await Task.Delay(1000);
+                await Task.Delay(500);
             });
         }),
         Task.Run(async () =>
         {
-            await Task.Delay(500);
+            await Task.Delay(250);
 
             Dispatcher.InvokeAsync(async () =>
             {
@@ -1248,18 +1248,18 @@ public partial class MainWindow : INavigationWindow
                     {
                         From = 15,
                         To = -15,
-                        Duration = TimeSpan.FromSeconds(0.5),
+                        Duration = TimeSpan.FromSeconds(0.75),
                         EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
                     };
                     TranslateTransform transform = new TranslateTransform();
                     element.RenderTransform = transform;
                     transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-                    await Task.Delay(50);
+                    await Task.Delay(25);
                 }
             });
         }));
 
-        await Task.Delay(1000);
+        await Task.Delay(900);
 
         foreach (UIElement element in konamiKeyGrid.Children)
         {
@@ -1268,7 +1268,7 @@ public partial class MainWindow : INavigationWindow
                 From = -15,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
             };
             TranslateTransform transform = new TranslateTransform();
             element.RenderTransform = transform;
