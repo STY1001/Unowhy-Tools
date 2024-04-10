@@ -2425,7 +2425,7 @@ namespace Unowhy_Tools
 
                 Write2Log("=== RIDF Certificate ===");
 
-                string rootcert = await UT.RunReturn("powershell", "\"Get-ChildItem Cert:\\LocalMachine\\Root | Where-Object { $_.Subject -match 'RIDF' }\"");
+                string rootcert = await UT.RunReturn("cmd", "/c \"certutil -store Root | findstr /C:RIDF\"");
                 if (rootcert.Contains("RIDF"))
                 {
                     UTdata.RIDFCertInstalled = true;
@@ -3065,7 +3065,7 @@ namespace Unowhy_Tools
 
                     Write2Log("=== RIDF Certificate ===");
 
-                    string rootcert = await UT.RunReturn("powershell", "\"Get-ChildItem Cert:\\LocalMachine\\Root | Where-Object { $_.Subject -match 'RIDF' }\"");
+                    string rootcert = await UT.RunReturn("cmd", "/wait /c \"certutil -store Root | findstr /C:RIDF\"");
                     if (rootcert.Contains("RIDF"))
                     {
                         UTdata.RIDFCertInstalled = true;
