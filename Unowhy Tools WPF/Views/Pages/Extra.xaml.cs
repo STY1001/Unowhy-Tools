@@ -161,7 +161,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
             };
             await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("ridfca"), Path.GetTempPath() + "\\RIDF_CA.crt", progress, cancellationToken.Token);
             await UT.waitstatus.open(await UT.GetLang("wait.install"), "download.png");
-            await UT.RunMin("powershell", "Import-Certificate -Filepath \"RIDF_CA.crt\" -CertStoreLocation Cert:\\LocalMachine\\Root");
+            await UT.RunMin("powershell", $"Import-Certificate -Filepath \"{Path.GetTempPath() + "\\RIDF_CA.crt"}\" -CertStoreLocation Cert:\\LocalMachine\\Root");
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true, "ridfcert");
             await UT.waitstatus.close();
