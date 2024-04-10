@@ -3,12 +3,9 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Media;
 using System.Windows.Threading;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -417,8 +414,26 @@ public partial class App
     /// <summary>
     /// Occurs when an exception is thrown by an application but not handled.
     /// </summary>
-    private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+    private async void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
     {
         // For more info see https://docs.microsoft.com/en-us/dotnet/api/system.windows.application.dispatcherunhandledexception?view=windowsdesktop-6.0
+
+        UT.Data UTdata = new UT.Data();
+        Exception exp = e.Exception;
+        UT.Write2Log("=== Unowhy Tools Crash Log ===");
+        UT.Write2Log($"Message: {exp.Message}");
+        UT.Write2Log($"ToString: {exp.ToString()}");
+        MessageBoxResult result = System.Windows.MessageBox.Show($"Unowhy Tools has crashed. Do you want to restart Unowhy Tools ?\n\n\nCrash Log:\n\nMessage:\n{exp.Message}\n\nToString:\n{exp.ToString()}", "Unowhy Tools dispatcher crash handler", MessageBoxButton.YesNo, MessageBoxImage.Error);
+        if (result == MessageBoxResult.Yes)
+        {
+            var exeName = Process.GetCurrentProcess().MainModule.FileName;
+            ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+            startInfo.UseShellExecute = true;
+            startInfo.WorkingDirectory = Directory.GetCurrentDirectory();
+            startInfo.Arguments = $"-user {UTdata.UserID}";
+            Process.Start(startInfo);
+        }
+        await Task.Delay(1000);
+        System.Windows.Application.Current.Shutdown();
     }
 }
