@@ -392,6 +392,7 @@ public partial class App
 
     private async void HandleCrash(object sender, UnhandledExceptionEventArgs e)
     {
+        /*
         UT.Data UTdata = new UT.Data();
         Exception exp = (Exception)e.ExceptionObject;
         UT.Write2Log("=== Unowhy Tools Crash Log ===");
@@ -409,6 +410,7 @@ public partial class App
         }
         await Task.Delay(1000);
         System.Windows.Application.Current.Shutdown();
+        */
     }
 
     /// <summary>
@@ -423,7 +425,7 @@ public partial class App
         UT.Write2Log("=== Unowhy Tools Crash Log ===");
         UT.Write2Log($"Message: {exp.Message}");
         UT.Write2Log($"ToString: {exp.ToString()}");
-        MessageBoxResult result = System.Windows.MessageBox.Show($"Unowhy Tools has crashed. Do you want to restart Unowhy Tools ?\n\n\nCrash Log:\n\nMessage:\n{exp.Message}\n\nToString:\n{exp.ToString()}", "Unowhy Tools dispatcher crash handler", MessageBoxButton.YesNo, MessageBoxImage.Error);
+        MessageBoxResult result = System.Windows.MessageBox.Show($"Unowhy Tools has crashed.\n\nReason:\n{exp.Message}\n\nDo you want to restart Unowhy Tools ?", "Unowhy Tools crash handler", MessageBoxButton.YesNo, MessageBoxImage.Error);
         if (result == MessageBoxResult.Yes)
         {
             var exeName = Process.GetCurrentProcess().MainModule.FileName;
@@ -433,7 +435,5 @@ public partial class App
             startInfo.Arguments = $"-user {UTdata.UserID}";
             Process.Start(startInfo);
         }
-        await Task.Delay(1000);
-        System.Windows.Application.Current.Shutdown();
     }
 }
