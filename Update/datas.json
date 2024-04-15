@@ -1,15 +1,15 @@
 {
     "strings": {
         "discordname": "{unocorp}",
-        "websitename": "sty1001.fr"
+        "websitename": "sty1001.com"
     },
     "updates": {
         "utnewver": "2701",
         "utsnewver": "3.5"
     },
     "urls": {
-        "api": "https://api.sty1001.fr/ut-stats",
-        "sty1001": "https://sty1001.fr",
+        "api": "https://api.sty1001.com/ut-stats",
+        "sty1001": "https://sty1001.com",
         "utdebupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/updatedebug.zip",
         "utuninstaller": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/uninstall.exe",
         "utszip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/service.zip",
