@@ -211,10 +211,10 @@
     <value>Désinstaller "HiSqool"</value>
   </data>
   <data name="delhism" xml:space="preserve">
-    <value>Suppr le dossier et serv "HiSqoolManager"</value>
+    <value>Suppr le dossier et service "HiSqoolManager"</value>
   </data>
   <data name="delhismserv" xml:space="preserve">
-    <value>Suppr. le serv "HiSqoolManager" seul.</value>
+    <value>Suppr. uniquement le service "HiSqoolManager"</value>
   </data>
   <data name="deloem" xml:space="preserve">
     <value>Supprimer le dossier "OEM"</value>
@@ -226,7 +226,7 @@
     <value>Supprimer le dossier "TO_INSTALL"</value>
   </data>
   <data name="descaadleave" xml:space="preserve">
-    <value>Déconnectez ce PC d'AzureAD pour désactiver la gestion de ce PC (Intune / Endpoint) et désactiver l'option "Autre utilisateur". Attention : Si vous utilisez votre compte AzureAD ( [ID ENT]@monlycee.net ) sur ce PC, vous ne pourrez plus vous connecter à votre compte et vous perdrez vos données de votre compte (si vous tentez de vous reconnecter à votre compte, vous obtiendrez une erreur "mot de passe incorrect")! Vous devez d’abord sauvegarder vos données, supprimer le compte local ".\ENT" , désactiver le compte local ".\administrateur" et créer un compte admin local !!!</value>
+    <value>Déconnectez ce PC d'Azure AD pour désactiver sa gestion (Intune / Endpoint) et désactivez l'option "Autre utilisateur". Attention : Si vous utilisez votre compte Azure AD ( [ID ENT]@monlycee.net ) sur ce PC, vous ne pourrez plus vous connecter à votre compte et vous perdrez les données de celui-ci (en essayant de vous reconnecter, vous obtiendrez une erreur "mot de passe incorrect") ! Vous devez d'abord sauvegarder vos données, supprimer le compte local ".\ENT", désactiver le compte local ".\administrateur" et créer un compte admin local !!!</value>
   </data>
   <data name="descadduser" xml:space="preserve">
     <value>Créer un nouvel utilisateur (compte) local sur ce PC. Cela permet de ne plus dépendre d'AzureAD. Je vous conseille de passer sur un compte local (sur le PC) et de ne plus passer par le compte AzureAD (ENT ( [ID ENT@monlycee.net ))</value>
@@ -238,10 +238,10 @@
     <value>Gérez le compte ".\administrateur" intégré. Ne désactivez pas le compte admin si vous n'avez pas d'autre compte en tant qu'admin ! Donc, avant, créez un compte local en tant du'admin ou mettez ce compte en tant qu'admin</value>
   </data>
   <data name="descbcdfail" xml:space="preserve">
-    <value>Supprimer « IgnoreAllFailures » (BootStatusPolicy) dans BCD, réactive l’écran bleu "Recovery" (Pas WinRE/BootIM) et le diagnostic ("Veuillez patienter") en cas de problème de démarrage, permet aussi de pouvoir démarrer avec un comportement différant (Mode sans échec, Base résolution, etc…)</value>
+    <value>Supprimer « IgnoreAllFailures » (BootStatusPolicy) dans BCD, réactive l’écran bleu "Recovery" (Pas WinRE/BootIM) et le diagnostic ("Veuillez patienter") en cas de problème de démarrage, permet aussi de pouvoir démarrer avec un comportement différent (Mode sans échec, Basse résolution, etc…)</value>
   </data>
   <data name="descbkcloud" xml:space="preserve">
-    <value>Téléchargez une sauvegarde des pilotes Unowhy Tools à partir du cloud faites par d'autres utilisateurs. Si vous avez un problème de pilote et si vous n'avez pas fait de sauvegarde de vos pilotes, vous pouvez essayer de restaurer une sauvegarde cloud, utilisez le guide pour en savoir plus sur cette méthode</value>
+    <value>Téléchargez une sauvegarde des pilotes Unowhy Tools à partir du cloud qui a été faite par d'autres utilisateurs. Si vous rencontrez un problème avec vos pilotes et n'avez pas effectué de sauvegarde, vous pouvez essayer de restaurer une sauvegarde cloud. Utilisez le guide pour en savoir plus sur la restauration à partir d'une sauvegarde cloud.</value>
   </data>
   <data name="descbootim" xml:space="preserve">
     <value>Réparer BootIM (Boot Immersive Menu) (Menu Bleu). Unowhy a déployé un patch pour désactiver bootim.exe, via la redirection bootim.exe. Si vous souhaitez démarrer à partir d'un périphérique USB avec un Y13 2022, faites ceci</value>
@@ -253,13 +253,13 @@
     <value>Supprimer le dossier qui contient le script, les icons du menu démarrer et les fonds d'écrans (Dans : C:\Windows\System32)</value>
   </data>
   <data name="descdismbr" xml:space="preserve">
-    <value>L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec DISM. Sauvegardez toujours votre pilote pour résoudre les éventuels problèmes de pilote. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes DISM avec une interface graphique plus conviviale</value>
+    <value>L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegarder et Restaurer les pilotes avec DISM. Sauvegardez toujours vos pilotes pour résoudre les éventuels problèmes de pilotes. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes DISM avec une interface graphique plus conviviale</value>
   </data>
   <data name="descent" xml:space="preserve">
-    <value>Supprimer le compte local "ENT".  Ceci est le compte pour configurer votre compte ENT</value>
+    <value>Supprimer le compte local "ENT". Ceci est le compte pour configurer votre compte ENT</value>
   </data>
   <data name="descenwhe" xml:space="preserve">
-    <value>Activer Windows Hello for Enterprise. Si vous voulez déverrouiller votre PC avec le lecteur d'empreintes digitales et si il est désactivé par l'administrateur, faites ceci.</value>
+    <value>Activer Windows Hello for Enterprise. Si vous voulez déverrouiller votre PC avec le lecteur d'empreintes digitales et qu'l est désactivé par l'administrateur, faites ceci.</value>
   </data>
   <data name="deschisdel" xml:space="preserve">
     <value>Désinstaller le logiciel inutile "HiSqool" (Dans : C:\Program Files\Unowhy)</value>
@@ -274,7 +274,7 @@
     <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC (IFP...)</value>
   </data>
   <data name="descpsbr" xml:space="preserve">
-    <value>!!! Attention: Pour certains PC, la sauvegarde PowerShell ne fonctionne pas, utilisez plutôt la sauvegarde DISM !!! L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec Power Shell. Sauvegardez toujours votre pilote pour résoudre les éventuels problèmes de pilote. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes PowerShell avec une interface graphique plus conviviale</value>
+    <value>!!! Attention: Pour certains PC, la sauvegarde PowerShell ne fonctionne pas, utilisez plutôt la sauvegarde DISM !!! L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec Power Shell. Sauvegardez toujours vos pilotes pour résoudre les éventuels problèmes de pilotes. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes PowerShell avec une interface graphique plus conviviale</value>
   </data>
   <data name="descridf" xml:space="preserve">
     <value>Supprimer le dossier qui contient le script et la video de la première connexion (Dans : C:\ProgramData)</value>
@@ -298,7 +298,7 @@
     <value>Désactiver le compte</value>
   </data>
   <data name="dishis" xml:space="preserve">
-    <value>Désactiver le services "HiSqoolManager"</value>
+    <value>Désactiver le service "HiSqoolManager"</value>
   </data>
   <data name="dismdrv" xml:space="preserve">
     <value>Sauv. et Rest. les pilotes avec DISM</value>
@@ -313,7 +313,7 @@
     <value>Terminé avec succès !</value>
   </data>
   <data name="drvbr" xml:space="preserve">
-    <value>Sauvegarder et restaurer les pilotes de votre PC. Pour éviter tous problème de pilotes dans le futur, faite une sauvegarde des pilotes de votre PC et en cas de problème restaurez les. Vous pouvez néanmoins restaurer depuis une sauvegarde provenant du cloud</value>
+    <value>Sauvegardez et restaurez les pilotes de votre PC. Pour éviter tout problème de pilotes à l'avenir, faites une sauvegarde des pilotes de votre PC et, en cas de problème, restaurez-les. Vous pouvez néanmoins les restaurer depuis une sauvegarde provenant du cloud.</value>
   </data>
   <data name="drvcat" xml:space="preserve">
     <value>↓ Pilotes ↓</value>
@@ -373,7 +373,7 @@
     <value>Non</value>
   </data>
   <data name="nonet" xml:space="preserve">
-    <value>Pas de connexion internet</value>
+    <value>Aucune connexion internet</value>
   </data>
   <data name="nover" xml:space="preserve">
     <value>Pas de nouvelle version</value>
