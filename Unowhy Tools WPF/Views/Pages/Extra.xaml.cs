@@ -45,6 +45,10 @@ public partial class Extra : INavigableView<DashboardViewModel>
         openmas_desc.Text = await UT.GetLang("descmas");
         usefulcat.Text = await UT.GetLang("usefulcat");
         unowhyprodcat.Text = await UT.GetLang("unoprodcat");
+        openmas_btn.Content = await UT.GetLang("open");
+        openrufus_btn.Content = await UT.GetLang("open");
+        installridfcert_btn.Content = await UT.GetLang("install");
+        installhsqm_btn.Content = await UT.GetLang("install");
     }
 
     public async Task CheckBTN(bool check, string step)
@@ -55,7 +59,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
         }
         if (UTdata.HSMExist) installhsqm.IsEnabled = false;
         else installhsqm.IsEnabled = true;
-        if (UTdata.RIDFCertInstalled)installridfcert.IsEnabled = false;
+        if (UTdata.RIDFCertInstalled) installridfcert.IsEnabled = false;
         else installridfcert.IsEnabled = true;
     }
 
@@ -114,7 +118,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
 
     private async void installhsqm_btn_Click(object sender, RoutedEventArgs e)
     {
-        if(File.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager\\HiSqoolManager.exe"))
+        if (File.Exists("C:\\Program Files\\Unowhy\\HiSqool Manager\\HiSqoolManager.exe"))
         {
             Process.Start("C:\\Program Files\\Unowhy\\HiSqool Manager\\HiSqoolManager.exe");
         }
@@ -165,7 +169,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true, "ridfcert");
             await UT.waitstatus.close();
-            if(!installridfcert.IsEnabled)
+            if (!installridfcert.IsEnabled)
             {
                 UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }
