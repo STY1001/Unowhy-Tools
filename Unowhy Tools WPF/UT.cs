@@ -133,6 +133,7 @@ using Newtonsoft.Json;
 using System.Management;
 using System.Windows.Documents;
 using System.Windows.Threading;
+using Unowhy_Tools_WPF.Views.Pages;
 
 namespace Unowhy_Tools
 {
@@ -1031,6 +1032,57 @@ namespace Unowhy_Tools
             {
                 await MainWindow.USSwB("Cleanup... (%temp%\\Unowhy Tools\\Temps\\Update)");
                 Directory.Delete(utpath + "\\Unowhy Tools\\Temps\\Update", true);
+            }
+        }
+
+        public static async Task SendCrashReport(string crashid, Exception e,string apilink)
+        {
+            Guid uuid = Guid.NewGuid();
+            string uuidString = uuid.ToString();
+
+            if (await UT.Config.Get("ID") != null) uuidString = await UT.Config.Get("ID");
+
+            if (UT.CheckInternet())
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    try
+                    {
+                        string url = apilink + "/crash";
+                        string jsonData = "{ \"id\" : \"" + uuidString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"utsversion\" : \"" + await UT.UTS.UTSmsg("UTS", "GetVer") + "\",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"crashid\" : \"" + crashid + "\", \"message\" : \"" + e.Message.Replace("\"", "\\\"").Replace("\\", "\\\\") + "\" }";
+                        Write2Log("Sending crash report (step 1/2) to \"" + url + "\" with \"" + jsonData + "\"");
+                        StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = await client.PostAsync(url, content);
+                        if (response.StatusCode == HttpStatusCode.OK)
+                        {
+                            Write2Log("Sent! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+                        else
+                        {
+                            Write2Log("Error! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+
+                        url = apilink + "/crash/logs";
+                        string logs = File.ReadAllText(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
+                        client.DefaultRequestHeaders.Add("crashid", crashid);
+                        Write2Log("Sending crash report (step 2/2) to \"" + url + "\"");
+                        content = new StringContent(logs, System.Text.Encoding.UTF8, "text/plain");
+                        response = await client.PostAsync(url, content);
+                        if (response.StatusCode == HttpStatusCode.OK)
+                        {
+                            Write2Log("Sent! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+                        else
+                        {
+                            Write2Log("Error! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+                    }
+                    catch (Exception fail)
+                    {
+                        Write2Log("Failed: " + fail.Message);
+                    }
+
+                }
             }
         }
 

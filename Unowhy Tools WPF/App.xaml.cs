@@ -420,12 +420,20 @@ public partial class App
     {
         // For more info see https://docs.microsoft.com/en-us/dotnet/api/system.windows.application.dispatcherunhandledexception?view=windowsdesktop-6.0
 
+        e.Handled = true;
+
+        Guid uuid = Guid.NewGuid();
+        string uuidCrash = uuid.ToString();
         UT.Data UTdata = new UT.Data();
         Exception exp = e.Exception;
-        UT.Write2Log("=== Unowhy Tools Crash Log ===");
+        UT.Write2Log("\n\n\n=== Unowhy Tools Crash Report ===");
+        UT.Write2Log($"Crash ID: {uuidCrash}");
         UT.Write2Log($"Message: {exp.Message}");
         UT.Write2Log($"ToString: {exp.ToString()}");
-        MessageBoxResult result = System.Windows.MessageBox.Show($"Unowhy Tools has crashed.\n\nReason:\n{exp.Message}\n\nDo you want to restart Unowhy Tools ?", "Unowhy Tools crash handler", MessageBoxButton.YesNo, MessageBoxImage.Error);
+        UT.Write2Log("=== End of Unowhy Tools Crash Report ===\n\n\n");
+        UT.Write2Log("Sending crash report...\n\n");
+        await UT.SendCrashReport(uuidCrash, exp, await UT.OnlineDatas.GetUrls("api"));
+        MessageBoxResult result = System.Windows.MessageBox.Show($"Unowhy Tools has crashed.\n\n\nReason:\n{exp.Message}\n\n\n - Yes: Restart Unowhy Tools\n\n - No: Close Unowhy Tools\n\n - Cancel: Try to continue (can be unstable)", "Unowhy Tools crash handler", MessageBoxButton.YesNoCancel, MessageBoxImage.Error);
         if (result == MessageBoxResult.Yes)
         {
             var exeName = Process.GetCurrentProcess().MainModule.FileName;
@@ -434,6 +442,15 @@ public partial class App
             startInfo.WorkingDirectory = Directory.GetCurrentDirectory();
             startInfo.Arguments = $"-user {UTdata.UserID}";
             Process.Start(startInfo);
+            Application.Current.Shutdown();
+        }
+        else if (result == MessageBoxResult.No)
+        {
+            Application.Current.Shutdown();
+        }
+        else if (result == MessageBoxResult.Cancel)
+        {
+
         }
     }
 }
