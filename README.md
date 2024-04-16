@@ -4,7 +4,7 @@
 # The all-in-one tool for your Unowhy Y13 !
 
 *Unowhy Tools and STY1001 are __NOT__ affiliated with Unowhy SAS !*
-#### _**This in French : https://sty1001.fr/unowhy-tools/**_
+#### _**This in French : https://sty1001.com/unowhy-tools/**_
 
 ## ⚙️ Features
 Currently, with this tool, you can:
