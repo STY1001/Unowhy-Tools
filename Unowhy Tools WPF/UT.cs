@@ -134,6 +134,7 @@ using System.Management;
 using System.Windows.Documents;
 using System.Windows.Threading;
 using Unowhy_Tools_WPF.Views.Pages;
+using System.Linq;
 
 namespace Unowhy_Tools
 {
@@ -1063,7 +1064,7 @@ namespace Unowhy_Tools
                         }
 
                         url = apilink + "/crash/logs";
-                        string logs = File.ReadAllText(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
+                        string logs = UTdata.Logs; //File.ReadAllText(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
                         client.DefaultRequestHeaders.Add("crashid", crashid);
                         Write2Log("Sending crash report (step 2/2) to \"" + url + "\"");
                         content = new StringContent(logs, System.Text.Encoding.UTF8, "text/plain");
@@ -1602,6 +1603,7 @@ namespace Unowhy_Tools
 
         public static void Write2Log(string log)
         {
+            UTdata.Logs = UTdata.Logs + (DateTime.Now.ToString() + " : " + log + Environment.NewLine);
             if (UTdata.RunConsole)
             {
                 Console.WriteLine(DateTime.Now.ToString() + " : " + log);
@@ -3387,6 +3389,8 @@ namespace Unowhy_Tools
             private static bool _runconsole;
             private static bool _runupdater;
 
+            private static string _logs;
+
             public string HostName
             {
                 get { return _hostname; }
@@ -3844,6 +3848,15 @@ namespace Unowhy_Tools
                 set
                 {
                     _runupdater = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string Logs
+            {
+                get { return _logs; }
+                set
+                {
+                    _logs = value;
                     OnPropertyChanged();
                 }
             }
