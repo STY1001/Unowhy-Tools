@@ -9,6 +9,7 @@
     },
     "urls": {
         "api": "https://api.sty1001.com/ut-stats",
+        "eeapi": "https://api.sty1001.com/ut-easteregg",
         "sty1001": "https://sty1001.com",
         "utdebupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/updatedebug.zip",
         "utuninstaller": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/uninstall.exe",
