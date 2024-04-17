@@ -23,6 +23,7 @@ using System.Reflection.Metadata;
 using System.Linq;
 using System.Data;
 using System.Collections.Generic;
+using Wpf.Ui.Appearance;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -267,6 +268,36 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     {
         await UT.Config.Set("OnlineData", ODataBox.Text);
         UT.online_datas = ODataBox.Text;
+    }
+
+    private async void Button_Click_9(object sender, RoutedEventArgs e)
+    {
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+        mainWindow.AnniversaryEasterEgg(true);
+    }
+
+    private void Button_Click_10(object sender, RoutedEventArgs e)
+    {
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+        mainWindow.WindowBackdropType = BackgroundType.Mica;
+    }
+
+    private void Button_Click_11(object sender, RoutedEventArgs e)
+    {
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+        mainWindow.WindowBackdropType = BackgroundType.Acrylic;
+    }
+
+    private void Button_Click_12(object sender, RoutedEventArgs e)
+    {
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+        mainWindow.WindowBackdropType = BackgroundType.Tabbed;
+    }
+
+    private void Button_Click_13(object sender, RoutedEventArgs e)
+    {
+        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+        mainWindow.WindowBackdropType = BackgroundType.None;
     }
 }
 

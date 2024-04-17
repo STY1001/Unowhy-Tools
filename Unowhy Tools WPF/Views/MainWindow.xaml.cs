@@ -1303,6 +1303,25 @@ public partial class MainWindow : INavigationWindow
         UT.NavigateTo(typeof(DebugPage));
     }
 
+    public async Task AnniversaryEasterEgg(bool force)
+    {
+        if (DateTime.Now.Month == 4 && DateTime.Now.Day == 29 || force)
+        {
+            RootTitleBar.Title = "Unowhy Tools - Happy anniversary !";
+
+            while (true)
+            {
+                await Task.Delay(1000);
+
+                byte r = (byte)new Random().Next(0, 255);
+                byte g = (byte)new Random().Next(0, 255);
+                byte b = (byte)new Random().Next(0, 255);
+
+                _themeService.SetAccent(Color.FromRgb(r, g, b));
+            }
+        }
+    }
+
     #region Old Stuff
     public void ChangeTheme()
     {

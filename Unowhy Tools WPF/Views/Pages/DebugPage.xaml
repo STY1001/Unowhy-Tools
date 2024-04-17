@@ -88,12 +88,26 @@
                         <ui:Button Content="Connect"
                                    Click="Button_Click_1" />
                     </StackPanel>
-                    <ui:Button Content="Launch Tray"
-                               Click="Button_Click_2" />
-                    <ui:Button Content="Change Theme"
-                               Click="Button_Click_3" />
-                    <ui:Button Content="Launch Console"
-                               Click="Button_Click_4" />
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button Content="Launch Tray"
+                                   Click="Button_Click_2" />
+                        <ui:Button Content="Launch Console"
+                                   Click="Button_Click_4" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button Content="Switch Theme"
+                                   Click="Button_Click_3" />
+                        <ui:Button Content="Backdrop Mica"
+                                   Click="Button_Click_10" />
+                        <ui:Button Content="Backdrop Acrylic"
+                                   Click="Button_Click_11" />
+                        <ui:Button Content="Backdrop Tabbed"
+                                   Click="Button_Click_12" />
+                        <ui:Button Content="Backdrop None"
+                                   Click="Button_Click_13" />
+                    </StackPanel>
+                    <ui:Button Content="Anniversary Easter Egg force"
+                               Click="Button_Click_9" />
                     <StackPanel Orientation="Horizontal">
                         <ui:TextBox x:Name="url"
                                     Width="250" />
