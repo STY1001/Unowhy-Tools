@@ -298,7 +298,7 @@
                                           x:Name="ExpContrib"
                                           Expanded="ExpContrib_Expanded">
                                     <StackPanel x:Name="ExpStackContrib">
-                                        <Grid Margin="10,0,0,0">
+                                        <Grid Margin="10,0,0,3">
                                             <Grid x:Name="ContribSTY"
                                                   MouseLeftButtonDown="ContribSTY_SuperPote"
                                                   MouseRightButtonDown="ContribSTY_Bibou">

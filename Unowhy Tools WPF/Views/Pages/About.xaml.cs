@@ -260,6 +260,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
                         StackPanel stackPanel = new StackPanel();
                         stackPanel.Orientation = Orientation.Horizontal;
+                        stackPanel.Margin = new Thickness(10, 0, 0, 3);
 
                         Image image = new Image();
                         image.Width = 32;
@@ -267,6 +268,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
                         TextBlock textBlock = new TextBlock();
                         textBlock.Text = contribname;
+                        textBlock.VerticalAlignment = VerticalAlignment.Center;
                         textBlock.Margin = new Thickness(10, 0, 0, 0);
 
                         HttpResponseMessage rep2 = await web.GetAsync(contribavatarurl);
