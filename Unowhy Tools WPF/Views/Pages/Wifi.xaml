@@ -61,7 +61,8 @@
 
                     <Image Source="../../Resources/datamatrix.png"
                            Grid.Row="2"
-                           Grid.Column="0" />
+                           Grid.Column="0"
+                           MouseDown="Image_MouseDown"/>
 
                     <TextBlock x:Name="labsn"
                                Text="Enter the serial number of your PC: "

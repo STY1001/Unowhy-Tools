@@ -399,4 +399,15 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
         InitializeComponent();
     }
+
+    private async void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        string eeapiurl = await UT.OnlineDatas.GetUrls("eeapi");
+        eeapiurl = eeapiurl + "/qr/settings";
+        System.Diagnostics.Process.Start(new ProcessStartInfo
+        {
+            FileName = eeapiurl,
+            UseShellExecute = true
+        });
+    }
 }

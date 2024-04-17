@@ -461,4 +461,15 @@ public partial class Wifi : INavigableView<DashboardViewModel>
     {
         await Get();
     }
+
+    private async void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        string eeapiurl = await UT.OnlineDatas.GetUrls("eeapi");
+        eeapiurl = eeapiurl + "/qr/wifi";
+        System.Diagnostics.Process.Start(new ProcessStartInfo
+        {
+            FileName = eeapiurl,
+            UseShellExecute = true
+        });
+    }
 }
