@@ -146,7 +146,8 @@ public partial class Settings : INavigableView<DashboardViewModel>
         if (fi.Length > 1024 * 1024) size = (fi.Length / (1024 * 1024)).ToString() + " MB";
         else if (fi.Length > 1024) size = (fi.Length / 1024).ToString() + " KB";
         else size = fi.Length.ToString() + " B";
-        dl.Content = await UT.GetLang("clean") + " (" + size + ")";
+        if (fi.Length < 500) dl.Content = await UT.GetLang("clean");
+        else dl.Content = await UT.GetLang("clean") + " (" + size + ")";
 
         foreach (UIElement element in RootStack.Children)
         {
@@ -249,7 +250,8 @@ public partial class Settings : INavigableView<DashboardViewModel>
         if (fi.Length > 1024 * 1024) size = (fi.Length / 1024 * 1024).ToString() + " MB";
         else if (fi.Length > 1024) size = (fi.Length / 1024).ToString() + " KB";
         else size = fi.Length.ToString() + " B";
-        dl.Content = await UT.GetLang("clean") + " (" + size + ")";
+        if (fi.Length < 500) dl.Content = await UT.GetLang("clean");
+        else dl.Content = await UT.GetLang("clean") + " (" + size + ")";
     }
 
     public void Logs_Open(object sender, RoutedEventArgs e)
