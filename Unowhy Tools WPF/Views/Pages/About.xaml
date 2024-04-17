@@ -465,7 +465,7 @@
                                                    FontFamily="Segoe UI" />
                                         <TextBlock FontSize="12"
                                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                                   Text="sty1001.fr"
+                                                   Text="sty1001.com"
                                                    FontFamily="Segoe UI"
                                                    x:Name="WebsiteName" />
                                     </StackPanel>
