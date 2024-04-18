@@ -1164,6 +1164,18 @@ namespace Unowhy_Tools
                 wifi = false;
             }
 
+            string year = "Unknown";
+            if (UTdata.sn.Contains("IFP3")) year = "2023";
+            if (UTdata.sn.Contains("IFP2")) year = "2022";
+            if (UTdata.sn.Contains("IFP1")) year = "2021";
+            if (UTdata.sn.Contains("IFP0")) year = "2020";
+            if (UTdata.sn.Contains("IFP9")) year = "2019";
+            if (UTdata.md.Contains("Y13G113")) year = "2023";
+            if (UTdata.md.Contains("Y13G012")) year = "2022";
+            if (UTdata.md.Contains("Y13G011")) year = "2021";
+            if (UTdata.md.Contains("Y13G010")) year = "2020";
+            if (UTdata.md.Contains("Y13G002")) year = "2019";
+
             if (UT.CheckInternet())
             {
                 using (HttpClient client = new HttpClient())
@@ -1171,7 +1183,7 @@ namespace Unowhy_Tools
                     try
                     {
                         string url = await UT.OnlineDatas.GetUrls("api");
-                        string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"utsversion\" : \"" + await UT.UTS.UTSmsg("UTS", "GetVer") + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"" + launchmode + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"wifiena\" : " + wifi.ToString().ToLower() + " }";
+                        string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"utsversion\" : \"" + await UT.UTS.UTSmsg("UTS", "GetVer") + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"" + launchmode + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"wifiena\" : " + wifi.ToString().ToLower() + ", \"pcyear\" : \"" + year + "\" }";
                         Write2Log("Sending Stats to \"" + url + "\" with \"" + jsonData + "\"");
                         StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(url, content);
