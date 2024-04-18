@@ -246,6 +246,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("admin"), "admin.png"))
         {
+            UT.SendAction("SetAsAdmin");
             await UT.waitstatus.open(await UT.GetLang("wait.set"), "admin.png");
             await UT.RunMin("net", $"localgroup {UTdata.AdminsName} /add \"{UTdata.User}\"");
             await Task.Delay(1000);
@@ -267,6 +268,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("camoverena"), "camera.png"))
         {
+            UT.SendAction("EnableCamOverlay");
             await UT.waitstatus.open(await UT.GetLang("wait.enable"), "camera.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\OEM\\Device\\Capture\" /v \"NoPhysicalCameraLED\" /t REG_DWORD /d \"1\" /f");
             await Task.Delay(1000);
@@ -288,6 +290,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("verbstatena"), "verbose.png"))
         {
+            UT.SendAction("EnableVerbose");
             await UT.waitstatus.open(await UT.GetLang("wait.enable"), "verbose.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" /v \"VerboseStatus\" /t REG_DWORD /d \"1\" /f");
             await Task.Delay(1000);
@@ -316,6 +319,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("edgeun"), "uninstall.png"))
             {
+                UT.SendAction("UninstallEdge");
                 await UT.waitstatus.open(await UT.GetLang("wait.uninstall"), "uninstall.png");
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
@@ -357,6 +361,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("edgeblock"), "block.png"))
         {
+            UT.SendAction("BlockEdge");
             await UT.waitstatus.open(await UT.GetLang("wait.block"), "block.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Microsoft\\EdgeUpdate\" /v \"DoNotUpdateToEdgeWithChromium\" /t REG_DWORD /d \"1\" /f");
             await Task.Delay(1000);
@@ -378,6 +383,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("enable"), "enable.png"))
         {
+            UT.SendAction("EnableWinDef");
             await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"0\" /f");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v \"DisableRealtimeMonitoring\" /t REG_DWORD /d \"0\" /f");
@@ -401,6 +407,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("disable"), "disable.png"))
         {
+            UT.SendAction("DisableWinDef");
             await UT.waitstatus.open(await UT.GetLang("wait.disable"), "disable.png");
             await UT.RunMin("powershell", "Set-MpPreference -DisableRealtimeMonitoring $true");
             await UT.RunMin("reg", "add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /t REG_DWORD /d \"1\" /f");

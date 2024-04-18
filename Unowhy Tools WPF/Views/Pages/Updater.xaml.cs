@@ -88,6 +88,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void GithubButton_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("Updater.GithubClick");
         browser.Source = new System.Uri(await UT.OnlineDatas.GetUrls("utreleases"));
 
         DoubleAnimation anim = new DoubleAnimation();
@@ -194,6 +195,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
     public async void InstallButton_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("Updater.Update");
         string utemp = UT.utpath + "\\Unowhy Tools\\Temps";
         Color disabled = (Color)ColorConverter.ConvertFromString("#888888");
         updatebtntext.Foreground = new SolidColorBrush(disabled);

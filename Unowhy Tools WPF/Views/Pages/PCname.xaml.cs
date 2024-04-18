@@ -107,6 +107,7 @@ public partial class PCname : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("pcname"), "customize.png"))
             {
+                UT.SendAction("PCRename");
                 await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
                 string name = newbox.Text;
                 string arg = ($"-Command \"& {{Rename-Computer -NewName \"{name}\" -Force}}\"");

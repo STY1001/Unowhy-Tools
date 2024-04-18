@@ -173,6 +173,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("ent"), "deluser.png"))
         {
+            UT.SendAction("DeleteENTUser");
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "deluser.png");
             await UT.RunMin("net", "user ENT /delete");
             await Task.Delay(1000);
@@ -194,6 +195,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("delhis"), "uninstall.png"))
         {
+            UT.SendAction("UninstallHiSqool");
             await UT.waitstatus.open(await UT.GetLang("wait.uninstall"), "uninstall.png");
             await Task.Run(() =>
             {
@@ -219,6 +221,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("aadleave"), "azure.png"))
         {
+            UT.SendAction("LeaveAAD");
             await UT.waitstatus.open(await UT.GetLang("wait.disconnect"), "azure.png");
             await UT.RunMin("powershell", "start-process -FilePath \"dsregcmd\" -ArgumentList \"/leave\" -nonewwindow");
             await Task.Delay(1000);
@@ -240,6 +243,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("delhism"), "service.png"))
         {
+            UT.SendAction("DeleteHSM");
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "service.png");
             await UT.serv.del("Hisqoolmanager");
             await UT.RunMin("taskkill", "/f /im sqoolsys.exe");
@@ -263,6 +267,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("delti"), "folder.png"))
         {
+            UT.SendAction("DeleteToInstall");
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "folder.png");
             await UT.RunMin("cmd", "/w /c del /q /f \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\silent_*.*\"");
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Program Files\\Unowhy\\TO_INSTALL\"");
@@ -285,6 +290,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("delridf"), "folder.png"))
         {
+            UT.SendAction("DeleteRIDFFolder");
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "folder.png");
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\ProgramData\\RIDF\"");
             await Task.Delay(1000);
@@ -306,6 +312,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("deloem"), "folder.png"))
         {
+            UT.SendAction("DeleteOEMFolder");
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "folder.png");
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\Windows\\System32\\OEM\"");
             await Task.Delay(1000);
@@ -327,6 +334,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("delentf"), "folder.png"))
         {
+            UT.SendAction("DeleteENTFolder");
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "folder.png");
             await UT.RunMin("cmd", "/w /c rmdir /q /s \"C:\\ProgramData\\ENT\"");
             await Task.Delay(1000);
@@ -348,6 +356,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("ridfcertdel"), "cert.png"))
         {
+            UT.SendAction("DeleteRIDFCA");
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "cert.png");
             await UT.RunMin("powershell", "\"Get-ChildItem Cert:\\LocalMachine\\Root | Where-Object { $_.Subject -match 'RIDF' } | Remove-Item\"");
             await Task.Delay(1000);

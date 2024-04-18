@@ -482,6 +482,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
     public async void Github_Click(object sender, System.Windows.RoutedEventArgs e)
     {
+        UT.SendAction("About.OpenGithub");
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
             FileName = "https://github.com/STY1001/Unowhy-Tools",
@@ -491,6 +492,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
     public async void STY1001_Click(object sender, System.Windows.RoutedEventArgs e)
     {
+        UT.SendAction("About.OpenSTY1001");
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
             FileName = await UT.OnlineDatas.GetUrls("sty1001"),
@@ -500,6 +502,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
     public async void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
     {
+        UT.SendAction("About.OpenDiscord");
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
             FileName = await UT.OnlineDatas.GetUrls("discordinvite"),
@@ -509,6 +512,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
     private async void ExpContrib_Expanded(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("About.ExpendContrib");
         foreach (UIElement element in ExpStackContrib.Children)
         {
             element.Visibility = Visibility.Hidden;
@@ -548,6 +552,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
     private async void ExpMoreInfo_Expanded(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("About.ExpendMoreInfo");
         foreach (UIElement element in ExpStackMoreInfo.Children)
         {
             element.Visibility = Visibility.Hidden;
@@ -587,6 +592,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
     private async void ExpInfo_Expanded(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("About.ExpendInfo");
         foreach (UIElement element in ExpStackInfo.Children)
         {
             element.Visibility = Visibility.Hidden;
@@ -634,7 +640,7 @@ public partial class About : INavigableView<DashboardViewModel>
         if(eeldclick >= 5)
         {
             eeldclick = 0;
-
+            UT.SendAction("EasterEgg.About.LogoDesc");
             LogoDesc.Text = "Unowhy Tools ne sera jamais finit tant que Pétasse sera là";
             LogoCredit.Text = "";
             await Task.Delay(2500);
@@ -656,7 +662,7 @@ public partial class About : INavigableView<DashboardViewModel>
         if (eelutvllick >= 0)
         {
             eelutvllick = 0;
-
+            UT.SendAction("EasterEgg.About.UTVerLogo");
             UTVerLogo.Source = UT.GetImgSource("UTB.png");
             await Task.Delay(500);
             UTVerLogo.Source = UT.GetImgSource("UTS.png");
@@ -679,7 +685,7 @@ public partial class About : INavigableView<DashboardViewModel>
         if(eecstyleft >= 10)
         {
             eecstyleft = 0;
-
+            UT.SendAction("EasterEgg.About.ContribSuperPote");
             ContribSuperPote.Visibility = Visibility.Visible;
             {
                 DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -744,8 +750,8 @@ public partial class About : INavigableView<DashboardViewModel>
         }
         if (eecstyright >= 10)
         {
-            eecstyright = 0; 
-
+            eecstyright = 0;
+            UT.SendAction("EasterEgg.About.ContribBibou");
             ContribBibou.Visibility = Visibility.Visible;
             {
                 DoubleAnimation opacityAnimation = new DoubleAnimation

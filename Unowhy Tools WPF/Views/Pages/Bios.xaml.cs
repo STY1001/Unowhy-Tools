@@ -229,6 +229,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
+                UT.SendAction("UTB.IFPTDump");
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
@@ -277,6 +278,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
+                UT.SendAction("UTB.IFPTFlash");
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
@@ -353,6 +355,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
+                UT.SendAction("UTB.AFUDump");
                 if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
@@ -401,6 +404,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
+                UT.SendAction("UTB.AFUFlash");
                 if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
@@ -454,6 +458,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             DialogResult result = fb.ShowDialog();
             if (result == DialogResult.OK)
             {
+                UT.SendAction("UTB.SMBIOSExport");
                 var jsonData = new
                 {
                     mf = mfbox.PlaceholderText,
@@ -493,8 +498,8 @@ public partial class Bios : INavigableView<DashboardViewModel>
             DialogResult result = fb.ShowDialog();
             if (result == DialogResult.OK)
             {
+                UT.SendAction("UTB.SMBIOSImport");
                 JObject json = JObject.Parse(File.ReadAllText(fb.FileName));
-
 
                 string mf = (string)json["mf"];
                 string md = (string)json["md"];
@@ -523,6 +528,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     private async void ButtonApply_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("UTB.SMBIOSApply");
         if (amidefiles.Any(file => !File.Exists(file)))
         {
             UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");

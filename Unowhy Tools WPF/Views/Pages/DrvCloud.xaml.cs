@@ -86,6 +86,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
     public async Task RestoreCloud(string filename, string link, double size)
     {
+        UT.SendAction("DrvCloud");
         DriveInfo drive = new DriveInfo("C");
         if (drive.AvailableFreeSpace > size * 3)
         {

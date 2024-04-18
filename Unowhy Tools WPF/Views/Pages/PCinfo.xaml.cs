@@ -82,6 +82,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("OpenPCInfo");
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Hidden;

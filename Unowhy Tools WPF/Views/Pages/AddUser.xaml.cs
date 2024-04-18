@@ -130,6 +130,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
     
     public async void Create_Changed(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("AddUser");
         Regex r = new Regex(@"[~`!@#$%^&*()+=|\\{}':;.,<>/?[\]""]");
 
         if (r.IsMatch(namebox.Text.ToString().Trim()) || namebox.Text == "" || namebox.Text.Contains(" "))

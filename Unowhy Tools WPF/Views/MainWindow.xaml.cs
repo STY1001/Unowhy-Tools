@@ -1300,7 +1300,8 @@ public partial class MainWindow : INavigationWindow
 
         await Task.Delay(1000);
         await RemoveKonamiDebug();
-        UT.NavigateTo(typeof(DebugPage));
+        UT.NavigateTo(typeof(DebugPage)); 
+        UT.SendAction("TriggerDebug");
     }
 
     public async Task AnniversaryEasterEgg(bool force)

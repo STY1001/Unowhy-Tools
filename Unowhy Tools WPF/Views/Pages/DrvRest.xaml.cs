@@ -138,6 +138,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         }
         else
         {
+            UT.SendAction("DrvRestore");
             DriveInfo di = new DriveInfo("C");
             FileInfo fi = new FileInfo(rtpath.Text);
             if (di.AvailableFreeSpace > fi.Length * 3)

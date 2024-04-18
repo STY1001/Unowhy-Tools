@@ -289,6 +289,7 @@ public partial class TrayWindow : Window
 
     public void switch_Changed(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("Tray.PrivacyChange");
         if (camswitch.IsChecked == true)
         {
             CamOn = true;
@@ -959,6 +960,7 @@ public partial class TrayWindow : Window
 
     private void T_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("Tray.QLClick");
         if (taskpath.Contains("default"))
         {
             System.Diagnostics.Process.Start("taskmgr.exe");
@@ -974,7 +976,8 @@ public partial class TrayWindow : Window
 
     private void C_Click(object sender, RoutedEventArgs e)
     {
-        if(cmdpath.Contains("default"))
+        UT.SendAction("Tray.QLClick");
+        if (cmdpath.Contains("default"))
         {
             Process p = new Process();
             p.StartInfo.FileName = "cmd.exe";
@@ -992,6 +995,7 @@ public partial class TrayWindow : Window
 
     private void R_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("Tray.QLClick");
         if(regpath.Contains("default"))
         {
             System.Diagnostics.Process.Start("regedit.exe");
@@ -1007,6 +1011,7 @@ public partial class TrayWindow : Window
 
     private void G_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("Tray.QLClick");
         if (gppath.Contains("default"))
         {
             System.Diagnostics.Process.Start("mmc.exe", "gpedit.msc");
@@ -1022,6 +1027,7 @@ public partial class TrayWindow : Window
 
     private async void E_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("Tray.QLEdit");
         ToTray = false;
         {
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -1254,6 +1260,7 @@ public partial class TrayWindow : Window
 
     private async void UTbtn_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("Tray.OpenUT");
         await HideTray();
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         System.Diagnostics.Process.Start(utpath);
@@ -1261,6 +1268,7 @@ public partial class TrayWindow : Window
 
     private async void UTUbtn_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("Tray.OpenUTU");
         await HideTray();
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         System.Diagnostics.Process.Start(utpath, "-updater");
@@ -1662,6 +1670,7 @@ public partial class TrayWindow : Window
     {
         if (QuickOption.Visibility == Visibility.Visible)
         {
+            UT.SendAction("Tray.PowerModeChanged");
             Guid newmode = new(balanced);
 
             if (pmodeperf.IsSelected)

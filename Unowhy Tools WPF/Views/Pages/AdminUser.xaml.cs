@@ -90,6 +90,7 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
     {
         if(UT.DialogQShow(await UT.GetLang("snpw"), "key.png"))
         {
+            UT.SendAction("AdminUser.Pw");
             await UT.waitstatus.open(await UT.GetLang("wait.apply"), "key.png");
             await UT.RunMin("net", $"user {UTdata.AdminName} \"{passbox.Text}\"");
             await UT.waitstatus.close();
@@ -100,6 +101,7 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
     {
         if(UT.DialogQShow(await UT.GetLang("enablea"), "enable.png"))
         {
+            UT.SendAction("AdminUser.Enable");
             await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
             await UT.RunMin("net", $"user {UTdata.AdminName} /active:yes");
             await UT.waitstatus.close();
@@ -110,6 +112,7 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
     {
         if(UT.DialogQShow(await UT.GetLang("disablea"), "disable.png"))
         {
+            UT.SendAction("AdminUser.Disable");
             await UT.waitstatus.open(await UT.GetLang("wait.disable"), "disable.png");
             await UT.RunMin("net", $"user {UTdata.AdminName} /active:no");
             await UT.waitstatus.close();

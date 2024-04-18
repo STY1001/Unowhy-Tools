@@ -277,6 +277,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async void Apply_Settings(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("ApplySettings");
         await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
         bool ok = true;
 
@@ -402,6 +403,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     private async void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
+        UT.SendAction("EasterEgg.Settings.QR");
         string eeapiurl = await UT.OnlineDatas.GetUrls("eeapi");
         eeapiurl = eeapiurl + "/qr/settings";
         System.Diagnostics.Process.Start(new ProcessStartInfo

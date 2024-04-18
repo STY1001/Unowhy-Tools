@@ -375,11 +375,13 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             {
                 if (UT.DialogQShow(await UT.GetLang("securebootwarn"), "no.png"))
                 {
+                    UT.SendAction("HackGRT.Install");
                     await install();
                 }
             }
             else
             {
+                UT.SendAction("HackGRT.Install");
                 await install();
             }
         }
@@ -914,6 +916,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     private async void removebtn_Click(object sender, RoutedEventArgs e)
     {
+        UT.SendAction("HackBGRT.Uninstall");
         if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe"))
         {
             UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
@@ -947,17 +950,17 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe"))
         {
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "delete.png");
-                await Task.Run(() =>
-                {
-                    Process p = new Process();
-                    p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe";
-                    p.StartInfo.Arguments = "batch uninstall";
-                    p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT";
-                    p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    p.StartInfo.CreateNoWindow = true;
-                    p.Start();
-                    p.WaitForExit();
-                });
+            await Task.Run(() =>
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe";
+                p.StartInfo.Arguments = "batch uninstall";
+                p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT";
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.Start();
+                p.WaitForExit();
+            });
 
             await UT.waitstatus.close();
             UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");

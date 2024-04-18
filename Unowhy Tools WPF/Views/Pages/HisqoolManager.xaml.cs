@@ -175,6 +175,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if(UT.DialogQShow(await UT.GetLang("starthis"), "start.png"))
         {
+            UT.SendAction("StartHSM");
             await UT.waitstatus.open(await UT.GetLang("wait.start"), "start.png");
             await UT.serv.start("HiSqoolManager");
             await Task.Delay(1000);
@@ -196,6 +197,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("stophis"), "stop.png"))
         {
+            UT.SendAction("StopHSM");
             await UT.waitstatus.open(await UT.GetLang("wait.stop"), "stop.png");
             await UT.serv.stop("HiSqoolManager");
             await Task.Delay(1000);
@@ -217,6 +219,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("enhis"), "enable.png"))
         {
+            UT.SendAction("EnableHSM");
             await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
             await UT.serv.auto("HiSqoolManager");
             await Task.Delay(1000);
@@ -238,6 +241,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("dishis"), "disable.png"))
         {
+            UT.SendAction("DisableHSM");
             await UT.waitstatus.open(await UT.GetLang("wait.disable"), "disable.png");
             await UT.serv.dis("HiSqoolManager");
             await Task.Delay(1000);
@@ -259,6 +263,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
     {
         if (UT.DialogQShow(await UT.GetLang("delhismserv"), "delete.png"))
         {
+            UT.SendAction("DeleteHSMServ");
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "delete.png");
             await UT.serv.del("HiSqoolManager");
             await Task.Delay(1000);

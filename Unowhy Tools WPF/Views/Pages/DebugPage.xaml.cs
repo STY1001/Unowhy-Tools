@@ -83,6 +83,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
     {
+        UT.SendAction("Debug.Update");
         debus.Text = "Downloading...";
         string utemp = UT.utpath + "\\Unowhy Tools\\Temps";
         var progress = new System.Progress<double>();

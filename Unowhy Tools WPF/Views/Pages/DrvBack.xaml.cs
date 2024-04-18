@@ -113,6 +113,7 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
         }
         else
         {
+            UT.SendAction("DrvBackup");
             string drivel = bkpath.Text.Substring(0, 1);
             DriveInfo di = new DriveInfo(drivel);
             long afs = di.AvailableFreeSpace;

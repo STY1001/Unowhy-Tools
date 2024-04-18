@@ -257,6 +257,7 @@ public partial class App
             {
                 if (rescueUpdate.Contains("release"))
                 {
+                    UT.SendAction("RescueUpdate.Release");
                     Console.WriteLine("Release version");
                     string utemp = UT.utpath + "\\Unowhy Tools\\Temps";
                     await Task.Delay(1000);
@@ -294,6 +295,7 @@ public partial class App
                 }
                 else if (rescueUpdate.Contains("debug"))
                 {
+                    UT.SendAction("RescueUpdate.Debug");
                     Console.WriteLine("Debug version");
                     string utemp = UT.utpath + "\\Unowhy Tools\\Temps";
                     await Task.Delay(1000);
@@ -340,6 +342,7 @@ public partial class App
 
         if(showConsole)
         {
+            UT.SendAction("OpenConsole");
             string UTsver = UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
             if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
             else UTsver = UTsver + "(Release)";
@@ -352,6 +355,7 @@ public partial class App
 
         if (isHelp)
         {
+            UT.SendAction("LaunchHelp");
             string UTsver = UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";
             if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
             else UTsver = UTsver + "(Release)";

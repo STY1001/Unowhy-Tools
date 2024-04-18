@@ -628,6 +628,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
     private async void LogoImg_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
+        UT.SendAction("EasterEgg.Dashboard.LogoImg");
         {
             DoubleAnimation animsb = new DoubleAnimation();
             animsb.From = 20;

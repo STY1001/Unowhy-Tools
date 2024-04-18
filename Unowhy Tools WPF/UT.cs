@@ -1087,6 +1087,41 @@ namespace Unowhy_Tools
             }
         }
 
+        public static async Task SendAction(string action)
+        {
+            string uuidString = "null";
+
+            if (await UT.Config.Get("ID") != null) uuidString = await UT.Config.Get("ID");
+
+            if (UT.CheckInternet())
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    try
+                    {
+                        string url = await UT.OnlineDatas.GetUrls("api") + "/usage";
+                        string jsonData = "{ \"id\" : \"" + uuidString + "\", \"action\" : \"" + action + "\" }";
+                        Write2Log("Sending action \"" + action + "\" to \"" + url + "\" with \"" + jsonData + "\"");
+                        StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = await client.PostAsync(url, content);
+                        if (response.StatusCode == HttpStatusCode.OK)
+                        {
+                            Write2Log("Sent! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+                        else
+                        {
+                            Write2Log("Error! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+                    }
+                    catch (Exception fail)
+                    {
+                        Write2Log("Failed: " + fail.Message);
+                    }
+
+                }
+            }
+        }
+
         public static async Task SendStats(string launchmode)
         {
             Guid uuid = Guid.NewGuid();

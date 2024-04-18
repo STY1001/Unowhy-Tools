@@ -212,6 +212,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
     public async Task Get()
     {
+        UT.SendAction("UTW.Get");
         if (UT.CheckInternet())
         {
             await UT.waitstatus.open(await UT.GetLang("wait.get"), "clouddl.png");
@@ -372,6 +373,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
     public async Task ClipMenuOpen(object sender, RoutedEventArgs e, string ssid,  string password, string proxytype, string proxyip, string proxyport, string proxyurl)
     {
+        UT.SendAction("UTW.OpenClipMenu");
         await Task.Delay(100);
         System.Windows.Controls.ContextMenu ClipMenu = new System.Windows.Controls.ContextMenu();
         MenuItem SSIDItem = new MenuItem();
@@ -464,6 +466,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
     private async void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
+        UT.SendAction("EasterEgg.UTW.QR");
         string eeapiurl = await UT.OnlineDatas.GetUrls("eeapi");
         eeapiurl = eeapiurl + "/qr/wifi";
         System.Diagnostics.Process.Start(new ProcessStartInfo
