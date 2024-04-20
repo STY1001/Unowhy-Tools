@@ -43,6 +43,10 @@ Currently, with this tool, you can:
 - Download driver backup from cloud (update of 25.00: Restore directly driver backup from cloud)
 - Dump, Flash and Customize your BIOS
 - Control Windows power mode quickly (Tray)
+- Customize Windows loading screen (HackBGRT)
+- Delete the "RIDF" Root CA
+- Install HiSqool Manager, the "RIDF" Root CA
+- Open Rufus, MAS
 
 More features coming soon
 
