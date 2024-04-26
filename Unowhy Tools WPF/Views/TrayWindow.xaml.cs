@@ -124,81 +124,89 @@ public partial class TrayWindow : Window
 
     public async Task CheckUpdate()
     {
-        if (UT.CheckInternet())
+        try
         {
-            if (await UT.Config.Get("UpdateStart") == "1")
+            if (UT.CheckInternet())
             {
-                if (await UT.version.newver())
+                if (await UT.Config.Get("UpdateStart") == "1")
                 {
-                    var web = new HttpClient();
-                    string newver = await UT.OnlineDatas.GetUpdates("utnewver");
-                    newver = newver.Insert(2, ".");
-                    newver = newver.Replace("\n", "");
-                    string newverfull = await UT.GetLang("newver") + "\n(" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
-                    trayIcon.ShowBalloonTip(5000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
-
-                    if (!firstok)
+                    if (await UT.version.newver())
                     {
-                        firstok = true;
-                        Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
-                        Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
+                        var web = new HttpClient();
+                        string newver = await UT.OnlineDatas.GetUpdates("utnewver");
                         newver = newver.Insert(2, ".");
                         newver = newver.Replace("\n", "");
-                        string newverfull2 = UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver;
-                        string labnewver = await UT.GetLang("newver");
+                        string newverfull = await UT.GetLang("newver") + "\n(" + UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver + ")";
+                        trayIcon.ShowBalloonTip(5000, "Unowhy Tools Updater", newverfull, ToolTipIcon.Info);
 
-                        DoubleAnimation anim = new DoubleAnimation();
-                        anim.From = 0;
-                        anim.To = 250;
-                        anim.Duration = TimeSpan.FromMilliseconds(500);
-                        anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
-                        DoubleAnimation anim2 = new DoubleAnimation();
-                        anim2.From = -250;
-                        anim2.To = 0;
-                        anim2.Duration = TimeSpan.FromMilliseconds(500);
-                        anim2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-
-                        TranslateTransform trans = new TranslateTransform();
-                        UTUbtndesc.RenderTransform = trans;
-
-                        UTUbtn.Visibility = Visibility.Visible;
-                        Grid.SetColumnSpan(UTbtn, 1);
-
-                        while (true)
+                        if (!firstok)
                         {
-                            UTUbtndesc.Foreground = new SolidColorBrush(white);
-                            await Task.Delay(500);
-                            UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                            await Task.Delay(500);
-                            UTUbtndesc.Foreground = new SolidColorBrush(white);
-                            await Task.Delay(500);
-                            UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                            trans.BeginAnimation(TranslateTransform.XProperty, anim);
-                            await Task.Delay(500);
-                            UTUbtndesc.Text = labnewver;
-                            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-                            UTUbtndesc.Foreground = new SolidColorBrush(white);
-                            await Task.Delay(500);
-                            UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                            await Task.Delay(500);
-                            UTUbtndesc.Foreground = new SolidColorBrush(white);
-                            await Task.Delay(500);
-                            UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                            trans.BeginAnimation(TranslateTransform.XProperty, anim);
-                            await Task.Delay(500);
-                            UTUbtndesc.Text = newverfull2;
-                            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+                            firstok = true;
+                            Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
+                            Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
+                            newver = newver.Insert(2, ".");
+                            newver = newver.Replace("\n", "");
+                            string newverfull2 = UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver;
+                            string labnewver = await UT.GetLang("newver");
+
+                            DoubleAnimation anim = new DoubleAnimation();
+                            anim.From = 0;
+                            anim.To = 250;
+                            anim.Duration = TimeSpan.FromMilliseconds(500);
+                            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseIn, Power = 5 };
+                            DoubleAnimation anim2 = new DoubleAnimation();
+                            anim2.From = -250;
+                            anim2.To = 0;
+                            anim2.Duration = TimeSpan.FromMilliseconds(500);
+                            anim2.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+
+                            TranslateTransform trans = new TranslateTransform();
+                            UTUbtndesc.RenderTransform = trans;
+
+                            UTUbtn.Visibility = Visibility.Visible;
+                            Grid.SetColumnSpan(UTbtn, 1);
+
+                            while (true)
+                            {
+                                UTUbtndesc.Foreground = new SolidColorBrush(white);
+                                await Task.Delay(500);
+                                UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                                await Task.Delay(500);
+                                UTUbtndesc.Foreground = new SolidColorBrush(white);
+                                await Task.Delay(500);
+                                UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                                await Task.Delay(500);
+                                UTUbtndesc.Text = labnewver;
+                                trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+                                UTUbtndesc.Foreground = new SolidColorBrush(white);
+                                await Task.Delay(500);
+                                UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                                await Task.Delay(500);
+                                UTUbtndesc.Foreground = new SolidColorBrush(white);
+                                await Task.Delay(500);
+                                UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                                await Task.Delay(500);
+                                UTUbtndesc.Text = newverfull2;
+                                trans.BeginAnimation(TranslateTransform.XProperty, anim2);
 
 
+                            }
                         }
                     }
-                }
-                else
-                {
-                    UTUbtn.Visibility = Visibility.Collapsed;
-                    Grid.SetColumnSpan(UTbtn, 2);
+                    else
+                    {
+                        UTUbtn.Visibility = Visibility.Collapsed;
+                        Grid.SetColumnSpan(UTbtn, 2);
+                    }
                 }
             }
+        }
+        finally
+        {
+            UTUbtn.Visibility = Visibility.Collapsed;
+            Grid.SetColumnSpan(UTbtn, 2);
         }
     }
 
@@ -362,8 +370,8 @@ public partial class TrayWindow : Window
             {
                 camswitch.IsEnabled = false;
             }
-            
-            if(_microkey.GetValue("Value") != null)
+
+            if (_microkey.GetValue("Value") != null)
             {
                 string mic = _microkey.GetValue("Value").ToString();
                 micswitch.IsEnabled = true;
@@ -413,7 +421,7 @@ public partial class TrayWindow : Window
             {
                 batstatussource = null;
             }
-            
+
             string batcapstring = "null";
             ImageSource batmodesource = null;
 
@@ -438,7 +446,7 @@ public partial class TrayWindow : Window
 
             ImageSource batimgsource = null;
 
-            if(batringint > 90)
+            if (batringint > 90)
             {
                 batimgsource = UT.GetImgSource("bat100.png");
             }
@@ -446,15 +454,15 @@ public partial class TrayWindow : Window
             {
                 batimgsource = UT.GetImgSource("bat75.png");
             }
-            else if(batringint > 50)
+            else if (batringint > 50)
             {
                 batimgsource = UT.GetImgSource("bat50.png");
             }
-            else if(batringint > 25)
+            else if (batringint > 25)
             {
                 batimgsource = UT.GetImgSource("bat25.png");
             }
-            else if(batringint > 10)
+            else if (batringint > 10)
             {
                 batimgsource = UT.GetImgSource("bat15.png");
             }
@@ -560,7 +568,7 @@ public partial class TrayWindow : Window
         trayIcon.Icon = UT.GetIconFromRes("UTtray.png");
         trayIcon.Text = "Unowhy Tools";
         trayIcon.Visible = true;
-        base.Visibility = Visibility.Hidden; 
+        base.Visibility = Visibility.Hidden;
     }
 
     public async Task SetQL()
@@ -633,7 +641,7 @@ public partial class TrayWindow : Window
         imggpedit.Source = gpimg;
 
         if (taskpath.Contains("default")) labtaskdesc.Text = "taskmgr.exe";
-        else if (File.Exists(taskpath))labtaskdesc.Text = Path.GetFileName(taskpath);
+        else if (File.Exists(taskpath)) labtaskdesc.Text = Path.GetFileName(taskpath);
         else labtaskdesc.Text = Path.GetFileName(taskpath) + " (error)";
         if (cmdpath.Contains("default")) labcmddesc.Text = "cmd.exe";
         else if (File.Exists(cmdpath)) labcmddesc.Text = Path.GetFileName(cmdpath);
@@ -833,14 +841,14 @@ public partial class TrayWindow : Window
         Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
         var storyboard = new Storyboard();
         storyboard.Children.Add(fadeInAnimation);
-        if(!onlyfade)
+        if (!onlyfade)
         {
             storyboard.Children.Add(zoomAnimation1);
             storyboard.Children.Add(zoomAnimation2);
         }
         storyboard.Begin();
     }
-    
+
     public async Task ZoomOut(UIElement element, bool onlyfade)
     {
         var fadeInAnimation = new DoubleAnimation
@@ -850,7 +858,7 @@ public partial class TrayWindow : Window
             Duration = TimeSpan.FromSeconds(0.30),
             EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
         };
-        
+
         var zoomAnimation1 = new DoubleAnimation
         {
             From = 1.1,
@@ -867,7 +875,7 @@ public partial class TrayWindow : Window
             EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
         };
 
-        Storyboard.SetTarget(fadeInAnimation,element);
+        Storyboard.SetTarget(fadeInAnimation, element);
         Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
         Storyboard.SetTarget(zoomAnimation1, element);
         Storyboard.SetTarget(zoomAnimation2, element);
@@ -875,7 +883,7 @@ public partial class TrayWindow : Window
         Storyboard.SetTargetProperty(zoomAnimation2, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
         var storyboard = new Storyboard();
         storyboard.Children.Add(fadeInAnimation);
-        if(!onlyfade)
+        if (!onlyfade)
         {
             storyboard.Children.Add(zoomAnimation1);
             storyboard.Children.Add(zoomAnimation2);
@@ -965,7 +973,7 @@ public partial class TrayWindow : Window
         {
             System.Diagnostics.Process.Start("taskmgr.exe");
         }
-        else if(File.Exists(taskpath))
+        else if (File.Exists(taskpath))
         {
             Process p = new Process();
             p.StartInfo.FileName = taskpath;
@@ -996,7 +1004,7 @@ public partial class TrayWindow : Window
     private void R_Click(object sender, RoutedEventArgs e)
     {
         UT.SendAction("Tray.QLClick");
-        if(regpath.Contains("default"))
+        if (regpath.Contains("default"))
         {
             System.Diagnostics.Process.Start("regedit.exe");
         }
@@ -1392,7 +1400,7 @@ public partial class TrayWindow : Window
 
     private void labtaskdescedit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
     {
-        if(taskpath.Contains("default"))
+        if (taskpath.Contains("default"))
         {
             labtaskdescedit.Text = "taskmgr.exe";
         }
@@ -1677,11 +1685,11 @@ public partial class TrayWindow : Window
             {
                 newmode = new(perf);
             }
-            else if(pmodebalanced.IsSelected)
+            else if (pmodebalanced.IsSelected)
             {
                 newmode = new(balanced);
             }
-            else if(pmodeefficiency.IsSelected)
+            else if (pmodeefficiency.IsSelected)
             {
                 newmode = new(efficiency);
             }
