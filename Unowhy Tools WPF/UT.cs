@@ -160,8 +160,8 @@ namespace Unowhy_Tools
         public static string utpath = "C:\\Unowhy Tools";
 
         public static int verfull = 2800;
-        public static string verbuild = "1523180424";
-        public static bool verisdeb = true;
+        public static string verbuild = "2130180424";
+        public static bool verisdeb = false;
 
         public class version
         {
@@ -709,6 +709,32 @@ namespace Unowhy_Tools
                     await UT.RunMin("sc", $"create UTS binpath=\"\\\"{utspath}\\\"\" displayname=\"Unowhy Tools Service\" start=auto type=own type=interact");
                     await UT.serv.start("UTS");
                 }
+
+                if((await UTSmsg("UTS", "GetVer")).Contains("UTSerr"))
+                {
+                    await MainWindow.USSwB("Preparing UTS... (Stopping)");
+                    await UT.serv.stop("UTS");
+                    await MainWindow.USSwB("Preparing UTS... (Downloading)");
+                    string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
+                    Directory.Delete(instdir, true);
+                    await Task.Delay(100);
+                    Directory.CreateDirectory(instdir);
+                    string utemp = utpath + "\\Unowhy Tools\\Temps";
+                    var progress = new System.Progress<double>();
+                    var cancellationToken = new CancellationTokenSource();
+                    progress.ProgressChanged += (sender, value) =>
+                    {
+                        mainWindow.SplashText.Text = "Preparing UTS... (Downloading) (" + value.ToString("##0.0") + "%)";
+                    };
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
+                    await MainWindow.USSwB("Preparing UTS... (Extracting)");
+                    await Task.Delay(100);
+                    ZipFile.ExtractToDirectory(utemp + "\\service.zip", instdir, true);
+                    await Task.Delay(100);
+                    await MainWindow.USSwB("Preparing UTS... (Starting)");
+                    await UT.serv.start("UTS");
+                }
+
                 await MainWindow.USS("Preparing UTS... (Checking Update)");
                 await UT.UTS.UTSupdate();
             }
