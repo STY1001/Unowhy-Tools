@@ -715,7 +715,6 @@ namespace Unowhy_Tools
                     await MainWindow.USSwB("Preparing UTS... (Stopping)");
                     await UT.serv.stop("UTS");
                     await MainWindow.USSwB("Preparing UTS... (Downloading)");
-                    string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
                     Directory.Delete(instdir, true);
                     await Task.Delay(100);
                     Directory.CreateDirectory(instdir);
@@ -1709,15 +1708,21 @@ namespace Unowhy_Tools
 
         public static void RunAdmin(string args)
         {
-            // Restart and run as admin
-            var exeName = Process.GetCurrentProcess().MainModule.FileName;
-            ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
-            startInfo.UseShellExecute = true;
-            startInfo.WorkingDirectory = Directory.GetCurrentDirectory();
-            startInfo.Verb = "runas";
-            startInfo.Arguments = $"{args}";
-            Process.Start(startInfo);
-            System.Windows.Application.Current.Shutdown();
+            try
+            {
+                var exeName = Process.GetCurrentProcess().MainModule.FileName;
+                ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
+                startInfo.UseShellExecute = true;
+                startInfo.WorkingDirectory = Directory.GetCurrentDirectory();
+                startInfo.Verb = "runas";
+                startInfo.Arguments = $"{args}";
+                Process.Start(startInfo);
+                System.Windows.Application.Current.Shutdown();
+            }
+            finally
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
         }
 
         public static bool CheckInternet()
