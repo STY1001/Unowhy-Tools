@@ -710,7 +710,7 @@ namespace Unowhy_Tools
                     await UT.serv.start("UTS");
                 }
 
-                if((await UTSmsg("UTS", "GetVer")).Contains("UTSerr"))
+                if ((await UTSmsg("UTS", "GetVer")).Contains("UTSerr"))
                 {
                     await MainWindow.USSwB("Preparing UTS... (Stopping)");
                     await UT.serv.stop("UTS");
@@ -1061,7 +1061,7 @@ namespace Unowhy_Tools
             }
         }
 
-        public static async Task SendCrashReport(string crashid, Exception e,string apilink)
+        public static async Task SendCrashReport(string crashid, Exception e, string apilink)
         {
             Guid uuid = Guid.NewGuid();
             string uuidString = uuid.ToString();
@@ -1512,7 +1512,7 @@ namespace Unowhy_Tools
             }*/
 
             string UTTrep = await UTS.UTSmsg("UTT", "Ping");
-            if(UTTrep == "Pong")
+            if (UTTrep == "Pong")
             {
                 Write2Log("UT Tray is already running");
                 return true;
@@ -1737,7 +1737,7 @@ namespace Unowhy_Tools
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
 
             if (CheckInternet())
-            { 
+            {
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
                     var progress = new System.Progress<double>();
@@ -1750,7 +1750,7 @@ namespace Unowhy_Tools
                     };
                     await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("edgesetup"), UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe", progress, cancellationToken.Token);
                 }
-                if(!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe"))
                 {
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
@@ -1762,7 +1762,7 @@ namespace Unowhy_Tools
                     };
                     await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("changelogo"), UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo\\ChangeLogoWin64.exe", progress, cancellationToken.Token);
                 }
-                if(!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe"))
                 {
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
@@ -1780,7 +1780,7 @@ namespace Unowhy_Tools
                         ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT", true);
                     });
                 }
-                if(!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "amigendrv64.sys") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe"))
                 {
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
@@ -1798,7 +1798,7 @@ namespace Unowhy_Tools
                         ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AFUWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU", true);
                     });
                 }
-                if(!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIFLDRV64.sys"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIFLDRV64.sys"))
                 {
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
@@ -2747,7 +2747,7 @@ namespace Unowhy_Tools
                         UTdata.HSQMFolderExist = true;
                         Write2Log("Hisqool Manager: True");
                     }
-                    if (Directory.Exists("C:\\Program Files\\Unowhy\\HiSqool") == false)
+                    if (File.Exists("C:\\Program Files\\Unowhy\\HiSqool\\HiSqool.exe") == false)
                     {
                         UTdata.HSQFolderExist = false;
                         Write2Log("Hisqool: False");
