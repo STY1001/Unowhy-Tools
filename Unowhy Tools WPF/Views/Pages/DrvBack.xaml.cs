@@ -152,6 +152,10 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
                 await Task.Delay(1000);
                 string source = backuptemp;
                 string dest = bkpath.Text;
+                if (File.Exists(dest))
+                {
+                    File.Delete(dest);
+                }
                 await Task.Run(() =>
                 {
                     ZipFile.CreateFromDirectory(source, dest, CompressionLevel.NoCompression, false);
