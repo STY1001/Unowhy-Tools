@@ -607,7 +607,6 @@ public partial class TrayWindow : Window
 
     public async Task CheckQL()
     {
-        RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\STY1001\Unowhy Tools", true);
         taskicon = await UT.Config.Get("QLtaskicon");
         tasklab = await UT.Config.Get("QLtasklab");
         taskpath = await UT.Config.Get("QLtaskpath");
@@ -621,24 +620,31 @@ public partial class TrayWindow : Window
         gplab = await UT.Config.Get("QLgplab");
         gppath = await UT.Config.Get("QLgppath");
 
-        if (taskicon.Contains("default")) taskimg = UT.GetImgSource("taskmgr.png");
-        else taskimg = GetImgSourceFromPath(taskicon);
-        if (cmdicon.Contains("default")) cmdimg = UT.GetImgSource("cmd.png");
-        else cmdimg = GetImgSourceFromPath(cmdicon);
-        if (regicon.Contains("default")) regimg = UT.GetImgSource("registry.png");
-        else regimg = GetImgSourceFromPath(regicon);
-        if (gpicon.Contains("default")) gpimg = UT.GetImgSource("script.png");
-        else gpimg = GetImgSourceFromPath(gpicon);
+        try
+        {
+            if (taskicon.Contains("default")) taskimg = UT.GetImgSource("taskmgr.png");
+            else taskimg = GetImgSourceFromPath(taskicon);
+            if (cmdicon.Contains("default")) cmdimg = UT.GetImgSource("cmd.png");
+            else cmdimg = GetImgSourceFromPath(cmdicon);
+            if (regicon.Contains("default")) regimg = UT.GetImgSource("registry.png");
+            else regimg = GetImgSourceFromPath(regicon);
+            if (gpicon.Contains("default")) gpimg = UT.GetImgSource("script.png");
+            else gpimg = GetImgSourceFromPath(gpicon);
 
-        imgtask.Source = taskimg;
-        imgcmd.Source = cmdimg;
-        imgreg.Source = regimg;
-        imggp.Source = gpimg;
+            imgtask.Source = taskimg;
+            imgcmd.Source = cmdimg;
+            imgreg.Source = regimg;
+            imggp.Source = gpimg;
 
-        imgtaskedit.Source = taskimg;
-        imgcmdedit.Source = cmdimg;
-        imgregedit.Source = regimg;
-        imggpedit.Source = gpimg;
+            imgtaskedit.Source = taskimg;
+            imgcmdedit.Source = cmdimg;
+            imgregedit.Source = regimg;
+            imggpedit.Source = gpimg;
+        }
+        catch
+        {
+
+        }
 
         if (taskpath.Contains("default")) labtaskdesc.Text = "taskmgr.exe";
         else if (File.Exists(taskpath)) labtaskdesc.Text = Path.GetFileName(taskpath);
