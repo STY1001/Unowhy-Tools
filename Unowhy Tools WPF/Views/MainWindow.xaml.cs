@@ -929,7 +929,10 @@ public partial class MainWindow : INavigationWindow
             Navigate(typeof(Updater));
         }
 
-        await UT.SendStats("normal");
+        if (!UTdata.RunUpdater)
+        {
+            await UT.SendStats("normal");
+        }
         UT.Write2Log("\n\n\nReady !\n");
     }
 
