@@ -135,6 +135,9 @@ using System.Windows.Documents;
 using System.Windows.Threading;
 using Unowhy_Tools_WPF.Views.Pages;
 using System.Linq;
+using System.Collections.Generic;
+using System.Xml.Linq;
+using System.Text.Json.Nodes;
 
 namespace Unowhy_Tools
 {
@@ -647,7 +650,7 @@ namespace Unowhy_Tools
                 }
                 if (!File.Exists(instdir + "\\Unowhy Tools Service.exe"))
                 {
-                    if (UT.CheckInternet())
+                    if (await UT.CheckInternet())
                     {
                         await MainWindow.USSwB("Preparing UTS... (Downloading)");
                         string utemp = utpath + "\\Unowhy Tools\\Temps";
@@ -742,7 +745,7 @@ namespace Unowhy_Tools
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
 
-                if (UT.CheckInternet())
+                if (await UT.CheckInternet())
                 {
                     var web = new HttpClient();
                     string newver = await UT.OnlineDatas.GetUpdates("utsnewver");
@@ -785,7 +788,7 @@ namespace Unowhy_Tools
             public static async Task<string> GetUrls(string name)
             {
                 Write2Log("GetUrls: " + name);
-                if (UT.CheckInternet())
+                if (await UT.CheckInternet())
                 {
                     string datasurl = online_datas;
                     HttpClient web = new HttpClient();
@@ -808,7 +811,7 @@ namespace Unowhy_Tools
             public static async Task<string> GetUpdates(string name)
             {
                 Write2Log("GetUpdates: " + name);
-                if (UT.CheckInternet())
+                if (await UT.CheckInternet())
                 {
                     string datasurl = online_datas;
                     HttpClient web = new HttpClient();
@@ -831,7 +834,7 @@ namespace Unowhy_Tools
             public static async Task<string> GetStrings(string name)
             {
                 Write2Log("GetStrings: " + name);
-                if (UT.CheckInternet())
+                if (await UT.CheckInternet())
                 {
                     string datasurl = online_datas;
                     HttpClient web = new HttpClient();
@@ -854,7 +857,7 @@ namespace Unowhy_Tools
             public static async Task<ImageSource> GetAvatars(string name)
             {
                 Write2Log("GetAvatars: " + name);
-                if (UT.CheckInternet())
+                if (await UT.CheckInternet())
                 {
                     string datasurl = online_datas;
                     HttpClient web = new HttpClient();
@@ -1068,7 +1071,7 @@ namespace Unowhy_Tools
 
             if (await UT.Config.Get("ID") != null) uuidString = await UT.Config.Get("ID");
 
-            if (UT.CheckInternet())
+            if (await UT.CheckInternet())
             {
                 using (HttpClient client = new HttpClient())
                 {
@@ -1118,7 +1121,7 @@ namespace Unowhy_Tools
 
             if (await UT.Config.Get("ID") != null) uuidString = await UT.Config.Get("ID");
 
-            if (UT.CheckInternet())
+            if (await UT.CheckInternet())
             {
                 using (HttpClient client = new HttpClient())
                 {
@@ -1190,25 +1193,45 @@ namespace Unowhy_Tools
             }
 
             string year = "Unknown";
-            if (UTdata.sn.Contains("IFP3")) year = "2023";
-            if (UTdata.sn.Contains("IFP2")) year = "2022";
-            if (UTdata.sn.Contains("IFP1")) year = "2021";
-            if (UTdata.sn.Contains("IFP0")) year = "2020";
-            if (UTdata.sn.Contains("IFP9")) year = "2019";
-            if (UTdata.md.Contains("Y13G113")) year = "2023";
-            if (UTdata.md.Contains("Y13G012")) year = "2022";
-            if (UTdata.md.Contains("Y13G011")) year = "2021";
-            if (UTdata.md.Contains("Y13G010")) year = "2020";
-            if (UTdata.md.Contains("Y13G002")) year = "2019";
+            string model = GetWMI("Win32_ComputerSystem", "Model");
+            string serial = GetWMI("Win32_BIOS", "SerialNumber");
+            if (serial.Contains("IFP3")) year = "2023";
+            if (serial.Contains("IFP2")) year = "2022";
+            if (serial.Contains("IFP1")) year = "2021";
+            if (serial.Contains("IFP0")) year = "2020";
+            if (serial.Contains("IFP9")) year = "2019";
+            if (model.Contains("Y13G113")) year = "2023";
+            if (model.Contains("Y13G012")) year = "2022";
+            if (model.Contains("Y13G011")) year = "2021";
+            if (model.Contains("Y13G010")) year = "2020";
+            if (model.Contains("Y13G002")) year = "2019";
 
-            if (UT.CheckInternet())
+            List<string> defaultosfile = new List<string>()
+            {
+                "C:\\Windows\\ver.txt",
+                "C:\\Windows\\version_gpo.txt",
+                "C:\\Windows\\version_master.txt"
+            };
+
+            bool defaultos = false;
+            foreach (string file in defaultosfile)
+            {
+                if (File.Exists(file))
+                {
+                    defaultos = true;
+                }
+            }
+
+            string osversion = GetWMI("Win32_OperatingSystem", "Caption");
+
+            if (await UT.CheckInternet())
             {
                 using (HttpClient client = new HttpClient())
                 {
                     try
                     {
                         string url = await UT.OnlineDatas.GetUrls("api");
-                        string jsonData = "{ \"id\" : \"" + idString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"utsversion\" : \"" + await UT.UTS.UTSmsg("UTS", "GetVer") + "\", \"lang\" : \"" + langString + "\", \"launchmode\" : \"" + launchmode + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"wifiena\" : " + wifi.ToString().ToLower() + ", \"pcyear\" : \"" + year + "\" }";
+                        string jsonData = "{ \"id\" : \"" + idString.ToString() + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"utsversion\" : \"" + await UT.UTS.UTSmsg("UTS", "GetVer") + "\", \"lang\" : \"" + langString.ToString() + "\", \"launchmode\" : \"" + launchmode.ToString() + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"wifiena\" : " + wifi.ToString().ToLower() + ", \"pcyear\" : \"" + year.ToString() + "\", \"defaultos\" : " + defaultos.ToString().ToLower() + ", \"osversion\" : \"" + osversion.ToString() + "\" }";
                         Write2Log("Sending Stats to \"" + url + "\" with \"" + jsonData + "\"");
                         StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(url, content);
@@ -1725,18 +1748,51 @@ namespace Unowhy_Tools
             }
         }
 
-        public static bool CheckInternet()
+        public static async Task<bool> CheckInternet()
         {
+            Write2Log("Checking Internet");
+            bool hasInternet = false;
+
+            try
+            {
+                string datasurl = online_datas;
+                HttpClient web = new HttpClient();
+                HttpResponseMessage rep = await web.GetAsync(datasurl);
+                if (rep.StatusCode == HttpStatusCode.OK)
+                {
+                    string jsonContent = await web.GetStringAsync(datasurl);
+                    dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
+                    if (jsonObject.urls != null && jsonObject.urls["const"] != null)
+                    {
+                        string url = jsonObject.urls["const"].ToString();
+                        if (url == "noop")
+                        {
+                            Write2Log("Internet OK");
+                            hasInternet = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Write2Log("No Internet: " + e.Message);
+                hasInternet = false;
+            }
+
+            return hasInternet;
+
+            /*
             int Out;
             if (InternetGetConnectedState(out Out, 0) == true) return true;
             else return false;
+            */
         }
 
         public static async Task PrepareResources()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
 
-            if (CheckInternet())
+            if (await UT.CheckInternet())
             {
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
                 {
