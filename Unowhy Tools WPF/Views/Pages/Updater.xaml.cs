@@ -56,7 +56,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
             UserDataFolder = path
         };
 
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             noco.Visibility = Visibility.Collapsed;
             browser.Source = new System.Uri(await UT.OnlineDatas.GetUrls("utcloghtmlprev"));

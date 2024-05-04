@@ -253,7 +253,7 @@ public partial class App
 
             Console.WriteLine($"Unowhy Tools by STY1001\nVersion {UTsver}\n\nRescue update mode\nUpdating UT...\n");
 
-            if (UT.CheckInternet())
+            if (await UT.CheckInternet())
             {
                 if (rescueUpdate.Contains("release"))
                 {

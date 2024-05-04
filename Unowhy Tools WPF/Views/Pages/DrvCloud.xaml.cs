@@ -61,7 +61,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         versionselect.IsEnabled = false;
         applylang();
 
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             repo_img.Source = UT.GetImgSource("clouddl.png");
             repo_desc.Text = await UT.GetLang("bkcloudhostdesc");
@@ -418,7 +418,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         refresh.IsEnabled = false;
         showold.IsEnabled = false;
         versionselect.IsEnabled = false;
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             repo_img.Source = UT.GetImgSource("clouddl.png");
             repo_desc.Text = await UT.GetLang("bkcloudhostdesc");
@@ -454,7 +454,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         refresh.IsEnabled = false;
         showold.IsEnabled = false;
         versionselect.IsEnabled = false;
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             repo_img.Source = UT.GetImgSource("clouddl.png");
             repo_desc.Text = await UT.GetLang("bkcloudhostdesc");
@@ -481,7 +481,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         refresh.IsEnabled = false;
         showold.IsEnabled = false;
         versionselect.IsEnabled = false;
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             repo_img.Source = UT.GetImgSource("clouddl.png");
             repo_desc.Text = await UT.GetLang("bkcloudhostdesc");

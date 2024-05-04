@@ -393,7 +393,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         {
             UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
 
-            if (UT.CheckInternet())
+            if (await UT.CheckInternet())
             {
                 var progress = new System.Progress<double>();
                 var cancellationToken = new CancellationTokenSource();
@@ -570,7 +570,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
 
-                    if (UT.CheckInternet())
+                    if (await UT.CheckInternet())
                     {
                         var progress = new System.Progress<double>();
                         var cancellationToken = new CancellationTokenSource();
@@ -921,7 +921,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         {
             UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
 
-            if (UT.CheckInternet())
+            if (await UT.CheckInternet())
             {
                 var progress = new System.Progress<double>();
                 var cancellationToken = new CancellationTokenSource();
@@ -976,7 +976,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             {
                 UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
 
-                if (UT.CheckInternet())
+                if (await UT.CheckInternet())
                 {
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();

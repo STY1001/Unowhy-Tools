@@ -212,7 +212,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         }
         else
         {
-            if (UT.CheckInternet())
+            if (await UT.CheckInternet())
             {
                 await UT.waitstatus.open(await UT.GetLang("wait.apply"), "datamatrix.png");
                 var web = new HttpClient();

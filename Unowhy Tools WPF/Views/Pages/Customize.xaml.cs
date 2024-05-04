@@ -315,7 +315,7 @@ public partial class Customize : INavigableView<DashboardViewModel>
             UT.DialogIShow(await UT.GetLang("needres"), "download.png");
         }
 
-        if (UT.CheckInternet() || File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
+        if (await UT.CheckInternet() || File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\Edge\\edgesetup.exe"))
         {
             if (UT.DialogQShow(await UT.GetLang("edgeun"), "uninstall.png"))
             {

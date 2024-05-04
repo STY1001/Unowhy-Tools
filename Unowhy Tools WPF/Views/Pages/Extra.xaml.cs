@@ -125,7 +125,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
         }
         else
         {
-            if (UT.CheckInternet())
+            if (await UT.CheckInternet())
             {
                 if (File.Exists(Path.GetTempPath() + "\\hsm.exe")) File.Delete(Path.GetTempPath() + "\\hsm.exe");
 
@@ -153,7 +153,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
     private async void installridfcert_btn_Click(object sender, RoutedEventArgs e)
     {
         UT.SendAction("InstallRIDFCA");
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             if (File.Exists(Path.GetTempPath() + "\\RIDF_CA.crt")) File.Delete(Path.GetTempPath() + "\\RIDF_CA.crt");
 
@@ -189,7 +189,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
     private async void openrufus_btn_Click(object sender, RoutedEventArgs e)
     {
         UT.SendAction("OpenRufus");
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             if (File.Exists(Path.GetTempPath() + "\\rufus.exe")) File.Delete(Path.GetTempPath() + "\\rufus.exe");
 
@@ -214,7 +214,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
     private async void openmas_btn_Click(object sender, RoutedEventArgs e)
     {
         UT.SendAction("OpenMAS");
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             Process.Start("powershell", "\"irm https://massgrave.dev/get | iex\"");
         }

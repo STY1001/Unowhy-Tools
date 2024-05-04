@@ -59,7 +59,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
             pcname.Text = "Unowhy-Win11";
         }
 
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             if (await UT.Config.Get("UpdateStart") == "1")
             {

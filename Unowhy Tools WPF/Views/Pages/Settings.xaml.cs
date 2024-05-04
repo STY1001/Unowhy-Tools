@@ -287,7 +287,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         }
         else
         {
-            if (UT.CheckInternet())
+            if (await UT.CheckInternet())
             {
                 var web = new HttpClient();
                 string ssn = sn.Text;

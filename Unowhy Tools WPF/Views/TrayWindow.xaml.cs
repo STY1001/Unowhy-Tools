@@ -129,7 +129,7 @@ public partial class TrayWindow : Window
         {
             try
             {
-                if (UT.CheckInternet())
+                if (await UT.CheckInternet())
                 {
                     if (await UT.Config.Get("UpdateStart") == "1")
                     {
@@ -759,7 +759,7 @@ public partial class TrayWindow : Window
         SystemEvents.PowerModeChanged += SystemEvents_PowerModeChanged;
         base.Visibility = Visibility.Collapsed;
         await Task.Delay(1000);
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             try
             {

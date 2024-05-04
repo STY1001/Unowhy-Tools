@@ -80,7 +80,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
     public async void winrerep_Click(object sender, RoutedEventArgs e)
     {
         UT.SendAction("RepairWinRE");
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             await UT.waitstatus.open(await UT.GetLang("wait.repair"), "repair.png");
             await Task.Delay(1000);

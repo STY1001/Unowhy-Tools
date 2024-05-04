@@ -235,7 +235,7 @@ public partial class About : INavigableView<DashboardViewModel>
         UTSverlab.Text = UTSsver;
         UTidlab.Text = idString;
 
-        if (UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             DiscordName.Text = await UT.OnlineDatas.GetStrings("discordname");
             WebsiteName.Text = await UT.OnlineDatas.GetStrings("websitename");

@@ -233,7 +233,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
-                    if (UT.CheckInternet())
+                    if (await UT.CheckInternet())
                     {
                         await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                         await DlRes("IFPT");
@@ -282,7 +282,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
-                    if (UT.CheckInternet())
+                    if (await UT.CheckInternet())
                     {
                         await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                         await DlRes("IFPT");
@@ -359,7 +359,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
-                    if (UT.CheckInternet())
+                    if (await UT.CheckInternet())
                     {
                         await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                         await DlRes("AFU");
@@ -408,7 +408,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
-                    if (UT.CheckInternet())
+                    if (await UT.CheckInternet())
                     {
                         await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                         await DlRes("AFU");
@@ -532,7 +532,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         if (amidefiles.Any(file => !File.Exists(file)))
         {
             UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
-            if (UT.CheckInternet())
+            if (await UT.CheckInternet())
             {
                 await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
                 await DlRes("AMIDE");
