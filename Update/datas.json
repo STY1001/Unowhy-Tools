@@ -8,6 +8,7 @@
         "utsnewver": "3.5"
     },
     "urls": {
+        "const": "noop",
         "api": "https://api.sty1001.com/ut-stats",
         "eeapi": "https://api.sty1001.com/ut-easteregg",
         "sty1001": "https://sty1001.com",
