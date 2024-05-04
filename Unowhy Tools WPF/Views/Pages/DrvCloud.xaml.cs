@@ -338,40 +338,47 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
-        foreach (UIElement element in RootStack.Children)
+        try
         {
-            element.Visibility = Visibility.Hidden;
+            foreach (UIElement element in RootStack.Children)
+            {
+                element.Visibility = Visibility.Hidden;
+            }
+
+            await UT.DeployBack(typeof(Drivers), RootGrid, RootBorder);
+            UT.anim.BorderZoomOut(RootBorder);
+
+            foreach (UIElement element in RootStack.Children)
+            {
+                element.Visibility = Visibility.Visible;
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 30,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.5),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                element.RenderTransform = transform;
+
+                element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+                await Task.Delay(50);
+            }
         }
-
-        await UT.DeployBack(typeof(Drivers), RootGrid, RootBorder);
-        UT.anim.BorderZoomOut(RootBorder);
-
-        foreach (UIElement element in RootStack.Children)
+        catch (Exception ex)
         {
-            element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
 
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 30,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-            await Task.Delay(50);
         }
     }
 
