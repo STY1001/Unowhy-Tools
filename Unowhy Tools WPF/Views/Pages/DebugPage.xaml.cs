@@ -24,6 +24,7 @@ using System.Linq;
 using System.Data;
 using System.Collections.Generic;
 using Wpf.Ui.Appearance;
+using Microsoft.Win32.TaskScheduler;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -99,14 +100,45 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         {
             debus.Text = "Downloading... (" + value.ToString("##0") + "%)";
         };
-        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+        await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
         debus.Text = "Extracting...";
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update", true);
+        Directory.CreateDirectory(utemp + "\\Update\\Unowhy Tools Services");
+        ZipFile.ExtractToDirectory(utemp + "\\service.zip", utemp + "\\Update\\Unowhy Tools Services", true);
         string pre = utemp + "\\update";
         string post = Directory.GetCurrentDirectory();
 
-        Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & net stop UTS & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -user {UTdata.UserID}");
+        bool trayenabled = false;
+        TaskService ts = new TaskService();
+        Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
+        if (uttltask != null)
+        {
+            if (uttltask.Definition.Settings.Enabled)
+            {
+                trayenabled = true;
+            }
+            else
+            {
+                trayenabled = false;
+            }
+        }
+        else
+        {
+            trayenabled = false;
+        }
 
+        string args = $"-user {UTdata.UserID} ";
+        if(UTdata.RunConsole)
+        {
+            args = args + "-console ";
+        }
+
+        if (UTdata.RunUpdater && trayenabled)
+        {
+            args = args + "-tray ";
+        }
+
+        Process.Start("cmd.exe", $"/c echo Unowhy Tools by STY1001 & Please wait, Unowhy Tools is updating... & echo Killing Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & echo Stopping Unowhy Tools Service... & net stop UTS & timeout -t 3 & echo Copying files... & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & cls & echo Update done... & echo Starting Unowhy Tools Service... & net start UTS & echo Restarting Unowhy Tools... & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" {args}");
     }   
 
     public void al_click(object sender, System.Windows.RoutedEventArgs e)
@@ -134,9 +166,9 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     private async void Button_Click(object sender, RoutedEventArgs e)
     {
         //UT.anim.BackBtnAnim(backbtn);
-        await Task.Delay(150);
+        await System.Threading.Tasks.Task.Delay(150);
         //UT.anim.TransitionBack(Grid1);
-        await Task.Delay(200);
+        await System.Threading.Tasks.Task.Delay(200);
         UT.NavigateTo(typeof(Dashboard));
     }
 
