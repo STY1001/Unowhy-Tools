@@ -43,7 +43,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(About));
     }
 
-    public async Task applylang()
+    public async System.Threading.Tasks.Task applylang()
     {
         updatebtntext.Text = await UT.GetLang("udcheck");
     }
