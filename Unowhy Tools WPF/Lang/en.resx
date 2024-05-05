@@ -799,10 +799,10 @@
     <value>Killing "Unowhy Tools.exe"</value>
   </data>
   <data name="update.sdl" xml:space="preserve">
-    <value>Downloading "script.exe"</value>
+    <value>Downloading "service.zip"</value>
   </data>
-  <data name="update.se" xml:space="preserve">
-    <value>Running "script.exe"</value>
+  <data name="update.sext" xml:space="preserve">
+    <value>Extract "service.zip"</value>
   </data>
   <data name="update.start" xml:space="preserve">
     <value>Starting "Unowhy Tools.exe"</value>
