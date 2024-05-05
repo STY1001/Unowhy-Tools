@@ -219,6 +219,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         labtext.Text = await UT.GetLang("update.dl");
         await System.Threading.Tasks.Task.Delay(1000);
         string uddl = await UT.GetLang("update.dl");
+        string udsdl = await UT.GetLang("update.sdl");
         var progress = new System.Progress<double>();
         var cancellationToken = new CancellationTokenSource();
         progress.ProgressChanged += (sender, value) =>
@@ -230,7 +231,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         cancellationToken = new CancellationTokenSource();
         progress.ProgressChanged += (sender, value) =>
         {
-            labtext.Text = uddl + " (" + value.ToString("##0") + "%)";
+            labtext.Text = udsdl + " (" + value.ToString("##0") + "%)";
         };
         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
         labtext.Text = await UT.GetLang("update.ext");
