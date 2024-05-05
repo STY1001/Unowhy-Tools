@@ -214,7 +214,7 @@
     <value>Réparer BootIM (menu bleu)</value>
   </data>
   <data name="boottray" xml:space="preserve">
-    <value>Démarrer l'icone Unowhy Tools au démarrage</value>
+    <value>Lancer l'icone Unowhy Tools au démarrage</value>
   </data>
   <data name="browse" xml:space="preserve">
     <value>Explorer</value>
