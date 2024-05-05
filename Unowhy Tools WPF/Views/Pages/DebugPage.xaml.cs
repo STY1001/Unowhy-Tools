@@ -103,8 +103,8 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
         debus.Text = "Extracting...";
         ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update", true);
-        Directory.CreateDirectory(utemp + "\\Update\\Unowhy Tools Services");
-        ZipFile.ExtractToDirectory(utemp + "\\service.zip", utemp + "\\Update\\Unowhy Tools Services", true);
+        Directory.CreateDirectory(utemp + "\\Update\\Unowhy Tools Service");
+        ZipFile.ExtractToDirectory(utemp + "\\service.zip", utemp + "\\Update\\Unowhy Tools Service", true);
         string pre = utemp + "\\update";
         string post = Directory.GetCurrentDirectory();
 
@@ -138,7 +138,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
             args = args + "-tray ";
         }
 
-        Process.Start("cmd.exe", $"/c echo Unowhy Tools by STY1001 & Please wait, Unowhy Tools is updating... & echo Killing Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & echo Stopping Unowhy Tools Service... & net stop UTS & timeout -t 3 & echo Copying files... & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & cls & echo Update done... & echo Starting Unowhy Tools Service... & net start UTS & echo Restarting Unowhy Tools... & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" {args}");
+        Process.Start("cmd.exe", $"/c echo Unowhy Tools by STY1001 & echo Please wait, Unowhy Tools is updating... & echo Killing Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & echo Stopping Unowhy Tools Service... & net stop UTS & timeout -t 3 & echo Copying files... & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & cls & echo Update done... & echo Starting Unowhy Tools Service... & net start UTS & echo Restarting Unowhy Tools... & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" {args}");
     }   
 
     public void al_click(object sender, System.Windows.RoutedEventArgs e)
