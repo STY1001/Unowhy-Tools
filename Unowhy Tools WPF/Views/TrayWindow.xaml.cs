@@ -704,7 +704,6 @@ public partial class TrayWindow : Window
         base.Visibility = Visibility.Collapsed;
         await Task.Delay(1000);
         base.Visibility = Visibility.Collapsed;
-        await WaitControl.Show(await UT.GetLang("wait.check"), "check.png");
         _camerakey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam", true);
         _microkey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone", true);
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
@@ -741,7 +740,6 @@ public partial class TrayWindow : Window
         await Task.Delay(100);
         base.Visibility = Visibility.Collapsed;
         await Task.Delay(1000);
-        await WaitControl.Hide();
         await StopTimer();
         base.Deactivated += TrayWindow_Deactivated;
         base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));

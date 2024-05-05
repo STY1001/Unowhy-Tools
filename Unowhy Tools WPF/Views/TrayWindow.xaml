@@ -408,7 +408,7 @@
                                                            FontFamily="Segoe UI"
                                                            VerticalAlignment="Center"
                                                            Margin="5,0,0,0"
-                                                           x:Name="labprivacy"/>
+                                                           x:Name="labprivacy" />
                                             </StackPanel>
                                             <ui:NavigationSeparator Grid.Column="0"
                                                                     Grid.Row="1"
@@ -484,7 +484,7 @@
                                                            FontFamily="Segoe UI"
                                                            VerticalAlignment="Center"
                                                            Margin="5,0,0,0"
-                                                           x:Name="labpower"/>
+                                                           x:Name="labpower" />
                                             </StackPanel>
                                             <ui:NavigationSeparator Grid.Column="0"
                                                                     Grid.Row="1"
@@ -507,7 +507,7 @@
                                                                FontFamily="Segoe UI"
                                                                VerticalAlignment="Center"
                                                                Margin="5,0,0,0"
-                                                               x:Name="labpowermode"/>
+                                                               x:Name="labpowermode" />
                                                 </StackPanel>
                                                 <ComboBox Margin="0,0,0,0"
                                                           Grid.Column="1"
@@ -516,15 +516,15 @@
                                                           SelectionChanged="pmodebox_SelectionChanged">
                                                     <ComboBoxItem x:Name="pmodeperf">
                                                         <TextBlock Text="Performance"
-                                                                   x:Name="pmodeperftext"/>
+                                                                   x:Name="pmodeperftext" />
                                                     </ComboBoxItem>
                                                     <ComboBoxItem x:Name="pmodebalanced">
                                                         <TextBlock Text="Balanced"
-                                                                   x:Name="pmodebalancedtext"/>
+                                                                   x:Name="pmodebalancedtext" />
                                                     </ComboBoxItem>
                                                     <ComboBoxItem x:Name="pmodeefficiency">
                                                         <TextBlock Text="Efficiency"
-                                                                   x:Name="pmodeefficiencytext"/>
+                                                                   x:Name="pmodeefficiencytext" />
                                                     </ComboBoxItem>
                                                 </ComboBox>
                                             </Grid>
@@ -1052,12 +1052,6 @@
                             </Border>
                         </Grid>
                     </Border>
-                    <Grid x:Name="WaitGrid">
-                        <controls:Wait x:Name="WaitControl"
-                                       Visibility="Collapsed"
-                                       Grid.Row="0"
-                                       Grid.RowSpan="2" />
-                    </Grid>
                 </Grid>
             </Border>
         </Grid>
