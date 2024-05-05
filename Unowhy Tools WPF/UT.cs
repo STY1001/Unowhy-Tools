@@ -1644,25 +1644,29 @@ namespace Unowhy_Tools
         public static ResXResourceSet resxLang;
         public static async Task LangConfig()
         {
+            string exepath = Process.GetCurrentProcess().MainModule.FileName;
+            string wdpath = Path.GetDirectoryName(exepath);
             try
             {
+
+
                 string lang = await UT.Config.Get("Lang");
                 if (lang == "EN")
                 {
-                    resxLang = new ResXResourceSet(@"lang\en.resx");
+                    resxLang = new ResXResourceSet($"{wdpath}\\lang\\en.resx");
                 }
                 else if (lang == "FR")
                 {
-                    resxLang = new ResXResourceSet(@"lang\fr.resx");
+                    resxLang = new ResXResourceSet($"{wdpath}\\lang\\fr.resx");
                 }
                 else
                 {
-                    resxLang = new ResXResourceSet(@"lang\en.resx");
+                    resxLang = new ResXResourceSet($"{wdpath}\\lang\\en.resx");
                 }
             }
             catch
             {
-                resxLang = new ResXResourceSet(@"lang\en.resx");
+                resxLang = new ResXResourceSet($"{wdpath}\\lang\\en.resx");
             }
         }
 
