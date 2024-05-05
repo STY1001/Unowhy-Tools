@@ -10,6 +10,7 @@ using System.Windows.Threading;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Win32.TaskScheduler;
 using Unowhy_Tools;
 using Unowhy_Tools_WPF.Services;
 using Unowhy_Tools_WPF.Services.Contracts;
@@ -260,7 +261,7 @@ public partial class App
                     UT.SendAction("RescueUpdate.Release");
                     Console.WriteLine("Release version");
                     string utemp = UT.utpath + "\\Unowhy Tools\\Temps";
-                    await Task.Delay(1000);
+                    await System.Threading.Tasks.Task.Delay(1000);
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
                     progress.ProgressChanged += (sender, value) =>
@@ -281,16 +282,45 @@ public partial class App
                         Console.SetCursorPosition(0, Console.CursorTop);
                         Console.Write($"Downloading... (2/2 {value.ToString("##0")}%)");
                     };
-                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
                     Console.WriteLine("Done");
                     Console.WriteLine("Extracting...");
-                    await Task.Delay(1000);
+                    await System.Threading.Tasks.Task.Delay(1000);
                     ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update", true);
+                    Directory.CreateDirectory(utemp + "\\Update\\Unowhy Tools Service");
+                    ZipFile.ExtractToDirectory(utemp + "\\service.zip", utemp + "\\Update\\Unowhy Tools Service", true);
                     Console.WriteLine("Updating...");
-                    await Task.Delay(1000);
+                    await System.Threading.Tasks.Task.Delay(1000);
                     string pre = utemp + "\\update";
                     string post = Directory.GetCurrentDirectory();
-                    Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & net stop UTS & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -user {UTdata.UserID}");
+                    bool trayenabled = false;
+                    TaskService ts = new TaskService();
+                    Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
+                    if (uttltask != null)
+                    {
+                        if (uttltask.Definition.Settings.Enabled)
+                        {
+                            trayenabled = true;
+                        }
+                        else
+                        {
+                            trayenabled = false;
+                        }
+                    }
+                    else
+                    {
+                        trayenabled = false;
+                    }
+                    string args = $"-user {UTdata.UserID} ";
+                    if (UTdata.RunConsole)
+                    {
+                        args = args + "-console ";
+                    }
+                    if (UTdata.RunUpdater && trayenabled)
+                    {
+                        args = args + "-tray ";
+                    }
+                    Process.Start("cmd.exe", $"/c echo Unowhy Tools by STY1001 & echo Please wait, Unowhy Tools is updating... & echo Killing Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & echo Stopping Unowhy Tools Service... & net stop UTS & timeout -t 3 & echo Copying files... & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & cls & echo Update done... & echo Starting Unowhy Tools Service... & net start UTS & echo Restarting Unowhy Tools... & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" {args}");
                     Console.ReadKey();
                 }
                 else if (rescueUpdate.Contains("debug"))
@@ -298,7 +328,7 @@ public partial class App
                     UT.SendAction("RescueUpdate.Debug");
                     Console.WriteLine("Debug version");
                     string utemp = UT.utpath + "\\Unowhy Tools\\Temps";
-                    await Task.Delay(1000);
+                    await System.Threading.Tasks.Task.Delay(1000);
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
                     progress.ProgressChanged += (sender, value) =>
@@ -319,16 +349,45 @@ public partial class App
                         Console.SetCursorPosition(0, Console.CursorTop);
                         Console.Write($"Downloading... (2/2 {value.ToString("##0")}%)");
                     };
-                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utuninstaller"), utemp + "\\Update\\uninstall.exe", progress, cancellationToken.Token);
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utszip"), utemp + "\\service.zip", progress, cancellationToken.Token);
                     Console.WriteLine("Done");
                     Console.WriteLine("Extracting...");
-                    await Task.Delay(1000);
+                    await System.Threading.Tasks.Task.Delay(1000);
                     ZipFile.ExtractToDirectory(utemp + "\\update.zip", utemp + "\\Update", true);
+                    Directory.CreateDirectory(utemp + "\\Update\\Unowhy Tools Service");
+                    ZipFile.ExtractToDirectory(utemp + "\\service.zip", utemp + "\\Update\\Unowhy Tools Service", true);
                     Console.WriteLine("Updating...");
-                    await Task.Delay(1000);
+                    await System.Threading.Tasks.Task.Delay(1000);
                     string pre = utemp + "\\update";
                     string post = Directory.GetCurrentDirectory();
-                    Process.Start("cmd.exe", $"/c echo Updating Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & net stop UTS & timeout -t 3 & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & echo Done ! & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" -user {UTdata.UserID}");
+                    bool trayenabled = false;
+                    TaskService ts = new TaskService();
+                    Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
+                    if (uttltask != null)
+                    {
+                        if (uttltask.Definition.Settings.Enabled)
+                        {
+                            trayenabled = true;
+                        }
+                        else
+                        {
+                            trayenabled = false;
+                        }
+                    }
+                    else
+                    {
+                        trayenabled = false;
+                    }
+                    string args = $"-user {UTdata.UserID} ";
+                    if (UTdata.RunConsole)
+                    {
+                        args = args + "-console ";
+                    }
+                    if (UTdata.RunUpdater && trayenabled)
+                    {
+                        args = args + "-tray ";
+                    }
+                    Process.Start("cmd.exe", $"/c echo Unowhy Tools by STY1001 & echo Please wait, Unowhy Tools is updating... & echo Killing Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & echo Stopping Unowhy Tools Service... & net stop UTS & timeout -t 3 & echo Copying files... & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & cls & echo Update done... & echo Starting Unowhy Tools Service... & net start UTS & echo Restarting Unowhy Tools... & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" {args}");
                     Console.ReadKey();
                 }
                 else
