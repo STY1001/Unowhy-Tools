@@ -1649,20 +1649,20 @@ namespace Unowhy_Tools
                 string lang = await UT.Config.Get("Lang");
                 if (lang == "EN")
                 {
-                    resxLang = new ResXResourceSet(@".\lang\en.resx");
+                    resxLang = new ResXResourceSet(@"lang\en.resx");
                 }
                 else if (lang == "FR")
                 {
-                    resxLang = new ResXResourceSet(@".\lang\fr.resx");
+                    resxLang = new ResXResourceSet(@"lang\fr.resx");
                 }
                 else
                 {
-                    resxLang = new ResXResourceSet(@".\lang\en.resx");
+                    resxLang = new ResXResourceSet(@"lang\en.resx");
                 }
             }
             catch
             {
-                resxLang = new ResXResourceSet(@".\lang\en.resx");
+                resxLang = new ResXResourceSet(@"lang\en.resx");
             }
         }
 
