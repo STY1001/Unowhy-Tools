@@ -163,8 +163,8 @@ namespace Unowhy_Tools
         public static string utpath = "C:\\Unowhy Tools";
 
         public static int verfull = 2802;
-        public static string verbuild = "1917050524";
-        public static bool verisdeb = true;
+        public static string verbuild = "1646070524";
+        public static bool verisdeb = false;
 
         public class version
         {
