@@ -25,12 +25,12 @@ namespace Unowhy_Tools_Service
 
             if(Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
             {
-                File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\crash_{date}.txt", exp);
             }
             else
             {
                 Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\crash_{date}.txt", exp);
             }
         }
     }
