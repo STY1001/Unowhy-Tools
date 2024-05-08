@@ -26,7 +26,7 @@ namespace Unowhy_Tools_Service
         private NamedPipeServerStream _utswd;
         private DispatcherTimer _wifitimer;
         private DispatcherTimer _wdtimer;
-        public string Version = "3.6";
+        public string Version = "3.7";
         string utspath = "C:\\Unowhy Tools\\Unowhy Tools Service";
 
         [DllImport("wininet.dll")]
