@@ -24,7 +24,7 @@ namespace Unowhy_Tools_WPF.Views;
 
 public partial class TrayWindow : Window
 {
-    private System.Windows.Forms.NotifyIcon trayIcon = new System.Windows.Forms.NotifyIcon();
+    public System.Windows.Forms.NotifyIcon trayIcon = new System.Windows.Forms.NotifyIcon();
 
     public string perf = "ded574b5-45a0-4f42-8737-46345c09c238";
     public string balanced = "00000000-0000-0000-0000-000000000000";
@@ -166,33 +166,34 @@ public partial class TrayWindow : Window
                                 UTUbtn.Visibility = Visibility.Visible;
                                 Grid.SetColumnSpan(UTbtn, 1);
 
-                                while (true)
+                                Task.Run(async () =>
                                 {
-                                    UTUbtndesc.Foreground = new SolidColorBrush(white);
-                                    await Task.Delay(500);
-                                    UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                                    await Task.Delay(500);
-                                    UTUbtndesc.Foreground = new SolidColorBrush(white);
-                                    await Task.Delay(500);
-                                    UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                                    trans.BeginAnimation(TranslateTransform.XProperty, anim);
-                                    await Task.Delay(500);
-                                    UTUbtndesc.Text = labnewver;
-                                    trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-                                    UTUbtndesc.Foreground = new SolidColorBrush(white);
-                                    await Task.Delay(500);
-                                    UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                                    await Task.Delay(500);
-                                    UTUbtndesc.Foreground = new SolidColorBrush(white);
-                                    await Task.Delay(500);
-                                    UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                                    trans.BeginAnimation(TranslateTransform.XProperty, anim);
-                                    await Task.Delay(500);
-                                    UTUbtndesc.Text = newverfull2;
-                                    trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-
-
-                                }
+                                    while (true)
+                                    {
+                                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+                                        await Task.Delay(500);
+                                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                                        await Task.Delay(500);
+                                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+                                        await Task.Delay(500);
+                                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                                        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                                        await Task.Delay(500);
+                                        UTUbtndesc.Text = labnewver;
+                                        trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+                                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+                                        await Task.Delay(500);
+                                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                                        await Task.Delay(500);
+                                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+                                        await Task.Delay(500);
+                                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+                                        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                                        await Task.Delay(500);
+                                        UTUbtndesc.Text = newverfull2;
+                                        trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+                                    }
+                                });
                             }
                         }
                         else
@@ -558,7 +559,7 @@ public partial class TrayWindow : Window
         InitializeComponent();
 
         base.WindowState = WindowState.Maximized;
-        base.Visibility = Visibility.Hidden;
+        base.Visibility = Visibility.Collapsed;
         base.IsEnabled = false;
 
         if (!UT.CheckAdmin())
@@ -569,7 +570,7 @@ public partial class TrayWindow : Window
         trayIcon.Icon = UT.GetIconFromRes("UTtray.png");
         trayIcon.Text = "Unowhy Tools";
         trayIcon.Visible = true;
-        base.Visibility = Visibility.Hidden;
+        base.Visibility = Visibility.Collapsed;
     }
 
     public async Task SetQL()
@@ -745,6 +746,7 @@ public partial class TrayWindow : Window
         base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
         trayIcon.Icon = UT.GetIconFromRes("UTtray.png");
         trayIcon.Text = "Unowhy Tools";
+        await UT.SetTrayIcon(trayIcon);
         trayIcon.MouseClick += TrayIcon_Click;
         var contextMenuStrip = new ContextMenuStrip();
         var opentray = new ToolStripButton("Open Tray");
@@ -975,7 +977,7 @@ public partial class TrayWindow : Window
 
         await Task.Delay(600);
 
-        base.Visibility = Visibility.Hidden;
+        base.Visibility = Visibility.Collapsed;
         base.IsEnabled = false;
         await StopTimer();
     }
