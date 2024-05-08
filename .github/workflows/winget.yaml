@@ -19,4 +19,4 @@ jobs:
           iwr https://aka.ms/wingetcreate/latest -OutFile wingetcreate.exe
           $github = Get-Content '${{ github.event_path }}' | ConvertFrom-Json
           $installerUrl = $github.release.assets | Where-Object -Property name -match ${env:packageFileName} | Select -ExpandProperty browser_download_url -First 1
-          .\wingetcreate.exe update ${env:packageId} -s -v $github.release.name -u $installerUrl|x64 -t ${{ secrets.Project_PAT }}
+          .\wingetcreate.exe update ${env:packageId} -s -v $github.release.name -u '$installerUrl|x64' -t ${{ secrets.Project_PAT }}
