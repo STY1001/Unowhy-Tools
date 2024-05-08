@@ -19,6 +19,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Wpf.Ui.Controls;
 using System.Windows.Controls;
 using System.Reflection;
+using System.Reflection.Emit;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -609,21 +610,23 @@ public partial class TrayWindow : Window
 
     public async Task CheckQL()
     {
-        taskicon = await UT.Config.Get("QLtaskicon");
-        tasklab = await UT.Config.Get("QLtasklab");
-        taskpath = await UT.Config.Get("QLtaskpath");
-        cmdicon = await UT.Config.Get("QLcmdicon");
-        cmdlab = await UT.Config.Get("QLcmdlab");
-        cmdpath = await UT.Config.Get("QLcmdpath");
-        regicon = await UT.Config.Get("QLregicon");
-        reglab = await UT.Config.Get("QLreglab");
-        regpath = await UT.Config.Get("QLregpath");
-        gpicon = await UT.Config.Get("QLgpicon");
-        gplab = await UT.Config.Get("QLgplab");
-        gppath = await UT.Config.Get("QLgppath");
+        
 
         try
         {
+            taskicon = await UT.Config.Get("QLtaskicon");
+            tasklab = await UT.Config.Get("QLtasklab");
+            taskpath = await UT.Config.Get("QLtaskpath");
+            cmdicon = await UT.Config.Get("QLcmdicon");
+            cmdlab = await UT.Config.Get("QLcmdlab");
+            cmdpath = await UT.Config.Get("QLcmdpath");
+            regicon = await UT.Config.Get("QLregicon");
+            reglab = await UT.Config.Get("QLreglab");
+            regpath = await UT.Config.Get("QLregpath");
+            gpicon = await UT.Config.Get("QLgpicon");
+            gplab = await UT.Config.Get("QLgplab");
+            gppath = await UT.Config.Get("QLgppath");
+
             if (taskicon.Contains("default")) taskimg = UT.GetImgSource("taskmgr.png");
             else taskimg = GetImgSourceFromPath(taskicon);
             if (cmdicon.Contains("default")) cmdimg = UT.GetImgSource("cmd.png");
@@ -642,55 +645,59 @@ public partial class TrayWindow : Window
             imgcmdedit.Source = cmdimg;
             imgregedit.Source = regimg;
             imggpedit.Source = gpimg;
+
+            if (taskpath.Contains("default")) labtaskdesc.Text = "taskmgr.exe";
+            else if (File.Exists(taskpath)) labtaskdesc.Text = Path.GetFileName(taskpath);
+            else labtaskdesc.Text = Path.GetFileName(taskpath) + " (error)";
+            if (cmdpath.Contains("default")) labcmddesc.Text = "cmd.exe";
+            else if (File.Exists(cmdpath)) labcmddesc.Text = Path.GetFileName(cmdpath);
+            else labcmddesc.Text = Path.GetFileName(cmdpath) + " (error)";
+            if (regpath.Contains("default")) labregdesc.Text = "regedit.exe";
+            else if (File.Exists(regpath)) labregdesc.Text = Path.GetFileName(regpath);
+            else labregdesc.Text = Path.GetFileName(regpath) + " (error)";
+            if (gppath.Contains("default")) labgpdesc.Text = "gpedit.msc";
+            else if (File.Exists(gppath)) labgpdesc.Text = Path.GetFileName(gppath);
+            else labgpdesc.Text = Path.GetFileName(gppath) + " (error)";
+
+            if (taskpath.Contains("default")) labtaskdescedit.Text = "taskmgr.exe";
+            else if (File.Exists(taskpath)) labtaskdescedit.Text = Path.GetFileName(taskpath);
+            else labtaskdescedit.Text = Path.GetFileName(taskpath) + " (error)";
+            if (cmdpath.Contains("default")) labcmddescedit.Text = "cmd.exe";
+            else if (File.Exists(cmdpath)) labcmddescedit.Text = Path.GetFileName(cmdpath);
+            else labcmddescedit.Text = Path.GetFileName(cmdpath) + " (error)";
+            if (regpath.Contains("default")) labregdescedit.Text = "regedit.exe";
+            else if (File.Exists(regpath)) labregdescedit.Text = Path.GetFileName(regpath);
+            else labregdescedit.Text = Path.GetFileName(regpath) + " (error)";
+            if (gppath.Contains("default")) labgpdescedit.Text = "gpedit.msc";
+            else if (File.Exists(gppath)) labgpdescedit.Text = Path.GetFileName(gppath);
+            else labgpdescedit.Text = Path.GetFileName(gppath) + " (error)";
+
+            if (tasklab.Contains("default")) labtaskedit.Text = await UT.GetLang("opentask");
+            else labtaskedit.Text = tasklab;
+            if (cmdlab.Contains("default")) labcmdedit.Text = await UT.GetLang("opencmd");
+            else labcmdedit.Text = cmdlab;
+            if (reglab.Contains("default")) labregedit.Text = await UT.GetLang("openreg");
+            else labregedit.Text = reglab;
+            if (gplab.Contains("default")) labgpedit.Text = await UT.GetLang("opengp");
+            else labgpedit.Text = gplab;
+
+            if (tasklab.Contains("default")) labtask.Text = await UT.GetLang("opentask");
+            else labtask.Text = tasklab;
+            if (cmdlab.Contains("default")) labcmd.Text = await UT.GetLang("opencmd");
+            else labcmd.Text = cmdlab;
+            if (reglab.Contains("default")) labreg.Text = await UT.GetLang("openreg");
+            else labreg.Text = reglab;
+            if (gplab.Contains("default")) labgp.Text = await UT.GetLang("opengp");
+            else labgp.Text = gplab;
         }
         catch
         {
-
+            trayIcon.ShowBalloonTip(5000, "Unowhy Tools", "Error while loading Quick Launch settings", ToolTipIcon.Error);
         }
-
-        if (taskpath.Contains("default")) labtaskdesc.Text = "taskmgr.exe";
-        else if (File.Exists(taskpath)) labtaskdesc.Text = Path.GetFileName(taskpath);
-        else labtaskdesc.Text = Path.GetFileName(taskpath) + " (error)";
-        if (cmdpath.Contains("default")) labcmddesc.Text = "cmd.exe";
-        else if (File.Exists(cmdpath)) labcmddesc.Text = Path.GetFileName(cmdpath);
-        else labcmddesc.Text = Path.GetFileName(cmdpath) + " (error)";
-        if (regpath.Contains("default")) labregdesc.Text = "regedit.exe";
-        else if (File.Exists(regpath)) labregdesc.Text = Path.GetFileName(regpath);
-        else labregdesc.Text = Path.GetFileName(regpath) + " (error)";
-        if (gppath.Contains("default")) labgpdesc.Text = "gpedit.msc";
-        else if (File.Exists(gppath)) labgpdesc.Text = Path.GetFileName(gppath);
-        else labgpdesc.Text = Path.GetFileName(gppath) + " (error)";
-
-        if (taskpath.Contains("default")) labtaskdescedit.Text = "taskmgr.exe";
-        else if (File.Exists(taskpath)) labtaskdescedit.Text = Path.GetFileName(taskpath);
-        else labtaskdescedit.Text = Path.GetFileName(taskpath) + " (error)";
-        if (cmdpath.Contains("default")) labcmddescedit.Text = "cmd.exe";
-        else if (File.Exists(cmdpath)) labcmddescedit.Text = Path.GetFileName(cmdpath);
-        else labcmddescedit.Text = Path.GetFileName(cmdpath) + " (error)";
-        if (regpath.Contains("default")) labregdescedit.Text = "regedit.exe";
-        else if (File.Exists(regpath)) labregdescedit.Text = Path.GetFileName(regpath);
-        else labregdescedit.Text = Path.GetFileName(regpath) + " (error)";
-        if (gppath.Contains("default")) labgpdescedit.Text = "gpedit.msc";
-        else if (File.Exists(gppath)) labgpdescedit.Text = Path.GetFileName(gppath);
-        else labgpdescedit.Text = Path.GetFileName(gppath) + " (error)";
-
-        if (tasklab.Contains("default")) labtaskedit.Text = await UT.GetLang("opentask");
-        else labtaskedit.Text = tasklab;
-        if (cmdlab.Contains("default")) labcmdedit.Text = await UT.GetLang("opencmd");
-        else labcmdedit.Text = cmdlab;
-        if (reglab.Contains("default")) labregedit.Text = await UT.GetLang("openreg");
-        else labregedit.Text = reglab;
-        if (gplab.Contains("default")) labgpedit.Text = await UT.GetLang("opengp");
-        else labgpedit.Text = gplab;
-
-        if (tasklab.Contains("default")) labtask.Text = await UT.GetLang("opentask");
-        else labtask.Text = tasklab;
-        if (cmdlab.Contains("default")) labcmd.Text = await UT.GetLang("opencmd");
-        else labcmd.Text = cmdlab;
-        if (reglab.Contains("default")) labreg.Text = await UT.GetLang("openreg");
-        else labreg.Text = reglab;
-        if (gplab.Contains("default")) labgp.Text = await UT.GetLang("opengp");
-        else labgp.Text = gplab;
+        finally
+        {
+            await SetQL_Default();
+        }
     }
 
     private async void Window_Initialized(object sender, EventArgs e)
@@ -746,7 +753,6 @@ public partial class TrayWindow : Window
         base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
         trayIcon.Icon = UT.GetIconFromRes("UTtray.png");
         trayIcon.Text = "Unowhy Tools";
-        await UT.SetTrayIcon(trayIcon);
         trayIcon.MouseClick += TrayIcon_Click;
         var contextMenuStrip = new ContextMenuStrip();
         var opentray = new ToolStripButton("Open Tray");
