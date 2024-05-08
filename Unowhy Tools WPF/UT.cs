@@ -910,20 +910,24 @@ namespace Unowhy_Tools
 
             public static async Task<string> Get(string name)
             {
+                Write2Log("Get Config: " + name);
                 string jsonContent = File.ReadAllText(filePath);
                 JObject jsonObject = JObject.Parse(jsonContent);
 
                 if (jsonObject.TryGetValue(name, out var value))
                 {
+                    Write2Log("Get Config: " + name + " => " + value.ToString());
                     return value.ToString();
                 }
                 else
                 {
+                    Write2Log("Get Config: " + name + " is null");
                     return null;
                 }
             }
             public static async Task Set(string name, string value)
             {
+                Write2Log("Set Config: " + name + " => " + value);
                 string jsonContent = File.ReadAllText(filePath);
                 JObject jsonObject = JObject.Parse(jsonContent);
 
