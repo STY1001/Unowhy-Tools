@@ -564,20 +564,7 @@ namespace Unowhy_Tools_Service
                 }
                 catch (Exception e)
                 {
-                    await Task.Delay(1000);
-
-                    string exp = e.ToString();
-                    string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
-
-                    if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
-                    {
-                        File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
-                    }
-                    else
-                    {
-                        Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                        File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
-                    }
+                    
                 }
             }
         }
@@ -636,20 +623,7 @@ namespace Unowhy_Tools_Service
                 }
                 catch (Exception e)
                 {
-                    await Task.Delay(1000);
-
-                    string exp = e.ToString();
-                    string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
-
-                    if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
-                    {
-                        File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
-                    }
-                    else
-                    {
-                        Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                        File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
-                    }
+                    
                 }
             }
         }
@@ -696,20 +670,7 @@ namespace Unowhy_Tools_Service
                 }
                 catch (Exception e)
                 {
-                    await Task.Delay(1000);
-
-                    string exp = e.ToString();
-                    string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
-
-                    if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
-                    {
-                        File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
-                    }
-                    else
-                    {
-                        Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                        File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
-                    }
+                    
                 }
             }
         }
