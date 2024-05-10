@@ -610,8 +610,6 @@ public partial class TrayWindow : Window
 
     public async Task CheckQL()
     {
-        
-
         try
         {
             taskicon = await UT.Config.Get("QLtaskicon");
@@ -693,9 +691,6 @@ public partial class TrayWindow : Window
         catch
         {
             trayIcon.ShowBalloonTip(5000, "Unowhy Tools", "Error while loading Quick Launch settings", ToolTipIcon.Error);
-        }
-        finally
-        {
             await SetQL_Default();
         }
     }
