@@ -205,7 +205,7 @@ public partial class TrayWindow : Window
                     }
                 }
             }
-            finally
+            catch
             {
                 UTUbtn.Visibility = Visibility.Collapsed;
                 Grid.SetColumnSpan(UTbtn, 2);
