@@ -42,6 +42,7 @@
     <None Remove="Resources\b.png" />
     <None Remove="Resources\back.png" />
     <None Remove="Resources\balanced.png" />
+    <None Remove="Resources\barcode.png" />
     <None Remove="Resources\bat0.png" />
     <None Remove="Resources\bat100.png" />
     <None Remove="Resources\bat15.png" />
@@ -104,6 +105,7 @@
     <None Remove="Resources\mas.png" />
     <None Remove="Resources\micro.png" />
     <None Remove="Resources\monitor.png" />
+    <None Remove="Resources\motherboard.png" />
     <None Remove="Resources\next.png" />
     <None Remove="Resources\nico.png" />
     <None Remove="Resources\no.png" />
@@ -197,6 +199,7 @@
     <Resource Include="Resources\b.png" />
     <Resource Include="Resources\back.png" />
     <Resource Include="Resources\balanced.png" />
+    <Resource Include="Resources\barcode.png" />
     <Resource Include="Resources\bat0.png" />
     <Resource Include="Resources\bat100.png" />
     <Resource Include="Resources\bat15.png" />
@@ -259,6 +262,7 @@
     <Resource Include="Resources\mas.png" />
     <Resource Include="Resources\micro.png" />
     <Resource Include="Resources\monitor.png" />
+    <Resource Include="Resources\motherboard.png" />
     <Resource Include="Resources\next.png" />
     <Resource Include="Resources\nico.png" />
     <Resource Include="Resources\no.png" />

@@ -138,6 +138,8 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using System.Text.Json.Nodes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.VisualBasic.Devices;
 
 namespace Unowhy_Tools
 {
@@ -1081,33 +1083,42 @@ namespace Unowhy_Tools
                 {
                     try
                     {
-                        string url = apilink + "/crash";
-                        string jsonData = "{ \"id\" : \"" + uuidString + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"utsversion\" : \"" + await UT.UTS.UTSmsg("UTS", "GetVer") + "\",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"crashid\" : \"" + crashid + "\", \"message\" : \"" + e.Message.Replace("\"", "\\\"").Replace("\\", "\\\\") + "\" }";
-                        Write2Log("Sending crash report (step 1/2) to \"" + url + "\" with \"" + jsonData + "\"");
+                        string url = $"{apilink}/crash";
+                        var crashData = new
+                        {
+                            id = uuidString,
+                            version = UT.version.getverfull().ToString().Insert(2, "."),
+                            build = UT.version.getverbuild().ToString(),
+                            utsversion = await UT.UTS.UTSmsg("UTS", "GetVer"),
+                            isdeb = UT.version.isdeb().ToString().ToLower(),
+                            crashid = crashid,
+                            message = e.Message.Replace("\"", "\\\"").Replace("\\", "\\\\")
+                        };
+                        string jsonData = JsonConvert.SerializeObject(crashData);
+                        Write2Log($"Sending crash report (step 1/2) to \"{url}\" with \"{jsonData}\"");
                         StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(url, content);
                         if (response.StatusCode == HttpStatusCode.OK)
                         {
-                            Write2Log("Sent! Response:" + response.Content + "(" + response.StatusCode + ")");
+                            Write2Log($"Sent! Response: {await response.Content.ReadAsStringAsync()} ({response.StatusCode})");
                         }
                         else
                         {
-                            Write2Log("Error! Response:" + response.Content + "(" + response.StatusCode + ")");
+                            Write2Log($"Error! Response: {await response.Content.ReadAsStringAsync()} ({response.StatusCode})");
                         }
-
-                        url = apilink + "/crash/logs";
-                        string logs = UTdata.Logs; //File.ReadAllText(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
+                        url = $"{apilink}/crash/logs";
+                        string logs = UTdata.Logs; // ou File.ReadAllText(utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt");
                         client.DefaultRequestHeaders.Add("crashid", crashid);
-                        Write2Log("Sending crash report (step 2/2) to \"" + url + "\"");
+                        Write2Log($"Sending crash report (step 2/2) to \"{url}\"");
                         content = new StringContent(logs, System.Text.Encoding.UTF8, "text/plain");
                         response = await client.PostAsync(url, content);
                         if (response.StatusCode == HttpStatusCode.OK)
                         {
-                            Write2Log("Sent! Response:" + response.Content + "(" + response.StatusCode + ")");
+                            Write2Log($"Sent! Response: {await response.Content.ReadAsStringAsync()} ({response.StatusCode})");
                         }
                         else
                         {
-                            Write2Log("Error! Response:" + response.Content + "(" + response.StatusCode + ")");
+                            Write2Log($"Error! Response: {await response.Content.ReadAsStringAsync()} ({response.StatusCode})");
                         }
                     }
                     catch (Exception fail)
@@ -1132,8 +1143,13 @@ namespace Unowhy_Tools
                     try
                     {
                         string url = await UT.OnlineDatas.GetUrls("api") + "/usage";
-                        string jsonData = "{ \"id\" : \"" + uuidString + "\", \"action\" : \"" + action + "\" }";
-                        Write2Log("Sending action \"" + action + "\" to \"" + url + "\" with \"" + jsonData + "\"");
+                        var data = new
+                        {
+                            id = uuidString,
+                            action = action
+                        };
+                        string jsonData = JsonConvert.SerializeObject(data);
+                        Write2Log($"Sending action \"{action}\" to \"{url}\" with \"{jsonData}\"");
                         StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(url, content);
                         if (response.StatusCode == HttpStatusCode.OK)
@@ -1196,19 +1212,9 @@ namespace Unowhy_Tools
                 wifi = false;
             }
 
-            string year = "Unknown";
-            string model = GetWMI("Win32_ComputerSystem", "Model");
-            string serial = GetWMI("Win32_BIOS", "SerialNumber");
-            if (serial.Contains("IFP3")) year = "2023";
-            if (serial.Contains("IFP2")) year = "2022";
-            if (serial.Contains("IFP1")) year = "2021";
-            if (serial.Contains("IFP0")) year = "2020";
-            if (serial.Contains("IFP9")) year = "2019";
-            if (model.Contains("Y13G113")) year = "2023";
-            if (model.Contains("Y13G012")) year = "2022";
-            if (model.Contains("Y13G011")) year = "2021";
-            if (model.Contains("Y13G010")) year = "2020";
-            if (model.Contains("Y13G002")) year = "2019";
+            string model = "Unknown";
+            string sku = GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
+            model = await UT.GetModelWithSKU(sku);
 
             List<string> defaultosfile = new List<string>()
             {
@@ -1227,7 +1233,6 @@ namespace Unowhy_Tools
             }
 
             string osversion = GetWMI("Win32_OperatingSystem", "Caption");
-
             if (await UT.CheckInternet())
             {
                 using (HttpClient client = new HttpClient())
@@ -1235,10 +1240,26 @@ namespace Unowhy_Tools
                     try
                     {
                         string url = await UT.OnlineDatas.GetUrls("api");
-                        string jsonData = "{ \"id\" : \"" + idString.ToString() + "\", \"version\" : \"" + UT.version.getverfull().ToString().Insert(2, ".") + "\", \"build\" : \"" + UT.version.getverbuild().ToString() + "\", \"utsversion\" : \"" + await UT.UTS.UTSmsg("UTS", "GetVer") + "\", \"lang\" : \"" + langString.ToString() + "\", \"launchmode\" : \"" + launchmode.ToString() + "\", \"trayena\" : " + tray.ToString().ToLower() + ",  \"isdeb\" : " + UT.version.isdeb().ToString().ToLower() + ", \"wifiena\" : " + wifi.ToString().ToLower() + ", \"pcyear\" : \"" + year.ToString() + "\", \"defaultos\" : " + defaultos.ToString().ToLower() + ", \"osversion\" : \"" + osversion.ToString() + "\" }";
-                        Write2Log("Sending Stats to \"" + url + "\" with \"" + jsonData + "\"");
+                        var data = new
+                        {
+                            id = idString.ToString(),
+                            version = UT.version.getverfull().ToString().Insert(2, "."),
+                            build = UT.version.getverbuild().ToString(),
+                            utsversion = await UT.UTS.UTSmsg("UTS", "GetVer"),
+                            lang = langString.ToString(),
+                            launchmode = launchmode.ToString(),
+                            trayena = tray.ToString().ToLower(),
+                            isdeb = UT.version.isdeb().ToString().ToLower(),
+                            wifiena = wifi.ToString().ToLower(),
+                            pcmodel = model.ToString(),
+                            defaultos = defaultos.ToString().ToLower(),
+                            osversion = osversion.ToString(),
+                        };
+                        string jsonData = JsonConvert.SerializeObject(data);
+                        Write2Log($"Sending Stats to \"{url}\" with \"{jsonData}\"");
                         StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
                         HttpResponseMessage response = await client.PostAsync(url, content);
+
                         if (response.StatusCode == HttpStatusCode.OK)
                         {
                             Write2Log("Sent! Response:" + response.Content + "(" + response.StatusCode + ")");
@@ -1255,6 +1276,107 @@ namespace Unowhy_Tools
 
                 }
             }
+        }
+
+        public static async Task SendCheck()
+        {
+            string uuidString = "null";
+
+            if (await UT.Config.Get("ID") != null) uuidString = await UT.Config.Get("ID");
+
+            if (await UT.CheckInternet())
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    try
+                    {
+                        string url = await UT.OnlineDatas.GetUrls("api") + "/check";
+                        var data = new
+                        {
+                            id = uuidString,
+                            check = new
+                            {
+                                HSMRunning = UTdata.HSMRunning,
+                                HSMEnabled = UTdata.HSMEnabled,
+                                HSMExist = UTdata.HSMExist,
+                                HSMExeExist = UTdata.HSMExeExist,
+                                AAD = UTdata.AAD,
+                                Admin = UTdata.Admin,
+                                RIDFFolderExist = UTdata.RIDFFolderExist,
+                                ENTFolderExist = UTdata.ENTFolderExist,
+                                OEMFolderExist = UTdata.OEMFolderExist,
+                                TIFolderExist = UTdata.TIFolderExist,
+                                HSQMFolderExist = UTdata.HSQMFolderExist,
+                                HSQFolderExist = UTdata.HSQFolderExist,
+                                ENTUser = UTdata.ENTUser,
+                                WHE = UTdata.WHE,
+                                TIStartup = UTdata.TIStartup,
+                                BIM = UTdata.BIM,
+                                BCD = UTdata.BCD,
+                                ShellOK = UTdata.ShellOK,
+                                TaskMGR = UTdata.TaskMGR,
+                                LockA = UTdata.LockA,
+                                CamOver = UTdata.CamOver,
+                                VerbStat = UTdata.VerbStat,
+                                WinRE = UTdata.WinRE,
+                                EdgeInstalled = UTdata.EdgeInstalled,
+                                NoEdgeReg = UTdata.NoEdgeReg,
+                                WinDefEnabled = UTdata.WinDefEnabled,
+                                RIDFCertInstalled = UTdata.RIDFCertInstalled
+                            }
+                        };
+                        string jsonData = JsonConvert.SerializeObject(data);
+                        Write2Log("Sending check to \"" + url + "\" with \"" + jsonData + "\"");
+                        StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = await client.PostAsync(url, content);
+                        if (response.StatusCode == HttpStatusCode.OK)
+                        {
+                            Write2Log("Sent! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+                        else
+                        {
+                            Write2Log("Error! Response:" + response.Content + "(" + response.StatusCode + ")");
+                        }
+                    }
+                    catch (Exception fail)
+                    {
+                        Write2Log("Failed: " + fail.Message);
+                    }
+
+                }
+            }
+        }
+
+        public static Dictionary<string, string> skumodel = new Dictionary<string, string>
+        {
+            { "Y13G113S4EI", "Y13 Gen 1 2023 IDF" },
+            { "Y13G012S4EI", "Y13 Gen 1 2022 IDF" },
+            { "Y13G011S4EI", "Y13 Gen 1 2021 IDF" },
+            { "Y13G010S4EI", "Y13 Gen 1 2020 IDF" },
+            { "Y13G002S4EI", "Y13 Gen 1 2019 IDF" },
+            { "Y13G113S4E", "Y13 Gen 1 2023" },
+            { "Y13G012S4E", "Y13 Gen 1 2022" },
+            { "Y13G011S4E", "Y13 Gen 1 2021" },
+            { "Y13G010S4E", "Y13 Gen 1 2020" },
+            { "Y13G002S4E", "Y13 Gen 1 2019" },
+            { "Y14G310S2MI", "Y14 Plus i3 IDF" },
+            { "Y14G520S2MI", "Y14 Plus i5 IDF" },
+            { "Y14G310S2M", "Y14 Plus i3" },
+            { "Y14G520S2M", "Y14 Plus i5" },
+            { "Y11G001S4E", "Y11 360 Gen 1" },
+            { "Y11G201S2M", "Y11 360 Gen 2" },
+            { "OPSG310S2M", "Y5OPS i3" },
+            { "OPSG530S2M", "Y5OPS i5" },
+            { "Y13G201S4EI", "Y13 Gen 2 2024 IDF" },
+            { "Y13G201S4E", "Y13 Gen 2 2024" },
+            { "STYY13U", "Y13 Ultimate" },
+            { "STYY5OPSI5", "Y5OPS i5" }
+        };
+        public static async Task<string> GetModelWithSKU(string sku)
+        {
+            sku = sku.Replace(" ", "").Replace("\n", "").Replace("\r", "");
+            if (skumodel.ContainsKey(sku)) return skumodel[sku];
+            else return "Unknown";
         }
 
         public static async Task TrayCheck()
@@ -2020,6 +2142,7 @@ namespace Unowhy_Tools
             Write2Log("=> " + UTdata.AdminsName);
         }
 
+        public static bool allrun = false;
         public static async Task Check(string step)
         {
             Write2Log("====== Dynamic Buttons ======");
@@ -2647,6 +2770,7 @@ namespace Unowhy_Tools
 
                 #endregion
 
+                allrun = true;
             }
             else
             {
@@ -3290,6 +3414,11 @@ namespace Unowhy_Tools
             }
 
             Write2Log("====== End ======");
+
+            if (allrun)
+            {
+                await SendCheck();
+            }
         }
 
         public static string GetWMI(string classname, string propertyname)
@@ -3497,6 +3626,7 @@ namespace Unowhy_Tools
             private static string _mbv;
             private static string _adminsname;
             private static string _adminname;
+            private static string _family;
             private static bool _taskmgr;
             private static bool _locka;
             private static bool _admin;
@@ -3701,6 +3831,15 @@ namespace Unowhy_Tools
                 set
                 {
                     _adminname = value;
+                    OnPropertyChanged();
+                }
+            }
+            public string family
+            {
+                get { return _family; }
+                set
+                {
+                    _family = value;
                     OnPropertyChanged();
                 }
             }

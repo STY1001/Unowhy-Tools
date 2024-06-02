@@ -177,6 +177,9 @@
   <data name="batinfo" xml:space="preserve">
     <value>Informations sur la batterie</value>
   </data>
+  <data name="bbmfmd" xml:space="preserve">
+    <value>Fabricant/modèle de la carte mère</value>
+  </data>
   <data name="bcdfail" xml:space="preserve">
     <value>Suppr. "IgnoreAllFailures" dans BCD</value>
   </data>
@@ -698,6 +701,9 @@
   </data>
   <data name="storageinfo" xml:space="preserve">
     <value>Info du stockage (utilisé/total)</value>
+  </data>
+  <data name="sysmfmd" xml:space="preserve">
+    <value>Fabricant/modèle du système</value>
   </data>
   <data name="sysmonitor" xml:space="preserve">
     <value>Surveillance du système</value>

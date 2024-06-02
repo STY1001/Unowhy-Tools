@@ -35,10 +35,11 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
 
     public async Task applylang()
     {
-        labpnc.Text = await UT.GetLang("pcn");
         labuid.Text = await UT.GetLang("domuser");
-        labmf.Text = await UT.GetLang("mfm");
+        labsys.Text = await UT.GetLang("sysmfmd");
+        labsku.Text = "SKU";
         labsn.Text = await UT.GetLang("serial");
+        labbb.Text = await UT.GetLang("bbmfmd");
         labbv.Text = await UT.GetLang("biosversion");
         labwv.Text = await UT.GetLang("os");
         labcpu.Text = await UT.GetLang("cpuinfo");
@@ -46,27 +47,19 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         labstor.Text = await UT.GetLang("storageinfo");
     }
 
-    public void infoapply()
+    public async void infoapply()
     {
-        string year = "";
-        if (UTdata.sn.Contains("IFP3")) year = "(2023)";
-        if (UTdata.sn.Contains("IFP2")) year = "(2022)";
-        if (UTdata.sn.Contains("IFP1")) year = "(2021)";
-        if (UTdata.sn.Contains("IFP0")) year = "(2020)";
-        if (UTdata.sn.Contains("IFP9")) year = "(2019)";
-        if (UTdata.md.Contains("Y13G113")) year = "(2023)";
-        if (UTdata.md.Contains("Y13G012")) year = "(2022)";
-        if (UTdata.md.Contains("Y13G011")) year = "(2021)";
-        if (UTdata.md.Contains("Y13G010")) year = "(2020)";
-        if (UTdata.md.Contains("Y13G002")) year = "(2019)";
+        string realmodel = await UT.GetModelWithSKU(UTdata.sku);
         uid.Text = UTdata.UserID;
         pcn.Text = UTdata.HostName;
-        mf.Text = UT.GetLine(UTdata.mf, 1).Replace("  ", "") + " / " + UT.GetLine(UTdata.md, 1).Replace("  ", "") + " " + year;
+        sys.Text = UTdata.mf + " " + UTdata.md;
+        bb.Text = UTdata.mbmf + " " + UTdata.mbmd;
+        sku.Text = UTdata.sku + "(" + realmodel + ")";
         sn.Text = UTdata.sn;
         bv.Text = UTdata.bios;
         wv.Text = UTdata.os;
         cpu.Text = UTdata.cpu;
-        string sram = UTdata.ram.Replace(" ", "").Replace("\r", "").Replace("\n", "");
+        string sram = UTdata.ram;
         double preram = Convert.ToDouble(sram);
         double postram = preram / (1024 * 1024 * 1024);
         ram.Text = String.Format("{0:0.0} GB", postram);
@@ -78,6 +71,8 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         {
             imgwv.Source = new BitmapImage(new System.Uri("pack://application:,,,/Resources/win10.png"));
         }
+        string curentbgpath = Environment.GetEnvironmentVariable("USERPROFILE") + "\\AppData\\Roaming\\Microsoft\\Windows\\Themes\\TranscodedWallpaper";
+        bgimg.Source = new BitmapImage(new System.Uri(curentbgpath));
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
@@ -88,10 +83,6 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
         foreach (UIElement element in RootStack2.Children)
-        {
-            element.Visibility = Visibility.Hidden;
-        }
-        foreach (UIElement element in RootStack3.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
@@ -135,33 +126,6 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
             await Task.Delay(50);
         }
         foreach (UIElement element in RootStack2.Children)
-        {
-            element.Visibility = Visibility.Visible;
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 10,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            element.RenderTransform = transform;
-
-            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-
-            await Task.Delay(50);
-        }
-        foreach (UIElement element in RootStack3.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
