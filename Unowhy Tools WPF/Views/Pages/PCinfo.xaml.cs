@@ -55,7 +55,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         pcn.Text = UTdata.HostName;
         sys.Text = UTdata.mf + " " + UTdata.md;
         bb.Text = UTdata.mbmf + " " + UTdata.mbmd;
-        sku.Text = UTdata.sku + "(" + realmodel + ")";
+        sku.Text = UTdata.sku + " (" + realmodel + ")";
         sn.Text = UTdata.sn;
         bv.Text = UTdata.bios;
         wv.Text = UTdata.os;
