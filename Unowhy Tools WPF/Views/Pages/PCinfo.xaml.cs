@@ -73,7 +73,15 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
             imgwv.Source = new BitmapImage(new System.Uri("pack://application:,,,/Resources/win10.png"));
         }
         string curentbgpath = Environment.GetEnvironmentVariable("USERPROFILE") + "\\AppData\\Roaming\\Microsoft\\Windows\\Themes\\TranscodedWallpaper";
-        bgimg.Source = new BitmapImage(new System.Uri(curentbgpath));
+        if (File.Exists(curentbgpath))
+        {
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(curentbgpath);
+            bitmap.EndInit();
+            bitmap.Freeze();
+            bgimg.Source = bitmap;
+        }
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
