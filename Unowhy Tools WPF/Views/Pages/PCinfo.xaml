@@ -59,7 +59,7 @@
                             <ColumnDefinition Width="256" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="144" />
+                            <RowDefinition Height="148" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="AUto" />
                         </Grid.RowDefinitions>
@@ -78,7 +78,12 @@
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                            RenderOptions.BitmapScalingMode="HighQuality"
-                                           Stretch="UniformToFill" />
+                                           Stretch="UniformToFill">
+                                        <Image.RenderTransform>
+                                            <ScaleTransform ScaleX="1"
+                                                            ScaleY="1" />
+                                        </Image.RenderTransform>
+                                    </Image>
                                 </Grid>
                             </Viewbox>
                         </Border>

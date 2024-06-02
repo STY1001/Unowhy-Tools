@@ -9,6 +9,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media;
 using System;
 using System.IO;
+using System.Windows.Controls;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -47,7 +48,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         labstor.Text = await UT.GetLang("storageinfo");
     }
 
-    public async void infoapply()
+    public async Task infoapply()
     {
         string realmodel = await UT.GetModelWithSKU(UTdata.sku);
         uid.Text = UTdata.UserID;
@@ -86,9 +87,12 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         {
             element.Visibility = Visibility.Hidden;
         }
+        bgimg.Visibility = Visibility.Hidden;
 
         await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
         UT.anim.BorderZoomOut(RootBorder);
+
+        await infoapply();
 
         DriveInfo drive = new DriveInfo("C");
         double totalSpace = drive.TotalSize / 1024.0 / 1024.0 / 1024.0;
@@ -152,6 +156,33 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
 
             await Task.Delay(50);
         }
+        bgimg.Visibility = Visibility.Visible;
+        {
+            var fadeInAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.30),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            var zoomAnimation1 = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.50),
+                EasingFunction = new PowerEase { EasingMode = EasingMode.EaseOut, Power = 5 }
+            };
+
+            Storyboard.SetTarget(fadeInAnimation, bgimg);
+            Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath(UIElement.OpacityProperty));
+            Storyboard.SetTarget(zoomAnimation1, bgimg);
+            Storyboard.SetTargetProperty(zoomAnimation1, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
+            var storyboard = new Storyboard();
+            storyboard.Children.Add(fadeInAnimation);
+            storyboard.Children.Add(zoomAnimation1);
+            storyboard.Begin();
+        }
     }
 
     public PCinfo(DashboardViewModel viewModel)
@@ -161,6 +192,5 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
-        infoapply();
     }
 }
