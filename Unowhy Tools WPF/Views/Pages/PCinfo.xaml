@@ -59,13 +59,13 @@
                             <ColumnDefinition Width="256" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="152" />
+                            <RowDefinition Height="144" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="AUto" />
                         </Grid.RowDefinitions>
                         <Border Background="#000000"
                                 CornerRadius="8,8,8,8"
-                                BorderThickness="8">
+                                Margin="4">
                             <Viewbox Stretch="Uniform"
                                      RenderOptions.BitmapScalingMode="HighQuality">
                                 <Grid x:Name="PreviewGrid"
@@ -82,8 +82,7 @@
                                 </Grid>
                             </Viewbox>
                         </Border>
-                        <Border BorderThickness="4"
-                                Margin="4"
+                        <Border BorderThickness="6"
                                 BorderBrush="#000000"
                                 CornerRadius="8"/>
                         <TextBlock Text="[PC NAME]"
@@ -95,7 +94,7 @@
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
                                    x:Name="pcn" />
-                        <StackPanel Margin="0,20,0,20"
+                        <StackPanel Margin="5,15,0,20"
                                     x:Name="RootStack"
                                     Grid.Row="2">
                             <StackPanel.Resources>
