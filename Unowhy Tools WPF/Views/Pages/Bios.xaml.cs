@@ -101,7 +101,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         }
         mfbox.PlaceholderText = UTdata.mf; // /SM
         mdbox.PlaceholderText = UTdata.md; // /SV
-        skubox.PlaceholderText = UTdata.sku; // /SK
+        familybox.PlaceholderText = UTdata.family; // /SF
         snbox.PlaceholderText = UTdata.sn; // /SS
         biosvbox.PlaceholderText = UTdata.biosv; // /IV
         mbmfbox.PlaceholderText = UTdata.mbmf; // /BM
@@ -463,7 +463,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     mf = mfbox.PlaceholderText,
                     md = mdbox.PlaceholderText,
-                    sku = skubox.PlaceholderText,
+                    familybox = familybox.PlaceholderText,
                     sn = snbox.PlaceholderText,
                     biosv = biosvbox.PlaceholderText,
                     mbmf = mbmfbox.PlaceholderText,
@@ -503,7 +503,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
                 string mf = (string)json["mf"];
                 string md = (string)json["md"];
-                string sku = (string)json["sku"];
+                string family = (string)json["family"];
                 string sn = (string)json["sn"];
                 string biosv = (string)json["biosv"];
                 string mbmf = (string)json["mbmf"];
@@ -514,7 +514,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
                 mfbox.Text = mf;
                 mdbox.Text = md;
-                skubox.Text = sku;
+                familybox.Text = family;
                 snbox.Text = sn;
                 biosvbox.Text = biosv;
                 mbmfbox.Text = mbmf;
@@ -578,14 +578,14 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     p.WaitForExit();
                 });
             }
-            if (!(skubox.Text == ""))
+            if (!(familybox.Text == ""))
             {
-                string newtxt = skubox.Text;
+                string newtxt = familybox.Text;
                 await Task.Run(() =>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SK \"{newtxt}\"";
+                    p.StartInfo.Arguments = $"/SF \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
