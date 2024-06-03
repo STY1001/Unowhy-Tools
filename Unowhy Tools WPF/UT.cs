@@ -242,7 +242,7 @@ namespace Unowhy_Tools
                     From = 0,
                     To = 1,
                     Duration = TimeSpan.FromSeconds(0.30),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
                 };
 
                 var zoomAnimation1 = new DoubleAnimation
@@ -250,7 +250,7 @@ namespace Unowhy_Tools
                     From = 0.9,
                     To = 1,
                     Duration = TimeSpan.FromSeconds(0.50),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
                 };
 
                 var zoomAnimation2 = new DoubleAnimation
@@ -258,7 +258,7 @@ namespace Unowhy_Tools
                     From = 0.9,
                     To = 1,
                     Duration = TimeSpan.FromSeconds(0.50),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
                 };
 
                 Storyboard.SetTarget(fadeInAnimation, border);
@@ -285,7 +285,7 @@ namespace Unowhy_Tools
                     From = 0,
                     To = 1,
                     Duration = TimeSpan.FromSeconds(0.30),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
                 };
 
                 var zoomAnimation1 = new DoubleAnimation
@@ -293,7 +293,7 @@ namespace Unowhy_Tools
                     From = 1.1,
                     To = 1,
                     Duration = TimeSpan.FromSeconds(0.50),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
                 };
 
                 var zoomAnimation2 = new DoubleAnimation
@@ -301,7 +301,7 @@ namespace Unowhy_Tools
                     From = 1.1,
                     To = 1,
                     Duration = TimeSpan.FromSeconds(0.50),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
                 };
 
                 Storyboard.SetTarget(fadeInAnimation, border);
@@ -328,7 +328,7 @@ namespace Unowhy_Tools
                     From = 1,
                     To = 0,
                     Duration = TimeSpan.FromSeconds(0.30),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
                 };
 
                 var zoomAnimation1 = new DoubleAnimation
@@ -336,7 +336,7 @@ namespace Unowhy_Tools
                     From = 1,
                     To = 1.1,
                     Duration = TimeSpan.FromSeconds(0.50),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
                 };
 
                 var zoomAnimation2 = new DoubleAnimation
@@ -344,7 +344,7 @@ namespace Unowhy_Tools
                     From = 1,
                     To = 1.1,
                     Duration = TimeSpan.FromSeconds(0.50),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
                 };
 
                 Storyboard.SetTarget(fadeInAnimation, border);
@@ -371,7 +371,7 @@ namespace Unowhy_Tools
                     From = 1,
                     To = 0,
                     Duration = TimeSpan.FromSeconds(0.30),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
                 };
 
                 var zoomAnimation1 = new DoubleAnimation
@@ -379,7 +379,7 @@ namespace Unowhy_Tools
                     From = 1,
                     To = 0.9,
                     Duration = TimeSpan.FromSeconds(0.50),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
                 };
 
                 var zoomAnimation2 = new DoubleAnimation
@@ -387,7 +387,7 @@ namespace Unowhy_Tools
                     From = 1,
                     To = 0.9,
                     Duration = TimeSpan.FromSeconds(0.50),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                    EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
                 };
 
                 Storyboard.SetTarget(fadeInAnimation, border);
