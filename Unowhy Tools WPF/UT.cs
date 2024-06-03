@@ -235,21 +235,23 @@ namespace Unowhy_Tools
                 }
             }
 
+            public static double fadespeed = 0.40;
+            public static double zoomspeed = 0.45;
             public static async Task BorderZoomIn(Border border)
             {
                 var fadeInAnimation = new DoubleAnimation
                 {
                     From = 0,
                     To = 1,
-                    Duration = TimeSpan.FromSeconds(0.30),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                    Duration = TimeSpan.FromSeconds(fadespeed),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
                 };
 
                 var zoomAnimation1 = new DoubleAnimation
                 {
                     From = 0.9,
                     To = 1,
-                    Duration = TimeSpan.FromSeconds(0.50),
+                    Duration = TimeSpan.FromSeconds(zoomspeed),
                     EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
                 };
 
@@ -257,7 +259,7 @@ namespace Unowhy_Tools
                 {
                     From = 0.9,
                     To = 1,
-                    Duration = TimeSpan.FromSeconds(0.50),
+                    Duration = TimeSpan.FromSeconds(zoomspeed),
                     EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
                 };
 
@@ -284,15 +286,15 @@ namespace Unowhy_Tools
                 {
                     From = 0,
                     To = 1,
-                    Duration = TimeSpan.FromSeconds(0.30),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                    Duration = TimeSpan.FromSeconds(fadespeed),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
                 };
 
                 var zoomAnimation1 = new DoubleAnimation
                 {
                     From = 1.1,
                     To = 1,
-                    Duration = TimeSpan.FromSeconds(0.50),
+                    Duration = TimeSpan.FromSeconds(zoomspeed),
                     EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
                 };
 
@@ -300,7 +302,7 @@ namespace Unowhy_Tools
                 {
                     From = 1.1,
                     To = 1,
-                    Duration = TimeSpan.FromSeconds(0.50),
+                    Duration = TimeSpan.FromSeconds(zoomspeed),
                     EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
                 };
 
@@ -327,15 +329,15 @@ namespace Unowhy_Tools
                 {
                     From = 1,
                     To = 0,
-                    Duration = TimeSpan.FromSeconds(0.30),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                    Duration = TimeSpan.FromSeconds(fadespeed),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
                 };
 
                 var zoomAnimation1 = new DoubleAnimation
                 {
                     From = 1,
                     To = 1.1,
-                    Duration = TimeSpan.FromSeconds(0.50),
+                    Duration = TimeSpan.FromSeconds(zoomspeed),
                     EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
                 };
 
@@ -343,7 +345,7 @@ namespace Unowhy_Tools
                 {
                     From = 1,
                     To = 1.1,
-                    Duration = TimeSpan.FromSeconds(0.50),
+                    Duration = TimeSpan.FromSeconds(zoomspeed),
                     EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
                 };
 
@@ -370,15 +372,15 @@ namespace Unowhy_Tools
                 {
                     From = 1,
                     To = 0,
-                    Duration = TimeSpan.FromSeconds(0.30),
-                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
+                    Duration = TimeSpan.FromSeconds(fadespeed),
+                    EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
                 };
 
                 var zoomAnimation1 = new DoubleAnimation
                 {
                     From = 1,
                     To = 0.9,
-                    Duration = TimeSpan.FromSeconds(0.50),
+                    Duration = TimeSpan.FromSeconds(zoomspeed),
                     EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
                 };
 
@@ -386,7 +388,7 @@ namespace Unowhy_Tools
                 {
                     From = 1,
                     To = 0.9,
-                    Duration = TimeSpan.FromSeconds(0.50),
+                    Duration = TimeSpan.FromSeconds(zoomspeed),
                     EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
                 };
 
