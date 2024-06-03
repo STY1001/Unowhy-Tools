@@ -59,6 +59,11 @@
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="15" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
                             <Grid x:Name="IFPTGridDump_Tiger">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
@@ -156,6 +161,34 @@
                                            FontSize="16"
                                            Click="ifptflashbtn_Click_Tiger" />
                             </Grid>
+                            <Grid Grid.ColumnSpan="3"
+                                  Grid.Row="2">
+                                <Grid x:Name="ifptregion_Tiger">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton Content="All region (EEPROM)"
+                                                 GroupName="ifptpradio_Tiger"
+                                                 IsChecked="True"
+                                                 x:Name="ifptalleeprom_Tiger"
+                                                 Grid.Column="0" />
+                                    <RadioButton Content="Desc region"
+                                                 GroupName="ifptpradio_Tiger"
+                                                 x:Name="ifptdesc_Tiger"
+                                                 Grid.Column="1" />
+                                    <RadioButton Content="BIOS region"
+                                                 GroupName="ifptpradio_Tiger"
+                                                 x:Name="ifptbios_Tiger"
+                                                 Grid.Column="2" />
+                                    <RadioButton Content="ME region"
+                                                 GroupName="ifptpradio_Tiger"
+                                                 x:Name="ifptme_Tiger"
+                                                 Grid.Column="3" />
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Expander>
                     <Expander Header="Intel Flash Programmer Tool (Dump and Flash) (Jasper Lake)"
@@ -168,6 +201,11 @@
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="15" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
                             <Grid x:Name="IFPTGridDump_Jasper">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
@@ -264,6 +302,34 @@
                                            Content="Flash"
                                            FontSize="16"
                                            Click="ifptflashbtn_Click_Jasper" />
+                            </Grid>
+                            <Grid Grid.ColumnSpan="3"
+                                  Grid.Row="2">
+                                <Grid x:Name="ifptregion_Jasper">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton Content="All region (EEPROM)"
+                                                 GroupName="ifptpradio_Jasper"
+                                                 IsChecked="True"
+                                                 x:Name="ifptalleeprom_Jasper" 
+                                                 Grid.Column="0"/>
+                                    <RadioButton Content="Desc region"
+                                                 GroupName="ifptpradio_Jasper"
+                                                 x:Name="ifptdesc_Jasper" 
+                                                 Grid.Column="1" />
+                                    <RadioButton Content="BIOS region"
+                                                 GroupName="ifptpradio_Jasper"
+                                                 x:Name="ifptbios_Jasper" 
+                                                 Grid.Column="2" />
+                                    <RadioButton Content="ME region"
+                                                 GroupName="ifptpradio_Jasper"
+                                                 x:Name="ifptme_Jasper" 
+                                                 Grid.Column="3" />
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Expander>
@@ -383,30 +449,30 @@
                             <Grid Grid.Column="2"
                                   Grid.Row="2">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="10"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="0"
                                             x:Name="AFUfaGrid1">
                                     <CheckBox Content="Flash Main BIOS"
                                               IsChecked="True"
-                                              x:Name="afuflashmain"/>
+                                              x:Name="afuflashmain" />
                                     <CheckBox Content="Flash NVRAM"
                                               IsChecked="True"
-                                              x:Name="afuflashnvram"/>
+                                              x:Name="afuflashnvram" />
                                 </StackPanel>
                                 <StackPanel Grid.Column="2"
                                             x:Name="AFUfaGrid2">
                                     <CheckBox Content="Reboot after flash"
                                               IsChecked="True"
-                                              x:Name="afuflashreboot"/>
+                                              x:Name="afuflashreboot" />
                                     <CheckBox Content="Preserve SMBIOS"
                                               IsChecked="True"
-                                              x:Name="afuflashsmbios"/>
+                                              x:Name="afuflashsmbios" />
                                     <CheckBox Content="Preserve settings"
                                               IsChecked="False"
-                                              x:Name="afuflashsettings"/>
+                                              x:Name="afuflashsettings" />
                                 </StackPanel>
                             </Grid>
                         </Grid>

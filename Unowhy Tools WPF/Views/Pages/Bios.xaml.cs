@@ -255,11 +255,16 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath_Tiger.Text;
+                    string extarg = "";
+                    if (ifptalleeprom_Tiger.IsChecked == true) extarg = "";
+                    if (ifptdesc_Tiger.IsChecked == true) extarg = "-desc";
+                    if (ifptbios_Tiger.IsChecked == true) extarg = "-bios";
+                    if (ifptme_Tiger.IsChecked == true) extarg = "-me";
                     await Task.Run(() =>
                     {
                         Process p = new Process();
                         p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe";
-                        p.StartInfo.Arguments = $"-bios -d \"{path}\"";
+                        p.StartInfo.Arguments = $"{extarg} -d \"{path}\"";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
                         p.Start();
                         p.WaitForExit();
@@ -304,11 +309,16 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = ifptflashpath_Tiger.Text;
+                    string extarg = "";
+                    if (ifptalleeprom_Tiger.IsChecked == true) extarg = "";
+                    if (ifptdesc_Tiger.IsChecked == true) extarg = "-desc";
+                    if (ifptbios_Tiger.IsChecked == true) extarg = "-bios";
+                    if (ifptme_Tiger.IsChecked == true) extarg = "-me";
                     await Task.Run(() =>
                     {
                         Process p = new Process();
                         p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe";
-                        p.StartInfo.Arguments = $"-bios -f \"{path}\"";
+                        p.StartInfo.Arguments = $"{extarg} -f \"{path}\"";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
                         p.Start();
                         p.WaitForExit();
@@ -381,11 +391,16 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath_Jasper.Text;
+                    string extarg = "";
+                    if (ifptalleeprom_Jasper.IsChecked == true) extarg = "";
+                    if (ifptdesc_Jasper.IsChecked == true) extarg = "-desc";
+                    if (ifptbios_Jasper.IsChecked == true) extarg = "-bios";
+                    if (ifptme_Jasper.IsChecked == true) extarg = "-me";
                     await Task.Run(() =>
                     {
                         Process p = new Process();
                         p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe";
-                        p.StartInfo.Arguments = $"-bios -d \"{path}\"";
+                        p.StartInfo.Arguments = $"{extarg} -d \"{path}\"";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
                         p.Start();
                         p.WaitForExit();
@@ -430,11 +445,16 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = ifptflashpath_Jasper.Text;
+                    string extarg = "";
+                    if (ifptalleeprom_Jasper.IsChecked == true) extarg = "";
+                    if (ifptdesc_Jasper.IsChecked == true) extarg = "-desc";
+                    if (ifptbios_Jasper.IsChecked == true) extarg = "-bios";
+                    if (ifptme_Jasper.IsChecked == true) extarg = "-me";
                     await Task.Run(() =>
                     {
                         Process p = new Process();
                         p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe";
-                        p.StartInfo.Arguments = $"-bios -f \"{path}\"";
+                        p.StartInfo.Arguments = $"{extarg} -f \"{path}\"";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
                         p.Start();
                         p.WaitForExit();
@@ -849,6 +869,10 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             element.Visibility = Visibility.Hidden;
         }
+        foreach (UIElement element in ifptregion_Tiger.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
 
         foreach (UIElement element in IFPTGridDump_Tiger.Children)
         {
@@ -904,6 +928,33 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
             await Task.Delay(50);
         }
+        foreach (UIElement element in ifptregion_Tiger.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
     }
 
     private async void ExpIFPT_Expanded_Jasper(object sender, RoutedEventArgs e)
@@ -913,6 +964,10 @@ public partial class Bios : INavigableView<DashboardViewModel>
             element.Visibility = Visibility.Hidden;
         }
         foreach (UIElement element in IFPTGridFlash_Jasper.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in ifptregion_Jasper.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
@@ -945,6 +1000,33 @@ public partial class Bios : INavigableView<DashboardViewModel>
             await Task.Delay(50);
         }
         foreach (UIElement element in IFPTGridFlash_Jasper.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in ifptregion_Jasper.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
