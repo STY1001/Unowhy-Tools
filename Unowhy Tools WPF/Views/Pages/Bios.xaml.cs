@@ -139,7 +139,13 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "download.png");
             };
-            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw"), UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw2"), UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", progress, cancellationToken.Token);
+            await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
+            await Task.Delay(100);
+            await Task.Run(() =>
+            {
+                ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT", true);
+            });
         }
         if (resname == "AFU")
         {
@@ -190,11 +196,11 @@ public partial class Bios : INavigableView<DashboardViewModel>
         InitializeComponent();
     }
 
-    private void ifptdumpexp_Click(object sender, RoutedEventArgs e)
+    private void ifptdumpexp_Click_Tiger(object sender, RoutedEventArgs e)
     {
         using (var fb = new System.Windows.Forms.SaveFileDialog())
         {
-            fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "");
+            fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "_");
             fb.DefaultExt = "rom";
             fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
             fb.FilterIndex = 1;
@@ -202,12 +208,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             DialogResult result = fb.ShowDialog();
             if (result == DialogResult.OK)
             {
-                ifptdumppath.Text = fb.FileName;
+                ifptdumppath_Tiger.Text = fb.FileName;
             }
         }
     }
 
-    private void ifptflashexp_Click(object sender, RoutedEventArgs e)
+    private void ifptflashexp_Click_Tiger(object sender, RoutedEventArgs e)
     {
         using (var fb = new System.Windows.Forms.OpenFileDialog())
         {
@@ -218,19 +224,19 @@ public partial class Bios : INavigableView<DashboardViewModel>
             DialogResult result = fb.ShowDialog();
             if (result == DialogResult.OK)
             {
-                ifptflashpath.Text = fb.FileName;
+                ifptflashpath_Tiger.Text = fb.FileName;
             }
         }
     }
 
-    private async void ifptdumpbtn_Click(object sender, RoutedEventArgs e)
+    private async void ifptdumpbtn_Click_Tiger(object sender, RoutedEventArgs e)
     {
-        if (!(ifptdumppath.Text == ""))
+        if (!(ifptdumppath_Tiger.Text == ""))
         {
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
                 UT.SendAction("UTB.IFPTDump");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -245,14 +251,14 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
-                    string path = ifptdumppath.Text;
+                    string path = ifptdumppath_Tiger.Text;
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe";
                         p.StartInfo.Arguments = $"-bios -d \"{path}\"";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
                         p.Start();
@@ -272,14 +278,14 @@ public partial class Bios : INavigableView<DashboardViewModel>
         }
     }
 
-    private async void ifptflashbtn_Click(object sender, RoutedEventArgs e)
+    private async void ifptflashbtn_Click_Tiger(object sender, RoutedEventArgs e)
     {
-        if (!(ifptflashpath.Text == ""))
+        if (!(ifptflashpath_Tiger.Text == ""))
         {
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
                 UT.SendAction("UTB.IFPTFlash");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -294,14 +300,140 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
-                    string path = ifptflashpath.Text;
+                    string path = ifptflashpath_Tiger.Text;
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe";
+                        p.StartInfo.Arguments = $"-bios -f \"{path}\"";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.Start();
+                        p.WaitForExit();
+                    });
+                    await UT.waitstatus.close();
+
+                    UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
+                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                }
+            }
+        }
+    }
+
+    private void ifptdumpexp_Click_Jasper(object sender, RoutedEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.SaveFileDialog())
+        {
+            fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "_");
+            fb.DefaultExt = "rom";
+            fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ifptdumppath_Jasper.Text = fb.FileName;
+            }
+        }
+    }
+
+    private void ifptflashexp_Click_Jasper(object sender, RoutedEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "rom";
+            fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ifptflashpath_Jasper.Text = fb.FileName;
+            }
+        }
+    }
+
+    private async void ifptdumpbtn_Click_Jasper(object sender, RoutedEventArgs e)
+    {
+        if (!(ifptdumppath_Jasper.Text == ""))
+        {
+            if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
+            {
+                UT.SendAction("UTB.IFPTDump");
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                {
+                    UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
+                    if (await UT.CheckInternet())
+                    {
+                        await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
+                        await DlRes("IFPT");
+                        await UT.waitstatus.close();
+                    }
+                    else
+                    {
+                        UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+                    }
+                }
+                await Task.Delay(1000);
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                {
+                    await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
+                    string path = ifptdumppath_Jasper.Text;
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe";
+                        p.StartInfo.Arguments = $"-bios -d \"{path}\"";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.Start();
+                        p.WaitForExit();
+                    });
+                    await UT.waitstatus.close();
+                    if (File.Exists(path))
+                    {
+                        UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+                    }
+                    else
+                    {
+                        UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                    }
+                }
+            }
+        }
+    }
+
+    private async void ifptflashbtn_Click_Jasper(object sender, RoutedEventArgs e)
+    {
+        if (!(ifptflashpath_Jasper.Text == ""))
+        {
+            if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
+            {
+                UT.SendAction("UTB.IFPTFlash");
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                {
+                    UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
+                    if (await UT.CheckInternet())
+                    {
+                        await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
+                        await DlRes("IFPT");
+                        await UT.waitstatus.close();
+                    }
+                    else
+                    {
+                        UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+                    }
+                }
+                await Task.Delay(1000);
+                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                {
+                    await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
+                    string path = ifptflashpath_Jasper.Text;
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe";
                         p.StartInfo.Arguments = $"-bios -f \"{path}\"";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
                         p.Start();
@@ -450,7 +582,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
     {
         using (var fb = new System.Windows.Forms.SaveFileDialog())
         {
-            fb.FileName = "UT-SMBIOS_" + UTdata.sn.Replace(" ", "");
+            fb.FileName = "UT-SMBIOS_" + UTdata.sn.Replace(" ", "_");
             fb.DefaultExt = "json";
             fb.Filter = "Unowhy Tools SMBIOS file (*.json)|*.json";
             fb.FilterIndex = 1;
@@ -707,18 +839,18 @@ public partial class Bios : INavigableView<DashboardViewModel>
         }
     }
 
-    private async void ExpIFPT_Expanded(object sender, RoutedEventArgs e)
+    private async void ExpIFPT_Expanded_Tiger(object sender, RoutedEventArgs e)
     {
-        foreach (UIElement element in IFPTGridDump.Children)
+        foreach (UIElement element in IFPTGridDump_Tiger.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
-        foreach (UIElement element in IFPTGridFlash.Children)
+        foreach (UIElement element in IFPTGridFlash_Tiger.Children)
         {
             element.Visibility = Visibility.Hidden;
         }
 
-        foreach (UIElement element in IFPTGridDump.Children)
+        foreach (UIElement element in IFPTGridDump_Tiger.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -745,7 +877,74 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
             await Task.Delay(50);
         }
-        foreach (UIElement element in IFPTGridFlash.Children)
+        foreach (UIElement element in IFPTGridFlash_Tiger.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+    }
+
+    private async void ExpIFPT_Expanded_Jasper(object sender, RoutedEventArgs e)
+    {
+        foreach (UIElement element in IFPTGridDump_Jasper.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in IFPTGridFlash_Jasper.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        foreach (UIElement element in IFPTGridDump_Jasper.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in IFPTGridFlash_Jasper.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation

@@ -46,18 +46,20 @@
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="10" />
                         <RowDefinition Height="auto" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-                    <Expander Header="Intel Flash Programmer Tool (Dump and Flash) (only 2023)"
+                    <Expander Header="Intel Flash Programmer Tool (Dump and Flash) (Tiger Lake)"
                               Grid.Row="0"
-                              x:Name="ExpIFPT"
-                              Expanded="ExpIFPT_Expanded">
+                              x:Name="ExpIFPT_Tiger"
+                              Expanded="ExpIFPT_Expanded_Tiger">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Grid x:Name="IFPTGridDump">
+                            <Grid x:Name="IFPTGridDump_Tiger">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="5" />
@@ -76,38 +78,38 @@
                                 <Image Source="../../Resources/upload.png"
                                        Grid.Row="2"
                                        Grid.Column="0" />
-                                <TextBlock x:Name="ifptdumplab"
+                                <TextBlock x:Name="ifptdumplab_Tiger"
                                            Text="Dump to a file: "
                                            Grid.Column="0"
                                            Grid.Row="0"
                                            Grid.ColumnSpan="3"
                                            FontSize="13"
                                            Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-                                <ui:TextBox x:Name="ifptdumppath"
+                                <ui:TextBox x:Name="ifptdumppath_Tiger"
                                             Grid.Column="2"
                                             Grid.Row="2"
                                             IsReadOnly="True" />
-                                <ui:Button x:Name="ifptdumpexp"
+                                <ui:Button x:Name="ifptdumpexp_Tiger"
                                            Grid.Column="4"
                                            Grid.Row="2"
                                            HorizontalAlignment="Stretch"
                                            VerticalAlignment="Stretch"
                                            Content="..."
                                            FontSize="16"
-                                           Click="ifptdumpexp_Click" />
-                                <ui:Button x:Name="ifptdumpbtn"
+                                           Click="ifptdumpexp_Click_Tiger" />
+                                <ui:Button x:Name="ifptdumpbtn_Tiger"
                                            Grid.Column="6"
                                            Grid.Row="2"
                                            HorizontalAlignment="Stretch"
                                            VerticalAlignment="Stretch"
                                            Content="Dump"
                                            FontSize="16"
-                                           Click="ifptdumpbtn_Click" />
+                                           Click="ifptdumpbtn_Click_Tiger" />
                             </Grid>
                             <ui:NavigationSeparator Grid.Column="1"
                                                     Margin="5" />
                             <Grid Grid.Column="2"
-                                  x:Name="IFPTGridFlash">
+                                  x:Name="IFPTGridFlash_Tiger">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="5" />
@@ -126,38 +128,147 @@
                                 <Image Source="../../Resources/download.png"
                                        Grid.Row="2"
                                        Grid.Column="0" />
-                                <TextBlock x:Name="ifptflashlab"
+                                <TextBlock x:Name="ifptflashlab_Tiger"
                                            Text="Flash from a file: "
                                            Grid.Column="0"
                                            Grid.Row="0"
                                            Grid.ColumnSpan="3"
                                            FontSize="13"
                                            Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-                                <ui:TextBox x:Name="ifptflashpath"
+                                <ui:TextBox x:Name="ifptflashpath_Tiger"
                                             Grid.Column="2"
                                             Grid.Row="2"
                                             IsReadOnly="True" />
-                                <ui:Button x:Name="ifptflashexp"
+                                <ui:Button x:Name="ifptflashexp_Tiger"
                                            Grid.Column="4"
                                            Grid.Row="2"
                                            HorizontalAlignment="Stretch"
                                            VerticalAlignment="Stretch"
                                            Content="..."
                                            FontSize="16"
-                                           Click="ifptflashexp_Click" />
-                                <ui:Button x:Name="ifptflashbtn"
+                                           Click="ifptflashexp_Click_Tiger" />
+                                <ui:Button x:Name="ifptflashbtn_Tiger"
                                            Grid.Column="6"
                                            Grid.Row="2"
                                            HorizontalAlignment="Stretch"
                                            VerticalAlignment="Stretch"
                                            Content="Flash"
                                            FontSize="16"
-                                           Click="ifptflashbtn_Click" />
+                                           Click="ifptflashbtn_Click_Tiger" />
                             </Grid>
                         </Grid>
                     </Expander>
-                    <Expander Header="AMI Flasher Utility (Dump and Flash) (only 2022 and before)"
+                    <Expander Header="Intel Flash Programmer Tool (Dump and Flash) (Jasper Lake)"
                               Grid.Row="2"
+                              x:Name="ExpIFPT_Jasper"
+                              Expanded="ExpIFPT_Expanded_Jasper">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid x:Name="IFPTGridDump_Jasper">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="../../Resources/upload.png"
+                                       Grid.Row="2"
+                                       Grid.Column="0" />
+                                <TextBlock x:Name="ifptdumplab_Jasper"
+                                           Text="Dump to a file: "
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="3"
+                                           FontSize="13"
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <ui:TextBox x:Name="ifptdumppath_Jasper"
+                                            Grid.Column="2"
+                                            Grid.Row="2"
+                                            IsReadOnly="True" />
+                                <ui:Button x:Name="ifptdumpexp_Jasper"
+                                           Grid.Column="4"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="..."
+                                           FontSize="16"
+                                           Click="ifptdumpexp_Click_Jasper" />
+                                <ui:Button x:Name="ifptdumpbtn_Jasper"
+                                           Grid.Column="6"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="Dump"
+                                           FontSize="16"
+                                           Click="ifptdumpbtn_Click_Jasper" />
+                            </Grid>
+                            <ui:NavigationSeparator Grid.Column="1"
+                                                    Margin="5" />
+                            <Grid Grid.Column="2"
+                                  x:Name="IFPTGridFlash_Jasper">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="../../Resources/download.png"
+                                       Grid.Row="2"
+                                       Grid.Column="0" />
+                                <TextBlock x:Name="ifptflashlab_Jasper"
+                                           Text="Flash from a file: "
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="3"
+                                           FontSize="13"
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <ui:TextBox x:Name="ifptflashpath_Jasper"
+                                            Grid.Column="2"
+                                            Grid.Row="2"
+                                            IsReadOnly="True" />
+                                <ui:Button x:Name="ifptflashexp_Jasper"
+                                           Grid.Column="4"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="..."
+                                           FontSize="16"
+                                           Click="ifptflashexp_Click_Jasper" />
+                                <ui:Button x:Name="ifptflashbtn_Jasper"
+                                           Grid.Column="6"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="Flash"
+                                           FontSize="16"
+                                           Click="ifptflashbtn_Click_Jasper" />
+                            </Grid>
+                        </Grid>
+                    </Expander>
+                    <Expander Header="AMI Flasher Utility (Dump and Flash) (Gemini Lake)"
+                              Grid.Row="4"
                               x:Name="ExpAFU"
                               Expanded="ExpAFU_Expanded">
                         <Grid>
@@ -301,7 +412,7 @@
                         </Grid>
                     </Expander>
                     <Expander Header="AMI DMI Editor (Customization)"
-                              Grid.Row="4"
+                              Grid.Row="6"
                               x:Name="ExpAMIDE"
                               Expanded="ExpAMIDE_Expanded">
                         <Grid>

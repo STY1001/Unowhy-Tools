@@ -166,7 +166,7 @@ namespace Unowhy_Tools
 
         public static int verfull = 2805;
         public static string verbuild = "1140020624";
-        public static bool verisdeb = false;
+        public static bool verisdeb = true;
 
         public class version
         {
@@ -1216,6 +1216,12 @@ namespace Unowhy_Tools
             string sku = GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
             model = await UT.GetModelWithSKU(sku);
 
+            bool weirdpc = false;
+            if (model == "Unknown")
+            {
+                weirdpc = true;
+            }
+
             List<string> defaultosfile = new List<string>()
             {
                 "C:\\Windows\\ver.txt",
@@ -1254,6 +1260,7 @@ namespace Unowhy_Tools
                             pcmodel = model.ToString(),
                             defaultos = defaultos.ToString().ToLower(),
                             osversion = osversion.ToString(),
+                            weirdpc = weirdpc.ToString().ToLower()
                         };
                         string jsonData = JsonConvert.SerializeObject(data);
                         Write2Log($"Sending Stats to \"{url}\" with \"{jsonData}\"");
@@ -2002,7 +2009,7 @@ namespace Unowhy_Tools
                         ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE", true);
                     });
                 }
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe"))
+                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
                 {
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
@@ -2012,7 +2019,13 @@ namespace Unowhy_Tools
                     {
                         mainWindow.SplashText.Text = dl + " (" + value.ToString("###") + "%)";
                     };
-                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw"), UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW.exe", progress, cancellationToken.Token);
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw2"), UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", progress, cancellationToken.Token);
+                    await MainWindow.USSwB("Extracting... (IFPT)");
+                    await Task.Delay(100);
+                    await Task.Run(() =>
+                    {
+                        ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT", true);
+                    });
                 }
             }
         }

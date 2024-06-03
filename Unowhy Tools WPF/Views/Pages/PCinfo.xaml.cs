@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System;
 using System.IO;
 using System.Windows.Controls;
+using System.Collections.Generic;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -51,6 +52,26 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
     public async Task infoapply()
     {
         string realmodel = await UT.GetModelWithSKU(UTdata.sku);
+        List<string> defaultosfile = new List<string>()
+            {
+                "C:\\Windows\\ver.txt",
+                "C:\\Windows\\version_gpo.txt",
+                "C:\\Windows\\version_master.txt"
+            };
+
+        bool defaultos = false;
+        foreach (string file in defaultosfile)
+        {
+            if (File.Exists(file))
+            {
+                defaultos = true;
+            }
+        }
+        string stockos = "";
+        if (defaultos)
+        {
+            stockos = " (Stock deploy)";
+        }
         uid.Text = UTdata.UserID;
         pcn.Text = UTdata.HostName;
         sys.Text = UTdata.mf + " " + UTdata.md;
@@ -58,7 +79,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         sku.Text = UTdata.sku + " (" + realmodel + ")";
         sn.Text = UTdata.sn;
         bv.Text = UTdata.bios;
-        wv.Text = UTdata.os;
+        wv.Text = UTdata.os + stockos;
         cpu.Text = UTdata.cpu;
         string sram = UTdata.ram;
         double preram = Convert.ToDouble(sram);
