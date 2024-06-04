@@ -50,7 +50,7 @@
                                    Grid.Row="1"
                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                    x:Name="captiontext"
-                                   Text="Unowhy Tools isn't compatible with your PC, make sure it's a Unowhy product&#x0a;If you have moddied the system SKU, please restore it&#x0a;Current SKU: [sku]" />
+                                   Text="Unowhy Tools isn't compatible with your PC, make sure it's a Unowhy product&#x0a;If you have modified the system SKU, please restore it&#x0a;Current SKU: [sku]" />
                     </Grid>
                     <Grid x:Name="skugrid"
                           Visibility="Collapsed">
