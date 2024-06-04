@@ -44,10 +44,6 @@
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="10" />
                         <RowDefinition Height="auto" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="10" />
-                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Expander Header="Intel Flash Programmer Tool (Dump and Flash) (Tiger Lake)"
                               Grid.Row="0"
@@ -192,7 +188,7 @@
                         </Grid>
                     </Expander>
                     <Expander Header="Intel Flash Programmer Tool (Dump and Flash) (Jasper Lake)"
-                              Grid.Row="2"
+                              Grid.Row="0"
                               x:Name="ExpIFPT_Jasper"
                               Expanded="ExpIFPT_Expanded_Jasper">
                         <Grid>
@@ -334,7 +330,7 @@
                         </Grid>
                     </Expander>
                     <Expander Header="AMI Flasher Utility (Dump and Flash) (Gemini Lake)"
-                              Grid.Row="4"
+                              Grid.Row="0"
                               x:Name="ExpAFU"
                               Expanded="ExpAFU_Expanded">
                         <Grid>
@@ -478,7 +474,7 @@
                         </Grid>
                     </Expander>
                     <Expander Header="AMI DMI Editor (Customization)"
-                              Grid.Row="6"
+                              Grid.Row="2"
                               x:Name="ExpAMIDE"
                               Expanded="ExpAMIDE_Expanded">
                         <Grid>
@@ -537,7 +533,7 @@
                                                    Grid.Row="0"
                                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                                         <ui:TextBox Grid.Row="2"
-                                                    PlaceholderText="[FAMILY]"
+                                                    PlaceholderText="[Family]"
                                                     x:Name="familybox" />
                                     </Grid>
                                     <Grid>
