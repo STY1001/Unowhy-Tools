@@ -46,35 +46,10 @@ public partial class Bios : INavigableView<DashboardViewModel>
     public async void Init(object sender, EventArgs e)
     {
         applylang();
-        string ifpt_jasper = "Y13G113S4EI Y13G113S4E Y11G201S2M Y13G201S4E Y13G201S4EI STYY13U";
-        string ifpt_tiger = "OPSG310S2M OPSG530S2M Y14G520S2M Y14G310S2M Y14G520S2MI Y14G310S2MI STYY5OPSI5";
-        string afu = "Y11G001S4E Y13G012S4EI Y13G011S4EI Y13G010S4EI Y13G002S4EI Y13G012S4E Y13G011S4E Y13G010S4E Y13G002S4E";
-        string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
-        if (ifpt_jasper.Contains(currentsku))
-        {
-            ExpIFPT_Jasper.Visibility = Visibility.Visible;
-            ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
-            ExpAFU.Visibility = Visibility.Collapsed;
-        }
-        if (ifpt_tiger.Contains(currentsku))
-        {
-            ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
-            ExpIFPT_Tiger.Visibility = Visibility.Visible;
-            ExpAFU.Visibility = Visibility.Collapsed;
-        }
-        if (afu.Contains(currentsku))
-        {
-            ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
-            ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
-            ExpAFU.Visibility = Visibility.Visible;
-        }
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)
     {
-        ExpAFU.IsExpanded = false;
-        ExpAMIDE.IsExpanded = false;
-
         await CheckBTN(false, "none");
 
         foreach (UIElement element in RootGrid2.Children)
@@ -112,6 +87,29 @@ public partial class Bios : INavigableView<DashboardViewModel>
             transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
 
             await Task.Delay(50);
+        }
+
+        string ifpt_jasper = "Y13G113S4EI Y13G113S4E Y11G201S2M Y13G201S4E Y13G201S4EI STYY13U";
+        string ifpt_tiger = "OPSG310S2M OPSG530S2M Y14G520S2M Y14G310S2M Y14G520S2MI Y14G310S2MI STYY5OPSI5";
+        string afu = "Y11G001S4E Y13G012S4EI Y13G011S4EI Y13G010S4EI Y13G002S4EI Y13G012S4E Y13G011S4E Y13G010S4E Y13G002S4E";
+        string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
+        if (ifpt_jasper.Contains(currentsku))
+        {
+            ExpIFPT_Jasper.Visibility = Visibility.Visible;
+            ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
+            ExpAFU.Visibility = Visibility.Collapsed;
+        }
+        if (ifpt_tiger.Contains(currentsku))
+        {
+            ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
+            ExpIFPT_Tiger.Visibility = Visibility.Visible;
+            ExpAFU.Visibility = Visibility.Collapsed;
+        }
+        if (afu.Contains(currentsku))
+        {
+            ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
+            ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
+            ExpAFU.Visibility = Visibility.Visible;
         }
     }
 

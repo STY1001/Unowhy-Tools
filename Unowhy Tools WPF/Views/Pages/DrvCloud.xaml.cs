@@ -557,5 +557,8 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         {
             await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094);
         };
+        iGPUMenu.Items.Add(TItem);
+        iGPUMenu.PlacementTarget = gpudriver;
+        iGPUMenu.IsOpen = true;
     }
 }
