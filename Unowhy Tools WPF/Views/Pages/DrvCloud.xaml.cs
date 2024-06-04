@@ -282,11 +282,11 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                     title = name + "  •  by " + author;
                     if (description == "")
                     {
-                        desc = pcmodel + "  •  " + size.ToString("0") + " MB";
+                        desc = model + "  •  " + size.ToString("0") + " MB";
                     }
                     else
                     {
-                        desc = description + "  •  " + pcmodel + "  •  " + size.ToString("0") + " MB";
+                        desc = description + "  •  " + model + "  •  " + size.ToString("0") + " MB";
                     }
 
                     await CreateCard(title, desc, name, link, size);

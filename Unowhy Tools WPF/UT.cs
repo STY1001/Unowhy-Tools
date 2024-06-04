@@ -2080,6 +2080,9 @@ namespace Unowhy_Tools
             await MainWindow.USS("Hardware Info... (Serial Number)");
             UTdata.sn = GetWMI("Win32_BIOS", "SerialNumber");
 
+            await MainWindow.USS("Hardware Info... (Family)");
+            UTdata.family = GetWMI("Win32_ComputerSystem", "SystemFamily");
+
             await MainWindow.USS("Hardware Info... (CPU)");
             UTdata.cpu = GetWMI("Win32_Processor", "Name");
 
