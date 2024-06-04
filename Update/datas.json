@@ -33,7 +33,9 @@
         "hsm":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ETHTw3AzvwlMkmO38-eNVTABwme9xV82pQz3r7tSxKnd2w?e=1rJtSR&download=1",
         "ridfca":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EQ-7u8tQUslNg8zCO6rnZn0BBw0HlKA2OkRBwmH1Rp8SvA?e=KzMlhG&download=1",
         "rufus":"https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5p.exe",
-        "gpudrv":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ER8azjkYaRhKlU37wFNkZroBknm_bDUfDfjE5hvf7ZuSfg?e=w4moLp&download=1"
+        "gpudrv":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ER8azjkYaRhKlU37wFNkZroBknm_bDUfDfjE5hvf7ZuSfg?e=w4moLp&download=1",
+        "gpugj":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ER8azjkYaRhKlU37wFNkZroBknm_bDUfDfjE5hvf7ZuSfg?e=w4moLp&download=1",
+        "gput":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ETHpeXIjqZ1ApTo7jTOVElsBesBJ4LRT04JpTNzw16pGMA?e=uJ1I4D&download=1"
     },
     "avatars": {
         "sty1001": "https://cdn.discordapp.com/avatars/1028607912320442410/d374ed0da829c066283c0ce0d534c751.png?size=4096",
@@ -63,6 +65,7 @@
             "name": "UT-Drv_12-50_16-10-22.zip",
             "author": "SonHaon",
             "pcyear": 2022,
+            "pcmodel": "Y13G012S4EI",
             "old": false,
             "description": {
                 "en": "Works with the majority of Y13 before 2023 (with a Realtek sound chip)",
@@ -75,6 +78,7 @@
             "name": "UT-Drv_11-03_20-11-22.zip",
             "author": "Thomaszino",
             "pcyear": 2022,
+            "pcmodel": "Y13G012S4EI",
             "old": false,
             "description": {
                 "en": "Works with the majority of Y13 before 2023 (with a EsAuDriver (Everest) sound chip)",
@@ -87,6 +91,7 @@
             "name": "UT-Drv_16-30_24-09-23.zip",
             "author": "STY1001",
             "pcyear": 2023,
+            "pcmodel": "Y13G113S4EI",
             "old": false,
             "description": {
                 "en": "Works with all Y13 of 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
@@ -99,6 +104,7 @@
             "name": "UT-Drv_11-13_07-09-23.zip",
             "author": "STY1001",
             "pcyear": 2020,
+            "pcmodel": "Y13G010S4EI",
             "old": false,
             "description": {
                 "en": "Works with Y13 of 2020 (with Realtek sound chip and Goodix fingerprint reader)",
@@ -111,6 +117,7 @@
             "name": "UT-Drv_17-46_25-10-22.zip",
             "author": "STY1001",
             "pcyear": 2021,
+            "pcmodel": "Y13G011S4EI",
             "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
@@ -123,6 +130,7 @@
             "name": "UT-Drv_12-00_25-10-22.zip",
             "author": "STY1001",
             "pcyear": 2021,
+            "pcmodel": "Y13G011S4EI",
             "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
@@ -135,6 +143,7 @@
             "name": "UT-Drv_18-12_14-09-23.zip",
             "author": "FGAMER768",
             "pcyear": 2022,
+            "pcmodel": "Y13G012S4EI",
             "old": true,
             "description": {
                 "en": "Works with Y13 of 2022 (with a EsAuDriver (Everest) with ISST (Intel Smart Sound Technology) sound chip and FocalTech fingerprint reader)",
@@ -147,6 +156,7 @@
             "name": "UT-Drv_09-39_06-03-23.zip",
             "author": "SpyXo",
             "pcyear": 2021,
+            "pcmodel": "Y13G011S4EI",
             "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
@@ -159,6 +169,7 @@
             "name": "UT-Drv_19-37_05-01-24.zip",
             "author": "Honda",
             "pcyear": 2023,
+            "pcmodel": "Y13G113S4EI",
             "old": true,
             "description": {
                 "en": "Works with Y13 of 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
@@ -171,6 +182,7 @@
             "name": "UT-Drv_21-50_13-09-23.zip",
             "author": "The french bidouilleur",
             "pcyear": 2023,
+            "pcmodel": "Y13G113S4EI",
             "old": true,
             "description": {
                 "en": "Works with Y13 of 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
@@ -183,6 +195,7 @@
             "name": "UT-Drv_19-35_18-12-23.zip",
             "author": "√(noham)²",
             "pcyear": 2021,
+            "pcmodel": "Y13G011S4EI",
             "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with a EsAuDriver (Everest) with ISST (Intel Smart Sound Technology))",
@@ -195,6 +208,7 @@
             "name": "UT-Drv_11-56_06-03-24.zip",
             "author": "Kofy",
             "pcyear": 2023,
+            "pcmodel": "Y13G113S4EI",
             "old": false,
             "description": {
                 "en": "Works with Y13 of 2023 (with a Realtek sound chip and FocalTech fingerprint reader)",
@@ -207,6 +221,7 @@
             "name": "UT-Drv_18-06_18-10-23.zip",
             "author": "Kofy",
             "pcyear": 2022,
+            "pcmodel": "Y13G012S4EI",
             "old": true,
             "description": {
                 "en": "Works with Y13 of 2022 (with a EsAuDriver (Everest) with ISST (Intel Smart Sound Technology) and FocalTech fingerprint reader)",
@@ -219,6 +234,7 @@
             "name": "UT-Drv_22-05_15-03-24.zip",
             "author": "Saffron",
             "pcyear": 2021,
+            "pcmodel": "Y13G011S4EI",
             "old": false,
             "description": {
                 "en": "Works with Y13 of 2021 (with Realtek sound chip and FocalTech fingerprint reader)",
@@ -231,6 +247,7 @@
             "name": "UT-Drv_09-46_03-02-23.zip",
             "author": "@on._.dine",
             "pcyear": 2022,
+            "pcmodel": "Y13G012S4EI",
             "old": true,
             "description": {
                 "en": "",
@@ -243,6 +260,7 @@
             "name": "UT-Drv_17-03_26-11-22.zip",
             "author": "Creeper",
             "pcyear": 2022,
+            "pcmodel": "Y13G012S4EI",
             "old": true,
             "description": {
                 "en": "",
@@ -255,6 +273,7 @@
             "name": "UT-Drv_18-22_18-01-23.zip",
             "author": "√(noham)²",
             "pcyear": 2021,
+            "pcmodel": "Y13G011S4EI",
             "old": true,
             "description": {
                 "en": "",
@@ -267,6 +286,7 @@
             "name": "UT-Drv_19-28_23-01-23.zip",
             "author": "Alexander",
             "pcyear": 2021,
+            "pcmodel": "Y13G011S4EI",
             "old": true,
             "description": {
                 "en": "",
@@ -279,6 +299,7 @@
             "name": "UT-Drv_20-40_10-06-23.zip",
             "author": "Finix",
             "pcyear": 2022,
+            "pcmodel": "Y13G012S4EI",
             "old": true,
             "description": {
                 "en": "",
@@ -291,6 +312,7 @@
             "name": "UT-Drv_22-05_18-01-23.zip",
             "author": "Dylan_Zpl",
             "pcyear": 2022,
+            "pcmodel": "Y13G012S4EI",
             "old": true,
             "description": {
                 "en": "",
