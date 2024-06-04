@@ -187,6 +187,11 @@
                                        Height="0"
                                        Content="HackBGRT settings"
                                        PageType="{x:Type pages:HackBGRT}" />
+                    <ui:NavigationItem x:Name="compatibility"
+                                       Visibility="Collapsed"
+                                       Height="0"
+                                       Content="Compatibility issue"
+                                       PageType="{x:Type pages:Compatibility}" />
                     <ui:NavigationSeparator Visibility="Collapsed" />
                     <ui:NavigationItem x:Name="settings"
                                        Content="Settings"
