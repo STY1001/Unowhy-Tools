@@ -23,6 +23,7 @@ using Wpf.Ui.Interop.WinDef;
 using Newtonsoft.Json;
 using System.Net;
 using System.Windows.Media.Imaging;
+using MenuItem = System.Windows.Controls.MenuItem;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -60,6 +61,31 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         showold.IsEnabled = false;
         versionselect.IsEnabled = false;
         applylang();
+        string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
+        if (currentsku.Contains("Y13G113S4EI") || currentsku.Contains("Y13G113S4E") || currentsku.Contains("STYY13U"))
+        {
+            selectY132023.IsSelected = true;
+        }
+        else if (currentsku.Contains("Y13G012S4EI") || currentsku.Contains("Y13G012S4E"))
+        {
+            selectY132022.IsSelected = true;
+        }
+        else if (currentsku.Contains("Y13G011S4EI") || currentsku.Contains("Y13G011S4E"))
+        {
+            selectY132021.IsSelected = true;
+        }
+        else if (currentsku.Contains("Y13G010S4EI") || currentsku.Contains("Y13G010S4E"))
+        {
+            selectY132020.IsSelected = true;
+        }
+        else if (currentsku.Contains("OPSG530S2M") || currentsku.Contains("STYY5OPSI5"))
+        {
+            selectY5OPSi5.IsSelected = true;
+        }
+        else
+        {
+            selectall.IsSelected = true;
+        }
 
         if (await UT.CheckInternet())
         {
@@ -211,23 +237,28 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                     string name = (string)driver["name"];
                     string author = (string)driver["author"];
                     string pcyear = (string)driver["pcyear"];
+                    string pcmodel = (string)driver["pcmodel"];
                     double size = (double)driver["size"];
                     string link = (string)driver["link"];
                     bool old = (bool)driver["old"];
 
-                    if (pcyear == "2023" && !select2023.IsSelected && !selectall.IsSelected)
+                    if ((pcmodel == "Y13G113S4EI" || pcmodel == "Y13G113S4E") && !selectY132023.IsSelected && !selectall.IsSelected)
                     {
                         continue;
                     }
-                    if (pcyear == "2022" && !select2022.IsSelected && !selectall.IsSelected)
+                    if ((pcmodel == "Y13G012S4EI" || pcmodel == "Y13G012S4E") && !selectY132022.IsSelected && !selectall.IsSelected)
                     {
                         continue;
                     }
-                    if (pcyear == "2021" && !select2021.IsSelected && !selectall.IsSelected)
+                    if ((pcmodel == "Y13G011S4EI" || pcmodel == "Y13G011S4E") && !selectY132021.IsSelected && !selectall.IsSelected)
                     {
                         continue;
                     }
-                    if (pcyear == "2020" && !select2020.IsSelected && !selectall.IsSelected)
+                    if ((pcmodel == "Y13G010S4EI" || pcmodel == "Y13G010S4E") && !selectY132020.IsSelected && !selectall.IsSelected)
+                    {
+                        continue;
+                    }
+                    if (pcmodel == "OPSG530S2M" && !selectY5OPSi5.IsSelected && !selectall.IsSelected)
                     {
                         continue;
                     }
@@ -247,15 +278,15 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                     }
 
                     size = size / (1024 * 1024);
-
+                    string model = UT.skumodel[pcmodel];
                     title = name + "  •  by " + author;
                     if (description == "")
                     {
-                        desc = pcyear + "  •  " + size.ToString("0") + " MB";
+                        desc = pcmodel + "  •  " + size.ToString("0") + " MB";
                     }
                     else
                     {
-                        desc = description + "  •  " + pcyear + "  •  " + size.ToString("0") + " MB";
+                        desc = description + "  •  " + pcmodel + "  •  " + size.ToString("0") + " MB";
                     }
 
                     await CreateCard(title, desc, name, link, size);
@@ -512,6 +543,19 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
     private async void gpudriver_Click(object sender, RoutedEventArgs e)
     {
-        await RestoreCloud("iGPU.zip", await UT.OnlineDatas.GetUrls("gpudrv"), 1337172998);
+        System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
+        MenuItem GJItem = new MenuItem();
+        GJItem.Header = "Gemini/Jasper Lake (Y11, Y13)";
+        GJItem.Click += async (sender, e) =>
+        {
+            await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998);
+        };
+        iGPUMenu.Items.Add(GJItem);
+        MenuItem TItem = new MenuItem();
+        TItem.Header = "Tiger Lake (Y5OPS, Y14 Plus)";
+        TItem.Click += async (sender, e) =>
+        {
+            await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094);
+        };
     }
 }

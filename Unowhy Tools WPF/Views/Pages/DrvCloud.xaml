@@ -69,14 +69,16 @@
                                 <ComboBoxItem Content="All version"
                                               x:Name="selectall"
                                               IsSelected="True" />
-                                <ComboBoxItem Content="2023"
-                                              x:Name="select2023" />
-                                <ComboBoxItem Content="2022"
-                                              x:Name="select2022" />
-                                <ComboBoxItem Content="2021"
-                                              x:Name="select2021" />
-                                <ComboBoxItem Content="2020"
-                                              x:Name="select2020" />
+                                <ComboBoxItem Content="Y13 Gen 1 2023"
+                                              x:Name="selectY132023" />
+                                <ComboBoxItem Content="Y13 Gen 1 2022"
+                                              x:Name="selectY132022" />
+                                <ComboBoxItem Content="Y13 Gen 1 2021"
+                                              x:Name="selectY132021" />
+                                <ComboBoxItem Content="Y13 Gen 1 2020"
+                                              x:Name="selectY132020" />
+                                <ComboBoxItem Content="Y5OPS i5"
+                                              x:Name="selectY5OPSi5" />
                             </ComboBox>
                             <CheckBox x:Name="showold"
                                       Checked="showold_Changed"
