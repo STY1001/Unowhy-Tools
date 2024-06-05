@@ -549,7 +549,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
     {
         System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
         MenuItem GJItem = new MenuItem();
-        GJItem.Header = "Gemini/Jasper Lake (Y11, Y13)";
+        GJItem.Header = "Gemini/Jasper Lake (Y11 360, Y13)";
         GJItem.Click += async (sender, e) =>
         {
             await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998);
