@@ -262,6 +262,10 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                     {
                         continue;
                     }
+                    if (pcmodel == "Y11G201S2M" && !selectY11G2.IsSelected && !selectall.IsSelected)
+                    {
+                        continue;
+                    }
                     if (old && showold.IsChecked == false)
                     {
                         continue;

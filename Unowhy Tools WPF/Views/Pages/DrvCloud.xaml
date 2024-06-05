@@ -79,6 +79,8 @@
                                               x:Name="selectY132020" />
                                 <ComboBoxItem Content="Y5OPS i5"
                                               x:Name="selectY5OPSi5" />
+                                <ComboBoxItem Content="Y11 360 Gen 2"
+                                              x:Name="selectY11G2" />
                             </ComboBox>
                             <CheckBox x:Name="showold"
                                       Checked="showold_Changed"
