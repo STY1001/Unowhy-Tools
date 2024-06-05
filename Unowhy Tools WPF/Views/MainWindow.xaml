@@ -175,7 +175,7 @@
                     <ui:NavigationItem x:Name="bios"
                                        Visibility="Collapsed"
                                        Height="0"
-                                       Content="Unowhy Tools Bios"
+                                       Content="Unowhy Tools BIOS"
                                        PageType="{x:Type pages:Bios}" />
                     <ui:NavigationItem x:Name="drvcloud"
                                        Visibility="Collapsed"
