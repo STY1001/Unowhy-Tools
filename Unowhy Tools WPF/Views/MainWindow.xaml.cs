@@ -442,7 +442,7 @@ public partial class MainWindow : INavigationWindow
         await mainWindow.updatesplashstatus(status, true);
     }
 
-    public int totalstep = 63;
+    public int totalstep = 64;
     public int actualstep = 0;
 
     public async Task updatesplashstatus(string status, bool bar)
