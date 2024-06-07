@@ -199,7 +199,11 @@ public partial class Delete : INavigableView<DashboardViewModel>
             await UT.waitstatus.open(await UT.GetLang("wait.uninstall"), "uninstall.png");
             await Task.Run(() =>
             {
-                Process p = Process.Start("C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe", "/S"); 
+                Process p = new Process();
+                p.StartInfo.FileName = "C:\\Program Files\\Unowhy\\HiSqool\\Uninstall Hisqool.exe";
+                p.StartInfo.Arguments = "/S";
+                p.StartInfo.WorkingDirectory = "C:\\Program Files\\Unowhy\\HiSqool";
+                p.Start();
                 p.WaitForExit();
             });
             await Task.Delay(1000);
