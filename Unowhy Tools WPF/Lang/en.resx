@@ -456,6 +456,9 @@
   <data name="enwhe" xml:space="preserve">
     <value>Enable Win Hello Enterprise</value>
   </data>
+  <data name="extregionchange" xml:space="preserve">
+    <value>The file extension has been changed to allow you (and Unowhy Tools) to know from which region it comes, don't touch it</value>
+  </data>
   <data name="failed" xml:space="preserve">
     <value>Failed !</value>
   </data>
@@ -635,6 +638,9 @@
   </data>
   <data name="refresh" xml:space="preserve">
     <value>Refresh</value>
+  </data>
+  <data name="regionselectwarn" xml:space="preserve">
+    <value>Select region carefully depending on your file. If you don't select the right region, you can brick your PC !!!</value>
   </data>
   <data name="repair" xml:space="preserve">
     <value>Repair</value>
@@ -829,10 +835,10 @@
     <value>Storage Usage</value>
   </data>
   <data name="utbdumpwarn" xml:space="preserve">
-    <value>Do you want to dump the BIOS of this PC to a file</value>
+    <value>Do you want to dump the EEPROM of this PC to a file</value>
   </data>
   <data name="utbflashwarn" xml:space="preserve">
-    <value>Please connect an charger to the PC to prevent any fail. Don't close Unowhy Tools during the process. If the flash fail, your PC can no boot. After flash done, your PC will be reboot. Do you want to flash this BIOS file to this PC</value>
+    <value>Please connect an charger to the PC to prevent any fail. Don't close Unowhy Tools during the process. If the flash fail, your PC can no boot. After flash done, your PC will be reboot. Do you want to flash this EEPROM file to this PC</value>
   </data>
   <data name="verbstatena" xml:space="preserve">
     <value>Enable Windows verbose status</value>

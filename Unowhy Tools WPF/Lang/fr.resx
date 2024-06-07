@@ -456,6 +456,9 @@
   <data name="enwhe" xml:space="preserve">
     <value>Activer Win Hello Enterprise</value>
   </data>
+  <data name="extregionchange" xml:space="preserve">
+    <value>L'extension du fichier a été modifiée pour vous permettre (ainsi qu'à Unowhy Tools) de savoir de quelle région il provient, n'y touchez pas</value>
+  </data>
   <data name="failed" xml:space="preserve">
     <value>Terminé avec erreur(s) !</value>
   </data>
@@ -635,6 +638,9 @@
   </data>
   <data name="refresh" xml:space="preserve">
     <value>Rafraîchir</value>
+  </data>
+  <data name="regionselectwarn" xml:space="preserve">
+    <value>Sélectionnez soigneusement la région en fonction de votre fichier. Si vous ne sélectionnez pas la bonne région, vous pouvez bricker votre PC !!!</value>
   </data>
   <data name="repair" xml:space="preserve">
     <value>Réparer</value>
@@ -829,10 +835,10 @@
     <value>Utilisation du stockage</value>
   </data>
   <data name="utbdumpwarn" xml:space="preserve">
-    <value>Voulez-vous dump le BIOS de ce PC dans un fichier</value>
+    <value>Voulez-vous dump l'EEPROM de ce PC dans un fichier</value>
   </data>
   <data name="utbflashwarn" xml:space="preserve">
-    <value>Veuillez connecter un chargeur au PC pour éviter toute panne. Ne fermez pas Unowhy Tools pendant le processus. Si le flash échoue, votre PC ne peut pas démarrer. Une fois le flash terminé, votre PC redémarrera. Voulez-vous flasher ce fichier BIOS sur ce PC</value>
+    <value>Veuillez connecter un chargeur au PC pour éviter toute panne. Ne fermez pas Unowhy Tools pendant le processus. Si le flash échoue, votre PC ne peut pas démarrer. Une fois le flash terminé, votre PC redémarrera. Voulez-vous flasher ce fichier EEPROM sur ce PC</value>
   </data>
   <data name="verbstatena" xml:space="preserve">
     <value>Activer le statut détaillé de Windows</value>

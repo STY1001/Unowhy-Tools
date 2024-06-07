@@ -216,12 +216,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
         InitializeComponent();
     }
 
-    private void ifptdumpexp_Click_Tiger(object sender, RoutedEventArgs e)
+    private async void ifptdumpexp_Click_Tiger(object sender, RoutedEventArgs e)
     {
         using (var fb = new System.Windows.Forms.SaveFileDialog())
         {
             fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "_");
-            fb.DefaultExt = "rom";
+            fb.DefaultExt = "bin";
             fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
@@ -233,11 +233,11 @@ public partial class Bios : INavigableView<DashboardViewModel>
         }
     }
 
-    private void ifptflashexp_Click_Tiger(object sender, RoutedEventArgs e)
+    private async void ifptflashexp_Click_Tiger(object sender, RoutedEventArgs e)
     {
         using (var fb = new System.Windows.Forms.OpenFileDialog())
         {
-            fb.DefaultExt = "rom";
+            fb.DefaultExt = "bin";
             fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
@@ -245,6 +245,11 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (result == DialogResult.OK)
             {
                 ifptflashpath_Tiger.Text = fb.FileName;
+                if (fb.FileName.Contains(".all.bin") || fb.FileName.Contains(".all.rom")) ifptalleeprom_Tiger.IsChecked = true;
+                if (fb.FileName.Contains(".desc.bin") || fb.FileName.Contains(".desc.rom")) ifptdesc_Tiger.IsChecked = true;
+                if (fb.FileName.Contains(".bios.bin") || fb.FileName.Contains(".bios.rom")) ifptbios_Tiger.IsChecked = true;
+                if (fb.FileName.Contains(".me.bin") || fb.FileName.Contains(".me.rom")) ifptme_Tiger.IsChecked = true;
+                UT.DialogIShow(await UT.GetLang("regionselectwarn"), "ic.png");
             }
         }
     }
@@ -255,7 +260,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
-                UT.SendAction("UTB.IFPTDump");
+                UT.SendAction("UTB.IFPTDump_Tiger");
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
@@ -275,6 +280,10 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath_Tiger.Text;
+                    if (ifptalleeprom_Tiger.IsChecked == true) path = path.Replace(".bin", ".all.bin").Replace(".rom", ".all.rom");
+                    if (ifptdesc_Tiger.IsChecked == true) path = path.Replace(".bin", ".desc.bin").Replace(".rom", ".desc.rom");
+                    if (ifptbios_Tiger.IsChecked == true) path = path.Replace(".bin", ".bios.bin").Replace(".rom", ".bios.rom");
+                    if (ifptme_Tiger.IsChecked == true) path = path.Replace(".bin", ".me.bin").Replace(".rom", ".me.rom");
                     string extarg = "";
                     if (ifptalleeprom_Tiger.IsChecked == true) extarg = "";
                     if (ifptdesc_Tiger.IsChecked == true) extarg = "-desc";
@@ -292,6 +301,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
                     if (File.Exists(path))
                     {
+                        UT.DialogIShow(await UT.GetLang("extregionchange"), "ic.png");
                         UT.DialogIShow(await UT.GetLang("done"), "yes.png");
                     }
                     else
@@ -309,7 +319,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
-                UT.SendAction("UTB.IFPTFlash");
+                UT.SendAction("UTB.IFPTFlash_Tiger");
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
@@ -357,7 +367,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         using (var fb = new System.Windows.Forms.SaveFileDialog())
         {
             fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "_");
-            fb.DefaultExt = "rom";
+            fb.DefaultExt = "bin";
             fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
@@ -369,11 +379,11 @@ public partial class Bios : INavigableView<DashboardViewModel>
         }
     }
 
-    private void ifptflashexp_Click_Jasper(object sender, RoutedEventArgs e)
+    private async void ifptflashexp_Click_Jasper(object sender, RoutedEventArgs e)
     {
         using (var fb = new System.Windows.Forms.OpenFileDialog())
         {
-            fb.DefaultExt = "rom";
+            fb.DefaultExt = "bin";
             fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
             fb.FilterIndex = 1;
             fb.Title = "Unowhy Tools";
@@ -381,6 +391,11 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (result == DialogResult.OK)
             {
                 ifptflashpath_Jasper.Text = fb.FileName;
+                if (fb.FileName.Contains(".all.bin") || fb.FileName.Contains(".all.rom")) ifptalleeprom_Jasper.IsChecked = true;
+                if (fb.FileName.Contains(".desc.bin") || fb.FileName.Contains(".desc.rom")) ifptdesc_Jasper.IsChecked = true;
+                if (fb.FileName.Contains(".bios.bin") || fb.FileName.Contains(".bios.rom")) ifptbios_Jasper.IsChecked = true;
+                if (fb.FileName.Contains(".me.bin") || fb.FileName.Contains(".me.rom")) ifptme_Jasper.IsChecked = true;
+                UT.DialogIShow(await UT.GetLang("regionselectwarn"), "ic.png");
             }
         }
     }
@@ -391,7 +406,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
-                UT.SendAction("UTB.IFPTDump");
+                UT.SendAction("UTB.IFPTDump_Jasper");
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
@@ -411,6 +426,10 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath_Jasper.Text;
+                    if (ifptalleeprom_Jasper.IsChecked == true) path = path.Replace(".bin", ".all.bin").Replace(".rom", ".all.rom");
+                    if (ifptdesc_Jasper.IsChecked == true) path = path.Replace(".bin", ".desc.bin").Replace(".rom", ".desc.rom");
+                    if (ifptbios_Jasper.IsChecked == true) path = path.Replace(".bin", ".bios.bin").Replace(".rom", ".bios.rom");
+                    if (ifptme_Jasper.IsChecked == true) path = path.Replace(".bin", ".me.bin").Replace(".rom", ".me.rom");
                     string extarg = "";
                     if (ifptalleeprom_Jasper.IsChecked == true) extarg = "";
                     if (ifptdesc_Jasper.IsChecked == true) extarg = "-desc";
@@ -428,6 +447,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
                     if (File.Exists(path))
                     {
+                        UT.DialogIShow(await UT.GetLang("extregionchange"), "ic.png");
                         UT.DialogIShow(await UT.GetLang("done"), "yes.png");
                     }
                     else
@@ -445,7 +465,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         {
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
-                UT.SendAction("UTB.IFPTFlash");
+                UT.SendAction("UTB.IFPTFlash_Jasper");
                 if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");

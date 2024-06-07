@@ -168,7 +168,6 @@
                                     </Grid.ColumnDefinitions>
                                     <RadioButton Content="All region (EEPROM)"
                                                  GroupName="ifptpradio_Tiger"
-                                                 IsChecked="True"
                                                  x:Name="ifptalleeprom_Tiger"
                                                  Grid.Column="0" />
                                     <RadioButton Content="Desc region"
@@ -177,6 +176,7 @@
                                                  Grid.Column="1" />
                                     <RadioButton Content="BIOS region"
                                                  GroupName="ifptpradio_Tiger"
+                                                 IsChecked="True"
                                                  x:Name="ifptbios_Tiger"
                                                  Grid.Column="2" />
                                     <RadioButton Content="ME region"
@@ -310,7 +310,6 @@
                                     </Grid.ColumnDefinitions>
                                     <RadioButton Content="All region (EEPROM)"
                                                  GroupName="ifptpradio_Jasper"
-                                                 IsChecked="True"
                                                  x:Name="ifptalleeprom_Jasper" 
                                                  Grid.Column="0"/>
                                     <RadioButton Content="Desc region"
@@ -319,6 +318,7 @@
                                                  Grid.Column="1" />
                                     <RadioButton Content="BIOS region"
                                                  GroupName="ifptpradio_Jasper"
+                                                 IsChecked="True"
                                                  x:Name="ifptbios_Jasper" 
                                                  Grid.Column="2" />
                                     <RadioButton Content="ME region"
