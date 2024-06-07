@@ -120,7 +120,7 @@ namespace Unowhy_Tools_Uninstaller
 
             Process p3 = new Process();
             p3.StartInfo.FileName = "cmd.exe";
-            p3.StartInfo.Arguments = "/c echo \"Wait...\" & timeout /t 1 & taskkill /f /im uninstall.exe & timeout /t 1 & rmdir /q /s \"C:\\Program Files (x86)\\Unowhy Tools\" & rmdir /q /s \"C:\\UTSConfig\" & echo \"Done\" & timeout /t 1 & exit";
+            p3.StartInfo.Arguments = "/c echo \"Wait...\" & timeout /t 1 & taskkill /f /im uninstall.exe & timeout /t 1 & rmdir /q /s \"C:\\Program Files (x86)\\Unowhy Tools\" & rmdir /q /s \"C:\\Unowhy Tools\" & echo \"Done\" & timeout /t 1 & exit";
             p3.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             p3.StartInfo.CreateNoWindow = true;
             p3.Start();
