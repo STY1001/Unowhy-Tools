@@ -98,9 +98,9 @@
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(12, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(249, 17);
+            this.label3.Size = new System.Drawing.Size(224, 17);
             this.label3.TabIndex = 36;
-            this.label3.Text = "The all-in-one tool for your Unowhy Y13 !";
+            this.label3.Text = "The all-in-one tool for your Unowhy !";
             // 
             // sty1001
             // 
@@ -141,7 +141,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 39;
-            this.label2.Text = "Ver 28.04";
+            this.label2.Text = "Ver 29.00";
             // 
             // cancel
             // 
@@ -288,6 +288,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unowhy Tools Installer";
             this.Load += new System.EventHandler(this.Main_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();

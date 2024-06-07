@@ -364,5 +364,13 @@ namespace Unowhy_Tools_Installer
         {
 
         }
+
+        private async void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.I)
+            {
+                await install_check();
+            }
+        }
     }
 }
