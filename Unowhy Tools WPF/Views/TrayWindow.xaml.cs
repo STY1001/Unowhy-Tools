@@ -765,6 +765,7 @@ public partial class TrayWindow : Window
             try
             {
                 await UT.SendStats("tray");
+                await UT.Check("all");
             }
             catch
             {
