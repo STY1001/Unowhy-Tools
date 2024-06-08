@@ -54,6 +54,9 @@ namespace Unowhy_Tools_Installer
             ok.Visible = false;
             pictureBox6.Visible = false;
 
+            this.Focus();
+            this.KeyPreview = true;
+
             if (args.Contains("-s"))
             {
                 silent = true;
@@ -125,9 +128,7 @@ namespace Unowhy_Tools_Installer
                     install.Visible = false;
                     desktop.Visible = false;
                     pictureBox2.Visible = false;
-                    cancel.Visible = false;
                     pictureBox4.Visible = false;
-                    pictureBox5.Visible = false;
 
                     status.Text = "";
                     await install_pre();
@@ -365,10 +366,12 @@ namespace Unowhy_Tools_Installer
 
         }
 
+        bool ipressed = false;
         private async void Main_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.I)
+            if (e.KeyCode == Keys.I && !ipressed)
             {
+                ipressed = true;
                 await install_check();
             }
         }

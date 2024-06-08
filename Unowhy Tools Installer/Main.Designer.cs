@@ -37,17 +37,14 @@
             this.status = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cancel = new ReaLTaiizor.Controls.Button();
             this.ok = new ReaLTaiizor.Controls.Button();
             this.install = new ReaLTaiizor.Controls.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -88,7 +85,7 @@
             this.statusbar.Name = "statusbar";
             this.statusbar.Size = new System.Drawing.Size(321, 17);
             this.statusbar.Step = 1;
-            this.statusbar.TabIndex = 4;
+            this.statusbar.TabIndex = 0;
             // 
             // label3
             // 
@@ -121,8 +118,9 @@
             this.status.ForeColor = System.Drawing.Color.White;
             this.status.Location = new System.Drawing.Point(16, 173);
             this.status.Name = "status";
+            this.status.ReadOnly = true;
             this.status.Size = new System.Drawing.Size(279, 20);
-            this.status.TabIndex = 37;
+            this.status.TabIndex = 0;
             // 
             // label1
             // 
@@ -143,24 +141,6 @@
             this.label2.TabIndex = 39;
             this.label2.Text = "Ver 29.00";
             // 
-            // cancel
-            // 
-            this.cancel.BackColor = System.Drawing.Color.Transparent;
-            this.cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancel.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.cancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel.Image = null;
-            this.cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cancel.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.cancel.Location = new System.Drawing.Point(39, 204);
-            this.cancel.Name = "cancel";
-            this.cancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.cancel.Size = new System.Drawing.Size(102, 23);
-            this.cancel.TabIndex = 40;
-            this.cancel.Text = "Cancel / Annuler";
-            this.cancel.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
-            // 
             // ok
             // 
             this.ok.BackColor = System.Drawing.Color.Transparent;
@@ -170,11 +150,11 @@
             this.ok.Image = null;
             this.ok.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ok.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.ok.Location = new System.Drawing.Point(195, 204);
+            this.ok.Location = new System.Drawing.Point(46, 204);
             this.ok.Name = "ok";
             this.ok.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.ok.Size = new System.Drawing.Size(100, 23);
-            this.ok.TabIndex = 40;
+            this.ok.Size = new System.Drawing.Size(249, 23);
+            this.ok.TabIndex = 5;
             this.ok.Text = "Ok";
             this.ok.TextAlignment = System.Drawing.StringAlignment.Center;
             this.ok.Click += new System.EventHandler(this.button1_Click);
@@ -188,39 +168,29 @@
             this.install.Image = null;
             this.install.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.install.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.install.Location = new System.Drawing.Point(195, 204);
+            this.install.Location = new System.Drawing.Point(46, 204);
             this.install.Name = "install";
             this.install.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.install.Size = new System.Drawing.Size(100, 23);
-            this.install.TabIndex = 40;
-            this.install.Text = "Install / Installer";
+            this.install.Size = new System.Drawing.Size(249, 23);
+            this.install.TabIndex = 4;
+            this.install.Text = "Install / Installer (Press I)";
             this.install.TextAlignment = System.Drawing.StringAlignment.Center;
             this.install.Click += new System.EventHandler(this.install_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Unowhy_Tools_Installer.Properties.Resources.download;
-            this.pictureBox4.Location = new System.Drawing.Point(167, 203);
+            this.pictureBox4.Location = new System.Drawing.Point(16, 203);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 2;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Unowhy_Tools_Installer.Properties.Resources.no;
-            this.pictureBox5.Location = new System.Drawing.Point(13, 203);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Unowhy_Tools_Installer.Properties.Resources.yes;
-            this.pictureBox6.Location = new System.Drawing.Point(167, 203);
+            this.pictureBox6.Location = new System.Drawing.Point(16, 203);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(24, 24);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -265,7 +235,6 @@
             this.ClientSize = new System.Drawing.Size(310, 238);
             this.Controls.Add(this.install);
             this.Controls.Add(this.ok);
-            this.Controls.Add(this.cancel);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -273,7 +242,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.sty1001);
             this.Controls.Add(this.statusbar);
-            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -290,7 +258,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -308,7 +275,6 @@
         private System.Windows.Forms.CheckBox run;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.ProgressBar statusbar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label sty1001;
@@ -316,7 +282,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private ReaLTaiizor.Controls.Button cancel;
         private ReaLTaiizor.Controls.Button ok;
         private ReaLTaiizor.Controls.Button install;
     }
