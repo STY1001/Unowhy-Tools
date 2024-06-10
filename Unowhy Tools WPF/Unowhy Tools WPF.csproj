@@ -51,6 +51,7 @@
     <None Remove="Resources\bat75.png" />
     <None Remove="Resources\block.png" />
     <None Remove="Resources\boot.png" />
+    <None Remove="Resources\browser.png" />
     <None Remove="Resources\camera.png" />
     <None Remove="Resources\cert.png" />
     <None Remove="Resources\charge.png" />
@@ -208,6 +209,7 @@
     <Resource Include="Resources\bat75.png" />
     <Resource Include="Resources\block.png" />
     <Resource Include="Resources\boot.png" />
+    <Resource Include="Resources\browser.png" />
     <Resource Include="Resources\camera.png" />
     <Resource Include="Resources\cert.png" />
     <Resource Include="Resources\charge.png" />

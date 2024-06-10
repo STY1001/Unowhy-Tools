@@ -221,6 +221,70 @@
                     </ui:Button>
                 </StackPanel>
             </ui:CardControl>
+            <ui:CardControl x:Name="hsmpanel"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/browser.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="hsmpanel_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Open HiSqool Manager panel" />
+                            <TextBlock x:Name="hsmpanel_desc"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="hsmpanel_Click"
+                           x:Name="hsmpanel_btn"
+                           Content="Open"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
+            <ui:CardControl x:Name="hsmlivelog"
+                            Margin="10,0,10,10">
+                <ui:CardControl.Header>
+                    <Grid>
+                        <Image Source="pack://application:,,,/Resources/script.png"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               MaxHeight="32"
+                               MaxWidth="32" />
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Margin="50,0,0,0">
+                            <TextBlock x:Name="hsmlivelog_txt"
+                                       FontSize="13"
+                                       FontWeight="Medium"
+                                       Text="Show HiSqool Manager logs (in live)" />
+                            <TextBlock x:Name="hsmlivelog_desc"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                       Text="Description"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </ui:CardControl.Header>
+                <ui:Button Click="hsmlivelog_Click"
+                           x:Name="hsmlivelog_btn"
+                           Content="Open"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="4"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,0" />
+            </ui:CardControl>
         </StackPanel>
     </Border>
 </ui:UiPage>

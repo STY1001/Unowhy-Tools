@@ -351,6 +351,12 @@
   <data name="deschismdel" xml:space="preserve">
     <value>Delete the heavy "HiSqool Manager" folder and service (contains the software to manage this PC (Spyware/Malware)) (In : C:\Program Files\Unowhy)</value>
   </data>
+  <data name="deschsmlivelog" xml:space="preserve">
+    <value>Open HiSqool Manager logs view (in live). View HiSqool Manager logs in live (like a verbose mode)</value>
+  </data>
+  <data name="deschsmpanel" xml:space="preserve">
+    <value>Open HiSqool Manager panel. View some info about HiSqool Manager like payloads associate with this PC. It's a "hidden" local web page (localhost:7654)</value>
+  </data>
   <data name="descinstridfcert" xml:space="preserve">
     <value>Unowhy deployed a Root CA (certificate authority) with a payload to not simply log all DNS request, but also decrypt all your web request (HTTPS for example), to simplify, it's to spy you. Yes, it's a big privacy issue and can become a backdoor. The payload also disable Firefox certificate error to not avert user. But don't panic, you can remove, this also block the connection, use your 4G/5G instead or a VPN ? If you have already remove the certificate, you can reintall it, but I don't recommand you to do this</value>
   </data>
@@ -473,6 +479,12 @@
   </data>
   <data name="hackbgrtset" xml:space="preserve">
     <value>HackBGRT settings</value>
+  </data>
+  <data name="hsmlivelog" xml:space="preserve">
+    <value>Open HiSqool Manager logs view (in live)</value>
+  </data>
+  <data name="hsmpanel" xml:space="preserve">
+    <value>Open HiSqool Manager panel</value>
   </data>
   <data name="igpudrv" xml:space="preserve">
     <value>Install iGPU drivers</value>

@@ -351,6 +351,12 @@
   <data name="deschismdel" xml:space="preserve">
     <value>Supprimer le gros dossier "HiSqool Manager" ainsi que le service (contient le programme pour gerer les PC (spyware/malware)) (Dans : C:\Program Files\Unowhy)</value>
   </data>
+  <data name="deschsmlivelog" xml:space="preserve">
+    <value>Ouvrir les logs de HiSqool Manager (en direct). Afficher les logs de HiSqool Manager en direct (comme un mode détaillé)</value>
+  </data>
+  <data name="deschsmpanel" xml:space="preserve">
+    <value>Ouvrez le pannel HiSqool Manager. Afficher quelques informations sur HiSqool Manager, telles que les payloads associées à ce PC. C'est une page Web locale "cachée" (localhost:7654)</value>
+  </data>
   <data name="descinstridfcert" xml:space="preserve">
     <value>Unowhy a déployé une Root CA (autorité de certification) avec un payload pour non seulement journaliser toutes les requêtes DNS, mais aussi décrypter toutes vos requêtes web (HTTPS par exemple), pour simplifier, c'est pour vous espionner. Oui, c'est un gros problème de confidentialité et peut devenir une porte dérobée. Le payload désactive également l’erreur de certificat Firefox pour ne pas détourner l’utilisateur. Mais pas de panique, vous pouvez supprimer, cela bloque également la connexion, utiliser plutôt votre 4G/5G ou un VPN ? Si vous avez déjà supprimé le certificat, vous pouvez le réinstaller, mais je ne vous recommande pas de le faire</value>
   </data>
@@ -473,6 +479,12 @@
   </data>
   <data name="hackbgrtset" xml:space="preserve">
     <value>Paramètres de HackBGRT</value>
+  </data>
+  <data name="hsmlivelog" xml:space="preserve">
+    <value>Ouvrir les logs de HiSqool Manager (en direct)</value>
+  </data>
+  <data name="hsmpanel" xml:space="preserve">
+    <value>Ouvrir le pannel HiSqool Manager</value>
   </data>
   <data name="igpudrv" xml:space="preserve">
     <value>Installer les pilotes iGPU</value>
@@ -934,7 +946,7 @@
     <value>WinRE settings GUI pour Unowhy Tools</value>
   </data>
   <data name="winremsg" xml:space="preserve">
-    <value>L'image WinRE n'est pas présente, cliquez sur "Réparer" (600 MO libre requis)</value>
+    <value>L'image WinRE n'est pas présente, cliquez sur "Réparer" (600 Mo libre requis)</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Oui</value>

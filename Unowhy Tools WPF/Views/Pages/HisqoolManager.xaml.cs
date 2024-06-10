@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Diagnostics;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -34,6 +35,10 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         hsqm_enable_txt.Text = await UT.GetLang("enable");
         hsqm_disable_txt.Text = await UT.GetLang("disable");
         hsqm_delete_txt.Text = await UT.GetLang("delserv");
+        hsmpanel_txt.Text = await UT.GetLang("hsmpanel");
+        hsmpanel_desc.Text = await UT.GetLang("deschsmpanel");
+        hsmlivelog_txt.Text = await UT.GetLang("hsmlivelog");
+        hsmlivelog_desc.Text = await UT.GetLang("deschsmlivelog");
     }
 
     public async Task CheckBTN(bool check, string step)
@@ -42,6 +47,8 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.Check(step);
         }
+        hsmpanel.IsEnabled = true;
+        hsmlivelog.IsEnabled = true;
         hsqm_delete_txt.Foreground = new SolidColorBrush(enabled);
         hsqm_disable_txt.Foreground = new SolidColorBrush(enabled);
         hsqm_enable_txt.Foreground = new SolidColorBrush(enabled);
@@ -72,6 +79,8 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
                         hsqm_stop_txt.Foreground = new SolidColorBrush(enabled);
                         hsqm_start.IsEnabled = false;
                         hsqm_start_txt.Foreground = new SolidColorBrush(disabled);
+                        hsmpanel.IsEnabled = true;
+                        hsmlivelog.IsEnabled = true;
                     }
                     else
                     {
@@ -279,5 +288,28 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
                 UT.DialogIShow(await UT.GetLang("failed"), "no.png");
             }
         }
+    }
+
+    public async void hsmpanel_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+        UT.SendAction("HSMPanel");
+        System.Diagnostics.Process.Start(new ProcessStartInfo
+        {
+            FileName = "localhost:7654",
+            UseShellExecute = true
+        });
+    }
+
+    public async void hsmlivelog_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+        UT.SendAction("HSMLiveLog");
+        string logspath = "C:\\Program Files\\Unowhy\\HiSqool Manager\\logs\\logs";
+        string args = "\"type '" + logspath + "' -wait\"";
+        System.Diagnostics.Process.Start(new ProcessStartInfo
+        {
+            FileName = "powershell",
+            Arguments = args,
+            UseShellExecute = true
+        });
     }
 }
