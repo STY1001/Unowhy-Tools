@@ -295,7 +295,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         UT.SendAction("HSMPanel");
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
-            FileName = "localhost:7654",
+            FileName = "http://localhost:7654",
             UseShellExecute = true
         });
     }
