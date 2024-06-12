@@ -47,8 +47,8 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
         {
             await UT.Check(step);
         }
-        hsmpanel.IsEnabled = true;
-        hsmlivelog.IsEnabled = true;
+        hsmpanel.IsEnabled = false;
+        hsmlivelog.IsEnabled = false;
         hsqm_delete_txt.Foreground = new SolidColorBrush(enabled);
         hsqm_disable_txt.Foreground = new SolidColorBrush(enabled);
         hsqm_enable_txt.Foreground = new SolidColorBrush(enabled);
