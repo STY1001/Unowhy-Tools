@@ -256,7 +256,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public void Logs_Open(object sender, RoutedEventArgs e)
     {
-        UT.SendAction("OpenLogs")
+        UT.SendAction("OpenLogs");
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
             FileName = UT.utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt",
