@@ -520,6 +520,8 @@ public partial class TrayWindow : Window
     {
         if (!IsPause)
         {
+            this.Focus();
+
             DateTime now = DateTime.Now;
             string HM = now.ToString("HH:mm");
             string S = now.ToString("ss");
@@ -744,6 +746,7 @@ public partial class TrayWindow : Window
         base.Visibility = Visibility.Collapsed;
         await Task.Delay(1000);
         await StopTimer();
+        this.PreviewKeyDown += TrayWindow_PreviewKeyDown;
         base.Deactivated += TrayWindow_Deactivated;
         base.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
         trayIcon.Icon = UT.GetIconFromRes("UTtray.png");
@@ -831,7 +834,7 @@ public partial class TrayWindow : Window
         {
             From = 1,
             To = 0,
-            Duration = TimeSpan.FromSeconds(0.30),
+            Duration = TimeSpan.FromSeconds(0.40),
             EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
         };
 
@@ -839,16 +842,16 @@ public partial class TrayWindow : Window
         {
             From = 1,
             To = 1.1,
-            Duration = TimeSpan.FromSeconds(0.50),
-            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            Duration = TimeSpan.FromSeconds(0.45),
+            EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
         };
 
         var zoomAnimation2 = new DoubleAnimation
         {
             From = 1,
             To = 1.1,
-            Duration = TimeSpan.FromSeconds(0.50),
-            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            Duration = TimeSpan.FromSeconds(0.45),
+            EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
         };
 
         Storyboard.SetTarget(fadeInAnimation, element);
@@ -873,24 +876,24 @@ public partial class TrayWindow : Window
         {
             From = 0,
             To = 1,
-            Duration = TimeSpan.FromSeconds(0.30),
-            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            Duration = TimeSpan.FromSeconds(0.40),
+            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
         };
 
         var zoomAnimation1 = new DoubleAnimation
         {
             From = 1.1,
             To = 1,
-            Duration = TimeSpan.FromSeconds(0.50),
-            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            Duration = TimeSpan.FromSeconds(0.45),
+            EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
         };
 
         var zoomAnimation2 = new DoubleAnimation
         {
             From = 1.1,
             To = 1,
-            Duration = TimeSpan.FromSeconds(0.50),
-            EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+            Duration = TimeSpan.FromSeconds(0.45),
+            EasingFunction = new CircleEase { EasingMode = EasingMode.EaseOut }
         };
 
         Storyboard.SetTarget(fadeInAnimation, element);
@@ -923,6 +926,7 @@ public partial class TrayWindow : Window
         base.Visibility = Visibility.Visible;
 
         await ZoomOut(TrayGrid, false);
+        await Task.Delay(100);
         await ZoomOut(BackGrid, true);
         await ZoomOut(Border2, true);
         await ZoomOut(Border1, true);
@@ -973,6 +977,7 @@ public partial class TrayWindow : Window
         await Task.Delay(100);
 
         await ZoomIn(TrayGrid, false);
+        await Task.Delay(100);
         await ZoomIn(BackGrid, true);
         await ZoomIn(Border2, true);
         await ZoomIn(Border1, true);
@@ -1732,6 +1737,14 @@ public partial class TrayWindow : Window
         {
             await Task.Delay(10000);
             updatecheck = true;
+        }
+    }
+
+    private async void TrayWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+    {
+        if(e.Key == Key.Escape)
+        {
+            await HideTray();
         }
     }
 }

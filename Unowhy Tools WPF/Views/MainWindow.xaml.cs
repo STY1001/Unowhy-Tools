@@ -497,7 +497,7 @@ public partial class MainWindow : INavigationWindow
                 From = 0,
                 To = 1,
                 Duration = TimeSpan.FromSeconds(0.30),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
             };
 
             var zoomAnimation1 = new DoubleAnimation
@@ -505,7 +505,7 @@ public partial class MainWindow : INavigationWindow
                 From = 1.1,
                 To = 1,
                 Duration = TimeSpan.FromSeconds(0.50),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
             };
 
             var zoomAnimation2 = new DoubleAnimation
@@ -513,7 +513,7 @@ public partial class MainWindow : INavigationWindow
                 From = 1.1,
                 To = 1,
                 Duration = TimeSpan.FromSeconds(0.50),
-                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
             };
 
             Storyboard.SetTarget(fadeInAnimation, RootWelcomeGrid);
@@ -783,7 +783,7 @@ public partial class MainWindow : INavigationWindow
                         From = 1,
                         To = 1.1,
                         Duration = TimeSpan.FromSeconds(0.30),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseIn }
                     };
 
                     zoomAnimation2 = new DoubleAnimation
@@ -791,7 +791,7 @@ public partial class MainWindow : INavigationWindow
                         From = 1,
                         To = 1.1,
                         Duration = TimeSpan.FromSeconds(0.30),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseIn }
                     };
 
                     Storyboard.SetTarget(fadeInAnimation, RootWelcomeGrid);
@@ -826,7 +826,7 @@ public partial class MainWindow : INavigationWindow
                         From = 0,
                         To = 1,
                         Duration = TimeSpan.FromSeconds(0.30),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
                     };
 
                     zoomAnimation1 = new DoubleAnimation
@@ -834,7 +834,7 @@ public partial class MainWindow : INavigationWindow
                         From = 0.9,
                         To = 1,
                         Duration = TimeSpan.FromSeconds(0.50),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
                     };
 
                     zoomAnimation2 = new DoubleAnimation
@@ -842,7 +842,7 @@ public partial class MainWindow : INavigationWindow
                         From = 0.9,
                         To = 1,
                         Duration = TimeSpan.FromSeconds(0.50),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
                     };
 
                     Storyboard.SetTarget(fadeInAnimation, RootMainGrid);
@@ -1020,7 +1020,7 @@ public partial class MainWindow : INavigationWindow
                         From = 1,
                         To = 1.1,
                         Duration = TimeSpan.FromSeconds(0.30),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseIn }
                     };
 
                     zoomAnimation2 = new DoubleAnimation
@@ -1028,7 +1028,7 @@ public partial class MainWindow : INavigationWindow
                         From = 1,
                         To = 1.1,
                         Duration = TimeSpan.FromSeconds(0.30),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseIn }
                     };
 
                     Storyboard.SetTarget(fadeInAnimation, RootWelcomeGrid);
@@ -1063,7 +1063,7 @@ public partial class MainWindow : INavigationWindow
                         From = 0,
                         To = 1,
                         Duration = TimeSpan.FromSeconds(0.30),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseIn }
                     };
 
                     zoomAnimation1 = new DoubleAnimation
@@ -1071,7 +1071,7 @@ public partial class MainWindow : INavigationWindow
                         From = 0.9,
                         To = 1,
                         Duration = TimeSpan.FromSeconds(0.50),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
                     };
 
                     zoomAnimation2 = new DoubleAnimation
@@ -1079,7 +1079,7 @@ public partial class MainWindow : INavigationWindow
                         From = 0.9,
                         To = 1,
                         Duration = TimeSpan.FromSeconds(0.50),
-                        EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
+                        EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
                     };
 
                     Storyboard.SetTarget(fadeInAnimation, RootMainGrid);
