@@ -796,7 +796,7 @@
     <value>Désinstaller</value>
   </data>
   <data name="unoprodcat" xml:space="preserve">
-    <value>Products of Unowhy</value>
+    <value>Produits d'Unowhy</value>
   </data>
   <data name="unow" xml:space="preserve">
     <value>Mettre à jour</value>
@@ -838,7 +838,7 @@
     <value>Utilisation du CPU</value>
   </data>
   <data name="usefulcat" xml:space="preserve">
-    <value>Useful tools</value>
+    <value>Outils utiles</value>
   </data>
   <data name="useram" xml:space="preserve">
     <value>Utilisation de la RAM</value>

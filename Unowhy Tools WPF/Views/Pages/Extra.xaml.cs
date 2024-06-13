@@ -216,7 +216,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
         UT.SendAction("OpenMAS");
         if (await UT.CheckInternet())
         {
-            Process.Start("powershell", "\"irm https://massgrave.dev/get | iex\"");
+            Process.Start("powershell", "\"irm https://get.activated.win | iex\"");
         }
         else
         {
