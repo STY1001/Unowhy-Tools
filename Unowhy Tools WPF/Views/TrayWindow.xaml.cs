@@ -126,7 +126,7 @@ public partial class TrayWindow : Window
 
     public async Task CheckUpdate()
     {
-        if(updatecheck)
+        if (updatecheck)
         {
             try
             {
@@ -134,7 +134,7 @@ public partial class TrayWindow : Window
                 {
                     if (await UT.Config.Get("UpdateStart") == "1")
                     {
-                        if (await UT.version.newver())
+                        if (await UT.version.newver() || UT.version.isdeb())
                         {
                             string newver = await UT.OnlineDatas.GetUpdates("utnewver");
                             newver = newver.Insert(2, ".");
@@ -144,7 +144,6 @@ public partial class TrayWindow : Window
 
                             if (!firstok)
                             {
-                                firstok = true;
                                 Color white = (Color)ColorConverter.ConvertFromString("#FFFFFF");
                                 Color gray = (Color)ColorConverter.ConvertFromString("#bebebe");
                                 string newverfull2 = UT.version.getverfull().ToString().Insert(2, ".") + " -> " + newver;
@@ -171,30 +170,73 @@ public partial class TrayWindow : Window
                                 {
                                     while (true)
                                     {
-                                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Foreground = new SolidColorBrush(Colors.White);
+                                        });
                                         await Task.Delay(500);
-                                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Foreground = new SolidColorBrush(Colors.Gray);
+                                        });
                                         await Task.Delay(500);
-                                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Foreground = new SolidColorBrush(Colors.White);
+                                        });
                                         await Task.Delay(500);
-                                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                                        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Foreground = new SolidColorBrush(Colors.Gray);
+                                            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                                        });
                                         await Task.Delay(500);
-                                        UTUbtndesc.Text = labnewver;
-                                        trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-                                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Text = labnewver;
+                                            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+                                        });
+
                                         await Task.Delay(500);
-                                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
+
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Foreground = new SolidColorBrush(Colors.White);
+                                        });
                                         await Task.Delay(500);
-                                        UTUbtndesc.Foreground = new SolidColorBrush(white);
+
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Foreground = new SolidColorBrush(Colors.Gray);
+                                        });
                                         await Task.Delay(500);
-                                        UTUbtndesc.Foreground = new SolidColorBrush(gray);
-                                        trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Foreground = new SolidColorBrush(Colors.White);
+                                        });
                                         await Task.Delay(500);
-                                        UTUbtndesc.Text = newverfull2;
-                                        trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Foreground = new SolidColorBrush(Colors.Gray);
+                                            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+                                        });
+                                        await Task.Delay(500);
+
+                                        await System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                                        {
+                                            UTUbtndesc.Text = newverfull2;
+                                            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+                                        });
                                     }
                                 });
+
+                                firstok = true;
                             }
                         }
                         else
@@ -205,8 +247,9 @@ public partial class TrayWindow : Window
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                UT.Write2Log(ex.ToString());
                 UTUbtn.Visibility = Visibility.Collapsed;
                 Grid.SetColumnSpan(UTbtn, 2);
             }
@@ -726,7 +769,7 @@ public partial class TrayWindow : Window
         }
         catch
         {
-            
+
         }
         try
         {
@@ -738,7 +781,7 @@ public partial class TrayWindow : Window
         }
         catch
         {
-            
+
         }
         base.Visibility = Visibility.Collapsed;
         await InitTimer();
@@ -767,8 +810,9 @@ public partial class TrayWindow : Window
         {
             try
             {
+                await CheckUpdate();
                 await UT.SendStats("tray");
-                await UT.Check("all");
+                await UT.Check("forstats");
             }
             catch
             {
@@ -1742,7 +1786,7 @@ public partial class TrayWindow : Window
 
     private async void TrayWindow_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
     {
-        if(e.Key == Key.Escape)
+        if (e.Key == Key.Escape)
         {
             await HideTray();
         }
