@@ -31,6 +31,10 @@ public partial class TrayWindow : Window
     public string balanced = "00000000-0000-0000-0000-000000000000";
     public string efficiency = "961cc777-2547-4f9d-8174-7d86181b8a7a";
 
+    public string perfstr;
+    public string balancedstr;
+    public string efficiencystr;
+
     public bool CamOn;
     public bool MicOn;
 
@@ -473,19 +477,19 @@ public partial class TrayWindow : Window
 
             if (powerscheme.Contains(perf))
             {
-                batcapstring = await UT.GetLang("bat.perf");
+                batcapstring = perfstr;
                 batmodesource = UT.GetImgSource("power.png");
                 pmodeperf.IsSelected = true;
             }
             else if (powerscheme.Contains(balanced))
             {
-                batcapstring = await UT.GetLang("bat.balanced");
+                batcapstring = balancedstr;
                 batmodesource = UT.GetImgSource("balanced.png");
                 pmodebalanced.IsSelected = true;
             }
             else if (powerscheme.Contains(efficiency))
             {
-                batcapstring = await UT.GetLang("bat.efficiency");
+                batcapstring = efficiencystr;
                 batmodesource = UT.GetImgSource("efficiency.png");
                 pmodeefficiency.IsSelected = true;
             }
@@ -557,6 +561,9 @@ public partial class TrayWindow : Window
         labreg.Text = await UT.GetLang("openreg");
         labgp.Text = await UT.GetLang("opengp");
         editpath = await UT.GetLang("qleditclick");
+        perfstr = await UT.GetLang("bat.perf");
+        balancedstr = await UT.GetLang("bat.balanced");
+        efficiencystr = await UT.GetLang("bat.efficiency");
     }
 
     public async Task UpdateTimeDate()
