@@ -134,7 +134,7 @@ public partial class TrayWindow : Window
                 {
                     if (await UT.Config.Get("UpdateStart") == "1")
                     {
-                        if (await UT.version.newver() || UT.version.isdeb())
+                        if (await UT.version.newver())
                         {
                             string newver = await UT.OnlineDatas.GetUpdates("utnewver");
                             newver = newver.Insert(2, ".");
