@@ -129,7 +129,7 @@
                                                TextWrapping="Wrap"
                                                FontSize="15"
                                                FontFamily="Segoe UI Bold" />
-                                    <TextBlock Text="A software to manage your Y13"
+                                    <TextBlock Text="A software to manage your Unowhy"
                                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                TextWrapping="Wrap"
                                                FontSize="15"
@@ -164,7 +164,7 @@
                                                TextWrapping="Wrap"
                                                FontSize="15"
                                                FontFamily="Segoe UI Bold" />
-                                    <TextBlock Text="Un logiciel pour gérer votre Y13"
+                                    <TextBlock Text="Un logiciel pour gérer votre Unowhy"
                                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                TextWrapping="Wrap"
                                                FontSize="15"
@@ -203,7 +203,7 @@
                                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                FontSize="15"
                                                TextWrapping="Wrap" />
-                                    <TextBlock Text="Etape 1: Séléectionnez votre langue"
+                                    <TextBlock Text="Etape 1: Séléctionnez votre langue"
                                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                FontSize="13"
                                                TextWrapping="Wrap"
@@ -235,7 +235,7 @@
                                   Grid.Row="0">
                                 <StackPanel VerticalAlignment="Top"
                                             Margin="30">
-                                    <TextBlock Text="Step 2: Enter the real serial number of your Y13 (IFP... on the below the PC) (For Wifi sync and more)"
+                                    <TextBlock Text="Step 2: Enter the real serial number of your Unowhy (IFP... / UYM... / IFM...) (For Wifi sync and more)"
                                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                FontSize="13"
                                                TextWrapping="Wrap"
@@ -258,7 +258,7 @@
                                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                FontSize="10"
                                                TextWrapping="Wrap" />
-                                    <TextBlock Text="Etape 2 : Entrez le vrai numéro de série de votre Y13 (IFP... sur le dessous du PC) (Pour la synchronisation Wifi et plus)"
+                                    <TextBlock Text="Etape 2 : Entrez le vrai numéro de série de votre Unowhy (IFP... / UYM... / IFM...) (Pour la synchronisation Wifi et plus)"
                                                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                FontSize="13"
                                                TextWrapping="Wrap"
