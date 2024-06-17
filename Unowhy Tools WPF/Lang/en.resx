@@ -181,7 +181,7 @@
     <value>Motherboard manufacturer/model</value>
   </data>
   <data name="bcdfail" xml:space="preserve">
-    <value>Del "IgnoreAllFailures" in BCD</value>
+    <value>Delete "IgnoreAllFailures" in BCD</value>
   </data>
   <data name="biosversion" xml:space="preserve">
     <value>BIOS Version</value>
@@ -247,7 +247,7 @@
     <value>Convert a backup</value>
   </data>
   <data name="conv.nout" xml:space="preserve">
-    <value>This is not an UT driver backup</value>
+    <value>This is not an Unowhy Tools driver backup</value>
   </data>
   <data name="convdesc" xml:space="preserve">
     <value>Convert an old backup (&lt;18.0) to the new format</value>
@@ -280,7 +280,7 @@
     <value>Uninstall "HiSqool"</value>
   </data>
   <data name="delhism" xml:space="preserve">
-    <value>Del. "HiSqoolManager" folder and service</value>
+    <value>Delete "HiSqoolManager" folder and service</value>
   </data>
   <data name="delhismserv" xml:space="preserve">
     <value>Delete "HiSqoolManager" only</value>
@@ -316,7 +316,7 @@
     <value>Restore a Unowhy Tools driver backup from cloud made by another user. If you have an driver issue and if you haven't made a backup of your drivers, you can try to restore a cloud backup</value>
   </data>
   <data name="descbootim" xml:space="preserve">
-    <value>Repair BootIM (Boot Immersive Menu) (Blue Menu). Unowhy deployed a patch to disable bootim.exe, via bootim.exe redirection. If you want to boot from a USB device with a 2022 Y13, do this</value>
+    <value>Repair BootIM (Boot Immersive Menu) (Blue Menu). Unowhy deployed a patch to disable bootim.exe, via bootim.exe redirection. If you want to boot from a USB device with a locked BIOS, do this</value>
   </data>
   <data name="desccamoverena" xml:space="preserve">
     <value>Enable camera privacy indicator (Virtual camera LED). Windows 10/11 contain a features to indicate you with a popup overlay, if the camera is used, when the camera is turned on/off. By default, this feature is disabled, because, the most of laptop/webcam has an physical LED indicator. I don't know, why OEM (for exemple, UNOWHY) doesn't enable this feature (Windows cannot detect if a LED is present, and can't auto enable-it)</value>
@@ -367,7 +367,7 @@
     <value>A useful open source tool to activate your Windows or Office, change your Windows edition, and more</value>
   </data>
   <data name="descpcname" xml:space="preserve">
-    <value>Change the name of this PC (NETBIOS). By default, the Windows PC name of the Y13 is the serial number (IFP...)</value>
+    <value>Change the Windows name of this PC (NETBIOS). By default, the Windows name of the Y13 is the serial number (IFP...), the Y14 Plus is the serial number too (IFM...), Y5OPS is the serial number but starting with OV... instead of UYM... and Y11 360 idk lol</value>
   </data>
   <data name="descpsbr" xml:space="preserve">
     <value>!!! Warning: For some PCs powershell backup does not work, use DISM backup instead !!! This tools is currently in test (in beta) but probably work. Backup and Restore drivers with PowerShell. Always, make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers by the way of Power Shell commands with user friendly GUI</value>
@@ -592,10 +592,10 @@
     <value>System Info</value>
   </data>
   <data name="pcn" xml:space="preserve">
-    <value>Windows PC Name</value>
+    <value>Windows name of this PC</value>
   </data>
   <data name="pcname" xml:space="preserve">
-    <value>Change Windows PC name</value>
+    <value>Change Windows name of this PC</value>
   </data>
   <data name="pcserial" xml:space="preserve">
     <value>Serial Number of this PC</value>
@@ -925,7 +925,7 @@
     <value>Uninstalling...</value>
   </data>
   <data name="wifisync" xml:space="preserve">
-    <value>School Wifi settings sync.</value>
+    <value>School Wifi sync.</value>
   </data>
   <data name="windefset" xml:space="preserve">
     <value>Windows Defender settings</value>

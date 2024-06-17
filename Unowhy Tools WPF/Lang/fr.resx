@@ -154,7 +154,7 @@
     <value>Sauvegarder</value>
   </data>
   <data name="backup.short" xml:space="preserve">
-    <value>Sauv.</value>
+    <value>Sauvegarder</value>
   </data>
   <data name="bat.balanced" xml:space="preserve">
     <value>Mode équilibré</value>
@@ -181,13 +181,13 @@
     <value>Fabricant/modèle de la carte mère</value>
   </data>
   <data name="bcdfail" xml:space="preserve">
-    <value>Suppr. "IgnoreAllFailures" dans BCD</value>
+    <value>Supprimer "IgnoreAllFailures" dans BCD</value>
   </data>
   <data name="biosversion" xml:space="preserve">
     <value>Version du BIOS</value>
   </data>
   <data name="bkapp" xml:space="preserve">
-    <value>App de sauv.</value>
+    <value>App de sauvegarde</value>
   </data>
   <data name="bkcloud" xml:space="preserve">
     <value>Restaurer les pilotes à partir du cloud</value>
@@ -232,7 +232,7 @@
     <value>Changer</value>
   </data>
   <data name="clean" xml:space="preserve">
-    <value>Nettoy.</value>
+    <value>Nettoyer</value>
   </data>
   <data name="cncat" xml:space="preserve">
     <value>Changer le nom</value>
@@ -247,10 +247,10 @@
     <value>Convertir une sauvegarde</value>
   </data>
   <data name="conv.nout" xml:space="preserve">
-    <value>Ceci n'est pas un sauv. de pilotes UT</value>
+    <value>Ceci n'est pas un sauvegarde de pilotes UT</value>
   </data>
   <data name="convdesc" xml:space="preserve">
-    <value>Conv. une vieille sauvegarde (&lt;18.0) dans le nv. format</value>
+    <value>Convertir une vieille sauvegarde (&lt;18.0) dans le nouveau format</value>
   </data>
   <data name="cpuinfo" xml:space="preserve">
     <value>Info du CPU</value>
@@ -265,7 +265,7 @@
     <value>↓ Customiser ↓</value>
   </data>
   <data name="del" xml:space="preserve">
-    <value>Delete</value>
+    <value>Supprimer</value>
   </data>
   <data name="delcat" xml:space="preserve">
     <value>↓ Supprimer/Désinstaller ↓</value>
@@ -274,16 +274,16 @@
     <value>Supprimer le dossier "ENT"</value>
   </data>
   <data name="delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Supprimer</value>
   </data>
   <data name="delhis" xml:space="preserve">
     <value>Désinstaller "HiSqool"</value>
   </data>
   <data name="delhism" xml:space="preserve">
-    <value>Suppr le dossier et serv "HiSqoolManager"</value>
+    <value>Supprimer le dossier et serv "HiSqoolManager"</value>
   </data>
   <data name="delhismserv" xml:space="preserve">
-    <value>Suppr. le serv "HiSqoolManager" seul.</value>
+    <value>Supprimer le serv "HiSqoolManager" seulement</value>
   </data>
   <data name="deloem" xml:space="preserve">
     <value>Supprimer le dossier "OEM"</value>
@@ -292,7 +292,7 @@
     <value>Supprimmer le dossier "RIDF"</value>
   </data>
   <data name="delserv" xml:space="preserve">
-    <value>Delete service only</value>
+    <value>Supprimer le service uniquement</value>
   </data>
   <data name="delti" xml:space="preserve">
     <value>Supprimer le dossier "TO_INSTALL"</value>
@@ -316,7 +316,7 @@
     <value>Téléchargez une sauvegarde des pilotes Unowhy Tools à partir du cloud faites par d'autres utilisateurs. Si vous avez un problème de pilote et si vous n'avez pas fait de sauvegarde de vos pilotes, vous pouvez essayer de restaurer une sauvegarde cloud</value>
   </data>
   <data name="descbootim" xml:space="preserve">
-    <value>Réparer BootIM (Boot Immersive Menu) (Menu Bleu). Unowhy a déployé un patch pour désactiver bootim.exe, via la redirection bootim.exe. Si vous souhaitez démarrer à partir d'un périphérique USB avec un Y13 2022, faites ceci</value>
+    <value>Réparer BootIM (Boot Immersive Menu) (Menu Bleu). Unowhy a déployé un patch pour désactiver bootim.exe, via la redirection bootim.exe. Si vous souhaitez démarrer à partir d'un périphérique USB avec un BIOS locked, faites ceci</value>
   </data>
   <data name="desccamoverena" xml:space="preserve">
     <value>Activer l'indicateur de confidentialité de la caméra (LED de caméra virtuelle). Windows 10/11 contient une fonctionnalité pour vous indiquer avec un popup, si l'appareil photo est utilisé, lorsque la caméra est allumé/éteint. Par défaut, cette fonctionnalité est désactivée, car la plupart des ordinateurs portables/webcam possèdent un indicateur LED physique. Je ne sais pas pourquoi les OEM (par exemple, UNOWHY) n'active pas cette fonctionnalité (Windows ne peut pas détecter si une LED est présente et ne peut pas l'activer automatiquement)</value>
@@ -367,7 +367,7 @@
     <value>Un outil open source utile pour activer  Windows ou Office, modifier votre édition de Windows, et plus encore</value>
   </data>
   <data name="descpcname" xml:space="preserve">
-    <value>Changer le nom du PC (NETBIOS). Par défault, le nom de PC Windows du Y13 est le numéro de série du PC (IFP...)</value>
+    <value>Changez le nom Windows de ce PC (NETBIOS). Par défaut, le nom Windows du Y13 est le numéro de série (IFP...), le Y14 Plus est également le numéro de série (IFM...), Y5OPS est le numéro de série mais en commençant par OV... au lieu de UYM... et Y11 360 je ne sais pas mdr</value>
   </data>
   <data name="descpsbr" xml:space="preserve">
     <value>!!! Attention: Pour certains PC, la sauvegarde PowerShell ne fonctionne pas, utilisez plutôt la sauvegarde DISM !!! L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec Power Shell. Sauvegardez toujours votre pilote pour résoudre les éventuels problèmes de pilote. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes PowerShell avec une interface graphique plus conviviale</value>
@@ -415,7 +415,7 @@
     <value>Désactiver le services "HiSqoolManager"</value>
   </data>
   <data name="dismdrv" xml:space="preserve">
-    <value>Sauv. et Rest. les pilotes avec DISM</value>
+    <value>Sauvegarde et Restaurer les pilotes avec DISM</value>
   </data>
   <data name="dismdrv.title" xml:space="preserve">
     <value>DISM Drv GUI pour Unowhy Tools</value>
@@ -514,7 +514,7 @@
     <value>Nettoyer les logs</value>
   </data>
   <data name="logsdel" xml:space="preserve">
-    <value>Suppr. les logs</value>
+    <value>Supprimer les logs</value>
   </data>
   <data name="logsopen" xml:space="preserve">
     <value>Ouvrir les logs</value>
@@ -562,7 +562,7 @@
     <value>Terminal (CMD)</value>
   </data>
   <data name="opengp" xml:space="preserve">
-    <value>Editeur de strat. du groupe</value>
+    <value>Editeur de stratégies du groupe</value>
   </data>
   <data name="openimg" xml:space="preserve">
     <value>Open an image</value>
@@ -592,10 +592,10 @@
     <value>Infos système</value>
   </data>
   <data name="pcn" xml:space="preserve">
-    <value>Nom du PC Windows</value>
+    <value>Nom Windows du PC</value>
   </data>
   <data name="pcname" xml:space="preserve">
-    <value>Changer le nom du PC Windows</value>
+    <value>Changer le nom Windows du PC</value>
   </data>
   <data name="pcserial" xml:space="preserve">
     <value>Numéro de Serie de ce PC</value>
@@ -604,13 +604,13 @@
     <value>Alimentation</value>
   </data>
   <data name="powermode" xml:space="preserve">
-    <value>Mode d'alim.</value>
+    <value>Mode d'alimentation</value>
   </data>
   <data name="privacy" xml:space="preserve">
     <value>Confidentialité</value>
   </data>
   <data name="psdrv" xml:space="preserve">
-    <value>Sauv. et Rest. les pilotes avec PS</value>
+    <value>Sauvegarder et Restaurer les pilotes avec PS</value>
   </data>
   <data name="psdrv.title" xml:space="preserve">
     <value>PS Drv GUI pour Unowhy Tools</value>
@@ -631,7 +631,7 @@
     <value>Revenir en arrière et enregistrer</value>
   </data>
   <data name="quicklaunchsavedesc" xml:space="preserve">
-    <value>Clic droit pour définir par défaut</value>
+    <value>Clique droit pour définir par défaut</value>
   </data>
   <data name="quickoption" xml:space="preserve">
     <value>Option rapide</value>
@@ -706,13 +706,13 @@
     <value>Vous avez besoin de plus d'espace libre sur votre PC/Peripherique</value>
   </data>
   <data name="start" xml:space="preserve">
-    <value>Start</value>
+    <value>Démarrer</value>
   </data>
   <data name="starthis" xml:space="preserve">
     <value>Démarrer le service "HiSqoolManager"</value>
   </data>
   <data name="stop" xml:space="preserve">
-    <value>Stop</value>
+    <value>Arrêter</value>
   </data>
   <data name="stophis" xml:space="preserve">
     <value>Arrêter le service "HiSqoolManager"</value>
@@ -925,7 +925,7 @@
     <value>Désinstallation...</value>
   </data>
   <data name="wifisync" xml:space="preserve">
-    <value>Sync. des param. Wifi de l'établi.</value>
+    <value>Sync. du Wifi de l'établissement</value>
   </data>
   <data name="windefset" xml:space="preserve">
     <value>Paramètres de Windows Defender</value>
