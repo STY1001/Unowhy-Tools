@@ -367,7 +367,7 @@
     <value>Un outil open source utile pour activer  Windows ou Office, modifier votre édition de Windows, et plus encore</value>
   </data>
   <data name="descpcname" xml:space="preserve">
-    <value>Changez le nom Windows de ce PC (NETBIOS). Par défaut, le nom Windows du Y13 est le numéro de série (IFP...), le Y14 Plus est également le numéro de série (IFM...), Y5OPS est le numéro de série mais en commençant par OV... au lieu de UYM... et Y11 360 je ne sais pas mdr</value>
+    <value>Changez le nom Windows de ce PC (NETBIOS)</value>
   </data>
   <data name="descpsbr" xml:space="preserve">
     <value>!!! Attention: Pour certains PC, la sauvegarde PowerShell ne fonctionne pas, utilisez plutôt la sauvegarde DISM !!! L'outil est actuellement en test (en beta), mais peut fonctionner. Sauvegardez et Restaurer les pilotes avec Power Shell. Sauvegardez toujours votre pilote pour résoudre les éventuels problèmes de pilote. Cela sauvegardera ou restaurera tous les pilotes de votre système via les commandes PowerShell avec une interface graphique plus conviviale</value>

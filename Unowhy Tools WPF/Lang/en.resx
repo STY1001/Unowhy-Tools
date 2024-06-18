@@ -367,7 +367,7 @@
     <value>A useful open source tool to activate your Windows or Office, change your Windows edition, and more</value>
   </data>
   <data name="descpcname" xml:space="preserve">
-    <value>Change the Windows name of this PC (NETBIOS). By default, the Windows name of the Y13 is the serial number (IFP...), the Y14 Plus is the serial number too (IFM...), Y5OPS is the serial number but starting with OV... instead of UYM... and Y11 360 idk lol</value>
+    <value>Change the Windows name of this PC (NETBIOS)</value>
   </data>
   <data name="descpsbr" xml:space="preserve">
     <value>!!! Warning: For some PCs powershell backup does not work, use DISM backup instead !!! This tools is currently in test (in beta) but probably work. Backup and Restore drivers with PowerShell. Always, make a backup of drivers in order to fix possibly drivers problems. This will backup or restore all your system drivers by the way of Power Shell commands with user friendly GUI</value>
