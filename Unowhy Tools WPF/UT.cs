@@ -1379,6 +1379,7 @@ namespace Unowhy_Tools
             { "Y13G201S4EI", "Y13 Gen 2 2024 IDF" },
             { "Y13G201S4E", "Y13 Gen 2 2024" },
             { "STYL13", "STY L13" },
+            { "STYD5100SFF", "STY D5100SFF" },
             { "STYDS5OPS", "STY DS5OPS" }
         };
         public static async Task<string> GetModelWithSKU(string sku)

@@ -89,8 +89,8 @@ public partial class Bios : INavigableView<DashboardViewModel>
             await Task.Delay(50);
         }
 
-        string ifpt_jasper = "Y13G113S4EI Y13G113S4E Y11G201S2M Y13G201S4E Y13G201S4EI STYY13U";
-        string ifpt_tiger = "OPSG310S2M OPSG530S2M Y14G520S2M Y14G310S2M Y14G520S2MI Y14G310S2MI STYY5OPSI5";
+        string ifpt_jasper = "Y13G113S4EI Y13G113S4E Y11G201S2M Y13G201S4E Y13G201S4EI STYL13 STYD5100SFF";
+        string ifpt_tiger = "OPSG310S2M OPSG530S2M Y14G520S2M Y14G310S2M Y14G520S2MI Y14G310S2MI STYDS5OPS";
         string afu = "Y11G001S4E Y13G012S4EI Y13G011S4EI Y13G010S4EI Y13G002S4EI Y13G012S4E Y13G011S4E Y13G010S4E Y13G002S4E";
         string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
         if (ifpt_jasper.Contains(currentsku))
