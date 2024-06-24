@@ -78,7 +78,7 @@ public partial class Drivers : INavigableView<DashboardViewModel>
     {
         dlcloud_txt.Text = await UT.GetLang("bkcloud");
         dlcloud_desc.Text = await UT.GetLang("descbkcloud");
-        dlcloud_btn.Text = await UT.GetLang("dl");
+        dlcloud_btn.Content = await UT.GetLang("dl");
         bk_txt.Text = await UT.GetLang("back");
         bk_desc.Text = await UT.GetLang("drvbr");
         bk_btn.Content = await UT.GetLang("backup");

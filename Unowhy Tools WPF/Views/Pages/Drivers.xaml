@@ -48,19 +48,11 @@
                     </ui:CardControl.Header>
                     <ui:Button Click="dl_Click"
                                Grid.Column="0"
+                               x:Name="dlcloud_btn"
                                Grid.ColumnSpan="4"
                                HorizontalAlignment="Stretch"
-                               Margin="0,0,0,0">
-                        <StackPanel>
-                            <StackPanel VerticalAlignment="Center">
-                                <TextBlock x:Name="dlcloud_btn"
-                                           Margin="0"
-                                           FontSize="13"
-                                           FontWeight="Regular"
-                                           Text="Download" />
-                            </StackPanel>
-                        </StackPanel>
-                    </ui:Button>
+                               Margin="0,0,0,0"
+                               Content="Download"/>
                 </ui:CardControl>
                 <ui:CardControl Margin="10,0,10,10">
                     <ui:CardControl.Header>
