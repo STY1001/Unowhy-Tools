@@ -208,7 +208,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
     {
         if (UT.CheckInternet())
         {
-            Process.Start("powershell", "\"irm https://massgrave.dev/get | iex\"");
+            Process.Start("powershell", "\"irm https://get.activated.win | iex\"");
         }
         else
         {
