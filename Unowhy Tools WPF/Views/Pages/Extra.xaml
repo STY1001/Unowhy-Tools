@@ -32,12 +32,12 @@
                     <TextBlock Text="Products of Unowhy"
                                FontSize="10"
                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                   Grid.Column="0"
+                               Grid.Column="0"
                                Margin="0,0,10,0"
-                               x:Name="unowhyprodcat"/>
+                               x:Name="unowhyprodcat" />
                     <Separator HorizontalAlignment="Stretch"
                                VerticalAlignment="Center"
-                               Grid.Column="1"/>
+                               Grid.Column="1" />
                 </Grid>
                 <ui:CardControl x:Name="installhsqm"
                                 Margin="10,0,10,10">
@@ -114,7 +114,7 @@
                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                Grid.Column="0"
                                Margin="0,0,10,0"
-                               x:Name="usefulcat"/>
+                               x:Name="usefulcat" />
                     <Separator HorizontalAlignment="Stretch"
                                VerticalAlignment="Center"
                                Grid.Column="1" />
@@ -182,6 +182,54 @@
                                Grid.ColumnSpan="4"
                                HorizontalAlignment="Stretch"
                                Margin="0,0,0,0" />
+                </ui:CardControl>
+                <ui:CardControl x:Name="opencru"
+                                Margin="10,0,10,10">
+                    <ui:CardControl.Header>
+                        <Grid>
+                            <Image Source="pack://application:,,,/Resources/cru.png"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                   MaxHeight="32"
+                                   MaxWidth="32" />
+                            <StackPanel Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Margin="50,0,0,0">
+                                <TextBlock x:Name="opencru_txt"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           Text="Open &quot;Custom Resolution Utility (CRU)&quot;" />
+                                <TextBlock x:Name="opencru_desc"
+                                           FontSize="12"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                           Text="Description"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button x:Name="opencru_btn"
+                                   Click="opencru_btn_Click"
+                                   Content="Open"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,0,0" />
+                        <ui:Button x:Name="opencrurestart_btn"
+                                   Click="opencrurestart_btn_Click"
+                                   Content="Restart"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="10,0,10,0" />
+                        <ui:Button x:Name="opencrureset_btn"
+                                   Click="opencrureset_btn_Click"
+                                   Content="Reset"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,0,0"/>
+                    </StackPanel>
                 </ui:CardControl>
             </StackPanel>
         </Border>

@@ -321,6 +321,9 @@
   <data name="desccamoverena" xml:space="preserve">
     <value>Activer l'indicateur de confidentialité de la caméra (LED de caméra virtuelle). Windows 10/11 contient une fonctionnalité pour vous indiquer avec un popup, si l'appareil photo est utilisé, lorsque la caméra est allumé/éteint. Par défaut, cette fonctionnalité est désactivée, car la plupart des ordinateurs portables/webcam possèdent un indicateur LED physique. Je ne sais pas pourquoi les OEM (par exemple, UNOWHY) n'active pas cette fonctionnalité (Windows ne peut pas détecter si une LED est présente et ne peut pas l'activer automatiquement)</value>
   </data>
+  <data name="desccru" xml:space="preserve">
+    <value>Un outil pour personnaliser les pilotes graphique pour appliquer une résolution et un taux de rafraîchissement personnalisés</value>
+  </data>
   <data name="descdelentf" xml:space="preserve">
     <value>Supprimer le dossier des installateurs de logiciels supplémentaires (Dans : C:\ProgramData)</value>
   </data>
@@ -560,6 +563,9 @@
   </data>
   <data name="opencmd" xml:space="preserve">
     <value>Terminal (CMD)</value>
+  </data>
+  <data name="opencru" xml:space="preserve">
+    <value>Ouvrir "Custom Resolution Utility (CRU)" </value>
   </data>
   <data name="opengp" xml:space="preserve">
     <value>Editeur de stratégies du groupe</value>

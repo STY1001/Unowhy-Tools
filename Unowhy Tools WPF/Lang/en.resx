@@ -321,6 +321,9 @@
   <data name="desccamoverena" xml:space="preserve">
     <value>Enable camera privacy indicator (Virtual camera LED). Windows 10/11 contain a features to indicate you with a popup overlay, if the camera is used, when the camera is turned on/off. By default, this feature is disabled, because, the most of laptop/webcam has an physical LED indicator. I don't know, why OEM (for exemple, UNOWHY) doesn't enable this feature (Windows cannot detect if a LED is present, and can't auto enable-it)</value>
   </data>
+  <data name="desccru" xml:space="preserve">
+    <value>A tool to customize graphics driver to apply custom resolution and refresh rate</value>
+  </data>
   <data name="descdelentf" xml:space="preserve">
     <value>Delete extra softwares installers folder (In : C:\ProgramData)</value>
   </data>
@@ -560,6 +563,9 @@
   </data>
   <data name="opencmd" xml:space="preserve">
     <value>Terminal (CMD)</value>
+  </data>
+  <data name="opencru" xml:space="preserve">
+    <value>Open "Custom Resolution Utility (CRU)" </value>
   </data>
   <data name="opengp" xml:space="preserve">
     <value>Group Policy Editor</value>

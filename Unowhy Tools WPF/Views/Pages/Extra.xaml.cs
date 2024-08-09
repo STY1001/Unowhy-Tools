@@ -13,6 +13,7 @@ using System.Windows.Documents;
 using System.Diagnostics;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System.IO.Compression;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -49,6 +50,9 @@ public partial class Extra : INavigableView<DashboardViewModel>
         openrufus_btn.Content = await UT.GetLang("open");
         installridfcert_btn.Content = await UT.GetLang("install");
         installhsqm_btn.Content = await UT.GetLang("install");
+        opencru_btn.Content = await UT.GetLang("open");
+        opencru_txt.Text = await UT.GetLang("opencru");
+        opencru_desc.Text = await UT.GetLang("desccru");
     }
 
     public async Task CheckBTN(bool check, string step)
@@ -207,7 +211,14 @@ public partial class Extra : INavigableView<DashboardViewModel>
         }
         else
         {
-            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            if (File.Exists(Path.GetTempPath() + "\\rufus.exe"))
+            {
+                Process.Start(Path.GetTempPath() + "\\rufus.exe");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            }
         }
     }
 
@@ -221,6 +232,111 @@ public partial class Extra : INavigableView<DashboardViewModel>
         else
         {
             UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+        }
+    }
+
+    private async void opencru_btn_Click(object sender, RoutedEventArgs e)
+    {
+        UT.SendAction("OpenCRU");
+        if (!File.Exists(Path.GetTempPath() + "\\CRU\\cru.exe"))
+        {
+            if (await UT.CheckInternet())
+            {
+                if (Directory.Exists(Path.GetTempPath() + "\\CRU")) Directory.Delete(Path.GetTempPath() + "\\CRU", true);
+                var progress = new System.Progress<double>();
+                var cancellationToken = new CancellationTokenSource();
+                string dl = await UT.GetLang("wait.download");
+                await UT.waitstatus.open(dl, "clouddl.png");
+                progress.ProgressChanged += async (sender, value) =>
+                {
+                    await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "null");
+                };
+                await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("cru"), Path.GetTempPath() + "\\cru.zip", progress, cancellationToken.Token);
+                await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
+                Directory.CreateDirectory(Path.GetTempPath() + "\\CRU");
+                ZipFile.ExtractToDirectory(Path.GetTempPath() + "\\cru.zip", Path.GetTempPath() + "\\CRU", true);
+                Process.Start(Path.GetTempPath() + "\\CRU\\cru.exe");
+                await UT.waitstatus.close();
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            }
+            
+        }
+        else
+        {
+            Process.Start(Path.GetTempPath() + "\\CRU\\cru.exe");
+        }
+    }
+
+    private async void opencrurestart_btn_Click(object sender, RoutedEventArgs e)
+    {
+        UT.SendAction("OpenCRURestart");
+        if (!File.Exists(Path.GetTempPath() + "\\CRU\\restart64.exe"))
+        {
+            if (await UT.CheckInternet())
+            {
+                if (Directory.Exists(Path.GetTempPath() + "\\CRU")) Directory.Delete(Path.GetTempPath() + "\\CRU", true);
+                var progress = new System.Progress<double>();
+                var cancellationToken = new CancellationTokenSource();
+                string dl = await UT.GetLang("wait.download");
+                await UT.waitstatus.open(dl, "clouddl.png");
+                progress.ProgressChanged += async (sender, value) =>
+                {
+                    await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "null");
+                };
+                await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("cru"), Path.GetTempPath() + "\\cru.zip", progress, cancellationToken.Token);
+                await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
+                Directory.CreateDirectory(Path.GetTempPath() + "\\CRU");
+                ZipFile.ExtractToDirectory(Path.GetTempPath() + "\\cru.zip", Path.GetTempPath() + "\\CRU", true);
+                Process.Start(Path.GetTempPath() + "\\CRU\\restart64.exe");
+                await UT.waitstatus.close();
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            }
+
+        }
+        else
+        {
+            Process.Start(Path.GetTempPath() + "\\CRU\\cru.exe");
+        }
+    }
+
+    private async void opencrureset_btn_Click(object sender, RoutedEventArgs e)
+    {
+        UT.SendAction("OpenCRUReset");
+        if (!File.Exists(Path.GetTempPath() + "\\CRU\\reset-all.exe"))
+        {
+            if (await UT.CheckInternet())
+            {
+                if(Directory.Exists(Path.GetTempPath() + "\\CRU")) Directory.Delete(Path.GetTempPath() + "\\CRU", true);
+                var progress = new System.Progress<double>();
+                var cancellationToken = new CancellationTokenSource();
+                string dl = await UT.GetLang("wait.download");
+                await UT.waitstatus.open(dl, "clouddl.png");
+                progress.ProgressChanged += async (sender, value) =>
+                {
+                    await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "null");
+                };
+                await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("cru"), Path.GetTempPath() + "\\cru.zip", progress, cancellationToken.Token);
+                await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
+                Directory.CreateDirectory(Path.GetTempPath() + "\\CRU");
+                ZipFile.ExtractToDirectory(Path.GetTempPath() + "\\cru.zip", Path.GetTempPath() + "\\CRU", true);
+                Process.Start(Path.GetTempPath() + "\\CRU\\reset-all.exe");
+                await UT.waitstatus.close();
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            }
+
+        }
+        else
+        {
+            Process.Start(Path.GetTempPath() + "\\CRU\\cru.exe");
         }
     }
 }
