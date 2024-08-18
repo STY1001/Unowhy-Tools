@@ -1368,6 +1368,7 @@ namespace Unowhy_Tools
             { "Y13G011S4E", "Y13 Gen 1 2021" },
             { "Y13G010S4E", "Y13 Gen 1 2020" },
             { "Y13G002S4E", "Y13 Gen 1 2019" },
+            { "Y13G001S4E", "Y13 Gen 1 M3" },
             { "Y14G310S2MI", "Y14 Plus i3 IDF" },
             { "Y14G520S2MI", "Y14 Plus i5 IDF" },
             { "Y14G310S2M", "Y14 Plus i3" },
