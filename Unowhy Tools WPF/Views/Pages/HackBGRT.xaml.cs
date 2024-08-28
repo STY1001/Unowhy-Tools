@@ -1179,7 +1179,14 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         }
         cloudgrid.Visibility = Visibility.Visible;
         cloudstack.Children.Clear();
-        await CloudRefresh();
+        if(await UT.CheckInternet())
+        {
+            await CloudRefresh();
+        }
+        else
+        {
+            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+        }
     }
 
     private async Task<Border> CreateCard(string name, string author, string link)
@@ -1402,7 +1409,14 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     private async void cloudrefreshbtn_Click(object sender, RoutedEventArgs e)
     {
-        await CloudRefresh();
+        if(await UT.CheckInternet())
+        {
+            await CloudRefresh();
+        }
+        else
+        {
+            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+        }
     }
 
     private async Task CloudRefresh()
