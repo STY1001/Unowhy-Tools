@@ -203,7 +203,7 @@
                         <ui:CardControl.Header>
                             <Grid>
                                 <StackPanel>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="14.25"
                                             Width="350"
                                             HorizontalAlignment="Left"
@@ -215,18 +215,18 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#00ffffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#00ffffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
                                         </Grid>
                                     </Border>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="12"
                                             Width="150"
                                             HorizontalAlignment="Left"
@@ -239,11 +239,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
@@ -259,7 +259,7 @@
                         <ui:CardControl.Header>
                             <Grid>
                                 <StackPanel>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="14.25"
                                             Width="350"
                                             HorizontalAlignment="Left"
@@ -271,11 +271,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
@@ -295,11 +295,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
@@ -315,7 +315,7 @@
                         <ui:CardControl.Header>
                             <Grid>
                                 <StackPanel>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="14.25"
                                             Width="350"
                                             HorizontalAlignment="Left"
@@ -327,18 +327,18 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
                                         </Grid>
                                     </Border>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="12"
                                             Width="150"
                                             HorizontalAlignment="Left"
@@ -351,11 +351,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
@@ -371,7 +371,7 @@
                         <ui:CardControl.Header>
                             <Grid>
                                 <StackPanel>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="14.25"
                                             Width="350"
                                             HorizontalAlignment="Left"
@@ -383,18 +383,18 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
                                         </Grid>
                                     </Border>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="12"
                                             Width="150"
                                             HorizontalAlignment="Left"
@@ -407,11 +407,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
@@ -427,7 +427,7 @@
                         <ui:CardControl.Header>
                             <Grid>
                                 <StackPanel>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="14.25"
                                             Width="350"
                                             HorizontalAlignment="Left"
@@ -439,18 +439,18 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
                                         </Grid>
                                     </Border>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="12"
                                             Width="150"
                                             HorizontalAlignment="Left"
@@ -463,11 +463,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
@@ -483,7 +483,7 @@
                         <ui:CardControl.Header>
                             <Grid>
                                 <StackPanel>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="14.25"
                                             Width="350"
                                             HorizontalAlignment="Left"
@@ -495,18 +495,18 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
                                         </Grid>
                                     </Border>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="12"
                                             Width="150"
                                             HorizontalAlignment="Left"
@@ -519,11 +519,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
@@ -539,7 +539,7 @@
                         <ui:CardControl.Header>
                             <Grid>
                                 <StackPanel>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="14.25"
                                             Width="350"
                                             HorizontalAlignment="Left"
@@ -551,18 +551,18 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
                                         </Grid>
                                     </Border>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="12"
                                             Width="150"
                                             HorizontalAlignment="Left"
@@ -575,11 +575,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
@@ -595,7 +595,7 @@
                         <ui:CardControl.Header>
                             <Grid>
                                 <StackPanel>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="14.25"
                                             Width="350"
                                             HorizontalAlignment="Left"
@@ -607,18 +607,18 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
                                         </Grid>
                                     </Border>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="12"
                                             Width="150"
                                             HorizontalAlignment="Left"
@@ -631,11 +631,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
@@ -651,7 +651,7 @@
                         <ui:CardControl.Header>
                             <Grid>
                                 <StackPanel>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="14.25"
                                             Width="350"
                                             HorizontalAlignment="Left"
@@ -663,18 +663,18 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
                                             </Rectangle>
                                         </Grid>
                                     </Border>
-                                    <Border Background="#505050"
+                                    <Border Background="#0affffff"
                                             Height="12"
                                             Width="150"
                                             HorizontalAlignment="Left"
@@ -687,11 +687,11 @@
                                                 <Rectangle.Fill>
                                                     <LinearGradientBrush StartPoint="0,0"
                                                                          EndPoint="1,0">
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="0" />
-                                                        <GradientStop Color="#606060"
+                                                        <GradientStop Color="#0fffffff"
                                                                       Offset="0.5" />
-                                                        <GradientStop Color="#505050"
+                                                        <GradientStop Color="#0affffff"
                                                                       Offset="1" />
                                                     </LinearGradientBrush>
                                                 </Rectangle.Fill>
