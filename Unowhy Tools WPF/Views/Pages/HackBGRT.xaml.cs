@@ -17,13 +17,15 @@ using System.Xml.Linq;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using System.IO;
+
 using System.Linq;
 using System.Windows.Shapes;
 using System.IO.Compression;
 using System.Threading;
 using System.Reflection;
 using System.Drawing.Drawing2D;
-using System.Drawing;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -71,6 +73,27 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         InitializeComponent();
 
         applylang();
+
+        SkeletonRectangles.Add(Rec11);
+        SkeletonRectangles.Add(Rec12);
+        SkeletonRectangles.Add(Rec13);
+        SkeletonRectangles.Add(Rec14);
+        SkeletonRectangles.Add(Rec21);
+        SkeletonRectangles.Add(Rec22);
+        SkeletonRectangles.Add(Rec23);
+        SkeletonRectangles.Add(Rec24);
+        SkeletonRectangles.Add(Rec31);
+        SkeletonRectangles.Add(Rec32);
+        SkeletonRectangles.Add(Rec33);
+        SkeletonRectangles.Add(Rec34);
+        SkeletonRectangles.Add(Rec41);
+        SkeletonRectangles.Add(Rec42);
+        SkeletonRectangles.Add(Rec43);
+        SkeletonRectangles.Add(Rec44);
+        SkeletonRectangles.Add(Rec51);
+        SkeletonRectangles.Add(Rec52);
+        SkeletonRectangles.Add(Rec53);
+        SkeletonRectangles.Add(Rec54);
     }
 
     public async Task applylang()
@@ -1079,4 +1102,585 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             }
         }
     }
+
+    private async void getcloudbtn_Click(object sender, RoutedEventArgs e)
+    {
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -100,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            maingrid.RenderTransform = transform;
+            maingrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -100,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            mainbtngrid.RenderTransform = transform;
+            mainbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        await Task.Delay(250);
+        maingrid.Visibility = Visibility.Hidden;
+        mainbtngrid.Visibility = Visibility.Hidden;
+        cloudbtngrid.Visibility = Visibility.Visible;
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 100,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            cloudbtngrid.RenderTransform = transform;
+            cloudbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+        cloudgrid.Visibility = Visibility.Visible;
+        cloudstack.Children.Clear();
+        await CloudRefresh();
+    }
+
+    private async Task<Border> CreateCard(string name, string author, string link)
+    {
+        Border CardBorder = new Border
+        {
+            VerticalAlignment = VerticalAlignment.Stretch,
+            Height = 283,
+            Width = 229,
+            Background = new SolidColorBrush(Color.FromArgb(0x0a, 0xff, 0xff, 0xff)),
+            CornerRadius = new CornerRadius(8),
+            Margin = new Thickness(0, 0, 10, 0)
+        };
+
+        Grid CardGrid = new Grid();
+        CardGrid.RowDefinitions.Add(new RowDefinition());
+        CardGrid.RowDefinitions.Add(new RowDefinition());
+
+        Border ImageBorder = new Border
+        {
+            Margin = new Thickness(10),
+            Width = 209,
+            Height = 121,
+            Background = Brushes.Black,
+            CornerRadius = new CornerRadius(8)
+        };
+
+        Viewbox ImageViewbox = new Viewbox
+        {
+            Stretch = Stretch.Uniform,
+            Margin = new Thickness(4)
+        };
+        RenderOptions.SetBitmapScalingMode(ImageViewbox, BitmapScalingMode.HighQuality);
+
+        Grid ImageGrid = new Grid
+        {
+            Width = 1920,
+            Height = 1080,
+            Background = Brushes.Black,
+            ClipToBounds = true
+        };
+
+        Border ImageInnerBorder = new Border
+        {
+            HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            BorderBrush = Brushes.Red,
+            BorderThickness = new Thickness(1),
+            CornerRadius = new CornerRadius(8)
+        };
+
+        Image PrevImage = new Image
+        {
+            RenderTransformOrigin = new System.Windows.Point(0.5, 0.5),
+            HorizontalAlignment = System.Windows.HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            Stretch = Stretch.Fill
+        };
+        RenderOptions.SetBitmapScalingMode(PrevImage, BitmapScalingMode.HighQuality);
+        BitmapImage image = new BitmapImage(new Uri(link));
+        PrevImage.Source = image;
+
+        ImageInnerBorder.Child = PrevImage;
+        ImageGrid.Children.Add(ImageInnerBorder);
+        ImageViewbox.Child = ImageGrid;
+        ImageBorder.Child = ImageViewbox;
+
+        Grid.SetRow(ImageBorder, 0);
+        CardGrid.Children.Add(ImageBorder);
+
+        Grid TextGrid = new Grid();
+        TextGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+        TextGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+        TextGrid.RowDefinitions.Add(new RowDefinition());
+
+        TextBlock imageNameTextBlock = new TextBlock
+        {
+            Text = name,
+            FontSize = 15,
+            Foreground = (Brush)this.FindResource("TextFillColorPrimaryBrush"),
+            FontFamily = new FontFamily("Segoe UI SemiBold"),
+            TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(10, 0, 10, 0)
+        };
+        Grid.SetRow(imageNameTextBlock, 0);
+        TextGrid.Children.Add(imageNameTextBlock);
+
+        TextBlock AuthorText = new TextBlock
+        {
+            Text = author,
+            FontSize = 13,
+            Foreground = (Brush)this.FindResource("TextFillColorSecondaryBrush"),
+            FontFamily = new FontFamily("Segoe UI"),
+            TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(10, 0, 10, 0)
+        };
+        Grid.SetRow(AuthorText, 1);
+        TextGrid.Children.Add(AuthorText);
+
+        System.Windows.Controls.Button GetButton = new System.Windows.Controls.Button
+        {
+            Content = "Get",
+            HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch,
+            VerticalAlignment = VerticalAlignment.Bottom,
+            Margin = new Thickness(10, 10, 10, 10)
+        };
+        GetButton.Click += async (sender, e) =>
+        {
+            UT.SendAction("HackBGRT.GetFromCloud");
+            BitmapImage preimage = new BitmapImage(new Uri(link));
+            await UpdatePreview(preimage);
+            ImageSource = ResizeImage(preimage);
+
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 100,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                cloudgrid.RenderTransform = transform;
+                cloudgrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+            }
+
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 100,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                cloudbtngrid.RenderTransform = transform;
+                cloudbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+            }
+
+            await Task.Delay(250);
+            cloudgrid.Visibility = Visibility.Hidden;
+            cloudbtngrid.Visibility = Visibility.Hidden;
+            mainbtngrid.Visibility = Visibility.Visible;
+            maingrid.Visibility = Visibility.Visible;
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = -100,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                mainbtngrid.RenderTransform = transform;
+                mainbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+            }
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = -100,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                maingrid.RenderTransform = transform;
+                maingrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+            }
+        };
+        Grid.SetRow(GetButton, 2);
+        TextGrid.Children.Add(GetButton);
+
+        Grid.SetRow(TextGrid, 1);
+        CardGrid.Children.Add(TextGrid);
+
+        CardBorder.Child = CardGrid;
+
+        return CardBorder;
+    }
+
+    private async void cloudrefreshbtn_Click(object sender, RoutedEventArgs e)
+    {
+        await CloudRefresh();
+    }
+
+    private async Task CloudRefresh()
+    {
+        cloudrefreshbtn.IsEnabled = false;
+        {
+            foreach (Border card in cloudstack.Children)
+            {
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = -100,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                card.RenderTransform = transform;
+                card.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+                await Task.Delay(50);
+            }
+        }
+        await Task.Delay(250);
+        cloudstack.Children.Clear();
+        cloudstack.Visibility = Visibility.Hidden;
+        skeletonstack.Visibility = Visibility.Visible;
+        {
+            foreach (Border card in skeletonstack.Children)
+            {
+                card.Visibility = Visibility.Hidden;
+            }
+
+            foreach (Border card in skeletonstack.Children)
+            {
+                card.Visibility = Visibility.Visible;
+                DoubleAnimation opacityAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                DoubleAnimation translateAnimation = new DoubleAnimation
+                {
+                    From = 100,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                };
+
+                TranslateTransform transform = new TranslateTransform();
+                card.RenderTransform = transform;
+                card.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+                await Task.Delay(50);
+            }
+
+            foreach (Rectangle rec in SkeletonRectangles)
+            {
+                DoubleAnimation anim = new DoubleAnimation();
+                anim.From = -300;
+                anim.To = 300;
+                anim.RepeatBehavior = RepeatBehavior.Forever;
+                anim.Duration = TimeSpan.FromMilliseconds(1000);
+                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+                TranslateTransform trans = new TranslateTransform();
+                rec.RenderTransform = trans;
+                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+                await Task.Delay(50);
+            }
+        }
+
+        string langget = await UT.GetLang("get");
+
+        string datasurl = UT.online_datas;
+        HttpClient web = new HttpClient();
+        HttpResponseMessage rep = await web.GetAsync(datasurl);
+        if (rep.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            string jsonContent = await web.GetStringAsync(datasurl);
+            dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
+            if (jsonObject.hackbgrts != null && jsonObject.hackbgrts.Count > 0)
+            {
+                foreach (var hackbgrt in jsonObject.hackbgrts)
+                {
+                    string name = (string)hackbgrt["name"];
+                    string author = (string)hackbgrt["author"];
+                    string link = (string)hackbgrt["link"];
+
+                    Border card = await CreateCard(name, author, link);
+
+                    cloudstack.Children.Add(card);
+                }
+
+                {
+                    foreach (Border card in skeletonstack.Children)
+                    {
+                        DoubleAnimation opacityAnimation = new DoubleAnimation
+                        {
+                            From = 1,
+                            To = 0,
+                            Duration = TimeSpan.FromSeconds(0.25),
+                            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                        };
+
+                        DoubleAnimation translateAnimation = new DoubleAnimation
+                        {
+                            From = 0,
+                            To = -100,
+                            Duration = TimeSpan.FromSeconds(0.25),
+                            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                        };
+
+                        TranslateTransform transform = new TranslateTransform();
+                        card.RenderTransform = transform;
+                        card.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                        transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+                        await Task.Delay(50);
+                    }
+                }
+
+                await Task.Delay(250);
+                skeletonstack.Visibility = Visibility.Hidden;
+                cloudstack.Visibility = Visibility.Visible;
+
+                {
+                    {
+                        foreach (Border card in cloudstack.Children)
+                        {
+                            card.Visibility = Visibility.Hidden;
+                        }
+
+                        foreach (Border card in cloudstack.Children)
+                        {
+                            card.Visibility = Visibility.Visible;
+                            DoubleAnimation opacityAnimation = new DoubleAnimation
+                            {
+                                From = 0,
+                                To = 1,
+                                Duration = TimeSpan.FromSeconds(0.25),
+                                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                            };
+
+                            DoubleAnimation translateAnimation = new DoubleAnimation
+                            {
+                                From = 100,
+                                To = 0,
+                                Duration = TimeSpan.FromSeconds(0.25),
+                                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+                            };
+
+                            TranslateTransform transform = new TranslateTransform();
+                            card.RenderTransform = transform;
+                            card.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+                            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+                            await Task.Delay(50);
+                        }
+
+                        foreach (Rectangle rec in SkeletonRectangles)
+                        {
+                            rec.RenderTransform.BeginAnimation(TranslateTransform.XProperty, null);
+                        }
+                    }
+                }
+
+            }
+        }
+        cloudrefreshbtn.IsEnabled = true;
+    }
+    private async void cloudbackbtn_Click(object sender, RoutedEventArgs e)
+    {
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 100,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            cloudgrid.RenderTransform = transform;
+            cloudgrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 100,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            cloudbtngrid.RenderTransform = transform;
+            cloudbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        await Task.Delay(250);
+        cloudgrid.Visibility = Visibility.Hidden;
+        cloudbtngrid.Visibility = Visibility.Hidden;
+        mainbtngrid.Visibility = Visibility.Visible;
+        maingrid.Visibility = Visibility.Visible;
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -100,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            mainbtngrid.RenderTransform = transform;
+            mainbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = -100,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            maingrid.RenderTransform = transform;
+            maingrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+    }
+
+    public List<Rectangle> SkeletonRectangles = new List<Rectangle>();
 }

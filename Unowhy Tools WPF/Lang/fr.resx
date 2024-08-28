@@ -477,6 +477,12 @@
   <data name="free" xml:space="preserve">
     <value>libre</value>
   </data>
+  <data name="get" xml:space="preserve">
+    <value>Obtenir</value>
+  </data>
+  <data name="getcloud" xml:space="preserve">
+    <value>Obtenir à partir du cloud</value>
+  </data>
   <data name="guide" xml:space="preserve">
     <value>Guide</value>
   </data>

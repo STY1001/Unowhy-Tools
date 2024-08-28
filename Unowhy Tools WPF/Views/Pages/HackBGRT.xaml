@@ -42,7 +42,8 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <Grid Margin="20">
+                <Grid Margin="20"
+                      x:Name="maingrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />
@@ -352,16 +353,624 @@
                         </Grid>
                     </Grid>
                 </Grid>
+                <Grid Margin="20"
+                      x:Name="cloudgrid"
+                                        Visibility="Hidden">
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                        <Grid>
+                            <StackPanel Orientation="Horizontal"
+                                        x:Name="skeletonstack"
+                                        Visibility="Collapsed">
+                                <Border VerticalAlignment="Stretch"
+                                        Height="283"
+                                        Width="229"
+                                        Background="#0affffff"
+                                        CornerRadius="8"
+                                        Margin="0,0,10,0">
+                                    <Grid VerticalAlignment="Stretch">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Border Margin="10"
+                                                Grid.Row="0"
+                                                Width="209"
+                                                Height="121"
+                                                Background="#000000"
+                                                CornerRadius="8">
+                                            <Grid>
+                                                <Rectangle Width="300"
+                                                           x:Name="Rec11">
+                                                    <Rectangle.Fill>
+                                                        <LinearGradientBrush StartPoint="0,0"
+                                                                             EndPoint="1,0">
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="0" />
+                                                            <GradientStop Color="#0fffffff"
+                                                                          Offset="0.5" />
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Rectangle.Fill>
+                                                </Rectangle>
+                                            </Grid>
+                                        </Border>
+                                        <Grid Grid.Row="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="5" />
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Border Height="20"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="0"
+                                                    Margin="10,0,10,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec12">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="17"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="2"
+                                                    Margin="10,0,100,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec13">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="32"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="3"
+                                                    VerticalAlignment="Bottom"
+                                                    Margin="10,10,10,10">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec14">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                                <Border VerticalAlignment="Stretch"
+                                        Height="283"
+                                        Width="229"
+                                        Background="#0affffff"
+                                        CornerRadius="8"
+                                        Margin="0,0,10,0">
+                                    <Grid VerticalAlignment="Stretch">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Border Margin="10"
+                                                Grid.Row="0"
+                                                Width="209"
+                                                Height="121"
+                                                Background="#000000"
+                                                CornerRadius="8">
+                                            <Grid>
+                                                <Rectangle Width="300"
+                                                           x:Name="Rec21">
+                                                    <Rectangle.Fill>
+                                                        <LinearGradientBrush StartPoint="0,0"
+                                                                             EndPoint="1,0">
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="0" />
+                                                            <GradientStop Color="#0fffffff"
+                                                                          Offset="0.5" />
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Rectangle.Fill>
+                                                </Rectangle>
+                                            </Grid>
+                                        </Border>
+                                        <Grid Grid.Row="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="5" />
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Border Height="20"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="0"
+                                                    Margin="10,0,10,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec22">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="17"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="2"
+                                                    Margin="10,0,100,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec23">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="32"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="3"
+                                                    VerticalAlignment="Bottom"
+                                                    Margin="10,10,10,10">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec24">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                                <Border VerticalAlignment="Stretch"
+                                        Height="283"
+                                        Width="229"
+                                        Background="#0affffff"
+                                        CornerRadius="8"
+                                        Margin="0,0,10,0">
+                                    <Grid VerticalAlignment="Stretch">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Border Margin="10"
+                                                Grid.Row="0"
+                                                Width="209"
+                                                Height="121"
+                                                Background="#000000"
+                                                CornerRadius="8">
+                                            <Grid>
+                                                <Rectangle Width="300"
+                                                           x:Name="Rec31">
+                                                    <Rectangle.Fill>
+                                                        <LinearGradientBrush StartPoint="0,0"
+                                                                             EndPoint="1,0">
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="0" />
+                                                            <GradientStop Color="#0fffffff"
+                                                                          Offset="0.5" />
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Rectangle.Fill>
+                                                </Rectangle>
+                                            </Grid>
+                                        </Border>
+                                        <Grid Grid.Row="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="5" />
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Border Height="20"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="0"
+                                                    Margin="10,0,10,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec32">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="17"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="2"
+                                                    Margin="10,0,100,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec33">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="32"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="3"
+                                                    VerticalAlignment="Bottom"
+                                                    Margin="10,10,10,10">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec34">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                                <Border VerticalAlignment="Stretch"
+                                        Height="283"
+                                        Width="229"
+                                        Background="#0affffff"
+                                        CornerRadius="8"
+                                        Margin="0,0,10,0">
+                                    <Grid VerticalAlignment="Stretch">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Border Margin="10"
+                                                Grid.Row="0"
+                                                Width="209"
+                                                Height="121"
+                                                Background="#000000"
+                                                CornerRadius="8">
+                                            <Grid>
+                                                <Rectangle Width="300"
+                                                           x:Name="Rec41">
+                                                    <Rectangle.Fill>
+                                                        <LinearGradientBrush StartPoint="0,0"
+                                                                             EndPoint="1,0">
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="0" />
+                                                            <GradientStop Color="#0fffffff"
+                                                                          Offset="0.5" />
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Rectangle.Fill>
+                                                </Rectangle>
+                                            </Grid>
+                                        </Border>
+                                        <Grid Grid.Row="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="5" />
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Border Height="20"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="0"
+                                                    Margin="10,0,10,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec42">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="17"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="2"
+                                                    Margin="10,0,100,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec43">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="32"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="3"
+                                                    VerticalAlignment="Bottom"
+                                                    Margin="10,10,10,10">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec44">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                                <Border VerticalAlignment="Stretch"
+                                        Height="283"
+                                        Width="229"
+                                        Background="#0affffff"
+                                        CornerRadius="8"
+                                        Margin="0,0,10,0">
+                                    <Grid VerticalAlignment="Stretch">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Border Margin="10"
+                                                Grid.Row="0"
+                                                Width="209"
+                                                Height="121"
+                                                Background="#000000"
+                                                CornerRadius="8">
+                                            <Grid>
+                                                <Rectangle Width="300"
+                                                           x:Name="Rec51">
+                                                    <Rectangle.Fill>
+                                                        <LinearGradientBrush StartPoint="0,0"
+                                                                             EndPoint="1,0">
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="0" />
+                                                            <GradientStop Color="#0fffffff"
+                                                                          Offset="0.5" />
+                                                            <GradientStop Color="#00ffffff"
+                                                                          Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Rectangle.Fill>
+                                                </Rectangle>
+                                            </Grid>
+                                        </Border>
+                                        <Grid Grid.Row="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="5" />
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Border Height="20"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="0"
+                                                    Margin="10,0,10,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec52">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="17"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="2"
+                                                    Margin="10,0,100,0">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec53">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                            <Border Height="32"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="#0affffff"
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Grid.Row="3"
+                                                    VerticalAlignment="Bottom"
+                                                    Margin="10,10,10,10">
+                                                <Grid>
+                                                    <Rectangle Width="300"
+                                                               x:Name="Rec54">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush StartPoint="0,0"
+                                                                                 EndPoint="1,0">
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="0" />
+                                                                <GradientStop Color="#0fffffff"
+                                                                              Offset="0.5" />
+                                                                <GradientStop Color="#00ffffff"
+                                                                              Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        x:Name="cloudstack"
+                                        Visibility="Collapsed">
+
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
                 <Border Background="#50000000"
                         CornerRadius="0,0,8,8"
                         Grid.Column="0"
                         Grid.Row="1" />
                 <Grid Grid.Row="1"
                       Margin="20">
-                    <StackPanel HorizontalAlignment="Left"
-                                Orientation="Horizontal">
+                    <Grid HorizontalAlignment="Left"
+                          x:Name="mainbtngrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
                         <ui:Button Click="OpenImg_Click"
-                                   x:Name="openimgbtn">
+                                   x:Name="openimgbtn"
+                                   Grid.Column="0">
                             <StackPanel>
                                 <Grid Grid.Row="1"
                                       Margin="0,0,0,0"
@@ -390,7 +999,109 @@
                                 </Grid>
                             </StackPanel>
                         </ui:Button>
-                    </StackPanel>
+                        <ui:Button Click="getcloudbtn_Click"
+                                   x:Name="getcloudbtn"
+                                   Grid.Column="2">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/clouddl.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Get from cloud"
+                                                   x:Name="getcloudbtnlab" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left"
+                          x:Name="cloudbtngrid"
+                          Visibility="Hidden">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:Button Click="cloudbackbtn_Click"
+                                   x:Name="cloudbackbtn"
+                                   Grid.Column="0">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/back.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Back"
+                                                   x:Name="cloudbackbtnlab" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                        <ui:Button Click="cloudrefreshbtn_Click"
+                                   x:Name="cloudrefreshbtn"
+                                   Grid.Column="2">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/reboot.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Refresh"
+                                                   x:Name="cloudrefreshbtnlab" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                    </Grid>
                     <StackPanel HorizontalAlignment="Right"
                                 Orientation="Horizontal">
                         <ui:Button Margin="0,0,20,0"
