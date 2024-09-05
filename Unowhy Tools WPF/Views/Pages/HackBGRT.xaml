@@ -37,7 +37,7 @@
                 <ScaleTransform ScaleX="1"
                                 ScaleY="1" />
             </Border.RenderTransform>
-            <Grid>
+            <Grid ClipToBounds="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
@@ -357,10 +357,10 @@
                       x:Name="cloudgrid"
                                         Visibility="Hidden">
                     <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
-                        <Grid>
+                        <Grid Width="944.25">
                             <StackPanel Orientation="Horizontal"
                                         x:Name="skeletonstack"
-                                        Visibility="Collapsed">
+                                        Visibility="Hidden">
                                 <Border VerticalAlignment="Stretch"
                                         Height="283"
                                         Width="229"
@@ -960,7 +960,8 @@
                         Grid.Column="0"
                         Grid.Row="1" />
                 <Grid Grid.Row="1"
-                      Margin="20">
+                      Margin="20"
+                      ClipToBounds="True">
                     <Grid HorizontalAlignment="Left"
                           x:Name="mainbtngrid">
                         <Grid.ColumnDefinitions>

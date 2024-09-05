@@ -1103,92 +1103,6 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         }
     }
 
-    private async void getcloudbtn_Click(object sender, RoutedEventArgs e)
-    {
-        {
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 1,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.25),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = -100,
-                Duration = TimeSpan.FromSeconds(0.25),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            maingrid.RenderTransform = transform;
-            maingrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-        }
-
-        {
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 1,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.25),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = -100,
-                Duration = TimeSpan.FromSeconds(0.25),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            mainbtngrid.RenderTransform = transform;
-            mainbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-        }
-
-        await Task.Delay(250);
-        maingrid.Visibility = Visibility.Hidden;
-        mainbtngrid.Visibility = Visibility.Hidden;
-        cloudbtngrid.Visibility = Visibility.Visible;
-        {
-            DoubleAnimation opacityAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.25),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            DoubleAnimation translateAnimation = new DoubleAnimation
-            {
-                From = 100,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.25),
-                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
-            };
-
-            TranslateTransform transform = new TranslateTransform();
-            cloudbtngrid.RenderTransform = transform;
-            cloudbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
-        }
-        cloudgrid.Visibility = Visibility.Visible;
-        cloudstack.Children.Clear();
-        if(await UT.CheckInternet())
-        {
-            await CloudRefresh();
-        }
-        else
-        {
-            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
-        }
-    }
-
     private async Task<Border> CreateCard(string name, string author, string link)
     {
         Border CardBorder = new Border
@@ -1597,6 +1511,115 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         }
         cloudrefreshbtn.IsEnabled = true;
     }
+
+    private async void getcloudbtn_Click(object sender, RoutedEventArgs e)
+    {
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -100,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            maingrid.RenderTransform = transform;
+            maingrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = -100,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            mainbtngrid.RenderTransform = transform;
+            mainbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+
+        await Task.Delay(250);
+        maingrid.Visibility = Visibility.Hidden;
+        mainbtngrid.Visibility = Visibility.Hidden;
+        cloudbtngrid.Visibility = Visibility.Visible;
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 100,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            cloudbtngrid.RenderTransform = transform;
+            cloudbtngrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+        {
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 100,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.25),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            cloudgrid.RenderTransform = transform;
+            cloudgrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+        }
+        cloudgrid.Visibility = Visibility.Visible;
+        cloudstack.Children.Clear();
+        if (await UT.CheckInternet())
+        {
+            await CloudRefresh();
+        }
+        else
+        {
+            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+        }
+    }
+
     private async void cloudbackbtn_Click(object sender, RoutedEventArgs e)
     {
         {
