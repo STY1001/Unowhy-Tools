@@ -310,20 +310,446 @@
                                     </Grid.ColumnDefinitions>
                                     <RadioButton Content="All region (EEPROM)"
                                                  GroupName="ifptpradio_Jasper"
-                                                 x:Name="ifptalleeprom_Jasper" 
-                                                 Grid.Column="0"/>
+                                                 x:Name="ifptalleeprom_Jasper"
+                                                 Grid.Column="0" />
                                     <RadioButton Content="Desc region"
                                                  GroupName="ifptpradio_Jasper"
-                                                 x:Name="ifptdesc_Jasper" 
+                                                 x:Name="ifptdesc_Jasper"
                                                  Grid.Column="1" />
                                     <RadioButton Content="BIOS region"
                                                  GroupName="ifptpradio_Jasper"
                                                  IsChecked="True"
-                                                 x:Name="ifptbios_Jasper" 
+                                                 x:Name="ifptbios_Jasper"
                                                  Grid.Column="2" />
                                     <RadioButton Content="ME region"
                                                  GroupName="ifptpradio_Jasper"
-                                                 x:Name="ifptme_Jasper" 
+                                                 x:Name="ifptme_Jasper"
+                                                 Grid.Column="3" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Expander>
+                    <Expander Header="Intel Flash Programmer Tool (Dump and Flash) (Gemini Lake)"
+                              Grid.Row="0"
+                              x:Name="ExpIFPT_Gemini"
+                              Expanded="ExpIFPT_Expanded_Gemini">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="15" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid x:Name="IFPTGridDump_Gemini">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="../../Resources/upload.png"
+                                       Grid.Row="2"
+                                       Grid.Column="0" />
+                                <TextBlock x:Name="ifptdumplab_Gemini"
+                                           Text="Dump to a file: "
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="3"
+                                           FontSize="13"
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <ui:TextBox x:Name="ifptdumppath_Gemini"
+                                            Grid.Column="2"
+                                            Grid.Row="2"
+                                            IsReadOnly="True" />
+                                <ui:Button x:Name="ifptdumpexp_Gemini"
+                                           Grid.Column="4"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="..."
+                                           FontSize="16"
+                                           Click="ifptdumpexp_Click_Gemini" />
+                                <ui:Button x:Name="ifptdumpbtn_Gemini"
+                                           Grid.Column="6"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="Dump"
+                                           FontSize="16"
+                                           Click="ifptdumpbtn_Click_Gemini" />
+                            </Grid>
+                            <ui:NavigationSeparator Grid.Column="1"
+                                                    Margin="5" />
+                            <Grid Grid.Column="2"
+                                  x:Name="IFPTGridFlash_Gemini">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="../../Resources/download.png"
+                                       Grid.Row="2"
+                                       Grid.Column="0" />
+                                <TextBlock x:Name="ifptflashlab_Gemini"
+                                           Text="Flash from a file: "
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="3"
+                                           FontSize="13"
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <ui:TextBox x:Name="ifptflashpath_Gemini"
+                                            Grid.Column="2"
+                                            Grid.Row="2"
+                                            IsReadOnly="True" />
+                                <ui:Button x:Name="ifptflashexp_Gemini"
+                                           Grid.Column="4"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="..."
+                                           FontSize="16"
+                                           Click="ifptflashexp_Click_Gemini" />
+                                <ui:Button x:Name="ifptflashbtn_Gemini"
+                                           Grid.Column="6"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="Flash"
+                                           FontSize="16"
+                                           Click="ifptflashbtn_Click_Gemini" />
+                            </Grid>
+                            <Grid Grid.ColumnSpan="3"
+                                  Grid.Row="2">
+                                <Grid x:Name="ifptregion_Gemini">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton Content="All region (EEPROM)"
+                                                 GroupName="ifptpradio_Gemini"
+                                                 x:Name="ifptalleeprom_Gemini"
+                                                 Grid.Column="0" />
+                                    <RadioButton Content="Desc region"
+                                                 GroupName="ifptpradio_Gemini"
+                                                 x:Name="ifptdesc_Gemini"
+                                                 Grid.Column="1" />
+                                    <RadioButton Content="BIOS region"
+                                                 GroupName="ifptpradio_Gemini"
+                                                 IsChecked="True"
+                                                 x:Name="ifptbios_Gemini"
+                                                 Grid.Column="2" />
+                                    <RadioButton Content="TXE region"
+                                                 GroupName="ifptpradio_Gemini"
+                                                 x:Name="ifpttxe_Gemini"
+                                                 Grid.Column="3" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Expander>
+                    <Expander Header="Intel Flash Programmer Tool (Dump and Flash) (Apollo Lake)"
+                              Grid.Row="0"
+                              x:Name="ExpIFPT_Apollo"
+                              Expanded="ExpIFPT_Expanded_Apollo">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="15" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid x:Name="IFPTGridDump_Apollo">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="../../Resources/upload.png"
+                                       Grid.Row="2"
+                                       Grid.Column="0" />
+                                <TextBlock x:Name="ifptdumplab_Apollo"
+                                           Text="Dump to a file: "
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="3"
+                                           FontSize="13"
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <ui:TextBox x:Name="ifptdumppath_Apollo"
+                                            Grid.Column="2"
+                                            Grid.Row="2"
+                                            IsReadOnly="True" />
+                                <ui:Button x:Name="ifptdumpexp_Apollo"
+                                           Grid.Column="4"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="..."
+                                           FontSize="16"
+                                           Click="ifptdumpexp_Click_Apollo" />
+                                <ui:Button x:Name="ifptdumpbtn_Apollo"
+                                           Grid.Column="6"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="Dump"
+                                           FontSize="16"
+                                           Click="ifptdumpbtn_Click_Apollo" />
+                            </Grid>
+                            <ui:NavigationSeparator Grid.Column="1"
+                                                    Margin="5" />
+                            <Grid Grid.Column="2"
+                                  x:Name="IFPTGridFlash_Apollo">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="../../Resources/download.png"
+                                       Grid.Row="2"
+                                       Grid.Column="0" />
+                                <TextBlock x:Name="ifptflashlab_Apollo"
+                                           Text="Flash from a file: "
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="3"
+                                           FontSize="13"
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <ui:TextBox x:Name="ifptflashpath_Apollo"
+                                            Grid.Column="2"
+                                            Grid.Row="2"
+                                            IsReadOnly="True" />
+                                <ui:Button x:Name="ifptflashexp_Apollo"
+                                           Grid.Column="4"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="..."
+                                           FontSize="16"
+                                           Click="ifptflashexp_Click_Apollo" />
+                                <ui:Button x:Name="ifptflashbtn_Apollo"
+                                           Grid.Column="6"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="Flash"
+                                           FontSize="16"
+                                           Click="ifptflashbtn_Click_Apollo" />
+                            </Grid>
+                            <Grid Grid.ColumnSpan="3"
+                                  Grid.Row="2">
+                                <Grid x:Name="ifptregion_Apollo">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton Content="All region (EEPROM)"
+                                                 GroupName="ifptpradio_Apollo"
+                                                 x:Name="ifptalleeprom_Apollo"
+                                                 Grid.Column="0" />
+                                    <RadioButton Content="Desc region"
+                                                 GroupName="ifptpradio_Apollo"
+                                                 x:Name="ifptdesc_Apollo"
+                                                 Grid.Column="1" />
+                                    <RadioButton Content="BIOS region"
+                                                 GroupName="ifptpradio_Apollo"
+                                                 IsChecked="True"
+                                                 x:Name="ifptbios_Apollo"
+                                                 Grid.Column="2" />
+                                    <RadioButton Content="TXE region"
+                                                 GroupName="ifptpradio_Apollo"
+                                                 x:Name="ifpttxe_Apollo"
+                                                 Grid.Column="3" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Expander>
+                    <Expander Header="Intel Flash Programmer Tool (Dump and Flash) (Sky/Kaby Lake)"
+                              Grid.Row="0"
+                              x:Name="ExpIFPT_SkyKaby"
+                              Expanded="ExpIFPT_Expanded_SkyKaby">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="15" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid x:Name="IFPTGridDump_SkyKaby">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="../../Resources/upload.png"
+                                       Grid.Row="2"
+                                       Grid.Column="0" />
+                                <TextBlock x:Name="ifptdumplab_SkyKaby"
+                                           Text="Dump to a file: "
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="3"
+                                           FontSize="13"
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <ui:TextBox x:Name="ifptdumppath_SkyKaby"
+                                            Grid.Column="2"
+                                            Grid.Row="2"
+                                            IsReadOnly="True" />
+                                <ui:Button x:Name="ifptdumpexp_SkyKaby"
+                                           Grid.Column="4"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="..."
+                                           FontSize="16"
+                                           Click="ifptdumpexp_Click_SkyKaby" />
+                                <ui:Button x:Name="ifptdumpbtn_SkyKaby"
+                                           Grid.Column="6"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="Dump"
+                                           FontSize="16"
+                                           Click="ifptdumpbtn_Click_SkyKaby" />
+                            </Grid>
+                            <ui:NavigationSeparator Grid.Column="1"
+                                                    Margin="5" />
+                            <Grid Grid.Column="2"
+                                  x:Name="IFPTGridFlash_SkyKaby">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="5" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="32" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="../../Resources/download.png"
+                                       Grid.Row="2"
+                                       Grid.Column="0" />
+                                <TextBlock x:Name="ifptflashlab_SkyKaby"
+                                           Text="Flash from a file: "
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="3"
+                                           FontSize="13"
+                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                                <ui:TextBox x:Name="ifptflashpath_SkyKaby"
+                                            Grid.Column="2"
+                                            Grid.Row="2"
+                                            IsReadOnly="True" />
+                                <ui:Button x:Name="ifptflashexp_SkyKaby"
+                                           Grid.Column="4"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="..."
+                                           FontSize="16"
+                                           Click="ifptflashexp_Click_SkyKaby" />
+                                <ui:Button x:Name="ifptflashbtn_SkyKaby"
+                                           Grid.Column="6"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Content="Flash"
+                                           FontSize="16"
+                                           Click="ifptflashbtn_Click_SkyKaby" />
+                            </Grid>
+                            <Grid Grid.ColumnSpan="3"
+                                  Grid.Row="2">
+                                <Grid x:Name="ifptregion_SkyKaby">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton Content="All region (EEPROM)"
+                                                 GroupName="ifptpradio_SkyKaby"
+                                                 x:Name="ifptalleeprom_SkyKaby"
+                                                 Grid.Column="0" />
+                                    <RadioButton Content="Desc region"
+                                                 GroupName="ifptpradio_SkyKaby"
+                                                 x:Name="ifptdesc_SkyKaby"
+                                                 Grid.Column="1" />
+                                    <RadioButton Content="BIOS region"
+                                                 GroupName="ifptpradio_SkyKaby"
+                                                 IsChecked="True"
+                                                 x:Name="ifptbios_SkyKaby"
+                                                 Grid.Column="2" />
+                                    <RadioButton Content="ME region"
+                                                 GroupName="ifptpradio_SkyKaby"
+                                                 x:Name="ifptme_SkyKaby"
                                                  Grid.Column="3" />
                                 </Grid>
                             </Grid>
