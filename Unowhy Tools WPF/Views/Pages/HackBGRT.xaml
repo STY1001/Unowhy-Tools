@@ -377,7 +377,8 @@
                                                 Width="209"
                                                 Height="121"
                                                 Background="#000000"
-                                                CornerRadius="8">
+                                                CornerRadius="8"
+                                                ClipToBounds="True">
                                             <Grid>
                                                 <Rectangle Width="300"
                                                            x:Name="Rec11">
@@ -494,7 +495,8 @@
                                                 Width="209"
                                                 Height="121"
                                                 Background="#000000"
-                                                CornerRadius="8">
+                                                CornerRadius="8"
+                                                ClipToBounds="True">
                                             <Grid>
                                                 <Rectangle Width="300"
                                                            x:Name="Rec21">
@@ -611,7 +613,8 @@
                                                 Width="209"
                                                 Height="121"
                                                 Background="#000000"
-                                                CornerRadius="8">
+                                                CornerRadius="8"
+                                                ClipToBounds="True">
                                             <Grid>
                                                 <Rectangle Width="300"
                                                            x:Name="Rec31">
@@ -728,7 +731,8 @@
                                                 Width="209"
                                                 Height="121"
                                                 Background="#000000"
-                                                CornerRadius="8">
+                                                CornerRadius="8"
+                                                ClipToBounds="True">
                                             <Grid>
                                                 <Rectangle Width="300"
                                                            x:Name="Rec41">
@@ -845,7 +849,8 @@
                                                 Width="209"
                                                 Height="121"
                                                 Background="#000000"
-                                                CornerRadius="8">
+                                                CornerRadius="8"
+                                                ClipToBounds="True">
                                             <Grid>
                                                 <Rectangle Width="300"
                                                            x:Name="Rec51">
