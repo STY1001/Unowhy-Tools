@@ -69,6 +69,8 @@
                                 <ComboBoxItem Content="All version"
                                               x:Name="selectall"
                                               IsSelected="True" />
+                                <ComboBoxItem Content="Y13 Gen 2 2024"
+                                              x:Name="selectY132024" />
                                 <ComboBoxItem Content="Y13 Gen 1 2023"
                                               x:Name="selectY132023" />
                                 <ComboBoxItem Content="Y13 Gen 1 2022"
@@ -77,8 +79,14 @@
                                               x:Name="selectY132021" />
                                 <ComboBoxItem Content="Y13 Gen 1 2020"
                                               x:Name="selectY132020" />
+                                <ComboBoxItem Content="Y13 Gen 1 2019"
+                                              x:Name="selectY132019" />
+                                <ComboBoxItem Content="Y13 Gen 1 m3"
+                                              x:Name="selectY13m3" />
                                 <ComboBoxItem Content="Y5OPS i5"
                                               x:Name="selectY5OPSi5" />
+                                <ComboBoxItem Content="Y11 360 Gen 1"
+                                              x:Name="selectY11G1" />
                                 <ComboBoxItem Content="Y11 360 Gen 2"
                                               x:Name="selectY11G2" />
                             </ComboBox>

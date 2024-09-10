@@ -62,7 +62,11 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         versionselect.IsEnabled = false;
         applylang();
         string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
-        if (currentsku.Contains("Y13G113S4EI") || currentsku.Contains("Y13G113S4E") || currentsku.Contains("STYY13U"))
+        if (currentsku.Contains("Y13G201S4EI") || currentsku.Contains("Y13G201S4E") || currentsku.Contains("STYL13G2"))
+        {
+            selectY132024.IsSelected = true;
+        }
+        else if (currentsku.Contains("Y13G113S4EI") || currentsku.Contains("Y13G113S4E") || currentsku.Contains("STYL13G1"))
         {
             selectY132023.IsSelected = true;
         }
@@ -78,7 +82,23 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         {
             selectY132020.IsSelected = true;
         }
-        else if (currentsku.Contains("OPSG530S2M") || currentsku.Contains("STYY5OPSI5"))
+        else if (currentsku.Contains("Y13G002S4EI") || currentsku.Contains("Y13G002S4E"))
+        {
+            selectY132019.IsSelected = true;
+        }
+        else if (currentsku.Contains("20180329314"))
+        {
+            selectY13m3.IsSelected = true;
+        }
+        else if (currentsku.Contains("Y11G201S2M"))
+        {
+            selectY13m3.IsSelected = true;
+        }
+        else if (currentsku.Contains("Y11G001S4E"))
+        {
+            selectY11G1.IsSelected = true;
+        }
+        else if (currentsku.Contains("OPSG530S2M") || currentsku.Contains("STYDS5OPS"))
         {
             selectY5OPSi5.IsSelected = true;
         }
@@ -195,107 +215,130 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         }
     }
 
+    private bool syncing = false;
     public async Task SyncWithCloud()
     {
-        SkeletonStack.Visibility = Visibility.Visible;
-
-        await Task.Delay(1000);
-
-        foreach (Rectangle rec in SkeletonRec)
+        if (!syncing)
         {
-            DoubleAnimation anim = new DoubleAnimation();
-            anim.From = -300;
-            anim.To = 300;
-            anim.RepeatBehavior = RepeatBehavior.Forever;
-            anim.Duration = TimeSpan.FromMilliseconds(1000);
-            anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
-            TranslateTransform trans = new TranslateTransform();
-            rec.RenderTransform = trans;
-            trans.BeginAnimation(TranslateTransform.XProperty, anim);
+            syncing = true;
+            SkeletonStack.Visibility = Visibility.Visible;
 
-            await Task.Delay(50);
-        }
+            await Task.Delay(1000);
 
-        string langString = await UT.Config.Get("Lang");
-
-        SkeletonStack.Visibility = Visibility.Collapsed;
-
-        string datasurl = UT.online_datas;
-        HttpClient web = new HttpClient();
-        HttpResponseMessage rep = await web.GetAsync(datasurl);
-        if (rep.StatusCode == HttpStatusCode.OK)
-        {
-            string jsonContent = await web.GetStringAsync(datasurl);
-            dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
-            if (jsonObject.drivers != null && jsonObject.drivers.Count > 0)
+            foreach (Rectangle rec in SkeletonRec)
             {
-                foreach (var driver in jsonObject.drivers)
+                DoubleAnimation anim = new DoubleAnimation();
+                anim.From = -300;
+                anim.To = 300;
+                anim.RepeatBehavior = RepeatBehavior.Forever;
+                anim.Duration = TimeSpan.FromMilliseconds(1000);
+                anim.EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseOut, Power = 5 };
+                TranslateTransform trans = new TranslateTransform();
+                rec.RenderTransform = trans;
+                trans.BeginAnimation(TranslateTransform.XProperty, anim);
+
+                await Task.Delay(50);
+            }
+
+            string langString = await UT.Config.Get("Lang");
+
+            SkeletonStack.Visibility = Visibility.Collapsed;
+
+            string datasurl = UT.online_datas;
+            HttpClient web = new HttpClient();
+            HttpResponseMessage rep = await web.GetAsync(datasurl);
+            if (rep.StatusCode == HttpStatusCode.OK)
+            {
+                string jsonContent = await web.GetStringAsync(datasurl);
+                dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
+                if (jsonObject.drivers != null && jsonObject.drivers.Count > 0)
                 {
-                    string title;
-                    string desc;
+                    foreach (var driver in jsonObject.drivers)
+                    {
+                        string title;
+                        string desc;
 
-                    string name = (string)driver["name"];
-                    string author = (string)driver["author"];
-                    string pcyear = (string)driver["pcyear"];
-                    string pcmodel = (string)driver["pcmodel"];
-                    double size = (double)driver["size"];
-                    string link = (string)driver["link"];
-                    bool old = (bool)driver["old"];
+                        string name = (string)driver["name"];
+                        string author = (string)driver["author"];
+                        string pcyear = (string)driver["pcyear"];
+                        string pcmodel = (string)driver["pcmodel"];
+                        double size = (double)driver["size"];
+                        string link = (string)driver["link"];
+                        bool old = (bool)driver["old"];
 
-                    if ((pcmodel == "Y13G113S4EI" || pcmodel == "Y13G113S4E") && !selectY132023.IsSelected && !selectall.IsSelected)
-                    {
-                        continue;
-                    }
-                    if ((pcmodel == "Y13G012S4EI" || pcmodel == "Y13G012S4E") && !selectY132022.IsSelected && !selectall.IsSelected)
-                    {
-                        continue;
-                    }
-                    if ((pcmodel == "Y13G011S4EI" || pcmodel == "Y13G011S4E") && !selectY132021.IsSelected && !selectall.IsSelected)
-                    {
-                        continue;
-                    }
-                    if ((pcmodel == "Y13G010S4EI" || pcmodel == "Y13G010S4E") && !selectY132020.IsSelected && !selectall.IsSelected)
-                    {
-                        continue;
-                    }
-                    if (pcmodel == "OPSG530S2M" && !selectY5OPSi5.IsSelected && !selectall.IsSelected)
-                    {
-                        continue;
-                    }
-                    if (pcmodel == "Y11G201S2M" && !selectY11G2.IsSelected && !selectall.IsSelected)
-                    {
-                        continue;
-                    }
-                    if (old && showold.IsChecked == false)
-                    {
-                        continue;
-                    }
+                        if ((pcmodel == "Y13G201S4EI" || pcmodel == "Y13G201S4E") && !selectY132023.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if ((pcmodel == "Y13G113S4EI" || pcmodel == "Y13G113S4E") && !selectY132023.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if ((pcmodel == "Y13G012S4EI" || pcmodel == "Y13G012S4E") && !selectY132022.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if ((pcmodel == "Y13G011S4EI" || pcmodel == "Y13G011S4E") && !selectY132021.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if ((pcmodel == "Y13G010S4EI" || pcmodel == "Y13G010S4E") && !selectY132020.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if ((pcmodel == "Y13G002S4EI" || pcmodel == "Y13G002S4E") && !selectY132020.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if (pcmodel == "20180329314" && !selectY5OPSi5.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if (pcmodel == "OPSG530S2M" && !selectY5OPSi5.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if (pcmodel == "Y11G201S2M" && !selectY11G2.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if (pcmodel == "Y11G001S4E" && !selectY11G2.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if (old && showold.IsChecked == false)
+                        {
+                            continue;
+                        }
 
-                    string description = "null";
-                    if (langString == "EN")
-                    {
-                        description = (string)driver["description"]["en"];
-                    }
-                    else if (langString == "FR")
-                    {
-                        description = (string)driver["description"]["fr"];
-                    }
+                        string description = "null";
+                        if (langString == "EN")
+                        {
+                            description = (string)driver["description"]["en"];
+                        }
+                        else if (langString == "FR")
+                        {
+                            description = (string)driver["description"]["fr"];
+                        }
 
-                    size = size / (1024 * 1024);
-                    string model = UT.skumodel[pcmodel];
-                    title = name + "  •  by " + author;
-                    if (description == "")
-                    {
-                        desc = model + "  •  " + size.ToString("0") + " MB";
-                    }
-                    else
-                    {
-                        desc = description + "  •  " + model + "  •  " + size.ToString("0") + " MB";
-                    }
+                        size = size / (1024 * 1024);
+                        string model = UT.skumodel[pcmodel];
+                        title = name + "  •  by " + author;
+                        if (description == "")
+                        {
+                            desc = model + "  •  " + size.ToString("0") + " MB";
+                        }
+                        else
+                        {
+                            desc = description + "  •  " + model + "  •  " + size.ToString("0") + " MB";
+                        }
 
-                    await CreateCard(title, desc, name, link, size);
+                        await CreateCard(title, desc, name, link, size);
+                    }
                 }
             }
+
+            syncing = false;
         }
     }
 
