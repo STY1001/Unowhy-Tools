@@ -1103,6 +1103,23 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         }
     }
 
+    private async Task<BitmapImage> GetBitmapImageFromLink(string link)
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            byte[] imageData = await client.GetByteArrayAsync(link);
+            BitmapImage bitmapImage = new BitmapImage();
+            using (MemoryStream memoryStream = new MemoryStream(imageData))
+            {
+                bitmapImage.BeginInit();
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.StreamSource = memoryStream;
+                bitmapImage.EndInit();
+            }
+            return bitmapImage;
+        }
+    }
+
     private async Task<Border> CreateCard(string name, string author, string link)
     {
         Border CardBorder = new Border
@@ -1160,7 +1177,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             Stretch = Stretch.Fill
         };
         RenderOptions.SetBitmapScalingMode(PrevImage, BitmapScalingMode.HighQuality);
-        BitmapImage image = new BitmapImage(new Uri(link));
+        BitmapImage image = await GetBitmapImageFromLink(link);
         PrevImage.Source = image;
 
         ImageInnerBorder.Child = PrevImage;
@@ -1210,7 +1227,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         GetButton.Click += async (sender, e) =>
         {
             UT.SendAction("HackBGRT.GetFromCloud");
-            BitmapImage preimage = new BitmapImage(new Uri(link));
+            BitmapImage preimage = await GetBitmapImageFromLink(link);
             await UpdatePreview(preimage);
             ImageSource = ResizeImage(preimage);
 
