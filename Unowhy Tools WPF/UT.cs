@@ -1576,9 +1576,9 @@ namespace Unowhy_Tools
                 Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE");
             }
 
-            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT"))
+            if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\IFPT"))
             {
-                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT");
+                Directory.CreateDirectory(utpath + "\\Unowhy Tools\\Temps\\IFPT");
             }
 
             if (!Directory.Exists(utpath + "\\Unowhy Tools\\Temps\\AMI\\ChangeLogo"))
@@ -2014,7 +2014,26 @@ namespace Unowhy_Tools
                         ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\AMIDEWin.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE", true);
                     });
                 }
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+
+                List<string> ifptfiles = new List<string>
+                {
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Apollo\\" + "fparts.txt",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Apollo\\" + "FPTW64.exe",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Apollo\\" + "Idrvdll32e.dll",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Apollo\\" + "Pmxdll32e.dll",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "fparts.txt",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "FPTW64.exe",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "Idrvdll32e.dll",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "Pmxdll32e.dll",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Jasper\\" + "FPTW64.exe",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "fparts.txt",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "FPTW64.exe",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "Idrvdll32e.dll",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "Pmxdll32e.dll",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Tiger\\" + "FPTW64.exe"
+                };
+
+                if (ifptfiles.Any(file => !File.Exists(file)))
                 {
                     var progress = new System.Progress<double>();
                     var cancellationToken = new CancellationTokenSource();
@@ -2024,12 +2043,12 @@ namespace Unowhy_Tools
                     {
                         mainWindow.SplashText.Text = dl + " (" + value.ToString("###") + "%)";
                     };
-                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw2"), UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", progress, cancellationToken.Token);
+                    await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw3"), UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", progress, cancellationToken.Token);
                     await MainWindow.USSwB("Extracting... (IFPT)");
                     await Task.Delay(100);
                     await Task.Run(() =>
                     {
-                        ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT", true);
+                        ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\IFPT", true);
                     });
                 }
             }

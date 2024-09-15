@@ -174,6 +174,24 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     }
 
+    List<string> ifptfiles = new List<string>
+    {
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Apollo\\" + "fparts.txt",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Apollo\\" + "FPTW64.exe",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Apollo\\" + "Idrvdll32e.dll",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Apollo\\" + "Pmxdll32e.dll",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "fparts.txt",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "FPTW64.exe",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "Idrvdll32e.dll",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "Pmxdll32e.dll",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Jasper\\" + "FPTW64.exe",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "fparts.txt",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "FPTW64.exe",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "Idrvdll32e.dll",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "Pmxdll32e.dll",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Tiger\\" + "FPTW64.exe"
+    };
+
     List<string> afufiles = new List<string>
     {
         UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AFU\\" + "AFUWINx64.exe",
@@ -197,12 +215,12 @@ public partial class Bios : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "download.png");
             };
-            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw2"), UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("fptw3"), UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", progress, cancellationToken.Token);
             await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
             await Task.Delay(100);
             await Task.Run(() =>
             {
-                ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT", true);
+                ZipFile.ExtractToDirectory(UT.utpath + "\\Unowhy Tools\\Temps\\IFPT.zip", UT.utpath + "\\Unowhy Tools\\Temps\\IFPT", true);
             });
         }
         if (resname == "AFU")
@@ -299,7 +317,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
                 UT.SendAction("UTB.IFPTDump_Tiger");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (ifptfiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -314,7 +332,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath_Tiger.Text;
@@ -330,9 +348,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Tiger\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -d \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Tiger";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -358,7 +376,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
                 UT.SendAction("UTB.IFPTFlash_Tiger");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -373,7 +391,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = ifptflashpath_Tiger.Text;
@@ -385,9 +403,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Tiger\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -f \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Tiger";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -445,7 +463,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
                 UT.SendAction("UTB.IFPTDump_Jasper");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -460,7 +478,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath_Jasper.Text;
@@ -476,9 +494,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Jasper\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -d \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Jasper";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -504,7 +522,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
                 UT.SendAction("UTB.IFPTFlash_Jasper");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -519,7 +537,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = ifptflashpath_Jasper.Text;
@@ -531,9 +549,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Jasper.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Jasper\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -f \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Jasper";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -591,7 +609,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
                 UT.SendAction("UTB.IFPTDump_Gemini");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Gemini.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -606,7 +624,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Gemini.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath_Gemini.Text;
@@ -622,9 +640,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Gemini.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Gemini\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -d \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Gemini";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -650,7 +668,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
                 UT.SendAction("UTB.IFPTFlash_Gemini");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Gemini.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -665,7 +683,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Gemini.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = ifptflashpath_Gemini.Text;
@@ -677,9 +695,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Gemini.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Gemini\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -f \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Gemini";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -737,7 +755,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
                 UT.SendAction("UTB.IFPTDump_Apollo");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Apollo.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -752,7 +770,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Apollo.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath_Apollo.Text;
@@ -768,9 +786,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Apollo.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Apollo\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -d \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Apollo";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -796,7 +814,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
                 UT.SendAction("UTB.IFPTFlash_Apollo");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Apollo.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -811,7 +829,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Apollo.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = ifptflashpath_Apollo.Text;
@@ -823,9 +841,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Apollo.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Apollo\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -f \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Apollo";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -883,7 +901,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
             {
                 UT.SendAction("UTB.IFPTDump_SkyKaby");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_SkyKaby.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -898,7 +916,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_SkyKaby.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
                     string path = ifptdumppath_SkyKaby.Text;
@@ -914,9 +932,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_SkyKaby.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\SkyKaby\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -d \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\SkyKaby";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -942,7 +960,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
             {
                 UT.SendAction("UTB.IFPTFlash_SkyKaby");
-                if (!File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_SkyKaby.exe") || !File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => !File.Exists(file)))
                 {
                     UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
                     if (await UT.CheckInternet())
@@ -957,7 +975,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     }
                 }
                 await Task.Delay(1000);
-                if (File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_SkyKaby.exe") && File.Exists(UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_Tiger.exe"))
+                if (afufiles.Any(file => File.Exists(file)))
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
                     string path = ifptflashpath_SkyKaby.Text;
@@ -969,9 +987,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await Task.Run(() =>
                     {
                         Process p = new Process();
-                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT\\FPTW_SkyKaby.exe";
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\SkyKaby\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -f \"{path}\"";
-                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\IFPT";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\SkyKaby";
                         p.Start();
                         p.WaitForExit();
                     });
