@@ -176,7 +176,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
                 string percentage = ((status * 100) / list.Count).ToString("##0") + " %";
 
-                await UT.waitstatus.open(await UT.GetLang("wait.restore") + " (" + percentage + ")", "null");
+                if(list.Count == 1)
+                {
+                    await UT.waitstatus.open(await UT.GetLang("wait.restore"), "null");
+                }
+                else
+                {
+                    await UT.waitstatus.open(await UT.GetLang("wait.restore") + " (" + percentage + ")", "null");
+                }
 
                 await Task.Run(() =>
                 {
@@ -592,7 +599,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
     {
         System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
         MenuItem GJItem = new MenuItem();
-        GJItem.Header = "Gemini/Jasper Lake (Y11 360, Y13)";
+        GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper Lake (Y11 360, Y13)";
         GJItem.Click += async (sender, e) =>
         {
             await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998);
