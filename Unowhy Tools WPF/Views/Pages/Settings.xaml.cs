@@ -59,7 +59,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         string serial = await UT.UTS.UTSmsg("UTSW", "GetSN");
         sn.Text = serial;
 
-        if((await UT.UTS.UTSmsg("UTSW", "GetWS")).Contains("True"))
+        if ((await UT.UTS.UTSmsg("UTSW", "GetWS")).Contains("True"))
         {
             ws.IsChecked = true;
         }
@@ -75,9 +75,9 @@ public partial class Settings : INavigableView<DashboardViewModel>
             sn.Text = "";
         }
 
-            TaskService ts = new TaskService();
+        TaskService ts = new TaskService();
         Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
-        if(uttltask != null)
+        if (uttltask != null)
         {
             if (uttltask.Definition.Settings.Enabled)
             {
@@ -93,7 +93,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             tray.IsChecked = false;
             tray.IsEnabled = false;
         }
-        
+
         if (await UT.Config.Get("Lang") == "EN")
         {
             lang_en.IsSelected = true;
@@ -103,13 +103,22 @@ public partial class Settings : INavigableView<DashboardViewModel>
             lang_fr.IsSelected = true;
         }
 
-        if(await UT.Config.Get("UpdateStart") == "1")
+        if (await UT.Config.Get("UpdateStart") == "1")
         {
             us.IsChecked = true;
         }
         else
         {
             us.IsChecked = false;
+        }
+
+        if (await UT.Config.Get("ConfServer") == "idf")
+        {
+            confserv_idf.IsSelected = true;
+        }
+        else if (await UT.Config.Get("ConfServer") == "allsqool")
+        {
+            confserv_allsqool.IsSelected = true;
         }
 
         string fp = UT.utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
@@ -283,7 +292,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
         bool ok = true;
 
-        if(sn.Text == "")
+        if (sn.Text == "")
         {
 
         }
@@ -291,14 +300,20 @@ public partial class Settings : INavigableView<DashboardViewModel>
         {
             if (await UT.CheckInternet())
             {
-                var web = new HttpClient();
                 string ssn = sn.Text;
-                string preurl = await UT.OnlineDatas.GetUrls("idfconf");
-                string configurl = $"{preurl}/devices/{ssn}/configuration";
+                string confname = await UT.CheckSN(ssn);
 
-                HttpResponseMessage response = await web.GetAsync(configurl);
-                if (response.StatusCode == HttpStatusCode.OK)
+                if (confname == "idf" || confname == "allsqool")
                 {
+                    if (confname == "idf")
+                    {
+                        await UT.Config.Set("ConfServer", "idf");
+                    }
+                    else if (confname == "allsqool")
+                    {
+                        await UT.Config.Set("ConfServer", "allsqool");
+                    }
+
                     await UT.UTS.UTSmsg("UTSW", "SetSN:" + ssn);
                     await System.Threading.Tasks.Task.Delay(1000);
                     string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");
@@ -371,7 +386,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
                 await UT.Config.Set("UpdateStart", "0");
             }
 
-            if(tray.IsEnabled == true)
+            if (tray.IsEnabled == true)
             {
                 TaskService ts = new TaskService();
                 Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");

@@ -249,7 +249,9 @@
                         <ui:TextBox x:Name="sn"
                                     Grid.Row="2"
                                     Grid.Column="2"
-                                    Text="[SN]null" />
+                                    Text="[SN]null"
+                                    Height="35"
+                                    VerticalAlignment="Top" />
                     </Grid>
                 </StackPanel>
                 <ui:NavigationSeparator Grid.Column="3"
@@ -302,20 +304,22 @@
                             <RowDefinition Height="5" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Image Source="/Resources/wifi.png"
+                        <Image Source="/Resources/clouddl.png"
                                Grid.Row="2"
-                               Grid.Column="0"
-                               Visibility="Hidden"/>
+                               Grid.Column="0"/>
                         <TextBlock Grid.Row="0"
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
-                                   Text="Sync Wifi settings:"
-                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                   Visibility="Hidden"/>
-                        <ui:ToggleSwitch Grid.Row="2"
-                                         Grid.Column="2"
-                                         IsChecked="True"
-                                         Visibility="Hidden"/>
+                                   Text="Configuration server:"
+                                   Foreground="{DynamicResource TextFillColorPrimaryBrush}"/>
+                        <ComboBox Grid.Row="2"
+                                  Grid.Column="2"
+                                  x:Name="confserv_box">
+                            <ComboBoxItem x:Name="confserv_idf"
+                                          Content="idf.hisqool.com"/>
+                            <ComboBoxItem x:Name="confserv_allsqool"
+                                          Content="allsqool.hisqool.com"/>
+                        </ComboBox>
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>

@@ -215,14 +215,25 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             if (await UT.CheckInternet())
             {
                 await UT.waitstatus.open(await UT.GetLang("wait.apply"), "datamatrix.png");
-                var web = new HttpClient();
-                string ssn = snbox.Text;
-                string preurl = await UT.OnlineDatas.GetUrls("idfconf");
-                string configurl = $"{preurl}/devices/{ssn}/configuration";
 
-                HttpResponseMessage response = await web.GetAsync(configurl);
-                if (response.StatusCode == HttpStatusCode.OK)
+                string ssn = snbox.Text;
+                string confserv = await UT.CheckSN(ssn);
+
+                if (confserv == "idf" || confserv == "allsqool")
                 {
+                    if (confserv == "idf")
+                    {
+                        await UT.Config.Set("ConfServer", "idf");
+                    }
+                    else if (confserv == "allsqool")
+                    {
+                        await UT.Config.Set("ConfServer", "allsqool");
+                    }
+                    else
+                    {
+                        await UT.Config.Set("ConfServer", "null");
+                    }
+
                     await UT.UTS.UTSmsg("UTSW", "SetSN:" + ssn);
                     await System.Threading.Tasks.Task.Delay(1000);
                     string nsn = await UT.UTS.UTSmsg("UTSW", "GetSN");

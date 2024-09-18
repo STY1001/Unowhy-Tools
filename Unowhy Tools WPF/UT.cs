@@ -1647,6 +1647,11 @@ namespace Unowhy_Tools
                 }
             }
 
+            if (await UT.Config.Get("ConfServer") == null)
+            {
+                await Config.Set("ConfServer", "null");
+            }
+
             if (await UT.Config.Get("Init") == "1")
             {
                 return false;
@@ -1683,6 +1688,39 @@ namespace Unowhy_Tools
                 Write2Log("UT Tray is not running");
                 return false;
             }
+        }
+
+        public static async Task<string> CheckSN(string sn)
+        {
+            if (await UT.CheckInternet())
+            {
+                {
+                    var web = new HttpClient();
+                    string ssn = sn;
+                    string preurl = await UT.OnlineDatas.GetUrls("idfconf");
+                    string configurl = $"{preurl}/devices/{ssn}/configuration";
+
+                    HttpResponseMessage response = await web.GetAsync(configurl);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        return "idf";
+                    }
+                }
+                {
+                    var web = new HttpClient();
+                    string ssn = sn;
+                    string preurl = await UT.OnlineDatas.GetUrls("allsqoolconf");
+                    string configurl = $"{preurl}/devices/{ssn}/configuration";
+
+                    HttpResponseMessage response = await web.GetAsync(configurl);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        return "allsqool";
+                    }
+                }
+            }
+
+            return "null";
         }
 
         public static async Task<long> FolderSizeGet(string path)

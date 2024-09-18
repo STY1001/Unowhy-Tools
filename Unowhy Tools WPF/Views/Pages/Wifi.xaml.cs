@@ -51,6 +51,15 @@ public partial class Wifi : INavigableView<DashboardViewModel>
     public async void Init(object sender, EventArgs e)
     {
         applylang();
+        string confserv = await UT.Config.Get("ConfServer");
+        if (confserv == "idf")
+        {
+            confserv_idf.IsSelected = true;
+        }
+        else if (confserv == "allsqool")
+        {
+            confserv_allsqool.IsSelected = true;
+        }
         string sn = await UT.UTS.UTSmsg("UTSW", "GetSN");
         if (!(sn == "Null") && sn.Contains("IFP"))
         {

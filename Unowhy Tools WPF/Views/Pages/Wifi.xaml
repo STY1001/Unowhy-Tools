@@ -56,6 +56,8 @@
                         <ColumnDefinition Width="5" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="10" />
                         <ColumnDefinition MaxWidth="100" />
                     </Grid.ColumnDefinitions>
 
@@ -78,9 +80,17 @@
                                 VerticalAlignment="Stretch"
                                 HorizontalAlignment="Stretch"
                                 KeyDown="serial_KeyDown" />
+                    <ComboBox Grid.Row="2"
+                              Grid.Column="4"
+                              x:Name="confserv_box">
+                        <ComboBoxItem x:Name="confserv_idf"
+                                      Content="idf.hisqool.com" />
+                        <ComboBoxItem x:Name="confserv_allsqool"
+                                      Content="allsqool.hisqool.com" />
+                    </ComboBox>
                     <ui:Button x:Name="getbtn"
                                Click="getbtn_Click"
-                               Grid.Column="4"
+                               Grid.Column="6"
                                Grid.Row="2"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch"
