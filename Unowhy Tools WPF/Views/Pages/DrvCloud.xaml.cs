@@ -251,11 +251,13 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 UT.SendAction("DrvCloud.PostDrv");
                 await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998, true);
+                return;
             }
             if (postdrv == "T")
             {
                 UT.SendAction("DrvCloud.PostDrv");
                 await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094, true);
+                return;
             }
 
             if (postdrv == "noop")
@@ -324,7 +326,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                         string link = (string)driver["link"];
                         bool old = (bool)driver["old"];
 
-                        if ((pcmodel == "Y13G201S4EI" || pcmodel == "Y13G201S4E") && !selectY132023.IsSelected && !selectall.IsSelected)
+                        if ((pcmodel == "Y13G201S4EI" || pcmodel == "Y13G201S4E") && !selectY132024.IsSelected && !selectall.IsSelected)
                         {
                             continue;
                         }
@@ -344,11 +346,11 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                         {
                             continue;
                         }
-                        if ((pcmodel == "Y13G002S4EI" || pcmodel == "Y13G002S4E") && !selectY132020.IsSelected && !selectall.IsSelected)
+                        if ((pcmodel == "Y13G002S4EI" || pcmodel == "Y13G002S4E") && !selectY132019.IsSelected && !selectall.IsSelected)
                         {
                             continue;
                         }
-                        if (pcmodel == "20180329314" && !selectY5OPSi5.IsSelected && !selectall.IsSelected)
+                        if (pcmodel == "20180329314" && !selectY13m3.IsSelected && !selectall.IsSelected)
                         {
                             continue;
                         }
@@ -360,7 +362,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                         {
                             continue;
                         }
-                        if (pcmodel == "Y11G001S4E" && !selectY11G2.IsSelected && !selectall.IsSelected)
+                        if (pcmodel == "Y11G001S4E" && !selectY11G1.IsSelected && !selectall.IsSelected)
                         {
                             continue;
                         }
