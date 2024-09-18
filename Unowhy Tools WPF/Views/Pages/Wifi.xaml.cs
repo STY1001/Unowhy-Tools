@@ -229,7 +229,15 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
             var web = new HttpClient();
             string sn = serial.Text;
-            string preurl = await UT.OnlineDatas.GetUrls("idfconf");
+            string preurl = "null";
+            if (confserv_idf.IsSelected == true)
+            {
+                preurl = await UT.OnlineDatas.GetUrls("idfconf");
+            }
+            else if (confserv_allsqool.IsSelected == true)
+            {
+                preurl = await UT.OnlineDatas.GetUrls("allsqoolconf");
+            }
             string configurl = $"{preurl}/devices/{sn}/configuration";
 
             HttpResponseMessage response = await web.GetAsync(configurl);
