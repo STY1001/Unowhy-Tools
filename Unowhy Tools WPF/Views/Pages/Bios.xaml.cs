@@ -158,7 +158,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             await UT.Check(step);
         }
         mfbox.PlaceholderText = UTdata.mf; // /SM
-        mdbox.PlaceholderText = UTdata.md; // /SV
+        mdbox.PlaceholderText = UTdata.md; // /SP
         familybox.PlaceholderText = UTdata.family; // /SF
         snbox.PlaceholderText = UTdata.sn; // /SS
         biosvbox.PlaceholderText = UTdata.biosv; // /IV
@@ -1256,7 +1256,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                 {
                     Process p = new Process();
                     p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE\\" + "AMIDEWINx64.exe";
-                    p.StartInfo.Arguments = $"/SV \"{newtxt}\"";
+                    p.StartInfo.Arguments = $"/SP \"{newtxt}\"";
                     p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\AMI\\AMIDE";
                     p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                     p.StartInfo.CreateNoWindow = true;
