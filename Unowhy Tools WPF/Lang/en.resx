@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="aadleave" xml:space="preserve">
-    <value>Disconnect this PC from AzureAD</value>
+    <value>Disconnect this PC from AzureAD/EntraID</value>
   </data>
   <data name="about" xml:space="preserve">
     <value>About</value>
@@ -298,7 +298,7 @@
     <value>Delete "TO_INSTALL" folder</value>
   </data>
   <data name="descaadleave" xml:space="preserve">
-    <value>Disconnect this PC from AzureAD to disable the management of this PC (Intune / Endpoint) and disable "Other users" option. Warning : If you are using your AzureAD account ( [ID]@[DOMAIN] ) on this PC, you will no longer be able to connect to your account and you will lose your data of your account (if you attempt to reconnect to your account, you will get "wrong password" error)! Before, you need to backup your data, delete the local ".\ENT" account, disable the local ".\administrateur" account and create a local admin account !!!</value>
+    <value>Disconnect this PC from AzureAD/EntraID to disable the management of this PC (Intune / Endpoint) and disable "Other users" option. Warning : If you are using your AzureAD account ( [ID]@[DOMAIN] ) on this PC, you will no longer be able to connect to your account and you will lose your data of your account (if you attempt to reconnect to your account, you will get "wrong password" error)! Before, you need to backup your data, delete the local ".\ENT" account, disable the local ".\administrateur" account and create a local admin account !!!</value>
   </data>
   <data name="descadduser" xml:space="preserve">
     <value>Create a new local user (account) on this PC. This allows you to no longer depend on AzureAD. I recommend you to switch to a local account (into the PC) and no longer go through the AzureAD account ( [ID]@[DOMAIN] )</value>

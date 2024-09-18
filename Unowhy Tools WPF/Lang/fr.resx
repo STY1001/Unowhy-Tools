@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="aadleave" xml:space="preserve">
-    <value>Déjoindre ce PC de AzureAD</value>
+    <value>Déjoindre ce PC de AzureAD/EntraID</value>
   </data>
   <data name="about" xml:space="preserve">
     <value>À propos</value>
@@ -298,7 +298,7 @@
     <value>Supprimer le dossier "TO_INSTALL"</value>
   </data>
   <data name="descaadleave" xml:space="preserve">
-    <value>Déconnectez ce PC d'AzureAD pour désactiver la gestion de ce PC (Intune / Endpoint) et désactiver l'option "Autre utilisateur". Attention : Si vous utilisez votre compte AzureAD ( [ID ENT]@monlycee.net ) sur ce PC, vous ne pourrez plus vous connecter à votre compte et vous perdrez vos données de votre compte (si vous tentez de vous reconnecter à votre compte, vous obtiendrez une erreur "mot de passe incorrect")! Vous devez d’abord sauvegarder vos données, supprimer le compte local ".\ENT" , désactiver le compte local ".\administrateur" et créer un compte admin local !!!</value>
+    <value>Déconnectez ce PC d'AzureAD/EntraID pour désactiver la gestion de ce PC (Intune / Endpoint) et désactiver l'option "Autre utilisateur". Attention : Si vous utilisez votre compte AzureAD ( [ID ENT]@monlycee.net ) sur ce PC, vous ne pourrez plus vous connecter à votre compte et vous perdrez vos données de votre compte (si vous tentez de vous reconnecter à votre compte, vous obtiendrez une erreur "mot de passe incorrect")! Vous devez d’abord sauvegarder vos données, supprimer le compte local ".\ENT" , désactiver le compte local ".\administrateur" et créer un compte admin local !!!</value>
   </data>
   <data name="descadduser" xml:space="preserve">
     <value>Créer un nouvel utilisateur (compte) local sur ce PC. Cela permet de ne plus dépendre d'AzureAD. Je vous conseille de passer sur un compte local (sur le PC) et de ne plus passer par le compte AzureAD (ENT ( [ID ENT@monlycee.net ))</value>
