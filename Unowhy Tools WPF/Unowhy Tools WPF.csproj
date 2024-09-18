@@ -89,6 +89,7 @@
     <None Remove="Resources\fp.png" />
     <None Remove="Resources\fr.png" />
     <None Remove="Resources\github.png" />
+    <None Remove="Resources\gpu.png" />
     <None Remove="Resources\guide.png" />
     <None Remove="Resources\hackbgrtloading.gif" />
     <None Remove="Resources\heart.png" />
@@ -248,6 +249,7 @@
     <Resource Include="Resources\fp.png" />
     <Resource Include="Resources\fr.png" />
     <Resource Include="Resources\github.png" />
+    <Resource Include="Resources\gpu.png" />
     <Resource Include="Resources\guide.png" />
     <Resource Include="Resources\hackbgrtloading.gif" />
     <Resource Include="Resources\heart.png" />

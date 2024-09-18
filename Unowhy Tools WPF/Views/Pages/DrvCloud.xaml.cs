@@ -130,8 +130,34 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         versionselect.SelectionChanged += versionselect_SelectionChanged;
     }
 
-    public async Task RestoreCloud(string filename, string link, double size)
+    string postdrv = "noop";
+    public async Task RestoreCloud(string filename, string link, double size, bool ispostgpu)
     {
+        if (!ispostgpu)
+        {
+            postdrv = "noop";
+            if (UT.DialogQShow(await UT.GetLang("alsoigpudrv"), "gpu.png"))
+            {
+                System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
+                MenuItem GJItem = new MenuItem();
+                GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper Lake (Y11 360, Y13)";
+                GJItem.Click += async (sender, e) =>
+                {
+                    postdrv = "GJ";
+                };
+                iGPUMenu.Items.Add(GJItem);
+                MenuItem TItem = new MenuItem();
+                TItem.Header = "Tiger Lake (Y5OPS, Y14 Plus)";
+                TItem.Click += async (sender, e) =>
+                {
+                    postdrv = "T";
+                };
+                iGPUMenu.Items.Add(TItem);
+                iGPUMenu.PlacementTarget = gpudriver;
+                iGPUMenu.IsOpen = true;
+            }
+        }
+
         UT.SendAction("DrvCloud");
         DriveInfo drive = new DriveInfo("C");
         if (drive.AvailableFreeSpace > size * 3)
@@ -210,9 +236,29 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             File.Delete(uttemps + $"\\{filename}");
             Directory.Delete(uttemps + "\\Drivers", true);
             Directory.CreateDirectory(uttemps + "\\Drivers");
-            await UT.waitstatus.close();
-            UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-            Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+
+            if (ispostgpu)
+            {
+                postdrv = "noop";
+            }
+
+            if (postdrv == "GJ")
+            {
+                UT.SendAction("DrvCloud.PostDrv");
+                await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998, true);
+            }
+            if (postdrv == "T")
+            {
+                UT.SendAction("DrvCloud.PostDrv");
+                await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094, true);
+            }
+
+            if (postdrv == "noop")
+            {
+                await UT.waitstatus.close();
+                UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
+                Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+            }
         }
         else
         {
@@ -379,7 +425,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
         button.Click += async (sender, e) =>
         {
-            await RestoreCloud(filename, link, size);
+            await RestoreCloud(filename, link, size, false);
         };
 
         stackPanel.Children.Add(titleBlock);
@@ -602,14 +648,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper Lake (Y11 360, Y13)";
         GJItem.Click += async (sender, e) =>
         {
-            await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998);
+            await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998, true);
         };
         iGPUMenu.Items.Add(GJItem);
         MenuItem TItem = new MenuItem();
         TItem.Header = "Tiger Lake (Y5OPS, Y14 Plus)";
         TItem.Click += async (sender, e) =>
         {
-            await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094);
+            await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094, true);
         };
         iGPUMenu.Items.Add(TItem);
         iGPUMenu.PlacementTarget = gpudriver;

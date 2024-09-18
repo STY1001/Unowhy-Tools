@@ -138,6 +138,9 @@
   <data name="allver" xml:space="preserve">
     <value>Toutes les versions</value>
   </data>
+  <data name="alsoigpudrv" xml:space="preserve">
+    <value>Voulez-vous également installer le pilote de l'iGPU</value>
+  </data>
   <data name="an" xml:space="preserve">
     <value>Le nom doit être seulement alphanumérique</value>
   </data>
