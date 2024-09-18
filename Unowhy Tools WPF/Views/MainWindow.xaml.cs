@@ -34,6 +34,7 @@ public partial class MainWindow : INavigationWindow
     private readonly ITaskBarService _taskBarService;
     private readonly ISnackbarService _snackbarService;
     private readonly IDialogService _dialogService;
+    public ISnackbarService SnackBarService;
 
     public async Task applylang()
     {
@@ -71,6 +72,8 @@ public partial class MainWindow : INavigationWindow
 
         //ChangeTheme();
         //ChangeTheme();
+
+        SnackBarService = _snackbarService;
 
         applylang();
         this.KeyDown += MainWindow_KonamiKeyDown;
@@ -926,7 +929,7 @@ public partial class MainWindow : INavigationWindow
 
                     if (UT.version.isdeb())
                     {
-                        _snackbarService.ShowAsync("Warning, Take note !", "You are using a debug version of Unowhy Tools, this debug version might be bugged", SymbolRegular.Edit32, ControlAppearance.Danger);
+                        _snackbarService.ShowAsync("Warning, Take note !", "You are using a debug version of Unowhy Tools, this debug version might be unstable", SymbolRegular.Edit32, ControlAppearance.Danger);
                     }
                 }
                 else

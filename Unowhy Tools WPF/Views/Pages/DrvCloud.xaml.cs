@@ -24,6 +24,7 @@ using Newtonsoft.Json;
 using System.Net;
 using System.Windows.Media.Imaging;
 using MenuItem = System.Windows.Controls.MenuItem;
+using Wpf.Ui.Common;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -143,7 +144,9 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                 GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper Lake (Y11 360, Y13)";
                 GJItem.Click += async (sender, e) =>
                 {
-                    postdrv = "GJ";
+                    postdrv = "GJ"; 
+                    var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+                    mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark12, ControlAppearance.Success);
                 };
                 iGPUMenu.Items.Add(GJItem);
                 MenuItem TItem = new MenuItem();
@@ -151,6 +154,8 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                 TItem.Click += async (sender, e) =>
                 {
                     postdrv = "T";
+                    var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+                    mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark12, ControlAppearance.Success);
                 };
                 iGPUMenu.Items.Add(TItem);
                 iGPUMenu.PlacementTarget = gpudriver;
