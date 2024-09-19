@@ -1737,4 +1737,13 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
     }
 
     public List<Rectangle> SkeletonRectangles = new List<Rectangle>();
+
+    private async void cloudsubmitbtn_Click(object sender, RoutedEventArgs e)
+    {
+        Process.Start(new ProcessStartInfo
+        {
+            UseShellExecute = true,
+            FileName = await UT.OnlineDatas.GetUrls("discordinvite")
+        });
+    }
 }

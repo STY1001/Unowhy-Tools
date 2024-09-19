@@ -735,6 +735,9 @@
   <data name="storageinfo" xml:space="preserve">
     <value>Info du stockage (utilisé/total)</value>
   </data>
+  <data name="submit" xml:space="preserve">
+    <value>Soumettez votre image</value>
+  </data>
   <data name="sysmfmd" xml:space="preserve">
     <value>Fabricant/modèle du système</value>
   </data>

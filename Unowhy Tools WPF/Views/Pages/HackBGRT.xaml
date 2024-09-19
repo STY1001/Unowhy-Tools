@@ -966,9 +966,117 @@
                         Grid.Row="1" />
                 <Grid Grid.Row="1"
                       Margin="20"
-                      ClipToBounds="True">
-                    <Grid HorizontalAlignment="Left"
-                          x:Name="mainbtngrid">
+                      ClipToBounds="True"
+                      x:Name="cloudbtngrid"
+                          Visibility="Hidden">
+                    <Grid HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:Button Click="cloudbackbtn_Click"
+                                   x:Name="cloudbackbtn"
+                                   Grid.Column="0">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/back.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Back"
+                                                   x:Name="cloudbackbtnlab" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                        <ui:Button Click="cloudrefreshbtn_Click"
+                                   x:Name="cloudrefreshbtn"
+                                   Grid.Column="2">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/reboot.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Refresh"
+                                                   x:Name="cloudrefreshbtnlab" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                        <ui:Button Click="cloudsubmitbtn_Click"
+                                   x:Name="cloudsubmitbtn"
+                                   Grid.Column="2">
+                            <StackPanel>
+                                <Grid Grid.Row="1"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../../Resources/upload.png"
+                                           Grid.Column="0"
+                                           Height="32"
+                                           VerticalAlignment="Top" />
+                                    <StackPanel VerticalAlignment="Center"
+                                                Grid.Column="2">
+                                        <TextBlock Margin="0"
+                                                   FontSize="13"
+                                                   FontWeight="Medium"
+                                                   Text="Submit"
+                                                   x:Name="cloudsubmitbtnlab" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </ui:Button>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1"
+                      Margin="20"
+                      ClipToBounds="True"
+                      x:Name="mainbtngrid">
+                    <Grid HorizontalAlignment="Left">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="20" />
@@ -1032,77 +1140,6 @@
                                                    FontWeight="Medium"
                                                    Text="Get from cloud"
                                                    x:Name="getcloudbtnlab" />
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </ui:Button>
-                    </Grid>
-                    <Grid HorizontalAlignment="Left"
-                          x:Name="cloudbtngrid"
-                          Visibility="Hidden">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="20" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <ui:Button Click="cloudbackbtn_Click"
-                                   x:Name="cloudbackbtn"
-                                   Grid.Column="0">
-                            <StackPanel>
-                                <Grid Grid.Row="1"
-                                      Margin="0,0,0,0"
-                                      RenderTransformOrigin="0.5,0.5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Image Source="../../Resources/back.png"
-                                           Grid.Column="0"
-                                           Height="32"
-                                           VerticalAlignment="Top" />
-                                    <StackPanel VerticalAlignment="Center"
-                                                Grid.Column="2">
-                                        <TextBlock Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="Back"
-                                                   x:Name="cloudbackbtnlab" />
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </ui:Button>
-                        <ui:Button Click="cloudrefreshbtn_Click"
-                                   x:Name="cloudrefreshbtn"
-                                   Grid.Column="2">
-                            <StackPanel>
-                                <Grid Grid.Row="1"
-                                      Margin="0,0,0,0"
-                                      RenderTransformOrigin="0.5,0.5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="32" />
-                                        <ColumnDefinition Width="10" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Image Source="../../Resources/reboot.png"
-                                           Grid.Column="0"
-                                           Height="32"
-                                           VerticalAlignment="Top" />
-                                    <StackPanel VerticalAlignment="Center"
-                                                Grid.Column="2">
-                                        <TextBlock Margin="0"
-                                                   FontSize="13"
-                                                   FontWeight="Medium"
-                                                   Text="Refresh"
-                                                   x:Name="cloudrefreshbtnlab" />
                                     </StackPanel>
                                 </Grid>
                             </StackPanel>
