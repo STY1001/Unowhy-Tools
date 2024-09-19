@@ -1041,7 +1041,7 @@
                         </ui:Button>
                         <ui:Button Click="cloudsubmitbtn_Click"
                                    x:Name="cloudsubmitbtn"
-                                   Grid.Column="2">
+                                   Grid.Column="4">
                             <StackPanel>
                                 <Grid Grid.Row="1"
                                       Margin="0,0,0,0"
