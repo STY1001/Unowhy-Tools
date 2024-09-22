@@ -301,7 +301,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
         }
         else
         {
-            Process.Start(Path.GetTempPath() + "\\CRU\\cru.exe");
+            Process.Start(Path.GetTempPath() + "\\CRU\\restart64.exe");
         }
     }
 
@@ -336,7 +336,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
         }
         else
         {
-            Process.Start(Path.GetTempPath() + "\\CRU\\cru.exe");
+            Process.Start(Path.GetTempPath() + "\\CRU\\reset-all.exe");
         }
     }
 }
