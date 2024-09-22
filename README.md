@@ -46,7 +46,8 @@ Currently, with this tool, you can:
 - Customize Windows loading screen (HackBGRT)
 - Delete the "RIDF" Root CA
 - Install HiSqool Manager, the "RIDF" Root CA
-- Open Rufus, MAS
+- Open Rufus, MAS, CRU
+- Open HisqoolManager panel and logs
 
 More features coming soon
 
@@ -77,6 +78,10 @@ To update to the Debug version:
 - Now in Debug menu, click on "Update Debug version" and wait
 
 ## 📷 Screenshots
+
+30.00
+
+![UT Screen](/README/UT30.00.png)
 
 29.00
 
