@@ -356,8 +356,10 @@
                 <Grid Margin="20,20,20,10"
                       x:Name="cloudgrid"
                                         Visibility="Hidden">
-                    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
-                        <Grid Width="944.25">
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                                  VerticalScrollBarVisibility="Disabled"
+                                  Width="944.25">
+                        <Grid>
                             <StackPanel Orientation="Horizontal"
                                         x:Name="skeletonstack"
                                         Visibility="Hidden">
