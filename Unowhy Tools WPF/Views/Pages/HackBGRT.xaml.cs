@@ -483,7 +483,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
             {
                 Process p = new Process();
                 p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\setup.exe";
-                p.StartInfo.Arguments = "batch install enable-entry";
+                p.StartInfo.Arguments = "batch install enable-bcdedit";
                 p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT";
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.StartInfo.CreateNoWindow = true;
