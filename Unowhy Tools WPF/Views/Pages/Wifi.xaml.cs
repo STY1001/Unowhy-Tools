@@ -221,158 +221,165 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
     public async Task Get()
     {
-        UT.SendAction("UTW.Get");
-        if (await UT.CheckInternet())
+        if (confserv_allsqool.IsSelected || confserv_idf.IsSelected)
         {
-            await UT.waitstatus.open(await UT.GetLang("wait.get"), "clouddl.png");
-            await Task.Delay(1000);
+            UT.SendAction("UTW.Get");
+            if (await UT.CheckInternet())
+            {
+                await UT.waitstatus.open(await UT.GetLang("wait.get"), "clouddl.png");
+                await Task.Delay(1000);
 
-            var web = new HttpClient();
-            string sn = serial.Text;
-            string preurl = "null";
-            if (confserv_idf.IsSelected == true)
-            {
-                preurl = await UT.OnlineDatas.GetUrls("idfconf");
-            }
-            else if (confserv_allsqool.IsSelected == true)
-            {
-                preurl = await UT.OnlineDatas.GetUrls("allsqoolconf");
-            }
-            string configurl = $"{preurl}/devices/{sn}/configuration";
-
-            HttpResponseMessage response = await web.GetAsync(configurl);
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                DoubleAnimation translateAnimation = new DoubleAnimation
+                var web = new HttpClient();
+                string sn = serial.Text;
+                string preurl = "null";
+                if (confserv_idf.IsSelected == true)
                 {
-                    From = 0,
-                    To = 1000,
-                    Duration = TimeSpan.FromSeconds(0.5),
-                    EasingFunction = new PowerEase { EasingMode = EasingMode.EaseIn, Power = 5 }
-                };
-                TranslateTransform transform = new TranslateTransform();
-                Board.RenderTransform = transform;
-                StackClip.Children.Clear();
-                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
-                await Task.Delay(500);
-
-                string g = await web.GetStringAsync(configurl);
-                string jsonString = g;
-                List<dynamic> dataList = JsonConvert.DeserializeObject<List<dynamic>>(jsonString);
-
-                List<string> urlList = new List<string>();
-
-                foreach (var data in dataList)
-                {
-                    string url = data.url;
-                    urlList.Add(url);
+                    preurl = await UT.OnlineDatas.GetUrls("idfconf");
                 }
-
-                List<string> jsonResponseList = new List<string>();
-
-                JObject mergedJson = new JObject();
-
-                foreach (var url in urlList)
+                else if (confserv_allsqool.IsSelected == true)
                 {
-                    JObject json = JObject.Parse(await web.GetStringAsync(url));
-                    mergedJson.Merge(json);
+                    preurl = await UT.OnlineDatas.GetUrls("allsqoolconf");
                 }
+                string configurl = $"{preurl}/devices/{sn}/configuration";
 
-                ObservableCollection<DataRow> dataRows = new ObservableCollection<DataRow>();
-
-                DataRow prerow = new DataRow();
-                prerow.SSID = "SSID   ";
-                prerow.Password = "Password   ";
-                prerow.SecurityType = "Security Type   ";
-                prerow.Hidden = "Hidden ?   ";
-                prerow.ProxyType = "Proxy Type   ";
-                prerow.ProxyAddressManual = "Proxy IP (Manual)   ";
-                prerow.ProxyPortManual = "Proxy Port (Manual)   ";
-                prerow.ProxyUrlAutomatic = "Proxy URL (Automatic)   ";
-                dataRows.Add(prerow);
-
-                Image PreClipImage = new Image();
-                PreClipImage.Source = UT.GetImgSource("clipboard.png");
-                PreClipImage.Visibility = Visibility.Hidden;
-                StackClip.Children.Add(PreClipImage);
-
-                foreach (JProperty property in mergedJson.Properties())
+                HttpResponseMessage response = await web.GetAsync(configurl);
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    if (property.Name.StartsWith("conf/network/all/"))
+                    DoubleAnimation translateAnimation = new DoubleAnimation
                     {
-                        JToken payload = property.Value["payload"];
-                        JToken options = property.Value["options"];
-                        JToken proxy = options["proxy"];
-                        if (payload != null && options != null && proxy != null)
+                        From = 0,
+                        To = 1000,
+                        Duration = TimeSpan.FromSeconds(0.5),
+                        EasingFunction = new PowerEase { EasingMode = EasingMode.EaseIn, Power = 5 }
+                    };
+                    TranslateTransform transform = new TranslateTransform();
+                    Board.RenderTransform = transform;
+                    StackClip.Children.Clear();
+                    transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+                    await Task.Delay(500);
+
+                    string g = await web.GetStringAsync(configurl);
+                    string jsonString = g;
+                    List<dynamic> dataList = JsonConvert.DeserializeObject<List<dynamic>>(jsonString);
+
+                    List<string> urlList = new List<string>();
+
+                    foreach (var data in dataList)
+                    {
+                        string url = data.url;
+                        urlList.Add(url);
+                    }
+
+                    List<string> jsonResponseList = new List<string>();
+
+                    JObject mergedJson = new JObject();
+
+                    foreach (var url in urlList)
+                    {
+                        JObject json = JObject.Parse(await web.GetStringAsync(url));
+                        mergedJson.Merge(json);
+                    }
+
+                    ObservableCollection<DataRow> dataRows = new ObservableCollection<DataRow>();
+
+                    DataRow prerow = new DataRow();
+                    prerow.SSID = "SSID   ";
+                    prerow.Password = "Password   ";
+                    prerow.SecurityType = "Security Type   ";
+                    prerow.Hidden = "Hidden ?   ";
+                    prerow.ProxyType = "Proxy Type   ";
+                    prerow.ProxyAddressManual = "Proxy IP (Manual)   ";
+                    prerow.ProxyPortManual = "Proxy Port (Manual)   ";
+                    prerow.ProxyUrlAutomatic = "Proxy URL (Automatic)   ";
+                    dataRows.Add(prerow);
+
+                    Image PreClipImage = new Image();
+                    PreClipImage.Source = UT.GetImgSource("clipboard.png");
+                    PreClipImage.Visibility = Visibility.Hidden;
+                    StackClip.Children.Add(PreClipImage);
+
+                    foreach (JProperty property in mergedJson.Properties())
+                    {
+                        if (property.Name.StartsWith("conf/network/all/"))
                         {
-                            DataRow row = new DataRow();
-
-                            row.SSID = (string)options["ssid"] + "   ";
-                            row.Password = (string)options["password"] + "   ";
-                            row.SecurityType = (string)options["securityType"] + "   ";
-                            if (options["hidden"] != null)
+                            JToken payload = property.Value["payload"];
+                            JToken options = property.Value["options"];
+                            JToken proxy = options["proxy"];
+                            if (payload != null && options != null && proxy != null)
                             {
-                                row.Hidden = (string)options["hidden"] + "   ";
+                                DataRow row = new DataRow();
+
+                                row.SSID = (string)options["ssid"] + "   ";
+                                row.Password = (string)options["password"] + "   ";
+                                row.SecurityType = (string)options["securityType"] + "   ";
+                                if (options["hidden"] != null)
+                                {
+                                    row.Hidden = (string)options["hidden"] + "   ";
+                                }
+                                else
+                                {
+                                    row.Hidden = "Null" + "   ";
+                                }
+
+                                row.ProxyType = proxy["type"] + "   ";
+
+                                if ((string)proxy["type"] == "none")
+                                {
+
+                                }
+                                else if ((string)proxy["type"] == "manual")
+                                {
+                                    row.ProxyAddressManual = (string)proxy["proxyHostName"] + "   ";
+                                    row.ProxyPortManual = (string)proxy["proxyPort"] + "   ";
+                                }
+                                else if ((string)proxy["type"] == "automatic")
+                                {
+                                    row.ProxyUrlAutomatic = (string)proxy["autoProxyUrl"] + "   ";
+                                }
+
+                                dataRows.Add(row);
+
+                                Image ClipImage = new Image();
+                                ClipImage.Source = UT.GetImgSource("clipboard.png");
+                                ClipImage.MouseDown += async (sender, e) =>
+                                {
+                                    await ClipMenuOpen(sender, e, (string)options["ssid"], (string)options["password"], (string)proxy["type"], (string)proxy["proxyHostName"], (string)proxy["proxyPort"], (string)proxy["autoProxyUrl"]);
+                                };
+
+                                StackClip.Children.Add(ClipImage);
                             }
-                            else
-                            {
-                                row.Hidden = "Null" + "   ";
-                            }
-
-                            row.ProxyType = proxy["type"] + "   ";
-
-                            if ((string)proxy["type"] == "none")
-                            {
-
-                            }
-                            else if ((string)proxy["type"] == "manual")
-                            {
-                                row.ProxyAddressManual = (string)proxy["proxyHostName"] + "   ";
-                                row.ProxyPortManual = (string)proxy["proxyPort"] + "   ";
-                            }
-                            else if ((string)proxy["type"] == "automatic")
-                            {
-                                row.ProxyUrlAutomatic = (string)proxy["autoProxyUrl"] + "   ";
-                            }
-
-                            dataRows.Add(row);
-
-                            Image ClipImage = new Image();
-                            ClipImage.Source = UT.GetImgSource("clipboard.png");
-                            ClipImage.MouseDown += async (sender, e) =>
-                            {
-                                await ClipMenuOpen(sender, e, (string)options["ssid"], (string)options["password"], (string)proxy["type"], (string)proxy["proxyHostName"], (string)proxy["proxyPort"], (string)proxy["autoProxyUrl"]);
-                            };
-
-                            StackClip.Children.Add(ClipImage);
                         }
                     }
-                }
-                Board.ItemsSource = dataRows;
-                await UT.waitstatus.close();
+                    Board.ItemsSource = dataRows;
+                    await UT.waitstatus.close();
 
-                await Task.Delay(500);
-                translateAnimation = new DoubleAnimation
+                    await Task.Delay(500);
+                    translateAnimation = new DoubleAnimation
+                    {
+                        From = -1000,
+                        To = 0,
+                        Duration = TimeSpan.FromSeconds(0.5),
+                        EasingFunction = new PowerEase { EasingMode = EasingMode.EaseOut, Power = 5 }
+                    };
+                    transform = new TranslateTransform();
+                    Board.RenderTransform = transform;
+                    StackClip.RenderTransform = transform;
+                    transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+                }
+                else
                 {
-                    From = -1000,
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(0.5),
-                    EasingFunction = new PowerEase { EasingMode = EasingMode.EaseOut, Power = 5 }
-                };
-                transform = new TranslateTransform();
-                Board.RenderTransform = transform;
-                StackClip.RenderTransform = transform;
-                transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
+                    await UT.waitstatus.close();
+                    UT.DialogIShow(await UT.GetLang("noid"), "no.png");
+                }
             }
             else
             {
-                await UT.waitstatus.close();
-                UT.DialogIShow(await UT.GetLang("noid"), "no.png");
-            }            
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            }
         }
         else
         {
-            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            UT.DialogIShow(await UT.GetLang("confservnotsel"), "clouddl.png");
         }
     }
 
@@ -388,7 +395,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
         public string ProxyUrlAutomatic { get; set; }
     }
 
-    public async Task ClipMenuOpen(object sender, RoutedEventArgs e, string ssid,  string password, string proxytype, string proxyip, string proxyport, string proxyurl)
+    public async Task ClipMenuOpen(object sender, RoutedEventArgs e, string ssid, string password, string proxytype, string proxyip, string proxyport, string proxyurl)
     {
         UT.SendAction("UTW.OpenClipMenu");
         await Task.Delay(100);
@@ -470,7 +477,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
     private async void serial_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
     {
-        if(e.Key == System.Windows.Input.Key.Enter)
+        if (e.Key == System.Windows.Input.Key.Enter)
         {
             await Get();
         }
