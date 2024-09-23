@@ -353,7 +353,7 @@
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid Margin="20"
+                <Grid Margin="20,20,20,10"
                       x:Name="cloudgrid"
                                         Visibility="Hidden">
                     <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
