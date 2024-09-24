@@ -243,6 +243,12 @@
   <data name="confpw" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
+  <data name="confserver" xml:space="preserve">
+    <value>Configuration server</value>
+  </data>
+  <data name="confservnotsel" xml:space="preserve">
+    <value>Select a configuration server</value>
+  </data>
   <data name="conv" xml:space="preserve">
     <value>Convert</value>
   </data>
@@ -489,6 +495,9 @@
   <data name="guide" xml:space="preserve">
     <value>Guide</value>
   </data>
+  <data name="hackbgrt.submit" xml:space="preserve">
+    <value>Submit yout splash screen</value>
+  </data>
   <data name="hackbgrtset" xml:space="preserve">
     <value>HackBGRT settings</value>
   </data>
@@ -734,9 +743,6 @@
   </data>
   <data name="storageinfo" xml:space="preserve">
     <value>Storage Info (used/total)</value>
-  </data>
-  <data name="submit" xml:space="preserve">
-    <value>Submit yout splash screen</value>
   </data>
   <data name="sysmfmd" xml:space="preserve">
     <value>System manufacturer/model</value>

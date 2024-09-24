@@ -243,6 +243,12 @@
   <data name="confpw" xml:space="preserve">
     <value>Confirmation</value>
   </data>
+  <data name="confserver" xml:space="preserve">
+    <value>Serveur de configuration</value>
+  </data>
+  <data name="confservnotsel" xml:space="preserve">
+    <value>Sélectionnez un serveur de configuration</value>
+  </data>
   <data name="conv" xml:space="preserve">
     <value>Convertir</value>
   </data>
@@ -489,6 +495,9 @@
   <data name="guide" xml:space="preserve">
     <value>Guide</value>
   </data>
+  <data name="hackbgrt.submit" xml:space="preserve">
+    <value>Soumettez votre image</value>
+  </data>
   <data name="hackbgrtset" xml:space="preserve">
     <value>Paramètres de HackBGRT</value>
   </data>
@@ -580,7 +589,7 @@
     <value>Editeur de stratégies du groupe</value>
   </data>
   <data name="openimg" xml:space="preserve">
-    <value>Open an image</value>
+    <value>Ouvrir une image</value>
   </data>
   <data name="openmas" xml:space="preserve">
     <value>Ouvrir "Microsoft Activation Script (MAS)"</value>
@@ -734,9 +743,6 @@
   </data>
   <data name="storageinfo" xml:space="preserve">
     <value>Info du stockage (utilisé/total)</value>
-  </data>
-  <data name="submit" xml:space="preserve">
-    <value>Soumettez votre image</value>
   </data>
   <data name="sysmfmd" xml:space="preserve">
     <value>Fabricant/modèle du système</value>

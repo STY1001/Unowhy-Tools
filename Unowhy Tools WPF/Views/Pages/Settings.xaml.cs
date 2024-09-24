@@ -43,6 +43,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         labsn.Text = await UT.GetLang("pcserial");
         labtray.Text = await UT.GetLang("boottray");
         labws.Text = await UT.GetLang("wifisync");
+        labconfserv.Text = await UT.GetLang("confserver");
     }
 
     public async void GoBack(object sender, RoutedEventArgs e)

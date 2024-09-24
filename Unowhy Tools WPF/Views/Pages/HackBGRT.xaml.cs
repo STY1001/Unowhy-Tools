@@ -100,6 +100,9 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
     {
         openimgbtnlab.Text = await UT.GetLang("openimg");
         removebtnlab.Text = await UT.GetLang("uninstall");
+        getcloudbtnlab.Text = await UT.GetLang("getcloud");
+        cloudsubmitbtnlab.Text = await UT.GetLang("hackbgrt.submit");
+        cloudrefreshbtnlab.Text = await UT.GetLang("refresh");
     }
 
     private async void OpenImg_Click(object sender, RoutedEventArgs e)
@@ -1217,9 +1220,11 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         Grid.SetRow(AuthorText, 1);
         TextGrid.Children.Add(AuthorText);
 
+        string langget = await UT.GetLang("get");
+
         System.Windows.Controls.Button GetButton = new System.Windows.Controls.Button
         {
-            Content = "Get",
+            Content = langget,
             HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch,
             VerticalAlignment = VerticalAlignment.Bottom,
             Margin = new Thickness(10, 10, 10, 10)
@@ -1430,8 +1435,6 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
                 await Task.Delay(50);
             }
         }
-
-        string langget = await UT.GetLang("get");
 
         string datasurl = UT.online_datas;
         HttpClient web = new HttpClient();

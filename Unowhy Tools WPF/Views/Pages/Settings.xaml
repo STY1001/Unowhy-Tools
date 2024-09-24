@@ -311,6 +311,7 @@
                                    Grid.Column="0"
                                    Grid.ColumnSpan="3"
                                    Text="Configuration server:"
+                                   x:Name="labconfserv"
                                    Foreground="{DynamicResource TextFillColorPrimaryBrush}"/>
                         <ComboBox Grid.Row="2"
                                   Grid.Column="2"

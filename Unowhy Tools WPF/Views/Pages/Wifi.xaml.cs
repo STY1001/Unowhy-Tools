@@ -121,7 +121,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
     public async Task applylang()
     {
-        labsn.Text = await UT.GetLang("pcserial");
+        labsn.Text = await UT.GetLang("serial");
     }
 
     public Wifi(DashboardViewModel viewModel)
