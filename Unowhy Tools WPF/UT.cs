@@ -168,6 +168,35 @@ namespace Unowhy_Tools
         public static string verbuild = "165680924";
         public static bool verisdeb = false;
 
+        public static Dictionary<string, string> skumodel = new Dictionary<string, string>
+        {
+            { "Y13G113S4EI", "Y13 Gen 1 2023 IDF" },
+            { "Y13G012S4EI", "Y13 Gen 1 2022 IDF" },
+            { "Y13G011S4EI", "Y13 Gen 1 2021 IDF" },
+            { "Y13G010S4EI", "Y13 Gen 1 2020 IDF" },
+            { "Y13G002S4EI", "Y13 Gen 1 2019 IDF" },
+            { "Y13G113S4E", "Y13 Gen 1 2023" },
+            { "Y13G012S4E", "Y13 Gen 1 2022" },
+            { "Y13G011S4E", "Y13 Gen 1 2021" },
+            { "Y13G010S4E", "Y13 Gen 1 2020" },
+            { "Y13G002S4E", "Y13 Gen 1 2019" },
+            { "20180329314", "Y13 Gen 1 m3" },
+            { "Y14G310S2MI", "Y14 Plus i3 IDF" },
+            { "Y14G520S2MI", "Y14 Plus i5 IDF" },
+            { "Y14G310S2M", "Y14 Plus i3" },
+            { "Y14G520S2M", "Y14 Plus i5" },
+            { "Y11G001S4E", "Y11 360 Gen 1" },
+            { "Y11G201S2M", "Y11 360 Gen 2" },
+            { "OPSG310S2M", "Y5OPS i3" },
+            { "OPSG530S2M", "Y5OPS i5" },
+            { "Y13G201S4EI", "Y13 Gen 2 2024 IDF" },
+            { "Y13G201S4E", "Y13 Gen 2 2024" },
+            { "STYL13G1", "STY L13 Gen 1" },
+            { "STYL13G2", "STY L13 Gen 2" },
+            { "STYD5100SFF", "STY D5100SFF" },
+            { "STYDS5OPS", "STY DS5OPS" }
+        };
+
         public class version
         {
 
@@ -1356,34 +1385,6 @@ namespace Unowhy_Tools
             }
         }
 
-        public static Dictionary<string, string> skumodel = new Dictionary<string, string>
-        {
-            { "Y13G113S4EI", "Y13 Gen 1 2023 IDF" },
-            { "Y13G012S4EI", "Y13 Gen 1 2022 IDF" },
-            { "Y13G011S4EI", "Y13 Gen 1 2021 IDF" },
-            { "Y13G010S4EI", "Y13 Gen 1 2020 IDF" },
-            { "Y13G002S4EI", "Y13 Gen 1 2019 IDF" },
-            { "Y13G113S4E", "Y13 Gen 1 2023" },
-            { "Y13G012S4E", "Y13 Gen 1 2022" },
-            { "Y13G011S4E", "Y13 Gen 1 2021" },
-            { "Y13G010S4E", "Y13 Gen 1 2020" },
-            { "Y13G002S4E", "Y13 Gen 1 2019" },
-            { "20180329314", "Y13 Gen 1 m3" },
-            { "Y14G310S2MI", "Y14 Plus i3 IDF" },
-            { "Y14G520S2MI", "Y14 Plus i5 IDF" },
-            { "Y14G310S2M", "Y14 Plus i3" },
-            { "Y14G520S2M", "Y14 Plus i5" },
-            { "Y11G001S4E", "Y11 360 Gen 1" },
-            { "Y11G201S2M", "Y11 360 Gen 2" },
-            { "OPSG310S2M", "Y5OPS i3" },
-            { "OPSG530S2M", "Y5OPS i5" },
-            { "Y13G201S4EI", "Y13 Gen 2 2024 IDF" },
-            { "Y13G201S4E", "Y13 Gen 2 2024" },
-            { "STYL13G1", "STY L13 Gen 1" },
-            { "STYL13G2", "STY L13 Gen 2" },
-            { "STYD5100SFF", "STY D5100SFF" },
-            { "STYDS5OPS", "STY DS5OPS" }
-        };
         public static async Task<string> GetModelWithSKU(string sku)
         {
             sku = sku.Replace(" ", "").Replace("\n", "").Replace("\r", "");
