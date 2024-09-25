@@ -500,11 +500,35 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         UT.NavigateTo(typeof(Settings));
     }
 
+    int UTDeskEETime = 0;
+    public async void UTDescEE()
+    {
+        UTDeskEETime++;
+
+        if (UTDeskEETime == 10)
+        {
+            UTDeskEETime = 0;
+            UT.SendAction("EasterEgg.Dashboard.LogoDesc");
+            foreach (var model in UT.skumodel)
+            {
+                if (!model.Key.StartsWith("STY"))
+                {
+                    LogoDesc.Text = $"The all-in-one tool for your {model.Key} !";
+                    await Task.Delay(500);
+                }
+            }
+            LogoDesc.Text = "The all-in-one tool for your Unowhy !";
+            UTDeskEETime = 0;
+        }
+    }
+
     public async void Switch_QO2UT(object sender, RoutedEventArgs e)
     {
         utadeployed = true;
         uta.Click += Switch_UT2QO;
         uta.Click -= Switch_QO2UT;
+
+        UTDescEE();
 
         utaimg.Source = UT.GetImgSource("back.png");
         utalab.Text = "Collapse";
@@ -567,6 +591,8 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         utadeployed = false;
         uta.Click -= Switch_UT2QO;
         uta.Click += Switch_QO2UT;
+
+        UTDescEE();
 
         utaimg.Source = UT.GetImgSource("UT.png");
         utalab.Text = "Unowhy Tools Apps";
