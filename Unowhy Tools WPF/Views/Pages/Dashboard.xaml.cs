@@ -14,6 +14,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Net.Http;
 using static Unowhy_Tools.UT;
 using System.Xml.Linq;
+using System.IO.Compression;
+using System.Threading;
+using System.IO;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -469,6 +472,52 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         System.Diagnostics.Process.Start("mmc.exe", "gpedit.msc");
     }
 
+    public async void UTBU(object sender, RoutedEventArgs e)
+    {
+        if (await UT.CheckInternet())
+        {
+            await UT.waitstatus.open(await UT.GetLang("wait.delete"), "clouddl.png");
+            if(Directory.Exists(Path.GetTempPath() + "\\UTBU"))
+            {
+                File.Delete(Path.GetTempPath() + "\\UTBU");
+            }
+            if(File.Exists(Path.GetTempPath() + "\\UTBU.zip"))
+            {
+                File.Delete(Path.GetTempPath() + "\\UTBU.zip");
+            }
+            await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
+            var progress = new System.Progress<double>();
+            var cancellationToken = new CancellationTokenSource();
+            string dl = await UT.GetLang("wait.download");
+            progress.ProgressChanged += async (sender, value) =>
+            {
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "download.png");
+            };
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("utbu"), Path.GetTempPath() + "\\UTBU.zip", progress, cancellationToken.Token);
+            await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
+            await Task.Delay(100);
+            await Task.Run(() =>
+            {
+                ZipFile.ExtractToDirectory(Path.GetTempPath() + "\\UTBU.zip", Path.GetTempPath() + "\\UTBU", true);
+            });
+
+            await Task.Run(() =>
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = "cmd.exe";
+                p.StartInfo.Arguments = "/k AutoFlash.bat";
+                p.StartInfo.WorkingDirectory = Path.GetTempPath() + "\\UTBU";
+                p.Start();
+                p.WaitForExit();
+            });
+            await UT.waitstatus.close();
+        }
+        else
+        {
+            UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+        }
+    }
+
     public async void UTW(object sender, RoutedEventArgs e)
     {
         UT.anim.RegisterParent(RootGrid, RootBorder);
@@ -513,7 +562,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
             {
                 if (!model.Key.StartsWith("STY"))
                 {
-                    LogoDesc.Text = $"The all-in-one tool for your {model.Key} !";
+                    LogoDesc.Text = $"The all-in-one tool for your {model.Value} !";
                     await Task.Delay(500);
                 }
             }
