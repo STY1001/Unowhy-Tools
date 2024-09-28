@@ -417,7 +417,7 @@
                                         <ColumnDefinition Width="10" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="../../Resources/UTB.png"
+                                    <Image Source="../../Resources/UTBU.png"
                                            Grid.Column="0"
                                            Margin="0,0,0,0"
                                            RenderOptions.BitmapScalingMode="HighQuality" />
@@ -428,7 +428,7 @@
                                                    Text="Unowhy Tools BIOS Unlocker" />
                                         <TextBlock FontSize="12"
                                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                                                   Text="Unlock" />
+                                                   Text="Flash, Unlock" />
                                     </StackPanel>
                                 </Grid>
                             </ui:CardAction>

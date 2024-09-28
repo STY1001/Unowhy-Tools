@@ -150,6 +150,7 @@
     <None Remove="Resources\UT-Restore.exe" />
     <None Remove="Resources\UT.png" />
     <None Remove="Resources\UTB.png" />
+    <None Remove="Resources\UTBU.png" />
     <None Remove="Resources\UTLogoWhite3.0.png" />
     <None Remove="Resources\UTS.png" />
     <None Remove="Resources\UTtray.png" />
@@ -312,6 +313,7 @@
     </Resource>
     <Resource Include="Resources\UT.png" />
     <Resource Include="Resources\UTB.png" />
+    <Resource Include="Resources\UTBU.png" />
     <Resource Include="Resources\UTLogoWhite3.0.png" />
     <Resource Include="Resources\UTS.png" />
     <Resource Include="Resources\UTtray.png" />
