@@ -54,7 +54,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
         opencru_txt.Text = await UT.GetLang("opencru");
         opencru_desc.Text = await UT.GetLang("desccru");
         installms365_txt.Text = await UT.GetLang("installms365pp");
-        installms365_desc.Text = await UT.GetLang("descms365pp");
+        installms365_desc.Text = await UT.GetLang("descinstallms365pp");
     }
 
     public async Task CheckBTN(bool check, string step)
