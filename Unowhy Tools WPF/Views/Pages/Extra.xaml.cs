@@ -53,6 +53,8 @@ public partial class Extra : INavigableView<DashboardViewModel>
         opencru_btn.Content = await UT.GetLang("open");
         opencru_txt.Text = await UT.GetLang("opencru");
         opencru_desc.Text = await UT.GetLang("desccru");
+        installms365_txt.Text = await UT.GetLang("installms365pp");
+        installms365_desc.Text = await UT.GetLang("descms365pp");
     }
 
     public async Task CheckBTN(bool check, string step)
@@ -337,6 +339,70 @@ public partial class Extra : INavigableView<DashboardViewModel>
         else
         {
             Process.Start(Path.GetTempPath() + "\\CRU\\reset-all.exe");
+        }
+    }
+
+    private async void installms365fr_btn_Click(object sender, RoutedEventArgs e)
+    {
+        UT.SendAction("InstallMS365Fr");
+        if (await UT.CheckInternet())
+        {
+            if (File.Exists(Path.GetTempPath() + "\\ms365ppsetupfr.exe")) File.Delete(Path.GetTempPath() + "\\ms365ppsetupfr.exe");
+
+            var progress = new System.Progress<double>();
+            var cancellationToken = new CancellationTokenSource();
+            string dl = await UT.GetLang("wait.download");
+            await UT.waitstatus.open(dl, "clouddl.png");
+            progress.ProgressChanged += async (sender, value) =>
+            {
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "null");
+            };
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("ms365ppfr"), Path.GetTempPath() + "\\ms365ppsetupfr.exe", progress, cancellationToken.Token);
+            Process.Start(Path.GetTempPath() + "\\ms365ppsetupfr.exe");
+            await UT.waitstatus.close();
+        }
+        else
+        {
+            if (File.Exists(Path.GetTempPath() + "\\ms365ppsetupfr.exe"))
+            {
+                Process.Start(Path.GetTempPath() + "\\ms365ppsetupfr.exe");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            }
+        }
+    }
+
+    private async void installms365en_btn_Click(object sender, RoutedEventArgs e)
+    {
+        UT.SendAction("InstallMS365En");
+        if (await UT.CheckInternet())
+        {
+            if (File.Exists(Path.GetTempPath() + "\\ms365ppsetupen.exe")) File.Delete(Path.GetTempPath() + "\\ms365ppsetupen.exe");
+
+            var progress = new System.Progress<double>();
+            var cancellationToken = new CancellationTokenSource();
+            string dl = await UT.GetLang("wait.download");
+            await UT.waitstatus.open(dl, "clouddl.png");
+            progress.ProgressChanged += async (sender, value) =>
+            {
+                await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "null");
+            };
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("ms365ppfr"), Path.GetTempPath() + "\\ms365ppsetupen.exe", progress, cancellationToken.Token);
+            Process.Start(Path.GetTempPath() + "\\ms365ppsetupen.exe");
+            await UT.waitstatus.close();
+        }
+        else
+        {
+            if (File.Exists(Path.GetTempPath() + "\\ms365ppsetupen.exe"))
+            {
+                Process.Start(Path.GetTempPath() + "\\ms365ppsetupen.exe");
+            }
+            else
+            {
+                UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+            }
         }
     }
 }

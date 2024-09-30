@@ -231,6 +231,47 @@
                                    Margin="0,0,0,0"/>
                     </StackPanel>
                 </ui:CardControl>
+                <ui:CardControl x:Name="installms365"
+                                Margin="10,0,10,10">
+                    <ui:CardControl.Header>
+                        <Grid>
+                            <Image Source="pack://application:,,,/Resources/ms365.png"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                   MaxHeight="32"
+                                   MaxWidth="32" />
+                            <StackPanel Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Margin="50,0,0,0">
+                                <TextBlock x:Name="installms365_txt"
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           Text="Install &quot;Microsoft 365 (Office) (Pro Plus Retail)&quot;" />
+                                <TextBlock x:Name="installms365_desc"
+                                           FontSize="12"
+                                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                           Text="Description"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button x:Name="installms365fr_btn"
+                                   Click="installms365fr_btn_Click"
+                                   Content="French"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,10,0" />
+                        <ui:Button x:Name="installms365en_btn"
+                                   Click="installms365en_btn_Click"
+                                   Content="English"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4"
+                                   HorizontalAlignment="Stretch"
+                                   Margin="0,0,0,0"/>
+                    </StackPanel>
+                </ui:CardControl>
             </StackPanel>
         </Border>
     </Grid>

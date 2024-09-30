@@ -109,6 +109,7 @@
     <None Remove="Resources\micro.png" />
     <None Remove="Resources\monitor.png" />
     <None Remove="Resources\motherboard.png" />
+    <None Remove="Resources\ms365.png" />
     <None Remove="Resources\next.png" />
     <None Remove="Resources\nico.png" />
     <None Remove="Resources\no.png" />
@@ -270,6 +271,7 @@
     <Resource Include="Resources\micro.png" />
     <Resource Include="Resources\monitor.png" />
     <Resource Include="Resources\motherboard.png" />
+    <Resource Include="Resources\ms365.png" />
     <Resource Include="Resources\next.png" />
     <Resource Include="Resources\nico.png" />
     <Resource Include="Resources\no.png" />

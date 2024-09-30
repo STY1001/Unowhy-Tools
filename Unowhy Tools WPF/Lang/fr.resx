@@ -369,6 +369,9 @@
   <data name="deschsmpanel" xml:space="preserve">
     <value>Ouvrez le pannel HiSqool Manager. Afficher quelques informations sur HiSqool Manager, telles que les payloads associées à ce PC. C'est une page Web locale "cachée" (localhost:7654)</value>
   </data>
+  <data name="descinstallms365pp" xml:space="preserve">
+    <value>Après avoir installé Microsoft 365 (Office), vous pouvez utiliser MAS (Microsoft Activation Script) pour l'activer</value>
+  </data>
   <data name="descinstridfcert" xml:space="preserve">
     <value>Unowhy a déployé une Root CA (autorité de certification) avec un payload pour non seulement journaliser toutes les requêtes DNS, mais aussi décrypter toutes vos requêtes web (HTTPS par exemple), pour simplifier, c'est pour vous espionner. Oui, c'est un gros problème de confidentialité et peut devenir une porte dérobée. Le payload désactive également l’erreur de certificat Firefox pour ne pas détourner l’utilisateur. Mais pas de panique, vous pouvez supprimer, cela bloque également la connexion, utiliser plutôt votre 4G/5G ou un VPN ? Si vous avez déjà supprimé le certificat, vous pouvez le réinstaller, mais je ne vous recommande pas de le faire</value>
   </data>
@@ -515,6 +518,9 @@
   </data>
   <data name="installhsm" xml:space="preserve">
     <value>Installer "HiSqool Manager"</value>
+  </data>
+  <data name="installms365pp" xml:space="preserve">
+    <value>Installer Microsoft 365 (Office) (Pro Plus Retail)</value>
   </data>
   <data name="installridfcert" xml:space="preserve">
     <value>Installer l'autorité de certification racine "RIDF"</value>
