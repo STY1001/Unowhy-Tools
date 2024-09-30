@@ -389,7 +389,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
             {
                 await UT.waitstatus.open(dl + " (" + value.ToString("##0.0") + "%)", "null");
             };
-            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("ms365ppfr"), Path.GetTempPath() + "\\ms365ppsetupen.exe", progress, cancellationToken.Token);
+            await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("ms365ppen"), Path.GetTempPath() + "\\ms365ppsetupen.exe", progress, cancellationToken.Token);
             Process.Start(Path.GetTempPath() + "\\ms365ppsetupen.exe");
             await UT.waitstatus.close();
         }
