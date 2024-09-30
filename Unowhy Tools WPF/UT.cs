@@ -165,8 +165,8 @@ namespace Unowhy_Tools
         public static string utpath = "C:\\Unowhy Tools";
 
         public static int verfull = 3001;
-        public static string verbuild = "1118300924";
-        public static bool verisdeb = true;
+        public static string verbuild = "1414300924";
+        public static bool verisdeb = false;
 
         public static Dictionary<string, string> skumodel = new Dictionary<string, string>
         {
