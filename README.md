@@ -48,6 +48,8 @@ Currently, with this tool, you can:
 - Install HiSqool Manager, the "RIDF" Root CA
 - Open Rufus, MAS, CRU
 - Open HisqoolManager panel and logs
+- Install Microsoft 365 (Office)
+- Open Unowhy Tools BIOS Unlocker
 
 More features coming soon
 
@@ -78,6 +80,10 @@ To update to the Debug version:
 - Now in Debug menu, click on "Update Debug version" and wait
 
 ## 📷 Screenshots
+
+30.01
+
+![UT Screen](/README/UT30.01.png)
 
 30.00
 
