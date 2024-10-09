@@ -475,23 +475,26 @@ public partial class TrayWindow : Window
             string batcapstring = "null";
             ImageSource batmodesource = null;
 
-            if (powerscheme.Contains(perf))
+            if (pmodebox.IsDropDownOpen)
             {
-                batcapstring = perfstr;
-                batmodesource = UT.GetImgSource("power.png");
-                pmodeperf.IsSelected = true;
-            }
-            else if (powerscheme.Contains(balanced))
-            {
-                batcapstring = balancedstr;
-                batmodesource = UT.GetImgSource("balanced.png");
-                pmodebalanced.IsSelected = true;
-            }
-            else if (powerscheme.Contains(efficiency))
-            {
-                batcapstring = efficiencystr;
-                batmodesource = UT.GetImgSource("efficiency.png");
-                pmodeefficiency.IsSelected = true;
+                if (powerscheme.Contains(perf))
+                {
+                    batcapstring = perfstr;
+                    batmodesource = UT.GetImgSource("power.png");
+                    pmodeperf.IsSelected = true;
+                }
+                else if (powerscheme.Contains(balanced))
+                {
+                    batcapstring = balancedstr;
+                    batmodesource = UT.GetImgSource("balanced.png");
+                    pmodebalanced.IsSelected = true;
+                }
+                else if (powerscheme.Contains(efficiency))
+                {
+                    batcapstring = efficiencystr;
+                    batmodesource = UT.GetImgSource("efficiency.png");
+                    pmodeefficiency.IsSelected = true;
+                }
             }
 
             ImageSource batimgsource = null;
