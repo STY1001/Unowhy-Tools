@@ -475,7 +475,7 @@ public partial class TrayWindow : Window
             string batcapstring = "null";
             ImageSource batmodesource = null;
 
-            if (pmodebox.IsDropDownOpen)
+            if (!pmodebox.IsDropDownOpen)
             {
                 if (powerscheme.Contains(perf))
                 {
