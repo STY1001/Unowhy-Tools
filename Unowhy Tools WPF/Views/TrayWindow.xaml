@@ -513,7 +513,9 @@
                                                           Grid.Column="1"
                                                           Width="150"
                                                           x:Name="pmodebox"
-                                                          SelectionChanged="pmodebox_SelectionChanged">
+                                                          SelectionChanged="pmodebox_SelectionChanged"
+                                                          DropDownClosed="pmodebox_DropDownClosed"
+                                                          DropDownOpened="pmodebox_DropDownOpened">
                                                     <ComboBoxItem x:Name="pmodeperf">
                                                         <TextBlock Text="Performance"
                                                                    x:Name="pmodeperftext" />

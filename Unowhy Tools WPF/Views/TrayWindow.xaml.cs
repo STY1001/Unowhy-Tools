@@ -475,26 +475,23 @@ public partial class TrayWindow : Window
             string batcapstring = "null";
             ImageSource batmodesource = null;
 
-            if (!pmodebox.IsDropDownOpen)
+            if (powerscheme.Contains(perf))
             {
-                if (powerscheme.Contains(perf))
-                {
-                    batcapstring = perfstr;
-                    batmodesource = UT.GetImgSource("power.png");
-                    pmodeperf.IsSelected = true;
-                }
-                else if (powerscheme.Contains(balanced))
-                {
-                    batcapstring = balancedstr;
-                    batmodesource = UT.GetImgSource("balanced.png");
-                    pmodebalanced.IsSelected = true;
-                }
-                else if (powerscheme.Contains(efficiency))
-                {
-                    batcapstring = efficiencystr;
-                    batmodesource = UT.GetImgSource("efficiency.png");
-                    pmodeefficiency.IsSelected = true;
-                }
+                batcapstring = perfstr;
+                batmodesource = UT.GetImgSource("power.png");
+                pmodeperf.IsSelected = true;
+            }
+            else if (powerscheme.Contains(balanced))
+            {
+                batcapstring = balancedstr;
+                batmodesource = UT.GetImgSource("balanced.png");
+                pmodebalanced.IsSelected = true;
+            }
+            else if (powerscheme.Contains(efficiency))
+            {
+                batcapstring = efficiencystr;
+                batmodesource = UT.GetImgSource("efficiency.png");
+                pmodeefficiency.IsSelected = true;
             }
 
             ImageSource batimgsource = null;
@@ -1808,6 +1805,16 @@ public partial class TrayWindow : Window
         {
             await HideTray();
         }
+    }
+
+    private void pmodebox_DropDownClosed(object sender, EventArgs e)
+    {
+        IsPause = false;
+    }
+
+    private void pmodebox_DropDownOpened(object sender, EventArgs e)
+    {
+        IsPause = true;
     }
 }
 
