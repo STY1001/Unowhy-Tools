@@ -765,9 +765,17 @@ public partial class TrayWindow : Window
         {
             _camerakey = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam");
         }
+        if(_camerakey.GetValue("Value") == null)
+        {
+            _camerakey.SetValue("Value", "Deny");
+        }
         if (_microkey == null)
         {
             _microkey = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone");
+        }
+        if (_microkey.GetValue("Value") == null)
+        {
+            _microkey.SetValue("Value", "Deny");
         }
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         UTbtndesc.Text = utpath;
