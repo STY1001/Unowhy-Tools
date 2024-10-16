@@ -259,6 +259,6 @@ Explore how Unowhy Tools has evolved across various versions :
 
 ---
 
-*Developed and maintained by [STY1001](https://github.com/STY1001) and [Kofysh](https://github.com/Kofysh).*
+*Developed by [STY1001](https://github.com/STY1001) and maintained by [Kofysh](https://github.com/Kofysh).*
 
 ---
