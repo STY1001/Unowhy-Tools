@@ -1,7 +1,7 @@
 ![Unowhy Tools Logo Black](https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/README/UTLogoBlack3.0.png#gh-light-mode-only)
 ![Unowhy Tools Logo White](https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/README/UTLogoWhite3.0.png#gh-dark-mode-only)
 
-# Unowhy Tools – The Ultimate All-in-One Utility for Your Unowhy Device !
+# Unowhy Tools – The ultimate all-in-one utility for your Unowhy device !
 
 **Disclaimer:** Unowhy Tools and STY1001 are **NOT** affiliated with Unowhy SAS.  
 📖 **French Version** : [https://sty1001.com/unowhy-tools/](https://sty1001.com/unowhy-tools/)
