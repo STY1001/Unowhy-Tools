@@ -83,9 +83,9 @@
 
 
             
-            ============================================================
+            =====================================================================
             Name: Unowhy Tools (WPF)
-            Description: The all-in-one tool for your Unowhy Y13 !
+            Description: The ultimate all-in-one utility for your Unowhy device !
             Language: C#, XAML
             Framework: .NET 6.0
             Sub-Framework: Windows Presentation Foundation (WPF)
@@ -95,7 +95,7 @@
             Git: https://github.com/STY1001/Unowhy-Tools.git
             Contributable: true
             Stealable: false
-            ============================================================
+            =====================================================================
          
 
 */

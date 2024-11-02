@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.sty1001 = new System.Windows.Forms.Label();
             this.status = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ok = new ReaLTaiizor.Controls.Button();
             this.install = new ReaLTaiizor.Controls.Button();
@@ -90,14 +89,14 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(12, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(224, 17);
+            this.label3.Size = new System.Drawing.Size(286, 13);
             this.label3.TabIndex = 36;
-            this.label3.Text = "The all-in-one tool for your Unowhy !";
+            this.label3.Text = "The ultimate all-in-one utility for your Unowhy device !";
             // 
             // sty1001
             // 
@@ -121,15 +120,6 @@
             this.status.ReadOnly = true;
             this.status.Size = new System.Drawing.Size(279, 20);
             this.status.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(266, 111);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "label1";
             // 
             // label2
             // 
@@ -237,7 +227,6 @@
             this.Controls.Add(this.ok);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.status);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.sty1001);
@@ -279,7 +268,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label sty1001;
         private System.Windows.Forms.TextBox status;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox6;
         private ReaLTaiizor.Controls.Button ok;

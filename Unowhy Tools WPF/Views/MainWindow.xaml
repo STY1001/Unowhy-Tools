@@ -262,7 +262,7 @@
                            FontSize="18"
                            Margin="0,0,0,20"
                            FontFamily="Segoe UI Semi Bold"
-                           x:Name="konamiText1"/>
+                           x:Name="konamiText1" />
                 <Grid VerticalAlignment="Center"
                       HorizontalAlignment="Center"
                       Grid.Row="1"
@@ -320,7 +320,7 @@
                            FontSize="18"
                            Margin="0,20,0,0"
                            FontFamily="Segoe UI Semi Bold"
-                           x:Name="konamiText2"/>
+                           x:Name="konamiText2" />
             </Grid>
         </Grid>
         <Grid x:Name="RootWelcomeGrid"
@@ -387,14 +387,17 @@
                     </Grid>
                     <Grid Grid.Column="1"
                           Grid.Row="2">
-                        <TextBlock FontSize="15"
+                        <TextBlock FontSize="12"
+                                   LineHeight="12"
+                                   LineStackingStrategy="BlockLineHeight"
+                                   VerticalAlignment="Center"
                                    Margin="5,0,0,0"
                                    x:Name="SplashDesc"
                                    HorizontalAlignment="Left"
                                    Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                    FontFamily="Segoe UI SemiBold"
-                                   Text="The all-in-one tool for your Unowhy !" />
-                        <TextBlock FontSize="15"
+                                   Text="The ultimate all-in-one utility for your Unowhy device !" />
+                        <TextBlock FontSize="13"
                                    Margin="0,0,5,0"
                                    x:Name="SplashCredit"
                                    HorizontalAlignment="Right"
@@ -407,7 +410,7 @@
                                 VerticalAlignment="Center">
                         <ProgressBar x:Name="SplashBar"
                                      Height="25"
-                                     Maximum="100"/>
+                                     Maximum="100" />
                         <TextBlock x:Name="SplashText"
                                    Margin="5,-22,0,0"
                                    FontSize="13"
@@ -456,7 +459,7 @@
                                         IsFocusIndicatorEnabled="False"
                                         IsHitTestVisible="False"
                                         Visibility="Visible" />
-        
+
 
         <!--  The title bar contains window navigation elements and some Tray related extras.  -->
         <!--  You can put additional controls in the header, such as a search bar.  -->

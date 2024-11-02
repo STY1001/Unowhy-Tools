@@ -12,7 +12,7 @@
 	  <AssemblyName>Unowhy Tools</AssemblyName>
 	  <Company>STY Inc. (STY1001)</Company>
 	  <Product>Unowhy Tools</Product>
-	  <Description>The all-in-one tool for your Unowhy Y13 !</Description>
+	  <Description>The ultimate all-in-one utility for your Unowhy device !</Description>
 	  <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
 	  <PlatformTarget>x64</PlatformTarget>
 	  <GenerateDocumentationFile>False</GenerateDocumentationFile>

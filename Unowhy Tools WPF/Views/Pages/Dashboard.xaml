@@ -119,18 +119,21 @@
                                            x:Name="LogoImg"
                                            RenderOptions.BitmapScalingMode="HighQuality"
                                            Source="pack://application:,,,/Resources/UTLogoWhite3.0.png"
-                                           MouseDown="LogoImg_MouseDown"/>
+                                           MouseDown="LogoImg_MouseDown" />
                                 </Grid>
                                 <Grid Grid.Column="1"
                                       Grid.Row="2">
-                                    <TextBlock FontSize="15"
+                                    <TextBlock FontSize="12"
+                                               LineHeight="12"
+                                               LineStackingStrategy="BlockLineHeight"
+                                               VerticalAlignment="Center"
                                                Margin="5,0,0,0"
                                                x:Name="LogoDesc"
                                                HorizontalAlignment="Left"
                                                Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                                                FontFamily="Segoe UI SemiBold"
-                                               Text="The all-in-one tool for your Unowhy !" />
-                                    <TextBlock FontSize="15"
+                                               Text="The ultimate all-in-one utility for your Unowhy device !" />
+                                    <TextBlock FontSize="13"
                                                Margin="0,0,5,0"
                                                x:Name="LogoCredit"
                                                HorizontalAlignment="Right"

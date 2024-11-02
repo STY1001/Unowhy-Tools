@@ -562,11 +562,11 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
             {
                 if (!model.Key.StartsWith("STY"))
                 {
-                    LogoDesc.Text = $"The all-in-one tool for your {model.Value} !";
+                    LogoDesc.Text = $"The ultimate all-in-one utility for your Unowhy {model.Value} !";
                     await Task.Delay(500);
                 }
             }
-            LogoDesc.Text = "The all-in-one tool for your Unowhy !";
+            LogoDesc.Text = "The ultimate all-in-one utility for your Unowhy device !";
             UTDeskEETime = 0;
         }
     }

@@ -647,7 +647,7 @@ public partial class About : INavigableView<DashboardViewModel>
             LogoDesc.Text = "";
             LogoCredit.Text = "The French Bidouilleur, 2023";
             await Task.Delay(2500);
-            LogoDesc.Text = "The all-in-one tool for your Unowhy !";
+            LogoDesc.Text = "The ultimate all-in-one utility for your Unowhy device !";
             LogoCredit.Text = "by STY1001";
         }
     }
