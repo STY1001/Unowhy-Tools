@@ -642,7 +642,7 @@ public partial class MainWindow : INavigationWindow
                     UT.Write2Log("Checking Unowhy Tools in Windows Defender exclusion list");
                     RegistryKey key = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows Defender\\Exclusions\\Paths");
 
-                    if (key.GetValue("C:\\Program Files (x86)\\Unowhy Tools", null) == null)
+                    if (key != null || key.GetValue("C:\\Program Files (x86)\\Unowhy Tools", null) == null)
                     {
                         await USSwB("Loading... (Adding WD Exclusion)");
                         UT.Write2Log("Unowhy Tools isn't in Windows Defender exclusion list, adding....");
