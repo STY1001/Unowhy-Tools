@@ -655,6 +655,10 @@ public partial class MainWindow : INavigationWindow
                             UT.Write2Log("Unowhy Tools is in Windows Defender exclusion list");
                         }
                     }
+                    else
+                    {
+                        UT.Write2Log("Windows Defender exclusion list not found");
+                    }
 
                     await USS("Loading... (Online Data)");
                     if (File.Exists(UT.utpath + "\\Unowhy Tools\\settings.json"))
