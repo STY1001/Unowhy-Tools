@@ -84,7 +84,7 @@ Explore how Unowhy Tools has evolved across various versions :
 
 ## 📜 Full Version History
 
-### Version 30.x.x
+### Version 30.xx
 - **30.02**  
 ![UT Screen](/README/UT30.02.png)
 - **30.01**  
@@ -92,11 +92,11 @@ Explore how Unowhy Tools has evolved across various versions :
 - **30.00**  
 ![UT Screen](/README/UT30.00.png)
 
-### Version 29.x.x
+### Version 29.xx
 - **29.00**  
 ![UT Screen](/README/UT29.00.png)
 
-### Version 28.x.x
+### Version 28.xx
 - **28.03**  
 ![UT Screen](/README/UT28.03.png)
 - **28.02**  
@@ -106,21 +106,21 @@ Explore how Unowhy Tools has evolved across various versions :
 - **28.00**  
 ![UT Screen](/README/UT28.00.png)
 
-### Version 27.x.x
+### Version 27.xx
 - **27.01**  
 ![UT Screen](/README/UT27.01.png)
 - **27.00**  
 ![UT Screen](/README/UT27.00.png)
 
-### Version 26.x.x
+### Version 26.xx
 - **26.00**  
 ![UT Screen](/README/UT26.00.png)
 
-### Version 25.x.x
+### Version 25.xx
 - **25.00**  
 ![UT Screen](/README/UT25.00.png)
 
-### Version 24.x.x
+### Version 24.xx
 - **24.10**  
 ![UT Screen](/README/UT24.10.png)
 - **24.09**  
@@ -144,7 +144,7 @@ Explore how Unowhy Tools has evolved across various versions :
 - **24.00**  
 ![UT Screen](/README/UT24.00.png)
 
-### Version 23.x.x
+### Version 23.xx
 - **23.02**  
 ![UT Screen](/README/UT23.02.png)
 - **23.01**  
@@ -152,11 +152,11 @@ Explore how Unowhy Tools has evolved across various versions :
 - **23.00**  
 ![UT Screen](/README/UT23.00.png)
 
-### Version 22.x.x
+### Version 22.xx
 - **22.00**  
 ![UT Screen](/README/UT22.00.png)
 
-### Version 21.x.x
+### Version 21.xx
 - **21.02**  
 ![UT Screen](/README/UT21.02.png)
 - **21.01**  
@@ -164,7 +164,7 @@ Explore how Unowhy Tools has evolved across various versions :
 - **21.00**  
 ![UT Screen](/README/UT21.00.png)
 
-### Version 20.x.x
+### Version 20.xx
 - **20.03**  
 ![UT Screen](/README/UT20.03.png)
 - **20.02**  
@@ -174,87 +174,87 @@ Explore how Unowhy Tools has evolved across various versions :
 - **20.00**  
 ![UT Screen](/README/UT20.00.png)
 
-### Version 19.x.x
-- **19.00**  
+### Version 19.x
+- **19.0**  
 ![UT Screen](/README/UT19.0.1.png)
 ![UT Screen](/README/UT19.0.2.png)
 
-### Version 18.x.x
-- **18.00**  
+### Version 18.x
+- **18.0**  
 ![UT Screen](/README/UT18.0.1.png)
 ![UT Screen](/README/UT18.0.2.png)
 ![UT Screen](/README/UT18.0.3.png)
 
-### Version 17.x.x
-- **17.00**  
+### Version 17.x
+- **17.0**  
 ![UT Screen](/README/UT17.0.1.png)
 ![UT Screen](/README/UT17.0.2.png)
 
-### Version 16.x.x
-- **16.00**  
+### Version 16.x
+- **16.0**  
 ![UT Screen](/README/UT16.0.1.png)
 ![UT Screen](/README/UT16.0.2.png)
 
-### Version 15.x.x
-- **15.00**  
+### Version 15.x
+- **15.0**  
 ![UT Screen](/README/UT15.0.png)
 
-### Version 14.x.x
-- **14.00**  
+### Version 14.x
+- **14.0**  
 ![UT Screen](/README/UT14.0.png)
 
-### Version 13.x.x
-- **13.00**  
+### Version 13.x
+- **13.0**  
 ![UT Screen](/README/UT13.0.png)
 
-### Version 12.x.x
-- **12.00**  
+### Version 12.x
+- **12.0**  
 ![UT Screen](/README/UT12.0.png)
 
-### Version 11.x.x
-- **11.00**  
+### Version 11.x
+- **11.0**  
 ![UT Screen](/README/UT11.0.png)
 
-### Version 10.x.x
-- **10.00**  
+### Version 10.x
+- **10.0**  
 ![UT Screen](/README/UT10.0.png)
 
-### Version 9.x.x
-- **9.00**  
+### Version 9.x
+- **9.0**  
 ![UT Screen](/README/UT9.0
 
 .png)
 
-### Version 8.x.x
-- **8.00**  
+### Version 8.x
+- **8.0**  
 ![UT Screen](/README/UT8.0.png)
 
-### Version 7.x.x
-- **7.00**  
+### Version 7.x
+- **7.0**  
 ![UT Screen](/README/UT7.0.png)
 
-### Version 6.x.x
-- **6.00**  
+### Version 6.x
+- **6.0**  
 ![UT Screen](/README/UT6.0.png)
 
-### Version 5.x.x
-- **5.00**  
+### Version 5.x
+- **5.0**  
 ![UT Screen](/README/UT5.0.png)
 
-### Version 4.x.x
-- **4.00**  
+### Version 4.x
+- **4.0**  
 ![UT Screen](/README/UT4.0.png)
 
-### Version 3.x.x
-- **3.00**  
+### Version 3.x
+- **3.0**  
 ![UT Screen](/README/UT3.0.png)
 
-### Version 2.x.x
-- **2.00**  
+### Version 2.x
+- **2.0**  
 ![UT Screen](/README/UT2.0.png)
 
-### Version 1.x.x
-- **1.00**  
+### Version 1.x
+- **1.0**  
 ![UT Screen](/README/UT1.0.png)
 
 ---
