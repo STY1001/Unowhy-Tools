@@ -54,7 +54,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
         RootStateGrid.RenderTransform = trans;
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
 
-        string sn = await UT.RunReturn("wmic", "bios get serialnumber");
+        string sn = UT.GetWMI("Win32_BIOS", "SerialNumber");
         string pn = await UT.RunReturn("hostname", "");
         string un = await UT.UTS.UTSmsg("UTSW", "GetSN");
 
