@@ -665,6 +665,8 @@ public partial class About : INavigableView<DashboardViewModel>
             UT.SendAction("EasterEgg.About.UTVerLogo");
             UTVerLogo.Source = UT.GetImgSource("UTB.png");
             await Task.Delay(500);
+            UTVerLogo.Source = UT.GetImgSource("UTBU.png");
+            await Task.Delay(500);
             UTVerLogo.Source = UT.GetImgSource("UTS.png");
             await Task.Delay(500);
             UTVerLogo.Source = UT.GetImgSource("UTU.png");
