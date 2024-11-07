@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+	<SelfContained>true</SelfContained>
     <Nullable>disable</Nullable>
     <LangVersion>10.0</LangVersion>
     <UseWPF>true</UseWPF>
@@ -23,12 +24,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
     <DebugType>none</DebugType>
-    <WarningLevel>6</WarningLevel>
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
-    <WarningLevel>6</WarningLevel>
+    <WarningLevel>1</WarningLevel>
     <Optimize>True</Optimize>
   </PropertyGroup>
 
