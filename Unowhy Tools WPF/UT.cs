@@ -87,7 +87,7 @@
             Name: Unowhy Tools (WPF)
             Description: The ultimate all-in-one utility for your Unowhy device !
             Language: C#, XAML
-            Framework: .NET 6.0
+            Framework: .NET 8.0
             Sub-Framework: Windows Presentation Foundation (WPF)
             Open Source: true
             License: MIT
@@ -164,7 +164,7 @@ namespace Unowhy_Tools
         public static string online_datas = "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json";
         public static string utpath = "C:\\Unowhy Tools";
 
-        public static int verfull = 3003;
+        public static int verfull = 3100;
         public static string verbuild = "1605031124";
         public static bool verisdeb = true;
 
