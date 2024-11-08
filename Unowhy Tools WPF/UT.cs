@@ -103,43 +103,36 @@
 
 
 using Microsoft.Win32;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
-using System.Diagnostics;
-using System.IO;
-using System.Resources;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using System.ComponentModel;
-using Unowhy_Tools_WPF.Views;
-using System.Security.Principal;
-using System.ServiceProcess;
-using System.Runtime.CompilerServices;
-using System.Windows.Media.Imaging;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.IO.Compression;
+using System.IO.Packaging;
+using System.IO.Pipes;
+using System.Linq;
+using System.Management;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
-using System.IO.Packaging;
-using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using System.Windows.Media;
-using System.IO.Pipes;
-using System.IO.Compression;
+using System.Resources;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Security.Principal;
+using System.ServiceProcess;
 using System.Threading;
-using System.Drawing;
-using TaskScheduler = Microsoft.Win32.TaskScheduler;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Interop;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using System.Management;
-using System.Windows.Documents;
-using System.Windows.Threading;
-using Unowhy_Tools_WPF.Views.Pages;
-using System.Linq;
-using System.Collections.Generic;
-using System.Xml.Linq;
-using System.Text.Json.Nodes;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Microsoft.VisualBasic.Devices;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using Unowhy_Tools_WPF.Views;
+using TaskScheduler = Microsoft.Win32.TaskScheduler;
 
 namespace Unowhy_Tools
 {

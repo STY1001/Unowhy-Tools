@@ -1,16 +1,14 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-
-using Unowhy_Tools;
-using System.Windows.Media.Imaging;
-using System.Windows;
-using System.Threading.Tasks;
-using System.Windows.Media.Animation;
-using System.Windows.Media;
-using System;
-using System.IO;
-using System.Windows.Controls;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -124,7 +122,7 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
         double usedSpace = totalSpace - freeSpace;
         int percentFree = (int)((freeSpace / totalSpace) * 100);
 
-        stor.Text = String.Format("{0:0.00} GB / {1:0.00} GB ({2}% {3})", usedSpace, totalSpace, percentFree, await UT.GetLang("free")); 
+        stor.Text = String.Format("{0:0.00} GB / {1:0.00} GB ({2}% {3})", usedSpace, totalSpace, percentFree, await UT.GetLang("free"));
 
         foreach (UIElement element in RootStack.Children)
         {

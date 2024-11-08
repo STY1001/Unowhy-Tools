@@ -1,17 +1,12 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-
-using Unowhy_Tools;
-using System.Windows;
-using System.Diagnostics;
+﻿using System;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using Microsoft.VisualBasic.ApplicationServices;
-using System.Windows.Forms;
 using System.Threading.Tasks;
-using System.Windows.Media.Animation;
+using System.Windows;
 using System.Windows.Media;
-using System;
+using System.Windows.Media.Animation;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -127,7 +122,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
             uimg1.Source = UT.GetImgSource("user.png");
         }
     }
-    
+
     public async void Create_Changed(object sender, RoutedEventArgs e)
     {
         UT.SendAction("AddUser");

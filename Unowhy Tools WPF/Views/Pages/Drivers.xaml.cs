@@ -1,13 +1,11 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-
-using Unowhy_Tools;
-using System.Windows;
-using System.Diagnostics;
-using System;
+﻿using System;
 using System.Threading.Tasks;
-using System.Windows.Media.Animation;
+using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 

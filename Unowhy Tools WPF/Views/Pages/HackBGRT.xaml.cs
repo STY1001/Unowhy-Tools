@@ -1,31 +1,23 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-using System.Windows;
-
-using Unowhy_Tools;
-using System.Diagnostics;
+﻿using Newtonsoft.Json;
 using System;
-using Microsoft.Win32;
-using System.Windows.Media;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using System.Security.Cryptography.X509Certificates;
-using System.Net.Http;
-using static Unowhy_Tools.UT;
-using System.Xml.Linq;
-using System.Windows.Forms;
-using System.Windows.Media.Imaging;
-using System.IO;
-
-using System.Linq;
-using System.Windows.Shapes;
-using System.IO.Compression;
-using System.Threading;
-using System.Reflection;
-using System.Drawing.Drawing2D;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Diagnostics;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Forms;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -1345,7 +1337,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     private async void cloudrefreshbtn_Click(object sender, RoutedEventArgs e)
     {
-        if(await UT.CheckInternet())
+        if (await UT.CheckInternet())
         {
             await CloudRefresh();
         }

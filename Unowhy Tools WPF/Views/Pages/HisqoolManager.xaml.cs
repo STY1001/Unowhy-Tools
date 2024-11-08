@@ -1,13 +1,12 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-
-using Unowhy_Tools;
-using System.Windows;
+﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
-using System;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Diagnostics;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -182,7 +181,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
 
     public async void start_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(await UT.GetLang("starthis"), "start.png"))
+        if (UT.DialogQShow(await UT.GetLang("starthis"), "start.png"))
         {
             UT.SendAction("StartHSM");
             await UT.waitstatus.open(await UT.GetLang("wait.start"), "start.png");
@@ -191,7 +190,7 @@ public partial class HisqoolManager : INavigableView<DashboardViewModel>
             await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
             await CheckBTN(true, "hsqm");
             await UT.waitstatus.close();
-            if(!hsqm_start.IsEnabled)
+            if (!hsqm_start.IsEnabled)
             {
                 UT.DialogIShow(await UT.GetLang("done"), "yes.png");
             }

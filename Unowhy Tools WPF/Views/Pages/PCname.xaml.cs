@@ -1,15 +1,13 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-
-using Unowhy_Tools;
-using System.Windows;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
+﻿using System;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Media.Animation;
+using System.Windows;
 using System.Windows.Media;
-using System;
+using System.Windows.Media.Animation;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 

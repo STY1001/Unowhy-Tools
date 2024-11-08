@@ -1,30 +1,24 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-
-using Unowhy_Tools;
-using System.Windows;
-using System.Diagnostics;
+﻿using Newtonsoft.Json;
 using System;
-using System.Threading.Tasks;
-using System.Windows.Media.Animation;
-using System.Windows.Media;
-using Wpf.Ui.Controls;
-using System.Windows.Controls;
-using System.Threading;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
-using System.Net.Http;
-using Newtonsoft.Json.Linq;
-using Microsoft.Win32;
-using System.Xml.Linq;
-using System.Collections.Generic;
-using System.Windows.Shapes;
-using Wpf.Ui.Interop.WinDef;
-using Newtonsoft.Json;
 using System.Net;
-using System.Windows.Media.Imaging;
-using MenuItem = System.Windows.Controls.MenuItem;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
 using Wpf.Ui.Common;
+using Wpf.Ui.Common.Interfaces;
+using Wpf.Ui.Controls;
+using MenuItem = System.Windows.Controls.MenuItem;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -144,7 +138,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                 GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper Lake (Y11 360, Y13)";
                 GJItem.Click += async (sender, e) =>
                 {
-                    postdrv = "GJ"; 
+                    postdrv = "GJ";
                     var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
                     mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark12, ControlAppearance.Success);
                 };
@@ -207,7 +201,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
                 string percentage = ((status * 100) / list.Count).ToString("##0") + " %";
 
-                if(list.Count == 1)
+                if (list.Count == 1)
                 {
                     await UT.waitstatus.open(await UT.GetLang("wait.restore"), "null");
                 }

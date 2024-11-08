@@ -1,30 +1,18 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-using System.Diagnostics;
-using Wpf.Ui.Common;
-using Wpf.Ui.Mvvm.Contracts;
-
-using Unowhy_Tools;
-using System.Windows;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Microsoft.Win32.TaskScheduler;
 using System;
-using System.IO.Compression;
-using System.IO;
-using System.Net.Http;
-using System.Windows.Media.Animation;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.IO.Pipes;
-using Wpf.Ui.Interop.WinDef;
-using Unowhy_Tools_WPF.Services.Contracts;
-using System.Net;
-using System.Reflection.Metadata;
-using System.Linq;
-using System.Data;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.IO.Compression;
+using System.IO.Pipes;
+using System.Threading;
+using System.Windows;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.Services.Contracts;
+using Unowhy_Tools_WPF.ViewModels;
 using Wpf.Ui.Appearance;
-using Microsoft.Win32.TaskScheduler;
+using Wpf.Ui.Common.Interfaces;
+using Wpf.Ui.Mvvm.Contracts;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -68,7 +56,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
             FileName = "https://github.com/STY1001/Unowhy-Tools",
-                        UseShellExecute = true
+            UseShellExecute = true
         });
     }
 
@@ -79,7 +67,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
 
     public async void Discord_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-        
+
     }
 
     public async void Update_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -128,7 +116,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         }
 
         string args = $"-user {UTdata.UserID} ";
-        if(UTdata.RunConsole)
+        if (UTdata.RunConsole)
         {
             args = args + "-console ";
         }
@@ -139,7 +127,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
         }
 
         Process.Start("cmd.exe", $"/c echo Unowhy Tools by STY1001 & echo Please wait, Unowhy Tools is updating... & echo Killing Unowhy Tools... & taskkill /f /im \"Unowhy Tools.exe\" & echo Stopping Unowhy Tools Service... & net stop UTS & timeout -t 3 & echo Copying files... & del /s /q \"{post}\\*\" & xcopy \"{pre}\" \"{post}\" /e /h /c /i /y & cls & echo Update done... & echo Starting Unowhy Tools Service... & net start UTS & echo Restarting Unowhy Tools... & powershell -windows hidden -command \"\" & \"Unowhy Tools.exe\" {args}");
-    }   
+    }
 
     public void al_click(object sender, System.Windows.RoutedEventArgs e)
     {

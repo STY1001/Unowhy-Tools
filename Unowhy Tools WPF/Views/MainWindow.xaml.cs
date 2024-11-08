@@ -1,25 +1,20 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.Views.Pages;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
 using Wpf.Ui.Mvvm.Contracts;
-using Unowhy_Tools;
-using Unowhy_Tools_WPF.Views.Pages;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.Animation;
-using System.Windows.Media;
-using System.Xml.Linq;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Collections.Generic;
-using System.Windows.Input;
-using System.IO;
-using System.Diagnostics.Eventing.Reader;
-using Microsoft.Win32;
 
 namespace Unowhy_Tools_WPF.Views;
 

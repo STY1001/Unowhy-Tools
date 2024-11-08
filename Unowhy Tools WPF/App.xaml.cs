@@ -1,16 +1,15 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Win32.TaskScheduler;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Reflection;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Win32.TaskScheduler;
 using Unowhy_Tools;
 using Unowhy_Tools_WPF.Services;
 using Unowhy_Tools_WPF.Services.Contracts;
@@ -400,7 +399,7 @@ public partial class App
             }
         }
 
-        if(showConsole)
+        if (showConsole)
         {
             UT.SendAction("OpenConsole");
             string UTsver = UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";

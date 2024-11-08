@@ -1,22 +1,13 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-
-using Unowhy_Tools;
-using System.Windows.Forms;
-using Microsoft.Win32;
+﻿using Microsoft.Win32.TaskScheduler;
+using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System;
-using System.Net.Http;
-using System.Net;
-using System.Windows.Media.Animation;
 using System.Windows.Media;
-using Microsoft.Win32.TaskScheduler;
-using System.Runtime.Intrinsics.X86;
-using System.Threading.Tasks;
-using System.Threading;
+using System.Windows.Media.Animation;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 

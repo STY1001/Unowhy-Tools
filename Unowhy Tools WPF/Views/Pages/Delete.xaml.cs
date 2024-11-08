@@ -1,14 +1,12 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-
-using Unowhy_Tools;
-using System.Windows;
-using System.Threading.Tasks;
-using System;
+﻿using System;
 using System.Diagnostics;
-using System.Windows.Controls;
-using System.Windows.Media.Animation;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -123,7 +121,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         await UT.UnDeployBack();
 
         await CheckBTN(false, "none");
-        
+
         foreach (UIElement element in RootStack.Children)
         {
             element.Visibility = Visibility.Visible;
@@ -165,7 +163,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
             FileName = "ms-settings:appsfeatures",
-                        UseShellExecute = true
+            UseShellExecute = true
         });
     }
 

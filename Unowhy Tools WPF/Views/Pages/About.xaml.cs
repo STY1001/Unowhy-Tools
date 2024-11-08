@@ -1,27 +1,21 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-using System.Threading.Tasks;
-using Unowhy_Tools_WPF.Views;
-using System.Windows;
-using System.Diagnostics;
-using Wpf.Ui.Common;
-using Wpf.Ui.Mvvm.Contracts;
-using Wpf.Ui.Mvvm.Services;
-using Unowhy_Tools;
-using System.Windows.Media;
-using Microsoft.Win32;
+﻿using Newtonsoft.Json;
 using System;
-using System.Xml.Linq;
-using System.Windows.Controls;
-using System.Windows.Media.Animation;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Diagnostics;
 using System.IO;
-using Newtonsoft.Json;
-using static Unowhy_Tools.UT;
-using System.Net.Http;
 using System.Net;
+using System.Net.Http;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
+using Wpf.Ui.Mvvm.Contracts;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -253,7 +247,7 @@ public partial class About : INavigableView<DashboardViewModel>
                 dynamic jsonObject = JsonConvert.DeserializeObject(jsonContent);
                 if (jsonObject.contribs != null && jsonObject.contribs.Count > 0)
                 {
-                    foreach(var contrib in jsonObject.contribs)
+                    foreach (var contrib in jsonObject.contribs)
                     {
                         string contribname = contrib["name"].ToString();
                         string contribavatarurl = contrib["avatar"].ToString();
@@ -447,7 +441,7 @@ public partial class About : INavigableView<DashboardViewModel>
                 From = 150,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new BackEase { EasingMode = EasingMode.EaseOut, Amplitude = 0.3}
+                EasingFunction = new BackEase { EasingMode = EasingMode.EaseOut, Amplitude = 0.3 }
             };
 
             TranslateTransform transform = new TranslateTransform();
@@ -486,7 +480,7 @@ public partial class About : INavigableView<DashboardViewModel>
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
             FileName = "https://github.com/STY1001/Unowhy-Tools",
-                        UseShellExecute = true
+            UseShellExecute = true
         });
     }
 
@@ -633,11 +627,11 @@ public partial class About : INavigableView<DashboardViewModel>
     int eeldclick = 0;
     private async void LogoDesc_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
-        if(eeldclick < 5)
+        if (eeldclick < 5)
         {
             eeldclick++;
         }
-        if(eeldclick >= 5)
+        if (eeldclick >= 5)
         {
             eeldclick = 0;
             UT.SendAction("EasterEgg.About.LogoDesc");
@@ -680,11 +674,11 @@ public partial class About : INavigableView<DashboardViewModel>
     int eecstyleft = 0;
     private async void ContribSTY_SuperPote(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
-        if(eecstyleft < 10)
+        if (eecstyleft < 10)
         {
             eecstyleft++;
         }
-        if(eecstyleft >= 10)
+        if (eecstyleft >= 10)
         {
             eecstyleft = 0;
             UT.SendAction("EasterEgg.About.ContribSuperPote");

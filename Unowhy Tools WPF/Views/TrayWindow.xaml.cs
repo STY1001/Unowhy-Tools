@@ -1,25 +1,18 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows;
-using Wpf.Ui.Mvvm.Contracts;
-using Unowhy_Tools;
-using System.Windows.Media.Animation;
-using System.Windows.Media;
+﻿using Microsoft.Win32;
+using System;
 using System.Diagnostics;
 using System.IO;
-using System.Windows.Threading;
-using System.Windows.Forms;
-using Microsoft.Win32;
-using System.Net.Http;
-using System.Xml.Linq;
-using System.Windows.Navigation;
-using System.Windows.Input;
 using System.Runtime.InteropServices;
-using Microsoft.VisualBasic.ApplicationServices;
-using Wpf.Ui.Controls;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
-using System.Reflection;
-using System.Reflection.Emit;
+using System.Windows.Forms;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Threading;
+using Unowhy_Tools;
+using Wpf.Ui.Mvvm.Contracts;
 
 namespace Unowhy_Tools_WPF.Views;
 
@@ -765,7 +758,7 @@ public partial class TrayWindow : Window
         {
             _camerakey = Registry.CurrentUser.CreateSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam");
         }
-        if(_camerakey.GetValue("Value") == null)
+        if (_camerakey.GetValue("Value") == null)
         {
             _camerakey.SetValue("Value", "Deny");
         }

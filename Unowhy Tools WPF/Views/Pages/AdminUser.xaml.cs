@@ -1,12 +1,11 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-
-using Unowhy_Tools;
-using System.Windows;
+﻿using System;
 using System.Threading.Tasks;
-using System.Windows.Media.Animation;
+using System.Windows;
 using System.Windows.Media;
-using System;
+using System.Windows.Media.Animation;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -88,7 +87,7 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
 
     public async void Pass_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(await UT.GetLang("snpw"), "key.png"))
+        if (UT.DialogQShow(await UT.GetLang("snpw"), "key.png"))
         {
             UT.SendAction("AdminUser.Pw");
             await UT.waitstatus.open(await UT.GetLang("wait.apply"), "key.png");
@@ -96,10 +95,10 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
             await UT.waitstatus.close();
         }
     }
-    
+
     public async void Ena_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(await UT.GetLang("enablea"), "enable.png"))
+        if (UT.DialogQShow(await UT.GetLang("enablea"), "enable.png"))
         {
             UT.SendAction("AdminUser.Enable");
             await UT.waitstatus.open(await UT.GetLang("wait.enable"), "enable.png");
@@ -107,10 +106,10 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
             await UT.waitstatus.close();
         }
     }
-    
+
     public async void Dis_Click(object sender, RoutedEventArgs e)
     {
-        if(UT.DialogQShow(await UT.GetLang("disablea"), "disable.png"))
+        if (UT.DialogQShow(await UT.GetLang("disablea"), "disable.png"))
         {
             UT.SendAction("AdminUser.Disable");
             await UT.waitstatus.open(await UT.GetLang("wait.disable"), "disable.png");

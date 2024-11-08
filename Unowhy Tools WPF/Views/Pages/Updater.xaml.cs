@@ -1,24 +1,17 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-using System.Windows;
-
-using Unowhy_Tools;
+﻿using Microsoft.Web.WebView2.Wpf;
+using Microsoft.Win32.TaskScheduler;
+using System;
 using System.Diagnostics;
-using Microsoft.Web.WebView2.Core;
-using System.Windows.Controls;
-using System.Net.Http;
 using System.IO;
 using System.IO.Compression;
-using System.Threading.Tasks;
-using Microsoft.Web.WebView2.Wpf;
+using System.Net.Http;
+using System.Threading;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System;
-using static Unowhy_Tools.UT;
-using System.Net;
-using System.Reflection.Metadata;
-using System.Threading;
-using Microsoft.Win32.TaskScheduler;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -118,7 +111,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
         trans.BeginAnimation(TranslateTransform.XProperty, anim);
     }
-    
+
     public async void GithubButton2_Click(object sender, RoutedEventArgs e)
     {
         browser.Source = new System.Uri(await UT.OnlineDatas.GetUrls("utcloghtmlprev"));
@@ -149,7 +142,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
         trans.BeginAnimation(TranslateTransform.YProperty, anim);
     }
-    
+
     public async void CheckButton_Click(object sender, RoutedEventArgs e)
     {
         labtext.Text = await UT.GetLang("update.check");
@@ -164,7 +157,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         labimg.RenderTransform = trans;
         labtext.RenderTransform = trans;
 
-        if(labimg.Visibility == Visibility.Hidden && labtext.Visibility == Visibility.Hidden)
+        if (labimg.Visibility == Visibility.Hidden && labtext.Visibility == Visibility.Hidden)
         {
             labtext.Visibility = Visibility.Visible;
             labimg.Visibility = Visibility.Visible;
@@ -172,7 +165,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
         }
 
         await System.Threading.Tasks.Task.Delay(600);
-        
+
         if (await UT.version.newver())
         {
             labimg.Source = UT.GetImgSource("yes.png");

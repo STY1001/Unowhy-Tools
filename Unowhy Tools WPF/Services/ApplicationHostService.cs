@@ -1,16 +1,15 @@
-﻿using System;
-using System.IO.Pipes;
+﻿using Microsoft.Extensions.Hosting;
+using System;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
-using Microsoft.Extensions.Hosting;
 using Unowhy_Tools;
 using Unowhy_Tools_WPF.Services.Contracts;
 using Unowhy_Tools_WPF.Views;
-using Wpf.Ui.Appearance;
 using Wpf.Ui.Mvvm.Contracts;
 
 namespace Unowhy_Tools_WPF.Services;
@@ -71,7 +70,7 @@ public class ApplicationHostService : IHostedService
         {
             if (UTdata.RunTray)
             {
-                if(!await UT.CheckTray())
+                if (!await UT.CheckTray())
                 {
                     Task.Run(() => UTTwait());
                     _testWindowService.Show<Views.TrayWindow>();

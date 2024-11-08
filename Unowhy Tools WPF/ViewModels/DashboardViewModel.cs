@@ -1,11 +1,9 @@
-﻿using System.Windows.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Wpf.Ui.Common.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
-using System.Threading.Tasks;
-using Wpf.Ui.Controls;
-using System;
 
 namespace Unowhy_Tools_WPF.ViewModels;
 
@@ -48,11 +46,11 @@ public class DashboardViewModel : ObservableObject, INavigationAware
             case "navigate_to_adduser":
                 _navigationService.Navigate(typeof(Views.Pages.AddUser));
                 return;
-            
+
             case "navigate_to_adminuser":
                 _navigationService.Navigate(typeof(Views.Pages.AdminUser));
                 return;
-            
+
             case "navigate_to_drvback":
                 _navigationService.Navigate(typeof(Views.Pages.DrvBack));
                 return;
@@ -64,35 +62,35 @@ public class DashboardViewModel : ObservableObject, INavigationAware
             case "navigate_to_drvconv":
                 _navigationService.Navigate(typeof(Views.Pages.DrvConv));
                 return;
-            
+
             case "navigate_to_drivers":
                 _navigationService.Navigate(typeof(Views.Pages.Drivers));
                 return;
-            
+
             case "navigate_to_customize":
                 _navigationService.Navigate(typeof(Views.Pages.Customize));
                 return;
-            
+
             case "navigate_to_repair":
                 _navigationService.Navigate(typeof(Views.Pages.Repair));
                 return;
-            
+
             case "navigate_to_home":
                 _navigationService.Navigate(typeof(Views.Pages.Dashboard));
                 return;
-            
+
             case "navigate_to_pcinfo":
                 _navigationService.Navigate(typeof(Views.Pages.PCinfo));
                 return;
-            
+
             case "navigate_to_about":
                 _navigationService.Navigate(typeof(Views.Pages.About));
                 return;
-            
+
             case "navigate_to_settings":
                 _navigationService.Navigate(typeof(Views.Pages.Settings));
                 return;
-            
+
             case "navigate_to_updater":
                 _navigationService.Navigate(typeof(Views.Pages.Updater));
                 return;

@@ -1,22 +1,17 @@
-﻿using Wpf.Ui.Common.Interfaces;
-using Unowhy_Tools_WPF.ViewModels;
-using System.Windows;
-
-using Unowhy_Tools;
+﻿using System;
 using System.Diagnostics;
-using System;
-using Microsoft.Win32;
-using System.Windows.Media;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using System.Security.Cryptography.X509Certificates;
-using System.Net.Http;
-using static Unowhy_Tools.UT;
-using System.Xml.Linq;
-using System.IO.Compression;
-using System.Threading;
 using System.IO;
+using System.IO.Compression;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using Unowhy_Tools;
+using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
 
@@ -477,11 +472,11 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
         if (await UT.CheckInternet())
         {
             await UT.waitstatus.open(await UT.GetLang("wait.delete"), "clouddl.png");
-            if(Directory.Exists(Path.GetTempPath() + "\\UTBU"))
+            if (Directory.Exists(Path.GetTempPath() + "\\UTBU"))
             {
                 File.Delete(Path.GetTempPath() + "\\UTBU");
             }
-            if(File.Exists(Path.GetTempPath() + "\\UTBU.zip"))
+            if (File.Exists(Path.GetTempPath() + "\\UTBU.zip"))
             {
                 File.Delete(Path.GetTempPath() + "\\UTBU.zip");
             }
@@ -696,7 +691,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
             qogrid.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
             transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
         }
-        
+
         await Task.Delay(500);
         utagrid.Visibility = Visibility.Collapsed;
     }
