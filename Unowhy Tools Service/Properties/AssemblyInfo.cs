@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Unowhy Tools Service")]
-[assembly: AssemblyDescription("A tol for Y13 computer !")]
+[assembly: AssemblyDescription("The ultimate all-in-one service for your Unowhy device !")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("STY Inc. (STY1001)")]
 [assembly: AssemblyProduct("Unowhy Tools")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("STY1001")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

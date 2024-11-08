@@ -26,7 +26,7 @@ namespace Unowhy_Tools_Service
         private NamedPipeServerStream _utswd;
         private DispatcherTimer _wifitimer;
         private DispatcherTimer _wdtimer;
-        public string Version = "3.7";
+        public string Version = "3.8";
         string utspath = "C:\\Unowhy Tools\\Unowhy Tools Service";
 
         [DllImport("wininet.dll")]
@@ -164,7 +164,7 @@ namespace Unowhy_Tools_Service
                             if (await CheckInternet())
                             {
                                 var web = new HttpClient();
-                                string preurl = "https://idf.hisqool.com/conf";
+                                string preurl = "https://idfconf.s3.gra.io.cloud.ovh.net";
                                 string configurl = $"{preurl}/devices/{Serial}/configuration";
 
                                 HttpResponseMessage response = await web.GetAsync(configurl);
