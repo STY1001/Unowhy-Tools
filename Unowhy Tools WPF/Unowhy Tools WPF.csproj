@@ -19,18 +19,22 @@
 	  <GenerateDocumentationFile>False</GenerateDocumentationFile>
 	  <SignAssembly>False</SignAssembly>
 	  <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+	  <PackageProjectUrl>https://github.com/STY1001/Unowhy-Tools</PackageProjectUrl>
+	  <Copyright>STY1001</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>True</Optimize>
     <DebugType>none</DebugType>
     <WarningLevel>1</WarningLevel>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <WarningLevel>1</WarningLevel>
     <Optimize>True</Optimize>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
 
   <ItemGroup>
