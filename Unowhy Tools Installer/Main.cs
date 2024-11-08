@@ -194,7 +194,6 @@ namespace Unowhy_Tools_Installer
             Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\install.zip", "Files", "install.zip");
             statusbar.Value = 25;
             TaskbarManager.Instance.SetProgressValue(25, 100);
-            Extract("Unowhy_Tools_Installer", "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\dotnetwdrt6.exe", "Files", "dotnetwdrt6.exe");
             statusbar.Value = 30;
             TaskbarManager.Instance.SetProgressValue(30, 100);
             statusbar.Value = 35;
@@ -210,16 +209,7 @@ namespace Unowhy_Tools_Installer
         }
 
         public async Task install_inst()
-        {
-            Process p12 = new Process();
-            p12.StartInfo.FileName = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp\\dotnetwdrt6.exe";
-            p12.StartInfo.Arguments = "/install /passive";
-            p12.StartInfo.WorkingDirectory = "C:\\Program Files (x86)\\Unowhy Tools\\insttemp";
-            p12.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-            p12.StartInfo.CreateNoWindow = true;
-            p12.Start();
-            p12.WaitForExit();
-            
+        {            
             statusbar.Value = 50;
             TaskbarManager.Instance.SetProgressValue(50, 100);
 
