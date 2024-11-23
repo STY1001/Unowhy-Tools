@@ -97,6 +97,10 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         {
             selectY5OPSi5.IsSelected = true;
         }
+        else if (currentsku.Contains("Y14G102S2E") || currentsku.Contains("Y14G310S2MI") || currentsku.Contains("Y14G310S2M"))
+        {
+            selectY5OPSi5.IsSelected = true;
+        }
         else
         {
             selectall.IsSelected = true;
@@ -135,12 +139,12 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
                 MenuItem GJItem = new MenuItem();
-                GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper Lake (Y11 360, Y13)";
+                GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake (Y11 360, Y13, Y14 Plus (Old))";
                 GJItem.Click += async (sender, e) =>
                 {
                     postdrv = "GJ";
                     var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                    mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark12, ControlAppearance.Success);
+                    mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark12, ControlAppearance.Success);
                 };
                 iGPUMenu.Items.Add(GJItem);
                 MenuItem TItem = new MenuItem();

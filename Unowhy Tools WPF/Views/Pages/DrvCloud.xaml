@@ -89,6 +89,8 @@
                                               x:Name="selectY11G1" />
                                 <ComboBoxItem Content="Y11 360 Gen 2"
                                               x:Name="selectY11G2" />
+                                <ComboBoxItem Content="Y14 Plus i3"
+                                              x:Name="selectY14i3" />
                             </ComboBox>
                             <CheckBox x:Name="showold"
                                       Checked="showold_Changed"
