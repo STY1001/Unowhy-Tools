@@ -2063,7 +2063,11 @@ namespace Unowhy_Tools
                     UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "FPTW64.exe",
                     UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "Idrvdll32e.dll",
                     UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "Pmxdll32e.dll",
-                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Tiger\\" + "FPTW64.exe"
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Tiger\\" + "FPTW64.exe",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Comet\\" + "fparts.txt",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Comet\\" + "FPTW64.exe",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Comet\\" + "Idrvdll32e.dll",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Comet\\" + "Pmxdll32e.dll"
                 };
 
                 if (ifptfiles.Any(file => !File.Exists(file)))
