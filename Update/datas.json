@@ -4,7 +4,7 @@
         "websitename": "sty1001.com"
     },
     "updates": {
-        "utnewver": "3100",
+        "utnewver": "3101",
         "utsnewver": "3.8"
     },
     "urls": {
@@ -130,7 +130,7 @@
             "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EbhiQvoBVDxIvYH4ytShseEB_IDszvOwr9P7nb18NYzlbA?e=seebJb&download=1"
         },
         {
-            "name": "UT-Drv_00-01_10_09_24.zip",
+            "name": "UT-Drv_00-01_10-09-24.zip",
             "author": "STY1001",
             "pcyear": 2024,
             "pcmodel": "Y13G201S4EI",
@@ -390,7 +390,7 @@
             "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EUJkjxi4FohLipFmU7sy7MsBJtjGQiSJeaSPlwnuvw9QvA?e=ryfckB&download=1"
         },
         {
-            "name": "UT-Drv_17-17_17_04_2024.zip",
+            "name": "UT-Drv_17-17_17-04-2024.zip",
             "author": "GaDyyvN",
             "pcyear": 2023,
             "pcmodel": "Y11G201S2M",
@@ -409,14 +409,14 @@
             "pcmodel": "OPSG530S2M",
             "old": false,
             "description": {
-                "en": "Work with Y5OPS i5 installed in Vivitek NovoTouch tablet",
-                "fr": "Fonctionne avec les Y5OPS i5 installé dans les tablettes Vivitek NovoTouch"
+                "en": "Work with Y5OPS i5 installed in Vivitek NovoTouch IDS",
+                "fr": "Fonctionne avec les Y5OPS i5 installé dans les ENI Vivitek NovoTouch"
             },
             "size": 1365923727,
             "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/Eeij6ji0Qk9Nr1ftYvrMtzUBENcfFXBzyl6c3rwPdt7tTQ?e=KlZd0D&download=1"
         },
         {
-            "name": "UT-Drv_17-33_15_08_24.zip",
+            "name": "UT-Drv_17-33_15-08-24.zip",
             "author": "STY1001",
             "pcyear": 2019,
             "pcmodel": "Y11G001S4E",
@@ -429,7 +429,7 @@
             "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EXf-AUlaQE5OnGsrla8ufDEB5TwSR5ASsssu-HDcUovHfA?e=u37NRc&download=1"
         },
         {
-            "name": "UT-Drv_14-02_10_09_24.zip",
+            "name": "UT-Drv_14-02_10-09-24.zip",
             "author": "STY1001",
             "pcyear": 2019,
             "pcmodel": "Y13G002S4EI",
@@ -442,17 +442,43 @@
             "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EVn2vU2LtYpEg7tLzOdCgj8BS7kD-Bff-5EJe26EuPiEAw?e=fgwGvc&download=1"
         },
         {
-            "name": "UT-Drv_19-06_15_08_24.zip",
+            "name": "UT-Drv_19-06_15-08-24.zip",
             "author": "STY1001",
             "pcyear": 2018,
             "pcmodel": "20180329314",
             "old": false,
             "description": {
-                "en": "Work with Y13 with Intel Core m3 cpu",
-                "fr": "Fonctionne avec le Y13 avec processeur Intel Core m3"
+                "en": "Work with Y13 with Intel Core m3 (6th and 7th Gen) cpu",
+                "fr": "Fonctionne avec le Y13 avec processeur Intel Core m3 (6e et 7e Gen)"
             },
             "size": 914408565,
             "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/Edbi3KHXSE1Fv6rzKGlYKWMBqoOdgp-mMQ5kw344ijKnWg?e=abi33x&download=1"
+        },
+        {
+            "name": "UT-Drv_23-07_23-11-24.zip",
+            "author": "Le Chacal",
+            "pcyear": 2022,
+            "pcmodel": "Y14G102S2E",
+            "old": false,
+            "description": {
+                "en": "Work with Y14 Plus with Intel Core i3 (10th Gen) cpu",
+                "fr": "Fonctionne avec le Y14 Plus avec processeur Intel Core i3 (10e Gen)"
+            },
+            "size": 1330933760,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EVM04TtJBl1BqsdvMrQppigBrn-j5X10LT4Dp2I88T4HMw?e=GiWN8O&download=1"
+        },
+        {
+            "name": "UT-Drv_02-24_27-11-23.zip",
+            "author": "poulard77",
+            "pcyear": 2022,
+            "pcmodel": "Y14G310S2MI",
+            "old": false,
+            "description": {
+                "en": "Work with Y14 Plus with Intel Core i3 (11th Gen) cpu",
+                "fr": "Fonctionne avec le Y14 Plus avec processeur Intel Core i3 (11e Gen)"
+            },
+            "size": 667209728,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ETRw9BnTdGlIgXihxx8UDuwBQMNa8uhCY3bEtoU2h3P7Qg?e=ZTSlai&download=1"
         }
     ]
 }
