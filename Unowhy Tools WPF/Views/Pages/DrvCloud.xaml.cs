@@ -348,6 +348,10 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                         {
                             continue;
                         }
+                        if ((pcmodel == "Y14G102S2E" || pcmodel == "Y14G310S2M" || pcmodel == "Y14G310S2MI") && !selectY14i3.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
                         if (pcmodel == "20180329314" && !selectY13m3.IsSelected && !selectall.IsSelected)
                         {
                             continue;
@@ -650,7 +654,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
     {
         System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
         MenuItem GJItem = new MenuItem();
-        GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper Lake (Y11 360, Y13)";
+        GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake (Y11 360, Y13, Y14 Plus (Old))";
         GJItem.Click += async (sender, e) =>
         {
             await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998, true);
