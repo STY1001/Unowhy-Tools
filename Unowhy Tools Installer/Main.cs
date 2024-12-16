@@ -7,6 +7,8 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using System.IO.Compression;
+using Unowhy_Tools;
+using Microsoft.Win32;
 
 namespace Unowhy_Tools_Installer
 {
@@ -56,25 +58,29 @@ namespace Unowhy_Tools_Installer
         private void InitializeUI()
         {
             status.Text = "Ready!";
-            pictureBox3.Visible = pictureBox6.Visible = false;
-            run.Visible = ok.Visible = false;
+            ok_btn.Visible = ok_img.Visible = false;
             KeyPreview = true;
         }
 
         public static async Task RunMinimized(string file, string args)
         {
-            using var process = new Process
+            await Task.Run(() =>
             {
-                StartInfo = new ProcessStartInfo
+                using (var process = new Process
                 {
-                    FileName = file,
-                    Arguments = args,
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    CreateNoWindow = true
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = file,
+                        Arguments = args,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        CreateNoWindow = true
+                    }
+                })
+                {
+                    process.Start();
+                    process.WaitForExit();
                 }
-            };
-            process.Start();
-            await process.WaitForExitAsync();
+            });
         }
 
         public static void ExtractResource(string namespaceName, string outputPath, string internalPath, string resourceName)
@@ -82,9 +88,9 @@ namespace Unowhy_Tools_Installer
             var assembly = Assembly.GetCallingAssembly();
             var resourcePath = $"{namespaceName}.{(string.IsNullOrEmpty(internalPath) ? "" : internalPath + ".")}{resourceName}";
 
-            using var resourceStream = assembly.GetManifestResourceStream(resourcePath);
-            using var fileStream = new FileStream(outputPath, FileMode.OpenOrCreate);
-            resourceStream?.CopyTo(fileStream);
+            using (var resourceStream = assembly.GetManifestResourceStream(resourcePath))
+            using (var fileStream = new FileStream(outputPath, FileMode.OpenOrCreate))
+                resourceStream?.CopyTo(fileStream);
         }
 
         public async Task InstallCheckAsync()
@@ -96,11 +102,8 @@ namespace Unowhy_Tools_Installer
                 return;
             }
 
-            if (!IsNetworkAvailable())
-            {
-                ShowErrorDialog("No internet connection detected");
-                return;
-            }
+            install_img.Visible = install_btn.Visible = false;
+            desktop_img.Visible = desktop_check.Visible = false;
 
             await PrepareInstallationAsync();
         }
@@ -134,7 +137,13 @@ namespace Unowhy_Tools_Installer
             ZipFile.ExtractToDirectory("C:\\Program Files (x86)\\Unowhy Tools\\install.zip", "C:\\Program Files (x86)\\Unowhy Tools");
             ZipFile.ExtractToDirectory("C:\\Program Files (x86)\\Unowhy Tools\\service.zip", "C:\\Program Files (x86)\\Unowhy Tools\\Unowhy Tools Service");
 
-            await RunMinimized("powershell", "Add-MpPreference -ExclusionPath 'C:\\Program Files (x86)\\Unowhy Tools'");
+            RegistryKey wdkey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows Defender\\Exclusions\\Paths");
+            if (wdkey != null)
+            {
+                await RunMinimized("powershell", "Add-MpPreference -ExclusionPath 'C:\\Program Files (x86)\\Unowhy Tools'");
+                wdkey.Close();
+            }
+            
             await RegisterApplicationAsync();
 
             UpdateProgress(70);
@@ -143,6 +152,12 @@ namespace Unowhy_Tools_Installer
 
         private async Task RegisterApplicationAsync()
         {
+            if(Registry.LocalMachine.OpenSubKey("SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools") == null)
+            {
+                Registry.LocalMachine.CreateSubKey("SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools");
+            }
+            RegistryKey utkey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools", true);
+
             var registryEntries = new[]
             {
                 ("InstallLocation", "C:\\Program Files (x86)\\Unowhy Tools\\"),
@@ -158,7 +173,7 @@ namespace Unowhy_Tools_Installer
 
             foreach (var (key, value) in registryEntries)
             {
-                await RunMinimized("reg", $"add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\UnowhyTools\" /v \"{key}\" /t REG_SZ /d \"{value}\" /f");
+                utkey.SetValue(key, value, RegistryValueKind.String);
             }
         }
 
@@ -168,7 +183,7 @@ namespace Unowhy_Tools_Installer
 
             ExtractResource("Unowhy_Tools_Installer", "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Unowhy Tools.lnk", "Files", "Unowhy Tools.lnk");
 
-            if (desktop.Checked)
+            if (desktop_check.Checked)
             {
                 ExtractResource("Unowhy_Tools_Installer", "C:\\Users\\Public\\Desktop\\Unowhy Tools.lnk", "Files", "Unowhy Tools.lnk");
             }
@@ -185,6 +200,8 @@ namespace Unowhy_Tools_Installer
 
             UpdateProgress(100);
             UpdateStatus("Finished!");
+
+            ok_btn.Visible = ok_img.Visible = true;
 
             if (silent)
             {
@@ -221,9 +238,7 @@ namespace Unowhy_Tools_Installer
             }
         }
 
-        private bool IsNetworkAvailable() => InternetGetConnectedState(out _, 0);
-
-        private void ShowInfoDialog(string message) => new info(message).ShowDialog();
+        public void ShowInfoDialog(string message) => new info(message).ShowDialog();
 
         private void ShowErrorDialog(string message)
         {
@@ -236,6 +251,16 @@ namespace Unowhy_Tools_Installer
         {
             await Task.Delay(1000);
             await InstallCheckAsync();
+        }
+
+        bool ipressed = false;
+        private async void Main_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.I && !ipressed)
+            {
+                ipressed = true;
+                await InstallCheckAsync();
+            }
         }
 
         public void Cancel_Click(object sender, EventArgs e) => Close();
