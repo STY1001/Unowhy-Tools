@@ -390,7 +390,7 @@
             "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EUJkjxi4FohLipFmU7sy7MsBJtjGQiSJeaSPlwnuvw9QvA?e=ryfckB&download=1"
         },
         {
-            "name": "UT-Drv_17-17_17-04-2024.zip",
+            "name": "UT-Drv_17-17_17-04-24.zip",
             "author": "GaDyyvN",
             "pcyear": 2023,
             "pcmodel": "Y11G201S2M",
@@ -479,6 +479,19 @@
             },
             "size": 667209728,
             "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ETRw9BnTdGlIgXihxx8UDuwBQMNa8uhCY3bEtoU2h3P7Qg?e=ZTSlai&download=1"
+        },
+        {
+            "name": "UT-Drv_18-46_23-01-25.zip",
+            "author": "Jodri",
+            "pcyear": 2022,
+            "pcmodel": "Y14G310S2M",
+            "old": false,
+            "description": {
+                "en": "Work with Y14 Plus with Intel Core i3 (11th Gen) cpu",
+                "fr": "Fonctionne avec le Y14 Plus avec processeur Intel Core i3 (11e Gen)"
+            },
+            "size": 1741455360,
+            "link": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EQvWP4WyWWhCribXcXq-yiEBYNRBQx2SXxmQCA3BG4b4tQ?e=r9lBLW&download=1"
         }
     ]
 }
