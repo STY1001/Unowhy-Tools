@@ -99,7 +99,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         }
         else if (currentsku.Contains("Y14G102S2E") || currentsku.Contains("Y14G310S2MI") || currentsku.Contains("Y14G310S2M"))
         {
-            selectY5OPSi5.IsSelected = true;
+            selectY14i3.IsSelected = true;
         }
         else
         {
