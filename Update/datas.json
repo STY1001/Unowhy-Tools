@@ -16,7 +16,7 @@
         "utuninstaller": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/uninstall.exe",
         "utszip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/service.zip",
         "utupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip",
-        "utcloghtmlprev": "https://htmlpreview.github.io/?https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.html",
+        "utcloghtmlprev": "https://html-preview.github.io/?url=https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.html",
         "utbu":"https://github.com/STY1001/Unowhy-Tools-BIOS-Unlocker/releases/download/3.0/Unowhy.Tools.BIOS.Unlocker.3.0.zip",
         "idfconf": "https://idfconf.s3.gra.io.cloud.ovh.net",
         "allsqoolconf": "https://allsqoolconf.s3.gra.io.cloud.ovh.net",
