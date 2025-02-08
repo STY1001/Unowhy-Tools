@@ -726,6 +726,9 @@
   <data name="showold" xml:space="preserve">
     <value>Afficher les anciens</value>
   </data>
+  <data name="shutdrvcloud" xml:space="preserve">
+    <value>Voulez-vous éteindre votre PC après la restauration</value>
+  </data>
   <data name="snpw" xml:space="preserve">
     <value>Définir un nouveau mot de passe</value>
   </data>

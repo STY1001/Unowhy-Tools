@@ -931,7 +931,7 @@ public partial class MainWindow : INavigationWindow
 
                     if (UT.version.isdeb())
                     {
-                        _snackbarService.ShowAsync("Warning, Take note !", "You are using a debug version of Unowhy Tools, this debug version might be unstable", SymbolRegular.Edit32, ControlAppearance.Danger);
+                        _snackbarService.ShowAsync("Warning, Take note !", "You are using a debug version of Unowhy Tools, this debug version might be unstable", SymbolRegular.Edit20, ControlAppearance.Danger);
                     }
                 }
                 else

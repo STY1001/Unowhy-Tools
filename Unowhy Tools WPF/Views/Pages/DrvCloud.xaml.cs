@@ -130,6 +130,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
     }
 
     string postdrv = "noop";
+    bool shutafter = false;
     public async Task RestoreCloud(string filename, string link, double size, bool ispostgpu)
     {
         if (!ispostgpu)
@@ -137,28 +138,47 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             postdrv = "noop";
             if (UT.DialogQShow(await UT.GetLang("alsoigpudrv"), "gpu.png"))
             {
-                System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
-                MenuItem GJItem = new MenuItem();
-                GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake (Y11 360, Y13, Y14 Plus (Old))";
-                GJItem.Click += async (sender, e) =>
+                while (postdrv == "noop")
                 {
-                    postdrv = "GJ";
-                    var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                    mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark12, ControlAppearance.Success);
-                };
-                iGPUMenu.Items.Add(GJItem);
-                MenuItem TItem = new MenuItem();
-                TItem.Header = "Tiger Lake (Y5OPS, Y14 Plus)";
-                TItem.Click += async (sender, e) =>
-                {
-                    postdrv = "T";
-                    var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                    mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark12, ControlAppearance.Success);
-                };
-                iGPUMenu.Items.Add(TItem);
-                iGPUMenu.PlacementTarget = gpudriver;
-                iGPUMenu.IsOpen = true;
+                    System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
+                    MenuItem GJItem = new MenuItem();
+                    GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake (Y11 360, Y13, Y14 Plus (Old))";
+                    GJItem.Click += async (sender, e) =>
+                    {
+                        postdrv = "GJ";
+                        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+                        mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
+                    };
+                    iGPUMenu.Items.Add(GJItem);
+                    MenuItem TItem = new MenuItem();
+                    TItem.Header = "Tiger Lake (Y5OPS, Y14 Plus)";
+                    TItem.Click += async (sender, e) =>
+                    {
+                        postdrv = "T";
+                        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+                        mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
+                    };
+                    iGPUMenu.Items.Add(TItem);
+                    iGPUMenu.PlacementTarget = gpudriver;
+                    iGPUMenu.IsOpen = true;
+
+                    UT.waitstatus.open("Waiting selection...", "gpu.png");
+
+                    while (iGPUMenu.IsOpen)
+                    {
+                        await Task.Delay(100);
+                    }
+                }
             }
+        }
+
+        UT.waitstatus.close();
+
+        if (UT.DialogQShow(await UT.GetLang("shutdrvcloud"), "boot.png"))
+        {
+            shutafter = true;
+            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+            mainWindow.SnackBarService.ShowAsync("Shut down after driver installation", "Your PC will shut down after driver installation", SymbolRegular.Power20, ControlAppearance.Caution);
         }
 
         UT.SendAction("DrvCloud");
@@ -260,9 +280,17 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
             if (postdrv == "noop")
             {
-                await UT.waitstatus.close();
-                UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-                Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                if (!shutafter)
+                {
+                    await UT.waitstatus.close();
+                    UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
+                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                }
+                else
+                {
+                    await UT.waitstatus.close();
+                    Process.Start("shutdown", "-s -t 10 -c \"Unowhy Tools\"");
+                }
             }
         }
         else
