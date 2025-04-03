@@ -90,6 +90,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         string ifpt_gemini = "Y13G012S4EI Y13G011S4EI Y13G010S4EI Y13G012S4E Y13G011S4E Y13G010S4E Y11G001S4E";
         string ifpt_jasper = "Y13G113S4EI Y13G113S4E Y11G201S2M Y13G201S4E Y13G201S4EI STYL13G1 STYL13G2 STYD5100SFF";
         string ifpt_tiger = "OPSG310S2M OPSG530S2M Y14G520S2M Y14G310S2M Y14G520S2MI Y14G310S2MI STYDS5OPS";
+        string ifpt_alder = "Y14G520S2MI Y14G520S2M Y14G530S2MI Y14G530S2M";
         string ifpt_comet = "Y14G102S2E";
         string afu = "";
         string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
@@ -101,6 +102,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
             ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
             ExpIFPT_Comet.Visibility = Visibility.Collapsed;
+            ExpIFPT_Alder.Visibility = Visibility.Collapsed;
             ExpAFU.Visibility = Visibility.Collapsed;
         }
         if (ifpt_apollo.Contains(currentsku))
@@ -111,6 +113,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
             ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
             ExpIFPT_Comet.Visibility = Visibility.Collapsed;
+            ExpIFPT_Alder.Visibility = Visibility.Collapsed;
             ExpAFU.Visibility = Visibility.Collapsed;
         }
         if (ifpt_gemini.Contains(currentsku))
@@ -121,6 +124,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
             ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
             ExpIFPT_Comet.Visibility = Visibility.Collapsed;
+            ExpIFPT_Alder.Visibility = Visibility.Collapsed;
             ExpAFU.Visibility = Visibility.Collapsed;
         }
         if (ifpt_jasper.Contains(currentsku))
@@ -131,6 +135,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             ExpIFPT_Jasper.Visibility = Visibility.Visible;
             ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
             ExpIFPT_Comet.Visibility = Visibility.Collapsed;
+            ExpIFPT_Alder.Visibility = Visibility.Collapsed;
             ExpAFU.Visibility = Visibility.Collapsed;
         }
         if (ifpt_tiger.Contains(currentsku))
@@ -141,6 +146,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
             ExpIFPT_Tiger.Visibility = Visibility.Visible;
             ExpIFPT_Comet.Visibility = Visibility.Collapsed;
+            ExpIFPT_Alder.Visibility = Visibility.Collapsed;
             ExpAFU.Visibility = Visibility.Collapsed;
         }
         if (ifpt_comet.Contains(currentsku))
@@ -151,6 +157,18 @@ public partial class Bios : INavigableView<DashboardViewModel>
             ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
             ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
             ExpIFPT_Comet.Visibility = Visibility.Visible;
+            ExpIFPT_Alder.Visibility = Visibility.Collapsed;
+            ExpAFU.Visibility = Visibility.Collapsed;
+        }
+        if (ifpt_alder.Contains(currentsku))
+        {
+            ExpIFPT_SkyKaby.Visibility = Visibility.Collapsed;
+            ExpIFPT_Apollo.Visibility = Visibility.Collapsed;
+            ExpIFPT_Gemini.Visibility = Visibility.Collapsed;
+            ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
+            ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
+            ExpIFPT_Comet.Visibility = Visibility.Collapsed;
+            ExpIFPT_Alder.Visibility = Visibility.Visible;
             ExpAFU.Visibility = Visibility.Collapsed;
         }
         if (afu.Contains(currentsku))
@@ -161,6 +179,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             ExpIFPT_Jasper.Visibility = Visibility.Collapsed;
             ExpIFPT_Tiger.Visibility = Visibility.Collapsed;
             ExpIFPT_Comet.Visibility = Visibility.Collapsed;
+            ExpIFPT_Alder.Visibility = Visibility.Collapsed;
             ExpAFU.Visibility = Visibility.Collapsed;
         }
     }
@@ -204,6 +223,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
         UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "Idrvdll32e.dll",
         UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "Pmxdll32e.dll",
         UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Tiger\\" + "FPTW64.exe",
+        UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Alder\\" + "FPTW64.exe",
         UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Comet\\" + "fparts.txt",
         UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Comet\\" + "FPTW64.exe",
         UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Comet\\" + "Idrvdll32e.dll",
@@ -570,6 +590,152 @@ public partial class Bios : INavigableView<DashboardViewModel>
                         p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Tiger\\FPTW64.exe";
                         p.StartInfo.Arguments = $"{extarg} -f \"{path}\"";
                         p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Tiger";
+                        p.Start();
+                        p.WaitForExit();
+                    });
+                    await UT.waitstatus.close();
+
+                    UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
+                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                }
+            }
+        }
+    }
+
+    private async void ifptdumpexp_Click_Alder(object sender, RoutedEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.SaveFileDialog())
+        {
+            fb.FileName = "UT-BIOS_" + UTdata.sn.Replace(" ", "_");
+            fb.DefaultExt = "bin";
+            fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ifptdumppath_Alder.Text = fb.FileName;
+            }
+        }
+    }
+
+    private async void ifptflashexp_Click_Alder(object sender, RoutedEventArgs e)
+    {
+        using (var fb = new System.Windows.Forms.OpenFileDialog())
+        {
+            fb.DefaultExt = "bin";
+            fb.Filter = "Unowhy Tools BIOS file|*.rom;*.bin";
+            fb.FilterIndex = 1;
+            fb.Title = "Unowhy Tools";
+            DialogResult result = fb.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ifptflashpath_Alder.Text = fb.FileName;
+                if (fb.FileName.Contains(".all.bin") || fb.FileName.Contains(".all.rom")) ifptalleeprom_Alder.IsChecked = true;
+                if (fb.FileName.Contains(".desc.bin") || fb.FileName.Contains(".desc.rom")) ifptdesc_Alder.IsChecked = true;
+                if (fb.FileName.Contains(".bios.bin") || fb.FileName.Contains(".bios.rom")) ifptbios_Alder.IsChecked = true;
+                if (fb.FileName.Contains(".me.bin") || fb.FileName.Contains(".me.rom")) ifptme_Alder.IsChecked = true;
+                UT.DialogIShow(await UT.GetLang("regionselectwarn"), "ic.png");
+            }
+        }
+    }
+
+    private async void ifptdumpbtn_Click_Alder(object sender, RoutedEventArgs e)
+    {
+        if (!(ifptdumppath_Alder.Text == ""))
+        {
+            if (UT.DialogQShow(await UT.GetLang("utbdumpwarn"), "upload.png"))
+            {
+                UT.SendAction("UTB.IFPTDump_Alder");
+                if (ifptfiles.Any(file => !File.Exists(file)))
+                {
+                    UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
+                    if (await UT.CheckInternet())
+                    {
+                        await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
+                        await DlRes("IFPT");
+                        await UT.waitstatus.close();
+                    }
+                    else
+                    {
+                        UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+                    }
+                }
+                await Task.Delay(1000);
+                if (afufiles.Any(file => File.Exists(file)))
+                {
+                    await UT.waitstatus.open(await UT.GetLang("wait.dump"), "upload.png");
+                    string path = ifptdumppath_Alder.Text;
+                    if (ifptalleeprom_Alder.IsChecked == true) path = path.Replace(".bin", ".all.bin").Replace(".rom", ".all.rom");
+                    if (ifptdesc_Alder.IsChecked == true) path = path.Replace(".bin", ".desc.bin").Replace(".rom", ".desc.rom");
+                    if (ifptbios_Alder.IsChecked == true) path = path.Replace(".bin", ".bios.bin").Replace(".rom", ".bios.rom");
+                    if (ifptme_Alder.IsChecked == true) path = path.Replace(".bin", ".me.bin").Replace(".rom", ".me.rom");
+                    string extarg = "";
+                    if (ifptalleeprom_Alder.IsChecked == true) extarg = "";
+                    if (ifptdesc_Alder.IsChecked == true) extarg = "-desc";
+                    if (ifptbios_Alder.IsChecked == true) extarg = "-bios";
+                    if (ifptme_Alder.IsChecked == true) extarg = "-me";
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Alder\\FPTW64.exe";
+                        p.StartInfo.Arguments = $"{extarg} -d \"{path}\"";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Alder";
+                        p.Start();
+                        p.WaitForExit();
+                    });
+                    await UT.waitstatus.close();
+                    if (File.Exists(path))
+                    {
+                        UT.DialogIShow(await UT.GetLang("extregionchange"), "ic.png");
+                        UT.DialogIShow(await UT.GetLang("done"), "yes.png");
+                    }
+                    else
+                    {
+                        UT.DialogIShow(await UT.GetLang("failed"), "no.png");
+                    }
+                }
+            }
+        }
+    }
+
+    private async void ifptflashbtn_Click_Alder(object sender, RoutedEventArgs e)
+    {
+        if (!(ifptflashpath_Alder.Text == ""))
+        {
+            if (UT.DialogQShow(await UT.GetLang("utbflashwarn"), "download.png"))
+            {
+                UT.SendAction("UTB.IFPTFlash_Alder");
+                if (afufiles.Any(file => !File.Exists(file)))
+                {
+                    UT.DialogIShow(await UT.GetLang("needres"), "clouddl.png");
+                    if (await UT.CheckInternet())
+                    {
+                        await UT.waitstatus.open(await UT.GetLang("wait.download"), "clouddl.png");
+                        await DlRes("IFPT");
+                        await UT.waitstatus.close();
+                    }
+                    else
+                    {
+                        UT.DialogIShow(await UT.GetLang("nonet"), "nowifi.png");
+                    }
+                }
+                await Task.Delay(1000);
+                if (afufiles.Any(file => File.Exists(file)))
+                {
+                    await UT.waitstatus.open(await UT.GetLang("wait.flash"), "download.png");
+                    string path = ifptflashpath_Alder.Text;
+                    string extarg = "";
+                    if (ifptalleeprom_Alder.IsChecked == true) extarg = "";
+                    if (ifptdesc_Alder.IsChecked == true) extarg = "-desc";
+                    if (ifptbios_Alder.IsChecked == true) extarg = "-bios";
+                    if (ifptme_Alder.IsChecked == true) extarg = "-me";
+                    await Task.Run(() =>
+                    {
+                        Process p = new Process();
+                        p.StartInfo.FileName = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Alder\\FPTW64.exe";
+                        p.StartInfo.Arguments = $"{extarg} -f \"{path}\"";
+                        p.StartInfo.WorkingDirectory = UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\Alder";
                         p.Start();
                         p.WaitForExit();
                     });
@@ -1627,6 +1793,104 @@ public partial class Bios : INavigableView<DashboardViewModel>
             await Task.Delay(50);
         }
         foreach (UIElement element in ifptregion_Comet.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+    }
+
+    private async void ExpIFPT_Expanded_Alder(object sender, RoutedEventArgs e)
+    {
+        foreach (UIElement element in IFPTGridDump_Alder.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in IFPTGridFlash_Alder.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+        foreach (UIElement element in ifptregion_Alder.Children)
+        {
+            element.Visibility = Visibility.Hidden;
+        }
+
+        foreach (UIElement element in IFPTGridDump_Alder.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in IFPTGridFlash_Alder.Children)
+        {
+            element.Visibility = Visibility.Visible;
+            DoubleAnimation opacityAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            DoubleAnimation translateAnimation = new DoubleAnimation
+            {
+                From = 10,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.5),
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            };
+
+            TranslateTransform transform = new TranslateTransform();
+            element.RenderTransform = transform;
+
+            element.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            transform.BeginAnimation(TranslateTransform.YProperty, translateAnimation);
+
+            await Task.Delay(50);
+        }
+        foreach (UIElement element in ifptregion_Alder.Children)
         {
             element.Visibility = Visibility.Visible;
             DoubleAnimation opacityAnimation = new DoubleAnimation

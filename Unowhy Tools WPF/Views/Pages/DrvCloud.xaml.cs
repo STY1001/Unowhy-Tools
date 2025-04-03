@@ -101,6 +101,10 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         {
             selectY14i3.IsSelected = true;
         }
+        else if (currentsku.Contains("Y14G520S2MI") || currentsku.Contains("Y14G520S2M") || currentsku.Contains("Y14G530S2MI") || currentsku.Contains("Y14G530S2M"))
+        {
+            selectY14i5.IsSelected = true;
+        }
         else
         {
             selectall.IsSelected = true;
@@ -151,7 +155,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                     };
                     iGPUMenu.Items.Add(GJItem);
                     MenuItem TItem = new MenuItem();
-                    TItem.Header = "Tiger Lake (Y5OPS, Y14 Plus)";
+                    TItem.Header = "Tiger/Alder Lake (Y5OPS, Y14 Plus, Y14 Plus (New))";
                     TItem.Click += async (sender, e) =>
                     {
                         postdrv = "T";
@@ -377,6 +381,10 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                             continue;
                         }
                         if ((pcmodel == "Y14G102S2E" || pcmodel == "Y14G310S2M" || pcmodel == "Y14G310S2MI") && !selectY14i3.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
+                        if ((pcmodel == "Y14G520S2M" || pcmodel == "Y14G520S2MI" || pcmodel == "Y14G530S2MI" || pcmodel == "Y14G530S2M") && !selectY14i5.IsSelected && !selectall.IsSelected)
                         {
                             continue;
                         }
@@ -689,7 +697,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         };
         iGPUMenu.Items.Add(GJItem);
         MenuItem TItem = new MenuItem();
-        TItem.Header = "Tiger Lake (Y5OPS, Y14 Plus)";
+        TItem.Header = "Tiger/Alder Lake (Y5OPS, Y14 Plus, Y14 Plus (New))";
         TItem.Click += async (sender, e) =>
         {
             await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094, true);

@@ -157,8 +157,8 @@ namespace Unowhy_Tools
         public static string online_datas = "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json";
         public static string utpath = "C:\\Unowhy Tools";
 
-        public static int verfull = 3101;
-        public static string verbuild = "2100241124";
+        public static int verfull = 3102;
+        public static string verbuild = "2104030425";
         public static bool verisdeb = false;
 
         public static Dictionary<string, string> skumodel = new Dictionary<string, string>
@@ -185,6 +185,8 @@ namespace Unowhy_Tools
             { "Y13G201S4EI", "Y13 Gen 2 2024 IDF" },
             { "Y13G201S4E", "Y13 Gen 2 2024" },
             { "Y14G102S2E", "Y14 Plus i3 (Old)" },
+            { "Y14G530S2MI", "Y14 Plus i5 (New) IDF"},
+            { "Y14G530S2M", "Y14 Plus i5 (New)"},
             { "STYL13G1", "STY L13 Gen 1" },
             { "STYL13G2", "STY L13 Gen 2" },
             { "STYD5100SFF", "STY D5100SFF" },
