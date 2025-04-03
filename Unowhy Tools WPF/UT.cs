@@ -158,8 +158,8 @@ namespace Unowhy_Tools
         public static string utpath = "C:\\Unowhy Tools";
 
         public static int verfull = 3102;
-        public static string verbuild = "2104030425";
-        public static bool verisdeb = true;
+        public static string verbuild = "2123030425";
+        public static bool verisdeb = false;
 
         public static Dictionary<string, string> skumodel = new Dictionary<string, string>
         {
@@ -2061,6 +2061,7 @@ namespace Unowhy_Tools
                     UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "Idrvdll32e.dll",
                     UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Gemini\\" + "Pmxdll32e.dll",
                     UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Jasper\\" + "FPTW64.exe",
+                    UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "Alder\\" + "FPTW64.exe",
                     UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "fparts.txt",
                     UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "FPTW64.exe",
                     UT.utpath + "\\Unowhy Tools\\Temps\\IFPT\\" + "SkyKaby\\" + "Idrvdll32e.dll",
