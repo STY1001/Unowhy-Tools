@@ -85,6 +85,8 @@ Explore how Unowhy Tools has evolved across various versions :
 ## 📜 Full Version History
 
 ### Version 31.xx
+- **31.02**
+![UT Screen](/README/UT31.02.png)
 - **31.01**
 ![UT Screen](/README/UT31.01.png)
 - **31.00**
