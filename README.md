@@ -63,7 +63,7 @@ Unowhy Tools empowers you with a comprehensive set of administrative tools. Here
 
 ## 🔧 Debug (Beta) Version
 
-### ⚠️ Caution: The Debug/Beta version contains experimental features and might be unstable.
+### ⚠️ Caution : The Debug/Beta version contains experimental features and might be unstable.
 
 To switch to the Debug version for early access to upcoming features :
 
@@ -77,8 +77,8 @@ To switch to the Debug version for early access to upcoming features :
 
 Explore how Unowhy Tools has evolved across various versions :
 
-### Latest Version (31.01)
-![UT Screen](/README/UT31.01.png)
+### Latest Version (31.02)
+![UT Screen](/README/UT31.02.png)
 
 ---
 
