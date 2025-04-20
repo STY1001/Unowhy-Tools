@@ -420,7 +420,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                         }
 
                         size = size / (1024 * 1024);
-                        string model = UT.skumodel[pcmodel];
+                        string model = UT.skumodel[pcmodel] == null ? pcmodel : UT.skumodel[pcmodel];
                         title = name + "  •  by " + author;
                         if (description == "")
                         {
