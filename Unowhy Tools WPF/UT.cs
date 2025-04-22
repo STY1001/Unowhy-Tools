@@ -157,9 +157,9 @@ namespace Unowhy_Tools
         public static string online_datas = "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/datas.json";
         public static string utpath = "C:\\Unowhy Tools";
 
-        public static int verfull = 3102;
-        public static string verbuild = "2123030425";
-        public static bool verisdeb = false;
+        public static int verfull = 3103;
+        public static string verbuild = "1619220425";
+        public static bool verisdeb = true;
 
         public static Dictionary<string, string> skumodel = new Dictionary<string, string>
         {
