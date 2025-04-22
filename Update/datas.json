@@ -34,7 +34,7 @@
         "changelogo":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EYWKWJxdN8lKkVrq0RPVcoQB4COnhi5FeKqw3fx2YGq3gQ?e=h9b50f&download=1",
         "hsm":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ETHTw3AzvwlMkmO38-eNVTABwme9xV82pQz3r7tSxKnd2w?e=1rJtSR&download=1",
         "ridfca":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EQ-7u8tQUslNg8zCO6rnZn0BBw0HlKA2OkRBwmH1Rp8SvA?e=KzMlhG&download=1",
-        "rufus":"https://github.com/pbatard/rufus/releases/download/v4.6/rufus-4.6p.exe",
+        "rufus":"https://github.com/pbatard/rufus/releases/download/v4.7/rufus-4.7p.exe",
         "gpudrv":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ER8azjkYaRhKlU37wFNkZroBknm_bDUfDfjE5hvf7ZuSfg?e=w4moLp&download=1",
         "gpudrvgj":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ER8azjkYaRhKlU37wFNkZroBknm_bDUfDfjE5hvf7ZuSfg?e=w4moLp&download=1",
         "gpudrvt":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ETHpeXIjqZ1ApTo7jTOVElsBesBJ4LRT04JpTNzw16pGMA?e=uJ1I4D&download=1",
@@ -45,7 +45,9 @@
     "avatars": {
         "sty1001": "https://cdn.discordapp.com/avatars/1028607912320442410/d374ed0da829c066283c0ce0d534c751.png?size=4096",
         "fgamer768": "https://cdn.discordapp.com/avatars/647069392055828490/83f8583f1b27ae311ea7f18656be1ee1.png?size=4096",
-        "nicospc": "https://cdn.discordapp.com/avatars/842458307762454548/7250abb5c01b4d473293d4637880bb79.png?size=4096"
+        "ulysse": "https://cdn.discordapp.com/avatars/1096122001124511806/07e5b33ef03457b676d434b877f2a342.png?size=4096",
+        "nemi": "https://cdn.discordapp.com/avatars/499531936071548948/efb24c92069d30fad39a971134298284.png?size=4096",
+        "nicospc": "https://cdn.discordapp.com/avatars/842458307762454548/7b7186f501330738a8405794f882cba8.png?size=4096"
     },
     "contribs": [
         {
