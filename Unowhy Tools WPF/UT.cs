@@ -159,7 +159,7 @@ namespace Unowhy_Tools
 
         public static int verfull = 3103;
         public static string verbuild = "1619220425";
-        public static bool verisdeb = true;
+        public static bool verisdeb = false;
 
         public static Dictionary<string, string> skumodel = new Dictionary<string, string>
         {
