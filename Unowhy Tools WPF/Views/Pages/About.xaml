@@ -343,14 +343,14 @@
                                                 <Image Source="../../Resources/link.png"
                                                        Grid.Column="4"
                                                        RenderOptions.BitmapScalingMode="HighQuality" />
-                                                <Image Source="../../Resources/fgamer768.png"
-                                                       Grid.Column="6"
+                                                <Image Grid.Column="6"
                                                        x:Name="superpotepp"
                                                        RenderOptions.BitmapScalingMode="HighQuality" />
-                                                <TextBlock Text="FGAMER768"
+                                                <TextBlock Text="SuperPote"
                                                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Grid.Column="8"
-                                                           VerticalAlignment="Center" />
+                                                           VerticalAlignment="Center"
+                                                           x:Name="superpotename"/>
                                             </Grid>
                                             <Grid x:Name="ContribBibou"
                                                   Visibility="Hidden">
@@ -376,14 +376,14 @@
                                                 <Image Source="../../Resources/heart.png"
                                                        Grid.Column="4"
                                                        RenderOptions.BitmapScalingMode="HighQuality" />
-                                                <Image Source="../../Resources/nico.png"
-                                                       Grid.Column="6"
+                                                <Image Grid.Column="6"
                                                        x:Name="biboupp"
                                                        RenderOptions.BitmapScalingMode="HighQuality" />
-                                                <TextBlock Text="Nico's PC"
+                                                <TextBlock Text="Bibou"
                                                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Grid.Column="8"
-                                                           VerticalAlignment="Center" />
+                                                           VerticalAlignment="Center"
+                                                           x:Name="bibouname"/>
                                             </Grid>
                                         </Grid>
                                     </StackPanel>

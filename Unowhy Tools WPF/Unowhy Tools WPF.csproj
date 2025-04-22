@@ -88,7 +88,6 @@
     <None Remove="Resources\enter.png" />
     <None Remove="Resources\explorer.png" />
     <None Remove="Resources\extra.png" />
-    <None Remove="Resources\fgamer768.png" />
     <None Remove="Resources\fluent-ui-microsoft.png" />
     <None Remove="Resources\folder.png" />
     <None Remove="Resources\fp.png" />
@@ -116,7 +115,6 @@
     <None Remove="Resources\motherboard.png" />
     <None Remove="Resources\ms365.png" />
     <None Remove="Resources\next.png" />
-    <None Remove="Resources\nico.png" />
     <None Remove="Resources\no.png" />
     <None Remove="Resources\noupdate.png" />
     <None Remove="Resources\nowifi.png" />
@@ -250,7 +248,6 @@
     <Resource Include="Resources\enter.png" />
     <Resource Include="Resources\explorer.png" />
     <Resource Include="Resources\extra.png" />
-    <Resource Include="Resources\fgamer768.png" />
     <Resource Include="Resources\fluent-ui-microsoft.png" />
     <Resource Include="Resources\folder.png" />
     <Resource Include="Resources\fp.png" />
@@ -278,7 +275,6 @@
     <Resource Include="Resources\motherboard.png" />
     <Resource Include="Resources\ms365.png" />
     <Resource Include="Resources\next.png" />
-    <Resource Include="Resources\nico.png" />
     <Resource Include="Resources\no.png" />
     <Resource Include="Resources\noupdate.png" />
     <Resource Include="Resources\nowifi.png" />

@@ -235,8 +235,6 @@ public partial class About : INavigableView<DashboardViewModel>
             WebsiteName.Text = await UT.OnlineDatas.GetStrings("websitename");
 
             stypp.Source = await UT.OnlineDatas.GetAvatars("sty1001");
-            superpotepp.Source = await UT.OnlineDatas.GetAvatars("fgamer768");
-            biboupp.Source = await UT.OnlineDatas.GetAvatars("nicospc");
 
             string datasurl = UT.online_datas;
             HttpClient web = new HttpClient();
@@ -707,7 +705,15 @@ public partial class About : INavigableView<DashboardViewModel>
                 transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
             }
 
-            await Task.Delay(5000);
+            superpotepp.Source = await UT.OnlineDatas.GetAvatars("fgamer768");
+            superpotename.Text = "FGAMER768";
+            await Task.Delay(5000 / 3);
+            superpotepp.Source = await UT.OnlineDatas.GetAvatars("nicospc");
+            superpotename.Text = "Nico's PC";
+            await Task.Delay(5000 / 3);
+            superpotepp.Source = await UT.OnlineDatas.GetAvatars("nemi");
+            superpotename.Text = "Nemi";
+            await Task.Delay(5000 / 3);
 
             {
                 DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -773,7 +779,18 @@ public partial class About : INavigableView<DashboardViewModel>
                 transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
             }
 
-            await Task.Delay(5000);
+            biboupp.Source = await UT.OnlineDatas.GetAvatars("ulysse");
+            string[] allhearts = { "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "💖", "💗", "💓", "💞", "💕", "💘", "💝", "💟", "❣️" };
+
+            int i = 0;
+            while (i < 5000)
+            {
+                string randomHeart1 = allhearts[new Random().Next(allhearts.Length)];
+                string randomHeart2 = allhearts[new Random().Next(allhearts.Length)];
+                bibouname.Text = randomHeart1 + " Ulysse " + randomHeart2;
+                await Task.Delay(100);
+                i += 100;
+            }
 
             {
                 DoubleAnimation opacityAnimation = new DoubleAnimation

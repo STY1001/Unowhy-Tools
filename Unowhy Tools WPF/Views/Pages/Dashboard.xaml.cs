@@ -52,10 +52,6 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
         applylang();
         pcname.Text = UT.GetLine(UTdata.HostName, 1);
-        if (pcname.Text.Contains("Lenovo"))
-        {
-            pcname.Text = "Unowhy-Win11";
-        }
 
         if (await UT.CheckInternet())
         {

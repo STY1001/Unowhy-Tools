@@ -177,7 +177,7 @@
                         <Grid Grid.Row="0"
                               x:Name="qogrid">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="67.25" />
+                                <RowDefinition Height="65" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
