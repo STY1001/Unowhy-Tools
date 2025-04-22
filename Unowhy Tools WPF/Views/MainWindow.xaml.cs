@@ -1493,7 +1493,7 @@ public partial class MainWindow : INavigationWindow
 
     public async Task AnniversaryEasterEgg(bool force)
     {
-        if (DateTime.Now.Month == 4 && DateTime.Now.Day == 29 || force)
+        if ((DateTime.Now.Month == 4 && DateTime.Now.Day == 29) || force)
         {
             RootTitleBar.Title = "Unowhy Tools - Happy anniversary !";
 
