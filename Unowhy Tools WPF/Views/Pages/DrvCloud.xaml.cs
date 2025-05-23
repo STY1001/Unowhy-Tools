@@ -178,11 +178,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
         UT.waitstatus.close();
 
-        if (UT.DialogQShow(await UT.GetLang("shutdrvcloud"), "boot.png"))
+        if (!ispostgpu)
         {
-            shutafter = true;
-            var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-            mainWindow.SnackBarService.ShowAsync("Shut down after driver installation", "Your PC will shut down after driver installation", SymbolRegular.Power20, ControlAppearance.Caution);
+            if (UT.DialogQShow(await UT.GetLang("shutdrvcloud"), "boot.png"))
+            {
+                shutafter = true;
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+                mainWindow.SnackBarService.ShowAsync("Shut down after driver installation", "Your PC will shut down after driver installation", SymbolRegular.Power20, ControlAppearance.Caution);
+            }
         }
 
         UT.SendAction("DrvCloud");
