@@ -202,7 +202,7 @@
     <value>Soumettez votre sauvegarde</value>
   </data>
   <data name="bkcloudhost" xml:space="preserve">
-    <value>Les sauvegardes de pilotes sont hébergées sur mon SharePoint</value>
+    <value>Les sauvegardes de pilotes sont hébergées sur mon stockage cloud</value>
   </data>
   <data name="bkcloudhostdesc" xml:space="preserve">
     <value>Vous pouvez télécharger les sauvegardes de pilotes manuellement et soumettre votre sauvegarde de pilotes</value>

@@ -202,7 +202,7 @@
     <value>Submit your backup</value>
   </data>
   <data name="bkcloudhost" xml:space="preserve">
-    <value>Driver backups are hosted on my SharePoint</value>
+    <value>Driver backups are hosted on my cloud storage</value>
   </data>
   <data name="bkcloudhostdesc" xml:space="preserve">
     <value>You can download driver backup manually and submit your driver backup</value>
