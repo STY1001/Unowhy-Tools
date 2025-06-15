@@ -209,7 +209,8 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 ZipFile.ExtractToDirectory(source, dest, true);
             });
-            await UT.waitstatus.open(await UT.GetLang("wait.restore"), "download.png");
+            string rest = await UT.GetLang("wait.restore");
+            await UT.waitstatus.open(rest, "download.png");
             List<string> list = new List<string>();
             foreach (string filePath in Directory.GetFiles(uttemps + $"\\Drivers", "*.inf"))
             {
@@ -234,11 +235,11 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
                 if (list.Count == 1)
                 {
-                    await UT.waitstatus.open(await UT.GetLang("wait.restore"), "null");
+                    await UT.waitstatus.open(rest, "null");
                 }
                 else
                 {
-                    await UT.waitstatus.open(await UT.GetLang("wait.restore") + " (" + percentage + ")", "null");
+                    await UT.waitstatus.open(rest + " (" + percentage + ")", "null");
                 }
 
                 await Task.Run(() =>
