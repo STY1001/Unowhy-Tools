@@ -121,14 +121,14 @@ namespace Unowhy_Tools_Service
                 string exp = e.ToString();
                 string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
+                if (Directory.Exists($"{utspath}\\Logs\\Crash"))
                 {
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
                 else
                 {
-                    Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    Directory.CreateDirectory($"{utspath}\\Logs\\Crash");
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
             }
         }
@@ -276,14 +276,14 @@ namespace Unowhy_Tools_Service
                 string exp = e.ToString();
                 string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
+                if (Directory.Exists($"{utspath}\\Logs\\Crash"))
                 {
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
                 else
                 {
-                    Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    Directory.CreateDirectory($"{utspath}\\Logs\\Crash");
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
             }
         }
@@ -331,14 +331,14 @@ namespace Unowhy_Tools_Service
                 string exp = e.ToString();
                 string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
+                if (Directory.Exists($"{utspath}\\Logs\\Crash"))
                 {
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
                 else
                 {
-                    Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    Directory.CreateDirectory($"{utspath}\\Logs\\Crash");
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
             }
         }
@@ -358,14 +358,14 @@ namespace Unowhy_Tools_Service
                 string exp = e.ToString();
                 string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
+                if (Directory.Exists($"{utspath}\\Logs\\Crash"))
                 {
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
                 else
                 {
-                    Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    Directory.CreateDirectory($"{utspath}\\Logs\\Crash");
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
             }
         }
@@ -385,14 +385,14 @@ namespace Unowhy_Tools_Service
                 string exp = e.ToString();
                 string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
+                if (Directory.Exists($"{utspath}\\Logs\\Crash"))
                 {
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
                 else
                 {
-                    Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    Directory.CreateDirectory($"{utspath}\\Logs\\Crash");
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
             }
         }
@@ -418,14 +418,14 @@ namespace Unowhy_Tools_Service
                 string exp = e.ToString();
                 string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
+                if (Directory.Exists($"{utspath}\\Logs\\Crash"))
                 {
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
                 else
                 {
-                    Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    Directory.CreateDirectory($"{utspath}\\Logs\\Crash");
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
             }
         }
@@ -446,14 +446,14 @@ namespace Unowhy_Tools_Service
                 string exp = e.ToString();
                 string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
+                if (Directory.Exists($"{utspath}\\Logs\\Crash"))
                 {
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
                 else
                 {
-                    Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    Directory.CreateDirectory($"{utspath}\\Logs\\Crash");
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
             }
         }
@@ -474,14 +474,14 @@ namespace Unowhy_Tools_Service
                 string exp = e.ToString();
                 string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
+                if (Directory.Exists($"{utspath}\\Logs\\Crash"))
                 {
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
                 else
                 {
-                    Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    Directory.CreateDirectory($"{utspath}\\Logs\\Crash");
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
             }
         }
@@ -502,14 +502,14 @@ namespace Unowhy_Tools_Service
                 string exp = e.ToString();
                 string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash"))
+                if (Directory.Exists($"{utspath}\\Logs\\Crash"))
                 {
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
                 else
                 {
-                    Directory.CreateDirectory("C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash");
-                    File.WriteAllText($"C:\\Unowhy Tools\\Unowhy Tools Service\\Logs\\Crash\\error_{date}.txt", exp);
+                    Directory.CreateDirectory($"{utspath}\\Logs\\Crash");
+                    File.WriteAllText($"{utspath}\\Logs\\Crash\\error_{date}.txt", exp);
                 }
             }
         }
@@ -599,7 +599,14 @@ namespace Unowhy_Tools_Service
 
                             if (clientData.Contains("GetWS"))
                             {
-                                ret = WifiStatus;
+                                if(Serial == "Null")
+                                {
+                                    ret = "False";
+                                }
+                                else
+                                {
+                                    ret = WifiStatus;
+                                }
                             }
 
                             if (clientData.Contains("SetSN:"))
