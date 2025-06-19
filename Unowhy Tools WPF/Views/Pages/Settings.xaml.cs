@@ -269,7 +269,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
     {
         UT.SendAction("LiveLogs");
         string logspath = UT.utpath + "\\Unowhy Tools\\Logs\\UT_Logs.txt";
-        string args = "\"type '" + logspath + "' -wait\"";
+        string args = "\"type '" + logspath + "' -tail 1 -wait\"";
         System.Diagnostics.Process.Start(new ProcessStartInfo
         {
             FileName = "powershell",
