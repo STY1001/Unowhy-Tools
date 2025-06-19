@@ -450,7 +450,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
 
                     UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                    await UT.PowerReboot();
                 }
             }
         }
@@ -596,7 +596,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
 
                     UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                    await UT.PowerReboot();
                 }
             }
         }
@@ -742,7 +742,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
 
                     UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                    await UT.PowerReboot();
                 }
             }
         }
@@ -888,7 +888,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
 
                     UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                    await UT.PowerReboot();
                 }
             }
         }
@@ -1034,7 +1034,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
 
                     UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                    await UT.PowerReboot();
                 }
             }
         }
@@ -1180,7 +1180,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
 
                     UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                    await UT.PowerReboot();
                 }
             }
         }
@@ -1326,7 +1326,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
                     await UT.waitstatus.close();
 
                     UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-                    Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+                    await UT.PowerReboot();
                 }
             }
         }
@@ -1719,7 +1719,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
             await UT.waitstatus.close();
 
             UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-            Process.Start("shutdown", "-r -t 10 -c \"Unowhy Tools\"");
+            await UT.PowerReboot();
         }
     }
 

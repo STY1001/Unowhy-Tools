@@ -1781,6 +1781,16 @@ namespace Unowhy_Tools
             while (i == 0) { };
         }
 
+        public static async Task PowerReboot()
+        {
+            Process.Start("shutdown", "-r -f -t 10 -c \"Unowhy Tools\"");
+        }
+
+        public static async Task PowerShutdown()
+        {
+            Process.Start("shutdown", "-s -f -t 10 -c \"Unowhy Tools\"");
+        }
+
         public static async Task<string> RunReturn(string file, string args)
         {
             IntPtr wow64Value = IntPtr.Zero;
