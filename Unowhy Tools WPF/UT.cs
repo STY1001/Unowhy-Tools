@@ -189,7 +189,7 @@ namespace Unowhy_Tools
             { "Y14G530S2M", "Y14 Plus i5 (New)"},
             { "STYL13G1", "STY L13 Gen 1" },
             { "STYL13G2", "STY L13 Gen 2" },
-            { "STYD5100SFF", "STY D5100SFF" },
+            { "STYD4120SFF", "STY D4120SFF" },
             { "STYDS5OPS", "STY DS5OPS" }
         };
 
