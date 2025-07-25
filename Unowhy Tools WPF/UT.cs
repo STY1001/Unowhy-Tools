@@ -4114,7 +4114,7 @@ namespace Unowhy_Tools
         public static async Task DlFilewithProgress(string url, string path, IProgress<double> progress, CancellationToken token)
         {
             Write2Log("Downloading file: From \"" + url + "\" to \"" + path + "\"");
-            var client = new HttpClient();
+            HttpClient client = new HttpClient();
             var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, token);
 
             if (!response.IsSuccessStatusCode)
@@ -4122,38 +4122,33 @@ namespace Unowhy_Tools
                 throw new Exception(string.Format("Download failed: {0}", response.StatusCode));
             }
 
-            var total = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
-            var canReportProgress = total != -1 && progress != null;
+            long totalBytes = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
+            bool canReportProgress = totalBytes != -1 && progress != null;
+            long totalRead = 0;
+            int updateInterval = 1000;
+            DateTime lastUpdate = DateTime.Now;
 
-            using (var stream = await response.Content.ReadAsStreamAsync())
-            using (var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write))
+            using (Stream stream = await response.Content.ReadAsStreamAsync())
+            using (FileStream fileStream = new FileStream(path, FileMode.Create, FileAccess.Write))
             {
-                var totalRead = 0L;
-                var buffer = new byte[4096];
-                var isMoreToRead = true;
+                byte[] buffer = new byte[1024*1024];
+                int bytesRead;
 
-                do
+                while((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, token)) > 0)
                 {
                     token.ThrowIfCancellationRequested();
 
-                    var read = await stream.ReadAsync(buffer, 0, buffer.Length, token);
-
-                    if (read == 0)
+                    await fileStream.WriteAsync(buffer, 0, bytesRead);
+                    totalRead += bytesRead;
+                    if (canReportProgress)
                     {
-                        isMoreToRead = false;
-                    }
-                    else
-                    {
-                        await fileStream.WriteAsync(buffer, 0, read);
-
-                        totalRead += read;
-
-                        if (canReportProgress)
+                        if ((DateTime.Now - lastUpdate).TotalMilliseconds >= updateInterval)
                         {
-                            progress.Report((totalRead * 1d) / (total * 1d) * 100);
+                            progress.Report((totalRead * 1d) / (totalBytes * 1d) * 100);
+                            lastUpdate = DateTime.Now;
                         }
                     }
-                } while (isMoreToRead);
+                }
             }
 
             Write2Log("Download completed");
