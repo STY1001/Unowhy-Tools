@@ -4139,7 +4139,7 @@ namespace Unowhy_Tools
             long totalBytes = response.Content.Headers.ContentLength.HasValue ? response.Content.Headers.ContentLength.Value : -1L;
             bool canReportProgress = totalBytes != -1 && progress != null;
             long totalRead = 0;
-            int updateInterval = 1000;
+            int updateInterval = 100;
             DateTime lastUpdate = DateTime.Now;
 
             using (Stream stream = await response.Content.ReadAsStreamAsync())
