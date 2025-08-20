@@ -88,9 +88,9 @@ public partial class Bios : INavigableView<DashboardViewModel>
         string ifpt_skykaby = "20180329314";
         string ifpt_apollo = "Y13G002S4EI Y13G002S4E";
         string ifpt_gemini = "Y13G012S4EI Y13G011S4EI Y13G010S4EI Y13G012S4E Y13G011S4E Y13G010S4E Y11G001S4E";
-        string ifpt_jasper = "Y13G113S4EI Y13G113S4E Y11G201S2M Y13G201S4E Y13G201S4EI STYL13G1 STYL13G2 STYD5100SFF";
+        string ifpt_jasper = "Y13G113S4EI Y13G113S4E Y11G201S2M Y13G201S4E Y13G201S4EI Y13G202S4E Y13G202S4EI STYL13G1 STYL13G2 STYD5100SFF";
         string ifpt_tiger = "OPSG310S2M OPSG530S2M Y14G520S2M Y14G310S2M Y14G520S2MI Y14G310S2MI STYDS5OPS";
-        string ifpt_alder = "Y14G520S2MI Y14G520S2M Y14G530S2MI Y14G530S2M";
+        string ifpt_alder = "Y14G530S2MI Y14G530S2M OPSG540S2W";
         string ifpt_comet = "Y14G102S2E";
         string afu = "";
         string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
