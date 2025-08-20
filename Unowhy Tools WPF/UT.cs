@@ -201,6 +201,8 @@ namespace Unowhy_Tools
             { "Y14G102S2E", "Y14 Plus i3 (Old)" },
             { "Y14G530S2MI", "Y14 Plus i5 (New) IDF"},
             { "Y14G530S2M", "Y14 Plus i5 (New)"},
+            { "Y13G202S4EI", "Y13 Gen 2 2025 IDF" },
+            { "Y13G202S4E", "Y13 Gen 2 2025" },
             { "STYL13G1", "STY L13 Gen 1" },
             { "STYL13G2", "STY L13 Gen 2" },
             { "STYD4120SFF", "STY D4120SFF" },
