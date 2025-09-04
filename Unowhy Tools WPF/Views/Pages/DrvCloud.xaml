@@ -69,6 +69,8 @@
                                 <ComboBoxItem Content="All version"
                                               x:Name="selectall"
                                               IsSelected="True" />
+                                <ComboBoxItem Content="Y13 Gen 2 2025"
+                                              x:Name="selectY132025" />
                                 <ComboBoxItem Content="Y13 Gen 2 2024"
                                               x:Name="selectY132024" />
                                 <ComboBoxItem Content="Y13 Gen 1 2023"

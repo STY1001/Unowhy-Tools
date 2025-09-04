@@ -57,6 +57,10 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         versionselect.IsEnabled = false;
         applylang();
         string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
+        if (currentsku.Contains("Y13G202S4EI") || currentsku.Contains("Y13G202S4E"))
+        {
+            selectY132025.IsSelected = true;
+        }
         if (currentsku.Contains("Y13G201S4EI") || currentsku.Contains("Y13G201S4E") || currentsku.Contains("STYL13G2"))
         {
             selectY132024.IsSelected = true;
