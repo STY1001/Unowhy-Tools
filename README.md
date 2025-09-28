@@ -77,14 +77,16 @@ To switch to the Debug version for early access to upcoming features :
 
 Explore how Unowhy Tools has evolved across various versions :
 
-### Latest Version (31.05)
-![UT Screen](/README/UT31.05.png)
+### Latest Version (31.06)
+![UT Screen](/README/UT31.06.png)
 
 ---
 
 ## 📜 Full Version History
 
 ### Version 31.xx
+- **31.06**
+![UT Screen](/README/UT31.06.png)
 - **31.05**
 ![UT Screen](/README/UT31.05.png)
 - **31.04**
