@@ -364,6 +364,10 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                         string link = (string)driver["link"];
                         bool old = (bool)driver["old"];
 
+                        if ((pcmodel == "Y13G202S4EI" || pcmodel == "Y13G202S4E") && !selectY132025.IsSelected && !selectall.IsSelected)
+                        {
+                            continue;
+                        }
                         if ((pcmodel == "Y13G201S4EI" || pcmodel == "Y13G201S4E") && !selectY132024.IsSelected && !selectall.IsSelected)
                         {
                             continue;
