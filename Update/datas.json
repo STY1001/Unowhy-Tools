@@ -4,7 +4,7 @@
         "websitename": "sty1001.com"
     },
     "updates": {
-        "utnewver": "3104",
+        "utnewver": "3105",
         "utsnewver": "3.9"
     },
     "urls": {
@@ -17,7 +17,7 @@
         "utszip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/service.zip",
         "utupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip",
         "utcloghtmlprev": "https://htmlpreview.github.io/?https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.html",
-        "utbu":"https://github.com/STY1001/Unowhy-Tools-BIOS-Unlocker/releases/download/3.0/Unowhy.Tools.BIOS.Unlocker.3.0.zip",
+        "utbu":"https://github.com/STY1001/Unowhy-Tools-BIOS-Unlocker/releases/download/4.0/Unowhy.Tools.BIOS.Unlocker.4.0.zip",
         "idfconf": "https://idfconf.s3.gra.io.cloud.ovh.net",
         "allsqoolconf": "https://allsqoolconf.s3.gra.io.cloud.ovh.net",
         "discordinvite":"https://discord.com/invite/dw3ZJ9u7WS",
@@ -45,7 +45,7 @@
     "avatars": {
         "sty1001": "https://cdn.discordapp.com/avatars/1028607912320442410/04f0c36aa3c68e9db05ff3e42c754eae.png?size=4096",
         "fgamer768": "https://cdn.discordapp.com/avatars/647069392055828490/498274528d109c867b750b3386ea56e7.png?size=4096",
-        "ulysse": "https://cdn.discordapp.com/avatars/1096122001124511806/6dbce8d7e9f226a4279b1ef13c0399b2.png?size=4096",
+        "ulysse": "https://cdn.discordapp.com/avatars/1300814404576608316/7d380ed5e678ea4f11932ccc0d11b72e.png?size=4096",
         "nemi": "https://cdn.discordapp.com/avatars/499531936071548948/efb24c92069d30fad39a971134298284.png?size=4096",
         "nicospc": "https://cdn.discordapp.com/avatars/842458307762454548/55d40f90ad6eb33e1337a8702a08bdee.png?size=4096"
     },
@@ -138,8 +138,21 @@
             "pcmodel": "Y13G201S4EI",
             "old": false,
             "description": {
-                "en": "Works with Y13 of 2024",
-                "fr": "Fonctionne avec les Y13 de 2024"
+                "en": "Works with Y13 of 2024 and 2025",
+                "fr": "Fonctionne avec les Y13 de 2024 et 2025"
+            },
+            "size": 917461180,
+            "link": "https://dl.sty1001.com/UT/Drivers/Y13/Gen%202%202024/UT-Drv_00-01_10-09-24%20by%20STY1001.zip"
+        },
+        {
+            "name": "UT-Drv_00-01_10-09-24.zip",
+            "author": "STY1001",
+            "pcyear": 2025,
+            "pcmodel": "Y13G202S4EI",
+            "old": false,
+            "description": {
+                "en": "Works with Y13 of 2024 and 2025",
+                "fr": "Fonctionne avec les Y13 de 2024 et 2025"
             },
             "size": 917461180,
             "link": "https://dl.sty1001.com/UT/Drivers/Y13/Gen%202%202024/UT-Drv_00-01_10-09-24%20by%20STY1001.zip"
@@ -523,3 +536,7 @@
         }
     ]
 }
+
+
+
+
