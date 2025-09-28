@@ -112,7 +112,7 @@
             this.version.Name = "version";
             this.version.Size = new System.Drawing.Size(53, 13);
             this.version.TabIndex = 39;
-            this.version.Text = "Ver 31.05";
+            this.version.Text = "Ver 31.06";
             // 
             // ok_btn
             // 
