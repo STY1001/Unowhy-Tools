@@ -4,7 +4,7 @@
 # **Unowhy Tools** – The Ultimate All-in-One Utility for Your Unowhy Device
 
 **⚠️ Disclaimer** : Unowhy Tools and STY1001 are **not** affiliated with Unowhy SAS.
-**French Version** : [sty1001.com/unowhy-tools](https://sty1001.com/unowhy-tools/)
+**French Version** : [blog.sty1001.com/unowhy-tools](https://blog.sty1001.com/unowhy-tools/)
 
 ---
 
