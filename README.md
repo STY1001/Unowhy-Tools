@@ -60,12 +60,12 @@ Unowhy Tools provides a powerful suite of administrative tools to take full cont
 ## **📥 Installation**
 *(Administrator privileges required)*
 
-### **Via Winget (Recommended)**
+### **Via Winget**
 ```sh
 winget install "Unowhy Tools"
 ```
 
-### **Manual Installation**
+### **Manual Installation (Recommended, faster update)**
 1. Download the latest release from the [Releases Page](https://github.com/STY1001/Unowhy-Tools/releases/latest).
 2. Run `Unowhy Tools xx.xx Setup.exe`.
 3. Launch Unowhy Tools and start exploring !
