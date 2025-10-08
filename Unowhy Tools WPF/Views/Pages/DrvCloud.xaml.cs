@@ -150,7 +150,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                 {
                     System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
                     MenuItem GJItem = new MenuItem();
-                    GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake (Y11 360, Y13, Y14 Plus (Old))";
+                    GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake for Y11 360 (Gen 1/2), Y13 (Gen 1/2), Y14 Plus (10th)";
                     GJItem.Click += async (sender, e) =>
                     {
                         postdrv = "GJ";
@@ -159,12 +159,12 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                     };
                     iGPUMenu.Items.Add(GJItem);
                     MenuItem TItem = new MenuItem();
-                    TItem.Header = "Tiger/Alder Lake (Y5OPS, Y14 Plus, Y14 Plus (New))";
+                    TItem.Header = "Tiger/Alder Lake for Y5OPS (11/12th), Y14 Plus (11/12th)";
                     TItem.Click += async (sender, e) =>
                     {
                         postdrv = "T";
                         var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                        mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
+                        mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger/Alder Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
                     };
                     iGPUMenu.Items.Add(TItem);
                     iGPUMenu.PlacementTarget = gpudriver;
@@ -702,14 +702,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
     {
         System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
         MenuItem GJItem = new MenuItem();
-        GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake (Y11 360, Y13, Y14 Plus (Old))";
+        GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake for Y11 360 (Gen 1/2), Y13 (Gen 1/2), Y14 Plus (10th)";
         GJItem.Click += async (sender, e) =>
         {
             await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998, true);
         };
         iGPUMenu.Items.Add(GJItem);
         MenuItem TItem = new MenuItem();
-        TItem.Header = "Tiger/Alder Lake (Y5OPS, Y14 Plus, Y14 Plus (New))";
+        TItem.Header = "Tiger/Alder Lake for Y5OPS (11/12th), Y14 Plus (11/12th)";
         TItem.Click += async (sender, e) =>
         {
             await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094, true);
