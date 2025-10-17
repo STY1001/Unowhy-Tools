@@ -57,61 +57,63 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         versionselect.IsEnabled = false;
         applylang();
         string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
-        if (currentsku.Contains("Y13G202S4EI") || currentsku.Contains("Y13G202S4E"))
+        switch (currentsku)
         {
-            selectY132025.IsSelected = true;
-        }
-        if (currentsku.Contains("Y13G201S4EI") || currentsku.Contains("Y13G201S4E") || currentsku.Contains("STYL13G2"))
-        {
-            selectY132024.IsSelected = true;
-        }
-        else if (currentsku.Contains("Y13G113S4EI") || currentsku.Contains("Y13G113S4E") || currentsku.Contains("STYL13G1"))
-        {
-            selectY132023.IsSelected = true;
-        }
-        else if (currentsku.Contains("Y13G012S4EI") || currentsku.Contains("Y13G012S4E"))
-        {
-            selectY132022.IsSelected = true;
-        }
-        else if (currentsku.Contains("Y13G011S4EI") || currentsku.Contains("Y13G011S4E"))
-        {
-            selectY132021.IsSelected = true;
-        }
-        else if (currentsku.Contains("Y13G010S4EI") || currentsku.Contains("Y13G010S4E"))
-        {
-            selectY132020.IsSelected = true;
-        }
-        else if (currentsku.Contains("Y13G002S4EI") || currentsku.Contains("Y13G002S4E"))
-        {
-            selectY132019.IsSelected = true;
-        }
-        else if (currentsku.Contains("20180329314"))
-        {
-            selectY13m3.IsSelected = true;
-        }
-        else if (currentsku.Contains("Y11G201S2M"))
-        {
-            selectY13m3.IsSelected = true;
-        }
-        else if (currentsku.Contains("Y11G001S4E"))
-        {
-            selectY11G1.IsSelected = true;
-        }
-        else if (currentsku.Contains("OPSG530S2M") || currentsku.Contains("STYDS5OPS"))
-        {
-            selectY5OPSi5.IsSelected = true;
-        }
-        else if (currentsku.Contains("Y14G102S2E") || currentsku.Contains("Y14G310S2MI") || currentsku.Contains("Y14G310S2M"))
-        {
-            selectY14i3.IsSelected = true;
-        }
-        else if (currentsku.Contains("Y14G520S2MI") || currentsku.Contains("Y14G520S2M") || currentsku.Contains("Y14G530S2MI") || currentsku.Contains("Y14G530S2M"))
-        {
-            selectY14i5.IsSelected = true;
-        }
-        else
-        {
-            selectall.IsSelected = true;
+            case "Y13G202S4EI":
+            case "Y13G202S4E":
+                selectY132025.IsSelected = true;
+                break;
+            case "Y13G201S4EI":
+            case "Y13G201S4E":
+            case "STYL13G2":
+                selectY132024.IsSelected = true;
+                break;
+            case "Y13G113S4EI":
+            case "Y13G113S4E":
+            case "STYL13G1":
+                selectY132023.IsSelected = true;
+                break;
+            case "Y13G012S4EI":
+            case "Y13G012S4E":
+                selectY132022.IsSelected = true;
+                break;
+            case "Y13G011S4EI":
+            case "Y13G011S4E":
+                selectY132021.IsSelected = true;
+                break;
+            case "Y13G010S4EI":
+            case "Y13G010S4E":
+                selectY132020.IsSelected = true;
+                break;
+            case "Y13G002S4EI":
+            case "Y13G002S4E":
+                selectY132019.IsSelected = true;
+                break;
+            case "20180329314":
+            case "Y11G201S2M":
+                selectY13m3.IsSelected = true;
+                break;
+            case "Y11G001S4E":
+                selectY11G1.IsSelected = true;
+                break;
+            case "OPSG530S2M":
+            case "STYDS5OPS":
+                selectY5OPSi5.IsSelected = true;
+                break;
+            case "Y14G102S2E":
+            case "Y14G310S2MI":
+            case "Y14G310S2M":
+                selectY14i3.IsSelected = true;
+                break;
+            case "Y14G520S2MI":
+            case "Y14G520S2M":
+            case "Y14G530S2MI":
+            case "Y14G530S2M":
+                selectY14i5.IsSelected = true;
+                break;
+            default:
+                selectall.IsSelected = true;
+                break;
         }
 
         if (await UT.CheckInternet())
@@ -146,37 +148,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             postdrv = "noop";
             if (UT.DialogQShow(await UT.GetLang("alsoigpudrv"), "gpu.png"))
             {
-                while (postdrv == "noop")
-                {
-                    System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
-                    MenuItem GJItem = new MenuItem();
-                    GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake | for Y11 360 (Gen 1/2), Y13 (Gen 1/2), Y14 Plus (10th)";
-                    GJItem.Click += async (sender, e) =>
-                    {
-                        postdrv = "GJ";
-                        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                        mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
-                    };
-                    iGPUMenu.Items.Add(GJItem);
-                    MenuItem TItem = new MenuItem();
-                    TItem.Header = "Tiger/Alder Lake | for Y5OPS (11/12th), Y14 Plus (11/12th)";
-                    TItem.Click += async (sender, e) =>
-                    {
-                        postdrv = "T";
-                        var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                        mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger/Alder Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
-                    };
-                    iGPUMenu.Items.Add(TItem);
-                    iGPUMenu.PlacementTarget = gpudriver;
-                    iGPUMenu.IsOpen = true;
-
-                    UT.waitstatus.open("Waiting selection...", "gpu.png");
-
-                    while (iGPUMenu.IsOpen)
-                    {
-                        await Task.Delay(100);
-                    }
-                }
+                postdrv = await SelectiGPUDriver();
             }
         }
 
@@ -416,6 +388,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                         {
                             continue;
                         }
+
                         if (old && showold.IsChecked == false)
                         {
                             continue;
@@ -700,22 +673,55 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
     private async void gpudriver_Click(object sender, RoutedEventArgs e)
     {
-        System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
-        MenuItem GJItem = new MenuItem();
-        GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake | for Y11 360 (Gen 1/2), Y13 (Gen 1/2), Y14 Plus (10th)";
-        GJItem.Click += async (sender, e) =>
+        string selecteddrv = await SelectiGPUDriver();
+
+        switch (selecteddrv)
         {
-            await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998, true);
-        };
-        iGPUMenu.Items.Add(GJItem);
-        MenuItem TItem = new MenuItem();
-        TItem.Header = "Tiger/Alder Lake | for Y5OPS (11/12th), Y14 Plus (11/12th)";
-        TItem.Click += async (sender, e) =>
+            case "GJ":
+                await RestoreCloud("iGPU_GJ.zip", await UT.OnlineDatas.GetUrls("gpudrvgj"), 1337172998, true);
+                break;
+            case "T":
+                await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094, true);
+                break;
+        }
+    }
+
+    private async Task<string> SelectiGPUDriver()
+    {
+        string SelectDrv = "noop";
+        while (SelectDrv == "noop")
         {
-            await RestoreCloud("iGPU_T.zip", await UT.OnlineDatas.GetUrls("gpudrvt"), 2013214094, true);
-        };
-        iGPUMenu.Items.Add(TItem);
-        iGPUMenu.PlacementTarget = gpudriver;
-        iGPUMenu.IsOpen = true;
+            System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
+            MenuItem GJItem = new MenuItem();
+            GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake | for Y11 360 (Gen 1/2), Y13 (Gen 1/2), Y14 Plus (10th)";
+            GJItem.Click += async (sender, e) =>
+            {
+                SelectDrv = "GJ";
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+                mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
+            };
+            iGPUMenu.Items.Add(GJItem);
+            MenuItem TItem = new MenuItem();
+            TItem.Header = "Tiger/Alder Lake | for Y5OPS (11/12th), Y14 Plus (11/12th)";
+            TItem.Click += async (sender, e) =>
+            {
+                SelectDrv = "T";
+                var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+                mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger/Alder Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
+            };
+            iGPUMenu.Items.Add(TItem);
+            iGPUMenu.PlacementTarget = gpudriver;
+            iGPUMenu.IsOpen = true;
+
+            UT.waitstatus.open("Waiting selection...", "gpu.png");
+
+            while (iGPUMenu.IsOpen)
+            {
+                await Task.Delay(100);
+            }
+
+            UT.waitstatus.close();
+        }
+        return SelectDrv;
     }
 }
