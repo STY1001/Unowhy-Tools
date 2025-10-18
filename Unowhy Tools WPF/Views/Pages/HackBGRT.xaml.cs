@@ -1224,7 +1224,12 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
         GetButton.Click += async (sender, e) =>
         {
             UT.SendAction("HackBGRT.GetFromCloud");
-            BitmapImage preimage = await GetBitmapImageFromLink(link);
+
+            HttpClient client = new HttpClient();
+            byte[] imageData = await client.GetByteArrayAsync(link);
+            string imgpath = UT.utpath + "\\Unowhy Tools\\Temps\\HackBGRT\\splash_cloud.bmp";
+            await File.WriteAllBytesAsync(imgpath, imageData);
+            BitmapImage preimage = new BitmapImage(new Uri(imgpath));
             await UpdatePreview(preimage);
             ImageSource = ResizeImage(preimage);
 
