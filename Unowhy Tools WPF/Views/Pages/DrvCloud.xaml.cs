@@ -336,57 +336,60 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
                         string link = (string)driver["link"];
                         bool old = (bool)driver["old"];
 
-                        if ((pcmodel == "Y13G202S4EI" || pcmodel == "Y13G202S4E") && !selectY132025.IsSelected && !selectall.IsSelected)
+                        if (!selectall.IsSelected)
                         {
-                            continue;
-                        }
-                        if ((pcmodel == "Y13G201S4EI" || pcmodel == "Y13G201S4E") && !selectY132024.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if ((pcmodel == "Y13G113S4EI" || pcmodel == "Y13G113S4E") && !selectY132023.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if ((pcmodel == "Y13G012S4EI" || pcmodel == "Y13G012S4E") && !selectY132022.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if ((pcmodel == "Y13G011S4EI" || pcmodel == "Y13G011S4E") && !selectY132021.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if ((pcmodel == "Y13G010S4EI" || pcmodel == "Y13G010S4E") && !selectY132020.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if ((pcmodel == "Y13G002S4EI" || pcmodel == "Y13G002S4E") && !selectY132019.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if ((pcmodel == "Y14G102S2E" || pcmodel == "Y14G310S2M" || pcmodel == "Y14G310S2MI") && !selectY14i3.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if ((pcmodel == "Y14G520S2M" || pcmodel == "Y14G520S2MI" || pcmodel == "Y14G530S2MI" || pcmodel == "Y14G530S2M") && !selectY14i5.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if (pcmodel == "20180329314" && !selectY13m3.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if (pcmodel == "OPSG530S2M" && !selectY5OPSi5.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if (pcmodel == "Y11G201S2M" && !selectY11G2.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
-                        }
-                        if (pcmodel == "Y11G001S4E" && !selectY11G1.IsSelected && !selectall.IsSelected)
-                        {
-                            continue;
+                            if ((pcmodel == "Y13G202S4EI" || pcmodel == "Y13G202S4E") && !selectY132025.IsSelected)
+                            {
+                                continue;
+                            }
+                            if ((pcmodel == "Y13G201S4EI" || pcmodel == "Y13G201S4E") && !selectY132024.IsSelected)
+                            {
+                                continue;
+                            }
+                            if ((pcmodel == "Y13G113S4EI" || pcmodel == "Y13G113S4E") && !selectY132023.IsSelected)
+                            {
+                                continue;
+                            }
+                            if ((pcmodel == "Y13G012S4EI" || pcmodel == "Y13G012S4E") && !selectY132022.IsSelected)
+                            {
+                                continue;
+                            }
+                            if ((pcmodel == "Y13G011S4EI" || pcmodel == "Y13G011S4E") && !selectY132021.IsSelected)
+                            {
+                                continue;
+                            }
+                            if ((pcmodel == "Y13G010S4EI" || pcmodel == "Y13G010S4E") && !selectY132020.IsSelected)
+                            {
+                                continue;
+                            }
+                            if ((pcmodel == "Y13G002S4EI" || pcmodel == "Y13G002S4E") && !selectY132019.IsSelected)
+                            {
+                                continue;
+                            }
+                            if ((pcmodel == "Y14G102S2E" || pcmodel == "Y14G310S2M" || pcmodel == "Y14G310S2MI") && !selectY14i3.IsSelected)
+                            {
+                                continue;
+                            }
+                            if ((pcmodel == "Y14G520S2M" || pcmodel == "Y14G520S2MI" || pcmodel == "Y14G530S2MI" || pcmodel == "Y14G530S2M") && !selectY14i5.IsSelected)
+                            {
+                                continue;
+                            }
+                            if (pcmodel == "20180329314" && !selectY13m3.IsSelected)
+                            {
+                                continue;
+                            }
+                            if (pcmodel == "OPSG530S2M" && !selectY5OPSi5.IsSelected)
+                            {
+                                continue;
+                            }
+                            if (pcmodel == "Y11G201S2M" && !selectY11G2.IsSelected)
+                            {
+                                continue;
+                            }
+                            if (pcmodel == "Y11G001S4E" && !selectY11G1.IsSelected)
+                            {
+                                continue;
+                            }
                         }
 
                         if (old && showold.IsChecked == false)
