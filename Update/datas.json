@@ -134,21 +134,21 @@
         {
             "name": "UT-Drv_00-01_10-09-24.zip",
             "author": "STY1001",
-            "pcyear": 2024,
-            "pcmodel": "Y13G201S4EI",
+            "pcyear": 2025,
+            "pcmodel": "Y13G202S4EI",
             "old": false,
             "description": {
                 "en": "Works with Y13 of 2024 and 2025",
                 "fr": "Fonctionne avec les Y13 de 2024 et 2025"
             },
             "size": 917461180,
-            "link": "https://dl.sty1001.com/UT/Drivers/Y13/Gen%202%202024/UT-Drv_00-01_10-09-24%20by%20STY1001.zip"
+            "link": "https://dl.sty1001.com/UT/Drivers/Y13/Gen%202%202025/UT-Drv_00-01_10-09-24%20by%20STY1001.zip"
         },
         {
             "name": "UT-Drv_00-01_10-09-24.zip",
             "author": "STY1001",
-            "pcyear": 2025,
-            "pcmodel": "Y13G202S4EI",
+            "pcyear": 2024,
+            "pcmodel": "Y13G201S4EI",
             "old": false,
             "description": {
                 "en": "Works with Y13 of 2024 and 2025",
@@ -208,6 +208,19 @@
             },
             "size": 833391255,
             "link": "https://dl.sty1001.com/UT/Drivers/Y13/Gen%201%202021/UT-Drv_12-00_25-10-22%20by%20STY1001.zip"
+        },
+        {
+            "name": "UT-Drv_13-37_04-10-25.zip",
+            "author": "RustyCompany",
+            "pcyear": 2025,
+            "pcmodel": "Y13G202S4EI",
+            "old": false,
+            "description": {
+                "en": "Works with Y13 of 2024 and 2025",
+                "fr": "Fonctionne avec les Y13 de 2024 et 2025"
+            },
+            "size": 1034039296,
+            "link": "https://dl.sty1001.com/UT/Drivers/Y13/Gen%202%202025/UT-Drv_13-37_04-10-25%20by%20RustyCompany.zip"
         },
         {
             "name": "UT-Drv_18-12_14-09-23.zip",
@@ -536,6 +549,7 @@
         }
     ]
 }
+
 
 
 
