@@ -1255,9 +1255,8 @@ namespace Unowhy_Tools
                 wifi = false;
             }
 
-            string model = "Unknown";
             string sku = GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
-            model = await UT.GetModelWithSKU(sku);
+            string model = await UT.GetModelWithSKU(sku);
 
             bool weirdpc = false;
             if (model == "Unknown")
@@ -1300,6 +1299,7 @@ namespace Unowhy_Tools
                             trayena = tray.ToString().ToLower(),
                             isdeb = UT.version.isdeb().ToString().ToLower(),
                             wifiena = wifi.ToString().ToLower(),
+                            pcsku = sku.ToString(),
                             pcmodel = model.ToString(),
                             defaultos = defaultos.ToString().ToLower(),
                             osversion = osversion.ToString(),
