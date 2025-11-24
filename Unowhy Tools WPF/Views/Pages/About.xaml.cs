@@ -705,15 +705,18 @@ public partial class About : INavigableView<DashboardViewModel>
                 transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
             }
 
+            superpotename.Text = "Ulysse";
+            superpotepp.Source = await UT.OnlineDatas.GetAvatars("ulysse");
+            await Task.Delay(5000 / 4);
             superpotepp.Source = await UT.OnlineDatas.GetAvatars("fgamer768");
             superpotename.Text = "FGAMER768";
-            await Task.Delay(5000 / 3);
+            await Task.Delay(5000 / 4);
             superpotepp.Source = await UT.OnlineDatas.GetAvatars("nicospc");
             superpotename.Text = "Nico's PC";
-            await Task.Delay(5000 / 3);
+            await Task.Delay(5000 / 4);
             superpotepp.Source = await UT.OnlineDatas.GetAvatars("nemi");
             superpotename.Text = "Nemi";
-            await Task.Delay(5000 / 3);
+            await Task.Delay(5000 / 4);
 
             {
                 DoubleAnimation opacityAnimation = new DoubleAnimation
@@ -779,7 +782,7 @@ public partial class About : INavigableView<DashboardViewModel>
                 transform.BeginAnimation(TranslateTransform.XProperty, translateAnimation);
             }
 
-            biboupp.Source = await UT.OnlineDatas.GetAvatars("ulysse");
+            //biboupp.Source = await UT.OnlineDatas.GetAvatars("");
             string[] allhearts = { "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "💖", "💗", "💓", "💞", "💕", "💘", "💝", "💟", "❣️" };
 
             int i = 0;
@@ -787,7 +790,7 @@ public partial class About : INavigableView<DashboardViewModel>
             {
                 string randomHeart1 = allhearts[new Random().Next(allhearts.Length)];
                 string randomHeart2 = allhearts[new Random().Next(allhearts.Length)];
-                bibouname.Text = randomHeart1 + " Ulysse " + randomHeart2;
+                bibouname.Text = randomHeart1 + "  " + randomHeart2;
                 await Task.Delay(100);
                 i += 100;
             }
