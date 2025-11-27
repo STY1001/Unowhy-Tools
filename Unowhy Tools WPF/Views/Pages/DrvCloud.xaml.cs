@@ -148,7 +148,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             postdrv = "noop";
             if (UT.DialogQShow(await UT.GetLang("alsoigpudrv"), "gpu.png"))
             {
-                postdrv = await SelectiGPUDriver();
+                postdrv = await SelectiGPUDriver(true);
             }
         }
 
@@ -676,7 +676,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
     private async void gpudriver_Click(object sender, RoutedEventArgs e)
     {
-        string selecteddrv = await SelectiGPUDriver();
+        string selecteddrv = await SelectiGPUDriver(false);
 
         switch (selecteddrv)
         {
@@ -689,7 +689,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         }
     }
 
-    private async Task<string> SelectiGPUDriver()
+    private async Task<string> SelectiGPUDriver(bool ispost)
     {
         string SelectDrv = "noop";
         while (SelectDrv == "noop")
@@ -701,7 +701,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 SelectDrv = "GJ";
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
+                if (ispost) mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
             };
             iGPUMenu.Items.Add(GJItem);
             MenuItem TItem = new MenuItem();
@@ -710,7 +710,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 SelectDrv = "T";
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger/Alder Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
+                if (ispost) mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger/Alder Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
             };
             iGPUMenu.Items.Add(TItem);
             iGPUMenu.PlacementTarget = gpudriver;
@@ -724,6 +724,8 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             }
 
             UT.waitstatus.close();
+
+            if (!ispost) break;
         }
         return SelectDrv;
     }
