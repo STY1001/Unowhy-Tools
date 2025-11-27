@@ -701,7 +701,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 SelectDrv = "GJ";
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                if (ispost) mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
+                if (ispost) mainWindow.SnackBarService.ShowAsync(await UT.GetLang("igpu.post.title"), await UT.GetLang("igpu.post.gj"), SymbolRegular.Checkmark20, ControlAppearance.Success);
             };
             iGPUMenu.Items.Add(GJItem);
             MenuItem TItem = new MenuItem();
@@ -710,13 +710,13 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 SelectDrv = "T";
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                if (ispost) mainWindow.SnackBarService.ShowAsync("iGPU driver post install", "iGPU driver (for Tiger/Alder Lake) will be installed after non-iGPU drivers installation", SymbolRegular.Checkmark20, ControlAppearance.Success);
+                if (ispost) mainWindow.SnackBarService.ShowAsync(await UT.GetLang("igpu.post.title"), await UT.GetLang("igpu.post.t"), SymbolRegular.Checkmark20, ControlAppearance.Success);
             };
             iGPUMenu.Items.Add(TItem);
             iGPUMenu.PlacementTarget = gpudriver;
             iGPUMenu.IsOpen = true;
 
-            UT.waitstatus.open("Waiting selection...", "gpu.png");
+            UT.waitstatus.open(await UT.GetLang("wait.selection"), "gpu.png");
 
             while (iGPUMenu.IsOpen)
             {

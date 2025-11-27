@@ -510,6 +510,15 @@
   <data name="hsmpanel" xml:space="preserve">
     <value>Open HiSqool Manager panel</value>
   </data>
+  <data name="igpu.post.gj" xml:space="preserve">
+    <value>iGPU driver (for Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) will be installed after non-iGPU drivers installation</value>
+  </data>
+  <data name="igpu.post.t" xml:space="preserve">
+    <value>iGPU driver (for Tiger/Alder Lake) will be installed after non-iGPU drivers installation</value>
+  </data>
+  <data name="igpu.post.title" xml:space="preserve">
+    <value>iGPU driver post install</value>
+  </data>
   <data name="igpudrv" xml:space="preserve">
     <value>Install iGPU drivers</value>
   </data>
@@ -944,6 +953,9 @@
   </data>
   <data name="wait.restore" xml:space="preserve">
     <value>Restoring...</value>
+  </data>
+  <data name="wait.selection" xml:space="preserve">
+    <value>Waiting for selection...</value>
   </data>
   <data name="wait.set" xml:space="preserve">
     <value>Setting...</value>
