@@ -510,6 +510,9 @@
   <data name="hsmpanel" xml:space="preserve">
     <value>Ouvrir le pannel HiSqool Manager</value>
   </data>
+  <data name="igpu.gj" xml:space="preserve">
+    <value>Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake | for Y11 360 (Gen 1/2), Y13 (Gen 1/2), Y14 Plus (10th)</value>
+  </data>
   <data name="igpu.post.gj" xml:space="preserve">
     <value>Le pilote iGPU (pour Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) sera installé après l'installation des pilotes non-iGPU</value>
   </data>
@@ -518,6 +521,9 @@
   </data>
   <data name="igpu.post.title" xml:space="preserve">
     <value>Post-installation du pilote iGPU</value>
+  </data>
+  <data name="igpu.t" xml:space="preserve">
+    <value>Tiger/Alder Lake | for Y5OPS (11/12th), Y14 Plus (11/12th)</value>
   </data>
   <data name="igpudrv" xml:space="preserve">
     <value>Installer les pilotes iGPU</value>
@@ -737,6 +743,12 @@
   </data>
   <data name="shutdrvcloud" xml:space="preserve">
     <value>Voulez-vous éteindre votre PC après la restauration</value>
+  </data>
+  <data name="shutdrvcloud.desc" xml:space="preserve">
+    <value>Your PC will shut down after driver installation</value>
+  </data>
+  <data name="shutdrvcloud.title" xml:space="preserve">
+    <value>Shut down after driver installation</value>
   </data>
   <data name="snpw" xml:space="preserve">
     <value>Définir un nouveau mot de passe</value>
