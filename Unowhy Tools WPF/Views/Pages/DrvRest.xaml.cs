@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Unowhy_Tools;
 using Unowhy_Tools_WPF.ViewModels;
+using Wpf.Ui.Common;
 using Wpf.Ui.Common.Interfaces;
 
 namespace Unowhy_Tools_WPF.Views.Pages;
@@ -129,6 +130,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
         }
     }
 
+    bool shutafter = false;
     public async void Restore_Click(object sender, RoutedEventArgs e)
     {
         if (rtpath.Text != "")
@@ -138,6 +140,13 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
             FileInfo fi = new FileInfo(rtpath.Text);
             if (di.AvailableFreeSpace > fi.Length * 3)
             {
+                if (UT.DialogQShow(await UT.GetLang("shutdrvcloud"), "boot.png"))
+                {
+                    shutafter = true;
+                    var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
+                    mainWindow.SnackBarService.ShowAsync(await UT.GetLang("shutdrvcloud.title"), await UT.GetLang("shutdrvcloud.desc"), SymbolRegular.Power20, ControlAppearance.Caution);
+                }
+
                 await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");
                 await Task.Delay(1000);
                 string rttemps = UT.utpath + "\\Unowhy Tools\\Temps\\Drivers";
@@ -207,8 +216,15 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                 Directory.Delete(rttemps, true);
                 Directory.CreateDirectory(rttemps);
                 await UT.waitstatus.close();
-                UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
-                await UT.PowerReboot();
+                if (!shutafter)
+                {
+                    UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
+                    await UT.PowerReboot();
+                }
+                else
+                {
+                    await UT.PowerShutdown();
+                }
             }
             else
             {
