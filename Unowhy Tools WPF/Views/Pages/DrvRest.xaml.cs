@@ -131,11 +131,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
 
     public async void Restore_Click(object sender, RoutedEventArgs e)
     {
-        if (rtpath.Text == "")
-        {
-
-        }
-        else
+        if (rtpath.Text != "")
         {
             UT.SendAction("DrvRestore");
             DriveInfo di = new DriveInfo("C");

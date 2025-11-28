@@ -106,11 +106,7 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
 
     public async void Backup_Click(object sender, RoutedEventArgs e)
     {
-        if (bkpath.Text == "")
-        {
-
-        }
-        else
+        if (bkpath.Text != "")
         {
             UT.SendAction("DrvBackup");
             string drivel = bkpath.Text.Substring(0, 1);
