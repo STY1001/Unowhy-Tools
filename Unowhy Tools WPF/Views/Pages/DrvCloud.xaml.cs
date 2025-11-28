@@ -160,7 +160,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 shutafter = true;
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                mainWindow.SnackBarService.ShowAsync("Shut down after driver installation", "Your PC will shut down after driver installation", SymbolRegular.Power20, ControlAppearance.Caution);
+                mainWindow.SnackBarService.ShowAsync(await UT.GetLang("shutdrvcloud.title"), await UT.GetLang("shutdrvcloud.desc"), SymbolRegular.Power20, ControlAppearance.Caution);
             }
         }
 
@@ -264,15 +264,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
 
             if (postdrv == "noop")
             {
+                await UT.waitstatus.close();
                 if (!shutafter)
                 {
-                    await UT.waitstatus.close();
                     UT.DialogIShow(await UT.GetLang("rebootmsg"), "reboot.png");
                     await UT.PowerReboot();
                 }
                 else
                 {
-                    await UT.waitstatus.close();
                     await UT.PowerShutdown();
                 }
             }
@@ -696,7 +695,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         {
             System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
             MenuItem GJItem = new MenuItem();
-            GJItem.Header = "Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake | for Y11 360 (Gen 1/2), Y13 (Gen 1/2), Y14 Plus (10th)";
+            GJItem.Header = await UT.GetLang("igpu.gj");
             GJItem.Click += async (sender, e) =>
             {
                 SelectDrv = "GJ";
@@ -705,7 +704,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             };
             iGPUMenu.Items.Add(GJItem);
             MenuItem TItem = new MenuItem();
-            TItem.Header = "Tiger/Alder Lake | for Y5OPS (11/12th), Y14 Plus (11/12th)";
+            TItem.Header = await UT.GetLang("igpu.t");
             TItem.Click += async (sender, e) =>
             {
                 SelectDrv = "T";
