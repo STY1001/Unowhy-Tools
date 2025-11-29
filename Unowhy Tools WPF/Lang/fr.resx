@@ -745,10 +745,10 @@
     <value>Voulez-vous éteindre votre PC après la restauration</value>
   </data>
   <data name="shutdrvcloud.desc" xml:space="preserve">
-    <value>Your PC will shut down after driver installation</value>
+    <value>Votre PC s'éteindra après l'installation des pilotes</value>
   </data>
   <data name="shutdrvcloud.title" xml:space="preserve">
-    <value>Shut down after driver installation</value>
+    <value>Arrêt après l'installation des pilotes</value>
   </data>
   <data name="snpw" xml:space="preserve">
     <value>Définir un nouveau mot de passe</value>
