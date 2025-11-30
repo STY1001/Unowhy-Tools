@@ -511,7 +511,7 @@
     <value>Ouvrir le pannel HiSqool Manager</value>
   </data>
   <data name="igpu.gj" xml:space="preserve">
-    <value>Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake | for Y11 360 (Gen 1/2), Y13 (Gen 1/2), Y14 Plus (10th)</value>
+    <value>Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake | pour Y11 360 (Gen 1/2), Y13 (Gen 1/2), Y14 Plus (10th)</value>
   </data>
   <data name="igpu.post.gj" xml:space="preserve">
     <value>Le pilote iGPU (pour Sky/Kaby/Apollo/Gemini/Jasper/Comet Lake) sera installé après l'installation des pilotes non-iGPU</value>
@@ -523,7 +523,7 @@
     <value>Post-installation du pilote iGPU</value>
   </data>
   <data name="igpu.t" xml:space="preserve">
-    <value>Tiger/Alder Lake | for Y5OPS (11/12th), Y14 Plus (11/12th)</value>
+    <value>Tiger/Alder Lake | pour Y5OPS (11/12th), Y14 Plus (11/12th)</value>
   </data>
   <data name="igpudrv" xml:space="preserve">
     <value>Installer les pilotes iGPU</value>
