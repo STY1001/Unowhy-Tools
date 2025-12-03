@@ -302,9 +302,7 @@
                                           Expanded="ExpContrib_Expanded">
                                     <StackPanel x:Name="ExpStackContrib">
                                         <Grid Margin="10,0,0,3">
-                                            <Grid x:Name="ContribSTY"
-                                                  MouseLeftButtonDown="ContribSTY_SuperPote"
-                                                  MouseRightButtonDown="ContribSTY_Bibou">
+                                            <Grid x:Name="ContribSTY">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="32" />
                                                     <ColumnDefinition Width="10" />
@@ -318,72 +316,6 @@
                                                            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                                                            Grid.Column="2"
                                                            VerticalAlignment="Center" />
-                                            </Grid>
-                                            <Grid x:Name="ContribSuperPote"
-                                                  Visibility="Hidden">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="32" />
-                                                    <ColumnDefinition Width="10" />
-                                                    <ColumnDefinition Width="auto" />
-                                                    <ColumnDefinition Width="*" />
-                                                    <ColumnDefinition Width="32" />
-                                                    <ColumnDefinition Width="*" />
-                                                    <ColumnDefinition Width="32" />
-                                                    <ColumnDefinition Width="10" />
-                                                    <ColumnDefinition Width="auto" />
-                                                </Grid.ColumnDefinitions>
-                                                <Image Source="../../Resources/sty1001.png"
-                                                       Grid.Column="0"
-                                                       Visibility="Hidden" />
-                                                <TextBlock Text="STY1001"
-                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                           Grid.Column="2"
-                                                           VerticalAlignment="Center"
-                                                           Visibility="Hidden" />
-                                                <Image Source="../../Resources/link.png"
-                                                       Grid.Column="4"
-                                                       RenderOptions.BitmapScalingMode="HighQuality" />
-                                                <Image Grid.Column="6"
-                                                       x:Name="superpotepp"
-                                                       RenderOptions.BitmapScalingMode="HighQuality" />
-                                                <TextBlock Text="SuperPote"
-                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                           Grid.Column="8"
-                                                           VerticalAlignment="Center"
-                                                           x:Name="superpotename"/>
-                                            </Grid>
-                                            <Grid x:Name="ContribBibou"
-                                                  Visibility="Hidden">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="32" />
-                                                    <ColumnDefinition Width="10" />
-                                                    <ColumnDefinition Width="auto" />
-                                                    <ColumnDefinition Width="*" />
-                                                    <ColumnDefinition Width="32" />
-                                                    <ColumnDefinition Width="*" />
-                                                    <ColumnDefinition Width="32" />
-                                                    <ColumnDefinition Width="10" />
-                                                    <ColumnDefinition Width="auto" />
-                                                </Grid.ColumnDefinitions>
-                                                <Image Source="../../Resources/sty1001.png"
-                                                       Grid.Column="0"
-                                                       Visibility="Hidden" />
-                                                <TextBlock Text="STY1001"
-                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                           Grid.Column="2"
-                                                           VerticalAlignment="Center"
-                                                           Visibility="Hidden" />
-                                                <Image Source="../../Resources/heart.png"
-                                                       Grid.Column="4"
-                                                       RenderOptions.BitmapScalingMode="HighQuality" />
-                                                <Image Grid.Column="6"
-                                                       x:Name="biboupp"
-                                                       RenderOptions.BitmapScalingMode="HighQuality" />
-                                                <TextBlock Text="Bibou"
-                                                           Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                                                           Grid.Column="8"
-                                                           VerticalAlignment="Center"
-                                                           x:Name="bibouname"/>
                                             </Grid>
                                         </Grid>
                                     </StackPanel>
