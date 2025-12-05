@@ -715,14 +715,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             iGPUMenu.PlacementTarget = gpudriver;
             iGPUMenu.IsOpen = true;
 
-            UT.waitstatus.open(await UT.GetLang("wait.selection"), "gpu.png");
+            await UT.waitstatus.open(await UT.GetLang("wait.selection"), "gpu.png");
 
             while (iGPUMenu.IsOpen)
             {
                 await Task.Delay(100);
             }
 
-            UT.waitstatus.close();
+            await UT.waitstatus.close();
 
             if (!ispost) break;
         }
