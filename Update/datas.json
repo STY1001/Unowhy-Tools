@@ -4,7 +4,7 @@
         "websitename": "sty1001.com"
     },
     "updates": {
-        "utnewver": "3106",
+        "utnewver": "3107",
         "utsnewver": "3.9"
     },
     "urls": {
@@ -41,13 +41,6 @@
         "cru":"https://www.monitortests.com/download/cru/old/cru-1.5.1.zip",
         "ms365ppfr":"https://c2rsetup.officeapps.live.com/c2r/download.aspx?ProductreleaseID=O365ProPlusRetail&platform=x64&language=fr-fr&version=O16GA",
         "ms365ppen":"https://c2rsetup.officeapps.live.com/c2r/download.aspx?ProductreleaseID=O365ProPlusRetail&platform=x64&language=en-us&version=O16GA"
-    },
-    "avatars": {
-        "sty1001": "https://cdn.discordapp.com/avatars/1028607912320442410/04f0c36aa3c68e9db05ff3e42c754eae.png?size=4096",
-        "fgamer768": "https://cdn.discordapp.com/avatars/647069392055828490/498274528d109c867b750b3386ea56e7.png?size=4096",
-        "ulysse": "https://cdn.discordapp.com/avatars/1300814404576608316/7d380ed5e678ea4f11932ccc0d11b72e.png?size=4096",
-        "nemi": "https://cdn.discordapp.com/avatars/499531936071548948/efb24c92069d30fad39a971134298284.png?size=4096",
-        "nicospc": "https://cdn.discordapp.com/avatars/842458307762454548/55d40f90ad6eb33e1337a8702a08bdee.png?size=4096"
     },
     "contribs": [
         {
