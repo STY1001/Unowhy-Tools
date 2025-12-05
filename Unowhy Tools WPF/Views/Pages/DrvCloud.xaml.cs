@@ -691,6 +691,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
     private async Task<string> SelectiGPUDriver(bool ispost)
     {
         string SelectDrv = "noop";
+        await UT.waitstatus.open(await UT.GetLang("wait.selection"), "gpu.png");
         while (SelectDrv == "noop")
         {
             System.Windows.Controls.ContextMenu iGPUMenu = new System.Windows.Controls.ContextMenu();
@@ -715,17 +716,14 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             iGPUMenu.PlacementTarget = gpudriver;
             iGPUMenu.IsOpen = true;
 
-            await UT.waitstatus.open(await UT.GetLang("wait.selection"), "gpu.png");
-
             while (iGPUMenu.IsOpen)
             {
                 await Task.Delay(100);
             }
 
-            await UT.waitstatus.close();
-
             if (!ispost) break;
         }
+        await UT.waitstatus.close();
         return SelectDrv;
     }
 }
