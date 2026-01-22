@@ -9,6 +9,7 @@
     },
     "urls": {
         "const": "noop",
+        "conststy": "https://dl.sty1001.com/UT/const.txt"
         "api": "https://api.sty1001.com/ut-stats",
         "eeapi": "https://api.sty1001.com/ut-easteregg",
         "sty1001": "https://sty1001.com",
@@ -16,13 +17,11 @@
         "utuninstaller": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/uninstall.exe",
         "utszip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/service.zip",
         "utupdatezip": "https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/update.zip",
-        "utcloghtmlprev": "https://htmlpreview.github.io/?https://raw.githubusercontent.com/STY1001/Unowhy-Tools/master/Update/changelog.html",
-        "utbu":"https://github.com/STY1001/Unowhy-Tools-BIOS-Unlocker/releases/download/4.0/Unowhy.Tools.BIOS.Unlocker.4.0.zip",
+        "utcloghtmlprev": "https://rawcdn.githack.com/STY1001/Unowhy-Tools/89458c563847b70d7db6975b2db2aed026e6dc04/Update/changelog.html",
+        "utbu":"https://github.com/STY1001/Unowhy-Tools-BIOS-Unlocker/releases/download/5.0/Unowhy.Tools.BIOS.Unlocker.5.0.zip",
         "idfconf": "https://idfconf.s3.gra.io.cloud.ovh.net",
         "allsqoolconf": "https://allsqoolconf.s3.gra.io.cloud.ovh.net",
         "discordinvite":"https://discord.com/invite/dw3ZJ9u7WS",
-        "fptw": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/EX4P3d99wHBHq0yHefZfJGMBp2gGHgGVGtkM6t9u8cbG-g?e=JeRB3b&download=1",
-        "fptw2": "https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ER9j3zbkpqxFni9M-UkQ8vYBbnP96cEe0sZhY5kmeSGXPw?e=ouHNIM&download=1",
         "fptw3": "https://dl.sty1001.com/UT/BIOS/FPTW64.zip",
         "afuwin": "https://dl.sty1001.com/UT/BIOS/AFUWin.zip",
         "amidewin": "https://dl.sty1001.com/UT/BIOS/AMIDEWin.zip",
@@ -35,7 +34,6 @@
         "hsm":"https://dl.sty1001.com/UT/Crap/HiSqoolManager.exe",
         "ridfca":"https://dl.sty1001.com/UT/Crap/RIDF_CA.crt",
         "rufus":"https://github.com/pbatard/rufus/releases/download/v4.7/rufus-4.7p.exe",
-        "gpudrv":"https://hksty1001-my.sharepoint.com/:u:/g/personal/cloud_sty1001_com/ER8azjkYaRhKlU37wFNkZroBknm_bDUfDfjE5hvf7ZuSfg?e=w4moLp&download=1",
         "gpudrvgj":"https://dl.sty1001.com/UT/Drivers/iGPU/iGPU_SPT_KBT_APL_GLK_JSP_CML_31.0.101.2125.zip",
         "gpudrvt":"https://dl.sty1001.com/UT/Drivers/iGPU/iGPU_TGP_ADP_31.0.101.5534.zip",
         "cru":"https://www.monitortests.com/download/cru/old/cru-1.5.1.zip",
@@ -542,6 +540,7 @@
         }
     ]
 }
+
 
 
 
