@@ -23,15 +23,8 @@ namespace Unowhy_Tools_WPF.Views.Windows
 
         public async void applylang()
         {
-            try
-            {
-                btn_no.Text = await UT.GetLang("no");
-                btn_yes.Text = await UT.GetLang("yes");
-            }
-            catch
-            {
-
-            }
+            btn_no.Text = await UT.GetLang("no");
+            btn_yes.Text = await UT.GetLang("yes");
         }
 
         private bool _hideRequest = false;
