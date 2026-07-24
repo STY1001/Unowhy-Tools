@@ -23,12 +23,8 @@ namespace Unowhy_Tools_WPF.Views.Windows
 
         public async void applylang()
         {
-            try
-            {
                 lab1.Text = await UT.GetLang("wait");
                 text.Text = await UT.GetLang("wait");
-            }
-            catch { }
         }
 
         public bool IsOpen = false;
