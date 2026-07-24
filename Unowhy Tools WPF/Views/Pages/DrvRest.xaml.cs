@@ -111,7 +111,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
-        applylang();
+        _ = applylang();
     }
 
     public void Browse_Click(object sender, RoutedEventArgs e)
@@ -144,7 +144,7 @@ public partial class DrvRest : INavigableView<DashboardViewModel>
                 {
                     shutafter = true;
                     var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                    mainWindow.SnackBarService.ShowAsync(await UT.GetLang("shutdrvcloud.title"), await UT.GetLang("shutdrvcloud.desc"), SymbolRegular.Power20, ControlAppearance.Caution);
+                    _ = mainWindow.SnackBarService.ShowAsync(await UT.GetLang("shutdrvcloud.title"), await UT.GetLang("shutdrvcloud.desc"), SymbolRegular.Power20, ControlAppearance.Caution);
                 }
 
                 await UT.waitstatus.open(await UT.GetLang("wait.extract"), "zip.png");

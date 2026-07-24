@@ -70,7 +70,7 @@ public partial class MainWindow : INavigationWindow
 
         SnackBarService = _snackbarService;
 
-        applylang();
+        _ = applylang();
         this.KeyDown += MainWindow_KonamiKeyDown;
         this.KeyUp += MainWindow_KonamiKeyUp;
     }
@@ -395,7 +395,7 @@ public partial class MainWindow : INavigationWindow
         trans2.BeginAnimation(TranslateTransform.XProperty, translateAnim2);
         await System.Threading.Tasks.Task.Delay(200);
         UT.NavigateTo(backtype);
-        await UT.anim.AnimParent("zoomin");
+        UT.anim.AnimParent("zoomin");
     }
 
     #endregion
@@ -931,7 +931,7 @@ public partial class MainWindow : INavigationWindow
 
                     if (UT.version.isdeb())
                     {
-                        _snackbarService.ShowAsync("Warning !", "Take note, this is a debug version, it can be unstable", SymbolRegular.Edit20, ControlAppearance.Danger);
+                        _ = _snackbarService.ShowAsync("Warning !", "Take note, this is a debug version, it can be unstable", SymbolRegular.Edit20, ControlAppearance.Danger);
                     }
                 }
                 else
@@ -1403,7 +1403,7 @@ public partial class MainWindow : INavigationWindow
         await Task.WhenAll(
         Task.Run(async () =>
         {
-            Dispatcher.InvokeAsync(async () =>
+            _ = Dispatcher.InvokeAsync(async () =>
             {
                 foreach (UIElement element in konamiKeyGrid.Children)
                 {
@@ -1427,7 +1427,7 @@ public partial class MainWindow : INavigationWindow
         {
             await Task.Delay(250);
 
-            Dispatcher.InvokeAsync(async () =>
+            _ = Dispatcher.InvokeAsync(async () =>
             {
                 foreach (UIElement element in konamiKeyGrid.Children)
                 {

@@ -16,12 +16,12 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             InitializeComponent();
 
-            applylang();
+            _ = applylang();
 
             Visibility = Visibility.Collapsed;
         }
 
-        public async void applylang()
+        public async Task applylang()
         {
                 lab1.Text = await UT.GetLang("wait");
                 text.Text = await UT.GetLang("wait");

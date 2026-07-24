@@ -42,7 +42,7 @@ public partial class Bios : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        applylang();
+        _ = applylang();
     }
 
     public async void InitAnim(object sender, RoutedEventArgs e)

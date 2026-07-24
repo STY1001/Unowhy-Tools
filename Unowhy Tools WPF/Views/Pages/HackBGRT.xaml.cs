@@ -64,7 +64,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
-        applylang();
+        _ = applylang();
 
         SkeletonRectangles.Add(Rec11);
         SkeletonRectangles.Add(Rec12);
@@ -924,7 +924,7 @@ public partial class HackBGRT : INavigableView<DashboardViewModel>
 
     public async Task EditImageUpdate()
     {
-        UpdatePreview(ResizeImageManual(ImageSource, imagepreview.Width, imagepreview.Height));
+        _ = UpdatePreview(ResizeImageManual(ImageSource, imagepreview.Width, imagepreview.Height));
     }
 
     private async void sizenumbox_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

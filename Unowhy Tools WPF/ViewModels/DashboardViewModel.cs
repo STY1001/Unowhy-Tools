@@ -99,28 +99,28 @@ public class DashboardViewModel : ObservableObject, INavigationAware
 
     private void OnOpenWindow(string parameter)
     {
-        switch (parameter)
-        {
-            /*case "open_window_store":
-                _testWindowService.Show<Views.Windows.StoreWindow>();
-                return;
+        /*
+    switch (parameter)
+    {case "open_window_store":
+            _testWindowService.Show<Views.Windows.StoreWindow>();
+            return;
 
-            case "open_window_manager":
-                _testWindowService.Show<Views.Windows.TaskManagerWindow>();
-                return;
+        case "open_window_manager":
+            _testWindowService.Show<Views.Windows.TaskManagerWindow>();
+            return;
 
-            case "open_window_editor":
-                _testWindowService.Show<Views.Windows.EditorWindow>();
-                return;
+        case "open_window_editor":
+            _testWindowService.Show<Views.Windows.EditorWindow>();
+            return;
 
-            case "open_window_settings":
-                _testWindowService.Show<Views.Windows.SettingsWindow>();
-                return;
+        case "open_window_settings":
+            _testWindowService.Show<Views.Windows.SettingsWindow>();
+            return;
 
-            case "open_window_experimental":
-                _testWindowService.Show<Views.Windows.ExperimentalWindow>();
-                return;*/
-        }
+        case "open_window_experimental":
+            _testWindowService.Show<Views.Windows.ExperimentalWindow>();
+            return;
+    }*/
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -18,10 +19,10 @@ namespace Unowhy_Tools_WPF.Views.Windows
         {
             InitializeComponent();
             Visibility = Visibility.Collapsed;
-            applylang();
+            _ = applylang();
         }
 
-        public async void applylang()
+        public async Task applylang()
         {
             btn_no.Text = await UT.GetLang("no");
             btn_yes.Text = await UT.GetLang("yes");

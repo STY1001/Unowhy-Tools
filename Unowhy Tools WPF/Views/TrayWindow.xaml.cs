@@ -84,27 +84,27 @@ public partial class TrayWindow : Window
     {
         _timerStats = new DispatcherTimer();
         _timerStats.Interval = TimeSpan.FromSeconds(1);
-        _timerStats.Tick += async (sender, e) => CheckStats();
+        _timerStats.Tick += async (sender, e) => _ = CheckStats();
         _timerStats.Start();
 
         _timerPower = new DispatcherTimer();
         _timerPower.Interval = TimeSpan.FromSeconds(1);
-        _timerPower.Tick += async (sender, e) => CheckPower();
+        _timerPower.Tick += async (sender, e) => _ = CheckPower();
         _timerPower.Start();
 
         _timerPriv = new DispatcherTimer();
         _timerPriv.Interval = TimeSpan.FromSeconds(1);
-        _timerPriv.Tick += async (sender, e) => CheckPriv();
+        _timerPriv.Tick += async (sender, e) => _ = CheckPriv();
         _timerPriv.Start();
 
         _timerTimeDate = new DispatcherTimer();
         _timerTimeDate.Interval = TimeSpan.FromSeconds(1);
-        _timerTimeDate.Tick += async (sender, e) => UpdateTimeDate();
+        _timerTimeDate.Tick += async (sender, e) => _ = UpdateTimeDate();
         _timerTimeDate.Start();
 
         _timerUpdate = new DispatcherTimer();
         _timerUpdate.Interval = TimeSpan.FromSeconds(600);
-        _timerUpdate.Tick += async (sender, e) => CheckUpdate();
+        _timerUpdate.Tick += async (sender, e) => _ = CheckUpdate();
         _timerUpdate.Start();
     }
 
@@ -163,7 +163,7 @@ public partial class TrayWindow : Window
                                 UTUbtn.Visibility = Visibility.Visible;
                                 Grid.SetColumnSpan(UTbtn, 1);
 
-                                Task.Run(async () =>
+                                _ = Task.Run(async () =>
                                 {
                                     while (true)
                                     {
@@ -379,7 +379,7 @@ public partial class TrayWindow : Window
             _microkey.SetValue("Value", "Deny");
         }
 
-        CheckPriv();
+        _ = CheckPriv();
     }
 
     public async Task CheckPriv()
@@ -772,7 +772,7 @@ public partial class TrayWindow : Window
         }
         string utpath = Process.GetCurrentProcess().MainModule.FileName;
         UTbtndesc.Text = utpath;
-        applylang();
+        _ = applylang();
         await CheckQL();
         await CheckPriv();
         try

@@ -55,7 +55,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
         refresh.IsEnabled = false;
         showold.IsEnabled = false;
         versionselect.IsEnabled = false;
-        applylang();
+        _ = applylang();
         string currentsku = UT.GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
         switch (currentsku)
         {
@@ -152,7 +152,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             }
         }
 
-        UT.waitstatus.close();
+        await UT.waitstatus.close();
 
         if (!ispostgpu)
         {
@@ -160,7 +160,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 shutafter = true;
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                mainWindow.SnackBarService.ShowAsync(await UT.GetLang("shutdrvcloud.title"), await UT.GetLang("shutdrvcloud.desc"), SymbolRegular.Power20, ControlAppearance.Caution);
+                _ = mainWindow.SnackBarService.ShowAsync(await UT.GetLang("shutdrvcloud.title"), await UT.GetLang("shutdrvcloud.desc"), SymbolRegular.Power20, ControlAppearance.Caution);
             }
         }
 
@@ -701,7 +701,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 SelectDrv = "GJ";
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                if (ispost) mainWindow.SnackBarService.ShowAsync(await UT.GetLang("igpu.post.title"), await UT.GetLang("igpu.post.gj"), SymbolRegular.Checkmark20, ControlAppearance.Success);
+                if (ispost) _ = mainWindow.SnackBarService.ShowAsync(await UT.GetLang("igpu.post.title"), await UT.GetLang("igpu.post.gj"), SymbolRegular.Checkmark20, ControlAppearance.Success);
             };
             iGPUMenu.Items.Add(GJItem);
             MenuItem TItem = new MenuItem();
@@ -710,7 +710,7 @@ public partial class DrvCloud : INavigableView<DashboardViewModel>
             {
                 SelectDrv = "T";
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                if (ispost) mainWindow.SnackBarService.ShowAsync(await UT.GetLang("igpu.post.title"), await UT.GetLang("igpu.post.t"), SymbolRegular.Checkmark20, ControlAppearance.Success);
+                if (ispost) _ = mainWindow.SnackBarService.ShowAsync(await UT.GetLang("igpu.post.title"), await UT.GetLang("igpu.post.t"), SymbolRegular.Checkmark20, ControlAppearance.Success);
             };
             iGPUMenu.Items.Add(TItem);
             iGPUMenu.PlacementTarget = gpudriver;

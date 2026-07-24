@@ -209,12 +209,12 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     private async void UiPage_Loaded(object sender, RoutedEventArgs e)
     {
         await UT.DeployBack(typeof(Dashboard), RootGrid, RootBorder);
-        await UT.anim.BorderZoomOut(RootBorder);
+        UT.anim.BorderZoomOut(RootBorder);
     }
 
     private async void Button_Click_5(object sender, RoutedEventArgs e)
     {
-        await UT.anim.BorderZoomIn2(RootBorder);
+        UT.anim.BorderZoomIn2(RootBorder);
         UT.NavigateTo(typeof(Dashboard));
     }
 
@@ -294,7 +294,7 @@ public partial class DebugPage : INavigableView<DashboardViewModel>
     private async void Button_Click_9(object sender, RoutedEventArgs e)
     {
         var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-        mainWindow.AnniversaryEasterEgg(true);
+        _ = mainWindow.AnniversaryEasterEgg(true);
     }
 
     private void Button_Click_10(object sender, RoutedEventArgs e)

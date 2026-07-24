@@ -85,7 +85,7 @@ public partial class AddUser : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
-        applylang();
+        _ = applylang();
     }
 
     public void pass_Changed(object sender, RoutedEventArgs e)

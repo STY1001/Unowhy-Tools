@@ -48,7 +48,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async System.Threading.Tasks.Task CheckBTN()
     {
-        string serial = await UT.UTS.UTSmsg("UTSW", "GetSN");
+        /*string serial = await UT.UTS.UTSmsg("UTSW", "GetSN");
         sn.Text = serial;
 
         if ((await UT.UTS.UTSmsg("UTSW", "GetWS")).Contains("True"))
@@ -65,7 +65,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
             ws.IsChecked = false;
             ws.IsEnabled = false;
             sn.Text = "";
-        }
+        }*/
 
         TaskService ts = new TaskService();
         Microsoft.Win32.TaskScheduler.Task uttltask = ts.GetTask("Unowhy Tools Tray Launch");
@@ -283,7 +283,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
         UT.SendAction("ApplySettings");
         await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
         bool ok = true;
-
+         /*
         if (sn.Text == "")
         {
 
@@ -330,9 +330,11 @@ public partial class Settings : INavigableView<DashboardViewModel>
                 await UT.waitstatus.open(await UT.GetLang("wait.apply"), "customize.png");
             }
         }
+         */
 
         if (ok)
         {
+            /*
             if (ws.IsEnabled)
             {
                 if (ws.IsChecked == true)
@@ -358,6 +360,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
                     }
                 }
             }
+            */
 
             if (lang_en.IsSelected)
             {
@@ -399,7 +402,7 @@ public partial class Settings : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        applylang();
+        _ = applylang();
         await CheckBTN();
     }
 

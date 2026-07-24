@@ -67,7 +67,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        applylang();
+        _ = applylang();
         await CheckBTN(false, "none");
     }
 
@@ -142,7 +142,7 @@ public partial class Extra : INavigableView<DashboardViewModel>
                 await UT.DlFilewithProgress(await UT.OnlineDatas.GetUrls("hsm"), Path.GetTempPath() + "\\hsm.exe", progress, cancellationToken.Token);
                 Process.Start(Path.GetTempPath() + "\\hsm.exe");
                 await UT.waitstatus.open(await UT.GetLang("wait.check"), "check.png");
-                CheckBTN(true, "hsqm");
+                await CheckBTN(true, "hsqm");
                 await UT.waitstatus.close();
             }
             else

@@ -83,7 +83,7 @@ public partial class DrvConv : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
-        applylang();
+        _ = applylang();
     }
 
     public async void oldpath_Click(object sender, RoutedEventArgs e)

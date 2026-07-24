@@ -72,7 +72,7 @@ public class ApplicationHostService : IHostedService
             {
                 if (!await UT.CheckTray())
                 {
-                    Task.Run(() => UTTwait());
+                    _ = Task.Run(() => UTTwait());
                     _testWindowService.Show<Views.TrayWindow>();
                 }
                 else

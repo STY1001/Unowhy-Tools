@@ -181,7 +181,7 @@ public partial class Repair : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        applylang();
+        _ = applylang();
         await CheckBTN(false, "none");
     }
 

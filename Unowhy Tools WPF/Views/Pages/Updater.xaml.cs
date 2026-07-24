@@ -77,7 +77,7 @@ public partial class Updater : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
-        applylang();
+        _ = applylang();
     }
 
     public async void GithubButton_Click(object sender, RoutedEventArgs e)

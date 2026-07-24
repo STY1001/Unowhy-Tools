@@ -106,7 +106,7 @@ public partial class Delete : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        applylang();
+        _ = applylang();
         await CheckBTN(false, "none");
         await CheckFolderSize();
     }

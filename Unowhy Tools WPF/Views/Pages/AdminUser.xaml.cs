@@ -82,7 +82,7 @@ public partial class AdminUser : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
-        applylang();
+        _ = applylang();
     }
 
     public async void Pass_Click(object sender, RoutedEventArgs e)

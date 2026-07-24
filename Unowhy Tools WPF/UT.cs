@@ -251,34 +251,39 @@ namespace Unowhy_Tools
             public static Border _parentborder;
             //public static Wpf.Ui.Controls.Button _button;
 
-            public static async Task RegisterParent(Grid grid, Border border)
+            public static void RegisterParent(Grid grid, Border border)
             {
                 _parentborder = border;
                 _parentgrid = grid;
             }
 
-            public static async Task AnimParent(string animtype)
+            private static async Task animParent(string animtype)
             {
                 switch (animtype)
                 {
                     case "zoomin":
-                        await BorderZoomIn(_parentborder);
+                        await borderZoomIn(_parentborder);
                         return;
                     case "zoomout":
-                        await BorderZoomOut(_parentborder);
+                        await borderZoomOut(_parentborder);
                         return;
                     case "zoomin2":
-                        await BorderZoomIn2(_parentborder);
+                        await borderZoomIn2(_parentborder);
                         return;
                     case "zoomout2":
-                        await BorderZoomOut2(_parentborder);
+                        await borderZoomOut2(_parentborder);
                         return;
                 }
             }
 
+            public static async void AnimParent(string animtype)
+            {
+                _ = animParent(animtype);
+            }
+
             public static double fadespeed = 0.40;
             public static double zoomspeed = 0.45;
-            public static async Task BorderZoomIn(Border border)
+            public static async Task borderZoomIn(Border border)
             {
                 var fadeInAnimation = new DoubleAnimation
                 {
@@ -320,8 +325,12 @@ namespace Unowhy_Tools
 
                 await ResetZoom(border);
             }
+            public static async void BorderZoomIn(Border border)
+            {
+                _ = borderZoomIn(border);
+            }
 
-            public static async Task BorderZoomOut(Border border)
+            private static async Task borderZoomOut(Border border)
             {
                 var fadeInAnimation = new DoubleAnimation
                 {
@@ -363,8 +372,12 @@ namespace Unowhy_Tools
 
                 await ResetZoom(border);
             }
+            public static async void BorderZoomOut(Border border)
+            {
+                _ = borderZoomOut(border);
+            }
 
-            public static async Task BorderZoomIn2(Border border)
+            public static async Task borderZoomIn2(Border border)
             {
                 var fadeInAnimation = new DoubleAnimation
                 {
@@ -406,8 +419,12 @@ namespace Unowhy_Tools
 
                 await ResetZoom(border);
             }
+            public static async void BorderZoomIn2(Border border)
+            {
+                _ = borderZoomIn2(border);
+            }
 
-            public static async Task BorderZoomOut2(Border border)
+            public static async Task borderZoomOut2(Border border)
             {
                 var fadeInAnimation = new DoubleAnimation
                 {
@@ -448,6 +465,10 @@ namespace Unowhy_Tools
                 await Task.Delay(1000);
 
                 await ResetZoom(border);
+            }
+            public static async void BorderZoomOut2(Border border)
+            {
+                _ = borderZoomOut2(border);
             }
 
             public static async Task ResetZoom(Border border)
@@ -686,9 +707,33 @@ namespace Unowhy_Tools
             public static async Task UTScheck()
             {
                 var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-                await MainWindow.USS("Preparing UTS... (Checking)");
+                await MainWindow.USS("Removing UTS...");
                 string instdir = Directory.GetCurrentDirectory() + "\\Unowhy Tools Service";
 
+                if (await UT.serv.exist("UTS"))
+                {
+                    await UT.serv.stop("UTS");
+                    await UT.RunMin("sc", $"delete UTS");
+                }
+
+                if (Directory.Exists(instdir))
+                {
+                    try
+                    {
+                        Directory.Delete(instdir, true);
+                    } catch { }
+                }
+
+                if (Directory.Exists("C:\\Unowhy Tools\\Unowhy Tools Service"))
+                {
+                    try
+                    {
+                        Directory.Delete("C:\\Unowhy Tools\\Unowhy Tools Service", true);
+                    }
+                    catch { }
+                }
+
+                /*
                 if (!Directory.Exists(instdir))
                 {
                     Directory.CreateDirectory(instdir);
@@ -784,6 +829,7 @@ namespace Unowhy_Tools
 
                 await MainWindow.USS("Preparing UTS... (Checking Update)");
                 await UT.UTS.UTSupdate();
+                */
             }
 
             public static async Task UTSupdate()
@@ -977,19 +1023,19 @@ namespace Unowhy_Tools
         public static async Task DeployDABack()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-            mainWindow.DeployDABack();
+            _ = mainWindow.DeployDABack();
         }
 
         public static async Task DeployBack(Type type, Grid grid, Border border)
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-            mainWindow.DeployBack(type, grid, border);
+            _ = mainWindow.DeployBack(type, grid, border);
         }
 
         public static async Task UnDeployBack()
         {
             var mainWindow = System.Windows.Application.Current.MainWindow as Unowhy_Tools_WPF.Views.MainWindow;
-            mainWindow.UnDeployBack();
+            _ = mainWindow.UnDeployBack();
         }
 
         public static async void NavigateTo(Type page)
@@ -1124,7 +1170,7 @@ namespace Unowhy_Tools
                             id = uuidString,
                             version = UT.version.getverfull().ToString().Insert(2, "."),
                             build = UT.version.getverbuild().ToString(),
-                            utsversion = await UT.UTS.UTSmsg("UTS", "GetVer"),
+                            utsversion = "null", //await UT.UTS.UTSmsg("UTS", "GetVer"),
                             isdeb = UT.version.isdeb().ToString().ToLower(),
                             crashid = crashid,
                             message = e.Message.Replace("\"", "\\\"").Replace("\\", "\\\\")
@@ -1165,7 +1211,7 @@ namespace Unowhy_Tools
             }
         }
 
-        public static async Task SendAction(string action)
+        private static async Task sendAction(string action)
         {
             string uuidString = "null";
 
@@ -1205,6 +1251,11 @@ namespace Unowhy_Tools
             }
         }
 
+        public static async void SendAction(string action)
+        {
+            _ = sendAction(action);
+        }
+
         public static async Task SendStats(string launchmode)
         {
             Guid uuid = Guid.NewGuid();
@@ -1237,15 +1288,15 @@ namespace Unowhy_Tools
                 tray = false;
             }
 
-            bool wifi;
-            if ((await UT.UTS.UTSmsg("UTSW", "GetWS")).Contains("True"))
+            bool wifi = false;
+            /*if ((await UT.UTS.UTSmsg("UTSW", "GetWS")).Contains("True"))
             {
                 wifi = true;
             }
             else
             {
                 wifi = false;
-            }
+            }*/
 
             string sku = GetWMI("Win32_ComputerSystem", "SystemSKUNumber");
             string model = await UT.GetModelWithSKU(sku);
@@ -1285,7 +1336,7 @@ namespace Unowhy_Tools
                             id = idString.ToString(),
                             version = UT.version.getverfull().ToString().Insert(2, "."),
                             build = UT.version.getverbuild().ToString(),
-                            utsversion = await UT.UTS.UTSmsg("UTS", "GetVer"),
+                            utsversion = "null", //await UT.UTS.UTSmsg("UTS", "GetVer"),
                             lang = langString.ToString(),
                             launchmode = launchmode.ToString(),
                             trayena = tray.ToString().ToLower(),
@@ -2829,7 +2880,7 @@ namespace Unowhy_Tools
                     {
                         int das2 = (int)wd.GetValue("DisableAntiSpyware", 0);
                         int drm2 = (int)rtp.GetValue("DisableRealtimeMonitoring", 0);
-                        if (das2 == 1 && drm2 == 1 && (await UT.UTS.UTSmsg("UTSWD", "GetWDS")).Contains("True"))
+                        if (das2 == 1 && drm2 == 1 /*&& (await UT.UTS.UTSmsg("UTSWD", "GetWDS")).Contains("True")*/)
                         {
                             UTdata.WinDefEnabled = false;
                             UT.Write2Log("WinDef Disabled");
@@ -3408,7 +3459,7 @@ namespace Unowhy_Tools
                     {
                         int das2 = (int)wd.GetValue("DisableAntiSpyware", 0);
                         int drm2 = (int)rtp.GetValue("DisableRealtimeMonitoring", 0);
-                        if (das2 == 1 && drm2 == 1 && (await UT.UTS.UTSmsg("UTSWD", "GetWDS")).Contains("True"))
+                        if (das2 == 1 && drm2 == 1 /*&& (await UT.UTS.UTSmsg("UTSWD", "GetWDS")).Contains("True")*/)
                         {
                             UTdata.WinDefEnabled = false;
                             UT.Write2Log("WinDef Disabled");
@@ -4046,7 +4097,7 @@ namespace Unowhy_Tools
                         {
                             int das2 = (int)wd.GetValue("DisableAntiSpyware", 0);
                             int drm2 = (int)rtp.GetValue("DisableRealtimeMonitoring", 0);
-                            if (das2 == 1 && drm2 == 1 && (await UT.UTS.UTSmsg("UTSWD", "GetWDS")).Contains("True"))
+                            if (das2 == 1 && drm2 == 1 /*&& (await UT.UTS.UTSmsg("UTSWD", "GetWDS")).Contains("True")*/)
                             {
                                 UTdata.WinDefEnabled = false;
                                 UT.Write2Log("WinDef Disabled");

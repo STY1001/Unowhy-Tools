@@ -89,7 +89,7 @@ public partial class PCname : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
-        applylang();
+        _ = applylang();
         CheckBTN();
     }
 

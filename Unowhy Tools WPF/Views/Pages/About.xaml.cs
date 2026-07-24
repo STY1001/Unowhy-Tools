@@ -212,7 +212,7 @@ public partial class About : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        applylang();
+        _ = applylang();
 
         string idString = "Installation ID: Null";
         idString = "Installation ID: " + await UT.Config.Get("ID");
@@ -222,7 +222,7 @@ public partial class About : INavigableView<DashboardViewModel>
         if (UT.version.isdeb()) UTsver = UTsver + "(Debug)";
         else UTsver = UTsver + "(Release)";
 
-        string UTSsver = "Unowhy Tools Service version " + await UT.UTS.UTSmsg("UTS", "GetVer");
+        string UTSsver = "Unowhy Tools Service version " + "null"; //await UT.UTS.UTSmsg("UTS", "GetVer");
 
         LogoVer.Text = UTsver;
         UTverlab.Text = UTsver;

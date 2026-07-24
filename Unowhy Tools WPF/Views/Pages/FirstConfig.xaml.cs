@@ -46,7 +46,7 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
 
         string sn = UT.GetWMI("Win32_BIOS", "SerialNumber");
         string pn = await UT.RunReturn("hostname", "");
-        string un = await UT.UTS.UTSmsg("UTSW", "GetSN");
+        string un = "Null"; //await UT.UTS.UTSmsg("UTSW", "GetSN");
 
         pn = pn.Replace("\n", "").Replace("\r", "");
         sn = sn;
@@ -164,12 +164,18 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             RootStateGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
             await Task.Delay(300);
+            /*
             StartLang.Visibility = Visibility.Collapsed;
             StartSerial.Visibility = Visibility.Visible;
             fcimg.Source = UT.GetImgSource("datamatrix.png");
-            fctxt.Text = "Serial Number";
+            fctxt.Text = "Serial Number";*/
+            StartLang.Visibility = Visibility.Collapsed;
+            StartUpdate.Visibility = Visibility.Visible;
+            fcimg.Source = UT.GetImgSource("update.png");
+            fctxt.Text = "Update";
             btn.Click -= step2;
-            btn.Click += step3;
+            //btn.Click += step3;
+            btn.Click += step4;
 
             anim = new DoubleAnimation();
             anim.From = 1000;
@@ -376,12 +382,17 @@ public partial class FirstConfig : INavigableView<DashboardViewModel>
             RootStateGrid.RenderTransform = trans;
             trans.BeginAnimation(TranslateTransform.XProperty, anim);
             await Task.Delay(300);
-            StartTray.Visibility = Visibility.Collapsed;
+            /*StartTray.Visibility = Visibility.Collapsed;
             StartWifi.Visibility = Visibility.Visible;
             fcimg.Source = UT.GetImgSource("wifi.png");
-            fctxt.Text = "Wifi";
+            fctxt.Text = "Wifi";*/
+            fcimg.Source = UT.GetImgSource("yes.png");
+            fctxt.Text = "Done !";
+            btn_img.Source = UT.GetImgSource("yes.png");
+            btn_txt.Text = "Ok";
             btn.Click -= step5;
-            btn.Click += step6;
+            //btn.Click += step6;
+            btn.Click += step7;
 
             anim = new DoubleAnimation();
             anim.From = 1000;

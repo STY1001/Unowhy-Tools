@@ -213,6 +213,6 @@ public partial class PCinfo : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
-        applylang();
+        _ = applylang();
     }
 }

@@ -40,7 +40,7 @@ public partial class Wifi : INavigableView<DashboardViewModel>
 
     public async void Init(object sender, EventArgs e)
     {
-        applylang();
+        _ = applylang();
         string confserv = await UT.Config.Get("ConfServer");
         if (confserv == "idf")
         {
@@ -50,8 +50,8 @@ public partial class Wifi : INavigableView<DashboardViewModel>
         {
             confserv_allsqool.IsSelected = true;
         }
-        string sn = await UT.UTS.UTSmsg("UTSW", "GetSN");
-        if (!(sn == "Null") && sn.Contains("IFP"))
+        string sn = UT.GetWMI("Win32_BIOS", "SerialNumber"); //await UT.UTS.UTSmsg("UTSW", "GetSN");
+        if (!(sn == "Null") && (sn.Contains("IFP") || sn.Contains("IFM") || sn.Contains("UYM")))
         {
             serial.Text = sn;
         }

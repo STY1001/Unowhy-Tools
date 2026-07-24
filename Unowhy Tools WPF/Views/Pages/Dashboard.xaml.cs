@@ -50,7 +50,7 @@ public partial class Dashboard : INavigableView<DashboardViewModel>
 
         lababout2.Text = ver;
 
-        applylang();
+        _ = applylang();
         pcname.Text = UT.GetLine(UTdata.HostName, 1);
 
         if (await UT.CheckInternet())

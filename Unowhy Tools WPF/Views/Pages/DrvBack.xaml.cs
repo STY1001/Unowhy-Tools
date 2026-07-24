@@ -84,7 +84,7 @@ public partial class DrvBack : INavigableView<DashboardViewModel>
 
         InitializeComponent();
 
-        applylang();
+        _ = applylang();
     }
 
     public void Browse_Click(object sender, RoutedEventArgs e)
