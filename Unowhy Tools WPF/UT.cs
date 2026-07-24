@@ -934,14 +934,6 @@ namespace Unowhy_Tools
                 {
                     return GetImgSource("sty1001.png");
                 }
-                else if (name == "fgamer768")
-                {
-                    return GetImgSource("fgamer768.png");
-                }
-                else if (name == "nicospc")
-                {
-                    return GetImgSource("nico.png");
-                }
                 else
                 {
                     return null;
@@ -1794,7 +1786,8 @@ namespace Unowhy_Tools
             _delayTimer.AutoReset = false;
             _delayTimer.Elapsed += (s, args) => i = 1;
             _delayTimer.Start();
-            while (i == 0) { };
+            while (i == 0) { }
+            ;
         }
 
         public static async Task PowerReboot()
@@ -1970,8 +1963,17 @@ namespace Unowhy_Tools
                         string url = jsonObject.urls["const"].ToString();
                         if (url == "noop")
                         {
-                            Write2Log("Internet OK");
-                            hasInternet = true;
+                            string styconst = jsonObject.urls["conststy"].Tostring();
+                            HttpResponseMessage rep2 = await web.GetAsync(styconst);
+                            if (rep.StatusCode == HttpStatusCode.OK)
+                            {
+                                string txtContent = await web.GetStringAsync(styconst);
+                                if (txtContent == "noop")
+                                {
+                                    Write2Log("Internet OK");
+                                    hasInternet = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -4147,10 +4149,10 @@ namespace Unowhy_Tools
             using (Stream stream = await response.Content.ReadAsStreamAsync())
             using (FileStream fileStream = new FileStream(path, FileMode.Create, FileAccess.Write))
             {
-                byte[] buffer = new byte[1024*1024];
+                byte[] buffer = new byte[1024 * 1024];
                 int bytesRead;
 
-                while((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, token)) > 0)
+                while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, token)) > 0)
                 {
                     token.ThrowIfCancellationRequested();
 
