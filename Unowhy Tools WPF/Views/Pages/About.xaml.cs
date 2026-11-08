@@ -214,7 +214,7 @@ public partial class About : INavigableView<DashboardViewModel>
     {
         _ = applylang();
 
-        string idString = "Installation ID: Null";
+        string idString = "Installation ID: null";
         idString = "Installation ID: " + await UT.Config.Get("ID");
 
         string UTsver = "Unowhy Tools version " + UT.version.getverfull().ToString().Insert(2, ".") + " (Build " + UT.version.getverbuild().ToString() + ") ";

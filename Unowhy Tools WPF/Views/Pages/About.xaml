@@ -230,7 +230,7 @@
                                                        VerticalAlignment="Center"
                                                        x:Name="UTidlab" />
                                         </Grid>
-                                        <Grid Margin="10,0,0,0">
+                                        <Grid Margin="10,0,0,0" Visibility="Collapsed">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="32" />
                                                 <ColumnDefinition Width="10" />
